@@ -3,3 +3,4 @@ evas_wrap.o
 edje_wrap.o
 elm_wrap.o
 elm_button_wrap.o
+elm_label_wrap.o

@@ -69,13 +69,6 @@ PREFIX value ml_elm_win_resize_object_add(value v_obj, value v_subobj)
         return Val_unit;
 }
 
-PREFIX value ml_elm_label_add(value v_parent)
-{
-        Evas_Object* lb = elm_label_add((Evas_Object*) v_parent);
-        if(lb == NULL) caml_failwith("elm_label_add");
-        return (value) lb;
-}
-
 PREFIX value ml_elm_object_text_set(value v_obj, value v_text)
 {
         elm_object_text_set((Evas_Object*) v_obj, String_val(v_text));
