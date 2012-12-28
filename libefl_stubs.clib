@@ -1,0 +1,5 @@
+eina_wrap.o
+evas_wrap.o
+edje_wrap.o
+elm_wrap.o
+elm_button_wrap.o
