@@ -19,3 +19,9 @@ PREFIX value ml_elm_label_line_wrap_get(value v_obj)
         return Val_Elm_Wrap_Type(elm_label_line_wrap_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_label_wrap_width_set(value v_obj, value v_w)
+{
+        elm_label_wrap_width_set((Evas_Object*) v_obj, Int_val(v_w));
+        return Val_unit;
+}
+
