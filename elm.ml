@@ -2,6 +2,8 @@ type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]
 
+type wrap_type = [`none | `char | `word | `mixed]
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)

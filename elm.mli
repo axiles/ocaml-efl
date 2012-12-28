@@ -2,6 +2,8 @@ type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]
 
+type wrap_type = [`none | `char | `word | `mixed]
+
 val init : string array -> unit
 
 val run : unit -> unit

@@ -12,7 +12,8 @@ let write_variants () =
     Cmd (S [P "./write_variants"; Sh ">"; P "variants.h"]) in
   rule "write_variants2" ~prod:"variants.h" ~dep:"write_variants" action2
 
-let headers =  ["include.h"; "variants.h"; "eina_wrap.h"; "edje_wrap.h"]
+let headers =
+  ["include.h"; "variants.h"; "eina_wrap.h"; "edje_wrap.h"; "elm_wrap.h"]
 
 let () = dispatch & function
   | After_options ->

@@ -11,4 +11,7 @@ let () =
   g "quit";
   g "none";
   g "last_window_closed";
+  g "char";
+  g "word";
+  g "mixed";
   flush stdout

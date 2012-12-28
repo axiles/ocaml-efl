@@ -332,4 +332,26 @@ PREFIX value ml_elm_layout_prepend_with_bool(
                 (const char*) String_val(v_part), (Evas_Object*) v_child));
 }
 
+PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_WRAP_NONE;
+                case Val_char: return ELM_WRAP_CHAR;
+                case Val_word: return ELM_WRAP_WORD;
+                case Val_mixed: return ELM_WRAP_MIXED;
+        }
+        caml_failwith("Elm_Wrap_Type_val");
+        return ELM_WRAP_NONE;
+}
+
+PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t) {
+        switch(t) {
+                case ELM_WRAP_NONE: return Val_none;
+                case ELM_WRAP_CHAR: return Val_char;
+                case ELM_WRAP_WORD: return Val_word;
+                case ELM_WRAP_MIXED: return Val_mixed;
+        }
+        caml_failwith("Val_Elm_Wrap_Type");
+        return Val_none;
+}
 
