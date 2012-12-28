@@ -9,3 +9,6 @@ external line_wrap_get : Evas.obj -> Elm.wrap_type =
 external wrap_width_set : Evas.obj -> int -> unit =
   "ml_elm_label_wrap_width_set"
 
+external wrap_width_get : Evas.obj -> int =
+  "ml_elm_label_wrap_width_get"
+

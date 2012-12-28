@@ -6,3 +6,5 @@ val line_wrap_get : Evas.obj -> Elm.wrap_type
 
 val wrap_width_set : Evas.obj -> int -> unit
 
+val wrap_width_get : Evas.obj -> int
+

@@ -25,3 +25,8 @@ PREFIX value ml_elm_label_wrap_width_set(value v_obj, value v_w)
         return Val_unit;
 }
 
+PREFIX value ml_elm_label_wrap_width_get(value v_obj)
+{
+        return Val_int(elm_label_wrap_width_get((Evas_Object*) v_obj));
+}
+
