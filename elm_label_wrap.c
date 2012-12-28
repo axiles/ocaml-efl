@@ -30,3 +30,9 @@ PREFIX value ml_elm_label_wrap_width_get(value v_obj)
         return Val_int(elm_label_wrap_width_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_label_ellipsis_set(value v_obj, value v_ellipsis)
+{
+        elm_label_ellipsis_set((Evas_Object*) v_obj, Eina_Bool_val(v_ellipsis));
+        return Val_unit;
+}
+

@@ -12,3 +12,6 @@ external wrap_width_set : Evas.obj -> int -> unit =
 external wrap_width_get : Evas.obj -> int =
   "ml_elm_label_wrap_width_get"
 
+external ellipsis_set : Evas.obj -> bool -> unit =
+  "ml_elm_ellipsis_set"
+
