@@ -10,3 +10,5 @@ val wrap_width_get : Evas.obj -> int
 
 val ellipsis_set : Evas.obj -> bool -> unit
 
+val ellipsis_get : Evas.obj -> bool
+
