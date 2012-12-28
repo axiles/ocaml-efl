@@ -21,3 +21,6 @@ external ellipsis_get : Evas.obj -> bool =
 external slide_set : Evas.obj -> bool -> unit =
   "ml_elm_label_slide_set"
 
+external slide_get : Evas.obj -> bool =
+  "ml_elm_label_slide_get"
+

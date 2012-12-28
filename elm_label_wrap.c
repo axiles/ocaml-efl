@@ -47,3 +47,8 @@ PREFIX value ml_elm_label_slide_set(value v_obj, value v_slide)
         return Val_unit;
 }
 
+PREFIX value ml_elm_label_slide_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_label_slide_get((Evas_Object*) v_obj));
+}
+
