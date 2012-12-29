@@ -1,6 +1,13 @@
 external add : Evas.obj -> Evas.obj =
   "ml_elm_layout_add"
 
+external file_set_with_bool : Evas.obj -> string -> string -> bool =
+  "ml_elm_layout_file_set_with_bool"
+
+let file_set obj file group =
+  if not (file_set_with_bool obj file group) then
+    failwith "elm_layout_file_set"
+
 external box_append_with_bool : Evas.obj -> string -> Evas.obj -> bool =
   "ml_elm_layout_box_append_with_bool"
 

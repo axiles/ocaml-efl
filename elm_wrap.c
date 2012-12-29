@@ -355,3 +355,10 @@ PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t) {
         return Val_none;
 }
 
+PREFIX ml_elm_layout_file_set_with_bool(value v_obj, value v_file, value v_group)
+{
+        return Val_Eina_Bool(elm_layout_file_set((Evas_Object*) v_obj,
+                (const char*) String_val(v_file),
+                (const char*) String_val(v_group)));
+}
+
