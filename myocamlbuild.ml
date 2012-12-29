@@ -19,8 +19,11 @@ let () = dispatch & function
   | After_options ->
     dep ["compile"; "c"] headers;
     flag ["compile"; "c"] (Sh "-ccopt \"`pkg-config --cflags elementary`\"");
-    flag_and_dep ["file:efl.cma"] & S [P "dllefl_stubs.so"; A "-dllib";
+    flag_and_dep ["link"; "byte"] & S [P "dllefl_stubs.so"; A "-dllib";
       A "-lefl_stubs"];
+    (*dep ["link"; "native"] ["libefl_stubs.a"];*)
+    flag_and_dep ["link"; "native"] &
+      S [P "libefl_stubs.a"; Sh "-cclib \"`pkg-config --libs elementary`\""];
     flag ["ocamlmklib"] (Sh "`pkg-config --libs elementary`");
     flag ["native"; "compile"] & S [A "-for-pack"; A "Efl"];
     write_variants ()
