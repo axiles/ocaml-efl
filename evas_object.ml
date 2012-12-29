@@ -16,3 +16,7 @@ external size_hint_align_get : Evas.obj -> float * float =
   "ml_evas_object_size_hint_align_get"
 
 external hide : Evas.obj -> unit = "ml_evas_object_hide"
+
+external color_set : Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_evas_object_color_set"
+

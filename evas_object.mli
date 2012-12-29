@@ -12,3 +12,5 @@ val size_hint_align_get : Evas.obj -> float * float
 
 val hide : Evas.obj -> unit
 
+val color_set : Evas.obj -> int -> int -> int -> int -> unit
+

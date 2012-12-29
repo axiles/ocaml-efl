@@ -69,3 +69,11 @@ PREFIX value ml_evas_object_hide(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_color_set(
+        value v_obj, value v_r, value v_g, value v_b, value v_a)
+{
+        evas_object_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
+                Int_val(v_b), Int_val(v_a));
+        return Val_unit;
+}
+
