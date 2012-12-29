@@ -8,6 +8,13 @@ let file_set obj file group =
   if not (file_set_with_bool obj file group) then
     failwith "elm_layout_file_set"
 
+external theme_set_with_bool : Evas.obj -> string -> string -> string -> bool =
+  "ml_elm_layout_theme_set_with_bool"
+
+let theme_set obj clas group style =
+  if not (theme_set_with_bool obj clas group style) then
+    failwith "ml_elm_layout_theme"
+
 external box_append_with_bool : Evas.obj -> string -> Evas.obj -> bool =
   "ml_elm_layout_box_append_with_bool"
 

@@ -4,6 +4,10 @@ val file_set_with_bool : Evas.obj -> string -> string -> bool
 
 val file_set : Evas.obj -> string -> string -> unit
 
+val theme_set_with_bool : Evas.obj -> string -> string -> string -> bool
+
+val theme_set : Evas.obj -> string -> string -> string -> unit
+
 val box_append_with_bool : Evas.obj -> string -> Evas.obj -> bool
 
 val box_append : Evas.obj -> string -> Evas.obj -> unit
