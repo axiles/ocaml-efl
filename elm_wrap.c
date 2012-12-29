@@ -380,3 +380,15 @@ PREFIX ml_elm_layout_signal_emit(value v_obj, value v_emission, value v_source)
         return Val_unit;
 }
 
+PREFIX ml_elm_layout_signal_callback_add(
+        value v_obj, value v_emission, value v_source, value v_fun)
+{
+        value *data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_layout_signal_callback_add((Evas_Object*) v_obj,
+                (const char*) String_val(v_emission),
+                (const char*) String_val(v_source), ml_Edje_Signal_Cb, data);
+        return Val_unit;
+}
+
