@@ -372,3 +372,11 @@ PREFIX ml_elm_layout_theme_set_with_bool(
                 (const char*) String_val(v_style)));
 }
 
+PREFIX ml_elm_layout_signal_emit(value v_obj, value v_emission, value v_source)
+{
+        elm_layout_signal_emit((Evas_Object*) v_obj,
+                (const char*) String_val(v_emission),
+                (const char*) String_val(v_source));
+        return Val_unit;
+}
+

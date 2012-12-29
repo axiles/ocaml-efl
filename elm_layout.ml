@@ -15,6 +15,9 @@ let theme_set obj clas group style =
   if not (theme_set_with_bool obj clas group style) then
     failwith "ml_elm_layout_theme"
 
+external signal_emit : Evas.obj -> string -> string -> unit =
+  "ml_elm_layout_signal_emit"
+
 external box_append_with_bool : Evas.obj -> string -> Evas.obj -> bool =
   "ml_elm_layout_box_append_with_bool"
 
