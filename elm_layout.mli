@@ -12,6 +12,8 @@ val signal_emit : Evas.obj -> string -> string -> unit
 
 val signal_callback_add : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
+val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
+
 val box_append_with_bool : Evas.obj -> string -> Evas.obj -> bool
 
 val box_append : Evas.obj -> string -> Evas.obj -> unit
