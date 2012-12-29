@@ -325,7 +325,7 @@ PREFIX value ml_elm_layout_box_insert_before_with_bool(
                 (Evas_Object*) v_ref));
 }
 
-PREFIX value ml_elm_layout_prepend_with_bool(
+PREFIX value ml_elm_layout_box_prepend_with_bool(
         value v_obj, value v_part, value v_child)
 {
         return Val_Eina_Bool(elm_layout_box_prepend((Evas_Object*) v_obj,
