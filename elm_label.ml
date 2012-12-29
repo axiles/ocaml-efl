@@ -27,3 +27,5 @@ external slide_get : Evas.obj -> bool =
 external slide_duration_set : Evas.obj -> float -> unit =
   "ml_elm_label_slide_duration_set"
 
+external slide_duration_get : Evas.obj -> float =
+  "ml_elm_label_slide_duration_get"

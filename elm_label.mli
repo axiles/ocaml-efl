@@ -18,3 +18,4 @@ val slide_get : Evas.obj -> bool
 
 val slide_duration_set : Evas.obj -> float -> unit
 
+val slide_duration_get : Evas.obj -> float
