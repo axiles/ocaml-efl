@@ -16,5 +16,7 @@ val password_get : Evas.obj -> bool
 
 val entry_set : Evas.obj -> string -> unit
 
+val entry_get : Evas.obj -> string
+
 val entry_append : Evas.obj -> string -> unit
 
