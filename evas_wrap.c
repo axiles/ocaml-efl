@@ -13,7 +13,7 @@ PREFIX value ml_evas_object_smart_callback_add(
         value* data = caml_stat_alloc(sizeof(value));
         *data = v_func;
         caml_register_global_root(data);
-        const char* event = (const char*) String_val(v_event);
+        const char* event = String_val(v_event);
         evas_object_smart_callback_add((Evas_Object*) v_obj, event,
 	ml_Evas_Smart_Cb, data);
         CAMLreturn(Val_unit);

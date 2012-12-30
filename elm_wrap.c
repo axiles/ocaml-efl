@@ -104,7 +104,7 @@ PREFIX value ml_elm_frame_add(value v_parent)
 PREFIX value ml_elm_object_style_set_with_bool(value v_obj, value v_style)
 {
         return Val_Eina_Bool(elm_object_style_set((Evas_Object*) v_obj,
-                (const char*) String_val(v_style)));
+                String_val(v_style)));
 }
 
 PREFIX value ml_elm_object_content_set(value v_obj, value v_content)
@@ -161,7 +161,7 @@ PREFIX value ml_elm_icon_add(value v_parent)
 PREFIX value ml_elm_icon_standard_set_with_bool(value v_icon, value v_name)
 {
         return Val_Eina_Bool(elm_icon_standard_set((Evas_Object*) v_icon,
-                (const char*) String_val(v_name)));
+                String_val(v_name)));
 }
 
 PREFIX value ml_elm_object_part_content_set(
@@ -170,7 +170,7 @@ PREFIX value ml_elm_object_part_content_set(
         char* part;
         if(v_part == Val_int(0)) part = NULL;
         else part = String_val(Field(v_part, 0));
-        elm_object_part_content_set((Evas_Object*) v_obj, (const char*) part,
+        elm_object_part_content_set((Evas_Object*) v_obj, part,
                 (Evas_Object*) v_content);
         return Val_unit;
 }
@@ -188,7 +188,7 @@ PREFIX value ml_elm_object_part_content_get(value v_obj, value v_part)
         if(v_part == Val_int(0)) part = NULL;
         else part = String_val(Field(v_part, 0));
         Evas_Object* content = elm_object_part_content_get((Evas_Object*) v_obj,
-                (const char*) part);
+                part);
         if(content == NULL) caml_failwith("elm_object_part_content_get");
         return (value) content;
 }
@@ -206,7 +206,7 @@ PREFIX value ml_elm_object_part_text_set(
         char* part;
         if(v_part == Val_int(0)) part = NULL;
         else part = String_val(Field(v_part, 0));
-        elm_object_part_text_set((Evas_Object*) v_obj, (const char*) part,
+        elm_object_part_text_set((Evas_Object*) v_obj, part,
                 String_val(v_text));
         return Val_unit;
 }
@@ -229,7 +229,7 @@ PREFIX value ml_elm_object_part_content_unset(
         if(v_part == Val_int(0)) part = NULL;
         else part = String_val(Field(v_part, 0));
         Evas_Object* content = elm_object_part_content_unset(
-                (Evas_Object*) v_obj, (const char*) part);
+                (Evas_Object*) v_obj, part);
         if(content == NULL) caml_failwith("elm_object_part_content_unset");
         return (value) content;
 }
@@ -250,8 +250,8 @@ PREFIX ml_elm_object_signal_callback_add(
         *data = v_fun;
         caml_register_global_root(data);
         elm_object_signal_callback_add((Evas_Object*) v_obj,
-                (const char*) String_val(v_emission),
-                (const char*) String_val(v_source), ml_Edje_Signal_Cb, data);
+                String_val(v_emission), String_val(v_source),
+                ml_Edje_Signal_Cb, data);
         CAMLreturn(Val_unit);
 }
 
@@ -268,8 +268,8 @@ PREFIX value ml_elm_object_signal_callback_del(
         value_ptr_list* list1;
         value* data;
         Evas_Object* obj = (Evas_Object*) v_obj;
-        const char* emission = (const char*) String_val(v_emission);
-        const char* source = (const char*) String_val(v_source);
+        const char* emission = String_val(v_emission);
+        const char* source = String_val(v_source);
         while(1) {
                 data = (value*) elm_object_signal_callback_del(obj, emission,
                         source, ml_Edje_Signal_Cb);
@@ -306,14 +306,14 @@ PREFIX value ml_elm_layout_box_append_with_bool(
         value v_obj, value v_part, value v_child)
 {
         return Val_Eina_Bool(elm_layout_box_append((Evas_Object*) v_obj,
-                (const char*) String_val(v_part), (Evas_Object*) v_child));
+                String_val(v_part), (Evas_Object*) v_child));
 }
 
 PREFIX value ml_elm_layout_box_insert_at_with_bool(
         value v_obj, value v_part, value v_child, value v_pos)
 {
         return Val_Eina_Bool(elm_layout_box_insert_at((Evas_Object*) v_obj,
-                (const char*) String_val(v_part), (Evas_Object*) v_child,
+                String_val(v_part), (Evas_Object*) v_child,
                 Int_val(v_pos)));
 }
 
@@ -321,7 +321,7 @@ PREFIX value ml_elm_layout_box_insert_before_with_bool(
         value v_obj, value v_part, value v_child, value v_ref)
 {
         return Val_Eina_Bool(elm_layout_box_insert_before((Evas_Object*) v_obj,
-                (const char*) String_val(v_part), (Evas_Object*) v_child,
+                String_val(v_part), (Evas_Object*) v_child,
                 (Evas_Object*) v_ref));
 }
 
@@ -329,7 +329,7 @@ PREFIX value ml_elm_layout_box_prepend_with_bool(
         value v_obj, value v_part, value v_child)
 {
         return Val_Eina_Bool(elm_layout_box_prepend((Evas_Object*) v_obj,
-                (const char*) String_val(v_part), (Evas_Object*) v_child));
+                String_val(v_part), (Evas_Object*) v_child));
 }
 
 PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v)
@@ -359,24 +359,20 @@ PREFIX ml_elm_layout_file_set_with_bool(
         value v_obj, value v_file, value v_group)
 {
         return Val_Eina_Bool(elm_layout_file_set((Evas_Object*) v_obj,
-                (const char*) String_val(v_file),
-                (const char*) String_val(v_group)));
+                String_val(v_file), String_val(v_group)));
 }
 
 PREFIX ml_elm_layout_theme_set_with_bool(
         value v_obj, value v_clas, value v_group, value v_style)
 {
         return Val_Eina_Bool(elm_layout_theme_set((Evas_Object*) v_obj,
-                (const char*) String_val(v_clas),
-                (const char*) String_val(v_group),
-                (const char*) String_val(v_style)));
+                String_val(v_clas), String_val(v_group), String_val(v_style)));
 }
 
 PREFIX ml_elm_layout_signal_emit(value v_obj, value v_emission, value v_source)
 {
-        elm_layout_signal_emit((Evas_Object*) v_obj,
-                (const char*) String_val(v_emission),
-                (const char*) String_val(v_source));
+        elm_layout_signal_emit((Evas_Object*) v_obj, String_val(v_emission),
+                String_val(v_source));
         return Val_unit;
 }
 
@@ -387,8 +383,8 @@ PREFIX ml_elm_layout_signal_callback_add(
         *data = v_fun;
         caml_register_global_root(data);
         elm_layout_signal_callback_add((Evas_Object*) v_obj,
-                (const char*) String_val(v_emission),
-                (const char*) String_val(v_source), ml_Edje_Signal_Cb, data);
+                String_val(v_emission), String_val(v_source),
+                ml_Edje_Signal_Cb, data);
         return Val_unit;
 }
 
