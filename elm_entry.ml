@@ -18,3 +18,5 @@ external password_set : Evas.obj -> bool -> unit = "ml_elm_entry_password_set"
 
 external password_get : Evas.obj -> bool = "ml_elm_entry_password_get"
 
+external entry_append : Evas.obj -> string -> unit = "ml_elm_entry_entry_append"
+
