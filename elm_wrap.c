@@ -216,9 +216,8 @@ PREFIX value ml_elm_object_part_tex_get(value v_obj, value v_part, value v_unit)
         char* part;
         if(v_part == Val_int(0)) part = NULL;
         else part = String_val(Field(v_part, 0));
-        const char* text = elm_object_part_text_get((Evas_Object*) v_obj,
-                (const char*) v_part);
-        if(text == NULL) caml_failwith("elm_object_part_content_get");
+        const char* text = elm_object_part_text_get((Evas_Object*) v_obj, part);
+        if(text == NULL) caml_failwith("elm_object_part_text_get");
         return copy_string(text);
 }
 
