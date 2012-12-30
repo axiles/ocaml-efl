@@ -14,3 +14,9 @@ PREFIX value ml_elm_entry_style_user_push(value v_obj, value v_style)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_style_user_pop(value v_obj)
+{
+        elm_entry_text_style_user_pop((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
