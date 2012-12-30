@@ -20,3 +20,15 @@ PREFIX value ml_elm_entry_style_user_pop(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_style_user_peek(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        char* text = (char*) elm_entry_text_style_user_peek(
+                (Evas_Object*) v_obj);
+        if(text == NULL) return Val_int(0);
+        v = caml_alloc(1, 0);
+        Store_field(v, 0, copy_string(text));
+        CAMLreturn(v);
+}
+
