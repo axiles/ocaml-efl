@@ -40,6 +40,11 @@ PREFIX value ml_elm_entry_single_line_set(value v_obj, value v_flag)
 
 PREFIX value ml_elm_entry_single_line_get(value v_obj)
 {
-        return Eina_Bool_val(elm_entry_single_line_get((Evas_Object*) v_obj));
+        return Val_Eina_Bool(elm_entry_single_line_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_entry_password_set(value v_obj, value v_flag) {
+        elm_entry_password_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
 }
 

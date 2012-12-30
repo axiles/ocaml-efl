@@ -14,3 +14,5 @@ external single_line_set : Evas.obj -> bool -> unit =
 
 external single_line_get : Evas.obj -> bool = "ml_elm_entry_single_line_get"
 
+external password_set : Evas.obj -> bool -> unit = "ml_elm_entry_password_set"
+
