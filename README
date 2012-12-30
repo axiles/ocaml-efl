@@ -1,0 +1,15 @@
+Known issues:
+
+- Using this library in OCaml interactive mode can lead to a crash:
+
+        Objective Caml version 3.12.1
+
+# open Efl;;
+# Elm.init Sys.argv;;
+WARNING: gnome-keyring:: couldn't connect to: /tmp/keyring-INmpHp/pkcs11: No such file or directory
+- : unit = ()
+# let win = Elm_win.add "hello" `basic;;
+Erreur de segmentation (core dumped)
+
+- Some examples do not work for native compilation.
+
