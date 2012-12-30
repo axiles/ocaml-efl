@@ -32,3 +32,9 @@ PREFIX value ml_elm_entry_style_user_peek(value v_obj)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_entry_single_line_set(value v_obj, value v_flag)
+{
+        elm_entry_single_line_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

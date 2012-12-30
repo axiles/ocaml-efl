@@ -9,3 +9,6 @@ external text_style_user_pop : Evas.obj -> unit =
 external text_style_user_peek : Evas.obj -> string option =
   "ml_elm_entry_text_style_user_peek"
 
+external single_line_set : Evas.obj -> bool -> unit =
+  "ml_elm_entry_single_line_set"
+
