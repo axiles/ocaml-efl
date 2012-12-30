@@ -7,20 +7,20 @@ PREFIX value ml_elm_entry_add(value v_parent)
         return (value) entry;
 }
 
-PREFIX value ml_elm_entry_style_user_push(value v_obj, value v_style)
+PREFIX value ml_elm_entry_text_style_user_push(value v_obj, value v_style)
 {
         elm_entry_text_style_user_push((Evas_Object*) v_obj,
                 (const char*) String_val(v_style));
         return Val_unit;
 }
 
-PREFIX value ml_elm_entry_style_user_pop(value v_obj)
+PREFIX value ml_elm_entry_text_style_user_pop(value v_obj)
 {
         elm_entry_text_style_user_pop((Evas_Object*) v_obj);
         return Val_unit;
 }
 
-PREFIX value ml_elm_entry_style_user_peek(value v_obj)
+PREFIX value ml_elm_entry_text_style_user_peek(value v_obj)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -36,5 +36,10 @@ PREFIX value ml_elm_entry_single_line_set(value v_obj, value v_flag)
 {
         elm_entry_single_line_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
         return Val_unit;
+}
+
+PREFIX value ml_elm_entry_single_line_get(value v_obj)
+{
+        return Eina_Bool_val(elm_entry_single_line_get((Evas_Object*) v_obj));
 }
 

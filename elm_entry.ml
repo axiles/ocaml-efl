@@ -12,3 +12,5 @@ external text_style_user_peek : Evas.obj -> string option =
 external single_line_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_single_line_set"
 
+external single_line_get : Evas.obj -> bool = "ml_elm_entry_single_line_get"
+
