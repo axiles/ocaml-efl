@@ -12,3 +12,5 @@ val single_line_get : Evas.obj -> bool
 
 val password_set : Evas.obj -> bool -> unit
 
+val password_get : Evas.obj -> bool
+
