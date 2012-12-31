@@ -54,3 +54,5 @@ external cursor_next : Evas.obj -> bool = "ml_elm_entry_cursor_next"
 
 external cursor_prev : Evas.obj -> bool = "ml_elm_entry_cursor_prev"
 
+external cursor_up : Evas.obj -> bool = "ml_elm_entry_cursor_up"
+

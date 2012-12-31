@@ -46,3 +46,5 @@ val cursor_next : Evas.obj -> bool
 
 val cursor_prev : Evas.obj -> bool
 
+val cursor_up : Evas.obj -> bool
+
