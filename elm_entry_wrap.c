@@ -70,3 +70,8 @@ PREFIX value ml_elm_entry_entry_append(value v_obj, value v_entry)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_is_empty(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_is_empty((Evas_Object*) v_obj));
+}
+

@@ -24,3 +24,5 @@ external entry_get : Evas.obj -> string = "ml_elm_entry_entry_get"
 
 external entry_append : Evas.obj -> string -> unit = "ml_elm_entry_entry_append"
 
+external is_empty : Evas.obj -> bool = "ml_entry_is_empty"
+

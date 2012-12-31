@@ -20,3 +20,5 @@ val entry_get : Evas.obj -> string
 
 val entry_append : Evas.obj -> string -> unit
 
+val is_empty : Evas.obj -> bool
+
