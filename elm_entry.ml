@@ -46,3 +46,5 @@ external editable_set : Evas.obj -> bool -> unit =
 
 external editable_get : Evas.obj -> bool = "ml_elm_entry_editable_get"
 
+external select_none : Evas.obj -> unit = "ml_elm_entry_select_none"
+

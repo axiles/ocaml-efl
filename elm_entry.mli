@@ -38,3 +38,5 @@ val editable_set : Evas.obj -> bool -> unit
 
 val editable_get : Evas.obj -> bool
 
+val select_none : Evas.obj -> unit
+
