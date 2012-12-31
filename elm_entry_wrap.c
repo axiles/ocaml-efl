@@ -152,3 +152,8 @@ PREFIX value ml_elm_entry_cursor_up(value v_obj)
         return Val_Eina_Bool(elm_entry_cursor_up((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_cursor_down(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_cursor_down((Evas_Object*) v_obj));
+}
+
