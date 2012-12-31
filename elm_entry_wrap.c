@@ -85,3 +85,8 @@ PREFIX value ml_elm_entry_selection_get(value v_obj)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_entry_textblock_get(value v_obj)
+{
+        return (value) elm_entry_textblock_get((Evas_Object*) v_obj);
+}
+

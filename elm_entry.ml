@@ -29,3 +29,5 @@ external is_empty : Evas.obj -> bool = "ml_elm_entry_is_empty"
 external selection_get : Evas.obj -> string option =
   "ml_elm_entry_selection_get"
 
+external textblock_get : Evas.obj -> Evas.obj = "ml_elm_entry_textblock_get"
+
