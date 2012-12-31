@@ -44,3 +44,5 @@ val select_all : Evas.obj -> unit
 
 val cursor_next : Evas.obj -> bool
 
+val cursor_prev : Evas.obj -> bool
+
