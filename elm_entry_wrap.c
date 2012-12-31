@@ -163,3 +163,9 @@ PREFIX value ml_elm_entry_cursor_begin_set(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_cursor_end_set(value v_obj)
+{
+        elm_entry_cursor_end_set((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
