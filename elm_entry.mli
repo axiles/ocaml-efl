@@ -26,3 +26,5 @@ val selection_get : Evas.obj -> string option
 
 val textblock_get : Evas.obj ->  Evas.obj
 
+val calc_force : Evas.obj -> unit
+

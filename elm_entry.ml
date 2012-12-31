@@ -31,3 +31,5 @@ external selection_get : Evas.obj -> string option =
 
 external textblock_get : Evas.obj -> Evas.obj = "ml_elm_entry_textblock_get"
 
+external calc_force : Evas.obj -> unit = "ml_elm_entry_calc_force"
+

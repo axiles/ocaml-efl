@@ -90,3 +90,9 @@ PREFIX value ml_elm_entry_textblock_get(value v_obj)
         return (value) elm_entry_textblock_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_elm_entry_calc_force(value v_obj)
+{
+        elm_entry_calc_force((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
