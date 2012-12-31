@@ -50,3 +50,5 @@ val cursor_up : Evas.obj -> bool
 
 val cursor_down : Evas.obj -> bool
 
+val cursor_begin_set : Evas.obj -> unit
+

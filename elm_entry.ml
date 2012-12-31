@@ -58,3 +58,5 @@ external cursor_up : Evas.obj -> bool = "ml_elm_entry_cursor_up"
 
 external cursor_down : Evas.obj -> bool = "ml_elm_entry_cursor_down"
 
+external cursor_begin_set : Evas.obj -> unit = "ml_elm_entry_cursor_begin_set"
+
