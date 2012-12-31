@@ -13,3 +13,10 @@ Erreur de segmentation (core dumped)
 
 - Some examples do not work for native compilation.
 
+Currently, the best way to avoid these problems is to set the environement
+variable EVAS_CPU_NO_SSE3 to 1:
+
+export EVAS_CPU_NO_SSE3=1
+
+An other way is configuring evas with --disable-cpu-sse3.
+
