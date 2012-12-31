@@ -44,3 +44,5 @@ external line_wrap_get : Evas.obj -> Elm.wrap_type =
 external editable_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_editable_set"
 
+external editable_get : Evas.obj -> bool = "ml_elm_entry_editable_get"
+

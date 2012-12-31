@@ -36,3 +36,5 @@ val line_wrap_get : Evas.obj -> Elm.wrap_type
 
 val editable_set : Evas.obj -> bool -> unit
 
+val editable_get : Evas.obj -> bool
+
