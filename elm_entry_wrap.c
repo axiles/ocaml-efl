@@ -75,3 +75,13 @@ PREFIX value ml_elm_entry_is_empty(value v_obj)
         return Val_Eina_Bool(elm_entry_is_empty((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_selection_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* text = elm_entry_selection_get((Evas_Object*) v_obj);
+        v = caml_alloc(1, 0);
+        Store_field(v, 0, copy_string(text));
+        CAMLreturn(v);
+}
+

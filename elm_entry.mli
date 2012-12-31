@@ -22,3 +22,5 @@ val entry_append : Evas.obj -> string -> unit
 
 val is_empty : Evas.obj -> bool
 
+val selection_get : Evas.obj -> string option
+
