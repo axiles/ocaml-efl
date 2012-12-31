@@ -30,3 +30,5 @@ val calc_force : Evas.obj -> unit
 
 val entry_insert : Evas.obj -> string -> unit
 
+val line_wrap_set : Evas.obj -> Elm.wrap_type -> unit
+
