@@ -3,13 +3,13 @@
 PREFIX value ml_elm_init_with_counter(value v_argv)
 {
         int argc = Wosize_val(v_argv);
-	char** argv = (char**) caml_stat_alloc(sizeof(char) * (argc + 1));
+	char** argv = (char**) caml_stat_alloc(sizeof(char*) * (argc + 1));
 	int i;
 	for(i = 0; i < argc; i++) {
                 char* arg = String_val(Field(v_argv, i));
                 argv[i] = caml_stat_alloc(strlen(arg) + 1);
                 strcpy(argv[i], arg);
-                argv[i][strlen(arg) + 1] = '\0';
+                argv[i][strlen(arg)] = '\0';
         }
         argv[argc] = NULL;
         return Val_int(elm_init(argc, argv));
