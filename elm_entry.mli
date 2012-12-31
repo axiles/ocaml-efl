@@ -40,3 +40,5 @@ val editable_get : Evas.obj -> bool
 
 val select_none : Evas.obj -> unit
 
+val select_all : Evas.obj -> unit
+

@@ -125,8 +125,15 @@ PREFIX value ml_elm_entry_editable_get(value v_obj)
         return Val_Eina_Bool(elm_entry_editable_get((Evas_Object*) v_obj));
 }
 
-PREFIX value ml_elm_entry_select_none(value v_obj) {
+PREFIX value ml_elm_entry_select_none(value v_obj)
+{
         elm_entry_select_none((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_entry_select_all(value v_obj)
+{
+        elm_entry_select_all((Evas_Object*) v_obj);
         return Val_unit;
 }
 
