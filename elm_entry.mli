@@ -28,3 +28,5 @@ val textblock_get : Evas.obj ->  Evas.obj
 
 val calc_force : Evas.obj -> unit
 
+val entry_insert : Evas.obj -> string -> unit
+

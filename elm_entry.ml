@@ -33,3 +33,5 @@ external textblock_get : Evas.obj -> Evas.obj = "ml_elm_entry_textblock_get"
 
 external calc_force : Evas.obj -> unit = "ml_elm_entry_calc_force"
 
+external entry_insert : Evas.obj -> string -> unit = "ml_elm_entry_entry_insert"
+

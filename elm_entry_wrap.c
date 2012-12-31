@@ -96,3 +96,9 @@ PREFIX value ml_elm_entry_calc_force(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_entry_insert(value v_obj, value v_entry)
+{
+        elm_entry_entry_insert((Evas_Object*) v_obj, String_val(v_entry));
+        return Val_unit;
+}
+
