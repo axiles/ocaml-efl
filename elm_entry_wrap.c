@@ -109,3 +109,8 @@ PREFIX value ml_elm_entry_line_wrap_set(value v_obj, value v_wrap)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_line_wrap_get(value v_obj)
+{
+        return Val_Elm_Wrap_Type(elm_entry_line_wrap_get((Evas_Object*) v_obj));
+}
+

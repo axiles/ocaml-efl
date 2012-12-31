@@ -38,3 +38,6 @@ external entry_insert : Evas.obj -> string -> unit = "ml_elm_entry_entry_insert"
 external line_wrap_set : Evas.obj -> Elm.wrap_type -> unit =
   "ml_elm_entry_line_wrap_set"
 
+external line_wrap_get : Evas.obj -> Elm.wrap_type =
+  "ml_elm_entry_line_wrap_get"
+
