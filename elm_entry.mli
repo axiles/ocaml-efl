@@ -42,3 +42,5 @@ val select_none : Evas.obj -> unit
 
 val select_all : Evas.obj -> unit
 
+val cursor_next : Evas.obj -> bool
+

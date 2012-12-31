@@ -137,3 +137,8 @@ PREFIX value ml_elm_entry_select_all(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_cursor_next(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_cursor_next((Evas_Object*) v_obj));
+}
+

@@ -50,3 +50,5 @@ external select_none : Evas.obj -> unit = "ml_elm_entry_select_none"
 
 external select_all : Evas.obj -> unit = "ml_elm_entry_select_all"
 
+external cursor_next : Evas.obj -> bool = "ml_elm_entry_cursor_next"
+
