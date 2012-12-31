@@ -114,3 +114,9 @@ PREFIX value ml_elm_entry_line_wrap_get(value v_obj)
         return Val_Elm_Wrap_Type(elm_entry_line_wrap_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_editable_set(value v_obj, value v_flag)
+{
+        elm_entry_editable_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
