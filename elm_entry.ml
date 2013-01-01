@@ -86,3 +86,6 @@ external cursor_content_get : Evas.obj -> string =
 external cursor_geometry_get : Evas.obj -> int * int * int * int =
   "ml_elm_entry_cursor_geometry_get"
 
+external cursor_pos_set : Evas.obj -> int -> unit =
+  "ml_elm_entry_cursor_pos_set"
+

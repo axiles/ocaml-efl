@@ -226,3 +226,9 @@ PREFIX value ml_elm_entry_cursor_geometry_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_entry_cursor_pos_set(value v_obj, value v_pos)
+{
+        elm_entry_cursor_pos_set((Evas_Object*) v_obj, Int_val(v_pos));
+        return Val_unit;
+}
+
