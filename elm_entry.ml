@@ -124,3 +124,6 @@ external item_provider_prepend : Evas.obj -> item_provider_cb -> unit =
 external markup_filter_append : Evas.obj -> filter_cb -> unit =
   "ml_elm_entry_markup_filter_append"
 
+external markup_filter_prepend : Evas.obj -> filter_cb -> unit =
+  "ml_elm_entry_markup_filter_prepend"
+
