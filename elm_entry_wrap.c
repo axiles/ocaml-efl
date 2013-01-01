@@ -261,3 +261,16 @@ PREFIX value ml_elm_entry_context_menu_clear(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_context_menu_item_add(
+        value v_obj, value v_label, value v_icon_file, value v_icon_type,
+        value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_entry_context_menu_item_add((Evas_Object*) v_obj,
+                String_val(v_label), String_val(v_icon_file),
+                Elm_Icon_Type_val(v_icon_type), ml_Evas_Smart_Cb, data);
+        return Val_unit;
+}
+

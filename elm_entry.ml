@@ -101,3 +101,7 @@ external selection_paste : Evas.obj -> unit = "ml_elm_entry_selection_paste"
 external context_menu_clear : Evas.obj -> unit =
   "ml_elm_entry_context_menu_clear"
 
+external context_menu_item_add :
+  Evas.obj -> string -> string -> Elm_icon.ty -> Evas.smart_cb -> unit =
+  "ml_elm_entry_context_menu_item_add"
+

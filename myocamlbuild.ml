@@ -13,7 +13,8 @@ let write_variants () =
   rule "write_variants2" ~prod:"variants.h" ~dep:"write_variants" action2
 
 let headers =
-  ["include.h"; "variants.h"; "eina_wrap.h"; "edje_wrap.h"; "elm_wrap.h"]
+  ["include.h"; "variants.h"; "eina_wrap.h"; "evas_wrap.h"; "edje_wrap.h";
+    "elm_wrap.h"]
 
 let () = dispatch & function
   | After_options ->
