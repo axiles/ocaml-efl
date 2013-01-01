@@ -452,3 +452,10 @@ PREFIX value ml_elm_entry_bounce_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_entry_input_panel_layout_set(value v_obj, value v_layout)
+{
+        elm_entry_input_panel_layout_set((Evas_Object*) v_obj,
+                Elm_Input_Panel_Layout_val(v_layout));
+        return Val_unit;
+}
+
