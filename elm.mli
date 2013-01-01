@@ -25,7 +25,7 @@ type autocapital_type = [`none | `word | `sentence | `allcharacter]
 
 type input_panel_lang = [`automatic | `alphabet]
 
-type return_key_type = [
+type input_panel_return_key_type = [
   | `default
   | `_done
   | `go

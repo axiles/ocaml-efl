@@ -150,3 +150,6 @@ val input_panel_language_set : Evas.obj -> Elm.input_panel_lang -> unit
 
 val input_panel_language_get : Evas.obj -> Elm.input_panel_lang
 
+val input_panel_return_key_type_set :
+  Evas.obj -> Elm.input_panel_return_key_type -> unit
+

@@ -196,3 +196,7 @@ external input_panel_language_set : Evas.obj -> Elm.input_panel_lang -> unit =
 external input_panel_language_get : Evas.obj -> Elm.input_panel_lang =
   "ml_elm_entry_input_panel_language_get"
 
+external input_panel_return_key_type_set :
+  Evas.obj -> Elm.input_panel_return_key_type -> unit =
+  "ml_elm_entry_input_panel_return_key_type_set"
+
