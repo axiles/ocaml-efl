@@ -136,3 +136,5 @@ val input_panel_layout_get : Evas.obj -> Elm.input_panel_layout
 
 val autocapital_type_set : Evas.obj -> Elm.autocapital_type -> unit
 
+val autocapital_type_get : Evas.obj -> Elm.autocapital_type
+

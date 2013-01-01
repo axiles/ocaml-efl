@@ -472,3 +472,9 @@ PREFIX value ml_elm_entry_autocapital_type_set(value v_obj, value v_type)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_autocapital_type_get(value v_obj)
+{
+        return Val_Elm_Autocapital_Type(elm_entry_autocapital_type_get(
+                (Evas_Object*) v_obj));
+}
+
