@@ -62,3 +62,5 @@ val cursor_selection_begin : Evas.obj -> unit
 
 val cursor_selection_end : Evas.obj -> unit
 
+val cursor_is_format_get : Evas.obj -> bool
+
