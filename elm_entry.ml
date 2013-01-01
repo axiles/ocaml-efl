@@ -184,3 +184,6 @@ external input_panel_enabled_set : Evas.obj -> bool -> unit =
 external input_panel_enabled_get : Evas.obj -> bool =
   "ml_elm_entry_input_panel_enabled_get"
 
+external input_panel_show : Evas.obj -> unit =
+  "ml_elm_entry_input_panel_show"
+

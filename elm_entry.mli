@@ -142,3 +142,5 @@ val input_panel_enabled_set : Evas.obj -> bool -> unit
 
 val input_panel_enabled_get : Evas.obj -> bool
 
+val input_panel_show : Evas.obj -> unit
+
