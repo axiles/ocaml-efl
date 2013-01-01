@@ -77,3 +77,6 @@ external cursor_selection_end : Evas.obj -> unit =
 external cursor_is_format_get : Evas.obj -> bool =
   "ml_elm_entry_cursor_is_format_get"
 
+external cursor_is_visible_format_get : Evas.obj -> bool =
+  "ml_elm_entry_cursor_is_visible_format_get"
+

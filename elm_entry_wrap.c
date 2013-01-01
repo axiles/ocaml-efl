@@ -199,3 +199,9 @@ PREFIX value ml_elm_entry_cursor_is_format_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_cursor_is_visible_format_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_cursor_is_visible_format_get(
+                (Evas_Object*) v_obj));
+}
+
