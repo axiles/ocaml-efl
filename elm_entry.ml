@@ -105,3 +105,6 @@ external context_menu_item_add :
   Evas.obj -> string -> string -> Elm_icon.ty -> Evas.smart_cb -> unit =
   "ml_elm_entry_context_menu_item_add"
 
+external context_menu_disabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_entry_context_menu_disabled_set"
+

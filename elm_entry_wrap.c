@@ -274,3 +274,10 @@ PREFIX value ml_elm_entry_context_menu_item_add(
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_context_menu_disabled_set(value v_obj, value v_flag)
+{
+        elm_entry_context_menu_disabled_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
