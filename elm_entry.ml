@@ -164,3 +164,4 @@ external scrollbar_policy_set :
 external bounce_set : Evas.obj -> bool -> bool -> unit =
   "ml_elm_entry_bounce_set"
 
+external bounce_get : Evas.obj -> bool * bool = "ml_elm_entry_bounce_get"

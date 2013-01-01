@@ -128,3 +128,5 @@ val scrollbar_policy_set :
 
 val bounce_set : Evas.obj -> bool -> bool -> unit
 
+val bounce_get : Evas.obj -> bool * bool
+

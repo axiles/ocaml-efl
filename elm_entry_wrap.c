@@ -442,3 +442,13 @@ PREFIX value ml_elm_entry_bounce_set(value v_obj, value v_h, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_bounce_get(value v_obj)
+{
+        Eina_Bool h_bounce, v_bounce;
+        elm_entry_bounce_get((Evas_Object*) v_obj, &h_bounce, &v_bounce);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_Eina_Bool(h_bounce));
+        Store_field(v, 1, Val_Eina_Bool(v_bounce));
+        return v;
+}
+
