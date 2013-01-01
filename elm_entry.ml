@@ -172,3 +172,6 @@ external input_panel_layout_set : Evas.obj -> Elm.input_panel_layout -> unit =
 external input_panel_layout_get : Evas.obj -> Elm.input_panel_layout =
   "ml_elm_entry_input_panel_layout_get"
 
+external autocapital_type_set : Evas.obj -> Elm.autocapital_type -> unit =
+  "ml_elm_entry_autocapital_type_set"
+

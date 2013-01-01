@@ -465,3 +465,10 @@ PREFIX value ml_elm_entry_input_panel_layout_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_autocapital_type_set(value v_obj, value v_type)
+{
+        elm_entry_autocapital_type_set((Evas_Object*) v_obj,
+                Elm_Autocapital_Type_val(v_type));
+        return Val_unit;
+}
+
