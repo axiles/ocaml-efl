@@ -16,4 +16,6 @@ let () =
   g "mixed";
   g "file";
   g "standard";
+  g "plain_utf8";
+  g "markup_utf8";
   flush stdout

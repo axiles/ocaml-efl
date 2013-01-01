@@ -446,3 +446,23 @@ PREFIX inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
         return Val_none;
 }
 
+PREFIX inline Elm_Text_Format Elm_Text_Format_val(value v)
+{
+        switch(v) {
+                case Val_plain_utf8: return ELM_TEXT_FORMAT_PLAIN_UTF8;
+                case Val_markup_utf8: return ELM_TEXT_FORMAT_MARKUP_UTF8;
+        }
+        caml_failwith("Elm_Text_Format_val");
+        return ELM_TEXT_FORMAT_PLAIN_UTF8;
+}
+
+PREFIX inline value Val_Elm_Text_Format(Elm_Text_Format f)
+{
+        switch(f) {
+                case ELM_TEXT_FORMAT_PLAIN_UTF8: return Val_plain_utf8;
+                case ELM_TEXT_FORMAT_MARKUP_UTF8: return Val_markup_utf8;
+        }
+        caml_failwith("Val_Elm_Text_Format");
+        return Val_plain_utf8;
+}
+
