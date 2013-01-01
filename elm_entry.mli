@@ -91,3 +91,5 @@ val context_menu_disabled_set : Evas.obj -> bool -> unit
 
 val context_menu_disabled_get : Evas.obj -> bool
 
+val item_provider_append : Evas.obj -> item_provider_cb -> unit
+

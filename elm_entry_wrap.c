@@ -296,3 +296,13 @@ PREFIX value ml_elm_entry_context_menu_disabled_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_item_provider_append(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_entry_item_provider_append((Evas_Object*) v_obj,
+                ml_Elm_Entry_Item_Provider_Cb, data);
+        return Val_unit;
+}
+
