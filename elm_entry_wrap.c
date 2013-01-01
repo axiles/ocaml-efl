@@ -205,3 +205,11 @@ PREFIX value ml_elm_entry_cursor_is_visible_format_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_cursor_content_get(value v_obj)
+{
+        char* text = elm_entry_cursor_content_get((Evas_Object*) v_obj);
+        value v = copy_string(text);
+        free(text);
+        return v;
+}
+

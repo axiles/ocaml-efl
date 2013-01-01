@@ -80,3 +80,6 @@ external cursor_is_format_get : Evas.obj -> bool =
 external cursor_is_visible_format_get : Evas.obj -> bool =
   "ml_elm_entry_cursor_is_visible_format_get"
 
+external cursor_content_get : Evas.obj -> string =
+  "ml_elm_entry_cursor_content_get"
+

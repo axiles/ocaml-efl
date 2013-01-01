@@ -66,3 +66,5 @@ val cursor_is_format_get : Evas.obj -> bool
 
 val cursor_is_visible_format_get : Evas.obj -> bool
 
+val cursor_content_get : Evas.obj -> string
+
