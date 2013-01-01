@@ -237,3 +237,9 @@ PREFIX value ml_elm_entry_cursor_pos_get(value v_obj)
         return Val_int(elm_entry_cursor_pos_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_selection_cut(value v_obj)
+{
+        elm_entry_selection_cut((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

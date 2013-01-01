@@ -92,3 +92,5 @@ external cursor_pos_set : Evas.obj -> int -> unit =
 external cursor_pos_get : Evas.obj -> int =
   "ml_elm_entry_cursor_pos_get"
 
+external selection_cut : Evas.obj -> unit = "ml_elm_entry_selection_cut"
+
