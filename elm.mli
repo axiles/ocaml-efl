@@ -4,6 +4,8 @@ type policy_value = [`none | `last_window_closed]
 
 type wrap_type = [`none | `char | `word | `mixed]
 
+type text_format = [`plain_utf8 | `markup_utf8]
+
 val init : string array -> unit
 
 val run : unit -> unit

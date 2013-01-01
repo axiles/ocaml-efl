@@ -365,3 +365,15 @@ PREFIX value ml_elm_entry_utf8_to_markup(value v_s)
         return v_s1;
 }
 
+PREFIX value ml_elm_entry_file_set(value v_obj, value v_file, value v_format)
+{
+        if(!elm_entry_file_set((Evas_Object*) v_obj, String_val(v_file),
+                Elm_Text_Format_val(v_format)))
+        {
+               caml_failwith("elm_entry_file_set");
+        }
+        return Val_unit;
+}
+
+
+
