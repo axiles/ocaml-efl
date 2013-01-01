@@ -478,3 +478,10 @@ PREFIX value ml_elm_entry_autocapital_type_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_input_panel_enabled_set(value v_obj, value v_flag)
+{
+        elm_entry_input_panel_enabled_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
