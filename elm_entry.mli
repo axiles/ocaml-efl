@@ -60,3 +60,5 @@ val cursor_line_end_set : Evas.obj -> unit
 
 val cursor_selection_begin : Evas.obj -> unit
 
+val cursor_selection_end : Evas.obj -> unit
+

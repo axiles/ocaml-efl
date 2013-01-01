@@ -187,3 +187,9 @@ PREFIX value ml_elm_entry_cursor_selection_begin(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_cursor_selection_end(value v_obj)
+{
+        elm_entry_cursor_selection_end((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

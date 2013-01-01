@@ -71,3 +71,6 @@ external cursor_line_end_set : Evas.obj -> unit =
 external cursor_selection_begin : Evas.obj -> unit =
   "ml_elm_entry_cursor_selection_begin"
 
+external cursor_selection_end : Evas.obj -> unit =
+  "ml_elm_entry_cursor_selection_end"
+
