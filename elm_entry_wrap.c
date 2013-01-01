@@ -428,3 +428,10 @@ PREFIX value ml_elm_entry_end_visible_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_scrollbar_policy_set(value v_obj, value v_h, value v_v)
+{
+        elm_entry_scrollbar_policy_set((Evas_Object*) v_obj,
+                Elm_Scroller_Policy_val(v_h), Elm_Scroller_Policy_val(v_v));
+        return Val_unit;
+}
+

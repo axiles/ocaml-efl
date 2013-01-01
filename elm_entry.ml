@@ -157,3 +157,7 @@ external icon_visible_set : Evas.obj -> bool -> unit =
 external end_visible_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_end_visible_set"
 
+external scrollbar_policy_set :
+  Evas.obj -> Elm_scroller.policy -> Elm_scroller.policy -> unit =
+  "ml_elm_entry_scrollbar_policy_set"
+
