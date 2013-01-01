@@ -181,3 +181,6 @@ external autocapital_type_get : Evas.obj -> Elm.autocapital_type =
 external input_panel_enabled_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_input_panel_enabled_set"
 
+external input_panel_enabled_get : Evas.obj -> bool =
+  "ml_elm_entry_input_panel_enabled_get"
+

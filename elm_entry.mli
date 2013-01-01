@@ -140,3 +140,5 @@ val autocapital_type_get : Evas.obj -> Elm.autocapital_type
 
 val input_panel_enabled_set : Evas.obj -> bool -> unit
 
+val input_panel_enabled_get : Evas.obj -> bool
+
