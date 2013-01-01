@@ -319,13 +319,23 @@ PREFIX value ml_elm_entry_item_provider_append(value v_obj, value v_fun)
         return Val_unit;
 }
 
-PREFIX value ml_entry_item_provider_prepend(value v_obj, value v_fun)
+PREFIX value ml_elm_entry_item_provider_prepend(value v_obj, value v_fun)
 {
         value* data = caml_stat_alloc(sizeof(value));
         *data = v_fun;;
         caml_register_global_root(data);
         elm_entry_item_provider_prepend((Evas_Object*) v_obj,
                 ml_Elm_Entry_Item_Provider_Cb, data);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_entry_markup_filter_append(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_entry_markup_filter_append((Evas_Object*) v_obj,
+                ml_Elm_Entry_Filter_Cb, data);
         return Val_unit;
 }
 

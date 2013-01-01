@@ -97,3 +97,5 @@ val item_provider_append : Evas.obj -> item_provider_cb -> unit
 
 val item_provider_prepend : Evas.obj -> item_provider_cb -> unit
 
+val markup_filter_append : Evas.obj -> filter_cb -> unit
+
