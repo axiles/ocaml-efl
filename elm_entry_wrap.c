@@ -243,3 +243,9 @@ PREFIX value ml_elm_entry_selection_cut(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_selection_copy(value v_obj)
+{
+        elm_entry_selection_copy((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

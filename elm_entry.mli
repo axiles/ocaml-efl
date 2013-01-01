@@ -76,3 +76,5 @@ val cursor_pos_get : Evas.obj -> int
 
 val selection_cut : Evas.obj -> unit
 
+val selection_copy : Evas.obj -> unit
+
