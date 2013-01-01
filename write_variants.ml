@@ -35,4 +35,6 @@ let () =
   g "password";
   g "sentence";
   g "allcharacter";
+  g "automatic";
+  g "alphabet";
   flush stdout

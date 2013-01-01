@@ -23,6 +23,8 @@ type input_panel_layout = [
 
 type autocapital_type = [`none | `word | `sentence | `allcharacter]
 
+type input_panel_lang = [`automatic | `alphabet]
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)

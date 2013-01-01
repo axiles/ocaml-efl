@@ -23,6 +23,8 @@ type input_panel_layout = [
 
 type autocapital_type = [`none | `word | `sentence | `allcharacter]
 
+type input_panel_lang = [`automatic | `alphabet]
+
 val init : string array -> unit
 
 val run : unit -> unit
