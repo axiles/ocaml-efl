@@ -559,3 +559,10 @@ PREFIX value ml_elm_entry_imf_context_reset(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_prediction_allow_set(value v_obj, value v_flag)
+{
+        elm_entry_prediction_allow_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
