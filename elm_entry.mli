@@ -78,3 +78,5 @@ val selection_cut : Evas.obj -> unit
 
 val selection_copy : Evas.obj -> unit
 
+val selection_paste : Evas.obj -> unit
+
