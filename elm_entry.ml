@@ -193,3 +193,6 @@ external input_panel_hide : Evas.obj -> unit =
 external input_panel_language_set : Evas.obj -> Elm.input_panel_lang -> unit =
   "ml_elm_entry_input_panel_language_set"
 
+external input_panel_language_get : Evas.obj -> Elm.input_panel_lang =
+  "ml_elm_entry_input_panel_language_get"
+

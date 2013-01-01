@@ -510,3 +510,9 @@ PREFIX value ml_elm_entry_input_panel_language_set(value v_obj, value v_l)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_input_panel_language_get(value v_obj)
+{
+        return Val_Elm_Input_Panel_Lang(elm_entry_input_panel_language_get(
+                (Evas_Object*) v_obj));
+}
+
