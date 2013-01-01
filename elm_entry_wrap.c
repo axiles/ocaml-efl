@@ -388,3 +388,9 @@ PREFIX value ml_elm_entry_file_get(value v_obj)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_entry_file_save(value v_obj)
+{
+        elm_entry_file_save((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

@@ -109,3 +109,5 @@ val file_set : Evas.obj -> string -> Elm.text_format -> unit
 
 val file_get : Evas.obj -> string * Elm.text_format
 
+val file_save : Evas.obj -> unit
+
