@@ -113,3 +113,5 @@ val file_save : Evas.obj -> unit
 
 val autosave_set : Evas.obj -> bool -> unit
 
+val autosave_get : Evas.obj -> bool
+

@@ -142,3 +142,6 @@ external file_save : Evas.obj -> unit = "ml_elm_entry_file_save"
 external autosave_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_autosave_set"
 
+external autosave_get : Evas.obj -> bool =
+  "ml_elm_entry_autosave_get"
+
