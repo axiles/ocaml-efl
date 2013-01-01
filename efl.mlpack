@@ -5,6 +5,7 @@ Edje
 Elm
 Elm_object
 Elm_layout
+Elm_scroller
 Elm_win
 Elm_bg
 Elm_label

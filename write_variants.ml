@@ -18,4 +18,7 @@ let () =
   g "standard";
   g "plain_utf8";
   g "markup_utf8";
+  g "auto";
+  g "on";
+  g "off";
   flush stdout
