@@ -349,9 +349,17 @@ PREFIX value ml_elm_entry_markup_filter_prepend(value v_obj, value v_fun)
         return Val_unit;
 }
 
-PREFIX value ml_elm_entry_markup_to_uf8(value v_s)
+PREFIX value ml_elm_entry_markup_to_utf8(value v_s)
 {
         char* s1 = elm_entry_markup_to_utf8(String_val(v_s));
+        value v_s1 = copy_string(s1);
+        free(s1);
+        return v_s1;
+}
+
+PREFIX value ml_elm_entry_utf8_to_markup(value v_s)
+{
+        char* s1 = elm_entry_utf8_to_markup(String_val(v_s));
         value v_s1 = copy_string(s1);
         free(s1);
         return v_s1;

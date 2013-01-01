@@ -129,3 +129,5 @@ external markup_filter_prepend : Evas.obj -> filter_cb -> unit =
 
 external markup_to_utf8 : string -> string = "ml_elm_entry_markup_to_utf8"
 
+external utf8_to_markup : string -> string = "ml_elm_entry_utf8_to_markup"
+
