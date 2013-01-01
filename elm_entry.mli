@@ -101,3 +101,5 @@ val markup_filter_append : Evas.obj -> filter_cb -> unit
 
 val markup_filter_prepend : Evas.obj -> filter_cb -> unit
 
+val markup_to_utf8 : string -> string
+
