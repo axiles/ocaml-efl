@@ -139,3 +139,6 @@ external file_get : Evas.obj -> string * Elm.text_format =
 
 external file_save : Evas.obj -> unit = "ml_elm_entry_file_save"
 
+external autosave_set : Evas.obj -> bool -> unit =
+  "ml_elm_entry_autosave_set"
+
