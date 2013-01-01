@@ -72,3 +72,5 @@ val cursor_geometry_get : Evas.obj -> int * int * int * int
 
 val cursor_pos_set : Evas.obj -> int -> unit
 
+val cursor_pos_get : Evas.obj -> int
+
