@@ -568,7 +568,7 @@ PREFIX inline Elm_Input_Panel_Return_Key_Type
         return ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT;
 }
 
-PREFIX inline value Val_Elm_Layout_Panel_Return_Key_Type(
+PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
         Elm_Input_Panel_Return_Key_Type t)
 {
         switch(t) {

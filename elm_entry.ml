@@ -200,3 +200,7 @@ external input_panel_return_key_type_set :
   Evas.obj -> Elm.input_panel_return_key_type -> unit =
   "ml_elm_entry_input_panel_return_key_type_set"
 
+external input_panel_return_key_type_get :
+  Evas.obj -> Elm.input_panel_return_key_type =
+  "ml_elm_entry_input_panel_return_key_type_get"
+

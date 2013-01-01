@@ -524,3 +524,10 @@ PREFIX value ml_elm_entry_input_panel_return_key_type_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_input_panel_return_key_type_get(value v_obj)
+{
+        return Val_Elm_Input_Panel_Return_Key_Type(
+                elm_entry_input_panel_return_key_type_get(
+                (Evas_Object*) v_obj));
+}
+
