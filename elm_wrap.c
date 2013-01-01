@@ -424,3 +424,25 @@ PREFIX ml_elm_layout_signal_callback_del(
         return Val_unit;
 }
 
+PREFIX inline Elm_Icon_Type Elm_Icon_Type_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_ICON_NONE;
+                case Val_file: return ELM_ICON_FILE;
+                case Val_standard: return ELM_ICON_STANDARD;
+        }
+        caml_failwith("Elm_Icon_Type_val");
+        return ELM_ICON_NONE;
+}
+
+PREFIX inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
+{
+        switch(ty) {
+                case ELM_ICON_NONE: return Val_none;
+                case ELM_ICON_FILE: return Val_file;
+                case ELM_ICON_STANDARD: return Val_standard;
+        }
+        caml_failwith("Val_Elm_Icon_Type");
+        return Val_none;
+}
+

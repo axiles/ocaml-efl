@@ -14,4 +14,6 @@ let () =
   g "char";
   g "word";
   g "mixed";
+  g "file";
+  g "standard";
   flush stdout

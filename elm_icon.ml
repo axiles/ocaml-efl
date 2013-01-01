@@ -1,3 +1,5 @@
+type ty = [`none | `file | `standard]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_icon_add"
 
 external standard_set_with_bool : Evas.obj -> string -> bool =
