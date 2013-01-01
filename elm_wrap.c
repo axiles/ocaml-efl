@@ -550,3 +550,39 @@ PREFIX inline value Val_Elm_Input_Panel_Lang(Elm_Input_Panel_Lang l)
         return Val_automatic;
 }
 
+PREFIX inline Elm_Input_Panel_Return_Key_Type
+        Elm_Input_Panel_Return_Key_Type_val(value v)
+{
+        switch(v) {
+                case Val_default:
+                        return ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT;
+                case Val_done: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE;
+                case Val_go: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_GO;
+                case Val_join: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_JOIN;
+                case Val_login: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_LOGIN;
+                case Val_next: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_NEXT;
+                case Val_search: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEARCH;
+                case Val_send: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEND;
+        }
+        caml_failwith("Elm_Input_Panel_Return_Key_Type_val");
+        return ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT;
+}
+
+PREFIX inline value Val_Elm_Layout_Panel_Return_Key_Type(
+        Elm_Input_Panel_Return_Key_Type t)
+{
+        switch(t) {
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT:
+                        return Val_default;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE: return Val_done;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_GO: return Val_go;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_JOIN: return Val_join;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_LOGIN: return Val_login;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_NEXT: return Val_next;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEARCH: return Val_search;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEND: return Val_send;
+        }
+        caml_failwith("Val_Elm_INput_Return_Key_Type");
+        return Val_default;
+}
+

@@ -21,4 +21,9 @@ PREFIX inline value Val_Elm_Autocapital_Type(Elm_Autocapital_Type t);
 PREFIX inline Elm_Input_Panel_Lang Elm_Input_Panel_Lang_val(value v);
 PREFIX inline value Val_Elm_Input_Panel_Lang(Elm_Input_Panel_Lang l);
 
+PREFIX inline Elm_Input_Panel_Return_Key_Type
+        Elm_Input_Panel_Return_Key_Type_val(value v);
+PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
+        Elm_Input_Panel_Return_Key_Type t);
+
 #endif

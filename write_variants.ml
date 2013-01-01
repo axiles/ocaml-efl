@@ -37,4 +37,12 @@ let () =
   g "allcharacter";
   g "automatic";
   g "alphabet";
+  g "default";
+  f "Val_done" "_done";
+  g "go";
+  g "join";
+  g "login";
+  g "next";
+  g "search";
+  g "send";
   flush stdout

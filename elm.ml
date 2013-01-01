@@ -25,6 +25,17 @@ type autocapital_type = [`none | `word | `sentence | `allcharacter]
 
 type input_panel_lang = [`automatic | `alphabet]
 
+type return_key_type = [
+  | `default
+  | `_done
+  | `go
+  | `join
+  | `login
+  | `next
+  | `search
+  | `send
+]
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)
