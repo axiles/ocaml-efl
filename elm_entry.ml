@@ -187,3 +187,6 @@ external input_panel_enabled_get : Evas.obj -> bool =
 external input_panel_show : Evas.obj -> unit =
   "ml_elm_entry_input_panel_show"
 
+external input_panel_hide : Evas.obj -> unit =
+  "ml_elm_entry_input_panel_hide"
+

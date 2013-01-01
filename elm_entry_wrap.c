@@ -497,3 +497,9 @@ PREFIX value ml_elm_entry_input_panel_show(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_input_panel_hide(value v_obj)
+{
+        elm_entry_input_panel_hide((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
