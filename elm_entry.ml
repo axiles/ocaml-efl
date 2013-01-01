@@ -145,3 +145,6 @@ external autosave_set : Evas.obj -> bool -> unit =
 external autosave_get : Evas.obj -> bool =
   "ml_elm_entry_autosave_get"
 
+external scrollable_set : Evas.obj -> bool -> unit =
+  "ml_elm_entry_scrollable_set"
+

@@ -405,3 +405,9 @@ PREFIX value ml_elm_entry_autosave_get(value v_obj, value v_flag)
         return Val_Eina_Bool(elm_entry_autosave_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_scrollable_set(value v_obj, value v_flag)
+{
+        elm_entry_scrollable_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
