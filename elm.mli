@@ -21,6 +21,8 @@ type input_panel_layout = [
   | `password
 ]
 
+type autocapital_type = [`none | `word | `sentence | `allcharacter]
+
 val init : string array -> unit
 
 val run : unit -> unit

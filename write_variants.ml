@@ -33,4 +33,6 @@ let () =
   g "hex";
   g "terminal";
   g "password";
+  g "sentence";
+  g "allcharacter";
   flush stdout

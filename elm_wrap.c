@@ -506,4 +506,27 @@ PREFIX inline value Val_Elm_Input_Panel_Layout(Elm_Input_Panel_Layout l)
         return Val_normal;
 }
 
-                
+PREFIX inline Elm_Autocapital_Type Elm_Autocapital_Type_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_AUTOCAPITAL_TYPE_NONE;
+                case Val_word: return ELM_AUTOCAPITAL_TYPE_WORD;
+                case Val_sentence: return ELM_AUTOCAPITAL_TYPE_SENTENCE;
+                case Val_allcharacter: return ELM_AUTOCAPITAL_TYPE_ALLCHARACTER;
+        }
+        caml_failwith("Elm_Autocapital_Type_val");
+        return ELM_AUTOCAPITAL_TYPE_NONE;
+}
+
+PREFIX inline value Val_Elm_Autocapital_Type(Elm_Autocapital_Type t)
+{
+        switch(t) {
+                case ELM_AUTOCAPITAL_TYPE_NONE: return Val_none;
+                case ELM_AUTOCAPITAL_TYPE_WORD: return Val_word;
+                case ELM_AUTOCAPITAL_TYPE_SENTENCE: return Val_sentence;
+                case ELM_AUTOCAPITAL_TYPE_ALLCHARACTER: return Val_allcharacter;
+        }
+        caml_failwith("Val_Elm_Autocapital_Type");
+        return Val_none;
+}
+               
