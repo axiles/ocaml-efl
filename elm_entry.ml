@@ -154,3 +154,6 @@ external scrollable_get : Evas.obj -> bool =
 external icon_visible_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_icon_visible_set"
 
+external end_visible_set : Evas.obj -> bool -> unit =
+  "ml_elm_entry_end_visible_set"
+
