@@ -375,5 +375,16 @@ PREFIX value ml_elm_entry_file_set(value v_obj, value v_file, value v_format)
         return Val_unit;
 }
 
-
+PREFIX value ml_elm_entry_file_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* file;
+        Elm_Text_Format format;
+        elm_entry_file_get((Evas_Object*) v_obj, &file, &format);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_string(file));
+        Store_field(v, 1, Val_Elm_Text_Format(format));
+        CAMLreturn(v);
+}
 

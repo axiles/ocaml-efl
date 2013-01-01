@@ -134,3 +134,6 @@ external utf8_to_markup : string -> string = "ml_elm_entry_utf8_to_markup"
 external file_set : Evas.obj -> string -> Elm.text_format -> unit =
   "ml_elm_entry_file_set"
 
+external file_get : Evas.obj -> string * Elm.text_format =
+  "ml_elm_entry_file_get"
+
