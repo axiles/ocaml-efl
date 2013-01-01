@@ -1,5 +1,14 @@
 #include "include.h"
 
+Evas_Object* ml_Elm_Entry_Item_Provider_Cb(
+        void* data, Evas_Object* entry, const char* item)
+{
+        value* v_fun = (value*) data;
+        value v_r = caml_callback2((value) entry, copy_string(item));
+        if(v_r == Val_int(0)) return NULL;
+        else return (Evas_Object*) Field(v_r, 0);
+}
+
 PREFIX value ml_elm_entry_add(value v_parent)
 {
         Evas_Object* entry = elm_entry_add((Evas_Object*) v_parent);

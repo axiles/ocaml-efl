@@ -1,3 +1,5 @@
+type item_provider_cb = Evas.obj -> string -> Evas.obj option
+
 external add : Evas.obj -> Evas.obj = "ml_elm_entry_add"
 
 external text_style_user_push : Evas.obj -> string -> unit =

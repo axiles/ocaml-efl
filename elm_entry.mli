@@ -1,3 +1,5 @@
+type item_provider_cb = Evas.obj -> string -> Evas.obj option
+
 val add : Evas.obj -> Evas.obj
 
 val text_style_user_push : Evas.obj -> string -> unit 
