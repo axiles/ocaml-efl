@@ -83,3 +83,6 @@ external cursor_is_visible_format_get : Evas.obj -> bool =
 external cursor_content_get : Evas.obj -> string =
   "ml_elm_entry_cursor_content_get"
 
+external cursor_geometry_get : Evas.obj -> int * int * int * int =
+  "ml_elm_entry_cursor_geometry_get"
+

@@ -213,3 +213,16 @@ PREFIX value ml_elm_entry_cursor_content_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_entry_cursor_geometry_get(value v_obj)
+{
+        Evas_Coord x, y, z, w, h;
+        if(!elm_entry_cursor_geometry_get((Evas_Object*) v_obj, &x, &y, &w, &h))
+                caml_failwith("elm_entry_cursor_geometry_get");
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        Store_field(v, 2, Val_int(w));
+        Store_field(v, 3, Val_int(h));
+        return v;
+}
+

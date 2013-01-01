@@ -68,3 +68,5 @@ val cursor_is_visible_format_get : Evas.obj -> bool
 
 val cursor_content_get : Evas.obj -> string
 
+val cursor_geometry_get : Evas.obj -> int * int * int * int
+
