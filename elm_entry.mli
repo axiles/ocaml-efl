@@ -119,3 +119,5 @@ val scrollable_set : Evas.obj -> bool -> unit
 
 val scrollable_get : Evas.obj -> bool
 
+val icon_visible_set : Evas.obj -> bool -> unit
+
