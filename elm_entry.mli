@@ -132,3 +132,5 @@ val bounce_get : Evas.obj -> bool * bool
 
 val input_panel_layout_set : Evas.obj -> Elm.input_panel_layout -> unit
 
+val input_panel_layout_get : Evas.obj -> Elm.input_panel_layout
+

@@ -459,3 +459,9 @@ PREFIX value ml_elm_entry_input_panel_layout_set(value v_obj, value v_layout)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_input_panel_layout_get(value v_obj)
+{
+        return Val_Elm_Input_Panel_Layout(elm_entry_input_panel_layout_get(
+                (Evas_Object*) v_obj));
+}
+

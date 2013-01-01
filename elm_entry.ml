@@ -169,3 +169,6 @@ external bounce_get : Evas.obj -> bool * bool = "ml_elm_entry_bounce_get"
 external input_panel_layout_set : Evas.obj -> Elm.input_panel_layout -> unit =
   "ml_elm_entry_input_panel_layout_set"
 
+external input_panel_layout_get : Evas.obj -> Elm.input_panel_layout =
+  "ml_elm_entry_input_panel_layout_get"
+
