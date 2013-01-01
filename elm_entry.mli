@@ -155,3 +155,6 @@ val input_panel_return_key_type_set :
 
 val input_panel_return_key_type_get :
   Evas.obj -> Elm.input_panel_return_key_type
+
+val input_panel_return_key_disabled_set : Evas.obj -> bool -> unit
+
