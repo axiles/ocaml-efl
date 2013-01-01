@@ -539,3 +539,9 @@ PREFIX value ml_elm_entry_input_panel_return_key_disabled_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_input_panel_return_key_disabled_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_input_panel_return_key_disabled_get(
+                (Evas_Object*) v_obj));
+}
+

@@ -158,3 +158,5 @@ val input_panel_return_key_type_get :
 
 val input_panel_return_key_disabled_set : Evas.obj -> bool -> unit
 
+val input_panel_return_key_disabled_get : Evas.obj -> bool
+

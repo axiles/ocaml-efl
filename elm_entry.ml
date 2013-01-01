@@ -207,3 +207,6 @@ external input_panel_return_key_type_get :
 external input_panel_return_key_disabled_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_input_panel_return_key_disabled_set"
 
+external input_panel_return_key_disabled_get : Evas.obj -> bool =
+  "ml_elm_entry_input_panel_return_key_disabled_get"
+
