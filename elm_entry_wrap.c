@@ -4,9 +4,22 @@ Evas_Object* ml_Elm_Entry_Item_Provider_Cb(
         void* data, Evas_Object* entry, const char* item)
 {
         value* v_fun = (value*) data;
-        value v_r = caml_callback2((value) entry, copy_string(item));
+        value v_r = caml_callback2(*v_fun, (value) entry, copy_string(item));
         if(v_r == Val_int(0)) return NULL;
         else return (Evas_Object*) Field(v_r, 0);
+}
+
+void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
+{
+        value* v_fun = (value*) data;
+        value v_r = caml_callback2(*v_fun, (value) entry, copy_string(*text));
+        free(*text);
+        if(v_r == Val_int(0)) *text = NULL;
+        else {
+                char* text1 = String_val(Field(v_r, 0));
+                *text = caml_stat_alloc(strlen(text1) + 1);
+                strcpy(*text, text1);
+        }
 }
 
 PREFIX value ml_elm_entry_add(value v_parent)
