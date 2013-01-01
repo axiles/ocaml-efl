@@ -126,3 +126,5 @@ val end_visible_set : Evas.obj -> bool -> unit
 val scrollbar_policy_set :
   Evas.obj -> Elm_scroller.policy -> Elm_scroller.policy -> unit
 
+val bounce_set : Evas.obj -> bool -> bool -> unit
+

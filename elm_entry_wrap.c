@@ -435,3 +435,10 @@ PREFIX value ml_elm_entry_scrollbar_policy_set(value v_obj, value v_h, value v_v
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_bounce_set(value v_obj, value v_h, value v_v)
+{
+        elm_entry_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),
+                Eina_Bool_val(v_v));
+        return Val_unit;
+}
+
