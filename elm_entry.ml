@@ -98,3 +98,6 @@ external selection_copy : Evas.obj -> unit = "ml_elm_entry_selection_copy"
 
 external selection_paste : Evas.obj -> unit = "ml_elm_entry_selection_paste"
 
+external context_menu_clear : Evas.obj -> unit =
+  "ml_elm_entry_context_menu_clear"
+

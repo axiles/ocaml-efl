@@ -80,3 +80,5 @@ val selection_copy : Evas.obj -> unit
 
 val selection_paste : Evas.obj -> unit
 
+val context_menu_clear : Evas.obj -> unit
+
