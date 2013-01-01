@@ -87,3 +87,5 @@ val context_menu_item_add :
 
 val context_menu_disabled_set : Evas.obj -> bool -> unit
 
+val context_menu_disabled_get : Evas.obj -> bool
+

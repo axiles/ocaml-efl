@@ -108,3 +108,6 @@ external context_menu_item_add :
 external context_menu_disabled_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_context_menu_disabled_set"
 
+external context_menu_disabled_get : Evas.obj -> bool =
+  "ml_elm_entry_context_menu_disabled_get"
+
