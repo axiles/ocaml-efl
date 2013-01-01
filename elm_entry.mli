@@ -162,3 +162,5 @@ val input_panel_return_key_disabled_get : Evas.obj -> bool
 
 val input_panel_return_key_autoenabled_set : Evas.obj -> bool -> unit
 
+val imf_context_reset : Evas.obj -> unit
+

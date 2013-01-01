@@ -553,3 +553,9 @@ PREFIX value ml_elm_entry_input_panel_return_key_autoenabled_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_imf_context_reset(value v_obj)
+{
+        elm_entry_imf_context_reset((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

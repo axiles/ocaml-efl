@@ -213,3 +213,4 @@ external input_panel_return_key_disabled_get : Evas.obj -> bool =
 external input_panel_return_key_autoenabled_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_input_panel_return_key_autoenabled_set"
 
+external imf_context_reset : Evas.obj -> unit = "ml_elm_entry_imf_context_reset"
