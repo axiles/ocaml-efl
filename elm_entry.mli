@@ -146,3 +146,5 @@ val input_panel_show : Evas.obj -> unit
 
 val input_panel_hide : Evas.obj -> unit
 
+val input_panel_language_set : Evas.obj -> Elm.input_panel_lang -> unit
+

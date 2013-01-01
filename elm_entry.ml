@@ -190,3 +190,6 @@ external input_panel_show : Evas.obj -> unit =
 external input_panel_hide : Evas.obj -> unit =
   "ml_elm_entry_input_panel_hide"
 
+external input_panel_language_set : Evas.obj -> Elm.input_panel_lang -> unit =
+  "ml_elm_entry_input_panel_language_set"
+
