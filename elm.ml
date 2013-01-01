@@ -6,6 +6,21 @@ type wrap_type = [`none | `char | `word | `mixed]
 
 type text_format = [`plain_utf8 | `markup_utf8]
 
+type input_panel_layout = [
+  | `normal
+  | `number
+  | `email
+  | `url
+  | `phonenumber
+  | `ip
+  | `month
+  | `numberonly
+  | `invalid
+  | `hex
+  | `terminal
+  | `password
+]
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)

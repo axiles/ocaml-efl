@@ -21,4 +21,16 @@ let () =
   g "auto";
   g "on";
   g "off";
+  g "normal";
+  g "number";
+  g "email";
+  g "url";
+  g "phonenumber";
+  g "ip";
+  g "month";
+  g "numberonly";
+  g "invalid";
+  g "hex";
+  g "terminal";
+  g "password";
   flush stdout

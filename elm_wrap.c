@@ -466,3 +466,44 @@ PREFIX inline value Val_Elm_Text_Format(Elm_Text_Format f)
         return Val_plain_utf8;
 }
 
+PREFIX inline Elm_Input_Panel_Layout Elm_Input_Panel_Layout_val(value v)
+{
+        switch(v) {
+                case Val_normal: return ELM_INPUT_PANEL_LAYOUT_NORMAL;
+                case Val_number: return ELM_INPUT_PANEL_LAYOUT_NUMBER;
+                case Val_email: return ELM_INPUT_PANEL_LAYOUT_EMAIL;
+                case Val_url: return ELM_INPUT_PANEL_LAYOUT_URL;
+                case Val_phonenumber: return ELM_INPUT_PANEL_LAYOUT_PHONENUMBER;
+                case Val_ip: return ELM_INPUT_PANEL_LAYOUT_IP;
+                case Val_month: return ELM_INPUT_PANEL_LAYOUT_MONTH;
+                case Val_numberonly: return ELM_INPUT_PANEL_LAYOUT_NUMBERONLY;
+                case Val_invalid: return ELM_INPUT_PANEL_LAYOUT_INVALID;
+                case Val_hex: return ELM_INPUT_PANEL_LAYOUT_HEX;
+                case Val_terminal: return ELM_INPUT_PANEL_LAYOUT_TERMINAL;
+                case Val_password: return ELM_INPUT_PANEL_LAYOUT_PASSWORD;
+        }
+        camlfailwith("Elm_Input_Panel_Layout_val");
+        return ELM_INPUT_PANEL_LAYOUT_NORMAL;
+}
+
+PREFIX inline value Val_Elm_Input_Panel_Layout(Elm_Input_Panel_Layout l)
+{
+        switch(l) {
+                case ELM_INPUT_PANEL_LAYOUT_NORMAL: return Val_normal;
+                case ELM_INPUT_PANEL_LAYOUT_NUMBER: return Val_number;
+                case ELM_INPUT_PANEL_LAYOUT_EMAIL: return Val_email;
+                case ELM_INPUT_PANEL_LAYOUT_URL: return Val_url;
+                case ELM_INPUT_PANEL_LAYOUT_PHONENUMBER: return Val_phonenumber;
+                case ELM_INPUT_PANEL_LAYOUT_IP: return Val_ip;
+                case ELM_INPUT_PANEL_LAYOUT_MONTH: return Val_month;
+                case ELM_INPUT_PANEL_LAYOUT_NUMBERONLY: return Val_numberonly;
+                case ELM_INPUT_PANEL_LAYOUT_INVALID: return Val_invalid;
+                case ELM_INPUT_PANEL_LAYOUT_HEX: return Val_hex;
+                case ELM_INPUT_PANEL_LAYOUT_TERMINAL: return Val_terminal;
+                case ELM_INPUT_PANEL_LAYOUT_PASSWORD: return Val_password;
+        }
+        caml_failwith("Val_Elm_Input_Pannel_Layout");
+        return Val_normal;
+}
+
+                

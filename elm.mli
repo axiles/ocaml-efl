@@ -6,6 +6,21 @@ type wrap_type = [`none | `char | `word | `mixed]
 
 type text_format = [`plain_utf8 | `markup_utf8]
 
+type input_panel_layout = [
+  | `normal
+  | `number
+  | `email
+  | `url
+  | `phonenumber
+  | `ip
+  | `month
+  | `numberonly
+  | `invalid
+  | `hex
+  | `terminal
+  | `password
+]
+
 val init : string array -> unit
 
 val run : unit -> unit
