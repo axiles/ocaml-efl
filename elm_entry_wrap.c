@@ -572,3 +572,9 @@ PREFIX value ml_elm_entry_prediction_allow_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_cnp_mode_set(value v_obj, value v_mode)
+{
+        elm_entry_cnp_mode_set((Evas_Object*) v_obj, Elm_Cnp_Mode_val(v_mode));
+        return Val_unit;
+}
+
