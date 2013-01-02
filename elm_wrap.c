@@ -597,7 +597,7 @@ PREFIX inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v)
         return ELM_CNP_MODE_MARKUP;
 }
 
-PREFIX inline value Val_elm_Cnp_Mode(Elm_Cnp_Mode m)
+PREFIX inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m)
 {
         switch(m) {
                 case ELM_CNP_MODE_MARKUP: return Val_markup;

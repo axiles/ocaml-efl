@@ -224,3 +224,5 @@ external prediction_allow_get : Evas.obj -> bool =
 external cnp_mode_set : Evas.obj -> Elm.cnp_mode -> unit =
   "ml_elm_entry_cnp_mode_set"
 
+external cnp_mode_get : Evas.obj -> Elm.cnp_mode = "ml_elm_entry_cnp_mode_get"
+

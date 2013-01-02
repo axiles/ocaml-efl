@@ -170,3 +170,5 @@ val prediction_allow_get : Evas.obj -> bool
 
 val cnp_mode_set : Evas.obj -> Elm.cnp_mode -> unit
 
+val cnp_mode_get : Evas.obj -> Elm.cnp_mode
+
