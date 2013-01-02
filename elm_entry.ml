@@ -235,3 +235,6 @@ external anchor_hover_parent_get : Evas.obj -> Evas.obj option =
 external anchor_hover_style_set : Evas.obj -> string -> unit =
   "ml_elm_entry_anchor_hover_style_set"
 
+external anchor_hover_style_get : Evas.obj -> string =
+  "ml_elm_entry_anchorèhover_style_get"
+
