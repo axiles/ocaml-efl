@@ -180,3 +180,5 @@ val anchor_hover_style_set : Evas.obj -> string -> unit
 
 val anchor_hover_style_get : Evas.obj -> string
 
+val anchor_hover_end : Evas.obj -> unit
+

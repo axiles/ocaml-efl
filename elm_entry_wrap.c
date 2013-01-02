@@ -616,3 +616,9 @@ PREFIX value ml_elm_entry_anchor_hover_style_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_anchor_hover_end(value v_obj)
+{
+        elm_entry_anchor_hover_end((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
