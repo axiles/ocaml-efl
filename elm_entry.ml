@@ -226,3 +226,6 @@ external cnp_mode_set : Evas.obj -> Elm.cnp_mode -> unit =
 
 external cnp_mode_get : Evas.obj -> Elm.cnp_mode = "ml_elm_entry_cnp_mode_get"
 
+external anchor_hover_parent_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_entry_anchor_hover_parent_set"
+

@@ -583,3 +583,10 @@ PREFIX value ml_elm_entry_cnp_mode_get(value v_obj)
         return Val_Elm_Cnp_Mode(elm_entry_cnp_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_anchor_hover_parent_set(value v_obj, value v_parent)
+{
+        elm_entry_anchor_hover_parent_set((Evas_Object*) v_obj,
+                (Evas_Object*) v_parent);
+        return Val_unit;
+}
+
