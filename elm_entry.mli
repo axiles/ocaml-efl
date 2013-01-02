@@ -176,3 +176,5 @@ val anchor_hover_parent_set : Evas.obj -> Evas.obj -> unit
 
 val anchor_hover_parent_get : Evas.obj -> Evas.obj option
 
+val anchor_hover_style_set : Evas.obj -> string -> unit
+
