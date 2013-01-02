@@ -26,4 +26,7 @@ PREFIX inline Elm_Input_Panel_Return_Key_Type
 PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
         Elm_Input_Panel_Return_Key_Type t);
 
+PREFIX inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v);
+PREFIX inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m);
+
 #endif

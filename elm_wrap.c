@@ -586,3 +586,26 @@ PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
         return Val_default;
 }
 
+PREFIX inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v)
+{
+        switch(v) {
+                case Val_markup: return ELM_CNP_MODE_MARKUP;
+                case Val_no_image: return ELM_CNP_MODE_NO_IMAGE;
+                case Val_plaintext: return ELM_CNP_MODE_PLAINTEXT;
+        }
+        caml_failwith("Elm_Cnp_Mode_val");
+        return ELM_CNP_MODE_MARKUP;
+}
+
+PREFIX inline value Val_elm_Cnp_Mode(Elm_Cnp_Mode m)
+{
+        switch(m) {
+                case ELM_CNP_MODE_MARKUP: return Val_markup;
+                case ELM_CNP_MODE_NO_IMAGE: return Val_no_image;
+                case ELM_CNP_MODE_PLAINTEXT: return Val_plaintext;
+        }
+        caml_failwith("Val_Elm_Cnp_Mode");
+        return Val_markup;
+}
+
+

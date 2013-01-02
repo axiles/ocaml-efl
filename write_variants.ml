@@ -45,4 +45,7 @@ let () =
   g "next";
   g "search";
   g "send";
+  g "markup";
+  g "no_image";
+  g "plaintext";
   flush stdout

@@ -36,6 +36,8 @@ type input_panel_return_key_type = [
   | `send
 ]
 
+type cnp_mode = [`markup | `no_image | `plaintext]
+
 val init : string array -> unit
 
 val run : unit -> unit

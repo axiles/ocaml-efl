@@ -36,6 +36,8 @@ type input_panel_return_key_type = [
   | `send
 ]
 
+type cnp_mode = [`markup | `no_image | `plaintext]
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)
