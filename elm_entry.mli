@@ -174,3 +174,5 @@ val cnp_mode_get : Evas.obj -> Elm.cnp_mode
 
 val anchor_hover_parent_set : Evas.obj -> Evas.obj -> unit
 
+val anchor_hover_parent_get : Evas.obj -> Evas.obj option
+

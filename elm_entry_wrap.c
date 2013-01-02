@@ -590,3 +590,16 @@ PREFIX value ml_elm_entry_anchor_hover_parent_set(value v_obj, value v_parent)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_anchor_hover_parent_get(value v_obj)
+{
+        Evas_Object* parent = elm_entry_anchor_hover_parent_get(
+                (Evas_Object*) v_obj);
+        value v;
+        if(parent == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, (value) parent);
+        }
+        return v;
+}
+
