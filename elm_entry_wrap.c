@@ -566,3 +566,9 @@ PREFIX value ml_elm_entry_prediction_allow_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_prediction_allow_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_prediction_allow_get(
+                (Evas_Object*) v_obj));
+}
+

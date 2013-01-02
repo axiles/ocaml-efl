@@ -218,3 +218,6 @@ external imf_context_reset : Evas.obj -> unit = "ml_elm_entry_imf_context_reset"
 external prediction_allow_set : Evas.obj -> bool -> unit =
   "ml_elm_entry_prediction_allow_set"
 
+external prediction_allow_get : Evas.obj -> bool =
+  "ml_elm_entry_prediction_allow_get"
+

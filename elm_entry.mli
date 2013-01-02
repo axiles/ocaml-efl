@@ -166,3 +166,5 @@ val imf_context_reset : Evas.obj -> unit
 
 val prediction_allow_set : Evas.obj -> bool -> unit
 
+val prediction_allow_get : Evas.obj -> bool
+
