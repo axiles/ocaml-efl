@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: c486446219e3f984e03b5272551b136d)
+# DO NOT EDIT (digest: e9f070e8e1266f829c714e871802015a)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -13,4 +13,27 @@
 ".git": not_hygienic
 "_darcs": -traverse
 "_darcs": not_hygienic
+# Library efl
+"efl.cmxs": use_efl
+"evas.cmx": for-pack(Efl)
+"evas_object.cmx": for-pack(Efl)
+"evas_object_smart.cmx": for-pack(Efl)
+"edje.cmx": for-pack(Efl)
+"elm.cmx": for-pack(Efl)
+"elm_object.cmx": for-pack(Efl)
+"elm_layout.cmx": for-pack(Efl)
+"elm_scroller.cmx": for-pack(Efl)
+"elm_win.cmx": for-pack(Efl)
+"elm_bg.cmx": for-pack(Efl)
+"elm_label.cmx": for-pack(Efl)
+"elm_box.cmx": for-pack(Efl)
+"elm_button.cmx": for-pack(Efl)
+"elm_frame.cmx": for-pack(Efl)
+"elm_icon.cmx": for-pack(Efl)
+"elm_entry.cmx": for-pack(Efl)
+<efl.{cma,cmxa}>: use_libefl_stubs
 # OASIS_STOP
+<eina_*>: efl
+<evas_*>: efl
+<edje_*>: efl
+<elm_*>: efl
