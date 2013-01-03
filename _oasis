@@ -4,7 +4,7 @@ Name: ocaml-efl
 Version: 0.01
 Synopsis: An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 License: zlib
-Authors: Alexis Bernadet <alexis.bernadet@noos.fr>
+Authors: Alexis Bernadet <alexis.bernadet ate noos.fr>
 BuildTools: ocamlbuild
 Library efl
   Path: .
@@ -27,4 +27,29 @@ Executable test
   BuildDepends: efl
   MainIs: test.ml
   CompiledObject: best
-
+Executable test2
+  Path: .
+  Install: false
+  BuildDepends: efl
+  MainIs: test2.ml
+  CompiledObject: byte
+Executable test3
+  Path: .
+  Install: false
+  BuildDepends: efl
+  MainIs: test3.ml
+Executable test4
+  Path: .
+  Install: false
+  BuildDepends: efl
+  MainIs: test4.ml
+Executable test5
+  Path: .
+  Install: false
+  BuildDepends: efl
+  MainIs: test5.ml
+Executable test6
+  Path: .
+  Install: false
+  BuildDepends: efl
+  MainIs: test6.ml
