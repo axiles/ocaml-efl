@@ -1,5 +1,6 @@
 open Printf
 open Scanf
+open Efl
 
 let () =
   Elm.init Sys.argv;
