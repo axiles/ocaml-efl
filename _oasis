@@ -21,6 +21,12 @@ Library efl
     include.h, eina_wrap.c, eina_wrap.h, evas_wrap.c, evas_wrap.h, edje_wrap.c,
     edje_wrap.h, elm_wrap.c, elm_wrap.h, elm_scroller_wrap.c,
     elm_scroller_wrap.h, elm_button_wrap.c, elm_label_wrap.c, elm_entry_wrap.c
+Document efl_doc
+  Type: ocamlbuild (0.3)
+  BuildTools: ocamldoc
+  Title: API of ocaml-efl
+  XOCamlbuildPath: .
+  XOCamlbuildLibraries: efl
 Executable test
   Path: .
   Install: false
