@@ -579,6 +579,7 @@ open Printf
 
 let ( & ) f x  = f x
 
+(* The file variants.h is generated: this function adds the rules of builing *)
 let write_variants () =
   let action env builder =
     Cmd (S [!Options.ocamlc; A "-custom"; A "-o"; P "write_variants";
@@ -595,35 +596,19 @@ let () = dispatch & fun h ->
   dispatch_default h;
   match h with
   | After_options ->
-    let env = BaseEnvLight.load () in 
     write_variants ();
-    (*flag ["c"; "compile"; "efl"]
-      (Sh (sprintf "-ccopt \"%s\"" (BaseEnvLight.var_get "elementary_cflags" env)));
-    flag ["file:efl.cmxa"] (Sh "-cclib \"-L/usr/local/include -lelementary -lm \
-    -leet -levas -lecore -leina -lecore_evas -lecore_file -ledje -lefreet \
-    -lefreet_mime -lefreet_trash -ledbus -ldbus-1 -lpthread -lrt \
-    -lethumb_client -lecore_imf -lecore_con\"");*)
 
-    let elementary_cflags = (*"`pkg-config --cflags elementary`"*)
-      BaseEnvLight.var_get "elementary_cflags" env in
-    let elementary_libs = (*"`pkg-config --libs elementary`"*)
-      BaseEnvLight.var_get "elementary_libs_only_L" env in
+    (* Get the values of the env variables *)
+    let env = BaseEnvLight.load () in 
+    let elementary_cflags = BaseEnvLight.var_get "elementary_cflags" env in
+    let elementary_libs = BaseEnvLight.var_get "elementary_libs_only_L" env in
 
+    (* Insert the flags about the EFL *)
     flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
     flag ["link"; "byte"] & S [P "dllefl_stubs.so"; A "-dllib";
       A "-lefl_stubs"];
-    (*dep ["link"; "native"] ["libefl_stubs.a"];*)
     flag ["link"; "native"] &
       S [Sh (sprintf "-cclib \"%s\"" elementary_libs)];
     flag ["ocamlmklib"] (Sh elementary_libs);
 
-    (*flag ["file:efl.cmxa"] (A "-linkpkg");*)
-
-    (*flag ["ocamlmklib"]
-      (Sh (BaseEnvLight.var_get "elementary_libs" env));
-    flag ["file:efl.cmxa"] (Sh (BaseEnvLight.var_get "elementary_cclib" env));
-    flag ["ocamlmklib"] (Sh (BaseEnvLight.var_get "elementary_cclib" env));*)
-    (*flag ["file:efl.cma"]
-      (Sh (sprintf "-cclib \"%s\"" (BaseEnvLight.var_get "elementary_libs"
-      env)));*)
   | _ -> ()

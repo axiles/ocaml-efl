@@ -5765,12 +5765,16 @@ let setup () = BaseSetup.setup setup_t;;
 open Format
 
 let () =
+
+  (* We use pkg-config to find the EFL *)
   let pkgconfig =
     try OASISFileUtil.which ~ctxt:!BaseContext.default "pkg-config" with
     | Not_found ->
         BaseMessage.error "Could not find pkg-config";
         assert false in
   let _ = BaseEnv.var_define "pkg_config" (fun () -> pkgconfig) in
+
+  (* Variables about where the EFL are installed *)
   let f s opt =
     let check_error i =
       if i <> 0 then BaseMessage.error "Could not find Elementary" in
@@ -5780,15 +5784,5 @@ let () =
     let _ = BaseEnv.var_define s (fun () -> s1) in
     () in
   f "elementary_cflags" "--cflags";
-  f "elementary_libs" "--libs";
   f "elementary_libs_only_L" "--libs-only-L";
-  let elementary_cclib =
-    let list = OASISString.nsplit (BaseEnv.var_get "elementary_libs") ' ' in
-    let buf = Buffer.create 255 in
-    let fmt = formatter_of_buffer buf in
-    List.iter (fun x -> if x <> "" then fprintf fmt " -cclib %s" x) list;
-    fprintf fmt "%!";
-    Buffer.contents buf in
-  let _ = BaseEnv.var_define ~hide:true "elementary_cclib"
-    (fun () -> elementary_cclib) in
   setup ();;
