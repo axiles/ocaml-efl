@@ -34,14 +34,28 @@ type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
 
+type change_info
+
 type filter_limit_size = {
   mutable max_char_count : int;
   mutable max_byte_count : int
 }
 
-type change_info
-
 type filter_accept_set = {mutable accepted : string; mutable rejected : string}
+
+type text_format = Elm.text_format
+
+type wrap_type = Elm.wrap_type
+
+type input_panel_layout = Elm.input_panel_layout
+
+type input_panel_lang = Elm.input_panel_lang
+
+type autocapital_type = Elm.autocapital_type
+
+type input_panel_return_key_type = Elm.input_panel_return_key_type
+
+type cnp_mode = Elm.cnp_mode
 
 val add : Evas.obj -> Evas.obj
 

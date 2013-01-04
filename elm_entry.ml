@@ -29,6 +29,20 @@ type filter_limit_size = {
 
 type filter_accept_set = {mutable accepted : string; mutable rejected : string}
 
+type text_format = Elm.text_format
+
+type wrap_type = Elm.wrap_type
+
+type input_panel_layout = Elm.input_panel_layout
+
+type input_panel_lang = Elm.input_panel_lang
+
+type autocapital_type = Elm.autocapital_type
+
+type input_panel_return_key_type = Elm.input_panel_return_key_type
+
+type cnp_mode = Elm.cnp_mode
+
 external add : Evas.obj -> Evas.obj = "ml_elm_entry_add"
 
 external text_style_user_push : Evas.obj -> string -> unit =

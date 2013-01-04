@@ -2,9 +2,9 @@ type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]
 
-type wrap_type = [`none | `char | `word | `mixed]
-
 type text_format = [`plain_utf8 | `markup_utf8]
+
+type wrap_type = [`none | `char | `word | `mixed]
 
 type input_panel_layout = [
   | `normal
@@ -21,9 +21,9 @@ type input_panel_layout = [
   | `password
 ]
 
-type autocapital_type = [`none | `word | `sentence | `allcharacter]
-
 type input_panel_lang = [`automatic | `alphabet]
+
+type autocapital_type = [`none | `word | `sentence | `allcharacter]
 
 type input_panel_return_key_type = [
   | `default
