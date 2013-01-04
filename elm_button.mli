@@ -1,3 +1,5 @@
+(** elm_button_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val autorepeat_gap_timeout_get : Evas.obj -> float
