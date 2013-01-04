@@ -39,6 +39,8 @@ type filter_limit_size = {
   mutable max_byte_count : int
 }
 
+type change_info
+
 type filter_accept_set = {mutable accepted : string; mutable rejected : string}
 
 val add : Evas.obj -> Evas.obj

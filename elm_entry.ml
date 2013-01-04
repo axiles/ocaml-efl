@@ -20,6 +20,8 @@ type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
 
+type change_info
+
 type filter_limit_size = {
   mutable max_char_count : int;
   mutable max_byte_count : int
