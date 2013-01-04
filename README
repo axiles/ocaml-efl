@@ -1,22 +1,51 @@
-Known issues:
+(* OASIS_START *)
+(* DO NOT EDIT (digest: 67849e66c62dad569b35462f8ff8f7c9) *)
+This is the README file for the ocaml-efl distribution.
 
-- Using this library in OCaml interactive mode can lead to a crash:
+An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 
-        Objective Caml version 3.12.1
+OCaml
 
-# open Efl;;
-# Elm.init Sys.argv;;
-WARNING: gnome-keyring:: couldn't connect to: /tmp/keyring-INmpHp/pkcs11: No such file or directory
-- : unit = ()
-# let win = Elm_win.add "hello" `basic;;
-Erreur de segmentation (core dumped)
+OCaml, originally known as Objective Caml, is the main implementation of the
+Caml programming language, created by Xavier Leroy, Jérôme Vouillon, Damien
+Doligez, Didier Rémy and others in 1996. OCaml extends the core Caml
+language with object-oriented constructs.
 
-- Some examples do not work for native compilation.
+OCaml's toolset includes an interactive top level interpreter, a bytecode
+compiler, and an optimizing native code compiler. It has a large standard
+library that makes it useful for many of the same applications as Python or
+Perl, as well as robust modular and object-oriented programming constructs
+that make it applicable for large-scale software engineering. OCaml is the
+successor to Caml Light. The acronym CAML originally stood for Categorical
+Abstract Machine Language, although OCaml abandons this abstract machine.
 
-Currently, the best way to avoid these problems is to set the environement
-variable EVAS_CPU_NO_SSE3 to 1:
+OCaml is a free open source project managed and principally maintained by
+INRIA.
 
-export EVAS_CPU_NO_SSE3=1
+Homepage: http://caml.inria.fr/index.en.html
 
-An other way is configuring evas with --disable-cpu-sse3.
+Enlightenment Foundation Libraries (EFL)
 
+The Enlightenment Foundation Libraries (EFL) are a set of open source
+graphics libraries that grew out of the development of the Enlightenment
+window manager. EFL is developed by Enlightenment.org with some sponsorship
+from Samsung, ProFUSION and Free.fr.[1] The project's focus is to make the
+EFL a flexible yet powerful and easy to use set of tools to extend the
+capabilities of both the Enlightenment window manager and other software
+projects based on the EFL. The libraries were created for version 0.17 of the
+window manager. The libraries are meant to be portable and optimized to be
+functional even on devices such as PDAs.
+
+Homepage: http://www.enlightenment.org/
+
+Current state of the interface
+
+This is still the early stage of the development of the interface. A few
+examples can be run.
+
+The last version can be obtained here: https://github.com/axiles/ocaml-efl
+
+
+
+
+(* OASIS_STOP *)

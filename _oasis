@@ -1,11 +1,56 @@
 OASISFormat: 0.3
-Plugins: META (0.3)
+Plugins: META (0.3), StdFiles (0.3)
 Name: ocaml-efl
 Version: 0.01
 Synopsis: An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 License: zlib
+Description:
+  OCaml
+  .
+  OCaml, originally known as Objective Caml, is the main implementation of the
+  Caml programming language, created by Xavier Leroy, Jérôme Vouillon, Damien
+  Doligez, Didier Rémy and others in 1996. OCaml extends the core Caml language
+  with object-oriented constructs.
+  .
+  OCaml's toolset includes an interactive top level interpreter, a bytecode
+  compiler, and an optimizing native code compiler. It has a large standard
+  library that makes it useful for many of the same applications as Python or
+  Perl, as well as robust modular and object-oriented programming constructs
+  that make it applicable for large-scale software engineering. OCaml is the
+  successor to Caml Light. The acronym CAML originally stood for Categorical
+  Abstract Machine Language, although OCaml abandons this abstract machine.
+  .
+  OCaml is a free open source project managed and principally maintained by
+  INRIA.
+  .
+  Homepage: http://caml.inria.fr/index.en.html
+  .
+  Enlightenment Foundation Libraries (EFL)
+  .
+  The Enlightenment Foundation Libraries (EFL) are a set of open source graphics
+  libraries that grew out of the development of the Enlightenment window
+  manager. EFL is developed by Enlightenment.org with some sponsorship from
+  Samsung, ProFUSION and Free.fr.[1] The project's focus is to make the EFL a
+  flexible yet powerful and easy to use set of tools to extend the capabilities
+  of both the Enlightenment window manager and other software projects based on
+  the EFL. The libraries were created for version 0.17 of the window manager.
+  The libraries are meant to be portable and optimized to be functional even on
+  devices such as PDAs.
+  .
+  Homepage: http://www.enlightenment.org/
+  .
+  Current state of the interface
+  .
+  This is still the early stage of the development of the interface. A few
+  examples can be run.
+  .
+  The last version can be obtained here: https://github.com/axiles/ocaml-efl
+
 Authors: Alexis Bernadet <alexis.bernadet ate noos.fr>
 BuildTools: ocamlbuild
+XStdFilesREADMEFileName: README
+XStdFilesINSTALL: false
+XStdFilesAUTHORSFilename: AUTHORS
 Library efl
   Path: .
   Pack: true
