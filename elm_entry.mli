@@ -177,6 +177,8 @@ val prediction_allow_get : Evas.obj -> bool
 
 val filter_limit_size : filter_limit_size -> filter_cb
 
+val filter_accept_set : filter_accept_set -> filter_cb
+
 val cnp_mode_set : Evas.obj -> Elm.cnp_mode -> unit
 
 val cnp_mode_get : Evas.obj -> Elm.cnp_mode

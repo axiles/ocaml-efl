@@ -232,6 +232,10 @@ external filter_limit_size :
   filter_limit_size -> Evas.obj -> string -> string option  =
   "ml_elm_entry_filter_limit_size"
 
+external filter_accept_set :
+  filter_accept_set -> Evas.obj -> string -> string option =
+  "ml_elm_entry_filter_accept_set"
+
 external cnp_mode_set : Evas.obj -> Elm.cnp_mode -> unit =
   "ml_elm_entry_cnp_mode_set"
 

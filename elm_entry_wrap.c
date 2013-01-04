@@ -630,6 +630,24 @@ PREFIX value ml_elm_entry_filter_limit_size(
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_entry_filter_accept_set(
+        value v_as, value v_obj, value v_text)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        char* text = caml_stat_alloc(strlen(String_val(v_text)) + 1);
+        strcpy(text, String_val(v_text));
+        Elm_Entry_Filter_Accept_Set as = Elm_Entry_Filter_Accept_Set_val(v_as);
+        elm_entry_filter_accept_set(&as, (Evas_Object*) v_obj, &text);
+        if(text == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(text));
+                free(text);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_entry_cnp_mode_set(value v_obj, value v_mode)
 {
         elm_entry_cnp_mode_set((Evas_Object*) v_obj, Elm_Cnp_Mode_val(v_mode));
