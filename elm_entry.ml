@@ -7,6 +7,15 @@ type anchor_info = {
   h : int;
 }
 
+type anchor_hover_info = {
+  anchor_info : anchor_info;
+  hover : Evas.obj;
+  hover_left : bool;
+  hover_right : bool;
+  hover_top : bool;
+  hover_bottom : bool;
+}
+
 type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
@@ -267,4 +276,7 @@ external anchor_hover_end : Evas.obj -> unit =
 
 external anchor_info_of_ptr : Evas.ptr -> anchor_info =
   "ml_elm_entry_anchor_info_of_ptr"
+
+external anchor_hover_info_of_ptr : Evas.ptr -> anchor_hover_info =
+  "ml_elm_entry_anchor_hover_info_of_ptr"
 

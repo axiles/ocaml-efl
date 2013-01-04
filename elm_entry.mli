@@ -21,6 +21,15 @@ type anchor_info = {
   h : int;
 }
 
+type anchor_hover_info = {
+  anchor_info : anchor_info;
+  hover : Evas.obj;
+  hover_left : bool;
+  hover_right : bool;
+  hover_top : bool;
+  hover_bottom : bool;
+}
+
 type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
@@ -215,6 +224,8 @@ val anchor_hover_style_set : Evas.obj -> string -> unit
 val anchor_hover_style_get : Evas.obj -> string
 
 val anchor_hover_end : Evas.obj -> unit
+
+val anchor_info_of_ptr : Evas.ptr -> anchor_info
 
 val anchor_info_of_ptr : Evas.ptr -> anchor_info
 

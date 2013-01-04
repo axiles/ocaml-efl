@@ -713,3 +713,20 @@ PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        Elm_Entry_Anchor_Hover_Info* info =
+                (Elm_Entry_Anchor_Hover_Info*) v_ptr;
+        v = caml_alloc(6, 0);
+        Store_field(v, 0, ml_elm_entry_anchor_info_of_ptr(
+                (value) info->anchor_info));
+        Store_field(v, 1, (value) info->hover);
+        Store_field(v, 2, Val_Eina_Bool(info->hover_left));
+        Store_field(v, 3, Val_Eina_Bool(info->hover_right));
+        Store_field(v, 4, Val_Eina_Bool(info->hover_top));
+        Store_field(v, 5, Val_Eina_Bool(info->hover_bottom));
+        CAMLreturn(v);
+}
+
