@@ -1,3 +1,12 @@
+type anchor_info = {
+  name : string;
+  button : int;
+  x : int;
+  y : int;
+  w : int;
+  h : int;
+}
+
 type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
@@ -255,4 +264,7 @@ external anchor_hover_style_get : Evas.obj -> string =
 
 external anchor_hover_end : Evas.obj -> unit =
   "ml_elm_entry_anchor_hover_end"
+
+external anchor_info_of_ptr : Evas.ptr -> anchor_info =
+  "ml_elm_entry_anchor_info_of_ptr"
 

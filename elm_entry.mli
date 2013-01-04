@@ -12,6 +12,15 @@ Functions that will not be interfaced:
 
 *)
 
+type anchor_info = {
+  name : string;
+  button : int;
+  x : int;
+  y : int;
+  w : int;
+  h : int;
+}
+
 type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
@@ -206,4 +215,6 @@ val anchor_hover_style_set : Evas.obj -> string -> unit
 val anchor_hover_style_get : Evas.obj -> string
 
 val anchor_hover_end : Evas.obj -> unit
+
+val anchor_info_of_ptr : Evas.ptr -> anchor_info
 

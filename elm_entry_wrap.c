@@ -698,3 +698,18 @@ PREFIX value ml_elm_entry_anchor_hover_end(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        Elm_Entry_Anchor_Info* info = (Elm_Entry_Anchor_Info*) v_ptr;
+        v = caml_alloc(6, 0);
+        Store_field(v, 0, copy_string(info->name));
+        Store_field(v, 1, Val_int(info->button));
+        Store_field(v, 2, Val_int(info->x));
+        Store_field(v, 3, Val_int(info->y));
+        Store_field(v, 4, Val_int(info->w));
+        Store_field(v, 5, Val_int(info->h));
+        CAMLreturn(v);
+}
+
