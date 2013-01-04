@@ -2,6 +2,11 @@ type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
 
+type filter_limit_size = {
+  mutable max_char_count : int;
+  mutable max_byte_count : int
+}
+
 external add : Evas.obj -> Evas.obj = "ml_elm_entry_add"
 
 external text_style_user_push : Evas.obj -> string -> unit =

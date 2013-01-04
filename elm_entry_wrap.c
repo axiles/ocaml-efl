@@ -22,6 +22,24 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
         }
 }
 
+PREFIX inline Elm_Entry_Filter_Limit_Size
+        Elm_Entry_Filter_Limit_Size_val(value v)
+{
+        Elm_Entry_Filter_Limit_Size ls;
+        ls.max_char_count = Int_val(Field(v, 0));
+        ls.max_byte_count = Int_val(Field(v, 1));
+        return ls;
+}
+
+PREFIX inline value
+        copy_Elm_Entry_Filter_Limit_Size(Elm_Entry_Filter_Limit_Size ls)
+{
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(ls.max_char_count));
+        Store_field(v, 1, Val_int(ls.max_byte_count));
+        return v;
+}
+
 PREFIX value ml_elm_entry_add(value v_parent)
 {
         Evas_Object* entry = elm_entry_add((Evas_Object*) v_parent);
