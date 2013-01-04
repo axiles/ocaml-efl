@@ -590,6 +590,24 @@ PREFIX value ml_elm_entry_prediction_allow_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_filter_limit_size(
+        value v_ls, value v_obj, value v_text)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        char* text = caml_stat_alloc(strlen(String_val(v_text)) + 1);
+        Elm_Entry_Filter_Limit_Size ls = Elm_Entry_Filter_Limit_Size_val(v_ls);
+        strcpy(text, String_val(v_text));
+        elm_entry_filter_limit_size(&ls, (Evas_Object*) v_obj, &text);
+        if(text == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(text));
+                free(text);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_entry_cnp_mode_set(value v_obj, value v_mode)
 {
         elm_entry_cnp_mode_set((Evas_Object*) v_obj, Elm_Cnp_Mode_val(v_mode));
