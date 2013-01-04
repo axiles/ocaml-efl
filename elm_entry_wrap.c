@@ -55,8 +55,10 @@ PREFIX inline copy_Elm_Entry_Filter_Accept_Set(Elm_Entry_Filter_Accept_Set as)
         CAMLparam0();
         CAMLlocal1(v);
         v = caml_alloc(2, 0);
-        Store_field(v, 0, copy_string(as.accepted));
-        Store_field(v, 1, copy_string(as.rejected));
+        if(as.accepted == NULL) Store_field(v, 0, copy_string(""));
+        else Store_field(v, 0, copy_string(as.accepted));
+        if(as.rejected == NULL) Store_field(v, 1, copy_string(""));
+        else Store_field(v, 1, copy_string(as.rejected));
         CAMLreturn(v);
 }
 
