@@ -1,3 +1,17 @@
+(** elm_entry_* Elm_Entry_*
+
+Functions not interfaced yet:
+
+- elm_entry_input_panel_imdata_get
+- elm_entry_input_panel_imdata_set
+
+Functions that will not be interfaced:
+
+- elm_entry_item_provider_remove
+- elm_entry_markup_filter_remove
+
+*)
+
 type item_provider_cb = Evas.obj -> string -> Evas.obj option
 
 type filter_cb = Evas.obj -> string -> string option
