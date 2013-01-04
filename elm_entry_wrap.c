@@ -40,6 +40,26 @@ PREFIX inline value
         return v;
 }
 
+/* WARNING: You must not use the GC when using the result */
+PREFIX inline Elm_Entry_Filter_Accept_Set
+        Elm_Entry_Filter_Accept_Set_val(value v)
+{
+        Elm_Entry_Filter_Accept_Set as;
+        as.accepted = String_val(Field(v, 0));
+        as.rejected = String_val(Field(v, 1));
+        return as;
+}
+
+PREFIX inline copy_Elm_Entry_Filter_Accept_Set(Elm_Entry_Filter_Accept_Set as)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_string(as.accepted));
+        Store_field(v, 1, copy_string(as.rejected));
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_entry_add(value v_parent)
 {
         Evas_Object* entry = elm_entry_add((Evas_Object*) v_parent);

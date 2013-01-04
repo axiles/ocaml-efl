@@ -7,6 +7,8 @@ type filter_limit_size = {
   mutable max_byte_count : int
 }
 
+type filter_accept_set = {mutable accepted : string; mutable rejected : string}
+
 external add : Evas.obj -> Evas.obj = "ml_elm_entry_add"
 
 external text_style_user_push : Evas.obj -> string -> unit =
