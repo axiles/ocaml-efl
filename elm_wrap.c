@@ -608,4 +608,9 @@ PREFIX inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m)
         return Val_markup;
 }
 
+PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
+{
+        elm_object_disabled_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
 
