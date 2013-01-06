@@ -45,3 +45,5 @@ external disabled_set : Evas.obj -> bool -> unit = "ml_elm_object_disabled_set"
 
 external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
 
+external focus_set : Evas.obj -> bool -> unit = "ml_elm_object_focus_set"
+

@@ -619,3 +619,9 @@ PREFIX value ml_elm_object_disabled_get(value v_obj)
         return Val_Eina_Bool(elm_object_disabled_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_focus_set(value v_obj, value v_flag)
+{
+        elm_object_focus_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

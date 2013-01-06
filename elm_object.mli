@@ -30,3 +30,5 @@ val disabled_set : Evas.obj -> bool -> unit
 
 val disabled_get : Evas.obj -> bool
 
+val focus_set : Evas.obj -> bool -> unit
+
