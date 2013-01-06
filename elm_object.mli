@@ -28,3 +28,5 @@ val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
 val disabled_set : Evas.obj -> bool -> unit
 
+val disabled_get : Evas.obj -> bool
+
