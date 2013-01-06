@@ -1,3 +1,7 @@
+let edit_buffer_insert e text =
+  Elm_entry.entry_insert e text;
+  Elm_object.focus_set e true
+
 let () =
   Elm.init Sys.argv;
   
