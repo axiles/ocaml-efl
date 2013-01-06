@@ -2,6 +2,9 @@ let edit_buffer_insert e text =
   Elm_entry.entry_insert e text;
   Elm_object.focus_set e true
 
+let size_array = ["size"; "absize"; "relsize"]
+let vsize_array = ["full"; "ascent"]
+
 let () =
   Elm.init Sys.argv;
   
