@@ -160,7 +160,7 @@ val markup_to_utf8 : string -> string
 
 val utf8_to_markup : string -> string
 
-val file_set : Evas.obj -> string -> Elm.text_format -> unit
+val file_set : Evas.obj -> string -> Elm.text_format -> bool
 
 val file_get : Evas.obj -> string * Elm.text_format
 
