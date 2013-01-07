@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 532f5d0acff4190b54cc4f748b68ff02)
+# DO NOT EDIT (digest: 7258f544612bb27f7e7aa6ebf4a69a6d)
 Evas
 Evas_object
 Evas_object_smart
@@ -18,4 +18,6 @@ Elm_icon
 Elm_entry
 Elm_gengrid
 Elm_check
+Elm_inwin
+Elm_win_inwin
 # OASIS_STOP
