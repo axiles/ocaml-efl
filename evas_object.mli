@@ -14,3 +14,5 @@ val hide : Evas.obj -> unit
 
 val color_set : Evas.obj -> int -> int -> int -> int -> unit
 
+val del : Evas.obj -> unit
+

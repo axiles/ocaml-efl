@@ -77,3 +77,9 @@ PREFIX value ml_evas_object_color_set(
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_del(value v_obj)
+{
+        evas_object_del((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

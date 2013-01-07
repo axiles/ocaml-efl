@@ -20,3 +20,5 @@ external hide : Evas.obj -> unit = "ml_evas_object_hide"
 external color_set : Evas.obj -> int -> int -> int -> int -> unit =
   "ml_evas_object_color_set"
 
+external del : Evas.obj -> unit = "ml_evas_object_del"
+
