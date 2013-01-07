@@ -643,3 +643,10 @@ PREFIX value ml_elm_check_state_get(value v_obj)
         return Val_Eina_Bool(elm_check_state_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_inwin_add(value v_parent)
+{
+        Evas_Object* obj = elm_win_inwin_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_win_inwin_add");
+        return (value) obj;
+}
+
