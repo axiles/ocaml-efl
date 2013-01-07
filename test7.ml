@@ -72,9 +72,28 @@ let () =
     Evas_object.size_hint_align_set inwin Evas.hint_fill Evas.hint_fill;
     Evas_object.show inwin;
 
-    (*let box = Elm_box.add win in
-    Evas_object.size_hint_weight_set Evas.hint_xpand Evas.hint_expand;
-    Evas_object.size_hitn_align_set Evas.hint_fill Evas.hint_fill;*) in
+    let box = Elm_box.add win in
+    Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
+    Evas_object.size_hint_align_set box Evas.hint_fill Evas.hint_fill;
+    Elm_inwin.content_set inwin box;
+    Evas_object.show box;
+
+    let box2 = Elm_box.add win in
+    Elm_box.horizontal_set box2 true;
+    Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
+    Evas_object.size_hint_align_set box2 Evas.hint_fill Evas.hint_fill;
+    Elm_box.pack_end box box2;
+    Evas_object.show box2;
+
+    let o = Elm_button.add win in
+    Elm_object.text_set o "Cancel";
+    Evas_object.size_hint_weight_set o Evas.hint_expand Evas.hint_expand;
+    Evas_object.size_hint_align_set o Evas.hint_fill Evas.hint_fill;
+    Elm_box.pack_end box2 o;
+    Evas_object.show o;
+
+    let cancel_cb _ _ = Evas_object.del inwin in
+    Evas_object_smart.callback_add o "clicked" cancel_cb in
   Evas_object_smart.callback_add image_insert_bt "clicked" image_insert_cb;
 
   Elm_object.focus_set en true;
