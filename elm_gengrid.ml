@@ -7,3 +7,7 @@ type item_class = {
 
 external add : Evas.obj -> Evas.obj = "ml_elm_gengrid_add"
 
+external item_append :
+  Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item =
+  "ml_elm_gengrid_item_append"
+

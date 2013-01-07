@@ -7,3 +7,5 @@ type item_class = {
 
 val add : Evas.obj -> Evas.obj
 
+val item_append : Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item
+

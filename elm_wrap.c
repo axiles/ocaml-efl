@@ -720,3 +720,20 @@ PREFIX value ml_elm_gengrid_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_gengrid_item_append(
+        value v_obj, value v_class, value v_func)
+{
+        Elm_Gengrid_Item_Class* class;
+        void* data;
+        ml_Elm_Gengrid_Item_Class(&class, &data, v_class);
+
+        value* data_func = caml_stat_alloc(sizeof(value*));
+        caml_register_global_root(data_func);
+
+        Elm_Object_Item* item = elm_gengrid_item_append((Evas_Object*) v_obj,
+                class, data, ml_Evas_Smart_Cb, data_func);
+
+        if(item == NULL) caml_failwith("elm_gengrid_item_append");
+        return (value) item;
+}
+
