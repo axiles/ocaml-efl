@@ -1,3 +1,5 @@
+type item
+
 external text_set : Evas.obj -> string -> unit = "ml_elm_object_text_set"
 
 external style_set_with_bool : Evas.obj -> string -> bool =

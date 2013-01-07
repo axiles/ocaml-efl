@@ -1,3 +1,5 @@
+type item
+
 val text_set : Evas.obj -> string -> unit
 
 val style_set_with_bool : Evas.obj -> string -> bool
