@@ -657,3 +657,10 @@ PREFIX value ml_elm_win_inwin_content_set(value v_obj, value v_content)
         return Val_unit;
 }
 
+PREFIX value ml_elm_naviframe_add(value v_parent)
+{
+        Evas_Object* obj = elm_naviframe_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_naviframe_add");
+        return (value) obj;
+}
+
