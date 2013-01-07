@@ -738,3 +738,10 @@ PREFIX value ml_elm_gengrid_item_append(
         return (value) item;
 }
 
+PREFIX value ml_elm_gengrid_item_size_set(value v_obj, value v_w, value v_h)
+{
+        elm_gengrid_item_size_set((Evas_Object*) v_obj, Int_val(v_w),
+                Int_val(v_h));
+        return Val_unit;
+}
+

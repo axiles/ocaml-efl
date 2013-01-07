@@ -11,3 +11,6 @@ external item_append :
   Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item =
   "ml_elm_gengrid_item_append"
 
+external item_size_set : Evas.obj -> int -> int -> unit =
+  "ml_elm_gengrid_item_size_set"
+
