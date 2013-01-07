@@ -732,6 +732,7 @@ PREFIX value ml_elm_gengrid_item_append(
 
         Elm_Object_Item* item = elm_gengrid_item_append((Evas_Object*) v_obj,
                 class, data, ml_Evas_Smart_Cb, data_func);
+        elm_gengrid_item_class_free(class);
 
         if(item == NULL) caml_failwith("elm_gengrid_item_append");
         return (value) item;
