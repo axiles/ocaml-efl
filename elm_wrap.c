@@ -650,3 +650,10 @@ PREFIX value ml_elm_win_inwin_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_win_inwin_content_set(value v_obj, value v_content)
+{
+        elm_win_inwin_content_set((Evas_Object*) v_obj,
+                (Evas_Object*) v_content);
+        return Val_unit;
+}
+
