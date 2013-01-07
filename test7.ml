@@ -78,6 +78,13 @@ let () =
     Elm_inwin.content_set inwin box;
     Evas_object.show box;
 
+    let naviframe = Elm_naviframe.add win in
+    Evas_object.size_hint_weight_set naviframe Evas.hint_expand
+      Evas.hint_expand;
+    Evas_object.size_hint_align_set naviframe Evas.hint_fill Evas.hint_fill;
+    Elm_box.pack_end box naviframe;
+    Evas_object.show naviframe;
+
     let box2 = Elm_box.add win in
     Elm_box.horizontal_set box2 true;
     Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
@@ -95,6 +102,9 @@ let () =
     let cancel_cb _ _ = Evas_object.del inwin in
     Evas_object_smart.callback_add o "clicked" cancel_cb in
   Evas_object_smart.callback_add image_insert_bt "clicked" image_insert_cb;
+
+  let win_del_cb _ _ = Elm.exit () in
+  Evas_object_smart.callback_add win "delete,request" win_del_cb;
 
   Elm_object.focus_set en true;
 
