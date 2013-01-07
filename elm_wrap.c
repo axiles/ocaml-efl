@@ -713,3 +713,10 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         *data = v_data;
 }
 
+PREFIX value ml_elm_gengrid_add(value v_parent)
+{
+        Evas_Object* obj = elm_gengrid_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_gengrid_add");
+        return (value) obj;
+}
+

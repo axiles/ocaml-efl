@@ -5,3 +5,5 @@ type item_class = {
   func_content_del : Evas.obj -> unit;
 }
 
+val add : Evas.obj -> Evas.obj
+
