@@ -664,3 +664,52 @@ PREFIX value ml_elm_naviframe_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX char* ml_Elm_Gen_Item_Text_Get_Cb(
+        void* data, Evas_Object* obj, const char* part)
+{
+        CAMLparam0();
+        CAMLlocal2(v_part, v);
+        value* v_class = (value*) data;
+        v_part = copy_string(part);
+        v = caml_callback2(Field(*v_class, 1), (value) obj, v_part);
+        char* r = strdup(String_val(v));
+        if(r == NULL) caml_raise_out_of_memory();
+        return r;
+}
+
+PREFIX Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
+        void* data, Evas_Object* obj, const char* part)
+{
+        CAMLparam0();
+        CAMLlocal1(v_part);
+        value* v_class = (value*) data;
+        v_part = copy_string(part);
+        return (Evas_Object*) caml_callback2(Field(*v_class, 2), (value) obj,
+                v_part);
+}
+
+PREFIX void ml_Elm_Gen_Item_Del_Cb(void* data, Evas_Object* obj)
+{
+        value* v_class = (value*) data;
+        caml_callback(Field(*v_class, 3), (value) obj);
+}
+
+PREFIX void ml_Elm_Gengrid_Item_Class(
+        Elm_Gengrid_Item_Class** class, void** data, value v)
+{
+        Elm_Gengrid_Item_Class* c = elm_gengrid_item_class_new();
+        if(c == NULL) caml_raise_out_of_memory();
+
+        c->item_style = String_val(Field(v, 0));
+        c->func.text_get = ml_Elm_Gen_Item_Text_Get_Cb;
+        c->func.content_get = ml_Elm_Gen_Item_Content_Get_Cb;
+        c->func.del = ml_Elm_Gen_Item_Del_Cb;
+
+        value* v_data = caml_stat_alloc(sizeof(value*));
+        *v_data = v;
+        caml_register_global_root(v_data);
+
+        *class = c;
+        *data = v_data;
+}
+
