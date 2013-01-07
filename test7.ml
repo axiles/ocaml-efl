@@ -44,13 +44,13 @@ let () =
   Elm_object.text_set o "em";
   Elm_box.pack_end tb o;
 
-  let o = Elm_button.add win in
-  Elm_box.pack_end tb o;
-  Evas_object.show o;
+  let image_insert_bt = Elm_button.add win in
+  Elm_box.pack_end tb image_insert_bt;
+  Evas_object.show image_insert_bt;
 
   let icon = Elm_layout.add win in
   Elm_layout.theme_set icon "entry" "emoticon/haha" "default";
-  Elm_object.part_content_set o ~p:"icon" icon;
+  Elm_object.part_content_set image_insert_bt ~p:"icon" icon;
 
   let en = Elm_entry.add win in
   Elm_entry.autosave_set en false;
@@ -65,6 +65,17 @@ let () =
     Elm_entry.autosave_set en state;
     if state then Elm_entry.file_save en in
   Evas_object_smart.callback_add c "changed" autosave_change_cb;
+
+  let image_insert_cb _ _ =
+    let inwin = Elm_inwin.add win in
+    Evas_object.size_hint_weight_set inwin Evas.hint_expand Evas.hint_expand;
+    Evas_object.size_hint_align_set inwin Evas.hint_fill Evas.hint_fill;
+    Evas_object.show inwin;
+
+    (*let box = Elm_box.add win in
+    Evas_object.size_hint_weight_set Evas.hint_xpand Evas.hint_expand;
+    Evas_object.size_hitn_align_set Evas.hint_fill Evas.hint_fill;*) in
+  Evas_object_smart.callback_add image_insert_bt "clicked" image_insert_cb;
 
   Elm_object.focus_set en true;
 
