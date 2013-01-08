@@ -6,4 +6,6 @@
 PREFIX inline Eina_Bool Eina_Bool_val(value v);
 PREFIX inline value Val_Eina_Bool(Eina_Bool b);
 
+PREFIX inline value copy_Eina_List_string(Eina_List* list);
+
 #endif
