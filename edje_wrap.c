@@ -12,3 +12,11 @@ PREFIX void ml_Edje_Signal_Cb(
         CAMLreturn0;
 }
 
+PREFIX value ml_edje_file_collection_list(value v_theme)
+{
+        Eina_List* list = edje_file_collection_list(String_val(v_theme));
+        value v_list = copy_Eina_List_string(list);
+        edje_file_collection_list_free(list);
+        return v_list;
+}
+
