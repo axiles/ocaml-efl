@@ -785,12 +785,14 @@ PREFIX value ml_elm_naviframe_item_push_native(
         else prev_btn = (Evas_Object*) Field(v_prev_btn, 0);
         if(v_next_btn == Val_int(0)) next_btn = NULL;
         else next_btn = (Evas_Object*) Field(v_next_btn, 0);
-        char* item_style;
+        char *title_label, *item_style;
+        if(v_title_label == Val_int(0)) title_label = NULL;
+        else title_label = String_val(Field(v_title_label, 0));
         if(v_item_style == Val_int(0)) item_style = NULL;
         else item_style = String_val(Field(v_item_style, 0));
         Elm_Object_Item* item = elm_naviframe_item_push((Evas_Object*) v_obj,
-                String_val(v_title_label), prev_btn, next_btn,
-                (Evas_Object*) v_content, item_style);
+                title_label, prev_btn, next_btn, (Evas_Object*) v_content,
+                item_style);
         if(item == NULL) caml_failwith("elm_naviframe_item_push");
         return (value) item;
 }
