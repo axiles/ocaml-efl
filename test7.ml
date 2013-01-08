@@ -119,7 +119,7 @@ let () =
         with Scan_failure _ -> () in
       List.iter iter_aux emos;
       grid in
-    Elm_naviframe.item_simple_push naviframe grid;
+    let _ = Elm_naviframe.item_simple_push naviframe grid in
     Elm_naviframe.item_simple_promote naviframe grid;
     let box2 = Elm_box.add win in
     Elm_box.horizontal_set box2 true;
