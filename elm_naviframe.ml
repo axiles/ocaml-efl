@@ -9,3 +9,6 @@ external item_push :
 
 let item_simple_push obj content = item_push obj content ()
 
+external item_simple_promote : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_naviframe_item_simple_promote"
+

@@ -803,3 +803,10 @@ PREFIX value ml_elm_naviframe_item_push_byte(value* argv, int argn)
                 argv[3], argv[4], argv[5], argv[6]);
 }
 
+PREFIX value ml_elm_naviframe_item_simple_promote(value v_obj, value v_content)
+{
+        elm_naviframe_item_simple_promote((Evas_Object*) v_obj,
+                (Evas_Object*) v_content);
+        return Val_unit;
+}
+
