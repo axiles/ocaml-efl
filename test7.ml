@@ -1,3 +1,7 @@
+(* WARNING: This example is still in heavy development *)
+
+open Scanf
+
 let edit_buffer_insert e text =
   Elm_entry.entry_insert e text;
   Elm_object.focus_set e true
@@ -85,6 +89,37 @@ let () =
     Elm_box.pack_end box naviframe;
     Evas_object.show naviframe;
 
+    let grid =
+      let theme = match Elm_theme.list_item_path_get "default"with
+      | None -> failwith ""
+      | Some(t, _) -> t in
+      let emos = Edje.file_collection_list theme in
+      if emos = [] then failwith "";
+      let grid = Elm_gengrid.add win in
+      Elm_gengrid.item_size_set grid 64 80;
+      Evas_object.size_hint_weight_set grid Evas.hint_expand Evas.hint_expand;
+      Evas_object.size_hint_align_set grid Evas.hint_fill Evas.hint_fill;
+      let iter_aux emo =
+        try
+          let name = sscanf emo "elm/entry/emoticon/%[^/]/default" (fun x -> x)
+          in
+          let label_get _ _ = name in
+          let content_get obj part =
+            if part <> "elm.swallow.icon" then None
+            else (
+              let o = Elm_layout.add obj in
+              Elm_layout.theme_set o "entry/emoticon" name "default";
+              Some o) in
+          let del _ = () and state_get _ _ = true in
+          let it_class = {Elm_gengrid.item_style = "default";
+            func_text_get = label_get; func_content_get = content_get;
+            func_state_get = state_get; func_del = del} in
+          let sel_cb obj _ = () in
+          ignore (Elm_gengrid.item_append grid it_class sel_cb)
+        with Scan_failure _ -> () in
+      List.iter iter_aux emos;
+      grid in
+    let _ = grid in
     let box2 = Elm_box.add win in
     Elm_box.horizontal_set box2 true;
     Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
@@ -103,7 +138,7 @@ let () =
     Evas_object_smart.callback_add o "clicked" cancel_cb in
   Evas_object_smart.callback_add image_insert_bt "clicked" image_insert_cb;
 
-  let win_del_cb _ _ = Elm.exit () in
+  let win_del_cb obj _ = Evas_object.del obj; Elm.exit () in
   Evas_object_smart.callback_add win "delete,request" win_del_cb;
 
   Elm_object.focus_set en true;
