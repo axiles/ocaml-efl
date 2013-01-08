@@ -776,3 +776,28 @@ PREFIX value ml_elm_theme_list_item_path_get(value v_f)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_naviframe_item_push_native(
+        value v_obj, value v_title_label, value v_prev_btn, value v_next_btn,
+        value v_content, value v_item_style, value v_unit)
+{
+        Evas_Object *prev_btn, *next_btn;
+        if(v_prev_btn == Val_int(0)) prev_btn = NULL;
+        else prev_btn = (Evas_Object*) Field(v_prev_btn, 0);
+        if(v_next_btn == Val_int(0)) next_btn = NULL;
+        else next_btn = (Evas_Object*) Field(v_next_btn, 0);
+        char* item_style;
+        if(v_item_style == Val_int(0)) item_style = NULL;
+        else item_style = String_val(Field(v_item_style, 0));
+        Elm_Object_Item* item = elm_naviframe_item_push((Evas_Object*) v_obj,
+                String_val(v_title_label), prev_btn, next_btn,
+                (Evas_Object*) v_content, item_style);
+        if(item == NULL) caml_failwith("elm_naviframe_item_push");
+        return (value) item;
+}
+
+PREFIX value ml_elm_naviframe_item_push_byte(value* argv, int argn)
+{
+        return ml_elm_naviframe_item_push_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6]);
+}
+
