@@ -8,3 +8,5 @@ external group_add : Evas.obj -> Evas.obj -> unit =
 
 external value_get : Evas.obj -> int = "ml_elm_radio_value_get"
 
+external value_set : Evas.obj -> int -> unit = "ml_elm_radio_value_set"
+
