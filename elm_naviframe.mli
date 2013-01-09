@@ -6,5 +6,7 @@ val item_push :
 
 val item_simple_push : Evas.obj -> Evas.obj -> Elm_object.item
 
+val item_title_visible_set : Elm_object.item -> bool -> unit
+
 val item_simple_promote : Evas.obj -> Evas.obj -> unit
 

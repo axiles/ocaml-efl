@@ -841,3 +841,10 @@ PREFIX value ml_elm_radio_value_set(value v_obj, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
+{
+        elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
