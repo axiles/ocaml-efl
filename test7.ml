@@ -191,7 +191,40 @@ let () =
       Elm_radio.state_value_set rvascent 1;
       Elm_radio.group_add rvascent rvfull;
       Elm_box.pack_end vsizebox rvascent;
-      Evas_object.show rvascent in
+      Evas_object.show rvascent;
+      
+      let fwidth = Elm_frame.add win in
+      Elm_object.text_set fwidth "Width";
+      Evas_object.size_hint_weight_set fwidth Evas.hint_expand 0.;
+      Evas_object.size_hint_align_set fwidth Evas.hint_fill Evas.hint_fill;
+      Elm_box.pack_end box2 fwidth;
+      Evas_object.show fwidth;
+
+      let ewidth = Elm_entry.add win in
+      Elm_entry.single_line_set ewidth true;
+      Evas_object.size_hint_weight_set ewidth Evas.hint_expand 0.;
+      Evas_object.size_hint_align_set ewidth Evas.hint_fill Evas.hint_fill;
+      Elm_object.content_set fwidth ewidth;
+      Evas_object.show ewidth;
+      
+      let fheight = Elm_frame.add win in
+      Elm_object.text_set fheight "Height";
+      Evas_object.size_hint_weight_set fheight Evas.hint_expand 0.;
+      Evas_object.size_hint_align_set fheight Evas.hint_fill Evas.hint_fill;
+      Elm_box.pack_end box2 fheight;
+      Evas_object.show fheight;
+
+      let eheight = Elm_entry.add win in
+      Elm_entry.single_line_set eheight true;
+      Evas_object.size_hint_weight_set eheight Evas.hint_expand 0.;
+      Evas_object.size_hint_align_set eheight Evas.hint_fill Evas.hint_fill;
+      Elm_object.content_set fheight eheight;
+      Evas_object.show eheight;
+
+      let binsert = Elm_button.add win in
+      Elm_object.text_set binsert "Insert";
+      Elm_box.pack_end box binsert;
+      Evas_object.show binsert in
     fill_settings ();
     let _ = Elm_naviframe.item_simple_push naviframe settings in
 
