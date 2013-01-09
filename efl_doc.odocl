@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 6ca0cf57b71ebd8892e9c63124990647)
+# DO NOT EDIT (digest: 46e6a104ac8d2906b2b0c8f4f6cc6006)
 Evas
 Evas_object
 Evas_object_smart
@@ -22,4 +22,5 @@ Elm_inwin
 Elm_win_inwin
 Elm_naviframe
 Elm_theme
+Elm_radio
 # OASIS_STOP
