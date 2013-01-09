@@ -89,6 +89,12 @@ let () =
     Elm_box.pack_end box naviframe;
     Evas_object.show naviframe;
 
+    let settings =
+      let box = Elm_box.add win in
+      Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
+      Evas_object.size_hint_align_set box Evas.hint_fill Evas.hint_fill;
+      box in
+
     let grid =
       let theme = match Elm_theme.list_item_path_get "default"with
       | None -> failwith ""
@@ -114,13 +120,83 @@ let () =
           let it_class = {Elm_gengrid.item_style = "default";
             func_text_get = label_get; func_content_get = content_get;
             func_state_get = state_get; func_del = del} in
-          let sel_cb obj _ = () in
+          let sel_cb obj _ =
+            Elm_naviframe.item_simple_promote naviframe settings in
           ignore (Elm_gengrid.item_append grid it_class sel_cb)
         with Scan_failure _ -> () in
       List.iter iter_aux emos;
       grid in
     let _ = Elm_naviframe.item_simple_push naviframe grid in
+
+    let fill_settings () =
+      let box = settings in
+
+      let sizeopts = Elm_frame.add win in
+      Elm_object.text_set sizeopts "Size";
+      Evas_object.size_hint_weight_set sizeopts Evas.hint_expand 0.;
+      Evas_object.size_hint_align_set sizeopts  Evas.hint_fill Evas.hint_fill;
+      Elm_box.pack_end box sizeopts;
+      Evas_object.show sizeopts;
+
+      let box2 = Elm_box.add win in
+      Evas_object.size_hint_weight_set box2 Evas.hint_expand Evas.hint_expand;
+      Evas_object.size_hint_align_set box2 Evas.hint_fill Evas.hint_fill;
+      Elm_object.content_set sizeopts box2;
+      Evas_object.show box2;
+
+      let sizebox = Elm_box.add win in
+      Elm_box.horizontal_set sizebox true;
+      Evas_object.size_hint_weight_set sizebox Evas.hint_expand
+        Evas.hint_expand;
+      Evas_object.size_hint_align_set sizebox Evas.hint_fill Evas.hint_fill;
+      Elm_box.pack_end box2 sizebox;
+      Evas_object.show sizebox;
+
+      let rsize = Elm_radio.add win in
+      Elm_object.text_set rsize "Scale adjusted (size)";
+      Elm_radio.state_value_set rsize 0;
+      Elm_box.pack_end sizebox rsize;
+      Evas_object.show rsize;
+
+      let rabsize = Elm_radio.add win in
+      Elm_object.text_set rabsize "Absolute size (absize)";
+      Elm_radio.state_value_set rabsize 1;
+      Elm_radio.group_add rabsize rsize;
+      Elm_box.pack_end sizebox rabsize;
+      Evas_object.show rabsize;
+
+      let rrelsize = Elm_radio.add win in
+      Elm_object.text_set rrelsize "Relative to line (relsize)";
+      Elm_radio.state_value_set rrelsize 2;
+      Elm_radio.group_add rrelsize rsize;
+      Elm_box.pack_end sizebox rrelsize;
+      Evas_object.show rrelsize;
+
+      let vsizebox = Elm_box.add win in
+      Elm_box.horizontal_set vsizebox true;
+      Evas_object.size_hint_weight_set vsizebox Evas.hint_expand
+        Evas.hint_expand;
+      Evas_object.size_hint_align_set vsizebox Evas.hint_fill Evas.hint_fill;
+      Elm_box.pack_end box2 vsizebox;
+      Evas_object.show vsizebox;
+
+      let rvfull = Elm_radio.add win in
+      Elm_object.text_set rvfull "Full height (vsize=full)";
+      Elm_radio.state_value_set rvfull 0;
+      Elm_box.pack_end vsizebox rvfull;
+      Evas_object.show rvfull;
+
+      let rvascent = Elm_radio.add win in
+      Elm_object.text_set rvascent "Ascent only (vsize=ascent)";
+      Elm_radio.state_value_set rvascent 1;
+      Elm_radio.group_add rvascent rvfull;
+      Elm_box.pack_end vsizebox rvascent;
+      Evas_object.show rvascent in
+    fill_settings ();
+    let _ = Elm_naviframe.item_simple_push naviframe settings in
+
     Elm_naviframe.item_simple_promote naviframe grid;
+    
     let box2 = Elm_box.add win in
     Elm_box.horizontal_set box2 true;
     Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
