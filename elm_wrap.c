@@ -811,3 +811,10 @@ PREFIX value ml_elm_naviframe_item_simple_promote(value v_obj, value v_content)
         return Val_unit;
 }
 
+PREFIX value ml_elm_radio_add(value v_parent)
+{
+        Evas_Object* obj = elm_radio_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_radio_add");
+        return (value) obj;
+}
+
