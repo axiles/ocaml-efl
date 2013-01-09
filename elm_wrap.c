@@ -741,6 +741,7 @@ PREFIX value ml_elm_gengrid_item_append(
         ml_Elm_Gengrid_Item_Class(&class, &data, v_class);
 
         value* data_func = caml_stat_alloc(sizeof(value*));
+        *data_func = v_func;
         caml_register_global_root(data_func);
 
         Elm_Object_Item* item = elm_gengrid_item_append((Evas_Object*) v_obj,
