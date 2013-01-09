@@ -824,3 +824,9 @@ PREFIX value ml_elm_radio_state_value_set(value v_obj, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_radio_group_add(value v_obj, value v_group)
+{
+        elm_radio_group_add((Evas_Object*) v_obj, (Evas_Object*) v_group);
+        return Val_unit;
+}
+
