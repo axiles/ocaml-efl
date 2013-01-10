@@ -71,6 +71,8 @@ let () =
   Evas_object_smart.callback_add c "changed" autosave_change_cb;
 
   let image_insert_cb _ _ =
+    let width = ref 64 and height = ref 64 in
+
     let inwin = Elm_inwin.add win in
     Evas_object.size_hint_weight_set inwin Evas.hint_expand Evas.hint_expand;
     Evas_object.size_hint_align_set inwin Evas.hint_fill Evas.hint_fill;
@@ -209,10 +211,14 @@ let () =
         (Elm_entry.filter_accept_set accept_set);
       Elm_entry.markup_filter_append ewidth
         (Elm_entry.filter_limit_size limit_size);
+      Elm_object.text_set ewidth (string_of_int !width);
       Evas_object.size_hint_weight_set ewidth Evas.hint_expand 0.;
       Evas_object.size_hint_align_set ewidth Evas.hint_fill Evas.hint_fill;
       Elm_object.content_set fwidth ewidth;
       Evas_object.show ewidth;
+      let width_changed_cb _ _ =
+        try width := int_of_string (Elm_object.text_get ewidth) with _ -> () in
+      Evas_object_smart.callback_add ewidth "changed" width_changed_cb;
       
       let fheight = Elm_frame.add win in
       Elm_object.text_set fheight "Height";
@@ -227,10 +233,16 @@ let () =
         (Elm_entry.filter_accept_set accept_set);
       Elm_entry.markup_filter_append eheight
         (Elm_entry.filter_limit_size limit_size);
+      Elm_object.text_set eheight (string_of_int !height);
       Evas_object.size_hint_weight_set eheight Evas.hint_expand 0.;
       Evas_object.size_hint_align_set eheight Evas.hint_fill Evas.hint_fill;
       Elm_object.content_set fheight eheight;
       Evas_object.show eheight;
+      let height_changed_cb _ _ =
+        try
+          height := int_of_string (Elm_object.text_get eheight)
+        with _ -> () in
+      Evas_object_smart.callback_add eheight "changed" height_changed_cb;
 
       let binsert = Elm_button.add win in
       Elm_object.text_set binsert "Insert";
