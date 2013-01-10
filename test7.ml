@@ -1,13 +1,14 @@
 (* WARNING: This example is still in heavy development *)
 
+open Printf
 open Scanf
 
 let edit_buffer_insert e text =
   Elm_entry.entry_insert e text;
   Elm_object.focus_set e true
 
-let size_array = ["size"; "absize"; "relsize"]
-let vsize_array = ["full"; "ascent"]
+let size_array = [|"size"; "absize"; "relsize"|]
+let vsize_array = [|"full"; "ascent"|]
 
 let () =
   Elm.init Sys.argv;
@@ -73,6 +74,7 @@ let () =
   let image_insert_cb _ _ =
     let width = ref 64 and height = ref 64 in
     let size = ref 1 and vsize = ref 1 in
+    let remo = ref None in
 
     let inwin = Elm_inwin.add win in
     Evas_object.size_hint_weight_set inwin Evas.hint_expand Evas.hint_expand;
@@ -124,6 +126,7 @@ let () =
             func_text_get = label_get; func_content_get = content_get;
             func_state_get = state_get; func_del = del} in
           let sel_cb obj _ =
+            remo := Some name;
             Elm_naviframe.item_simple_promote naviframe settings in
           ignore (Elm_gengrid.item_append grid it_class sel_cb)
         with Scan_failure _ -> () in
@@ -256,7 +259,15 @@ let () =
       let binsert = Elm_button.add win in
       Elm_object.text_set binsert "Insert";
       Elm_box.pack_end box binsert;
-      Evas_object.show binsert in
+      Evas_object.show binsert;
+
+      let btn_insert_cb _ _ =
+        let emo = match !remo with Some x -> x | None -> assert false in
+        let s = sprintf "<item %s=%dx%d vsize=%s href=emoticon/%s>"
+          size_array.(!size) !width !height vsize_array.(!vsize) emo in
+        edit_buffer_insert en s;
+        Evas_object.del inwin in
+      Evas_object_smart.callback_add binsert "clicked" btn_insert_cb in
     fill_settings ();
     let _ = Elm_naviframe.item_simple_push naviframe settings in
 
