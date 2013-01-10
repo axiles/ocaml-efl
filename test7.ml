@@ -131,6 +131,9 @@ let () =
     let fill_settings () =
       let box = settings in
 
+      let accept_set = {Elm_entry.accepted = "0123456789"; rejected = ""} in
+      let limit_size = {Elm_entry.max_char_count = 5; max_byte_count = 0} in
+
       let sizeopts = Elm_frame.add win in
       Elm_object.text_set sizeopts "Size";
       Evas_object.size_hint_weight_set sizeopts Evas.hint_expand 0.;
@@ -202,6 +205,10 @@ let () =
 
       let ewidth = Elm_entry.add win in
       Elm_entry.single_line_set ewidth true;
+      Elm_entry.markup_filter_append ewidth
+        (Elm_entry.filter_accept_set accept_set);
+      Elm_entry.markup_filter_append ewidth
+        (Elm_entry.filter_limit_size limit_size);
       Evas_object.size_hint_weight_set ewidth Evas.hint_expand 0.;
       Evas_object.size_hint_align_set ewidth Evas.hint_fill Evas.hint_fill;
       Elm_object.content_set fwidth ewidth;
@@ -216,6 +223,10 @@ let () =
 
       let eheight = Elm_entry.add win in
       Elm_entry.single_line_set eheight true;
+      Elm_entry.markup_filter_append eheight
+        (Elm_entry.filter_accept_set accept_set);
+      Elm_entry.markup_filter_append eheight
+        (Elm_entry.filter_limit_size limit_size);
       Evas_object.size_hint_weight_set eheight Evas.hint_expand 0.;
       Evas_object.size_hint_align_set eheight Evas.hint_fill Evas.hint_fill;
       Elm_object.content_set fheight eheight;
