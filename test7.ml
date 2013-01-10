@@ -72,6 +72,7 @@ let () =
 
   let image_insert_cb _ _ =
     let width = ref 64 and height = ref 64 in
+    let size = ref 1 and vsize = ref 1 in
 
     let inwin = Elm_inwin.add win in
     Evas_object.size_hint_weight_set inwin Evas.hint_expand Evas.hint_expand;
@@ -177,6 +178,10 @@ let () =
       Elm_box.pack_end sizebox rrelsize;
       Evas_object.show rrelsize;
 
+      let size_changed_cb _ _ = size := Elm_radio.value_get rsize in
+      Elm_radio.value_set rsize !size;
+      Evas_object_smart.callback_add rsize "changed" size_changed_cb;
+
       let vsizebox = Elm_box.add win in
       Elm_box.horizontal_set vsizebox true;
       Evas_object.size_hint_weight_set vsizebox Evas.hint_expand
@@ -197,6 +202,10 @@ let () =
       Elm_radio.group_add rvascent rvfull;
       Elm_box.pack_end vsizebox rvascent;
       Evas_object.show rvascent;
+
+      let vsize_changed_cb _ _ = vsize := Elm_radio.value_get rvfull in
+      Elm_radio.value_set rvfull !vsize;
+      Evas_object_smart.callback_add rvfull "changed" vsize_changed_cb;
       
       let fwidth = Elm_frame.add win in
       Elm_object.text_set fwidth "Width";
