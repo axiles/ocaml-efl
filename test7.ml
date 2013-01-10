@@ -48,6 +48,7 @@ let () =
   let o = Elm_button.add win in
   Elm_object.text_set o "em";
   Elm_box.pack_end tb o;
+  Evas_object.show o;
 
   let image_insert_bt = Elm_button.add win in
   Elm_box.pack_end tb image_insert_bt;
