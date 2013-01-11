@@ -144,3 +144,17 @@ PREFIX value ml_elm_layout_table_pack_with_bool_byte(value* argv, int argn)
                 argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
+PREFIX value ml_elm_layout_table_unpack(
+        value v_obj, value v_part, value v_child)
+{
+        Evas_Object* obj = elm_layout_table_unpack((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child);
+        value v;
+        if(obj == NULL) return Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, (value) obj);
+                return Val_unit;
+        }
+}
+

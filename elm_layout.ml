@@ -75,3 +75,6 @@ let table_pack obj part child col row colspan rowspan =
   if not (table_pack_with_bool obj part child col row colspan rowspan) then
     failwith "elm_layout_table_pack"
 
+external table_unpack : Evas.obj -> string -> Evas.obj -> Evas.obj option =
+  "ml_elm_layout_table_unpack"
+

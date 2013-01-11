@@ -42,3 +42,6 @@ val table_pack_with_bool :
 
 val table_pack :
   Evas.obj -> string -> Evas.obj -> int -> int -> int -> int -> unit
+
+val table_unpack : Evas.obj -> string -> Evas.obj -> Evas.obj option
+
