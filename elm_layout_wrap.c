@@ -12,36 +12,6 @@ PREFIX value ml_elm_layout_add(value v_parent)
         return (value) layout;
 }
 
-PREFIX value ml_elm_layout_box_append_with_bool(
-        value v_obj, value v_part, value v_child)
-{
-        return Val_Eina_Bool(elm_layout_box_append((Evas_Object*) v_obj,
-                String_val(v_part), (Evas_Object*) v_child));
-}
-
-PREFIX value ml_elm_layout_box_insert_at_with_bool(
-        value v_obj, value v_part, value v_child, value v_pos)
-{
-        return Val_Eina_Bool(elm_layout_box_insert_at((Evas_Object*) v_obj,
-                String_val(v_part), (Evas_Object*) v_child,
-                Int_val(v_pos)));
-}
-
-PREFIX value ml_elm_layout_box_insert_before_with_bool(
-        value v_obj, value v_part, value v_child, value v_ref)
-{
-        return Val_Eina_Bool(elm_layout_box_insert_before((Evas_Object*) v_obj,
-                String_val(v_part), (Evas_Object*) v_child,
-                (Evas_Object*) v_ref));
-}
-
-PREFIX value ml_elm_layout_box_prepend_with_bool(
-        value v_obj, value v_part, value v_child)
-{
-        return Val_Eina_Bool(elm_layout_box_prepend((Evas_Object*) v_obj,
-                String_val(v_part), (Evas_Object*) v_child));
-}
-
 PREFIX ml_elm_layout_file_set_with_bool(
         value v_obj, value v_file, value v_group)
 {
@@ -108,4 +78,34 @@ PREFIX ml_elm_layout_signal_callback_del(
         return Val_unit;
 }
 
+PREFIX value ml_elm_layout_box_append_with_bool(
+        value v_obj, value v_part, value v_child)
+{
+        return Val_Eina_Bool(elm_layout_box_append((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child));
+}
+
+PREFIX value ml_elm_layout_box_prepend_with_bool(
+        value v_obj, value v_part, value v_child)
+{
+        return Val_Eina_Bool(elm_layout_box_prepend((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child));
+}
+
+PREFIX value ml_elm_layout_box_insert_before_with_bool(
+        value v_obj, value v_part, value v_child, value v_ref)
+{
+        return Val_Eina_Bool(elm_layout_box_insert_before((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child,
+                (Evas_Object*) v_ref));
+}
+
+
+PREFIX value ml_elm_layout_box_insert_at_with_bool(
+        value v_obj, value v_part, value v_child, value v_pos)
+{
+        return Val_Eina_Bool(elm_layout_box_insert_at((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child,
+                Int_val(v_pos)));
+}
 
