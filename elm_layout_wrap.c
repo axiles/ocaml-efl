@@ -158,3 +158,10 @@ PREFIX value ml_elm_layout_table_unpack(
         }
 }
 
+PREFIX value ml_elm_layout_table_clear_with_bool(
+        value v_obj, value v_part, value v_clear)
+{
+        return Val_Eina_Bool(elm_layout_table_clear((Evas_Object*) v_obj,
+                String_val(v_part), Eina_Bool_val(v_clear)));
+}
+

@@ -78,3 +78,10 @@ let table_pack obj part child col row colspan rowspan =
 external table_unpack : Evas.obj -> string -> Evas.obj -> Evas.obj option =
   "ml_elm_layout_table_unpack"
 
+external table_clear_with_bool : Evas.obj -> string -> bool -> bool =
+  "ml_elm_layout_table_clear_with_bool"
+
+let table_clear obj part clear =
+  if not (table_clear_with_bool obj part clear) then
+    failwith "elm_layout_table_clear"
+
