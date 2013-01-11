@@ -9,6 +9,18 @@ nothing.
 open Printf
 open Scanf
 
+(* Same as List.hd (mapi f list) but more efficient *)
+let my_iter f list =
+  let rec aux i = function
+    | [] -> ()
+    | x :: xs -> let _ = f i x in aux (i + 1) xs in
+  match list with
+  | [] -> invalid_arg "my_iter"
+  | x :: xs ->
+      let y = f 0 x in
+      aux 1 xs;
+      y
+
 let edit_buffer_insert e text =
   Elm_entry.entry_insert e text;
   Elm_object.focus_set e true
@@ -37,6 +49,24 @@ let add_cancel_btn win inwin box =
   Evas_object.show o;
   let cancel_cb _ _ = Evas_object.del inwin in
   Evas_object_smart.callback_add o "clicked" cancel_cb
+
+let add_radio_box win box list q =
+  let hbox = Elm_box.add win in
+  Elm_box.horizontal_set hbox true;
+  default_size_hint hbox;
+  Elm_box.pack_end box hbox;
+  Evas_object.show hbox;
+  let aux i name =
+    let r = Elm_radio.add win in
+    Elm_object.text_set r name;
+    Elm_radio.state_value_set r i;
+    Elm_box.pack_end hbox r;
+    Evas_object.show r;
+    r in
+  let r = my_iter aux list in
+  let changed_cb _ _ = q := Elm_radio.value_get r in
+  Elm_radio.value_set r !q;
+  Evas_object_smart.callback_add r "changed" changed_cb
 
 let () =
   Elm.init Sys.argv;
@@ -194,59 +224,15 @@ let () =
       Elm_object.content_set sizeopts box2;
       Evas_object.show box2;
 
-      let sizebox = Elm_box.add win in
-      Elm_box.horizontal_set sizebox true;
-      default_size_hint sizebox;
-      Elm_box.pack_end box2 sizebox;
-      Evas_object.show sizebox;
-
-      let rsize = Elm_radio.add win in
-      Elm_object.text_set rsize "Scale adjusted (size)";
-      Elm_radio.state_value_set rsize 0;
-      Elm_box.pack_end sizebox rsize;
-      Evas_object.show rsize;
-
-      let rabsize = Elm_radio.add win in
-      Elm_object.text_set rabsize "Absolute size (absize)";
-      Elm_radio.state_value_set rabsize 1;
-      Elm_radio.group_add rabsize rsize;
-      Elm_box.pack_end sizebox rabsize;
-      Evas_object.show rabsize;
-
-      let rrelsize = Elm_radio.add win in
-      Elm_object.text_set rrelsize "Relative to line (relsize)";
-      Elm_radio.state_value_set rrelsize 2;
-      Elm_radio.group_add rrelsize rsize;
-      Elm_box.pack_end sizebox rrelsize;
-      Evas_object.show rrelsize;
-
-      let size_changed_cb _ _ = size := Elm_radio.value_get rsize in
-      Elm_radio.value_set rsize !size;
-      Evas_object_smart.callback_add rsize "changed" size_changed_cb;
-
-      let vsizebox = Elm_box.add win in
-      Elm_box.horizontal_set vsizebox true;
-      default_size_hint vsizebox;
-      Elm_box.pack_end box2 vsizebox;
-      Evas_object.show vsizebox;
-
-      let rvfull = Elm_radio.add win in
-      Elm_object.text_set rvfull "Full height (vsize=full)";
-      Elm_radio.state_value_set rvfull 0;
-      Elm_box.pack_end vsizebox rvfull;
-      Evas_object.show rvfull;
-
-      let rvascent = Elm_radio.add win in
-      Elm_object.text_set rvascent "Ascent only (vsize=ascent)";
-      Elm_radio.state_value_set rvascent 1;
-      Elm_radio.group_add rvascent rvfull;
-      Elm_box.pack_end vsizebox rvascent;
-      Evas_object.show rvascent;
-
-      let vsize_changed_cb _ _ = vsize := Elm_radio.value_get rvfull in
-      Elm_radio.value_set rvfull !vsize;
-      Evas_object_smart.callback_add rvfull "changed" vsize_changed_cb;
+      let size_list =
+        ["Scale adjusted (size)"; "Absolute size (absize)";
+          "Relative to line (relsize)"] in
+      add_radio_box win box2 size_list size;
       
+         let vsize_list =
+        ["Full height (vsize=full)"; "Ascent only (vsize=ascent)"] in
+      add_radio_box win box2 vsize_list vsize;
+
       let fwidth = Elm_frame.add win in
       Elm_object.text_set fwidth "Width";
       default_size_hint_h fwidth;
