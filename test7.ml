@@ -92,6 +92,11 @@ let () =
     if state then Elm_entry.file_save en in
   Evas_object_smart.callback_add c "changed" autosave_change_cb;
 
+  let dblclick_cb _ _ =
+    Elm_entry.cursor_line_end_set en;
+    Elm_entry.select_none en in
+  Evas_object_smart.callback_add en "clicked,double" dblclick_cb;
+
   let image_insert_cb _ _ =
     let width = ref 64 and height = ref 64 in
     let size = ref 1 and vsize = ref 1 in
