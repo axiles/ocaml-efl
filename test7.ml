@@ -9,17 +9,11 @@ nothing.
 open Printf
 open Scanf
 
-(* Same as List.hd (mapi f list) but more efficient *)
-let my_iter f list =
+let mapi f list =
   let rec aux i = function
-    | [] -> ()
-    | x :: xs -> let _ = f i x in aux (i + 1) xs in
-  match list with
-  | [] -> invalid_arg "my_iter"
-  | x :: xs ->
-      let y = f 0 x in
-      aux 1 xs;
-      y
+    | [] -> []
+    | x :: xs -> f i x :: aux (i + 1) xs in
+  aux 0 list
 
 let edit_buffer_insert e text =
   Elm_entry.entry_insert e text;
@@ -33,6 +27,9 @@ let default_size_hint_h o = default_size_hint ~wy:0. o
 
 let size_array = [|"size"; "absize"; "relsize"|]
 let vsize_array = [|"full"; "ascent"|]
+
+let accept_set = {Elm_entry.accepted = "0123456789"; rejected = ""}
+let limit_size = {Elm_entry.max_char_count = 5; max_byte_count = 0}
 
 let markup = ref true
 
@@ -63,10 +60,31 @@ let add_radio_box win box list q =
     Elm_box.pack_end hbox r;
     Evas_object.show r;
     r in
-  let r = my_iter aux list in
-  let changed_cb _ _ = q := Elm_radio.value_get r in
-  Elm_radio.value_set r !q;
-  Evas_object_smart.callback_add r "changed" changed_cb
+  match mapi aux list with
+  | [] -> ()
+  | r :: rs ->
+    List.iter (fun r1 -> Elm_radio.group_add r1 r) rs;
+    let changed_cb _ _ = q := Elm_radio.value_get r in
+    Elm_radio.value_set r !q;
+    Evas_object_smart.callback_add r "changed" changed_cb
+
+let add_dim_en win box name q =
+  let f = Elm_frame.add win in
+  Elm_object.text_set f name;
+  default_size_hint_h f;
+  Elm_box.pack_end box f;
+  Evas_object.show f;
+  let e = Elm_entry.add win in
+  Elm_entry.single_line_set e true;
+  Elm_entry.markup_filter_append e (Elm_entry.filter_accept_set accept_set);
+  Elm_entry.markup_filter_append e (Elm_entry.filter_limit_size limit_size);
+  Elm_object.text_set e (string_of_int !q);
+  default_size_hint_h e;
+  Elm_object.content_set f e;
+  Evas_object.show e;
+  let changed_cb _ _ =
+    try q := int_of_string (Elm_object.text_get e) with _ -> () in
+  Evas_object_smart.callback_add e "changed" changed_cb
 
 let () =
   Elm.init Sys.argv;
@@ -210,9 +228,6 @@ let () =
     let fill_settings () =
       let box = settings in
 
-      let accept_set = {Elm_entry.accepted = "0123456789"; rejected = ""} in
-      let limit_size = {Elm_entry.max_char_count = 5; max_byte_count = 0} in
-
       let sizeopts = Elm_frame.add win in
       Elm_object.text_set sizeopts "Size";
       default_size_hint_h sizeopts;
@@ -229,51 +244,12 @@ let () =
           "Relative to line (relsize)"] in
       add_radio_box win box2 size_list size;
       
-         let vsize_list =
+      let vsize_list =
         ["Full height (vsize=full)"; "Ascent only (vsize=ascent)"] in
       add_radio_box win box2 vsize_list vsize;
 
-      let fwidth = Elm_frame.add win in
-      Elm_object.text_set fwidth "Width";
-      default_size_hint_h fwidth;
-      Elm_box.pack_end box2 fwidth;
-      Evas_object.show fwidth;
-
-      let ewidth = Elm_entry.add win in
-      Elm_entry.single_line_set ewidth true;
-      Elm_entry.markup_filter_append ewidth
-        (Elm_entry.filter_accept_set accept_set);
-      Elm_entry.markup_filter_append ewidth
-        (Elm_entry.filter_limit_size limit_size);
-      Elm_object.text_set ewidth (string_of_int !width);
-      default_size_hint_h ewidth;
-      Elm_object.content_set fwidth ewidth;
-      Evas_object.show ewidth;
-      let width_changed_cb _ _ =
-        try width := int_of_string (Elm_object.text_get ewidth) with _ -> () in
-      Evas_object_smart.callback_add ewidth "changed" width_changed_cb;
-      
-      let fheight = Elm_frame.add win in
-      Elm_object.text_set fheight "Height";
-      default_size_hint_h fheight;
-      Elm_box.pack_end box2 fheight;
-      Evas_object.show fheight;
-
-      let eheight = Elm_entry.add win in
-      Elm_entry.single_line_set eheight true;
-      Elm_entry.markup_filter_append eheight
-        (Elm_entry.filter_accept_set accept_set);
-      Elm_entry.markup_filter_append eheight
-        (Elm_entry.filter_limit_size limit_size);
-      Elm_object.text_set eheight (string_of_int !height);
-      default_size_hint_h eheight;
-      Elm_object.content_set fheight eheight;
-      Evas_object.show eheight;
-      let height_changed_cb _ _ =
-        try
-          height := int_of_string (Elm_object.text_get eheight)
-        with _ -> () in
-      Evas_object_smart.callback_add eheight "changed" height_changed_cb;
+      add_dim_en win box2 "Width" width;
+      add_dim_en win box2 "Height" height;
 
       let binsert = Elm_button.add win in
       Elm_object.text_set binsert "Insert";
