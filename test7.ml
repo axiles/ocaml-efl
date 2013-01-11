@@ -76,8 +76,10 @@ let () =
     let s_prev =
       match Elm_entry.selection_get en with
       | Some s -> s | None -> assert false in
-    let new_cursor = String.length (f s_prev) in
     let s = Elm_object.text_get en in
+    Elm_entry.cursor_begin_set en;
+    Elm_entry.entry_insert en (f s_prev);
+    let new_cursor = Elm_entry.cursor_pos_get en in
     Elm_object.text_set en (f s);
     markup := not !markup;
     Elm_object.focus_set en true;
