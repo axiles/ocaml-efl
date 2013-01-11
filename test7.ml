@@ -13,10 +13,30 @@ let edit_buffer_insert e text =
   Elm_entry.entry_insert e text;
   Elm_object.focus_set e true
 
+let default_size_hint ?(wy = Evas.hint_expand) o =
+  Evas_object.size_hint_weight_set o Evas.hint_expand wy;
+  Evas_object.size_hint_align_set o Evas.hint_fill Evas.hint_fill
+
+let default_size_hint_h o = default_size_hint ~wy:0. o
+
 let size_array = [|"size"; "absize"; "relsize"|]
 let vsize_array = [|"full"; "ascent"|]
 
 let markup = ref true
+
+let add_cancel_btn win inwin box = 
+  let box2 = Elm_box.add win in
+  Elm_box.horizontal_set box2 true;
+  default_size_hint_h box2;
+  Elm_box.pack_end box box2;
+  Evas_object.show box2;
+  let o = Elm_button.add win in
+  Elm_object.text_set o "Cancel";
+  default_size_hint o;
+  Elm_box.pack_end box2 o;
+  Evas_object.show o;
+  let cancel_cb _ _ = Evas_object.del inwin in
+  Evas_object_smart.callback_add o "clicked" cancel_cb
 
 let () =
   Elm.init Sys.argv;
@@ -37,8 +57,7 @@ let () =
 
   let tb = Elm_box.add win in
   Elm_box.horizontal_set tb true;
-  Evas_object.size_hint_weight_set tb Evas.hint_expand 0.;
-  Evas_object.size_hint_align_set tb Evas.hint_fill Evas.hint_fill;
+  default_size_hint_h tb;
   Elm_box.pack_end box tb;
   Evas_object.show tb;
 
@@ -48,11 +67,10 @@ let () =
   Elm_box.pack_end tb c;
   Evas_object.show c;
 
-  let o = Elm_button.add win in
-  Elm_object.text_set o "Change format";
-  Elm_box.pack_end tb o;
-  Evas_object.show o;
-  let bformat_changed = o in
+  let bformat_changed = Elm_button.add win in
+  Elm_object.text_set bformat_changed "Change format";
+  Elm_box.pack_end tb bformat_changed;
+  Evas_object.show bformat_changed;
 
   let image_insert_bt = Elm_button.add win in
   Elm_box.pack_end tb image_insert_bt;
@@ -65,8 +83,7 @@ let () =
   let en = Elm_entry.add win in
   Elm_entry.autosave_set en false;
   let _ = Elm_entry.file_set en "/tmp/da_test.txt" `markup_utf8 in
-  Evas_object.size_hint_weight_set en Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_align_set en Evas.hint_fill Evas.hint_fill;
+  default_size_hint en;
   Elm_box.pack_end box en;
   Evas_object.show en;
 
@@ -109,27 +126,22 @@ let () =
     let remo = ref None in
 
     let inwin = Elm_inwin.add win in
-    Evas_object.size_hint_weight_set inwin Evas.hint_expand Evas.hint_expand;
-    Evas_object.size_hint_align_set inwin Evas.hint_fill Evas.hint_fill;
+    default_size_hint inwin;
     Evas_object.show inwin;
 
     let box = Elm_box.add win in
-    Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
-    Evas_object.size_hint_align_set box Evas.hint_fill Evas.hint_fill;
+    default_size_hint box;
     Elm_inwin.content_set inwin box;
     Evas_object.show box;
 
     let naviframe = Elm_naviframe.add win in
-    Evas_object.size_hint_weight_set naviframe Evas.hint_expand
-      Evas.hint_expand;
-    Evas_object.size_hint_align_set naviframe Evas.hint_fill Evas.hint_fill;
+    default_size_hint naviframe;
     Elm_box.pack_end box naviframe;
     Evas_object.show naviframe;
 
     let settings =
       let box = Elm_box.add win in
-      Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
-      Evas_object.size_hint_align_set box Evas.hint_fill Evas.hint_fill;
+      default_size_hint box;
       box in
 
     let grid =
@@ -140,8 +152,7 @@ let () =
       if emos = [] then failwith "";
       let grid = Elm_gengrid.add win in
       Elm_gengrid.item_size_set grid 64 80;
-      Evas_object.size_hint_weight_set grid Evas.hint_expand Evas.hint_expand;
-      Evas_object.size_hint_align_set grid Evas.hint_fill Evas.hint_fill;
+      default_size_hint grid;
       let iter_aux emo =
         try
           let name = sscanf emo "elm/entry/emoticon/%[^/]/default" (fun x -> x)
@@ -174,22 +185,18 @@ let () =
 
       let sizeopts = Elm_frame.add win in
       Elm_object.text_set sizeopts "Size";
-      Evas_object.size_hint_weight_set sizeopts Evas.hint_expand 0.;
-      Evas_object.size_hint_align_set sizeopts  Evas.hint_fill Evas.hint_fill;
+      default_size_hint_h sizeopts;
       Elm_box.pack_end box sizeopts;
       Evas_object.show sizeopts;
 
       let box2 = Elm_box.add win in
-      Evas_object.size_hint_weight_set box2 Evas.hint_expand Evas.hint_expand;
-      Evas_object.size_hint_align_set box2 Evas.hint_fill Evas.hint_fill;
+      default_size_hint box2;
       Elm_object.content_set sizeopts box2;
       Evas_object.show box2;
 
       let sizebox = Elm_box.add win in
       Elm_box.horizontal_set sizebox true;
-      Evas_object.size_hint_weight_set sizebox Evas.hint_expand
-        Evas.hint_expand;
-      Evas_object.size_hint_align_set sizebox Evas.hint_fill Evas.hint_fill;
+      default_size_hint sizebox;
       Elm_box.pack_end box2 sizebox;
       Evas_object.show sizebox;
 
@@ -219,9 +226,7 @@ let () =
 
       let vsizebox = Elm_box.add win in
       Elm_box.horizontal_set vsizebox true;
-      Evas_object.size_hint_weight_set vsizebox Evas.hint_expand
-        Evas.hint_expand;
-      Evas_object.size_hint_align_set vsizebox Evas.hint_fill Evas.hint_fill;
+      default_size_hint vsizebox;
       Elm_box.pack_end box2 vsizebox;
       Evas_object.show vsizebox;
 
@@ -244,8 +249,7 @@ let () =
       
       let fwidth = Elm_frame.add win in
       Elm_object.text_set fwidth "Width";
-      Evas_object.size_hint_weight_set fwidth Evas.hint_expand 0.;
-      Evas_object.size_hint_align_set fwidth Evas.hint_fill Evas.hint_fill;
+      default_size_hint_h fwidth;
       Elm_box.pack_end box2 fwidth;
       Evas_object.show fwidth;
 
@@ -256,8 +260,7 @@ let () =
       Elm_entry.markup_filter_append ewidth
         (Elm_entry.filter_limit_size limit_size);
       Elm_object.text_set ewidth (string_of_int !width);
-      Evas_object.size_hint_weight_set ewidth Evas.hint_expand 0.;
-      Evas_object.size_hint_align_set ewidth Evas.hint_fill Evas.hint_fill;
+      default_size_hint_h ewidth;
       Elm_object.content_set fwidth ewidth;
       Evas_object.show ewidth;
       let width_changed_cb _ _ =
@@ -266,8 +269,7 @@ let () =
       
       let fheight = Elm_frame.add win in
       Elm_object.text_set fheight "Height";
-      Evas_object.size_hint_weight_set fheight Evas.hint_expand 0.;
-      Evas_object.size_hint_align_set fheight Evas.hint_fill Evas.hint_fill;
+      default_size_hint_h fheight;
       Elm_box.pack_end box2 fheight;
       Evas_object.show fheight;
 
@@ -278,8 +280,7 @@ let () =
       Elm_entry.markup_filter_append eheight
         (Elm_entry.filter_limit_size limit_size);
       Elm_object.text_set eheight (string_of_int !height);
-      Evas_object.size_hint_weight_set eheight Evas.hint_expand 0.;
-      Evas_object.size_hint_align_set eheight Evas.hint_fill Evas.hint_fill;
+      default_size_hint_h eheight;
       Elm_object.content_set fheight eheight;
       Evas_object.show eheight;
       let height_changed_cb _ _ =
@@ -305,23 +306,9 @@ let () =
     let _ = Elm_naviframe.item_simple_push naviframe settings in
 
     Elm_naviframe.item_simple_promote naviframe grid;
-    
-    let box2 = Elm_box.add win in
-    Elm_box.horizontal_set box2 true;
-    Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
-    Evas_object.size_hint_align_set box2 Evas.hint_fill Evas.hint_fill;
-    Elm_box.pack_end box box2;
-    Evas_object.show box2;
 
-    let o = Elm_button.add win in
-    Elm_object.text_set o "Cancel";
-    Evas_object.size_hint_weight_set o Evas.hint_expand Evas.hint_expand;
-    Evas_object.size_hint_align_set o Evas.hint_fill Evas.hint_fill;
-    Elm_box.pack_end box2 o;
-    Evas_object.show o;
+    add_cancel_btn win inwin box in
 
-    let cancel_cb _ _ = Evas_object.del inwin in
-    Evas_object_smart.callback_add o "clicked" cancel_cb in
   Evas_object_smart.callback_add image_insert_bt "clicked" image_insert_cb;
 
   let win_del_cb obj _ = Evas_object.del obj; Elm.exit () in
