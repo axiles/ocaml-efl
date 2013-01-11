@@ -1,5 +1,3 @@
-(* WARNING: This example is still in heavy development *)
-
 (* Differences from the original entry_example.c:
 - We have one button "Change format" that show/hide explicityle the tags.
 - Double-clicking sends the cursor to the end of line and triple-clicking does
