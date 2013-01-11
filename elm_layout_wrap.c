@@ -109,3 +109,16 @@ PREFIX value ml_elm_layout_box_insert_at_with_bool(
                 Int_val(v_pos)));
 }
 
+PREFIX value ml_elm_layout_box_remove(value v_obj, value v_part, value v_child)
+{
+        Evas_Object* obj = elm_layout_box_remove((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child);
+        value v;
+        if(obj == NULL) return Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, (value) obj);
+                return Val_unit;
+        }
+}
+

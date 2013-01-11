@@ -31,3 +31,5 @@ val box_insert_at_with_bool : Evas.obj -> string -> Evas.obj -> int -> bool
 
 val box_insert_at : Evas.obj -> string -> Evas.obj -> int -> unit
 
+val box_remove : Evas.obj -> string -> Evas.obj -> Evas.obj option
+

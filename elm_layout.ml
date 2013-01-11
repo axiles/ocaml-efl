@@ -56,3 +56,6 @@ let box_insert_at obj part child pos =
   if not (box_insert_at_with_bool obj part child pos) then
     failwith "elm_layout_box_insert_at"
 
+external box_remove : Evas.obj -> string -> Evas.obj -> Evas.obj option =
+  "ml_elm_layout_box_remove"
+
