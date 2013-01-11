@@ -122,3 +122,10 @@ PREFIX value ml_elm_layout_box_remove(value v_obj, value v_part, value v_child)
         }
 }
 
+PREFIX value ml_elm_layout_box_remove_all_with_bool(
+        value v_obj, value v_part, value v_clear)
+{
+        return Val_Eina_Bool(elm_layout_box_remove_all((Evas_Object*) v_obj,
+                String_val(v_part), Eina_Bool_val(v_clear)));
+}
+
