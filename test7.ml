@@ -10,6 +10,8 @@ let edit_buffer_insert e text =
 let size_array = [|"size"; "absize"; "relsize"|]
 let vsize_array = [|"full"; "ascent"|]
 
+let markup = ref true
+
 let () =
   Elm.init Sys.argv;
   
@@ -41,14 +43,10 @@ let () =
   Evas_object.show c;
 
   let o = Elm_button.add win in
-  Elm_object.text_set o "b";
+  Elm_object.text_set o "Change format";
   Elm_box.pack_end tb o;
   Evas_object.show o;
-
-  let o = Elm_button.add win in
-  Elm_object.text_set o "em";
-  Elm_box.pack_end tb o;
-  Evas_object.show o;
+  let bformat_changed = o in
 
   let image_insert_bt = Elm_button.add win in
   Elm_box.pack_end tb image_insert_bt;
@@ -65,6 +63,26 @@ let () =
   Evas_object.size_hint_align_set en Evas.hint_fill Evas.hint_fill;
   Elm_box.pack_end box en;
   Evas_object.show en;
+
+  let format_changed_cb _ _ =
+    let f s =
+      if not !markup then Elm_entry.markup_to_utf8 s
+      else Elm_entry.utf8_to_markup s in
+    let cursor = Elm_entry.cursor_pos_get en in
+    Elm_entry.cursor_begin_set en;
+    Elm_entry.cursor_selection_begin en;
+    Elm_entry.cursor_pos_set en cursor;
+    Elm_entry.cursor_selection_end en;
+    let s_prev =
+      match Elm_entry.selection_get en with
+      | Some s -> s | None -> assert false in
+    let new_cursor = String.length (f s_prev) in
+    let s = Elm_object.text_get en in
+    Elm_object.text_set en (f s);
+    markup := not !markup;
+    Elm_object.focus_set en true;
+    Elm_entry.cursor_pos_set en new_cursor in
+  Evas_object_smart.callback_add bformat_changed "clicked" format_changed_cb;
 
   let autosave_change_cb obj _ =
     let state = Elm_check.state_get obj in
@@ -266,7 +284,8 @@ let () =
         let emo = match !remo with Some x -> x | None -> assert false in
         let s = sprintf "<item %s=%dx%d vsize=%s href=emoticon/%s>"
           size_array.(!size) !width !height vsize_array.(!vsize) emo in
-        edit_buffer_insert en s;
+        let s1 = if not !markup then Elm_entry.utf8_to_markup s else s in
+        edit_buffer_insert en s1;
         Evas_object.del inwin in
       Evas_object_smart.callback_add binsert "clicked" btn_insert_cb in
     fill_settings ();
