@@ -37,3 +37,8 @@ val box_remove_all_with_bool : Evas.obj -> string -> bool -> bool
 
 val box_remove_all : Evas.obj -> string -> bool -> unit
 
+val table_pack_with_bool :
+  Evas.obj -> string -> Evas.obj -> int -> int -> int -> int -> bool
+
+val table_pack :
+  Evas.obj -> string -> Evas.obj -> int -> int -> int -> int -> unit

@@ -129,3 +129,18 @@ PREFIX value ml_elm_layout_box_remove_all_with_bool(
                 String_val(v_part), Eina_Bool_val(v_clear)));
 }
 
+PREFIX value ml_elm_layout_table_pack_with_bool_native(
+        value v_obj, value v_part, value v_child, value v_col, value v_row,
+        value v_colspan, value v_rowspan)
+{
+        return Val_Eina_Bool(elm_layout_table_pack((Evas_Object*) v_obj,
+                String_val(v_part), (Evas_Object*) v_child, Int_val(v_col),
+                Int_val(v_row), Int_val(v_colspan), Int_val(v_rowspan)));
+}
+
+PREFIX value ml_elm_layout_table_pack_with_bool_byte(value* argv, int argn)
+{
+        return ml_elm_layout_table_pack_with_bool_native(argv[0], argv[1],
+                argv[2], argv[3], argv[4], argv[5], argv[6]);
+}
+

@@ -66,3 +66,12 @@ let box_remove_all obj part clear =
   if not (box_remove_all_with_bool obj part clear) then
     failwith "elm_layout_box_remove_all"
 
+external table_pack_with_bool :
+  Evas.obj -> string -> Evas.obj -> int -> int -> int -> int -> bool =
+  "ml_elm_layout_table_pack_with_bool_byte"
+  "ml_elm_layout_table_pack_with_bool_native"
+
+let table_pack obj part child col row colspan rowspan =
+  if not (table_pack_with_bool obj part child col row colspan rowspan) then
+    failwith "elm_layout_table_pack"
+
