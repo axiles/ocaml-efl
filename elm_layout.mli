@@ -65,3 +65,7 @@ val part_cursor_unset_with_bool : Evas.obj -> string -> bool
 
 val part_cursor_unset : Evas.obj -> string -> unit
 
+val part_cursor_style_set_with_bool : Evas.obj -> string -> string -> bool
+
+val part_cursor_style_set : Evas.obj -> string -> string -> unit
+

@@ -111,3 +111,11 @@ let part_cursor_unset obj part_name =
   if not (part_cursor_unset_with_bool obj part_name) then
     failwith "elm_mayout_part_cursor_unset"
 
+external part_cursor_style_set_with_bool :
+  Evas.obj -> string -> string -> bool =
+  "ml_elm_layout_part_cursor_style_set_with_bool"
+
+let part_cursor_style_set obj part_name style =
+  if not (part_cursor_style_set_with_bool obj part_name style) then
+    failwith "elm_layout_cursor_style_set"
+

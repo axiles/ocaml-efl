@@ -210,3 +210,11 @@ PREFIX value ml_elm_layout_part_cursor_unset_with_bool(
                 String_val(v_part_name)));
 }
 
+PREFIX value ml_elm_layout_part_cursor_style_set_with_bool(
+        value v_obj, value v_part_name, value v_style)
+{
+        return Val_Eina_Bool(elm_layout_part_cursor_style_set(
+                (Evas_Object*) v_obj, String_val(v_part_name),
+                String_val(v_style)));
+}
+
