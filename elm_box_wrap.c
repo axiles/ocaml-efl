@@ -104,3 +104,15 @@ PREFIX value ml_elm_box_align_set(value v_obj, value v_h, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_align_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        double x, y;
+        elm_box_align_get((Evas_Object*) v_obj, &x, &y);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_double(x));
+        Store_field(v, 1, copy_double(y));
+        CAMLreturn(v);
+}
+
