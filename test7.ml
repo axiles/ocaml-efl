@@ -57,14 +57,14 @@ let add_radio_box win box list q =
     Elm_radio.state_value_set r i;
     Elm_box.pack_end hbox r;
     Evas_object.show r;
+    let changed_cb _ _ = q := Elm_radio.value_get r in
+    Evas_object_smart.callback_add r "changed" changed_cb;
     r in
   match mapi aux list with
   | [] -> ()
   | r :: rs ->
     List.iter (fun r1 -> Elm_radio.group_add r1 r) rs;
-    let changed_cb _ _ = q := Elm_radio.value_get r in
-    Elm_radio.value_set r !q;
-    Evas_object_smart.callback_add r "changed" changed_cb
+    Elm_radio.value_set r !q
 
 let add_dim_en win box name q =
   let f = Elm_frame.add win in
