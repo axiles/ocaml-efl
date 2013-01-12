@@ -31,3 +31,5 @@ external padding_set : Evas.obj -> int -> int -> unit = "ml_elm_box_padding_set"
 
 external padding_get : Evas.obj -> int * int = "ml_elm_box_padding_get"
 
+external align_set : Evas.obj -> float -> float -> unit = "ml_elm_box_align_set"
+

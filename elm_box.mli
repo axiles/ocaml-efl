@@ -28,3 +28,5 @@ val padding_set : Evas.obj -> int -> int -> unit
 
 val padding_get : Evas.obj -> int * int
 
+val align_set : Evas.obj -> float -> float -> unit
+

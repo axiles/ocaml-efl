@@ -97,3 +97,10 @@ PREFIX value ml_elm_box_padding_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_box_align_set(value v_obj, value v_h, value v_v)
+{
+        elm_box_align_set((Evas_Object*) v_obj, Double_val(v_h),
+                Double_val(v_v));
+        return Val_unit;
+}
+
