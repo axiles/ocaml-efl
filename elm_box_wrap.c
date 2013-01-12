@@ -55,3 +55,9 @@ PREFIX value ml_elm_box_pack_after(value v_obj, value v_subobj, value v_after)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_clear(value v_obj)
+{
+        elm_box_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
