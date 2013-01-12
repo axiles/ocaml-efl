@@ -170,3 +170,17 @@ PREFIX value ml_elm_layout_edje_get(value v_obj)
         return (value) elm_layout_edje_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_elm_layout_data_get(value v_obj, value v_key)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* data = elm_layout_data_get((Evas_Object*) v_obj,
+                String_val(v_key));
+        if(data == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(data));
+        }
+        CAMLreturn(v);
+}
+

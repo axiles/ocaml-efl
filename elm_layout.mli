@@ -51,3 +51,5 @@ val table_clear : Evas.obj -> string -> bool -> unit
 
 val edje_get : Evas.obj -> Evas.obj
 
+val data_get : Evas.obj -> string -> string option
+

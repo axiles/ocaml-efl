@@ -88,3 +88,6 @@ let table_clear obj part clear =
 external edje_get : Evas.obj -> Evas.obj =
   "ml_elm_layout_edje_get"
 
+external data_get : Evas.obj -> string -> string option =
+  "ml_elm_layout_data_get"
+
