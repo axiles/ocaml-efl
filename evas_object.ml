@@ -22,3 +22,5 @@ external color_set : Evas.obj -> int -> int -> int -> int -> unit =
 
 external del : Evas.obj -> unit = "ml_evas_object_del"
 
+external evas_get : Evas.obj -> Evas.t = "ml_evas_object_evas_get"
+

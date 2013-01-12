@@ -83,3 +83,8 @@ PREFIX value ml_evas_object_del(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_evas_get(value v_obj)
+{
+        return (value) evas_object_evas_get((Evas_Object*) v_obj);
+}
+

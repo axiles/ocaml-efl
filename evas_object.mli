@@ -16,3 +16,5 @@ val color_set : Evas.obj -> int -> int -> int -> int -> unit
 
 val del : Evas.obj -> unit
 
+val evas_get : Evas.obj -> Evas.t
+
