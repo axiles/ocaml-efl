@@ -240,3 +240,10 @@ PREFIX value ml_elm_layout_part_cursor_engine_only_set_with_bool(
                 Eina_Bool_val(v_flag)));
 }
 
+PREFIX value ml_elm_layout_part_cursor_engine_only_get(
+        value v_obj, value v_part_name)
+{
+        return Val_Eina_Bool(elm_layout_part_cursor_engine_only_get(
+                (Evas_Object*) v_obj, String_val(v_part_name)));
+}
+

@@ -130,3 +130,6 @@ let part_cursor_engine_only_set obj part_name flag =
   if not (part_cursor_engine_only_set_with_bool obj part_name flag) then
     failwith "elm_layout_part_cursor_engine_only_set"
 
+external part_cursor_engine_only_get : Evas.obj -> string -> bool =
+  "ml_elm_layout_part_cursor_engine_only_get"
+

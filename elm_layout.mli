@@ -75,3 +75,5 @@ val part_cursor_engine_only_set_with_bool : Evas.obj -> string -> bool -> bool
 
 val part_cursor_engine_only_set : Evas.obj -> string -> bool -> unit
 
+val part_cursor_engine_only_get : Evas.obj -> string -> bool
+
