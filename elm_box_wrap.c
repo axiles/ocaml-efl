@@ -87,3 +87,13 @@ PREFIX value ml_elm_box_padding_set(value v_obj, value v_h, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_padding_get(value v_obj)
+{
+        Evas_Coord x, y;
+        elm_box_padding_get((Evas_Object*) v_obj, &x, &y);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        return v;
+}
+

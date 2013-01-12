@@ -29,3 +29,5 @@ external children_get : Evas.obj -> Evas.obj list = "ml_elm_box_children_get"
 
 external padding_set : Evas.obj -> int -> int -> unit = "ml_elm_box_padding_set"
 
+external padding_get : Evas.obj -> int * int = "ml_elm_box_padding_get"
+

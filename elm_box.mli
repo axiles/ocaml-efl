@@ -26,3 +26,5 @@ val children_get : Evas.obj -> Evas.obj list
 
 val padding_set : Evas.obj -> int -> int -> unit
 
+val padding_get : Evas.obj -> int * int
+
