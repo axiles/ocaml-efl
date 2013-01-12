@@ -20,3 +20,5 @@ val clear : Evas.obj -> unit
 
 val unpack : Evas.obj -> Evas.obj -> unit
 
+val unpack_all : Evas.obj -> unit
+

@@ -67,3 +67,9 @@ PREFIX value ml_elm_box_unpack(value v_obj, value v_subobj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_unpack_all(value v_obj)
+{
+        elm_box_unpack_all((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
