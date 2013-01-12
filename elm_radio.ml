@@ -6,6 +6,8 @@ external group_add : Evas.obj -> Evas.obj -> unit =
 external state_value_set : Evas.obj -> int -> unit =
   "ml_elm_radio_state_value_set"
 
+external state_value_get : Evas.obj -> int = "ml_elm_radio_state_value_get"
+
 external value_set : Evas.obj -> int -> unit = "ml_elm_radio_value_set"
 
 external value_get : Evas.obj -> int = "ml_elm_radio_value_get"
