@@ -118,3 +118,9 @@ Executable test7
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: test7.ml
+Executable test8
+  Path: .
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: test8.ml
