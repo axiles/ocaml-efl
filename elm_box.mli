@@ -18,3 +18,5 @@ val pack_after : Evas.obj -> Evas.obj -> Evas.obj -> unit
 
 val clear : Evas.obj -> unit
 
+val unpack : Evas.obj -> Evas.obj -> unit
+

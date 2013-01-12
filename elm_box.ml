@@ -21,3 +21,5 @@ external pack_after : Evas.obj -> Evas.obj -> Evas.obj -> unit =
 
 external clear : Evas.obj -> unit = "ml_elm_box_clear"
 
+external unpack : Evas.obj -> Evas.obj -> unit = "ml_elm_box_unpack"
+
