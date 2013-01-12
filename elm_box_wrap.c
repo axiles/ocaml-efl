@@ -13,6 +13,11 @@ PREFIX value ml_elm_box_horizontal_set(value v_box, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_horizontal_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_box_horizontal_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_box_homogeneous_set(value v_box, value v_flag)
 {
         elm_box_homogeneous_set((Evas_Object*) v_box, Eina_Bool_val(v_flag));
