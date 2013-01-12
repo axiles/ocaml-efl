@@ -71,3 +71,7 @@ val part_cursor_style_set : Evas.obj -> string -> string -> unit
 
 val part_cursor_style_get : Evas.obj -> string -> string option
 
+val part_cursor_engine_only_set_with_bool : Evas.obj -> string -> bool -> bool
+
+val part_cursor_engine_only_set : Evas.obj -> string -> bool -> unit
+

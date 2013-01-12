@@ -122,3 +122,11 @@ let part_cursor_style_set obj part_name style =
 external part_cursor_style_get : Evas.obj -> string -> string option =
   "ml_elm_layout_part_cursor_style_get"
 
+external part_cursor_engine_only_set_with_bool :
+  Evas.obj -> string -> bool -> bool =
+  "ml_elm_layout_part_cursor_engine_only_set_with_bool"
+
+let part_cursor_engine_only_set obj part_name flag =
+  if not (part_cursor_engine_only_set_with_bool obj part_name flag) then
+    failwith "elm_layout_part_cursor_engine_only_set"
+

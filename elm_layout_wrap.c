@@ -232,3 +232,11 @@ PREFIX value ml_elm_layout_part_cursor_style_get(value v_obj, value v_part_name)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_layout_part_cursor_engine_only_set_with_bool(
+        value v_obj, value v_part_name, value v_flag)
+{
+        return Val_Eina_Bool(elm_layout_part_cursor_engine_only_set(
+                (Evas_Object*) v_obj, String_val(v_part_name),
+                Eina_Bool_val(v_flag)));
+}
+
