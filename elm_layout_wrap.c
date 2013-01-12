@@ -218,3 +218,17 @@ PREFIX value ml_elm_layout_part_cursor_style_set_with_bool(
                 String_val(v_style)));
 }
 
+PREFIX value ml_elm_layout_part_cursor_style_get(value v_obj, value v_part_name)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* style = elm_layout_part_cursor_style_get(
+                (Evas_Object*) v_obj, String_val(v_part_name));
+        if(style == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(style));
+        }
+        CAMLreturn(v);
+}
+

@@ -119,3 +119,6 @@ let part_cursor_style_set obj part_name style =
   if not (part_cursor_style_set_with_bool obj part_name style) then
     failwith "elm_layout_cursor_style_set"
 
+external part_cursor_style_get : Evas.obj -> string -> string option =
+  "ml_elm_layout_part_cursor_style_get"
+
