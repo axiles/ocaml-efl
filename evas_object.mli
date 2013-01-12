@@ -18,3 +18,5 @@ val del : Evas.obj -> unit
 
 val evas_get : Evas.obj -> Evas.t
 
+val rectangle_add : Evas.t -> Evas.obj
+

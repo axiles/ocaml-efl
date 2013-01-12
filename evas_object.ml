@@ -24,3 +24,5 @@ external del : Evas.obj -> unit = "ml_evas_object_del"
 
 external evas_get : Evas.obj -> Evas.t = "ml_evas_object_evas_get"
 
+external rectangle_add : Evas.t -> Evas.obj = "ml_evas_object_rectangle_add"
+

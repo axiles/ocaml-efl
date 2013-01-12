@@ -88,3 +88,8 @@ PREFIX value ml_evas_object_evas_get(value v_obj)
         return (value) evas_object_evas_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_evas_object_rectangle_add(value v_e)
+{
+        return (value) evas_object_rectangle_add((Evas*) v_e);
+}
+
