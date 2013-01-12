@@ -91,3 +91,6 @@ external edje_get : Evas.obj -> Evas.obj =
 external data_get : Evas.obj -> string -> string option =
   "ml_elm_layout_data_get"
 
+external sizing_eval : Evas.obj -> unit =
+  "ml_elm_layout_sizing_eval"
+

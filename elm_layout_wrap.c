@@ -154,7 +154,7 @@ PREFIX value ml_elm_layout_table_unpack(
         else {
                 v = caml_alloc(1, 0);
                 Store_field(v, 0, (value) obj);
-                return Val_unit;
+                return v;
         }
 }
 
@@ -182,5 +182,11 @@ PREFIX value ml_elm_layout_data_get(value v_obj, value v_key)
                 Store_field(v, 0, copy_string(data));
         }
         CAMLreturn(v);
+}
+
+PREFIX value ml_elm_layout_sizing_eval(value v_obj)
+{
+        elm_layout_sizing_eval((Evas_Object*) v_obj);
+        return Val_unit;
 }
 

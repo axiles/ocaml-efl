@@ -53,3 +53,5 @@ val edje_get : Evas.obj -> Evas.obj
 
 val data_get : Evas.obj -> string -> string option
 
+val sizing_eval : Evas.obj -> unit
+
