@@ -13,3 +13,5 @@ external pack_start : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_start"
 
 external pack_end : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_end"
 
+external pack_before : Evas.obj -> Evas.obj -> Evas.obj -> unit =
+  "ml_elm_box_pack_before"

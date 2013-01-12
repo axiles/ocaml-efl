@@ -41,3 +41,10 @@ PREFIX value ml_elm_box_pack_end(value v_obj, value v_subobj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_pack_before(value v_obj, value v_subobj, value v_before)
+{
+        elm_box_pack_before((Evas_Object*) v_obj, (Evas_Object*) v_subobj,
+                (Evas_Object*) v_before);
+        return Val_unit;
+}
+
