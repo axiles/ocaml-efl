@@ -14,3 +14,5 @@ val pack_end : Evas.obj -> Evas.obj -> unit
 
 val pack_before : Evas.obj -> Evas.obj -> Evas.obj -> unit
 
+val pack_after : Evas.obj -> Evas.obj -> Evas.obj -> unit
+
