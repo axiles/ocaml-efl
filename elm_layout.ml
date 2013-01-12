@@ -85,3 +85,6 @@ let table_clear obj part clear =
   if not (table_clear_with_bool obj part clear) then
     failwith "elm_layout_table_clear"
 
+external edje_get : Evas.obj -> Evas.obj =
+  "ml_elm_layout_edje_get"
+

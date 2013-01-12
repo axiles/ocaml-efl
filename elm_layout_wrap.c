@@ -165,3 +165,8 @@ PREFIX value ml_elm_layout_table_clear_with_bool(
                 String_val(v_part), Eina_Bool_val(v_clear)));
 }
 
+PREFIX value ml_elm_layout_edje_get(value v_obj)
+{
+        return (value) elm_layout_edje_get((Evas_Object*) v_obj);
+}
+

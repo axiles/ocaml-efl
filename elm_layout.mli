@@ -49,3 +49,5 @@ val table_clear_with_bool : Evas.obj -> string -> bool -> bool
 
 val table_clear : Evas.obj -> string -> bool -> unit
 
+val edje_get : Evas.obj -> Evas.obj
+
