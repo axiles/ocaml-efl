@@ -81,3 +81,9 @@ PREFIX value ml_elm_box_children_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_box_padding_set(value v_obj, value v_h, value v_v)
+{
+        elm_box_padding_set((Evas_Object*) v_obj, Int_val(v_h), Int_val(v_v));
+        return Val_unit;
+}
+
