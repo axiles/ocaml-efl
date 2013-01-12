@@ -57,3 +57,7 @@ val sizing_eval : Evas.obj -> unit
 
 val part_cursor_set_with_bool : Evas.obj -> string -> string -> bool
 
+val part_cursor_set : Evas.obj -> string -> string -> unit
+
+val part_cursor_get : Evas.obj -> string -> string
+

@@ -197,3 +197,9 @@ PREFIX value ml_elm_layout_part_cursor_set_with_bool(
                 String_val(v_part_name), String_val(v_cursor)));
 }
 
+PREFIX value ml_elm_layout_part_cursor_get(value v_obj, value v_part_name)
+{
+        return copy_string(elm_layout_part_cursor_get((Evas_Object*) v_obj,
+                String_val(v_part_name)));
+}
+

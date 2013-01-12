@@ -101,3 +101,6 @@ let part_cursor_set obj part_name cursor =
   if not (part_cursor_set_with_bool obj part_name cursor) then
     failwith "elm_layout_part_cursor_set"
 
+external part_cursor_get : Evas.obj -> string -> string =
+  "ml_elm_layout_part_cursor_get"
+
