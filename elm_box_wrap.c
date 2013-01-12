@@ -13,15 +13,15 @@ PREFIX value ml_elm_box_horizontal_set(value v_box, value v_flag)
         return Val_unit;
 }
 
-PREFIX value ml_elm_box_pack_end(value v_obj, value v_subobj)
-{
-        elm_box_pack_end((Evas_Object*) v_obj, (Evas_Object*) v_subobj);
-        return Val_unit;
-}
-
 PREFIX value ml_elm_box_homogeneous_set(value v_box, value v_flag)
 {
         elm_box_homogeneous_set((Evas_Object*) v_box, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_box_pack_end(value v_obj, value v_subobj)
+{
+        elm_box_pack_end((Evas_Object*) v_obj, (Evas_Object*) v_subobj);
         return Val_unit;
 }
 
