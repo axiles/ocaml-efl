@@ -190,3 +190,10 @@ PREFIX value ml_elm_layout_sizing_eval(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_layout_part_cursor_set_with_bool(
+        value v_obj, value v_part_name, value v_cursor)
+{
+        return Val_Eina_Bool(elm_layout_part_cursor_set((Evas_Object*) v_obj,
+                String_val(v_part_name), String_val(v_cursor)));
+}
+

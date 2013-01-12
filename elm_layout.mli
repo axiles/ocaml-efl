@@ -55,3 +55,5 @@ val data_get : Evas.obj -> string -> string option
 
 val sizing_eval : Evas.obj -> unit
 
+val part_cursor_set_with_bool : Evas.obj -> string -> string -> bool
+

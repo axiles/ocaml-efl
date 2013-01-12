@@ -94,3 +94,10 @@ external data_get : Evas.obj -> string -> string option =
 external sizing_eval : Evas.obj -> unit =
   "ml_elm_layout_sizing_eval"
 
+external part_cursor_set_with_bool : Evas.obj -> string -> string -> bool =
+  "ml_elm_layout_part_cursor_set_with_bool"
+
+let part_cursor_set obj part_name cursor =
+  if not (part_cursor_set_with_bool obj part_name cursor) then
+    failwith "elm_layout_part_cursor_set"
+
