@@ -32,3 +32,5 @@ val align_set : Evas.obj -> float -> float -> unit
 
 val align_get : Evas.obj -> float * float
 
+val recalculate : Evas.obj -> unit
+

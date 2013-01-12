@@ -116,3 +116,9 @@ PREFIX value ml_elm_box_align_get(value v_obj)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_box_recalculate(value v_obj)
+{
+        elm_box_recalculate((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
