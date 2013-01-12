@@ -25,3 +25,5 @@ external unpack : Evas.obj -> Evas.obj -> unit = "ml_elm_box_unpack"
 
 external unpack_all : Evas.obj -> unit = "ml_elm_box_unpack_all"
 
+external children_get : Evas.obj -> Evas.obj list = "ml_elm_box_children_get"
+

@@ -73,3 +73,11 @@ PREFIX value ml_elm_box_unpack_all(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_children_get(value v_obj)
+{
+        Eina_List* list = elm_box_children_get((Evas_Object*) v_obj);
+        value v = copy_Eina_List_Evas_Object(list);
+        eina_list_free(list);
+        return v;
+}
+

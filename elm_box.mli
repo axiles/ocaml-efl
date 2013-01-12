@@ -22,3 +22,5 @@ val unpack : Evas.obj -> Evas.obj -> unit
 
 val unpack_all : Evas.obj -> unit
 
+val children_get : Evas.obj -> Evas.obj list
+
