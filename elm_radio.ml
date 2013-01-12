@@ -12,3 +12,6 @@ external value_set : Evas.obj -> int -> unit = "ml_elm_radio_value_set"
 
 external value_get : Evas.obj -> int = "ml_elm_radio_value_get"
 
+external selected_object_get : Evas.obj -> Evas.obj =
+  "ml_elm_radio_selected_object_get"
+

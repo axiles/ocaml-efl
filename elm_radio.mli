@@ -10,3 +10,5 @@ val value_set : Evas.obj -> int -> unit
 
 val value_get : Evas.obj -> int
 
+val selected_object_get : Evas.obj -> Evas.obj
+

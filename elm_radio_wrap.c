@@ -35,3 +35,8 @@ PREFIX value ml_elm_radio_value_get(value v_obj)
         return Val_int(elm_radio_value_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_radio_selected_object_get(value v_obj)
+{
+        return (value) elm_radio_selected_object_get((Evas_Object*) v_obj);
+}
+
