@@ -9,5 +9,7 @@ external homogeneous_set : Evas.obj -> bool -> unit =
 
 external homogeneous_get : Evas.obj -> bool = "ml_elm_box_homogeneous_get"
 
+external pack_start : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_start"
+
 external pack_end : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_end"
 

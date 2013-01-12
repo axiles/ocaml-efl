@@ -29,6 +29,12 @@ PREFIX value ml_elm_box_homogeneous_get(value v_obj)
         return Val_Eina_Bool(elm_box_homogeneous_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_box_pack_start(value v_obj, value v_subobj)
+{
+        elm_box_pack_start((Evas_Object*) v_obj, (Evas_Object*) v_subobj);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_box_pack_end(value v_obj, value v_subobj)
 {
         elm_box_pack_end((Evas_Object*) v_obj, (Evas_Object*) v_subobj);
