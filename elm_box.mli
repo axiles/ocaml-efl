@@ -1,3 +1,5 @@
+(** elm_box_* *)
+
 type transition
 
 val add : Evas.obj -> Evas.obj
