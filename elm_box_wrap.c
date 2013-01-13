@@ -133,7 +133,7 @@ PREFIX value ml_elm_box_layout_set(value v_obj, value v_cb, value v_free_data)
         *data = v;
         caml_register_global_root(data);
         elm_box_layout_set((Evas_Object*) v_obj, ml_Evas_Object_Box_Layout_0,
-                data, ml_Ecore_Cb_1);
+                data, ml_Ecore_Cb_1_free);
         CAMLreturn(Val_unit);
 }
 
