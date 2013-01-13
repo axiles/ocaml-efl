@@ -34,3 +34,5 @@ val align_get : Evas.obj -> float * float
 
 val recalculate : Evas.obj -> unit
 
+val layout_set : Evas.obj -> Evas_object.box_layout -> Ecore.cb -> unit
+
