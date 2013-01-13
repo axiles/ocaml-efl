@@ -41,8 +41,14 @@ let () =
   Elm_box.pack_end bigbox bx;
   Evas_object.show bx;
 
+  let unpack_cb obj _ =
+    Elm_box.unpack bx obj;
+    Evas_object.move obj 0 50;
+    Evas_object.color_set obj 128 64 0 128 in
+
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 1";
+  Evas_object_smart.callback_add bt "clicked" unpack_cb;
   Evas_object.size_hint_weight_set bt Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set bt Evas.hint_fill Evas.hint_fill;
   Elm_box.pack_end bx bt;
@@ -50,6 +56,7 @@ let () =
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 2";
+  Evas_object_smart.callback_add bt "clicked" unpack_cb;
   Evas_object.size_hint_weight_set bt Evas.hint_expand 0.;
   Evas_object.size_hint_align_set bt 1. 0.5;
   Elm_box.pack_end bx bt;
@@ -57,6 +64,7 @@ let () =
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 3";
+  Evas_object_smart.callback_add bt "clicked" unpack_cb;
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
