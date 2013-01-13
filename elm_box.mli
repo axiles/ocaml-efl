@@ -1,4 +1,4 @@
-type box_transition
+type transition
 
 val add : Evas.obj -> Evas.obj
 
@@ -38,7 +38,11 @@ val recalculate : Evas.obj -> unit
 
 val layout_set : Evas.obj -> Evas_object.box_layout -> Ecore.cb -> unit
 
-val layout_transition : box_transition -> Evas_object.box_layout
+val layout_transition : transition -> Evas_object.box_layout
 
-val transition_free : box_transition -> Ecore.cb
+val transition_new :
+  float -> Evas_object.box_layout -> Ecore.cb -> Evas_object.box_layout ->
+    Ecore.cb -> Ecore.cb -> transition
+
+val transition_free : transition -> Ecore.cb
 

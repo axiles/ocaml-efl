@@ -1,4 +1,4 @@
-type box_transition
+type transition
 
 external add : Evas.obj -> Evas.obj = "ml_elm_box_add"
 
@@ -43,9 +43,15 @@ external layout_set : Evas.obj -> Evas_object.box_layout -> Ecore.cb -> unit =
   "ml_elm_box_layout_set"
 
 external layout_transition :
-  box_transition -> Evas.obj -> Evas_object.box_data -> unit =
+  transition -> Evas.obj -> Evas_object.box_data -> unit =
   "ml_elm_box_layout_transition"
 
-external transition_free : box_transition -> unit -> unit =
+external transition_new :
+  float -> Evas_object.box_layout -> Ecore.cb -> Evas_object.box_layout ->
+    Ecore.cb -> Ecore.cb -> transition =
+  "ml_elm_box_transition_new_byte"
+  "ml_elm_box_transition_new_native"
+
+external transition_free : transition -> unit -> unit =
   "ml_elm_box_transition_free"
 
