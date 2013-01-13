@@ -137,3 +137,10 @@ PREFIX value ml_elm_box_layout_set(value v_obj, value v_cb, value v_free_data)
         CAMLreturn(Val_unit);
 }
 
+PREFIX value ml_elm_box_layout_transition(value v_t, value v_obj, value v_priv)
+{
+        elm_box_layout_transition((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, (Elm_Box_Transition*) v_t);
+        return Val_unit;
+}
+

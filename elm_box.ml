@@ -42,3 +42,7 @@ external recalculate : Evas.obj -> unit = "ml_elm_box_recalculate"
 external layout_set : Evas.obj -> Evas_object.box_layout -> Ecore.cb -> unit =
   "ml_elm_box_layout_set"
 
+external layout_transition :
+  box_transition -> Evas.obj -> Evas_object.box_data -> unit =
+  "ml_elm_box_layout_transition"
+
