@@ -1,3 +1,5 @@
+type box_data
+
 val show : Evas.obj -> unit
 
 val size_hint_weight_set : Evas.obj -> float -> float -> unit
