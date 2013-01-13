@@ -46,3 +46,6 @@ external layout_transition :
   box_transition -> Evas.obj -> Evas_object.box_data -> unit =
   "ml_elm_box_layout_transition"
 
+external transition_free : box_transition -> unit -> unit =
+  "ml_elm_box_transition_free"
+

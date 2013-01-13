@@ -144,3 +144,8 @@ PREFIX value ml_elm_box_layout_transition(value v_t, value v_obj, value v_priv)
         return Val_unit;
 }
 
+PREFIX value ml_elm_box_transition_free(value v_t, value v_unit)
+{
+        elm_box_transition_free((Elm_Box_Transition*) v_t);
+}
+

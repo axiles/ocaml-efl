@@ -40,3 +40,5 @@ val layout_set : Evas.obj -> Evas_object.box_layout -> Ecore.cb -> unit
 
 val layout_transition : box_transition -> Evas_object.box_layout
 
+val transition_free : box_transition -> Ecore.cb
+
