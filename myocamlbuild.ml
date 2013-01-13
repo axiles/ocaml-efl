@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 198fcacf797a3746bb387e0ebf3f4261) *)
+(* DO NOT EDIT (digest: 3e3684afbc8e5bbb5b1732913076b504) *)
 module OASISGettext = struct
 # 21 "/home/axiles/src/oasis-0.3.0/src/oasis/OASISGettext.ml"
 
@@ -488,7 +488,8 @@ let package_default =
                "evas_wrap.h";
                "edje_wrap.h";
                "elm_wrap.h";
-               "elm_scroller_wrap.h"
+               "elm_scroller_wrap.h";
+               "ecore_wrap.h"
             ])
        ];
      flags =
@@ -571,7 +572,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 575 "myocamlbuild.ml"
+# 576 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 open Ocamlbuild_plugin
