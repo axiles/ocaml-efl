@@ -30,10 +30,10 @@ let () =
   Elm_box.pack_end bx bt_add;
   Evas_object.show bt_add;
 
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Clear";
-  Elm_box.pack_end bx bt;
-  Evas_object.show bt;
+  let bt_clear = Elm_button.add win in
+  Elm_object.text_set bt_clear "Clear";
+  Elm_box.pack_end bx bt_clear;
+  Evas_object.show bt_clear;
 
   let bx = Elm_box.add win in
   Evas_object.size_hint_weight_set bx Evas.hint_expand Evas.hint_expand;
@@ -69,6 +69,9 @@ let () =
     | o :: _ -> Elm_box.pack_after bx btn o);
     Evas_object.show btn in
   Evas_object_smart.callback_add bt_add "clicked" add_cb;
+
+  let clear_cb _ _ = Elm_box.clear bx in
+  Evas_object_smart.callback_add bt_clear "clicked" clear_cb;
 
   Elm.run ();
   Elm.shutdown ()
