@@ -572,7 +572,7 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         c->func.state_get = ml_Elm_Gen_Item_State_Get_Cb;
         c->func.del = ml_Elm_Gen_Item_Del_Cb;
 
-        value* v_data = caml_stat_alloc(sizeof(value*));
+        value* v_data = caml_stat_alloc(sizeof(value));
         *v_data = v;
         caml_register_global_root(v_data);
 
@@ -594,7 +594,7 @@ PREFIX value ml_elm_gengrid_item_append(
         void* data;
         ml_Elm_Gengrid_Item_Class(&class, &data, v_class);
 
-        value* data_func = caml_stat_alloc(sizeof(value*));
+        value* data_func = caml_stat_alloc(sizeof(value));
         *data_func = v_func;
         caml_register_global_root(data_func);
 
