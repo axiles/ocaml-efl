@@ -25,10 +25,10 @@ let () =
   Elm_box.pack_end bigbox bx;
   Evas_object.show bx;
 
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Add";
-  Elm_box.pack_end bx bt;
-  Evas_object.show bt;
+  let bt_add = Elm_button.add win in
+  Elm_object.text_set bt_add "Add";
+  Elm_box.pack_end bx bt_add;
+  Evas_object.show bt_add;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Clear";
@@ -59,6 +59,16 @@ let () =
   Elm_object.text_set bt "Button 3";
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
+
+  let add_cb _ _ =
+    let btn = Elm_button.add bx in
+    Elm_object.text_set btn "I do nothing";
+    let children = Elm_box.children_get bx in
+    (match children with
+    | [] -> Elm_box.pack_end bx btn
+    | o :: _ -> Elm_box.pack_after bx btn o);
+    Evas_object.show btn in
+  Evas_object_smart.callback_add bt_add "clicked" add_cb;
 
   Elm.run ();
   Elm.shutdown ()
