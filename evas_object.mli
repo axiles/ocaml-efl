@@ -1,5 +1,7 @@
 type box_data
 
+type box_layout = Evas.obj -> box_data -> unit
+
 val show : Evas.obj -> unit
 
 val size_hint_weight_set : Evas.obj -> float -> float -> unit

@@ -1,5 +1,7 @@
 type box_data
 
+type box_layout = Evas.obj -> box_data -> unit
+
 external show : Evas.obj -> unit = "ml_evas_object_show"
 
 external size_hint_weight_set : Evas.obj -> float -> float -> unit =
