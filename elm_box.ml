@@ -1,3 +1,5 @@
+type box_transition
+
 external add : Evas.obj -> Evas.obj = "ml_elm_box_add"
 
 external horizontal_set : Evas.obj -> bool -> unit = "ml_elm_box_horizontal_set"
