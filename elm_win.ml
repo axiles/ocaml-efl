@@ -22,5 +22,7 @@ external icon_name_get : Evas.obj -> string = "ml_elm_win_icon_name_get"
 
 external role_set : Evas.obj -> string -> unit = "ml_elm_win_role_set"
 
+external role_get : Evas.obj -> string = "ml_elm_win_role_get"
+
 external autodel_set : Evas.obj -> bool -> unit = "ml_elm_win_autodel_set"
 
