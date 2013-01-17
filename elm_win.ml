@@ -9,6 +9,9 @@ external util_standard_add : string -> string -> Evas.obj =
 external resize_object_add : Evas.obj -> Evas.obj -> unit =
   "ml_elm_win_resize_object_add"
 
+external resize_object_del : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_resize_object_del"
+
 external title_set : Evas.obj -> string -> unit = "ml_elm_win_title_set"
 
 external autodel_set : Evas.obj -> bool -> unit = "ml_elm_win_autodel_set"
