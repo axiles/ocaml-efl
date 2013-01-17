@@ -36,23 +36,6 @@ PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
         return ELM_WIN_BASIC;
 }
 
-PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
-{
-        Evas_Object* parent;
-        if(v_parent == Val_int(0)) parent = NULL;
-        else parent = (Evas_Object*) Field(v_parent, 0);
-        Evas_Object* win = elm_win_add(parent, String_val(v_name),
-                Elm_Win_Type_val(v_ty));
-        if(win == NULL) caml_failwith("elm_win_add");
-        return (value) win;
-}
-
-PREFIX value ml_elm_win_title_set(value v_obj, value v_title)
-{
-        elm_win_title_set((Evas_Object*) v_obj, String_val(v_title));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_exit(value v_unit)
 {
         elm_exit();
@@ -64,13 +47,6 @@ PREFIX value ml_elm_bg_add(value v_parent)
         Evas_Object* bg = elm_bg_add((Evas_Object*) v_parent);
         if(bg == NULL) caml_failwith("elm_bg_add");
         return (value) bg;
-}
-
-PREFIX value ml_elm_win_resize_object_add(value v_obj, value v_subobj)
-{
-        elm_win_resize_object_add((Evas_Object*) v_obj,
-                (Evas_Object*) v_subobj);
-        return Val_unit;
 }
 
 PREFIX value ml_elm_object_text_set(value v_obj, value v_text)
@@ -95,12 +71,6 @@ PREFIX value ml_elm_object_style_set_with_bool(value v_obj, value v_style)
 PREFIX value ml_elm_object_content_set(value v_obj, value v_content)
 {
         elm_object_content_set((Evas_Object*) v_obj, (Evas_Object*) v_content);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_win_autodel_set(value v_win, value v_flag)
-{
-        elm_win_autodel_set((Evas_Object*) v_win, Eina_Bool_val(v_flag));
         return Val_unit;
 }
 
