@@ -14,5 +14,7 @@ val title_get : Evas.obj -> string
 
 val icon_name_set : Evas.obj -> string -> unit
 
+val icon_name_get : Evas.obj -> string
+
 val autodel_set : Evas.obj -> bool -> unit
 
