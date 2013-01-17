@@ -16,5 +16,7 @@ external title_set : Evas.obj -> string -> unit = "ml_elm_win_title_set"
 
 external title_get : Evas.obj -> string = "ml_elm_win_title_get"
 
+external icon_name_set : Evas.obj -> string -> unit = "ml_elm_win_icon_name_set"
+
 external autodel_set : Evas.obj -> bool -> unit = "ml_elm_win_autodel_set"
 
