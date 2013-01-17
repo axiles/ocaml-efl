@@ -1,4 +1,5 @@
-(* WARNING: this example is still in heavy development *)
+(* Compared to the official example, this example does not have box transitions
+yet. *)
 
 let () =
   Elm.init Sys.argv;
