@@ -66,6 +66,12 @@ PREFIX value ml_elm_win_role_get(value v_obj)
         return copy_string(elm_win_role_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_icon_object_set(value v_obj, value v_icon)
+{
+        elm_win_icon_object_set((Evas_Object*) v_obj, (Evas_Object*) v_icon);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_win_autodel_set(value v_win, value v_flag)
 {
         elm_win_autodel_set((Evas_Object*) v_win, Eina_Bool_val(v_flag));
