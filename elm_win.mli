@@ -22,5 +22,7 @@ val role_get : Evas.obj -> string
 
 val icon_object_set : Evas.obj -> Evas.obj -> unit
 
+val icon_object_get : Evas.obj -> Evas.obj
+
 val autodel_set : Evas.obj -> bool -> unit
 
