@@ -19,16 +19,16 @@ PREFIX value ml_elm_win_util_standard_add(value v_name, value v_title)
         return (value) obj;
 }
 
-PREFIX value ml_elm_win_title_set(value v_obj, value v_title)
-{
-        elm_win_title_set((Evas_Object*) v_obj, String_val(v_title));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_win_resize_object_add(value v_obj, value v_subobj)
 {
         elm_win_resize_object_add((Evas_Object*) v_obj,
                 (Evas_Object*) v_subobj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_win_title_set(value v_obj, value v_title)
+{
+        elm_win_title_set((Evas_Object*) v_obj, String_val(v_title));
         return Val_unit;
 }
 
