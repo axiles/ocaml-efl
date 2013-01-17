@@ -83,3 +83,8 @@ PREFIX value ml_elm_win_autodel_set(value v_win, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_autodel_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_win_autodel_get((Evas_Object*) v_obj));
+}
+

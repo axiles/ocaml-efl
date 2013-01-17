@@ -31,3 +31,5 @@ external icon_object_get : Evas.obj -> Evas.obj = "ml_elm_win_icon_object_get"
 
 external autodel_set : Evas.obj -> bool -> unit = "ml_elm_win_autodel_set"
 
+external autodel_get : Evas.obj -> bool = "ml_elm_win_autodel_get"
+

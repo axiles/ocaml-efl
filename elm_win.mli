@@ -26,3 +26,5 @@ val icon_object_get : Evas.obj -> Evas.obj
 
 val autodel_set : Evas.obj -> bool -> unit
 
+val autodel_get : Evas.obj -> bool
+
