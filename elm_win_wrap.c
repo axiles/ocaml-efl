@@ -11,6 +11,14 @@ PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
         return (value) win;
 }
 
+PREFIX value ml_elm_win_util_standard_add(value v_name, value v_title)
+{
+        Evas_Object* obj = elm_win_util_standard_add(String_val(v_name),
+                String_val(v_title));
+        if(obj == NULL) caml_failwith("elm_win_util_standard_add");
+        return (value) obj;
+}
+
 PREFIX value ml_elm_win_title_set(value v_obj, value v_title)
 {
         elm_win_title_set((Evas_Object*) v_obj, String_val(v_title));
