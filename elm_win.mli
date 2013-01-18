@@ -55,3 +55,5 @@ val override_get : Evas.obj -> bool
 
 val fullscreen_set : Evas.obj -> bool -> unit
 
+val fullscreen_get : Evas.obj -> bool
+
