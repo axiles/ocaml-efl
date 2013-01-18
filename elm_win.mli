@@ -73,3 +73,5 @@ val urgent_set : Evas.obj -> bool -> unit
 
 val urgent_get : Evas.obj -> bool
 
+val demand_attention_set : Evas.obj -> bool -> unit
+
