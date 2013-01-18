@@ -80,3 +80,6 @@ external urgent_get : Evas.obj -> bool = "ml_elm_win_urgent_get"
 external demand_attention_set : Evas.obj -> bool -> unit =
   "ml_elm_win_demand_attention_set"
 
+external demand_attention_get : Evas.obj -> bool =
+  "ml_elm_win_demand_attention_get"
+
