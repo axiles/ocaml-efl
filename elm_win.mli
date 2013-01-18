@@ -117,3 +117,5 @@ val rotation_set : Evas.obj -> int -> unit
 
 val rotation_with_resize_set : Evas.obj -> int -> unit
 
+val rotation_get : Evas.obj -> int
+
