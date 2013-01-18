@@ -384,3 +384,9 @@ PREFIX value ml_elm_win_quickpanel_priority_minor_set(value v_obj, value v_n)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_quickpanel_priority_minor_get(value v_obj)
+{
+        return Val_int(elm_win_quickpanel_priority_minor_get(
+                (Evas_Object*) v_obj));
+}
+

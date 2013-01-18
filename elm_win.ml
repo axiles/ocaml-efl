@@ -149,3 +149,6 @@ external quickpanel_priority_major_get : Evas.obj -> int =
 external quickpanel_priority_minor_set : Evas.obj -> int -> unit =
   "ml_elm_win_quickpanel_priority_minor_set"
 
+external quickpanel_priority_minor_get : Evas.obj -> int =
+  "ml_elm_win_quickpanel_priority_minor_get"
+
