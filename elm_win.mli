@@ -109,3 +109,5 @@ val size_step_set : Evas.obj -> int -> int -> unit
 
 val size_step_get : Evas.obj -> int * int
 
+val layer_set : Evas.obj -> int -> unit
+
