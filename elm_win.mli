@@ -57,3 +57,5 @@ val fullscreen_set : Evas.obj -> bool -> unit
 
 val fullscreen_get : Evas.obj -> bool
 
+val maximized_set : Evas.obj -> bool -> unit
+
