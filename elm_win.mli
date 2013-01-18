@@ -51,3 +51,5 @@ val alpha_get : Evas.obj -> bool
 
 val override_set : Evas.obj -> bool -> unit
 
+val override_get : Evas.obj -> bool
+

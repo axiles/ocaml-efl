@@ -152,3 +152,8 @@ PREFIX value ml_elm_win_override_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_override_get(value v_obj, value v_flag)
+{
+        return Val_Eina_Bool(elm_win_override_get((Evas_Object*) v_obj));
+}
+
