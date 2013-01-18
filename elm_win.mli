@@ -127,3 +127,5 @@ val conformant_set : Evas.obj -> bool -> unit
 
 val conformant_get : Evas.obj -> bool
 
+val quickpanel_set : Evas.obj -> bool -> unit
+
