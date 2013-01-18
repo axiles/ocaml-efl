@@ -73,3 +73,5 @@ external withdrawn_set : Evas.obj -> bool -> unit = "ml_elm_win_withdrawn_set"
 
 external withdrawn_get : Evas.obj -> bool = "ml_elm_win_withdrawn_get"
 
+external urgent_set : Evas.obj -> bool-> unit = "ml_elm_win_urgent_set"
+
