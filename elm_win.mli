@@ -119,3 +119,5 @@ val rotation_with_resize_set : Evas.obj -> int -> unit
 
 val rotation_get : Evas.obj -> int
 
+val sticky_set : Evas.obj -> bool -> unit
+
