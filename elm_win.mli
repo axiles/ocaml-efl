@@ -67,3 +67,5 @@ val iconified_get : Evas.obj -> bool
 
 val withdrawn_set : Evas.obj -> bool -> unit
 
+val withdrawn_get : Evas.obj -> bool
+
