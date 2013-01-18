@@ -47,3 +47,5 @@ external borderless_get : Evas.obj -> bool = "ml_elm_win_borderless_get"
 
 external shaped_set : Evas.obj -> bool -> unit = "ml_elm_win_shaped_set"
 
+external shaped_get : Evas.obj -> bool = "ml_elm_win_shaped_get"
+
