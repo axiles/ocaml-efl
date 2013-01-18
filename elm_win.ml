@@ -53,3 +53,5 @@ external alpha_set : Evas.obj -> bool -> unit = "ml_elm_win_alpha_set"
 
 external alpha_get : Evas.obj -> bool = "ml_elm_win_alpha_get"
 
+external override_set : Evas.obj -> bool -> unit = "ml_elm_win_override_set"
+
