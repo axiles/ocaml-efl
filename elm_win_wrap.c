@@ -1,5 +1,29 @@
 #include "include.h"
 
+PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
+{
+        switch(v_ty) {
+                case Val_basic: return ELM_WIN_BASIC;
+                case Val_dialog_basic: return ELM_WIN_DIALOG_BASIC;
+                case Val_desktop: return ELM_WIN_DESKTOP;
+                case Val_dock: return ELM_WIN_DOCK;
+                case Val_toolbar: return ELM_WIN_TOOLBAR;
+                case Val_menu: return ELM_WIN_MENU;
+                case Val_utility: return ELM_WIN_UTILITY;
+                case Val_splash: return ELM_WIN_SPLASH;
+                case Val_dropdown_menu: return ELM_WIN_DROPDOWN_MENU;
+                case Val_popup_menu: return ELM_WIN_POPUP_MENU;
+                case Val_tooltip: return ELM_WIN_TOOLTIP;
+                case Val_notification: return ELM_WIN_NOTIFICATION;
+                case Val_combo: return ELM_WIN_COMBO;
+                case Val_dnd: return ELM_WIN_DND;
+                case Val_inlined_image: return ELM_WIN_INLINED_IMAGE;
+                case Val_socket_image: return ELM_WIN_SOCKET_IMAGE;
+        }
+        caml_failwith("Elm_Win_Type_val");
+        return ELM_WIN_BASIC;
+}
+
 PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
 {
         Evas_Object* parent;

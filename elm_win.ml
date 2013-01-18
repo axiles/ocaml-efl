@@ -1,4 +1,20 @@
-type ty = [`basic]
+type ty = [
+  | `basic
+  | `dialog_basic
+  | `desktop
+  | `dock
+  | `toolbar
+  | `menu
+  | `utility
+  | `splash
+  | `dropdown_menu
+  | `popup_menu
+  | `tooltip
+  | `notification
+  | `combo
+  | `dnd
+  | `inlined_image
+  | `socket_image]
 
 external add : ?p:Evas.obj -> string -> ty -> Evas.obj =
   "ml_elm_win_add"

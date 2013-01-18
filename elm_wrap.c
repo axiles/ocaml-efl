@@ -27,15 +27,6 @@ PREFIX value ml_elm_shutdown(value v_unit)
         return Val_unit;
 }
 
-PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
-{
-        switch(v_ty) {
-                case Val_basic: return ELM_WIN_BASIC;
-        }
-        caml_failwith("Elm_Win_Type_val");
-        return ELM_WIN_BASIC;
-}
-
 PREFIX value ml_elm_exit(value v_unit)
 {
         elm_exit();
