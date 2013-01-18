@@ -47,3 +47,5 @@ val shaped_get : Evas.obj -> bool
 
 val alpha_set : Evas.obj -> bool -> unit
 
+val alpha_get : Evas.obj -> bool
+
