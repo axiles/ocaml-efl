@@ -314,3 +314,9 @@ PREFIX value ml_elm_win_layer_get(value v_obj)
         return Val_int(elm_win_layer_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_rotation_set(value v_obj, value v_rot)
+{
+        elm_win_rotation_set((Evas_Object*) v_obj, Int_val(v_rot));
+        return Val_unit;
+}
+
