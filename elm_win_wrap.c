@@ -88,3 +88,9 @@ PREFIX value ml_elm_win_autodel_get(value v_obj)
         return Val_Eina_Bool(elm_win_autodel_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_activate(value v_obj)
+{
+        elm_win_activate((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

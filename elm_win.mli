@@ -28,3 +28,5 @@ val autodel_set : Evas.obj -> bool -> unit
 
 val autodel_get : Evas.obj -> bool
 
+val activate : Evas.obj -> unit
+

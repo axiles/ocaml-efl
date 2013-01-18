@@ -33,3 +33,5 @@ external autodel_set : Evas.obj -> bool -> unit = "ml_elm_win_autodel_set"
 
 external autodel_get : Evas.obj -> bool = "ml_elm_win_autodel_get"
 
+external activate : Evas.obj -> unit = "ml_elm_win_activate"
+
