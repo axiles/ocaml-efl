@@ -57,3 +57,5 @@ external override_set : Evas.obj -> bool -> unit = "ml_elm_win_override_set"
 
 external override_get : Evas.obj -> bool = "ml_elm_win_override_get"
 
+external fullscreen_set : Evas.obj -> bool -> unit = "ml_elm_win_fullscreen_set"
+
