@@ -71,3 +71,5 @@ val withdrawn_get : Evas.obj -> bool
 
 val urgent_set : Evas.obj -> bool -> unit
 
+val urgent_get : Evas.obj -> bool
+
