@@ -266,3 +266,8 @@ PREFIX value ml_elm_win_aspect_set(value v_obj, value v_r)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_aspect_get(value v_obj)
+{
+        return copy_double(elm_win_aspect_get((Evas_Object*) v_obj));
+}
+

@@ -105,3 +105,5 @@ external modal_get : Evas.obj -> bool = "ml_elm_win_modal_get"
 
 external aspect_set : Evas.obj -> float -> unit = "ml_elm_win_aspect_set"
 
+external aspect_get : Evas.obj -> float = "ml_elm_win_aspect_get"
+
