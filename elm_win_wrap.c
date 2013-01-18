@@ -260,3 +260,9 @@ PREFIX value ml_elm_win_modal_get(value v_obj)
         return Val_Eina_Bool(elm_win_modal_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_aspect_set(value v_obj, value v_r)
+{
+        elm_win_aspect_set((Evas_Object*) v_obj, Double_val(v_r));
+        return Val_unit;
+}
+

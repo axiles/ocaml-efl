@@ -97,3 +97,5 @@ val modal_set : Evas.obj -> bool -> unit
 
 val modal_get : Evas.obj -> bool
 
+val aspect_set : Evas.obj -> float -> unit
+
