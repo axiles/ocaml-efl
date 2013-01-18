@@ -132,3 +132,5 @@ external sticky_set : Evas.obj -> bool -> unit = "ml_elm_win_sticky_set"
 
 external sticky_get : Evas.obj -> bool = "ml_elm_win_sticky_get"
 
+external conformant_set : Evas.obj -> bool -> unit = "ml_elm_win_conformant_set"
+

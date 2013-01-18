@@ -123,3 +123,5 @@ val sticky_set : Evas.obj -> bool -> unit
 
 val sticky_get : Evas.obj -> bool
 
+val conformant_set : Evas.obj -> bool -> unit
+
