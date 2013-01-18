@@ -287,3 +287,9 @@ PREFIX value ml_elm_win_size_base_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_win_size_step_set(value v_obj, value v_w, value v_h)
+{
+        elm_win_size_step_set((Evas_Object*) v_obj, Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+

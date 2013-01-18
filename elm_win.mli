@@ -105,3 +105,5 @@ val size_base_set : Evas.obj -> int -> int -> unit
 
 val size_base_get : Evas.obj -> int * int
 
+val size_step_set : Evas.obj -> int -> int -> unit
+
