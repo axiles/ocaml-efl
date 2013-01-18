@@ -138,3 +138,5 @@ external conformant_get : Evas.obj -> bool = "ml_elm_win_conformant_get"
 
 external quickpanel_set : Evas.obj -> bool -> unit = "ml_elm_win_quickpanel_set"
 
+external quickpanel_get : Evas.obj -> bool = "ml_elm_win_quickpanel_get"
+
