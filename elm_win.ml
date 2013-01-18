@@ -119,3 +119,5 @@ external size_step_get : Evas.obj -> int * int = "ml_elm_win_size_step_get"
 
 external layer_set : Evas.obj -> int -> unit = "ml_elm_win_layer_set"
 
+external layer_get : Evas.obj -> int = "ml_elm_win_layer_get"
+

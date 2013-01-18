@@ -309,3 +309,8 @@ PREFIX value ml_elm_win_layer_set(value v_obj, value v_n)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_layer_get(value v_obj)
+{
+        return Val_int(elm_win_layer_get((Evas_Object*) v_obj));
+}
+
