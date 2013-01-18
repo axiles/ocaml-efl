@@ -69,3 +69,5 @@ external iconified_set : Evas.obj -> bool -> unit = "ml_elm_win_iconified_set"
 
 external iconified_get : Evas.obj -> bool = "ml_elm_win_iconified_get"
 
+external withdrawn_set : Evas.obj -> bool -> unit = "ml_elm_win_withdrawn_set"
+
