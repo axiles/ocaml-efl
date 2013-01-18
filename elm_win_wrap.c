@@ -271,3 +271,9 @@ PREFIX value ml_elm_win_aspect_get(value v_obj)
         return copy_double(elm_win_aspect_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_size_base_set(value v_obj, value v_w, value v_h)
+{
+        elm_win_size_base_set((Evas_Object*) v_obj, Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
