@@ -41,3 +41,5 @@ external raises : Evas.obj -> unit = "ml_elm_win_raise"
 
 external center : Evas.obj -> bool -> bool -> unit = "ml_elm_win_center"
 
+external borderless_set : Evas.obj -> bool -> unit = "ml_elm_win_borderless_set"
+

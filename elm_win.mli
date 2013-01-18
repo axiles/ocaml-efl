@@ -37,3 +37,5 @@ val raises : Evas.obj -> unit
 
 val center : Evas.obj -> bool -> bool -> unit
 
+val borderless_set : Evas.obj -> bool -> unit
+

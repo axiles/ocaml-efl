@@ -110,5 +110,12 @@ PREFIX value ml_elm_win_center(value v_obj, value v_h, value v_v)
 {
         elm_win_center((Evas_Object*) v_obj, Eina_Bool_val(v_h),
                 Eina_Bool_val(v_v));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_win_borderless_set(value v_obj, value v_flag)
+{
+        elm_win_borderless_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
 }
 
