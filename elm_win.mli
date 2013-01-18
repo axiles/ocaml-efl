@@ -77,3 +77,5 @@ val demand_attention_set : Evas.obj -> bool -> unit
 
 val demand_attention_get : Evas.obj -> bool
 
+val modal_set : Evas.obj -> bool -> unit
+
