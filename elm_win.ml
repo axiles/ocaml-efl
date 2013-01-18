@@ -140,3 +140,6 @@ external quickpanel_set : Evas.obj -> bool -> unit = "ml_elm_win_quickpanel_set"
 
 external quickpanel_get : Evas.obj -> bool = "ml_elm_win_quickpanel_get"
 
+external quickpanel_priority_major_set : Evas.obj -> int -> unit =
+  "ml_elm_win_quickpanel_priority_major_set"
+
