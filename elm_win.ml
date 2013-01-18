@@ -67,3 +67,5 @@ external maximized_get : Evas.obj -> bool = "ml_elm_win_maximized_get"
 
 external iconified_set : Evas.obj -> bool -> unit = "ml_elm_win_iconified_set"
 
+external iconified_get : Evas.obj -> bool = "ml_elm_win_iconified_get"
+
