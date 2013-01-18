@@ -61,3 +61,5 @@ val maximized_set : Evas.obj -> bool -> unit
 
 val maximized_get : Evas.obj -> bool
 
+val iconified_set : Evas.obj -> bool -> unit
+
