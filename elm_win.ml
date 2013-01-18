@@ -85,3 +85,5 @@ external demand_attention_get : Evas.obj -> bool =
 
 external modal_set : Evas.obj -> bool -> unit = "ml_elm_win_modal_set"
 
+external modal_get : Evas.obj -> bool = "ml_elm_win_modal_get"
+
