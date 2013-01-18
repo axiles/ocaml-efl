@@ -94,3 +94,9 @@ PREFIX value ml_elm_win_activate(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_lower(value v_obj)
+{
+        elm_win_lower((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

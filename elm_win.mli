@@ -30,3 +30,5 @@ val autodel_get : Evas.obj -> bool
 
 val activate : Evas.obj -> unit
 
+val lower : Evas.obj -> unit
+
