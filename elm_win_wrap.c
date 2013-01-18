@@ -106,3 +106,9 @@ PREFIX value ml_elm_win_raise(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_center(value v_obj, value v_h, value v_v)
+{
+        elm_win_center((Evas_Object*) v_obj, Eina_Bool_val(v_h),
+                Eina_Bool_val(v_v));
+}
+

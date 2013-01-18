@@ -35,3 +35,5 @@ val lower : Evas.obj -> unit
 (** elm_win_raise *)
 val raises : Evas.obj -> unit
 
+val center : Evas.obj -> bool -> bool -> unit
+
