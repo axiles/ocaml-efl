@@ -366,7 +366,14 @@ PREFIX value ml_elm_win_quickpanel_get(value v_obj)
 
 PREFIX value ml_elm_win_quickpanel_priority_major_set(value v_obj, value v_n)
 {
-        elm_win_quickpanel_priority_major_set((Evas_Object*) v_obj, Int_val(v_n));
+        elm_win_quickpanel_priority_major_set((Evas_Object*) v_obj,
+                Int_val(v_n));
         return Val_unit;
+}
+
+PREFIX value ml_elm_win_quickpanel_priority_major_get(value v_obj)
+{
+        return Val_int(elm_win_quickpanel_priority_major_get(
+                (Evas_Object*) v_obj));
 }
 

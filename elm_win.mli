@@ -133,3 +133,5 @@ val quickpanel_get : Evas.obj -> bool
 
 val quickpanel_priority_major_set : Evas.obj -> int -> unit
 
+val quickpanel_priority_major_get : Evas.obj -> int
+
