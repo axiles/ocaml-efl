@@ -39,3 +39,5 @@ val center : Evas.obj -> bool -> bool -> unit
 
 val borderless_set : Evas.obj -> bool -> unit
 
+val borderless_get : Evas.obj -> bool
+
