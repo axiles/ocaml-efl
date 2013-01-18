@@ -320,3 +320,9 @@ PREFIX value ml_elm_win_rotation_set(value v_obj, value v_rot)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_rotation_with_resize_set(value v_obj, value v_rot)
+{
+        elm_win_rotation_with_resize_set((Evas_Object*) v_obj, Int_val(v_rot));
+        return Val_unit;
+}
+

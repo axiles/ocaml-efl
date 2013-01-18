@@ -123,3 +123,6 @@ external layer_get : Evas.obj -> int = "ml_elm_win_layer_get"
 
 external rotation_set : Evas.obj -> int -> unit = "ml_elm_win_rotation_set"
 
+external rotation_with_resize_set : Evas.obj -> int -> unit =
+  "ml_elm_win_rotation_with_resize_set"
+
