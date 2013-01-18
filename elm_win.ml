@@ -37,3 +37,5 @@ external activate : Evas.obj -> unit = "ml_elm_win_activate"
 
 external lower : Evas.obj -> unit = "ml_elm_win_lower"
 
+external raises : Evas.obj -> unit = "ml_elm_win_raise"
+

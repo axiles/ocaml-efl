@@ -32,3 +32,6 @@ val activate : Evas.obj -> unit
 
 val lower : Evas.obj -> unit
 
+(** elm_win_raise *)
+val raises : Evas.obj -> unit
+
