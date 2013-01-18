@@ -115,3 +115,5 @@ external size_base_get : Evas.obj -> int * int = "ml_elm_win_size_base_get"
 external size_step_set : Evas.obj -> int -> int -> unit =
   "ml_elm_win_size_step_set"
 
+external size_step_get : Evas.obj -> int * int = "ml_elm_win_size_step_get"
+

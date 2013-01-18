@@ -293,3 +293,13 @@ PREFIX value ml_elm_win_size_step_set(value v_obj, value v_w, value v_h)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_size_step_get(value v_obj)
+{
+        int w, h;
+        elm_win_size_step_get((Evas_Object*) v_obj, &w, &h);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
+        return v;
+}
+
