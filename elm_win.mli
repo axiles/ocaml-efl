@@ -41,3 +41,5 @@ val borderless_set : Evas.obj -> bool -> unit
 
 val borderless_get : Evas.obj -> bool
 
+val shaped_set : Evas.obj -> bool -> unit
+
