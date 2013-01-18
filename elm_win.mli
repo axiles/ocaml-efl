@@ -103,3 +103,5 @@ val aspect_get : Evas.obj -> float
 
 val size_base_set : Evas.obj -> int -> int -> unit
 
+val size_base_get : Evas.obj -> int * int
+
