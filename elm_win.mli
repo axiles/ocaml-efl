@@ -121,3 +121,5 @@ val rotation_get : Evas.obj -> int
 
 val sticky_set : Evas.obj -> bool -> unit
 
+val sticky_get : Evas.obj -> bool
+
