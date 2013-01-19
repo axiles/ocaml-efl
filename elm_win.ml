@@ -177,3 +177,6 @@ external screen_constrain_set : Evas.obj -> bool -> unit =
 external screen_constrain_get : Evas.obj -> bool =
   "ml_elm_win_screen_constrain_get"
 
+external screen_size_get : Evas.obj -> int * int * int * int =
+  "ml_elm_win_screen_size_get"
+
