@@ -605,3 +605,10 @@ PREFIX value ml_elm_win_keyboard_win_get(value v_obj)
         return Val_Eina_Bool(elm_win_keyboard_win_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_indicator_mode_set(value v_obj, value v_m)
+{
+        elm_win_indicator_mode_set((Evas_Object*) v_obj,
+                Elm_Win_Indicator_Mode_val(v_m));
+        return Val_unit;
+}
+
