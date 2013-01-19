@@ -216,3 +216,5 @@ val indicator_opacity_get : Evas.obj -> indicator_opacity_mode
 
 val screen_position_get : Evas.obj -> int * int
 
+val socket_listen : Evas.obj -> string -> int -> bool -> unit
+

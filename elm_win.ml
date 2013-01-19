@@ -250,3 +250,6 @@ external indicator_opacity_get : Evas.obj -> indicator_opacity_mode =
 external screen_position_get : Evas.obj -> int * int =
   "ml_elm_win_screen_position_get"
 
+external socket_listen : Evas.obj -> string -> int -> bool -> unit =
+  "ml_elm_win_socket_listen"
+

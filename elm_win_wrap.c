@@ -668,3 +668,10 @@ PREFIX value ml_elm_win_screen_position_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_win_socket_listen(
+        value v_obj, value v_name, value v_num, value v_sys)
+{
+        return Val_Eina_Bool(elm_win_socket_listen((Evas_Object*) v_obj,
+                String_val(v_name), Int_val(v_num), Eina_Bool_val(v_sys)));
+}
+
