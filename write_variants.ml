@@ -30,6 +30,7 @@ let () =
   g "focus_home";
   g "go";
   g "hex";
+  g "hide";
   g "host";
   g "inlined_image";
   g "invalid";
@@ -65,6 +66,7 @@ let () =
   g "search";
   g "send";
   g "sentence";
+  g "show";
   g "splash";
   g "socket_image";
   g "standard";

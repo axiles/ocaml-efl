@@ -72,6 +72,28 @@ PREFIX inline value Val_Elm_Win_Keyboard_Mode(Elm_Win_Keyboard_Mode mode)
         return Val_unknown;
 }
 
+PREFIX inline Elm_Win_Indicator_Mode Elm_Win_Indicator_Mode_val(value v_mode)
+{
+        switch(v_mode) {
+                case Val_unknown: return ELM_WIN_INDICATOR_UNKNOWN;
+                case Val_hide: return ELM_WIN_INDICATOR_HIDE;
+                case Val_show: return ELM_WIN_INDICATOR_SHOW;
+        }
+        caml_failwith("Elm_Win_Indicator_Mode_val");
+        return ELM_WIN_INDICATOR_UNKNOWN;
+}
+
+PREFIX inline value Val_Elm_Win_Indicator_Mode(Elm_Win_Indicator_Mode mode)
+{
+        switch(mode) {
+                case ELM_WIN_INDICATOR_UNKNOWN: return Val_unknown;
+                case ELM_WIN_INDICATOR_HIDE: return Val_hide;
+                case ELM_WIN_INDICATOR_SHOW: return Val_show;
+        }
+        caml_failwith("Val_Elm_Indicator_Mode");
+        return Val_unknown;
+}
+
 PREFIX inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
 {
         switch(v_c) {

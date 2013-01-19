@@ -34,6 +34,11 @@ type keyboard_mode = [
   | `keypad
   | `j2me]
 
+type indicator_mode = [
+  | `unknown
+  | `hide
+  | `show]
+
 type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
