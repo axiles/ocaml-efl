@@ -109,7 +109,7 @@ Elm_Win_Indicator_Opacity_Mode_val(value v_mode)
 }
 
 PREFIX inline value
-Val_Elm_Win_Indicator_Opacity_Mode_val(Elm_Win_Indicator_Opacity_Mode mode)
+Val_Elm_Win_Indicator_Opacity_Mode(Elm_Win_Indicator_Opacity_Mode mode)
 {
         switch(mode) {
                 case ELM_WIN_INDICATOR_OPACITY_UNKNOWN:
@@ -650,5 +650,11 @@ PREFIX value ml_elm_win_indicator_opacity_set(value v_obj, value v_m)
         elm_win_indicator_opacity_set((Evas_Object*) v_obj,
                 Elm_Win_Indicator_Opacity_Mode_val(v_m));
         return Val_unit;
+}
+
+PREFIX value ml_elm_win_indicator_opacity_get(value v_obj)
+{
+        return Val_Elm_Win_Indicator_Opacity_Mode(elm_win_indicator_opacity_get(
+                (Evas_Object*) v_obj));
 }
 
