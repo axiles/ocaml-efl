@@ -169,3 +169,5 @@ external illume_command_send : Evas.obj -> Elm.illume_command -> unit =
 external inlined_image_object_get : Evas.obj -> Evas.obj =
   "ml_elm_win_inlined_image_object_get"
 
+external focus_get : Evas.obj -> bool = "ml_elm_win_focus_get"
+
