@@ -149,3 +149,5 @@ val prop_focus_skip_set : Evas.obj -> bool -> unit
 
 val illume_command_send : Evas.obj -> Elm.illume_command -> unit
 
+val inlined_image_object_get : Evas.obj -> Evas.obj
+

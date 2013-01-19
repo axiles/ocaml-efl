@@ -166,3 +166,6 @@ external prop_focus_skip_set : Evas.obj -> bool -> unit =
 external illume_command_send : Evas.obj -> Elm.illume_command -> unit =
   "ml_elm_win_illume_command_send"
   
+external inlined_image_object_get : Evas.obj -> Evas.obj =
+  "ml_elm_win_inlined_image_object_get"
+

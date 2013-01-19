@@ -427,3 +427,11 @@ PREFIX value ml_elm_win_illume_command_send(value v_obj, value v_cmd)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_inlined_image_object_get(value v_obj)
+{
+        Evas_Object* obj = elm_win_inlined_image_object_get(
+                (Evas_Object*) v_obj);
+        if(obj == NULL) caml_failwith("elm_win_inlined_image_object_get");
+        return (value) obj;
+}
+
