@@ -221,3 +221,6 @@ external keyboard_mode_get : Evas.obj -> keyboard_mode =
 external keyboard_win_set : Evas.obj -> bool -> unit =
   "ml_elm_win_keyboard_win_set"
 
+external keyboard_win_get : Evas.obj -> bool =
+  "ml_elm_win_keyboard_win_get"
+
