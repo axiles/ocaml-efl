@@ -488,3 +488,12 @@ PREFIX value ml_elm_win_focus_highlight_enabled_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_focus_highlight_style_set(value v_obj, value v_s)
+{
+        const char* style;
+        if(v_s == Val_int(0)) style = NULL;
+        else style = String_val(Field(v_s, 0));
+        elm_win_focus_highlight_style_set((Evas_Object*) v_obj, style);
+        return Val_unit;
+}
+
