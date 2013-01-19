@@ -241,3 +241,6 @@ external indicator_mode_set : Evas.obj -> indicator_mode -> unit =
 external indicator_mode_get : Evas.obj -> indicator_mode =
   "ml_elm_win_indicator_mode_get"
 
+external indicator_opacity_set : Evas.obj -> indicator_opacity_mode -> unit =
+  "ml_elm_win_indicator_opacity_set"
+

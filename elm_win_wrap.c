@@ -645,3 +645,10 @@ PREFIX value ml_elm_win_indicator_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_indicator_opacity_set(value v_obj, value v_m)
+{
+        elm_win_indicator_opacity_set((Evas_Object*) v_obj,
+                Elm_Win_Indicator_Opacity_Mode_val(v_m));
+        return Val_unit;
+}
+

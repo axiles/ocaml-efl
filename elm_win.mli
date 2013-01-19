@@ -210,3 +210,5 @@ val indicator_mode_set : Evas.obj -> indicator_mode-> unit
 
 val indicator_mode_get : Evas.obj -> indicator_mode
 
+val indicator_opacity_set : Evas.obj -> indicator_opacity_mode -> unit
+
