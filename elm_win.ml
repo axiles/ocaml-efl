@@ -232,3 +232,6 @@ external keyboard_win_get : Evas.obj -> bool =
 external indicator_mode_set : Evas.obj -> indicator_mode -> unit =
   "ml_elm_win_indicator_mode_set"
 
+external indicator_mode_get : Evas.obj -> indicator_mode =
+  "ml_elm_win_indicator_mode_get"
+

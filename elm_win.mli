@@ -202,3 +202,5 @@ val keyboard_win_get : Evas.obj -> bool
 
 val indicator_mode_set : Evas.obj -> indicator_mode-> unit
 
+val indicator_mode_get : Evas.obj -> indicator_mode
+
