@@ -153,3 +153,5 @@ val inlined_image_object_get : Evas.obj -> Evas.obj
 
 val focus_get : Evas.obj -> bool
 
+val screen_constrain_set : Evas.obj -> bool -> unit
+

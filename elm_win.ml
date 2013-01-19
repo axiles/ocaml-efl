@@ -171,3 +171,6 @@ external inlined_image_object_get : Evas.obj -> Evas.obj =
 
 external focus_get : Evas.obj -> bool = "ml_elm_win_focus_get"
 
+external screen_constrain_set : Evas.obj -> bool -> unit =
+  "ml_elm_win_screen_constrain_set"
+
