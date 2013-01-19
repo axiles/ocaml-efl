@@ -559,3 +559,10 @@ PREFIX value ml_elm_win_focus_highlight_style_get(value v_obj)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_win_keyboard_mode_set(value v_obj, value v_m)
+{
+        elm_win_keyboard_mode_set((Evas_Object*) v_obj,
+                Elm_Win_Keyboard_Mode_val(v_m));
+        return Val_unit;
+}
+
