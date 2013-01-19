@@ -159,3 +159,5 @@ val screen_constrain_get : Evas.obj -> bool
 
 val screen_size_get : Evas.obj -> int * int * int * int
 
+val screen_dpi_get : Evas.obj -> int * int
+
