@@ -38,6 +38,8 @@ type input_panel_return_key_type = [
 
 type cnp_mode = [`markup | `no_image | `plaintext]
 
+type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)

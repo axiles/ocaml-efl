@@ -24,6 +24,18 @@ PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
         return ELM_WIN_BASIC;
 }
 
+PREFIX inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
+{
+        switch(v_c) {
+                case Val_focus_back: return ELM_ILLUME_COMMAND_FOCUS_BACK;
+                case Val_focus_forward: return ELM_ILLUME_COMMAND_FOCUS_FORWARD;
+                case Val_focus_home: return ELM_ILLUME_COMMAND_FOCUS_HOME;
+                case Val_close: return ELM_ILLUME_COMMAND_CLOSE;
+        }
+        caml_failwith("Elm_Illume_Command_val");
+        return ELM_ILLUME_COMMAND_FOCUS_BACK;
+}
+
 PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
 {
         Evas_Object* parent;

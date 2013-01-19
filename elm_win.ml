@@ -16,6 +16,8 @@ type ty = [
   | `inlined_image
   | `socket_image]
 
+type illume_command = Elm.illume_command
+
 external add : ?p:Evas.obj -> string -> ty -> Evas.obj =
   "ml_elm_win_add"
 

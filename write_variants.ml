@@ -13,6 +13,7 @@ let () =
   g "automatic";
   g "basic";
   g "char";
+  g "close";
   g "combo";
   g "default";
   g "desktop";
@@ -23,6 +24,9 @@ let () =
   g "dropdown_menu";
   g "email";
   g "file";
+  g "focus_back";
+  g "focus_forward";
+  g "focus_home";
   g "go";
   g "hex";
   g "inlined_image";

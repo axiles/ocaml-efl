@@ -16,6 +16,8 @@ type ty = [
   | `inlined_image
   | `socket_image]
 
+type illume_command = Elm.illume_command
+
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
 
 val util_standard_add : string -> string -> Evas.obj

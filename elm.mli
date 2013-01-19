@@ -38,6 +38,8 @@ type input_panel_return_key_type = [
 
 type cnp_mode = [`markup | `no_image | `plaintext]
 
+type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+
 val init : string array -> unit
 
 val run : unit -> unit
