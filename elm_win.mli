@@ -218,3 +218,5 @@ val screen_position_get : Evas.obj -> int * int
 
 val socket_listen : Evas.obj -> string -> int -> bool -> unit
 
+val xwindow_get : Evas.obj -> Ecore.x_window
+

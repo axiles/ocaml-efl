@@ -253,3 +253,5 @@ external screen_position_get : Evas.obj -> int * int =
 external socket_listen : Evas.obj -> string -> int -> bool -> unit =
   "ml_elm_win_socket_listen"
 
+external xwindow_get : Evas.obj -> Ecore.x_window = "ml_elm_win_xwindow_get"
+

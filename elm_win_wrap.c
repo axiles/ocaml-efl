@@ -675,3 +675,10 @@ PREFIX value ml_elm_win_socket_listen(
                 String_val(v_name), Int_val(v_num), Eina_Bool_val(v_sys)));
 }
 
+PREFIX value ml_elm_win_xwindow_get(value v_obj)
+{
+        Ecore_X_Window win = elm_win_xwindow_get((Evas_Object*) v_obj);
+        if(win == 0) raise_not_X();
+        return Val_int(win);
+}
+
