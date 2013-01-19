@@ -161,3 +161,5 @@ val screen_size_get : Evas.obj -> int * int * int * int
 
 val screen_dpi_get : Evas.obj -> int * int
 
+val focus_highlight_enabled_set : Evas.obj -> bool -> unit
+
