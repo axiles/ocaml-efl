@@ -24,6 +24,54 @@ PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
         return ELM_WIN_BASIC;
 }
 
+PREFIX inline Elm_Win_Keyboard_Mode Elm_Win_Keyboard_Mode_val(value v_mode)
+{
+        switch(v_mode) {
+                case Val_unknown: return ELM_WIN_KEYBOARD_UNKNOWN;
+                case Val_off: return ELM_WIN_KEYBOARD_OFF;
+                case Val_on: return ELM_WIN_KEYBOARD_ON;
+                case Val_alpha: return ELM_WIN_KEYBOARD_ALPHA;
+                case Val_numeric: return ELM_WIN_KEYBOARD_NUMERIC;
+                case Val_pin: return ELM_WIN_KEYBOARD_PIN;
+                case Val_phone_number: return ELM_WIN_KEYBOARD_PHONE_NUMBER;
+                case Val_hex: return ELM_WIN_KEYBOARD_HEX;
+                case Val_terminal: return ELM_WIN_KEYBOARD_TERMINAL;
+                case Val_password: return ELM_WIN_KEYBOARD_PASSWORD;
+                case Val_ip: return ELM_WIN_KEYBOARD_IP;
+                case Val_host: return ELM_WIN_KEYBOARD_HOST;
+                case Val_file: return ELM_WIN_KEYBOARD_FILE;
+                case Val_url: return ELM_WIN_KEYBOARD_URL;
+                case Val_keypad: return ELM_WIN_KEYBOARD_KEYPAD;
+                case Val_j2me: return ELM_WIN_KEYBOARD_J2ME;
+        }
+        caml_failwith("Elm_Win_Keyboard_Mode");
+        return ELM_WIN_KEYBOARD_UNKNOWN;
+}
+
+PREFIX inline value Val_Elm_Win_Keyboard_Mode(Elm_Win_Keyboard_Mode mode)
+{
+        switch(mode) {
+                case ELM_WIN_KEYBOARD_UNKNOWN: return Val_unknown;
+                case ELM_WIN_KEYBOARD_OFF: return Val_off;
+                case ELM_WIN_KEYBOARD_ON: return Val_on;
+                case ELM_WIN_KEYBOARD_ALPHA: return Val_alpha;
+                case ELM_WIN_KEYBOARD_NUMERIC: return Val_numeric;
+                case ELM_WIN_KEYBOARD_PIN: return Val_pin;
+                case ELM_WIN_KEYBOARD_PHONE_NUMBER: return Val_phone_number;
+                case ELM_WIN_KEYBOARD_HEX: return Val_hex;
+                case ELM_WIN_KEYBOARD_TERMINAL: return Val_terminal;
+                case ELM_WIN_KEYBOARD_PASSWORD: return Val_password;
+                case ELM_WIN_KEYBOARD_IP: return Val_ip;
+                case ELM_WIN_KEYBOARD_HOST: return Val_host;
+                case ELM_WIN_KEYBOARD_FILE: return Val_file;
+                case ELM_WIN_KEYBOARD_URL: return Val_url;
+                case ELM_WIN_KEYBOARD_KEYPAD: return Val_keypad;
+                case ELM_WIN_KEYBOARD_J2ME: return Val_j2me;
+        }
+        caml_failwith("Val_Elm_Win_Keyboard_Mode");
+        return Val_unknown;
+}
+
 PREFIX inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
 {
         switch(v_c) {

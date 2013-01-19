@@ -16,6 +16,24 @@ type ty = [
   | `inlined_image
   | `socket_image]
 
+type keyboard_mode = [
+  | `unknown
+  | `off
+  | `on
+  | `alpha
+  | `numeric
+  | `pin
+  | `phone_number
+  | `hex
+  | `terminal
+  | `password
+  | `ip
+  | `host
+  | `file
+  | `url
+  | `keypad
+  | `j2me]
+
 type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj

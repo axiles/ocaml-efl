@@ -8,6 +8,7 @@ let g x = f (sprintf "Val_%s" x) x
 
 let () =
   g "allcharacter";
+  g "alpha";
   g "alphabet";
   g "auto";
   g "automatic";
@@ -29,10 +30,13 @@ let () =
   g "focus_home";
   g "go";
   g "hex";
+  g "host";
   g "inlined_image";
   g "invalid";
   g "ip";
+  g "j2me";
   g "join";
+  g "keypad";
   g "last_window_closed";
   g "login";
   g "markup";
@@ -47,10 +51,13 @@ let () =
   g "notification";
   g "number";
   g "numberonly";
+  g "numeric";
   g "off";
   g "on";
   g "password";
+  g "phone_number";
   g "phonenumber";
+  g "pin";
   g "plain_utf8";
   g "plaintext";
   g "popup_menu";
@@ -64,6 +71,7 @@ let () =
   g "terminal";
   g "toolbar";
   g "tooltip";
+  g "unknown";
   g "url";
   g "utility";
   g "word";
