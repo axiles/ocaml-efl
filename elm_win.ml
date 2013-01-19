@@ -158,3 +158,6 @@ external quickpanel_zone_set : Evas.obj -> int -> unit =
 external quickpanel_zone_get : Evas.obj -> int =
   "ml_elm_win_quickpanel_zone_get"
 
+external prop_focus_skip_set : Evas.obj -> bool -> unit =
+  "ml_elm_win_prop_focus_skip_set"
+

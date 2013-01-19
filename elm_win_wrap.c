@@ -401,3 +401,10 @@ PREFIX value ml_elm_win_quickpanel_zone_get(value v_obj)
         return Val_int(elm_win_quickpanel_zone_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_prop_focus_skip_set(value v_obj, value v_flag)
+{
+        elm_win_prop_focus_skip_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

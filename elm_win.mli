@@ -143,3 +143,5 @@ val quickpanel_zone_set : Evas.obj -> int -> unit
 
 val quickpanel_zone_get : Evas.obj -> int
 
+val prop_focus_skip_set : Evas.obj -> bool -> unit
+
