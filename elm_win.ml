@@ -215,3 +215,6 @@ external focus_highlight_style_get : Evas.obj -> string option =
 external keyboard_mode_set : Evas.obj -> keyboard_mode -> unit =
   "ml_elm_win_keyboard_mode_set"
 
+external keyboard_mode_get : Evas.obj -> keyboard_mode =
+  "ml_elm_win_keyboard_mode_get"
+

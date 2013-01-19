@@ -566,3 +566,9 @@ PREFIX value ml_elm_win_keyboard_mode_set(value v_obj, value v_m)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_keyboard_mode_get(value v_obj)
+{
+        return Val_Elm_Win_Keyboard_Mode(elm_win_keyboard_mode_get(
+                (Evas_Object*) v_obj));
+}
+

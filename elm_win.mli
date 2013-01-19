@@ -189,3 +189,5 @@ val focus_highlight_style_get : Evas.obj -> string option
 
 val keyboard_mode_set : Evas.obj -> keyboard_mode -> unit
 
+val keyboard_mode_get : Evas.obj -> keyboard_mode
+
