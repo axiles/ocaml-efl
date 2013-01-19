@@ -572,3 +572,9 @@ PREFIX value ml_elm_win_keyboard_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_keyboard_win_set(value v_obj, value v_flag)
+{
+        elm_win_keyboard_win_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

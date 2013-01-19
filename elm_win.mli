@@ -191,3 +191,5 @@ val keyboard_mode_set : Evas.obj -> keyboard_mode -> unit
 
 val keyboard_mode_get : Evas.obj -> keyboard_mode
 
+val keyboard_win_set : Evas.obj -> bool -> unit
+
