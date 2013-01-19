@@ -94,6 +94,33 @@ PREFIX inline value Val_Elm_Win_Indicator_Mode(Elm_Win_Indicator_Mode mode)
         return Val_unknown;
 }
 
+PREFIX inline Elm_Win_Indicator_Opacity_Mode
+Elm_Win_Indicator_Opacity_Mode_val(value v_mode)
+{
+        switch(v_mode) {
+                case Val_opacity_unknown:
+                        return ELM_WIN_INDICATOR_OPACITY_UNKNOWN;
+                case Val_opaque: return ELM_WIN_INDICATOR_OPAQUE;
+                case Val_translucent: return ELM_WIN_INDICATOR_TRANSLUCENT;
+                case Val_transparent: return ELM_WIN_INDICATOR_TRANSPARENT;
+        }
+        caml_failwith("Elm_Win_Indicator_Opacity_Mode");
+        return ELM_WIN_INDICATOR_OPACITY_UNKNOWN;
+}
+
+PREFIX inline value
+Val_Elm_Win_Indicator_Opacity_Mode_val(Elm_Win_Indicator_Opacity_Mode mode)
+{
+        switch(mode) {
+                case ELM_WIN_INDICATOR_OPACITY_UNKNOWN:
+                        return Val_opacity_unknown;
+                case ELM_WIN_INDICATOR_OPAQUE: return Val_opaque;
+                case ELM_WIN_INDICATOR_TRANSLUCENT: return Val_translucent;
+                case ELM_WIN_INDICATOR_TRANSPARENT: return Val_transparent;
+        }
+        caml_failwith("Val_Elm_Win_Indicator_Opacity_Mode");
+}
+
 PREFIX inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
 {
         switch(v_c) {

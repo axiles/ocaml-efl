@@ -55,6 +55,8 @@ let () =
   g "numeric";
   g "off";
   g "on";
+  g "opacity_unknown";
+  g "opaque";
   g "password";
   g "phone_number";
   g "phonenumber";
@@ -73,6 +75,8 @@ let () =
   g "terminal";
   g "toolbar";
   g "tooltip";
+  g "translucent";
+  g "transparent";
   g "unknown";
   g "url";
   g "utility";

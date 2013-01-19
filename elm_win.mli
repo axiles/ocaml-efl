@@ -39,6 +39,12 @@ type indicator_mode = [
   | `hide
   | `show]
 
+type indicator_opacity_mode = [
+  | `opacity_unknown
+  | `opaque
+  | `translucent
+  | `transparent]
+
 type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
