@@ -214,3 +214,5 @@ val indicator_opacity_set : Evas.obj -> indicator_opacity_mode -> unit
 
 val indicator_opacity_get : Evas.obj -> indicator_opacity_mode
 
+val screen_position_get : Evas.obj -> int * int
+

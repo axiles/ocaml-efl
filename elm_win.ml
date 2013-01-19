@@ -247,3 +247,6 @@ external indicator_opacity_set : Evas.obj -> indicator_opacity_mode -> unit =
 external indicator_opacity_get : Evas.obj -> indicator_opacity_mode =
   "ml_elm_win_indicator_opacity_get"
 
+external screen_position_get : Evas.obj -> int * int =
+  "ml_elm_win_screen_position_get"
+
