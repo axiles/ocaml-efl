@@ -497,3 +497,17 @@ PREFIX value ml_elm_win_focus_highlight_style_set(value v_obj, value v_s)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_focus_highlight_style_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* style = elm_win_focus_highlight_style_get(
+                (Evas_Object*) v_obj);
+        if(style == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(style));
+        }
+        CAMLreturn(v);
+}
+

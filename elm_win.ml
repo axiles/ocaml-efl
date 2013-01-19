@@ -191,3 +191,6 @@ external focus_highlight_enabled_get : Evas.obj -> bool =
 external focus_highlight_style_set : Evas.obj -> string option -> unit =
   "ml_elm_win_focus_highlight_style_set"
 
+external focus_highlight_style_get : Evas.obj -> string option =
+  "ml_elm_win_focus_highlight_style_get"
+
