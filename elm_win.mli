@@ -1,3 +1,11 @@
+(** elm_win_* Elm_Win_* *)
+
+(** The following function is not interfaced:
+
+elm_win_trap_set
+
+*)
+
 type ty = [
   | `basic
   | `dialog_basic
