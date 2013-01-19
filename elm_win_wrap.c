@@ -390,3 +390,9 @@ PREFIX value ml_elm_win_quickpanel_priority_minor_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_quickpanel_zone_set(value v_obj, value v_n)
+{
+        elm_win_quickpanel_zone_set((Evas_Object*) v_obj, Int_val(v_n));
+        return Val_unit;
+}
+
