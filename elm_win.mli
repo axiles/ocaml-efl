@@ -141,3 +141,5 @@ val quickpanel_priority_minor_get : Evas.obj -> int
 
 val quickpanel_zone_set : Evas.obj -> int -> unit
 
+val quickpanel_zone_get : Evas.obj -> int
+
