@@ -420,3 +420,10 @@ PREFIX value ml_elm_win_prop_focus_skip_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_illume_command_send(value v_obj, value v_cmd)
+{
+        elm_win_illume_command_send((Evas_Object*) v_obj,
+                Elm_Illume_Command_val(v_cmd), NULL);
+        return Val_unit;
+}
+

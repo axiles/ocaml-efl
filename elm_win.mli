@@ -147,3 +147,5 @@ val quickpanel_zone_get : Evas.obj -> int
 
 val prop_focus_skip_set : Evas.obj -> bool -> unit
 
+val illume_command_send : Evas.obj -> Elm.illume_command -> unit
+

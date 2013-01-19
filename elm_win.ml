@@ -163,3 +163,6 @@ external quickpanel_zone_get : Evas.obj -> int =
 external prop_focus_skip_set : Evas.obj -> bool -> unit =
   "ml_elm_win_prop_focus_skip_set"
 
+external illume_command_send : Evas.obj -> Elm.illume_command -> unit =
+  "ml_elm_win_illume_command_send"
+  
