@@ -220,3 +220,5 @@ val socket_listen : Evas.obj -> string -> int -> bool -> unit
 
 val xwindow_get : Evas.obj -> Ecore.x_window
 
+val wl_window_get : Evas.obj -> Ecore.wl_window
+

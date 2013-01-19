@@ -255,3 +255,6 @@ external socket_listen : Evas.obj -> string -> int -> bool -> unit =
 
 external xwindow_get : Evas.obj -> Ecore.x_window = "ml_elm_win_xwindow_get"
 
+external wl_window_get : Evas.obj -> Ecore.wl_window =
+  "ml_elm_win_wl_window_get"
+

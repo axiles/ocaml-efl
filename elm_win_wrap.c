@@ -682,3 +682,10 @@ PREFIX value ml_elm_win_xwindow_get(value v_obj)
         return Val_int(win);
 }
 
+PREFIX value ml_elm_win_wl_window_get(value v_obj)
+{
+        Ecore_Wl_Window* win = elm_win_wl_window_get((Evas_Object*) v_obj);
+        if(win == NULL) raise_not_Wayland();
+        return (value) win;
+}
+
