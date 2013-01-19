@@ -155,3 +155,5 @@ val focus_get : Evas.obj -> bool
 
 val screen_constrain_set : Evas.obj -> bool -> unit
 
+val screen_constrain_get : Evas.obj -> bool
+
