@@ -183,5 +183,8 @@ external screen_size_get : Evas.obj -> int * int * int * int =
 external screen_dpi_get : Evas.obj -> int * int = "ml_elm_win_screen_dpi_get"
 
 external focus_highlight_enabled_set : Evas.obj -> bool -> unit =
-  "ml_elm_win_highlight_enabled_set"
+  "ml_elm_win_focus_highlight_enabled_set"
+
+external focus_highlight_enabled_get : Evas.obj -> bool =
+  "ml_elm_win_focus_highlight_enabled_get"
 

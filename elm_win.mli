@@ -163,3 +163,5 @@ val screen_dpi_get : Evas.obj -> int * int
 
 val focus_highlight_enabled_set : Evas.obj -> bool -> unit
 
+val focus_highlight_enabled_get : Evas.obj -> bool
+
