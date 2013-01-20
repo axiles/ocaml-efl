@@ -12,3 +12,5 @@ type orient = [
 
 val add : Evas.obj -> Evas.obj
 
+val orient_set : Evas.obj -> orient -> unit
+
