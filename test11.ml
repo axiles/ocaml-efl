@@ -41,6 +41,53 @@ let win_action_all win box win2 =
   war "rotation_resize" Elm_win.rotation_get Elm_win.rotation_with_resize_set;
   was "sticky" Elm_win.sticky_get Elm_win.sticky_set
 
+let main_win_del_cb obj _ =
+  let msg = Elm_notify.add obj in
+  Elm_notify.orient_set msg `center;
+  Elm_notify.allow_events_set msg false;
+  Evas_object.show msg;
+
+  let box = Elm_box.add obj in
+  Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_align_set box Evas.hint_fill  Evas.hint_fill;
+  Elm_object.content_set msg box;
+  Evas_object.show box;
+
+  let lbl = Elm_label.add obj in
+  Elm_object.text_set lbl "Really want quit ?";
+  Evas_object.size_hint_weight_set lbl Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_align_set lbl Evas.hint_fill Evas.hint_fill;
+  Elm_box.pack_end box lbl;
+  Evas_object.show lbl;
+
+  let sep = Elm_separator.add obj in
+  Elm_separator.horizontal_set sep true;
+  Elm_box.pack_end box sep;
+  Evas_object.show sep;
+
+  let box2 = Elm_box.add obj in
+  Elm_box.horizontal_set box2 true;
+  Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
+  Evas_object.size_hint_align_set box2 Evas.hint_fill Evas.hint_fill;
+  Elm_box.pack_end box box2;
+  Evas_object.show box2;
+
+  let btn = Elm_button.add obj in
+  Elm_object.text_set btn "Yes";
+  Elm_box.pack_end box2 btn;
+  Evas_object.show btn;
+
+  let yes_quit_cb _ _ = Elm.exit () in
+  Evas_object_smart.callback_add btn "clicked" yes_quit_cb;
+
+  let btn = Elm_button.add obj in
+  Elm_object.text_set btn "No";
+  Elm_box.pack_end box2 btn;
+  Evas_object.show btn;
+
+  let no_quit_cb _ _ = Evas_object.del msg in
+  Evas_object_smart.callback_add btn "clicked" no_quit_cb
+
 let add_win_focus_cb win name =
   let cb _ _ = printf "Window focused: %s\n%!" name in
   Evas_object_smart.callback_add win "focus,in" cb
@@ -55,6 +102,7 @@ let () =
   Evas_object.resize win 400 400;
   Evas_object.show win;
   add_win_focus_cb win "mainwin";
+  Evas_object_smart.callback_add win "delete,request" main_win_del_cb;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
