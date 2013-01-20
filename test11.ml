@@ -31,23 +31,29 @@ let () =
   Elm_win.title_set win2 "Managed window";
   Evas_object.show win2;
 
-  let win_action name =
+  let o = Elm_label.add win in
+  Elm_object.text_set o "<b>Managed window</b>";
+  Elm_box.pack_end box o;
+  Evas_object.show o;
+
+  let win_action box name =
     let btn = Elm_button.add win in
     Elm_object.text_set btn name;
     Elm_box.pack_end box btn;
     Evas_object.show btn in
 
-  win_action "activate";
-  win_action "lower";
-  win_action "raise";
-  win_action "borderless";
-  win_action "shaped";
-  win_action "alpha";
-  win_action "fullscreen";
-  win_action "maximized";
-  win_action "iconified";
-  win_action "rotation";
-  win_action "rotation_resize";
+  win_action box "activate";
+  win_action box "lower";
+  win_action box "raise";
+  win_action box "borderless";
+  win_action box "shaped";
+  win_action box "alpha";
+  win_action box "fullscreen";
+  win_action box "maximized";
+  win_action box "iconified";
+  win_action box "rotation";
+  win_action box "rotation_resize";
+  win_action box "sticky";
 
   let box = Elm_box.add win in
   Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
@@ -90,21 +96,28 @@ let () =
   Elm_box.pack_end bigbox o;
   Evas_object.show o;
 
+  let o = Elm_button.add win2 in
+  Elm_object.text_set o "Focus me";
+  Elm_box.pack_end bigbox o;
+  Evas_object.show o;
+
   let o = Elm_label.add win in
   Elm_object.text_set o "<b>Override Window</b>";
   Elm_box.pack_end box o;
   Evas_object.show o;
 
-  win_action "activate";
-  win_action "lower";
-  win_action "borderless";
-  win_action "shaped";
-  win_action "alpha";
-  win_action "fullscreen";
-  win_action "maximized";
-  win_action "rotation";
-  win_action "rotation resize";
-  win_action "sticky";
+  win_action box "activate";
+  win_action box "lower";
+  win_action box "raise";
+  win_action box "borderless";
+  win_action box "shaped";
+  win_action box "alpha";
+  win_action box "fullscreen";
+  win_action box "maximized";
+  win_action box "iconified";
+  win_action box "rotation";
+  win_action box "rotation_resize";
+  win_action box "sticky";
 
   Elm.run ();
   Elm.shutdown ()
