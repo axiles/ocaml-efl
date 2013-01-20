@@ -88,7 +88,9 @@ let main_win_del_cb obj _ =
   let no_quit_cb _ _ = Evas_object.del msg in
   Evas_object_smart.callback_add btn "clicked" no_quit_cb
 
-let force_focus_cb win _ _ = Ecore.x_window_focus (Elm_win.xwindow_get win)
+let force_focus_cb win _ _ =
+  try Ecore.x_window_focus (Elm_win.xwindow_get win)
+  with Ecore.Not_X -> ()
 
 let add_win_focus_cb win name =
   let cb _ _ = printf "Window focused: %s\n%!" name in
