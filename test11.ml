@@ -41,6 +41,10 @@ let win_action_all win box win2 =
   war "rotation_resize" Elm_win.rotation_get Elm_win.rotation_with_resize_set;
   was "sticky" Elm_win.sticky_get Elm_win.sticky_set
 
+let add_win_focus_cb win name =
+  let cb _ _ = printf "Window focused: %s\n%!" name in
+  Evas_object_smart.callback_add win "focus,in" cb
+
 let () =
   Elm.init Sys.argv;
 
@@ -50,6 +54,7 @@ let () =
   Elm_win.focus_highlight_enabled_set win true;
   Evas_object.resize win 400 400;
   Evas_object.show win;
+  add_win_focus_cb win "mainwin";
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
@@ -72,6 +77,7 @@ let () =
   Elm_win.autodel_set win2 true;
   Elm_win.title_set win2 "Managed window";
   Evas_object.show win2;
+  add_win_focus_cb win2 "managed";
 
   let o = Elm_icon.add win2 in
   let buf = sprintf "%s/images/logo.png" (Elm_app.data_dir_get ()) in
@@ -99,6 +105,7 @@ let () =
   Elm_win.title_set win2 "Non-managed window";
   Elm_win.override_set win2 true;
   Evas_object.show win2;
+  add_win_focus_cb win2 "override";
 
   let o = Elm_bg.add win2 in
   Evas_object.size_hint_weight_set o Evas.hint_expand Evas.hint_expand;
