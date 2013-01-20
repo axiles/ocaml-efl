@@ -9,3 +9,8 @@ PREFIX value ml_elm_app_info_set(value v_name, value v_checkfile, value v_unit)
         return Val_unit;
 }
 
+PREFIX value ml_elm_app_data_dir_get(value v_unit)
+{
+        return copy_string(elm_app_data_dir_get());
+}
+
