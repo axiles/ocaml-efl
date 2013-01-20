@@ -88,6 +88,8 @@ let main_win_del_cb obj _ =
   let no_quit_cb _ _ = Evas_object.del msg in
   Evas_object_smart.callback_add btn "clicked" no_quit_cb
 
+let force_focus_cb win _ _ = Ecore.x_window_focus (Elm_win.xwindow_get win)
+
 let add_win_focus_cb win name =
   let cb _ _ = printf "Window focused: %s\n%!" name in
   Evas_object_smart.callback_add win "focus,in" cb
@@ -193,6 +195,7 @@ let () =
   Elm_object.text_set o "Focus me";
   Elm_box.pack_end bigbox o;
   Evas_object.show o;
+  Evas_object_smart.callback_add o "clicked" (force_focus_cb win2);
 
   let o = Elm_label.add win in
   Elm_object.text_set o "<b>Override Window</b>";
