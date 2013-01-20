@@ -1,8 +1,11 @@
 (* WARNING: This example is in heavy development *)
 
+open Format
+
 let () =
   Elm.init Sys.argv;
 
+  Elm_app.info_set "elementary" ~checkfile:"images/logo.png" ();
   let win = Elm_win.add "win-example" `basic in
   Elm_win.title_set win "Elm_Win example";
   Elm_win.focus_highlight_enabled_set win true;
@@ -30,6 +33,14 @@ let () =
   Elm_win.autodel_set win2 true;
   Elm_win.title_set win2 "Managed window";
   Evas_object.show win2;
+
+  let o = Elm_icon.add win2 in
+  let buf = sprintf "%s/images/logo.png" (Elm_app.data_dir_get ()) in
+  let (_ : bool) = Elm_image.file_set o buf () in
+  Elm_image.resizable_set o false false;
+  Elm_image.no_scale_set o true;
+  Elm_win.resize_object_add win2 o;
+  Evas_object.show o;
 
   let o = Elm_label.add win in
   Elm_object.text_set o "<b>Managed window</b>";
