@@ -1,5 +1,3 @@
-(* WARNING: This example is in heavy development *)
-
 open Format
 
 let win_action_do_cb win f _ _ = f win
