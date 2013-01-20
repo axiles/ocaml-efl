@@ -2,6 +2,45 @@
 
 open Format
 
+let win_action_do_cb win f _ _ = f win
+
+let win_action_switch_cb win f_get f_set _ _ = f_set win (not (f_get win))
+
+let win_action_rot_cb win f_get f_set _ _ = f_set win ((f_get win + 90) mod 360)
+
+let win_action win box name cb =
+    let btn = Elm_button.add win in
+    Elm_object.text_set btn name;
+    Elm_box.pack_end box btn;
+    Evas_object.show btn;
+    Evas_object_smart.callback_add btn "clicked" cb
+
+let win_action_do win box win2 name f =
+  win_action win box name (win_action_do_cb win2 f)
+
+let win_action_switch win box win2 name f_get f_set =
+  win_action win box name (win_action_switch_cb win2 f_get f_set)
+
+let win_action_rot win box win2 name f_get f_set =
+  win_action win box name (win_action_rot_cb win2 f_get f_set)
+
+let win_action_all win box win2 =
+  let wad = win_action_do win box win2 in
+  let was = win_action_switch win box win2 in
+  let war = win_action_rot win box win2 in
+  wad "activate" Elm_win.activate;
+  wad "lower" Elm_win.lower;
+  wad "raise" Elm_win.raises;
+  was "borderless" Elm_win.borderless_get Elm_win.borderless_set;
+  was "shaped" Elm_win.shaped_get Elm_win.shaped_set;
+  was "alpha" Elm_win.alpha_get Elm_win.alpha_set;
+  was "fullscreen" Elm_win.fullscreen_get Elm_win.fullscreen_set;
+  was "maximized" Elm_win.maximized_get Elm_win.maximized_set;
+  was "iconified" Elm_win.iconified_get Elm_win.iconified_set;
+  war "rotation" Elm_win.rotation_get Elm_win.rotation_set;
+  war "rotation_resize" Elm_win.rotation_get Elm_win.rotation_with_resize_set;
+  was "sticky" Elm_win.sticky_get Elm_win.sticky_set
+
 let () =
   Elm.init Sys.argv;
 
@@ -47,24 +86,7 @@ let () =
   Elm_box.pack_end box o;
   Evas_object.show o;
 
-  let win_action box name =
-    let btn = Elm_button.add win in
-    Elm_object.text_set btn name;
-    Elm_box.pack_end box btn;
-    Evas_object.show btn in
-
-  win_action box "activate";
-  win_action box "lower";
-  win_action box "raise";
-  win_action box "borderless";
-  win_action box "shaped";
-  win_action box "alpha";
-  win_action box "fullscreen";
-  win_action box "maximized";
-  win_action box "iconified";
-  win_action box "rotation";
-  win_action box "rotation_resize";
-  win_action box "sticky";
+  win_action_all win box win2;
 
   let box = Elm_box.add win in
   Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
@@ -117,18 +139,7 @@ let () =
   Elm_box.pack_end box o;
   Evas_object.show o;
 
-  win_action box "activate";
-  win_action box "lower";
-  win_action box "raise";
-  win_action box "borderless";
-  win_action box "shaped";
-  win_action box "alpha";
-  win_action box "fullscreen";
-  win_action box "maximized";
-  win_action box "iconified";
-  win_action box "rotation";
-  win_action box "rotation_resize";
-  win_action box "sticky";
+  win_action_all win box win2;
 
   Elm.run ();
   Elm.shutdown ()
