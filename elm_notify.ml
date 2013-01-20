@@ -14,3 +14,6 @@ external add : Evas.obj -> Evas.obj = "ml_elm_notify_add"
 
 external orient_set : Evas.obj -> orient -> unit = "ml_elm_notify_orient_set"
 
+external allow_events_set : Evas.obj -> bool -> unit =
+  "ml_elm_notify_allow_events_set"
+

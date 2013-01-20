@@ -31,3 +31,9 @@ PREFIX value ml_elm_notify_orient_set(value v_obj, value v_o)
         return Val_unit;
 }
 
+PREFIX value ml_elm_notify_allow_events_set(value v_obj, value v_flag)
+{
+        elm_notify_allow_events_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+}
+
