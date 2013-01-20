@@ -8,3 +8,5 @@ type x_window
 
 type wl_window
 
+val x_window_focus : x_window -> unit
+

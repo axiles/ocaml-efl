@@ -12,3 +12,5 @@ type x_window = int
 
 type wl_window
 
+external x_window_focus : x_window -> unit = "ml_ecore_x_window_focus"
+
