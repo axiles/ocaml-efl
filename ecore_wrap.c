@@ -4,14 +4,14 @@ PREFIX void raise_not_X()
 {
         static value* e = NULL;
         if(e == NULL) e = caml_named_value("Not_X exception");
-        caml_raise(*e);
+        caml_raise_constant(*e);
 }
 
 PREFIX void raise_not_Wayland()
 {
         static value* e = NULL;
         if(e == NULL) e = caml_named_value("Not_Wayland exception");
-        caml_raise(*e);
+        caml_raise_constant(*e);
 }
 
 PREFIX void ml_Ecore_Cb_1_free(void* data)
