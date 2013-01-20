@@ -136,6 +136,11 @@ let () =
   Elm_box.pack_end bigbox o;
   Evas_object.show o;
 
+  let o = Elm_separator.add win2 in
+  Elm_separator.horizontal_set o true;
+  Elm_box.pack_end bigbox o;
+  Evas_object.show o;
+
   let o = Elm_button.add win2 in
   Elm_object.text_set o "Focus me";
   Elm_box.pack_end bigbox o;
