@@ -13,6 +13,10 @@ let () =
   g "auto";
   g "automatic";
   g "basic";
+  g "bottom";
+  g "bottom_left";
+  g "bottom_right";
+  g "center";
   g "char";
   g "close";
   g "combo";
@@ -38,7 +42,9 @@ let () =
   g "j2me";
   g "join";
   g "keypad";
+  g "last";
   g "last_window_closed";
+  g "left";
   g "login";
   g "markup";
   g "markup_utf8";
@@ -65,6 +71,7 @@ let () =
   g "plaintext";
   g "popup_menu";
   g "quit";
+  g "right";
   g "search";
   g "send";
   g "sentence";
@@ -75,6 +82,9 @@ let () =
   g "terminal";
   g "toolbar";
   g "tooltip";
+  g "top";
+  g "top_left";
+  g "top_right";
   g "translucent";
   g "transparent";
   g "unknown";
