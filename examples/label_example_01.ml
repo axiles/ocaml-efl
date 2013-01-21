@@ -62,6 +62,7 @@ let () =
   Evas_object.move label6 0 140;
   Evas_object.show label6;
 
+  Evas_object.resize win 200 170;
   Evas_object.show win;
   Elm.run ();
   Elm.shutdown ()
