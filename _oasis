@@ -97,51 +97,51 @@ Executable test3
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: test3.ml
-Executable test4
+Executable button_example_00
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test4.ml
-Executable test5
+  MainIs: button_example_00.ml
+Executable button_example_01
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test5.ml
-Executable test6
+  MainIs: button_example_01.ml
+Executable label_example_01
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test6.ml
-Executable test7
+  MainIs: label_example_01.ml
+Executable entry_example
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test7.ml
-Executable test8
+  MainIs: entry_example.ml
+Executable radio_example_01
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test8.ml
-Executable test9
+  MainIs: radio_example_01.ml
+Executable check_example_01
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test9.ml
-Executable test10
+  MainIs: check_example_01.ml
+Executable box_example_02
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test10.ml
-Executable test11
+  MainIs: box_example_02.ml
+Executable win_example
   Path: examples
   Install: false
   Build$: flag(tests)
   BuildDepends: efl
-  MainIs: test11.ml
+  MainIs: win_example.ml
