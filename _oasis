@@ -52,7 +52,7 @@ XStdFilesREADMEFileName: README
 XStdFilesINSTALL: false
 XStdFilesAUTHORSFilename: AUTHORS
 Library efl
-  Path: .
+  Path: src
   Pack: true
   CCLib:
     -lelementary -lm -leet -levas -lecore -leina -lecore_evas -lecore_file
@@ -75,7 +75,7 @@ Document efl_doc
   Type: ocamlbuild (0.3)
   BuildTools: ocamldoc
   Title: API of ocaml-efl
-  XOCamlbuildPath: .
+  XOCamlbuildPath: src
   XOCamlbuildLibraries: efl
 Executable test
   Path: examples

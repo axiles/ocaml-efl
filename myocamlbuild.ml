@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 3e3684afbc8e5bbb5b1732913076b504) *)
+(* DO NOT EDIT (digest: 2348a1897be6927e53b3dc793dfed94f) *)
 module OASISGettext = struct
 # 21 "/home/axiles/src/oasis-0.3.0/src/oasis/OASISGettext.ml"
 
@@ -477,19 +477,19 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("efl", [])];
+     MyOCamlbuildBase.lib_ocaml = [("efl", ["src"])];
      lib_c =
        [
           ("efl",
-            ".",
+            "src",
             [
-               "include.h";
-               "eina_wrap.h";
-               "evas_wrap.h";
-               "edje_wrap.h";
-               "elm_wrap.h";
-               "elm_scroller_wrap.h";
-               "ecore_wrap.h"
+               "src/include.h";
+               "src/eina_wrap.h";
+               "src/evas_wrap.h";
+               "src/edje_wrap.h";
+               "src/elm_wrap.h";
+               "src/elm_scroller_wrap.h";
+               "src/ecore_wrap.h"
             ])
        ];
      flags =
@@ -566,7 +566,7 @@ let package_default =
                    ])
             ])
        ];
-     includes = [];
+     includes = [("examples", ["src"])];
      }
   ;;
 
@@ -583,15 +583,15 @@ let ( & ) f x  = f x
 (* The file variants.h is generated: this function adds the rules of builing *)
 let write_variants () =
   let action env builder =
-    Cmd (S [!Options.ocamlc; A "-custom"; A "-o"; P "write_variants";
-      P "hash.c"; P "write_variants.ml"]) in
-  rule "write_variants" ~prod:"write_variants"
-    ~deps:["hash.c";"write_variants.ml"]  action;
+    Cmd (S [!Options.ocamlc; A "-custom"; A "-o"; P ("src" / "write_variants");
+      P ("src" / "hash.c"); P ("src" / "write_variants.ml")]) in
+  rule "write_variants" ~prod:("src" / "write_variants")
+    ~deps:["src" / "hash.c"; "src" / "write_variants.ml"]  action;
   let action2 env builder =
-    Cmd (S [P "./write_variants"; Sh ">"; P "variants.h"]) in
-  rule "write_variants2" ~prod:"variants.h" ~dep:"write_variants"
-    action2;
-  dep ["c"; "compile"; "efl"] ["variants.h"]
+    Cmd (S [P ("src" / "write_variants"); Sh ">"; P ("src" / "variants.h")]) in
+  rule "write_variants2" ~prod:("src" / "variants.h")
+    ~dep:("src" / "write_variants") action2;
+  dep ["c"; "compile"; "efl"] ["src" / "variants.h"]
 
 let () = dispatch & fun h ->
   dispatch_default h;

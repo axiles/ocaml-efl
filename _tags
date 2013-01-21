@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: a5152580306c0171f49117a596484e51)
+# DO NOT EDIT (digest: 0be7242c3e2d777d086079f880112efc)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -14,41 +14,41 @@
 "_darcs": -traverse
 "_darcs": not_hygienic
 # Library efl
-"efl.cmxs": use_efl
-"evas.cmx": for-pack(Efl)
-"evas_object.cmx": for-pack(Efl)
-"evas_object_smart.cmx": for-pack(Efl)
-"ecore.cmx": for-pack(Efl)
-"edje.cmx": for-pack(Efl)
-"elm.cmx": for-pack(Efl)
-"elm_object.cmx": for-pack(Efl)
-"elm_layout.cmx": for-pack(Efl)
-"elm_scroller.cmx": for-pack(Efl)
-"elm_win.cmx": for-pack(Efl)
-"elm_bg.cmx": for-pack(Efl)
-"elm_label.cmx": for-pack(Efl)
-"elm_box.cmx": for-pack(Efl)
-"elm_button.cmx": for-pack(Efl)
-"elm_frame.cmx": for-pack(Efl)
-"elm_icon.cmx": for-pack(Efl)
-"elm_entry.cmx": for-pack(Efl)
-"elm_gengrid.cmx": for-pack(Efl)
-"elm_check.cmx": for-pack(Efl)
-"elm_inwin.cmx": for-pack(Efl)
-"elm_win_inwin.cmx": for-pack(Efl)
-"elm_naviframe.cmx": for-pack(Efl)
-"elm_theme.cmx": for-pack(Efl)
-"elm_radio.cmx": for-pack(Efl)
-"elm_app.cmx": for-pack(Efl)
-"elm_image.cmx": for-pack(Efl)
-"elm_separator.cmx": for-pack(Efl)
-"elm_notify.cmx": for-pack(Efl)
-<efl.{cma,cmxa}>: oasis_library_efl_cclib
-"libefl_stubs.lib": oasis_library_efl_cclib
-"dllefl_stubs.dll": oasis_library_efl_cclib
-"libefl_stubs.a": oasis_library_efl_cclib
-"dllefl_stubs.so": oasis_library_efl_cclib
-<efl.{cma,cmxa}>: use_libefl_stubs
+"src/efl.cmxs": use_efl
+"src/evas.cmx": for-pack(Efl)
+"src/evas_object.cmx": for-pack(Efl)
+"src/evas_object_smart.cmx": for-pack(Efl)
+"src/ecore.cmx": for-pack(Efl)
+"src/edje.cmx": for-pack(Efl)
+"src/elm.cmx": for-pack(Efl)
+"src/elm_object.cmx": for-pack(Efl)
+"src/elm_layout.cmx": for-pack(Efl)
+"src/elm_scroller.cmx": for-pack(Efl)
+"src/elm_win.cmx": for-pack(Efl)
+"src/elm_bg.cmx": for-pack(Efl)
+"src/elm_label.cmx": for-pack(Efl)
+"src/elm_box.cmx": for-pack(Efl)
+"src/elm_button.cmx": for-pack(Efl)
+"src/elm_frame.cmx": for-pack(Efl)
+"src/elm_icon.cmx": for-pack(Efl)
+"src/elm_entry.cmx": for-pack(Efl)
+"src/elm_gengrid.cmx": for-pack(Efl)
+"src/elm_check.cmx": for-pack(Efl)
+"src/elm_inwin.cmx": for-pack(Efl)
+"src/elm_win_inwin.cmx": for-pack(Efl)
+"src/elm_naviframe.cmx": for-pack(Efl)
+"src/elm_theme.cmx": for-pack(Efl)
+"src/elm_radio.cmx": for-pack(Efl)
+"src/elm_app.cmx": for-pack(Efl)
+"src/elm_image.cmx": for-pack(Efl)
+"src/elm_separator.cmx": for-pack(Efl)
+"src/elm_notify.cmx": for-pack(Efl)
+<src/efl.{cma,cmxa}>: oasis_library_efl_cclib
+"src/libefl_stubs.lib": oasis_library_efl_cclib
+"src/dllefl_stubs.dll": oasis_library_efl_cclib
+"src/libefl_stubs.a": oasis_library_efl_cclib
+"src/dllefl_stubs.so": oasis_library_efl_cclib
+<src/efl.{cma,cmxa}>: use_libefl_stubs
 # Executable test
 <examples/test.{native,byte}>: use_efl
 # Executable test2
@@ -73,10 +73,10 @@
 "examples/test11.byte": use_efl
 <examples/*.ml{,i}>: use_efl
 # OASIS_STOP
-<eina_*>: efl
-<evas_*>: efl
-<edje_*>: efl
-<elm_*>: efl
+<src/eina_*>: efl
+<src/evas_*>: efl
+<src/edje_*>: efl
+<src/elm_*>: efl
 #<efl.{cma,cmxa}>: oasis_library_efl_cclib
 #"libefl_stubs.lib": oasis_library_efl_cclib
 #"dllefl_stubs.dll": oasis_library_efl_cclib
