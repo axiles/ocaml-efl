@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 63e739ca4624234009336c7b31b8db4f)
+# DO NOT EDIT (digest: a5152580306c0171f49117a596484e51)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -50,28 +50,28 @@
 "dllefl_stubs.so": oasis_library_efl_cclib
 <efl.{cma,cmxa}>: use_libefl_stubs
 # Executable test
-<test.{native,byte}>: use_efl
+<examples/test.{native,byte}>: use_efl
 # Executable test2
-"test2.byte": use_efl
+"examples/test2.byte": use_efl
 # Executable test3
-"test3.byte": use_efl
+"examples/test3.byte": use_efl
 # Executable test4
-"test4.byte": use_efl
+"examples/test4.byte": use_efl
 # Executable test5
-"test5.byte": use_efl
+"examples/test5.byte": use_efl
 # Executable test6
-"test6.byte": use_efl
+"examples/test6.byte": use_efl
 # Executable test7
-"test7.byte": use_efl
+"examples/test7.byte": use_efl
 # Executable test8
-"test8.byte": use_efl
+"examples/test8.byte": use_efl
 # Executable test9
-"test9.byte": use_efl
+"examples/test9.byte": use_efl
 # Executable test10
-"test10.byte": use_efl
+"examples/test10.byte": use_efl
 # Executable test11
-"test11.byte": use_efl
-<*.ml{,i}>: use_efl
+"examples/test11.byte": use_efl
+<examples/*.ml{,i}>: use_efl
 # OASIS_STOP
 <eina_*>: efl
 <evas_*>: efl
