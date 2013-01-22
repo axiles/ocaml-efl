@@ -22,6 +22,30 @@ PREFIX inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
         return Val_none;
 }
 
+PREFIX inline Elm_Icon_Lookup_Order Elm_Icon_Lookup_Order_val(value v_o)
+{
+        switch(v_o) {
+                case Val_fdo_theme: return ELM_ICON_LOOKUP_FDO_THEME;
+                case Val_theme_fdo: return ELM_ICON_LOOKUP_THEME_FDO;
+                case Val_fdo: return ELM_ICON_LOOKUP_FDO;
+                case Val_theme: return ELM_ICON_LOOKUP_THEME;
+        }
+        caml_failwith("Elm_Icon_Lookup_Order_val");
+        return ELM_ICON_LOOKUP_FDO_THEME;
+}
+
+PREFIX inline value Val_Elm_Icon_Lookup_Order(Elm_Icon_Lookup_Order o)
+{
+        switch(o) {
+                case ELM_ICON_LOOKUP_FDO_THEME: return Val_fdo_theme;
+                case ELM_ICON_LOOKUP_THEME_FDO: return Val_theme_fdo;
+                case ELM_ICON_LOOKUP_FDO: return Val_fdo;
+                case ELM_ICON_LOOKUP_THEME: return Val_theme;
+        }
+        caml_failwith("Val_Elm_Icon_Lookup_Order");
+        return Val_fdo_theme;
+}
+
 PREFIX value ml_elm_icon_add(value v_parent)
 {
         Evas_Object* icon = elm_icon_add((Evas_Object*) v_parent);

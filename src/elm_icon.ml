@@ -1,5 +1,7 @@
 type ty = [`none | `file | `standard]
 
+type lookup_order = [`fdo_theme | `theme_fdo | `fdo | `theme]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_icon_add"
 
 external thumb_set : Evas.obj -> string -> string -> ?g:string -> unit -> unit =

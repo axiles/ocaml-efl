@@ -28,6 +28,8 @@ let () =
   f "Val_done" "_done";
   g "dropdown_menu";
   g "email";
+  g "fdo";
+  g "fdo_theme";
   g "file";
   g "focus_back";
   g "focus_forward";
@@ -80,6 +82,8 @@ let () =
   g "socket_image";
   g "standard";
   g "terminal";
+  g "theme";
+  g "theme_fdo";
   g "toolbar";
   g "tooltip";
   g "top";

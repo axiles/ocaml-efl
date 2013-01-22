@@ -1,5 +1,7 @@
 type ty = [`none | `file | `standard]
 
+type lookup_order = [`fdo_theme | `theme_fdo | `fdo | `theme]
+
 val add : Evas.obj -> Evas.obj
 
 val thumb_set : Evas.obj -> string -> string -> ?g:string -> unit -> unit
