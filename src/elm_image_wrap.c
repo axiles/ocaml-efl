@@ -73,3 +73,13 @@ PREFIX value ml_elm_image_resizable_set(value v_obj, value v_up, value v_down)
         return Val_unit;
 }
 
+PREFIX value ml_elm_image_resizable_get(value v_obj)
+{
+        Eina_Bool up, down;
+        elm_image_resizable_get((Evas_Object*) v_obj, &up, &down);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_Eina_Bool(up));
+        Store_field(v, 1, Val_Eina_Bool(down));
+        return v;
+}
+
