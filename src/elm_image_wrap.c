@@ -45,6 +45,16 @@ PREFIX value ml_elm_image_smooth_get(value v_obj)
         return Val_Eina_Bool(elm_image_smooth_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_image_object_size_get(value v_obj)
+{
+        int x, y;
+        elm_image_object_size_get((Evas_Object*) v_obj, &x, &y);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        return v;
+}
+
 PREFIX value ml_elm_image_no_scale_set(value v_obj, value v_flag)
 {
         elm_image_no_scale_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
