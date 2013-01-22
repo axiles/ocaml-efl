@@ -107,3 +107,8 @@ PREFIX value ml_elm_image_prescale_set(value v_obj, value v_size)
         return Val_unit;
 }
 
+PREFIX value ml_elm_image_prescale_get(value v_obj)
+{
+        return Val_int(elm_image_prescale_get((Evas_Object*) v_obj));
+}
+

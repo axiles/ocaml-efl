@@ -31,3 +31,5 @@ external preload_disabled_set : Evas.obj -> bool -> unit =
 
 external prescale_set : Evas.obj -> int -> unit = "ml_elm_image_prescale_set"
 
+external prescale_get : Evas.obj -> int = "ml_elm_image_prescale_get"
+
