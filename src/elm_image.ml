@@ -29,3 +29,5 @@ external fill_outside_get : Evas.obj -> bool = "ml_elm_image_fill_outside_get"
 external preload_disabled_set : Evas.obj -> bool -> unit =
   "ml_elm_image_preload_disabled_set"
 
+external prescale_set : Evas.obj -> int -> unit = "ml_elm_image_prescale_set"
+

@@ -98,5 +98,12 @@ PREFIX value ml_elm_image_preload_disabled_set(value v_obj, value v_flag)
 {
         elm_image_preload_disabled_set((Evas_Object*) v_obj,
                 Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_image_prescale_set(value v_obj, value v_size)
+{
+        elm_image_prescale_set((Evas_Object*) v_obj, Int_val(v_size));
+        return Val_unit;
 }
 

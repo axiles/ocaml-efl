@@ -24,3 +24,5 @@ val fill_outside_get : Evas.obj -> bool
 
 val preload_disabled_set : Evas.obj -> bool -> unit
 
+val prescale_set : Evas.obj -> int -> unit
+
