@@ -1,3 +1,13 @@
+type orient = [
+  | `orient_0
+  | `rotate_90
+  | `rotate_180
+  | `rotate_270
+  | `flip_horizontal
+  | `flip_vertical
+  | `flip_transpose
+  | `flip_transverse]
+
 val add : Evas.obj -> Evas.obj
 
 val file_set : Evas.obj -> string -> ?g:string -> unit -> bool

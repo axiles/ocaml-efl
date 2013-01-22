@@ -31,6 +31,10 @@ let () =
   g "fdo";
   g "fdo_theme";
   g "file";
+  g "flip_horizontal";
+  g "flip_transpose";
+  g "flip_transverse";
+  g "flip_vertical";
   g "focus_back";
   g "focus_forward";
   g "focus_home";
@@ -65,6 +69,7 @@ let () =
   g "on";
   g "opacity_unknown";
   g "opaque";
+  g "orient_0";
   g "password";
   g "phone_number";
   g "phonenumber";
@@ -74,6 +79,9 @@ let () =
   g "popup_menu";
   g "quit";
   g "right";
+  g "rotate_180";
+  g "rotate_270";
+  g "rotate_90";
   g "search";
   g "send";
   g "sentence";
