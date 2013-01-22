@@ -16,3 +16,6 @@ let standard_set i s =
 external standard_get : Evas.obj -> string option =
   "ml_elm_icon_standard_get"
 
+external order_lookup_set : Evas.obj -> lookup_order -> unit =
+  "ml_elm_icon_order_lookup_set"
+

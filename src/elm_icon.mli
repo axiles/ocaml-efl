@@ -12,3 +12,5 @@ val standard_set : Evas.obj -> string -> unit
 
 val standard_get : Evas.obj -> string option
 
+val order_lookup_set : Evas.obj -> lookup_order -> unit
+

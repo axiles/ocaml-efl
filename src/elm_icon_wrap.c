@@ -81,5 +81,10 @@ PREFIX value ml_elm_icon_standard_get(value v_obj)
         CAMLreturn(v);
 }
 
-
+PREFIX value ml_elm_icon_order_lookup_set(value v_obj, value v_order)
+{
+        elm_icon_order_lookup_set((Evas_Object*) v_obj,
+                Elm_Icon_Lookup_Order_val(v_order));
+        return Val_unit;
+}
 
