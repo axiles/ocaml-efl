@@ -21,3 +21,6 @@ external resizable_set : Evas.obj -> bool -> bool -> unit =
 
 external resizable_get : Evas.obj -> bool * bool = "ml_elm_image_resizable_get"
 
+external fill_outside_set : Evas.obj -> bool -> unit =
+  "ml_elm_image_fill_outside_set"
+

@@ -18,3 +18,5 @@ val resizable_set : Evas.obj -> bool -> bool -> unit
 
 val resizable_get : Evas.obj -> bool * bool
 
+val fill_outside_set : Evas.obj -> bool -> unit
+

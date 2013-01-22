@@ -83,3 +83,9 @@ PREFIX value ml_elm_image_resizable_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_image_fill_outside_set(value v_obj, value v_flag)
+{
+        elm_image_fill_outside_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
