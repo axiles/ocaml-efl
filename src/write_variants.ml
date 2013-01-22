@@ -69,7 +69,7 @@ let () =
   g "on";
   g "opacity_unknown";
   g "opaque";
-  g "orient_0";
+  g "orient_none";
   g "password";
   g "phone_number";
   g "phonenumber";

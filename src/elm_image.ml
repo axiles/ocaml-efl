@@ -1,5 +1,5 @@
 type orient = [
-  | `orient_0
+  | `orient_none
   | `rotate_90
   | `rotate_180
   | `rotate_270
@@ -44,4 +44,6 @@ external prescale_set : Evas.obj -> int -> unit = "ml_elm_image_prescale_set"
 external prescale_get : Evas.obj -> int = "ml_elm_image_prescale_get"
 
 external orient_set : Evas.obj -> orient -> unit = "ml_elm_image_orient_set"
+
+external orient_get : Evas.obj -> orient = "ml_elm_image_orient_get"
 

@@ -1,5 +1,5 @@
 type orient = [
-  | `orient_0
+  | `orient_none
   | `rotate_90
   | `rotate_180
   | `rotate_270
@@ -39,4 +39,6 @@ val prescale_set : Evas.obj -> int -> unit
 val prescale_get : Evas.obj -> int
 
 val orient_set : Evas.obj -> orient -> unit
+
+val orient_get : Evas.obj -> orient
 
