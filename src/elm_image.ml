@@ -1,3 +1,5 @@
+external add : Evas.obj -> Evas.obj = "ml_elm_image_add"
+
 external file_set : Evas.obj -> string -> ?g:string -> unit -> bool =
   "ml_elm_image_file_set"
 
