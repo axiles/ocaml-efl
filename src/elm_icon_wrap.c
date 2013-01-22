@@ -88,3 +88,9 @@ PREFIX value ml_elm_icon_order_lookup_set(value v_obj, value v_order)
         return Val_unit;
 }
 
+PREFIX value ml_elm_icon_order_lookup_get(value v_obj)
+{
+        return Val_Elm_Icon_Lookup_Order(elm_icon_order_lookup_get(
+                (Evas_Object*) v_obj));
+}
+
