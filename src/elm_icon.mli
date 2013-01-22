@@ -1,3 +1,5 @@
+(** elm_icon_* Elm_Icon_* *)
+
 type ty = [`none | `file | `standard]
 
 type lookup_order = [`fdo_theme | `theme_fdo | `fdo | `theme]
