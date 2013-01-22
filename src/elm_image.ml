@@ -14,6 +14,8 @@ external object_size_get : Evas.obj -> int * int =
 
 external no_scale_set : Evas.obj -> bool -> unit = "ml_elm_image_no_scale_set"
 
+external no_scale_get : Evas.obj -> bool = "ml_elm_image_no_scale_get"
+
 external resizable_set : Evas.obj -> bool -> bool -> unit =
   "ml_elm_image_resizable_set"
 

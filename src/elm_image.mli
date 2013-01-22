@@ -12,5 +12,7 @@ val object_size_get : Evas.obj -> int * int
 
 val no_scale_set : Evas.obj -> bool -> unit
 
+val no_scale_get : Evas.obj -> bool
+
 val resizable_set : Evas.obj -> bool -> bool -> unit
 
