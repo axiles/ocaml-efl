@@ -10,16 +10,16 @@ PREFIX value ml_elm_image_file_set(
                 String_val(v_file), group));
 }
 
+PREFIX value ml_elm_image_no_scale_set(value v_obj, value v_flag)
+{
+        elm_image_no_scale_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_image_resizable_set(value v_obj, value v_up, value v_down)
 {
         elm_image_resizable_set((Evas_Object*) v_obj, Eina_Bool_val(v_up),
                 Eina_Bool_val(v_down));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_image_no_scale_set(value v_obj, value v_flag)
-{
-        elm_image_no_scale_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
         return Val_unit;
 }
 
