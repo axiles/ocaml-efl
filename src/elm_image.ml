@@ -43,3 +43,5 @@ external prescale_set : Evas.obj -> int -> unit = "ml_elm_image_prescale_set"
 
 external prescale_get : Evas.obj -> int = "ml_elm_image_prescale_get"
 
+external orient_set : Evas.obj -> orient -> unit = "ml_elm_image_orient_set"
+

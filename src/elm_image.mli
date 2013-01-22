@@ -38,3 +38,5 @@ val prescale_set : Evas.obj -> int -> unit
 
 val prescale_get : Evas.obj -> int
 
+val orient_set : Evas.obj -> orient -> unit
+

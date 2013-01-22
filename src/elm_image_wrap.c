@@ -144,3 +144,10 @@ PREFIX value ml_elm_image_prescale_get(value v_obj)
         return Val_int(elm_image_prescale_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_image_orient_set(value v_obj, value v_orient)
+{
+        elm_image_orient_set((Evas_Object*) v_obj,
+                Elm_Image_Orient_val(v_orient));
+        return Val_unit;
+}
+
