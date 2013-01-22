@@ -8,3 +8,5 @@ val standard_set_with_bool : Evas.obj -> string -> bool
 
 val standard_set : Evas.obj -> string -> unit
 
+val standard_get : Evas.obj -> string option
+

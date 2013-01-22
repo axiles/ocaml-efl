@@ -11,3 +11,6 @@ external standard_set_with_bool : Evas.obj -> string -> bool =
 let standard_set i s =
   if not (standard_set_with_bool i s) then failwith "elm_icon_standard_set"
 
+external standard_get : Evas.obj -> string option =
+  "ml_elm_icon_standard_get"
+

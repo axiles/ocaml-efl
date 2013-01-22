@@ -44,3 +44,18 @@ PREFIX value ml_elm_icon_standard_set_with_bool(value v_icon, value v_name)
                 String_val(v_name)));
 }
 
+PREFIX value ml_elm_icon_standard_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* name = elm_icon_standard_get((Evas_Object*) v_obj);
+        if(name == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(name));
+        }
+        CAMLreturn(v);
+}
+
+
+
