@@ -91,19 +91,6 @@ PREFIX value ml_elm_policy_set_with_bool(value v_policy, value v_value)
                 Elm_Policy_Value_val(v_value)));
 }
 
-PREFIX value ml_elm_icon_add(value v_parent)
-{
-        Evas_Object* icon = elm_icon_add((Evas_Object*) v_parent);
-        if(icon == NULL) caml_failwith("elm_icon_add");
-        return (value) icon;
-}
-
-PREFIX value ml_elm_icon_standard_set_with_bool(value v_icon, value v_name)
-{
-        return Val_Eina_Bool(elm_icon_standard_set((Evas_Object*) v_icon,
-                String_val(v_name)));
-}
-
 PREFIX value ml_elm_object_part_content_set(
         value v_obj, value v_part, value v_content)
 {
@@ -232,28 +219,6 @@ PREFIX value ml_elm_object_signal_callback_del(
                 list = list1;
         }
         CAMLreturn(Val_unit);
-}
-
-PREFIX inline Elm_Icon_Type Elm_Icon_Type_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_ICON_NONE;
-                case Val_file: return ELM_ICON_FILE;
-                case Val_standard: return ELM_ICON_STANDARD;
-        }
-        caml_failwith("Elm_Icon_Type_val");
-        return ELM_ICON_NONE;
-}
-
-PREFIX inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
-{
-        switch(ty) {
-                case ELM_ICON_NONE: return Val_none;
-                case ELM_ICON_FILE: return Val_file;
-                case ELM_ICON_STANDARD: return Val_standard;
-        }
-        caml_failwith("Val_Elm_Icon_Type");
-        return Val_none;
 }
 
 PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
@@ -445,15 +410,6 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
                 Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_icon_thumb_set(value v_obj, value v_file, value v_group)
-{
-        const char* group;
-        if(v_group == Val_int(0)) group = NULL;
-        else group = String_val(Field(v_group, 0));
-        elm_icon_thumb_set((Evas_Object*) v_obj, String_val(v_file), group);
         return Val_unit;
 }
 
