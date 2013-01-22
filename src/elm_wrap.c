@@ -448,3 +448,12 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_icon_thumb_set(value v_obj, value v_file, value v_group)
+{
+        const char* group;
+        if(v_group == Val_int(0)) group = NULL;
+        else group = String_val(Field(v_group, 0));
+        elm_icon_thumb_set((Evas_Object*) v_obj, String_val(v_file), group);
+        return Val_unit;
+}
+
