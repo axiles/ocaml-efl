@@ -1,3 +1,5 @@
+(** elm_bg_* Elm_Bg_* *)
+
 type opt = [`center | `scale | `stretch | `tile | `last]
 
 val add : Evas.obj -> Evas.obj
