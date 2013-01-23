@@ -14,3 +14,5 @@ external option_get : Evas.obj -> opt = "ml_elm_bg_option_get"
 external color_set : Evas.obj -> int -> int -> int -> unit =
   "ml_elm_bg_color_set"
 
+external color_get : Evas.obj -> int * int * int = "ml_elm_bg_color_get"
+

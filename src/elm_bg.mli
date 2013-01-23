@@ -12,3 +12,5 @@ val option_get : Evas.obj -> opt
 
 val color_set : Evas.obj -> int -> int -> int -> unit
 
+val color_get : Evas.obj -> int * int * int
+
