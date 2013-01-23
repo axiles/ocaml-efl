@@ -14,3 +14,5 @@ val color_set : Evas.obj -> int -> int -> int -> unit
 
 val color_get : Evas.obj -> int * int * int
 
+val load_size_set : Evas.obj -> int -> int -> unit
+

@@ -16,3 +16,6 @@ external color_set : Evas.obj -> int -> int -> int -> unit =
 
 external color_get : Evas.obj -> int * int * int = "ml_elm_bg_color_get"
 
+external load_size_set : Evas.obj -> int -> int -> unit =
+  "ml_elm_bg_load_size_set"
+

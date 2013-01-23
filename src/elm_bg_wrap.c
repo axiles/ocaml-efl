@@ -87,3 +87,9 @@ PREFIX value ml_elm_bg_color_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_bg_load_size_set(value v_obj, value v_w, value v_h)
+{
+        elm_bg_load_size_set((Evas_Object*) v_obj, Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
