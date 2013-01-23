@@ -56,3 +56,5 @@ external object_get : Evas.obj -> Evas.obj option = "ml_elm_image_object_get"
 external aspect_fixed_set : Evas.obj -> bool -> unit =
   "ml_elm_image_aspect_fixed_set"
 
+external aspect_fixed_get : Evas.obj -> bool = "ml_elm_image_aspect_fixed_get"
+
