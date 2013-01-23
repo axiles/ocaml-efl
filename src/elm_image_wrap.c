@@ -204,3 +204,10 @@ PREFIX value ml_elm_image_animated_get(value v_obj)
         return Val_Eina_Bool(elm_image_animated_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_image_animated_play_set(value v_obj, value v_flag)
+{
+        elm_image_animated_play_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
