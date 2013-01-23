@@ -42,3 +42,5 @@ val orient_set : Evas.obj -> orient -> unit
 
 val orient_get : Evas.obj -> orient
 
+val editable_set : Evas.obj -> bool -> unit
+

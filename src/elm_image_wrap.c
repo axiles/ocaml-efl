@@ -156,3 +156,9 @@ PREFIX value ml_elm_image_orient_get(value v_obj)
         return Val_Elm_Image_Orient(elm_image_orient_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_image_editable_set(value v_obj, value v_flag)
+{
+        elm_image_editable_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
