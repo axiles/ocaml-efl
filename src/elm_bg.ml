@@ -7,6 +7,8 @@ external file_set : Evas.obj -> string -> ?g:string -> unit -> unit =
 
 external file_get : Evas.obj -> string * string option = "ml_elm_bg_file_get"
 
+external option_set : Evas.obj -> opt -> unit = "ml_elm_bg_option_set"
+
 external color_set : Evas.obj -> int -> int -> int -> unit =
   "ml_elm_bg_color_set"
 

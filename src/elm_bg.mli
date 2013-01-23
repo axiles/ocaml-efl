@@ -6,5 +6,7 @@ val file_set : Evas.obj -> string -> ?g:string -> unit -> unit
 
 val file_get : Evas.obj -> string * string option
 
+val option_set : Evas.obj -> opt -> unit
+
 val color_set : Evas.obj -> int -> int -> int -> unit
 
