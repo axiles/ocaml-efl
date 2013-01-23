@@ -1,3 +1,11 @@
+(** elm_image_* Elm_Image_* *)
+
+(** The following function is not implemented yet:
+
+elm_image_memfile_set
+
+*)
+
 type orient = [
   | `orient_none
   | `rotate_90
