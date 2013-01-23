@@ -1,3 +1,5 @@
+type opt = [`center | `scale | `stretch | `tile | `last]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_bg_add"
 
 external file_set : Evas.obj -> string -> ?g:string -> unit -> unit =
