@@ -413,3 +413,10 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_bg_color_set(value v_obj, value v_r, value v_g, value v_b)
+{
+        elm_bg_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
+                Int_val(v_b));
+        return Val_unit;
+}
+
