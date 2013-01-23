@@ -167,3 +167,12 @@ PREFIX value ml_elm_image_editable_get(value v_obj)
         return Val_Eina_Bool(elm_image_editable_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_image_object_get(value v_obj)
+{
+        Evas_Object* obj = elm_image_object_get((Evas_Object*) v_obj);
+        if(obj == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) obj);
+        return v;
+}
+
