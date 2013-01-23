@@ -49,3 +49,5 @@ external orient_get : Evas.obj -> orient = "ml_elm_image_orient_get"
 
 external editable_set : Evas.obj -> bool -> unit = "ml_elm_image_editable_set"
 
+external editable_get : Evas.obj -> bool = "ml_elm_image_editable_get"
+
