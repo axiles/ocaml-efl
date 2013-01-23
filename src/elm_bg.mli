@@ -8,5 +8,7 @@ val file_get : Evas.obj -> string * string option
 
 val option_set : Evas.obj -> opt -> unit
 
+val option_get : Evas.obj -> opt
+
 val color_set : Evas.obj -> int -> int -> int -> unit
 

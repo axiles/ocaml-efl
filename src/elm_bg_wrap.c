@@ -64,6 +64,11 @@ PREFIX value ml_elm_bg_option_set(value v_obj, value v_option)
         return Val_unit;
 }
 
+PREFIX value ml_elm_bg_option_get(value v_obj)
+{
+        return Val_Elm_Bg_Option(elm_bg_option_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_bg_color_set(value v_obj, value v_r, value v_g, value v_b)
 {
         elm_bg_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
