@@ -1,3 +1,5 @@
+open Efl
+
 let on_done _ _ = Elm.exit ()
 
 let () =

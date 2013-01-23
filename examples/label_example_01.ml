@@ -1,3 +1,5 @@
+open Efl
+
 let () =
   Elm.init Sys.argv;
 

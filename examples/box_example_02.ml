@@ -1,6 +1,8 @@
 (* Compared to the official example, this example does not have box transitions
 yet. *)
 
+open Efl
+
 let () =
   Elm.init Sys.argv;
   Elm.policy_set `quit `last_window_closed;
