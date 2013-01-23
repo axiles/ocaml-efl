@@ -176,3 +176,9 @@ PREFIX value ml_elm_image_object_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_image_aspect_fixed_set(value v_obj, value v_flag)
+{
+        elm_image_aspect_fixed_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

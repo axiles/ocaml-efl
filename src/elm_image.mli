@@ -48,3 +48,5 @@ val editable_get : Evas.obj -> bool
 
 val object_get : Evas.obj -> Evas.obj option
 
+val aspect_fixed_set : Evas.obj -> bool -> unit
+
