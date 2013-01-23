@@ -52,3 +52,5 @@ val aspect_fixed_set : Evas.obj -> bool -> unit
 
 val aspect_fixed_get : Evas.obj -> bool
 
+val animated_available_get : Evas.obj -> bool
+

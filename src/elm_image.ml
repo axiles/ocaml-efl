@@ -58,3 +58,6 @@ external aspect_fixed_set : Evas.obj -> bool -> unit =
 
 external aspect_fixed_get : Evas.obj -> bool = "ml_elm_image_aspect_fixed_get"
 
+external animated_available_get : Evas.obj -> bool =
+  "ml_elm_image_animated_available_get"
+

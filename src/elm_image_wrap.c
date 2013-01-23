@@ -187,3 +187,9 @@ PREFIX value ml_elm_image_aspect_fixed_get(value v_obj)
         return Val_Eina_Bool(elm_image_aspect_fixed_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_image_animated_available_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_image_animated_available_get(
+                (Evas_Object*) v_obj));
+}
+
