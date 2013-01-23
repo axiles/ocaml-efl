@@ -33,13 +33,6 @@ PREFIX value ml_elm_exit(value v_unit)
         return Val_unit;
 }
 
-PREFIX value ml_elm_bg_add(value v_parent)
-{
-        Evas_Object* bg = elm_bg_add((Evas_Object*) v_parent);
-        if(bg == NULL) caml_failwith("elm_bg_add");
-        return (value) bg;
-}
-
 PREFIX value ml_elm_object_text_set(value v_obj, value v_text)
 {
         elm_object_text_set((Evas_Object*) v_obj, String_val(v_text));
@@ -410,13 +403,6 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
                 Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_bg_color_set(value v_obj, value v_r, value v_g, value v_b)
-{
-        elm_bg_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
-                Int_val(v_b));
         return Val_unit;
 }
 

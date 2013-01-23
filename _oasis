@@ -70,7 +70,8 @@ Library efl
     elm_scroller_wrap.h, elm_button_wrap.c, elm_label_wrap.c, elm_entry_wrap.c,
     elm_layout_wrap.c, elm_radio_wrap.c, elm_check_wrap.c, elm_box_wrap.c,
     ecore_wrap.c, ecore_wrap.h, elm_win_wrap.c, elm_app_wrap.c,
-    elm_image_wrap.c, elm_separator_wrap.c, elm_notify_wrap.c, elm_icon_wrap.c
+    elm_image_wrap.c, elm_separator_wrap.c, elm_notify_wrap.c, elm_icon_wrap.c,
+    elm_bg_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   BuildTools: ocamldoc
