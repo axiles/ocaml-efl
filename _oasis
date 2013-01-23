@@ -145,3 +145,9 @@ Executable win_example
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: win_example.ml
+Executable image_example_01
+  Path: examples
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: image_example_01.ml
