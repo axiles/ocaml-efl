@@ -151,3 +151,9 @@ Executable image_example_01
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: image_example_01.ml
+Executable icon_example_01
+  Path: examples
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: icon_example_01.ml
