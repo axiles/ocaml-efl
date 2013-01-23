@@ -68,3 +68,5 @@ external animated_get : Evas.obj -> bool = "ml_elm_image_animated_get"
 external animated_play_set : Evas.obj -> bool -> unit =
   "ml_elm_image_animated_play_set"
 
+external animated_play_get : Evas.obj -> bool = "ml_elm_image_animated_play_get"
+

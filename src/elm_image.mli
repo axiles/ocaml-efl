@@ -60,3 +60,5 @@ val animated_get : Evas.obj -> bool
 
 val animated_play_set : Evas.obj -> bool -> unit
 
+val animated_play_get : Evas.obj -> bool
+
