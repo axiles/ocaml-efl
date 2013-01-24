@@ -6,3 +6,5 @@ val label_format_set : Evas.obj -> string -> unit
 
 val editable_set : Evas.obj -> bool -> unit
 
+val special_value_add : Evas.obj -> float -> string -> unit
+

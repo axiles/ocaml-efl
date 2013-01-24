@@ -26,3 +26,10 @@ PREFIX value ml_elm_spinner_editable_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_spinner_special_value_add(value v_obj, value v_x, value v_s)
+{
+        elm_spinner_special_value_add((Evas_Object*) v_obj, Double_val(v_x),
+                String_val(v_s));
+        return Val_unit;
+}
+

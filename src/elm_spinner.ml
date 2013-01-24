@@ -8,3 +8,6 @@ external label_format_set : Evas.obj -> string -> unit =
 
 external editable_set : Evas.obj -> bool -> unit = "ml_elm_spinner_editable_set"
 
+external special_value_add : Evas.obj -> float -> string -> unit =
+  "ml_elm_spinner_special_value_add"
+
