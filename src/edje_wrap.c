@@ -23,7 +23,7 @@ PREFIX value ml_edje_file_collection_list(value v_theme)
 PREFIX value ml_edje_object_add(value v_evas)
 {
         Evas_Object* obj = edje_object_add((Evas*) v_evas);
-        if(obj == NULL) caml_failwith("ml_edje_object_add");
+        if(obj == NULL) caml_failwith("edje_object_add");
         return (value) obj;
 }
 
