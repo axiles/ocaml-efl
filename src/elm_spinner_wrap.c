@@ -14,3 +14,9 @@ PREFIX value ml_elm_spinner_min_max_set(value v_obj, value v_min, value v_max)
         return Val_unit;
 }
 
+PREFIX value ml_elm_spinner_label_format_set(value v_obj, value v_fmt)
+{
+        elm_spinner_label_format_set((Evas_Object*) v_obj, String_val(v_fmt));
+        return Val_unit;
+}
+

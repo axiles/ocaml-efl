@@ -2,3 +2,5 @@ val add : Evas.obj -> Evas.obj
 
 val min_max_set : Evas.obj -> float -> float -> unit
 
+val label_format_set : Evas.obj -> string -> unit
+
