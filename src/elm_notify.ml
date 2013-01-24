@@ -27,3 +27,5 @@ external timeout_get : Evas.obj -> float = "ml_elm_notify_timeout_get"
 external allow_events_set : Evas.obj -> bool -> unit =
   "ml_elm_notify_allow_events_set"
 
+external allow_events_get : Evas.obj -> bool = "ml_elm_notify_allow_events_get"
+
