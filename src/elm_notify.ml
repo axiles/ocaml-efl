@@ -22,6 +22,8 @@ external orient_get : Evas.obj -> orient = "ml_elm_notify_orient_get"
 
 external timeout_set : Evas.obj -> float -> unit = "ml_elm_notify_timeout_set"
 
+external timeout_get : Evas.obj -> float = "ml_elm_notify_timeout_get"
+
 external allow_events_set : Evas.obj -> bool -> unit =
   "ml_elm_notify_allow_events_set"
 
