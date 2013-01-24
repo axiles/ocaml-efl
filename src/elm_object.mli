@@ -34,3 +34,5 @@ val disabled_get : Evas.obj -> bool
 
 val focus_set : Evas.obj -> bool -> unit
 
+val parent_widget_get : Evas.obj -> Evas.obj option
+

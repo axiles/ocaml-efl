@@ -49,3 +49,6 @@ external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
 
 external focus_set : Evas.obj -> bool -> unit = "ml_elm_object_focus_set"
 
+external parent_widget_get : Evas.obj -> Evas.obj option =
+  "ml_elm_object_parent_widget_get"
+
