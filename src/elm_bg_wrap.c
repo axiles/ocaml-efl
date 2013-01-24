@@ -5,6 +5,7 @@ PREFIX inline Elm_Bg_Option Elm_Bg_Option_val(value v_o)
         switch(v_o) {
                 case Val_center: return ELM_BG_OPTION_CENTER;
                 case Val_scale: return ELM_BG_OPTION_SCALE;
+                case Val_stretch: return ELM_BG_OPTION_STRETCH;
                 case Val_tile: return ELM_BG_OPTION_TILE;
                 case Val_last: return ELM_BG_OPTION_LAST;
         }
@@ -17,6 +18,7 @@ PREFIX inline value Val_Elm_Bg_Option(Elm_Bg_Option o)
         switch(o) {
                 case ELM_BG_OPTION_CENTER: return Val_center;
                 case ELM_BG_OPTION_SCALE: return Val_scale;
+                case ELM_BG_OPTION_STRETCH: return Val_stretch;
                 case ELM_BG_OPTION_TILE: return Val_tile;
                 case ELM_BG_OPTION_LAST: return Val_last;
         }

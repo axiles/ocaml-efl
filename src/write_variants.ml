@@ -90,6 +90,7 @@ let () =
   g "socket_image";
   g "splash";
   g "standard";
+  g "stretch";
   g "terminal";
   g "theme";
   g "theme_fdo";
