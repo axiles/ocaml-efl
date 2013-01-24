@@ -9,6 +9,9 @@ external part_text_get : Evas.obj -> ?p:string -> unit -> string =
 external part_content_set : Evas.obj -> ?p:string -> Evas.obj -> unit =
   "ml_elm_object_part_content_set"
 
+external part_content_set_null : Evas.obj -> ?p:string -> unit -> unit =
+  "ml_elm_object_part_content_set_NULL"
+
 external part_content_get : Evas.obj -> ?p:string -> Evas.obj =
   "ml_elm_object_part_content_get"
 

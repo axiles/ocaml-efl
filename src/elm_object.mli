@@ -6,6 +6,8 @@ val part_text_get : Evas.obj -> ?p:string -> unit -> string
 
 val part_content_set : Evas.obj -> ?p:string -> Evas.obj -> unit 
 
+val part_content_set_null : Evas.obj -> ?p:string -> unit -> unit
+
 val part_content_get : Evas.obj -> ?p:string -> Evas.obj
 
 val part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj

@@ -32,6 +32,15 @@ PREFIX value ml_elm_object_part_content_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_part_content_set_NULL(value v_obj, value v_part)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        elm_object_part_content_set((Evas_Object*) v_obj, part, NULL);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_part_content_get(value v_obj, value v_part)
 {
         char* part;
