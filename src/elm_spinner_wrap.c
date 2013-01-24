@@ -20,3 +20,9 @@ PREFIX value ml_elm_spinner_label_format_set(value v_obj, value v_fmt)
         return Val_unit;
 }
 
+PREFIX value ml_elm_spinner_editable_set(value v_obj, value v_flag)
+{
+        elm_spinner_editable_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
