@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX Elm_Notify_Orient Elm_Notify_Orient_val(value v_o)
+PREFIX inline Elm_Notify_Orient Elm_Notify_Orient_val(value v_o)
 {
         switch(v_o) {
                 case Val_top: return ELM_NOTIFY_ORIENT_TOP;
@@ -16,6 +16,24 @@ PREFIX Elm_Notify_Orient Elm_Notify_Orient_val(value v_o)
         }
         caml_failwith("Elm_Notify_Orient_val");
         return ELM_NOTIFY_ORIENT_TOP;
+}
+
+PREFIX inline value Val_Elm_Notify_Orient(Elm_Notify_Orient o)
+{
+        switch(o) {
+                case ELM_NOTIFY_ORIENT_TOP: return Val_top;
+                case ELM_NOTIFY_ORIENT_CENTER: return Val_center;
+                case ELM_NOTIFY_ORIENT_BOTTOM: return Val_bottom;
+                case ELM_NOTIFY_ORIENT_LEFT: return Val_left;
+                case ELM_NOTIFY_ORIENT_RIGHT: return Val_right;
+                case ELM_NOTIFY_ORIENT_TOP_LEFT: return Val_top_left;
+                case ELM_NOTIFY_ORIENT_TOP_RIGHT: return Val_top_right;
+                case ELM_NOTIFY_ORIENT_BOTTOM_LEFT: return Val_bottom_left;
+                case ELM_NOTIFY_ORIENT_BOTTOM_RIGHT: return Val_bottom_right;
+                case ELM_NOTIFY_ORIENT_LAST: return Val_last;
+        }
+        caml_failwith("Val_Elm_Notify_Orient");
+        return Val_top;
 }
 
 PREFIX value ml_elm_notify_add(value v_parent)
