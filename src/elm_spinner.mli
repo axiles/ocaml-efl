@@ -8,3 +8,5 @@ val editable_set : Evas.obj -> bool -> unit
 
 val special_value_add : Evas.obj -> float -> string -> unit
 
+val value_get : Evas.obj -> float
+

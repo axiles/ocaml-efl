@@ -33,3 +33,8 @@ PREFIX value ml_elm_spinner_special_value_add(value v_obj, value v_x, value v_s)
         return Val_unit;
 }
 
+PREFIX value ml_elm_spinner_value_get(value v_obj)
+{
+        return copy_double(elm_spinner_value_get((Evas_Object*) v_obj));
+}
+
