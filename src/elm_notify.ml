@@ -18,6 +18,8 @@ external parent_get : Evas.obj -> Evas.obj = "ml_elm_notify_parent_get"
 
 external orient_set : Evas.obj -> orient -> unit = "ml_elm_notify_orient_set"
 
+external orient_get : Evas.obj -> orient = "ml_elm_notify_orient_get"
+
 external allow_events_set : Evas.obj -> bool -> unit =
   "ml_elm_notify_allow_events_set"
 

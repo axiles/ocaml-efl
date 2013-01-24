@@ -18,5 +18,7 @@ val parent_get : Evas.obj -> Evas.obj
 
 val orient_set : Evas.obj -> orient -> unit
 
+val orient_get : Evas.obj -> orient
+
 val allow_events_set : Evas.obj -> bool -> unit
 
