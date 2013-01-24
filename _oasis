@@ -170,3 +170,9 @@ Executable bg_example_02
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: bg_example_02.ml
+Executable bg_example_03
+  Path: examples
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: bg_example_03.ml
