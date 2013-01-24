@@ -31,6 +31,11 @@ PREFIX value ml_elm_notify_parent_set(value v_obj, value v_parent)
         return Val_unit;
 }
 
+PREFIX value ml_elm_notify_parent_get(value v_obj)
+{
+        return (value) elm_notify_parent_get((Evas_Object*) v_obj);
+}
+
 PREFIX value ml_elm_notify_orient_set(value v_obj, value v_o)
 {
         elm_notify_orient_set((Evas_Object*) v_obj, Elm_Notify_Orient_val(v_o));
