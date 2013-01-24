@@ -12,6 +12,8 @@ type orient = [
 
 external add : Evas.obj -> Evas.obj = "ml_elm_notify_add"
 
+external parent_set : Evas.obj -> Evas.obj -> unit = "ml_elm_notify_parent_set"
+
 external orient_set : Evas.obj -> orient -> unit = "ml_elm_notify_orient_set"
 
 external allow_events_set : Evas.obj -> bool -> unit =
