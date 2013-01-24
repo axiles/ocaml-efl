@@ -1,3 +1,5 @@
+(** elm_notify_* Elm_Notify_* *)
+
 type orient = [
   | `top
   | `center
