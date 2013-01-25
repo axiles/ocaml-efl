@@ -8,10 +8,10 @@ In order to compile this package, you will need:
 * ocaml (>= 3.12)
 * findlib
 * pkg-config
-* elementary (>= 1.7.4) from the Enlightenment Fondation Libraries (EFL)
+* elementary (>= 1.7.4) from the Enlightenment Foundation Libraries (EFL)
 
 In particular, to install elementary, you will need to install the other
-libraires of the EFL.
+libraries of the EFL.
 
 Installing
 ==========
@@ -22,7 +22,7 @@ Installing
 5. (Optional) Run 'ocaml setup.ml -doc' to build the documentation
 4. Run (as root if necessary) 'ocaml setup.ml -install'
 
-To see avaible options for the configuration part, run
+To see available options for the configuration part, run
 'ocaml setup.ml -configure -help'
 
 Uninstalling
