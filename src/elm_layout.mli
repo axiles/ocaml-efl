@@ -1,3 +1,5 @@
+(** elm_layout_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val file_set : Evas.obj -> string -> string -> bool
