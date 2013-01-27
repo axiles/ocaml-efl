@@ -158,3 +158,9 @@ Executable layout_example_02
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: layout_example_02.ml
+Executable layout_example_03
+  Path: examples
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: layout_example_03.ml
