@@ -106,7 +106,7 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
 
 PREFIX value ml_evas_object_size_hint_min_set(value v_obj, value v_w, value v_h)
 {
-        evas_object_size_hint_weight_set((Evas_Object*) v_obj, Int_val(v_w),
+        evas_object_size_hint_min_set((Evas_Object*) v_obj, Int_val(v_w),
                 Int_val(v_h));
         return Val_unit;
 }

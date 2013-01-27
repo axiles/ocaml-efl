@@ -182,3 +182,9 @@ Executable notify_example_01
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: notify_example_01.ml
+Executable separaot_example_01
+  Path: examples
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: separator_example_01.ml
