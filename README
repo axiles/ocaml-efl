@@ -1,10 +1,12 @@
-(* OASIS_START *)
-(* DO NOT EDIT (digest: 67849e66c62dad569b35462f8ff8f7c9) *)
 This is the README file for the ocaml-efl distribution.
 
 An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 
-OCaml
+Homepage: https://forge.ocamlcore.org/projects/ocaml-efl/
+Github page: https://github.com/axiles/ocaml-efl
+
+What is OCaml ?
+===============
 
 OCaml, originally known as Objective Caml, is the main implementation of the
 Caml programming language, created by Xavier Leroy, Jérôme Vouillon, Damien
@@ -24,28 +26,78 @@ INRIA.
 
 Homepage: http://caml.inria.fr/index.en.html
 
-Enlightenment Foundation Libraries (EFL)
+What are the Enlightenment Foundation Libraries (EFL) ?
+=======================================================
 
 The Enlightenment Foundation Libraries (EFL) are a set of open source
 graphics libraries that grew out of the development of the Enlightenment
-window manager. EFL is developed by Enlightenment.org with some sponsorship
-from Samsung, ProFUSION and Free.fr.[1] The project's focus is to make the
-EFL a flexible yet powerful and easy to use set of tools to extend the
-capabilities of both the Enlightenment window manager and other software
-projects based on the EFL. The libraries were created for version 0.17 of the
-window manager. The libraries are meant to be portable and optimized to be
-functional even on devices such as PDAs.
+window manager. The project's focus is to make the EFL a flexible yet powerful
+and easy to use set of tools to extend the capabilities of both the
+Enlightenment window manager and other software projects based on the EFL. The
+libraries were created for version 0.17 of the window manager. The libraries are
+meant to be portable and optimized to be functional even on devices such as
+PDAs.
 
 Homepage: http://www.enlightenment.org/
 
-Current state of the interface
+INSTALLING
+==========
 
-This is still the early stage of the development of the interface. A few
-examples can be run.
+This package uses OASIS to generated its build sytsem. You can find more
+detailed instructions in the INSTALL file.
+
+LICENSE
+=======
+
+This is a free software licensed under the zlib/png license. More information in
+the COPYING file.
+
+CURRENT STATE OF THE INTERFACE
+==============================
+
+Currently, only a small portion of the EFL has been interface. Our primary
+efforts are in interfacing Elementary (the high-level widget part of the EFL).
+The following widgets and container are almost fully implemented:
+
+* windows
+* buttons
+* text entries
+* boxes
+* check boxes
+* radio buttons
+* separators
+* images
+* icons
+* backgrounds
+* notifications
+
+It is already possible to write some small graphical applications with these
+widgets. However, ocaml-efl is still in alpha stage and some API may break.
 
 The last version can be obtained here: https://github.com/axiles/ocaml-efl
 
+You may also want to contribute by adding missing functions that you want. The
+following pages might give you information about how to do it:
 
+http://www.linux-nantes.org/~fmonnier/ocaml/ocaml-wrapping-c.php
+http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual033.html
 
+USING THIS LIBRARY
+==================
 
-(* OASIS_STOP *)
+This library can easily be used with the findlib (ocamlfind) package 'efl'.
+
+For example, if you have a single-file program main.ml, you can build it by
+entering:
+
+'ocamlbuild -use-ocamlfind -pkg efl main.byte'
+
+And then, you can execute it by entering:
+
+'./main.byte'
+
+If you want to compile natively, just replace 'main.byte' by 'main.native'.
+
+Findlib homepage: http://projects.camlcity.org/projects/findlib.html
+Ocamlbuild homepage: http://brion.inria.fr/gallium/index.php/Ocamlbuild
+
