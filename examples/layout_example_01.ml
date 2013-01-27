@@ -1,5 +1,3 @@
-(* WARNING: This example is still in heavy development *)
-
 open Efl
 open Printf
 
@@ -90,7 +88,7 @@ end = struct
 
   let create_icon name x y =
     {fun_add = Elm_icon.add; content = Standard name; fill = true;
-      pos = Pack(0, 0, 1, 1); cb = None}
+      pos = Pack(x, y, 1, 1); cb = None}
 
   let create_button text fill pos cb =
     {fun_add = Elm_button.add; content = Text text; fill; pos; cb = Some cb}
@@ -121,8 +119,8 @@ let () =
 
   (match Elm_layout.data_get layout "title" with
   | Some s ->
-      Elm_win.title_set win title;
-      Elm_object.part_text_set layout ~p:title s
+      Elm_win.title_set win s;
+      Elm_object.part_text_set layout ~p:title s;
   | None -> ());
 
   let open Item in
@@ -143,4 +141,4 @@ let () =
   Evas_object.show win;
 
   Elm.run ();
-  Elm.shutdown ()
+  Elm.shutdown ();

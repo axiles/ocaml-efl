@@ -1,7 +1,7 @@
 type item
 
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =
-  "ml_elm_object_part_content_set"
+  "ml_elm_object_part_text_set"
 
 external part_text_get : Evas.obj -> ?p:string -> unit -> string =
   "ml_elm_object_part_content_get"
