@@ -8,3 +8,6 @@ external object_add : Evas.t -> Evas.obj = "ml_edje_object_add"
 external object_file_set : Evas.obj -> string -> ?g:string -> unit -> bool =
   "ml_edje_object_file_set"
 
+external object_size_min_calc : Evas.obj -> int * int =
+  "ml_edje_object_size_min_calc"
+

@@ -37,3 +37,13 @@ PREFIX value ml_edje_object_file_set(
                 String_val(v_file), group));
 }
 
+PREFIX value ml_edje_object_size_min_calc(value v_obj)
+{
+        int w, h;
+        edje_object_size_min_calc((Evas_Object*) v_obj, &w, &h);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
+        return v;
+}
+
