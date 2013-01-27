@@ -120,7 +120,7 @@ let () =
   (match Elm_layout.data_get layout "title" with
   | Some s ->
       Elm_win.title_set win s;
-      Elm_object.part_text_set layout ~p:title s;
+      Elm_object.part_text_set layout ~p:title s
   | None -> ());
 
   let open Item in
