@@ -243,3 +243,9 @@ PREFIX value ml_elm_layout_part_cursor_engine_only_get(
                 (Evas_Object*) v_obj, String_val(v_part_name)));
 }
 
+PREFIX value ml_elm_layout_icon_set(value v_ly, value v_obj)
+{
+        elm_layout_icon_set((Evas_Object*) v_ly, (Evas_Object*) v_obj);
+        return Val_unit;
+}
+

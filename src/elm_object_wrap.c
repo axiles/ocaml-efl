@@ -41,7 +41,8 @@ PREFIX value ml_elm_object_part_content_set_NULL(value v_obj, value v_part)
         return Val_unit;
 }
 
-PREFIX value ml_elm_object_part_content_get(value v_obj, value v_part)
+PREFIX value ml_elm_object_part_content_get(
+                value v_obj, value v_part, value v_unit)
 {
         char* part;
         if(v_part == Val_int(0)) part = NULL;

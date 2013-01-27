@@ -12,7 +12,7 @@ external part_content_set : Evas.obj -> ?p:string -> Evas.obj -> unit =
 external part_content_set_null : Evas.obj -> ?p:string -> unit -> unit =
   "ml_elm_object_part_content_set_NULL"
 
-external part_content_get : Evas.obj -> ?p:string -> Evas.obj =
+external part_content_get : Evas.obj -> ?p:string -> unit -> Evas.obj =
   "ml_elm_object_part_content_get"
 
 external part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj =
