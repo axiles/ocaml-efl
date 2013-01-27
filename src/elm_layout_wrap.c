@@ -249,3 +249,9 @@ PREFIX value ml_elm_layout_icon_set(value v_ly, value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_layout_end_set(value v_ly, value v_obj)
+{
+        elm_layout_end_set((Evas_Object*) v_ly, (Evas_Object*) v_obj);
+        return Val_unit;
+}
+

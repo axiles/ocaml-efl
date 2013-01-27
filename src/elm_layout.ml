@@ -82,3 +82,5 @@ external icon_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_icon_set"
 
 let icon_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.icon" ()
 
+external end_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_end_set"
+
