@@ -50,8 +50,5 @@ external shutdown : unit -> unit = "ml_elm_shutdown"
 
 external exit : unit -> unit = "ml_elm_exit"
 
-external policy_set_with_bool : policy -> policy_value -> bool =
-  "ml_elm_policy_set_with_bool"
-
-let policy_set p v = ignore (policy_set_with_bool p v)
+external policy_set : policy -> policy_value -> bool = "ml_elm_policy_set"
 

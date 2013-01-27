@@ -31,12 +31,7 @@ external signal_callback_del :
 
 external text_set : Evas.obj -> string -> unit = "ml_elm_object_text_set"
 
-external style_set_with_bool : Evas.obj -> string -> bool =
-  "ml_elm_object_style_set_with_bool"
-
-let style_set obj s =
-  (*if not (style_set_with_bool obj s) then failwith "elm_object_style_set"*)
-  ignore (style_set_with_bool obj s)
+external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
 
 external content_set : Evas.obj -> Evas.obj -> unit =
   "ml_elm_object_content_set"

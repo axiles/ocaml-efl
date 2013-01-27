@@ -50,7 +50,5 @@ val exit : unit -> unit
 
 val init_with_counter : string array -> int
 
-val policy_set_with_bool : policy -> policy_value -> bool
-
-val policy_set : policy -> policy_value -> unit
+val policy_set : policy -> policy_value -> bool
 

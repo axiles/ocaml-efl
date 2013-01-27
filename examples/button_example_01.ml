@@ -6,7 +6,7 @@ let () =
   Elm.init Sys.argv;
 
   let win = Elm_win.add "Button example" `basic in
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
   Elm_win.title_set win "Button example";
   Elm_win.autodel_set win true;
   Evas_object.resize win 300 320;
@@ -51,7 +51,7 @@ let () =
     Elm_box.pack_end box btn;
     Evas_object.show btn;
     let icon = Elm_icon.add win in
-    Elm_icon.standard_set icon icon_name;
+    let (_ : bool) = Elm_icon.standard_set icon icon_name in
     Elm_object.part_content_set btn ~p:"icon" icon;
     btn in
 
@@ -100,7 +100,7 @@ let () =
       Evas_object.hide icon_s;
       icon_still := Some icon_s;
       let icon = Elm_icon.add mid in
-      Elm_icon.standard_set icon "chat";
+      let (_ : bool) = Elm_icon.standard_set icon "chat" in
       Elm_object.part_content_set mid ~p:"icon" icon);
     let ax, ay = Evas_object.size_hint_align_get mid in
     let aux (ax1, ay1) (cursor, dx, dy) =

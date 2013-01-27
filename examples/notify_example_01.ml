@@ -28,7 +28,7 @@ let () =
   let win = Elm_win.add "notify" `basic in
   Elm_win.title_set win "Notify";
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;

@@ -131,7 +131,7 @@ PREFIX value ml_elm_object_text_set(value v_obj, value v_text)
         return Val_unit;
 }
 
-PREFIX value ml_elm_object_style_set_with_bool(value v_obj, value v_style)
+PREFIX value ml_elm_object_style_set(value v_obj, value v_style)
 {
         return Val_Eina_Bool(elm_object_style_set((Evas_Object*) v_obj,
                 String_val(v_style)));

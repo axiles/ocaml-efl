@@ -35,7 +35,7 @@ let () =
   Evas_object.show bx;
 
   let fr = Elm_frame.add win in
-  Elm_object.style_set fr "pad_large";
+  let (_ : bool) = Elm_object.style_set fr "pad_large" in
   Evas_object.size_hint_weight_set fr 0. 0.;
   Evas_object.size_hint_align_set fr (-1.) (-1.);
   Elm_box.pack_end bx fr;
@@ -47,14 +47,14 @@ let () =
   Evas_object.show lb;
 
   let fr0 = Elm_frame.add win in
-  Elm_object.style_set fr0 "outdent_bottom";
+  let (_ : bool) = Elm_object.style_set fr0 "outdent_bottom" in
   Evas_object.size_hint_weight_set fr0 0. 0.;
   Evas_object.size_hint_align_set fr (-1.) (-1.);
   Elm_box.pack_end bx fr0;
   Evas_object.show fr0;
 
   let fr = Elm_frame.add win in
-  Elm_object.style_set fr "pad_medium";
+  let (_ : bool) = Elm_object.style_set fr "pad_medium" in
   Elm_object.content_set fr0 fr;
   Evas_object.show fr;
 

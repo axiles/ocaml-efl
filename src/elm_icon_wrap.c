@@ -62,7 +62,7 @@ PREFIX value ml_elm_icon_thumb_set(value v_obj, value v_file, value v_group)
         return Val_unit;
 }
 
-PREFIX value ml_elm_icon_standard_set_with_bool(value v_icon, value v_name)
+PREFIX value ml_elm_icon_standard_set(value v_icon, value v_name)
 {
         return Val_Eina_Bool(elm_icon_standard_set((Evas_Object*) v_icon,
                 String_val(v_name)));

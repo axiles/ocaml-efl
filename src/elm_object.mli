@@ -20,9 +20,7 @@ val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
 val text_set : Evas.obj -> string -> unit
 
-val style_set_with_bool : Evas.obj -> string -> bool
-
-val style_set : Evas.obj -> string -> unit
+val style_set : Evas.obj -> string -> bool
 
 val content_set : Evas.obj -> Evas.obj -> unit
 

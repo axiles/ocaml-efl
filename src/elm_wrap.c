@@ -60,7 +60,7 @@ PREFIX inline int Elm_Policy_Value_val(value v)
         return ELM_POLICY_QUIT_NONE;
 }
 
-PREFIX value ml_elm_policy_set_with_bool(value v_policy, value v_value)
+PREFIX value ml_elm_policy_set(value v_policy, value v_value)
 {
         return Val_Eina_Bool(elm_policy_set(Elm_Policy_val(v_policy),
                 Elm_Policy_Value_val(v_value)));

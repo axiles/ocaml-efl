@@ -124,7 +124,8 @@ let () =
   Evas_object.show image_insert_bt;
 
   let icon = Elm_layout.add win in
-  Elm_layout.theme_set icon "entry" "emoticon/haha" "default";
+  let (_ : bool) =
+    Elm_layout.theme_set icon "entry" "emoticon/haha" "default" in
   Elm_object.part_content_set image_insert_bt ~p:"icon" icon;
 
   let en = Elm_entry.add win in
@@ -209,7 +210,8 @@ let () =
             if part <> "elm.swallow.icon" then None
             else (
               let o = Elm_layout.add obj in
-              Elm_layout.theme_set o "entry/emoticon" name "default";
+              let (_ : bool) =
+                Elm_layout.theme_set o "entry/emoticon" name "default" in
               Some o) in
           let del _ = () and state_get _ _ = true in
           let it_class = {Elm_gengrid.item_style = "default";

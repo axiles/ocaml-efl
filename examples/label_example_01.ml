@@ -6,7 +6,7 @@ let () =
   let win = Elm_win.add "label" `basic in
   Elm_win.title_set win "Label";
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
@@ -18,7 +18,7 @@ let () =
     not too long.";
   Elm_label.slide_duration_set label 3.;
   Elm_label.slide_set label true;
-  Elm_object.style_set label "slide_bounce";
+  let (_ : bool) = Elm_object.style_set label "slide_bounce" in
   Evas_object.move label 0 10;
   Evas_object.resize label 200 15;
   Evas_object.show label;
@@ -58,7 +58,7 @@ let () =
 
   let label6 = Elm_label.add win in
   Elm_object.text_set label6 "Short text";
-  Elm_object.style_set label6 "marker";
+  let (_ : bool) = Elm_object.style_set label6 "marker" in
   Evas_object.color_set label6 255 0 0 255;
   Evas_object.resize label6 200 15;
   Evas_object.move label6 0 140;

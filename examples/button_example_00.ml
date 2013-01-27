@@ -9,7 +9,7 @@ let () =
   Elm_win.title_set win "Hello, World!";
 
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
   Evas_object.resize win 240 60;
   Evas_object.show win;
 

@@ -21,7 +21,7 @@ let add_radio win bx i icon_name group =
   | None -> ()
   | Some s ->
     let ic = Elm_icon.add win in
-    Elm_icon.standard_set ic s;
+    let (_ : bool) = Elm_icon.standard_set ic s in
     Elm_object.part_content_set radio ~p:"icon" ic);
   (match group with
   | Nothing | Cb_only -> ()
@@ -44,7 +44,7 @@ let () =
   let win = Elm_win.add "radio" `basic in
   Elm_win.title_set win "Radio";
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

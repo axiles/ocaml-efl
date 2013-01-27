@@ -101,7 +101,7 @@ let () =
   Evas_object.show rd;
 
   let rd = Elm_spinner.add win in
-  Elm_object.style_set rd "vertical";
+  let (_ : bool) = Elm_object.style_set rd "vertical" in
   Elm_spinner.min_max_set rd 1. 4.;
   Elm_spinner.label_format_set rd "%.0f";
   Elm_spinner.editable_set rd false;

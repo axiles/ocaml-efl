@@ -6,7 +6,7 @@ let () =
 
   let win = Elm_win.add "icon" `basic; in
   Elm_win.title_set win "Icon";
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
   Elm_win.autodel_set win true;
 
   let bg = Elm_bg.add win in
@@ -17,7 +17,7 @@ let () =
 
   let icon = Elm_icon.add win in
   Elm_icon.order_lookup_set icon `theme_fdo;
-  Elm_icon.standard_set icon "home";
+  let (_ : bool) = Elm_icon.standard_set icon "home" in
   let path, group = match Elm_image.file_get icon with
   | p, Some g -> (p, g)
   | _, None -> assert false in

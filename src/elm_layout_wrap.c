@@ -12,14 +12,13 @@ PREFIX value ml_elm_layout_add(value v_parent)
         return (value) layout;
 }
 
-PREFIX ml_elm_layout_file_set_with_bool(
-        value v_obj, value v_file, value v_group)
+PREFIX ml_elm_layout_file_set(value v_obj, value v_file, value v_group)
 {
         return Val_Eina_Bool(elm_layout_file_set((Evas_Object*) v_obj,
                 String_val(v_file), String_val(v_group)));
 }
 
-PREFIX ml_elm_layout_theme_set_with_bool(
+PREFIX ml_elm_layout_theme_set(
         value v_obj, value v_clas, value v_group, value v_style)
 {
         return Val_Eina_Bool(elm_layout_theme_set((Evas_Object*) v_obj,
@@ -78,21 +77,20 @@ PREFIX ml_elm_layout_signal_callback_del(
         return Val_unit;
 }
 
-PREFIX value ml_elm_layout_box_append_with_bool(
-        value v_obj, value v_part, value v_child)
+PREFIX value ml_elm_layout_box_append(value v_obj, value v_part, value v_child)
 {
         return Val_Eina_Bool(elm_layout_box_append((Evas_Object*) v_obj,
                 String_val(v_part), (Evas_Object*) v_child));
 }
 
-PREFIX value ml_elm_layout_box_prepend_with_bool(
+PREFIX value ml_elm_layout_box_prepend(
         value v_obj, value v_part, value v_child)
 {
         return Val_Eina_Bool(elm_layout_box_prepend((Evas_Object*) v_obj,
                 String_val(v_part), (Evas_Object*) v_child));
 }
 
-PREFIX value ml_elm_layout_box_insert_before_with_bool(
+PREFIX value ml_elm_layout_box_insert_before(
         value v_obj, value v_part, value v_child, value v_ref)
 {
         return Val_Eina_Bool(elm_layout_box_insert_before((Evas_Object*) v_obj,
@@ -101,7 +99,7 @@ PREFIX value ml_elm_layout_box_insert_before_with_bool(
 }
 
 
-PREFIX value ml_elm_layout_box_insert_at_with_bool(
+PREFIX value ml_elm_layout_box_insert_at(
         value v_obj, value v_part, value v_child, value v_pos)
 {
         return Val_Eina_Bool(elm_layout_box_insert_at((Evas_Object*) v_obj,
@@ -122,14 +120,14 @@ PREFIX value ml_elm_layout_box_remove(value v_obj, value v_part, value v_child)
         }
 }
 
-PREFIX value ml_elm_layout_box_remove_all_with_bool(
+PREFIX value ml_elm_layout_box_remove_all(
         value v_obj, value v_part, value v_clear)
 {
         return Val_Eina_Bool(elm_layout_box_remove_all((Evas_Object*) v_obj,
                 String_val(v_part), Eina_Bool_val(v_clear)));
 }
 
-PREFIX value ml_elm_layout_table_pack_with_bool_native(
+PREFIX value ml_elm_layout_table_pack_native(
         value v_obj, value v_part, value v_child, value v_col, value v_row,
         value v_colspan, value v_rowspan)
 {
@@ -138,9 +136,9 @@ PREFIX value ml_elm_layout_table_pack_with_bool_native(
                 Int_val(v_row), Int_val(v_colspan), Int_val(v_rowspan)));
 }
 
-PREFIX value ml_elm_layout_table_pack_with_bool_byte(value* argv, int argn)
+PREFIX value ml_elm_layout_table_pack_byte(value* argv, int argn)
 {
-        return ml_elm_layout_table_pack_with_bool_native(argv[0], argv[1],
+        return ml_elm_layout_table_pack_native(argv[0], argv[1],
                 argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
@@ -158,8 +156,7 @@ PREFIX value ml_elm_layout_table_unpack(
         }
 }
 
-PREFIX value ml_elm_layout_table_clear_with_bool(
-        value v_obj, value v_part, value v_clear)
+PREFIX value ml_elm_layout_table_clear(value v_obj, value v_part, value v_clear)
 {
         return Val_Eina_Bool(elm_layout_table_clear((Evas_Object*) v_obj,
                 String_val(v_part), Eina_Bool_val(v_clear)));
@@ -190,7 +187,7 @@ PREFIX value ml_elm_layout_sizing_eval(value v_obj)
         return Val_unit;
 }
 
-PREFIX value ml_elm_layout_part_cursor_set_with_bool(
+PREFIX value ml_elm_layout_part_cursor_set(
         value v_obj, value v_part_name, value v_cursor)
 {
         return Val_Eina_Bool(elm_layout_part_cursor_set((Evas_Object*) v_obj,
@@ -203,14 +200,13 @@ PREFIX value ml_elm_layout_part_cursor_get(value v_obj, value v_part_name)
                 String_val(v_part_name)));
 }
 
-PREFIX value ml_elm_layout_part_cursor_unset_with_bool(
-        value v_obj, value v_part_name)
+PREFIX value ml_elm_layout_part_cursor_unset(value v_obj, value v_part_name)
 {
         return Val_Eina_Bool(elm_layout_part_cursor_unset((Evas_Object*) v_obj,
                 String_val(v_part_name)));
 }
 
-PREFIX value ml_elm_layout_part_cursor_style_set_with_bool(
+PREFIX value ml_elm_layout_part_cursor_style_set(
         value v_obj, value v_part_name, value v_style)
 {
         return Val_Eina_Bool(elm_layout_part_cursor_style_set(
@@ -232,7 +228,7 @@ PREFIX value ml_elm_layout_part_cursor_style_get(value v_obj, value v_part_name)
         CAMLreturn(v);
 }
 
-PREFIX value ml_elm_layout_part_cursor_engine_only_set_with_bool(
+PREFIX value ml_elm_layout_part_cursor_engine_only_set(
         value v_obj, value v_part_name, value v_flag)
 {
         return Val_Eina_Bool(elm_layout_part_cursor_engine_only_set(

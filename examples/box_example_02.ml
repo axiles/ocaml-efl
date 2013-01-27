@@ -5,7 +5,7 @@ open Efl
 
 let () =
   Elm.init Sys.argv;
-  Elm.policy_set `quit `last_window_closed;
+  let (_: bool) = Elm.policy_set `quit `last_window_closed in
 
   let win = Elm_win.add "box-transition" `basic; in
   Elm_win.title_set win "Box transition";

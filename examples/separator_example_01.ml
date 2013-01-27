@@ -6,7 +6,7 @@ let () =
   let win = Elm_win.add "separator" `basic in
   Elm_win.title_set win "Separator";
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
