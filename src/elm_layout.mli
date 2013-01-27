@@ -55,3 +55,5 @@ val icon_get : Evas.obj -> Evas.obj
 
 val end_set : Evas.obj -> Evas.obj -> unit
 
+val end_get : Evas.obj -> Evas.obj
+
