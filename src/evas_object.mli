@@ -24,3 +24,5 @@ val evas_get : Evas.obj -> Evas.t
 
 val rectangle_add : Evas.t -> Evas.obj
 
+val size_hint_min_set : Evas.obj -> int -> int -> unit
+

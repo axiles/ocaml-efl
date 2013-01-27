@@ -30,3 +30,6 @@ external evas_get : Evas.obj -> Evas.t = "ml_evas_object_evas_get"
 
 external rectangle_add : Evas.t -> Evas.obj = "ml_evas_object_rectangle_add"
 
+external size_hint_min_set : Evas.obj -> int -> int -> unit =
+  "ml_evas_object_size_hint_min_set"
+
