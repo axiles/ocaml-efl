@@ -4,6 +4,8 @@ exception Not_Wayland
 
 type cb = unit -> unit
 
+type task_cb = unit -> bool
+
 type x_window
 
 type wl_window

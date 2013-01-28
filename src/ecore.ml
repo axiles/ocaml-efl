@@ -8,6 +8,8 @@ let _ = Callback.register_exception "Not_Wayland exception" Not_Wayland
 
 type cb = unit -> unit
 
+type task_cb = unit -> bool
+
 type x_window = int
 
 type wl_window

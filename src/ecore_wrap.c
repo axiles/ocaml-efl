@@ -38,6 +38,12 @@ PREFIX void ml_Ecore_Cb_free(void* data)
         CAMLreturn0;
 }
 
+PREFIX Eina_Bool ml_Ecore_Task_Cb(void* data)
+{
+        value* v_fun = (value*) data;
+        return Eina_Bool_val(caml_callback(*v_fun, Val_unit));
+}
+
 PREFIX value ml_ecore_x_window_focus(value v_win)
 {
 #ifdef HAVE_ELEMENTARY_X
