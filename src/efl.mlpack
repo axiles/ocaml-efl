@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: ec658c325d7da9dec5695d01463b56bf)
+# DO NOT EDIT (digest: 03bc3d42d60f997951c0460dd1fdcb0b)
 Evas
 Evas_object
 Evas_object_smart
@@ -30,4 +30,5 @@ Elm_separator
 Elm_notify
 Elm_spinner
 Elm_clock
+Elm_hover
 # OASIS_STOP
