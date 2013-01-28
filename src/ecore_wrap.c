@@ -54,3 +54,18 @@ PREFIX value ml_ecore_x_window_focus(value v_win)
         return Val_unit;
 }
 
+PREFIX value ml_ecore_timer_add(value v_x, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        Ecore_Timer* timer = ecore_timer_add(Double_val(v_x), ml_Ecore_Task_Cb,
+                data);
+        if(timer == NULL) {
+                caml_remove_global_root(data);
+                free(data);
+                caml_failwith("ecore_timer_add");
+        }
+        return (value) v_fun;
+}
+
