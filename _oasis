@@ -40,137 +40,140 @@ Document efl_doc
   XOCamlbuildPath: src
   XOCamlbuildLibraries: efl
   DataFiles: examples/*.ml ($docdir/examples)
+Flag examples
+  Description: Compile examples
+  Default: false
 Executable test
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: test.ml
   CompiledObject: best
 Executable test2
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: test2.ml
   CompiledObject: byte
 Executable test3
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: test3.ml
 Executable button_example_00
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: button_example_00.ml
 Executable button_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: button_example_01.ml
 Executable label_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: label_example_01.ml
 Executable entry_example
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: entry_example.ml
 Executable radio_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: radio_example_01.ml
 Executable check_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: check_example_01.ml
 Executable box_example_02
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: box_example_02.ml
 Executable win_example
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: win_example.ml
 Executable image_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: image_example_01.ml
 Executable icon_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: icon_example_01.ml
 Executable bg_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: bg_example_01.ml
 Executable bg_example_02
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: bg_example_02.ml
 Executable bg_example_03
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: bg_example_03.ml
 Executable notify_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: notify_example_01.ml
 Executable separaor_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: separator_example_01.ml
 Executable layout_example_01
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: layout_example_01.ml
 Executable layout_example_02
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: layout_example_02.ml
 Executable layout_example_03
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: layout_example_03.ml
 Executable inwin_example
   Path: examples
   Install: false
-  Build$: flag(tests)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: inwin_example.ml
