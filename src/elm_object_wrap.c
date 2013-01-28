@@ -185,3 +185,12 @@ PREFIX value ml_elm_object_parent_widget_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_object_top_widget_get(value v_obj)
+{
+        Evas_Object* top = elm_object_top_widget_get((Evas_Object*) v_obj);
+        if(top == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) top);
+        return v;
+}
+
