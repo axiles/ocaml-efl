@@ -6553,10 +6553,26 @@ let () =
         assert false in
   let _ = BaseEnv.var_define "pkg_config" (fun () -> pkgconfig) in
 
+  (* Check the installed version of the EFL *)
+  let () =
+    let efl_version = "1.7.4" in
+    let check_error2 i = if i <> 0 then exit i in
+    let check_error i =
+      if i <> 0 then (
+        let s = OASISExec.run_read_one_line pkgconfig
+          ~ctxt:(!BaseContext.default) ~f_exit_code:check_error2
+          ["elementary"; "--modversion"] in
+        BaseMessage.error "Required: EFL (>= %s)\nInstalled Version: %s\n"
+          efl_version s;
+        exit 1) in
+    OASISExec.run pkgconfig ~ctxt:(!BaseContext.default)
+      ~f_exit_code:check_error
+      ["elementary"; sprintf "--atleast-version=%s" efl_version] in
+
   (* Variables about where the EFL are installed *)
   let f s opt =
     let check_error i =
-      if i <> 0 then BaseMessage.error "Could not find Elementary" in
+      if i <> 0 then exit 1 in
     let s1 : string = OASISExec.run_read_one_line pkgconfig
       ~ctxt:(!BaseContext.default) ~f_exit_code:check_error ["elementary"; opt]
     in
