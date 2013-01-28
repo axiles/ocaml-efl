@@ -20,3 +20,8 @@ PREFIX value ml_elm_win_inwin_content_set(value v_obj, value v_content)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_inwin_content_get(value v_obj)
+{
+        return (value) elm_win_inwin_content_get((Evas_Object*) v_obj);
+}
+
