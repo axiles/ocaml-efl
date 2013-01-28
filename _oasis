@@ -34,10 +34,12 @@ Library efl
     elm_inwin_wrap.c, elm_hover_wrap.c, elm_config_engine_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
+  InstallDir: $htmldir/api
   BuildTools: ocamldoc
-  Title: API of ocaml-efl
+  Title: Documentation of ocaml-efl
   XOCamlbuildPath: src
   XOCamlbuildLibraries: efl
+  DataFiles: examples/*.ml ($docdir/examples)
 Executable test
   Path: examples
   Install: false
