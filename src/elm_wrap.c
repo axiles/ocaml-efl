@@ -241,3 +241,9 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_win_inwin_activate(value v_obj)
+{
+        elm_win_inwin_activate((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
