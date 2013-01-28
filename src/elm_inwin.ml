@@ -7,3 +7,5 @@ external content_set : Evas.obj -> Evas.obj -> unit =
   
 external content_get : Evas.obj -> Evas.obj = "ml_elm_win_inwin_content_get"
 
+external content_unset : Evas.obj -> Evas.obj = "ml_elm_win_inwin_content_unset"
+
