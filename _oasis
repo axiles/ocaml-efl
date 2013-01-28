@@ -166,3 +166,9 @@ Executable layout_example_03
   Build$: flag(tests)
   BuildDepends: efl
   MainIs: layout_example_03.ml
+Executable inwin_example
+  Path: examples
+  Install: false
+  Build$: flag(tests)
+  BuildDepends: efl
+  MainIs: inwin_example.ml
