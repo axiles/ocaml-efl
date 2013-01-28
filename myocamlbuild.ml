@@ -612,4 +612,6 @@ let () = dispatch & fun h ->
       S [Sh (sprintf "-cclib \"%s\"" elementary_libs)];
     flag ["ocamlmklib"] (Sh elementary_libs);
 
+    (* Removed a harmless warning in generating the documentation *)
+    flag ["doc"] (Sh "-hide-warnings");
   | _ -> ()
