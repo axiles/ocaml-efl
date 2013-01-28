@@ -1,3 +1,5 @@
+(** elm_win_inwin_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val activate : Evas.obj -> unit
