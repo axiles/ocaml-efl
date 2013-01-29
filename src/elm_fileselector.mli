@@ -1,3 +1,5 @@
+(** elm_fileselector_* Elm_Fileselector_* *)
+
 type mode = [`list | `grid | `last]
 
 val add : Evas.obj -> Evas.obj
