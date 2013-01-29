@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 46f23a19edab2d321a69b85eeb1e2176)
+# DO NOT EDIT (digest: 9cf8cc5205e221121f8787d3cb8799a6)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -48,6 +48,7 @@
 "src/elm_hover.cmx": for-pack(Efl)
 "src/ecore_timer.cmx": for-pack(Efl)
 "src/elm_config_engine.cmx": for-pack(Efl)
+"src/elm_fileselector.cmx": for-pack(Efl)
 <src/efl.{cma,cmxa}>: oasis_library_efl_cclib
 "src/libefl_stubs.lib": oasis_library_efl_cclib
 "src/dllefl_stubs.dll": oasis_library_efl_cclib

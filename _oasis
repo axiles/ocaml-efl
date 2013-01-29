@@ -23,7 +23,7 @@ Library efl
     Elm_frame, Elm_icon, Elm_entry, Elm_gengrid, Elm_check, Elm_inwin,
     Elm_win_inwin, Elm_naviframe, Elm_theme, Elm_radio, Elm_app, Elm_image,
     Elm_separator, Elm_notify, Elm_spinner, Elm_clock, Elm_hover, Ecore_timer,
-    Elm_config_engine
+    Elm_config_engine, Elm_fileselector
   CSources:
     include.h, eina_wrap.c, eina_wrap.h, evas_wrap.c, evas_wrap.h, edje_wrap.c,
     edje_wrap.h, elm_wrap.c, elm_wrap.h, elm_scroller_wrap.c,
@@ -32,7 +32,8 @@ Library efl
     ecore_wrap.c, ecore_wrap.h, elm_win_wrap.c, elm_app_wrap.c,
     elm_image_wrap.c, elm_separator_wrap.c, elm_notify_wrap.c, elm_icon_wrap.c,
     elm_bg_wrap.c, elm_object_wrap.c, elm_spinner_wrap.c, elm_clock_wrap.c,
-    elm_inwin_wrap.c, elm_hover_wrap.c, elm_config_engine_wrap.c
+    elm_inwin_wrap.c, elm_hover_wrap.c, elm_config_engine_wrap.c,
+    elm_fileselector.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
