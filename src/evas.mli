@@ -12,3 +12,5 @@ val hint_fill : float
 
 val string_of_ptr : ptr -> string
 
+val string_opt_of_ptr : ptr -> string option
+

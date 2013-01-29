@@ -118,3 +118,16 @@ PREFIX value ml_string_of_ptr(value v_ptr)
         return copy_string(ptr);
 }
 
+PREFIX value ml_string_opt_of_ptr(value v_ptr)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* ptr = (const char*) ptr;
+        if(ptr == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(ptr));
+        }
+        CAMLreturn(v);
+}
+
