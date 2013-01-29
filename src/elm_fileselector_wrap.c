@@ -47,3 +47,10 @@ PREFIX value ml_elm_fileselector_buttons_ok_cancel_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_fileselector_expandable_set(value v_obj, value v_flag)
+{
+        elm_fileselector_expandable_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
