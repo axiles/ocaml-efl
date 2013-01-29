@@ -34,3 +34,5 @@ external selected_set : Evas.obj -> string -> bool =
 
 external selected_get : Evas.obj -> string = "ml_elm_fileselector_selected_get"
 
+external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
+

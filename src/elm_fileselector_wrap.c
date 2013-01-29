@@ -104,3 +104,10 @@ PREFIX value ml_elm_fileselector_selected_get(value v_obj)
         return copy_string(elm_fileselector_selected_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
+{
+        elm_fileselector_mode_set((Evas_Object*) v_obj,
+                Elm_Fileselector_Mode_val(v_mode));
+        return Val_unit;
+}
+
