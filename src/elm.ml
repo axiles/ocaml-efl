@@ -52,3 +52,5 @@ external exit : unit -> unit = "ml_elm_exit"
 
 external policy_set : policy -> policy_value -> bool = "ml_elm_policy_set"
 
+external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
+

@@ -227,3 +227,8 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_need_ethumb(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_ethumb());
+}
+
