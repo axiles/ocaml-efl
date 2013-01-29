@@ -39,6 +39,7 @@ let () =
   g "focus_forward";
   g "focus_home";
   g "go";
+  g "grid";
   g "hex";
   g "hide";
   g "host";
@@ -51,6 +52,7 @@ let () =
   g "last";
   g "last_window_closed";
   g "left";
+  g "list";
   g "login";
   g "markup";
   g "markup_utf8";

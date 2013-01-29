@@ -1,3 +1,5 @@
+type mode = [`list | `grid | `last]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"
 
 external is_save_set : Evas.obj -> bool -> unit =
