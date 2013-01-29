@@ -25,3 +25,5 @@ external expandable_get : Evas.obj -> bool =
 
 external path_set : Evas.obj -> string -> unit = "ml_elm_fileselector_path_set"
 
+external path_get : Evas.obj -> string = "ml_elm_fileselector_path_get"
+

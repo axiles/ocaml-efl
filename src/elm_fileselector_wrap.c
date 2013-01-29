@@ -66,3 +66,8 @@ PREFIX value ml_elm_fileselector_path_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_fileselector_path_get(value v_obj)
+{
+        return copy_string(elm_fileselector_path_get((Evas_Object*) v_obj));
+}
+
