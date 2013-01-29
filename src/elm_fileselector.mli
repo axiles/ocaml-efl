@@ -10,3 +10,5 @@ val folder_only_get : Evas.obj -> bool
 
 val buttons_ok_cancel_set : Evas.obj -> bool -> unit
 
+val buttons_ok_cancel_get : Evas.obj -> bool
+

@@ -13,3 +13,7 @@ external folder_only_get : Evas.obj -> bool =
 
 external buttons_ok_cancel_set : Evas.obj -> bool -> unit =
   "ml_elm_fileselector_buttons_ok_cancel_set"
+  
+external buttons_ok_cancel_get : Evas.obj -> bool =
+  "ml_elm_fileselector_buttons_ok_cancel_get"
+

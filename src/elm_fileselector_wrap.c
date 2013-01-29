@@ -41,3 +41,9 @@ PREFIX value ml_elm_fileselector_buttons_ok_cancel_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_fileselector_buttons_ok_cancel_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_fileselector_buttons_ok_cancel_get(
+                (Evas_Object*) v_obj));
+}
+
