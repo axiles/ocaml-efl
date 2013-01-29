@@ -16,3 +16,5 @@ val expandable_set : Evas.obj -> bool -> unit
 
 val expandable_get : Evas.obj  -> bool
 
+val path_set : Evas.obj -> string -> unit
+
