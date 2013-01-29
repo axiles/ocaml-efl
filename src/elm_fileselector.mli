@@ -22,3 +22,5 @@ val path_get : Evas.obj -> string
 
 val selected_set : Evas.obj -> string -> bool
 
+val selected_get : Evas.obj -> string
+
