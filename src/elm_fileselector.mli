@@ -13,3 +13,6 @@ val buttons_ok_cancel_set : Evas.obj -> bool -> unit
 val buttons_ok_cancel_get : Evas.obj -> bool
 
 val expandable_set : Evas.obj -> bool -> unit
+
+val expandable_get : Evas.obj  -> bool
+

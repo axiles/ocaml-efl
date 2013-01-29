@@ -20,3 +20,6 @@ external buttons_ok_cancel_get : Evas.obj -> bool =
 external expandable_set : Evas.obj -> bool -> unit =
   "ml_elm_fileselector_expandable_set"
 
+external expandable_get : Evas.obj -> bool =
+  "ml_elm_fileselector_expandable_get"
+
