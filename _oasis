@@ -33,7 +33,7 @@ Library efl
     elm_image_wrap.c, elm_separator_wrap.c, elm_notify_wrap.c, elm_icon_wrap.c,
     elm_bg_wrap.c, elm_object_wrap.c, elm_spinner_wrap.c, elm_clock_wrap.c,
     elm_inwin_wrap.c, elm_hover_wrap.c, elm_config_engine_wrap.c,
-    elm_fileselector.c
+    elm_fileselector_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
