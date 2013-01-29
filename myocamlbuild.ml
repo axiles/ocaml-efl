@@ -597,6 +597,9 @@ let () = dispatch & fun h ->
   dispatch_default h;
   match h with
   | After_options ->
+    (* We want a clean root directory *)
+    Options.make_links := false;
+
     write_variants ();
 
     (* Get the values of the env variables *)
