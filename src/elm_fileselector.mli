@@ -28,3 +28,5 @@ val selected_get : Evas.obj -> string
 
 val mode_set : Evas.obj -> mode -> unit
 
+val mode_get : Evas.obj -> mode
+

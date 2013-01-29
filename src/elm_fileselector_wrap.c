@@ -111,3 +111,9 @@ PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
         return Val_unit;
 }
 
+PREFIX value ml_elm_fileselector_mode_get(value v_obj)
+{
+        return Val_Elm_Fileselector_Mode(elm_fileselector_mode_get(
+                (Evas_Object*) v_obj));
+}
+
