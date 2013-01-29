@@ -10,3 +10,5 @@ val hint_expand : float
 
 val hint_fill : float
 
+val string_of_ptr : ptr -> string
+

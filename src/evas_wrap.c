@@ -111,3 +111,10 @@ PREFIX value ml_evas_object_size_hint_min_set(value v_obj, value v_w, value v_h)
         return Val_unit;
 }
 
+PREFIX value ml_string_of_ptr(value v_ptr)
+{
+        const char* ptr = (const char*) v_ptr;
+        if(ptr == NULL) caml_failwith("string_of_ptr");
+        return copy_string(ptr);
+}
+
