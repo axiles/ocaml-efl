@@ -122,7 +122,7 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
 {
         CAMLparam0();
         CAMLlocal1(v);
-        const char* ptr = (const char*) ptr;
+        const char* ptr = (const char*) v_ptr;
         if(ptr == NULL) v = Val_int(0);
         else {
                 v = caml_alloc(1, 0);
