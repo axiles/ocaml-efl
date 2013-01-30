@@ -6,6 +6,16 @@ type t
 
 type smart_cb = obj -> ptr -> unit
 
+module Event_type : sig
+  type 'a t
+  type 'a v = (obj -> 'a -> unit) t
+  type u = (obj -> unit) t
+  val create : string -> (ptr -> 'a) -> 'a v
+  val create_unit : string -> u
+  val get_name : 'a t -> string
+  val get_cb : 'a t -> 'a -> smart_cb
+end 
+
 val hint_expand : float
 
 val hint_fill : float

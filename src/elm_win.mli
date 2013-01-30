@@ -230,3 +230,5 @@ val xwindow_get : Evas.obj -> Ecore.x_window
 
 val wl_window_get : Evas.obj -> Ecore.wl_window
 
+val delete_request : Evas.Event_type.u
+
