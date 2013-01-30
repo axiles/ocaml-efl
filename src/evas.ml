@@ -7,9 +7,9 @@ type t
 type smart_cb = obj -> ptr -> unit
 
 module Event_type = struct
-  type ('a, 'b) t = {name : string; make_cb : 'b -> smart_cb}
-  type 'a v = ('a, obj -> 'a -> unit) t
-  type u = (unit, obj -> unit) t
+  type 'a t = {name : string; make_cb : 'a -> smart_cb}
+  type 'a v = (obj -> 'a -> unit) t
+  type u = (obj -> unit) t
   let create name value_of_ptr =
     let make_cb f obj ptr = f obj (value_of_ptr ptr) in
     {name; make_cb}
