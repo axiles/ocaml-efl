@@ -32,3 +32,5 @@ val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
 
+val _done : (string option) Evas.Event_type.v
+

@@ -38,3 +38,5 @@ external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_fileselector_mode_get"
 
+let _done = Evas.Event_type.create "done" Evas.string_opt_of_ptr
+

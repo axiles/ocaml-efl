@@ -6,10 +6,7 @@ let on_done _ _ =
   Elm.exit ()
 
 let fs_done obj event_info =
-  print_endline (Evas.string_of_ptr event_info);
-  let selected = match Evas.string_opt_of_ptr event_info with
-  | Some s -> s
-  | None -> "*none!*" in
+  let selected = match event_info with Some s -> s | None -> "*none!*" in
   printf "We're done! Selected file is: %s\n%!" selected;
   Elm.exit ()
 
@@ -74,7 +71,7 @@ let () =
   Elm_box.pack_end vbox fs;
   Evas_object.show fs;
 
-  Evas_object_smart.callback_add fs "done" fs_done;
+  Evas_object_smart.callback_add_safe fs EF._done fs_done;
   Evas_object_smart.callback_add fs "selected" fs_selected;
 
   let sep = Elm_separator.add win in
