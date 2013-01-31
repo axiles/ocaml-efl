@@ -29,3 +29,10 @@ PREFIX value ml_elm_scroller_bounce_set(value v_obj, value v_h, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_scroller_policy_set(value v_obj, value v_h, value v_v)
+{
+        elm_scroller_policy_set((Evas_Object*) v_obj,
+                Elm_Scroller_Policy_val(v_h), Elm_Scroller_Policy_val(v_v));
+        return Val_unit;
+}
+
