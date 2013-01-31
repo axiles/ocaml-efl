@@ -36,3 +36,9 @@ external item_prepend :
   "ml_elm_list_item_prepend_byte"
   "ml_elm_list_item_prepend_native"
 
+external item_insert_before :
+  Evas.obj -> Elm_object.item -> ?label:string -> ?icon:Evas.obj ->
+    ?iend:Evas.obj -> ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_list_item_insert_before_byte"
+  "ml_elm_list_item_insert_before_native"
+
