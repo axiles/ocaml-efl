@@ -11,7 +11,7 @@ PREFIX inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
         return ELM_SCROLLER_POLICY_AUTO;
 }
 
-PREFIX inline Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
+PREFIX inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
 {
         switch(p) {
                 case ELM_SCROLLER_POLICY_AUTO: return Val_auto;
@@ -20,5 +20,12 @@ PREFIX inline Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
         }
         caml_failwith("Val_Elm_Scroller_Policy");
         return Val_auto;
+}
+
+PREFIX value ml_elm_scroller_bounce_set(value v_obj, value v_h, value v_v)
+{
+        elm_scroller_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),
+                Eina_Bool_val(v_v));
+        return Val_unit;
 }
 
