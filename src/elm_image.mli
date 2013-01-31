@@ -70,3 +70,10 @@ val animated_play_set : Evas.obj -> bool -> unit
 
 val animated_play_get : Evas.obj -> bool
 
+module E : sig
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  val drop : string v
+  val clicked : u
+end
+

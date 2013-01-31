@@ -70,3 +70,12 @@ external animated_play_set : Evas.obj -> bool -> unit =
 
 external animated_play_get : Evas.obj -> bool = "ml_elm_image_animated_play_get"
 
+module E = struct
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let g x = Evas.Event_type.create x Evas.string_of_ptr
+  let drop = g "drop"
+  let clicked = f "clicked"
+end
+
