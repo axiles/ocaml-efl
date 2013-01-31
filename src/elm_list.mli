@@ -12,3 +12,5 @@ val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
 
+val horizontal_set : Evas.obj -> bool -> unit
+
