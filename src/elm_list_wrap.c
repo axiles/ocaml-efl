@@ -79,3 +79,9 @@ PREFIX value ml_elm_list_select_mode_set(value v_obj, value v_mode)
         return Val_unit;
 }
 
+PREFIX value ml_elm_list_select_mode_get(value v_obj)
+{
+        return Val_Elm_Object_Select_Mode(elm_list_select_mode_get(
+                (Evas_Object*) v_obj));
+}
+
