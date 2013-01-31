@@ -28,6 +28,7 @@
 #include "ecore_wrap.h"
 #include "edje_wrap.h"
 #include "elm_wrap.h"
+#include "elm_scroller_wrap.h"
 
 #endif
 
