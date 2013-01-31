@@ -64,3 +64,18 @@ val first_item_get : Evas.obj -> Elm_object.item option
 
 val last_item_get : Evas.obj -> Elm_object.item option
 
+module E : sig
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  val activated : Elm_object.item v
+  val clicked_double : Elm_object.item v
+  val selected : u
+  val unselected : u
+  val longpressed : u
+  val edge_top : u
+  val edge_bottom : u
+  val edge_left : u
+  val edge_right : u
+  val language_changed : u
+end
+

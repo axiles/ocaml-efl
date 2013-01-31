@@ -86,3 +86,20 @@ external first_item_get : Evas.obj -> Elm_object.item option =
 external last_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_list_last_item_get"
 
+module E = struct
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let g x = Evas.Event_type.create x Elm_object.item_of_ptr
+  let activated = g "activated"
+  let clicked_double = g "clicked_double"
+  let selected = f "selected"
+  let unselected = f "unselected"
+  let longpressed = f "longpressed"
+  let edge_top = f "edge,top"
+  let edge_bottom = f "edge,bottom"
+  let edge_left = f "edge,left"
+  let edge_right = f "edge,right"
+  let language_changed = f "language,changed"
+end
+
