@@ -101,19 +101,21 @@ PREFIX value ml_elm_list_item_append_native(
         Evas_Smart_Cb func;
         value* data;
         if(v_func == Val_int(0)) {
+                func = NULL;
+                data = NULL;
+        } else {
                 func = ml_Evas_Smart_Cb;
                 data = (value*) caml_stat_alloc(sizeof(value));
                 *data = Field(v_func, 0);
                 caml_register_global_root(data);
-        } else {
-                func = NULL;
-                data = NULL;
         }
         Elm_Object_Item* item = elm_list_item_append((Evas_Object*) v_obj,
                 label, icon, end, func, data);
         if(item == NULL) {
-                caml_remove_global_root(data);
-                free(data);
+                if(data != NULL) {
+                        caml_remove_global_root(data);
+                        free(data);
+                }
                 caml_failwith("elm_list_item_append");
         }
         return (value) item;
@@ -141,19 +143,21 @@ PREFIX value ml_elm_list_item_prepend_native(
         Evas_Smart_Cb func;
         value* data;
         if(v_func == Val_int(0)) {
+                func = NULL;
+                data = NULL;
+        } else {
                 func = ml_Evas_Smart_Cb;
                 data = (value*) caml_stat_alloc(sizeof(value));
                 *data = Field(v_func, 0);
                 caml_register_global_root(data);
-        } else {
-                func = NULL;
-                data = NULL;
         }
         Elm_Object_Item* item = elm_list_item_prepend((Evas_Object*) v_obj,
                 label, icon, end, func, data);
         if(item == NULL) {
-                caml_remove_global_root(data);
-                free(data);
+                if(data != NULL) {
+                        caml_remove_global_root(data);
+                        free(data);
+                }
                 caml_failwith("elm_list_item_prepend");
         }
         return (value) item;
@@ -181,20 +185,22 @@ PREFIX value ml_elm_list_item_insert_before_native(
         Evas_Smart_Cb func;
         value* data;
         if(v_func == Val_int(0)) {
+                func = NULL;
+                data = NULL;
+        } else {
                 func = ml_Evas_Smart_Cb;
                 data = (value*) caml_stat_alloc(sizeof(value));
                 *data = Field(v_func, 0);
                 caml_register_global_root(data);
-        } else {
-                func = NULL;
-                data = NULL;
         }
         Elm_Object_Item* item = elm_list_item_insert_before(
                 (Evas_Object*) v_obj, (Elm_Object_Item*) v_before, label, icon,
                 end, func, data);
         if(item == NULL) {
-                caml_remove_global_root(data);
-                free(data);
+                if(data != NULL) {
+                        caml_remove_global_root(data);
+                        free(data);
+                }
                 caml_failwith("elm_list_item_insert_before");
         }
         return (value) item;
@@ -222,19 +228,21 @@ PREFIX value ml_elm_list_item_insert_after_native(
         Evas_Smart_Cb func;
         value* data;
         if(v_func == Val_int(0)) {
+                func = NULL;
+                data = NULL;
+        } else {
                 func = ml_Evas_Smart_Cb;
                 data = (value*) caml_stat_alloc(sizeof(value));
                 *data = Field(v_func, 0);
                 caml_register_global_root(data);
-        } else {
-                func = NULL;
-                data = NULL;
         }
         Elm_Object_Item* item = elm_list_item_insert_after((Evas_Object*) v_obj,
                 (Elm_Object_Item*) v_after, label, icon, end, func, data);
         if(item == NULL) {
-                caml_remove_global_root(data);
-                free(data);
+                if(data != NULL) {
+                        caml_remove_global_root(data);
+                        free(data);
+                }
                 caml_failwith("elm_list_item_insert_after");
         }
         return (value) item;

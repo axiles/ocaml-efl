@@ -187,3 +187,9 @@ Executable fileselector_example
   Install$: flag(install_expamples)
   BuildDepends: efl
   MainIs: fileselector_example.ml
+Executable list_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: list_example_01.ml
