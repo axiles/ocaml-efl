@@ -306,3 +306,8 @@ PREFIX value ml_elm_list_item_bring_in(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_list_item_object_get(value v_it)
+{
+        return (value) elm_list_item_object_get((Elm_Object_Item*) v_it);
+}
+

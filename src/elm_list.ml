@@ -71,3 +71,6 @@ external item_show : Elm_object.item -> unit = "ml_elm_list_item_show"
 
 external item_bring_in : Elm_object.item -> unit = "ml_elm_list_item_bring_in"
 
+external item_object_get : Elm_object.item -> Evas.obj =
+  "ml_elm_list_item_object_get"
+

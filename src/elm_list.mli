@@ -54,3 +54,5 @@ val item_show : Elm_object.item -> unit
 
 val item_bring_in : Elm_object.item -> unit
 
+val item_object_get : Elm_object.item -> Evas.obj
+
