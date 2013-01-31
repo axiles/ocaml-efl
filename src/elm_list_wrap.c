@@ -258,3 +258,13 @@ PREFIX value ml_elm_list_items_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_list_selected_item_get(value v_obj)
+{
+        Elm_Object_Item* item =
+                elm_list_selected_item_get((Evas_Object*) v_obj);
+        if(item == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) item);
+        return v;
+}
+

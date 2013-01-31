@@ -52,3 +52,6 @@ external clear : Evas.obj -> unit = "ml_elm_list_clear"
 
 external items_get : Evas.obj -> Elm_object.item list = "ml_elm_list_items_get"
 
+external selected_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_list_selected_item_get"
+

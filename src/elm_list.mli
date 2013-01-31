@@ -40,3 +40,5 @@ val clear : Evas.obj -> unit
 
 val items_get : Evas.obj -> Elm_object.item list
 
+val selected_item_get : Evas.obj -> Elm_object.item option
+
