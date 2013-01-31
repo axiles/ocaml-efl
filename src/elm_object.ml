@@ -1,5 +1,7 @@
 type item
 
+type select_mode = [`default | `always | `none | `display_only]
+
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =
   "ml_elm_object_part_text_set"
 

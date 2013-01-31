@@ -1,5 +1,7 @@
 type item
 
+type select_mode = [`default | `always | `none | `display_only]
+
 val part_text_set : Evas.obj -> ?p:string -> string -> unit
 
 val part_text_get : Evas.obj -> ?p:string -> unit -> string

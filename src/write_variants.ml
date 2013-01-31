@@ -10,6 +10,7 @@ let () =
   g "allcharacter";
   g "alpha";
   g "alphabet";
+  g "always";
   g "auto";
   g "automatic";
   g "basic";
@@ -24,6 +25,7 @@ let () =
   g "default";
   g "desktop";
   g "dialog_basic";
+  g "display_only";
   g "dnd";
   g "dock";
   f "Val_done" "_done";
