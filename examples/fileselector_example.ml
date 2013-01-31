@@ -2,7 +2,7 @@ open Efl
 open Format
 module EF = Elm_fileselector
 
-let on_done _ _ =
+let on_done _ =
   Elm.exit ()
 
 let fs_done obj event_info =
@@ -10,12 +10,11 @@ let fs_done obj event_info =
   printf "We're done! Selected file is: %s\n%!" selected;
   Elm.exit ()
 
-let fs_selected obj event_info =
-  let selected = Evas.string_of_ptr event_info in
+let fs_selected obj selected =
   printf "There's been a selection: %s\n%!" selected
 
 let add_check win box fs name msg f_set f_get =
-  let cb obj _ =
+  let cb obj =
     let old_val = f_get fs in
     let old_val_s = if old_val then "Disabling" else "Enabling" in
     printf "%s %s\n%!" msg old_val_s;
@@ -23,15 +22,15 @@ let add_check win box fs name msg f_set f_get =
   let bt = Elm_check.add win in
   Elm_object.text_set bt name;
   Elm_check.state_set bt (f_get fs);
-  Evas_object_smart.callback_add bt "changed" cb;
+  Evas_object_smart.callback_add_safe bt Elm_check.E.changed cb;
   Elm_box.pack_end box bt;
   Evas_object.show bt
 
 let add_data_button win box fs name msg f_get =
-  let cb _ _ = printf "%s name is: %s\n%!" msg (f_get fs) in
+  let cb _ = printf "%s name is: %s\n%!" msg (f_get fs) in
   let bt = Elm_button.add win in
   Elm_object.text_set bt name;
-  Evas_object_smart.callback_add bt "clicked" cb;
+  Evas_object_smart.callback_add_safe bt Elm_button.E.clicked cb;
   Elm_box.pack_end box bt;
   Evas_object.show bt
 
@@ -41,7 +40,7 @@ let () =
 
   let win = Elm_win.add "fileselector" `basic in
   Elm_win.title_set win "File Selector Example";
-  Evas_object_smart.callback_add win "delete,request" on_done;
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
@@ -71,7 +70,7 @@ let () =
   Evas_object.show fs;
 
   Evas_object_smart.callback_add_safe fs EF.E._done fs_done;
-  Evas_object_smart.callback_add fs "selected" fs_selected;
+  Evas_object_smart.callback_add_safe fs EF.E.selected fs_selected;
 
   let sep = Elm_separator.add win in
   Elm_separator.horizontal_set sep true;

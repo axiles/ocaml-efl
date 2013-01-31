@@ -1,18 +1,18 @@
 open Efl
 open Format
 
-let win_action_do_cb win f _ _ = f win
+let win_action_do_cb win f _ = f win
 
-let win_action_switch_cb win f_get f_set _ _ = f_set win (not (f_get win))
+let win_action_switch_cb win f_get f_set _ = f_set win (not (f_get win))
 
-let win_action_rot_cb win f_get f_set _ _ = f_set win ((f_get win + 90) mod 360)
+let win_action_rot_cb win f_get f_set _ = f_set win ((f_get win + 90) mod 360)
 
 let win_action win box name cb =
     let btn = Elm_button.add win in
     Elm_object.text_set btn name;
     Elm_box.pack_end box btn;
     Evas_object.show btn;
-    Evas_object_smart.callback_add btn "clicked" cb
+    Evas_object_smart.callback_add_safe btn Elm_button.E.clicked cb
 
 let win_action_do win box win2 name f =
   win_action win box name (win_action_do_cb win2 f)
@@ -40,7 +40,7 @@ let win_action_all win box win2 =
   war "rotation_resize" Elm_win.rotation_get Elm_win.rotation_with_resize_set;
   was "sticky" Elm_win.sticky_get Elm_win.sticky_set
 
-let main_win_del_cb obj _ =
+let main_win_del_cb obj =
   let msg = Elm_notify.add obj in
   Elm_notify.orient_set msg `center;
   Elm_notify.allow_events_set msg false;
@@ -76,24 +76,24 @@ let main_win_del_cb obj _ =
   Elm_box.pack_end box2 btn;
   Evas_object.show btn;
 
-  let yes_quit_cb _ _ = Elm.exit () in
-  Evas_object_smart.callback_add btn "clicked" yes_quit_cb;
+  let yes_quit_cb _ = Elm.exit () in
+  Evas_object_smart.callback_add_safe btn Elm_button.E.clicked yes_quit_cb;
 
   let btn = Elm_button.add obj in
   Elm_object.text_set btn "No";
   Elm_box.pack_end box2 btn;
   Evas_object.show btn;
 
-  let no_quit_cb _ _ = Evas_object.del msg in
-  Evas_object_smart.callback_add btn "clicked" no_quit_cb
+  let no_quit_cb _ = Evas_object.del msg in
+  Evas_object_smart.callback_add_safe btn Elm_button.E.clicked no_quit_cb
 
-let force_focus_cb win _ _ =
+let force_focus_cb win _ =
   try Ecore.x_window_focus (Elm_win.xwindow_get win)
   with Ecore.Not_X -> ()
 
 let add_win_focus_cb win name =
-  let cb _ _ = printf "Window focused: %s\n%!" name in
-  Evas_object_smart.callback_add win "focus,in" cb
+  let cb _ = printf "Window focused: %s\n%!" name in
+  Evas_object_smart.callback_add_safe win Elm_win.E.focus_in cb
 
 let () =
   Elm.init Sys.argv;
@@ -105,7 +105,8 @@ let () =
   Evas_object.resize win 400 400;
   Evas_object.show win;
   add_win_focus_cb win "mainwin";
-  Evas_object_smart.callback_add win "delete,request" main_win_del_cb;
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request
+    main_win_del_cb;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
@@ -196,7 +197,8 @@ let () =
   Elm_object.text_set o "Focus me";
   Elm_box.pack_end bigbox o;
   Evas_object.show o;
-  Evas_object_smart.callback_add o "clicked" (force_focus_cb win2);
+  Evas_object_smart.callback_add_safe o Elm_button.E.clicked
+    (force_focus_cb win2);
 
   let o = Elm_label.add win in
   Elm_object.text_set o "<b>Override Window</b>";

@@ -1,6 +1,6 @@
 open Efl
 
-let on_click _ _ = Elm.exit ()
+let on_click _ = Elm.exit ()
 
 let () =
   Elm.init Sys.argv;
@@ -20,7 +20,7 @@ let () =
 
   let btn = Elm_button.add win in
   Elm_object.text_set btn "Good-Bye, World!";
-  Evas_object_smart.callback_add btn "clicked" on_click;
+  Evas_object_smart.callback_add_safe btn Elm_button.E.clicked on_click;
   Evas_object.resize btn 120 30;
   Evas_object.move btn 60 15;
   Evas_object.show btn;

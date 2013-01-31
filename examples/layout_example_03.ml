@@ -6,7 +6,7 @@ let swallow = "example/custom"
 
 let btn_large = ref false
 
-let swallow_btn_cb layout btn _ =
+let swallow_btn_cb layout btn =
   if not !btn_large then (
     btn_large := true;
     Elm_object.signal_emit layout "button,enlarge" "";
@@ -57,7 +57,8 @@ let () =
   Evas_object.size_hint_weight_set btn Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set btn Evas.hint_fill Evas.hint_fill;
   Elm_object.part_content_set layout ~p:swallow btn;
-  Evas_object_smart.callback_add btn "clicked" (swallow_btn_cb layout);
+  Evas_object_smart.callback_add_safe btn Elm_button.E.clicked
+    (swallow_btn_cb layout);
 
   Evas_object.resize win 160 160;
   Evas_object.show win;

@@ -1,7 +1,7 @@
 open Efl
 open Format
 
-let print obj _ =
+let print obj =
   printf "check %smarked\n%!" (if Elm_check.state_get obj then "" else "un")
 
 let () =
@@ -19,7 +19,7 @@ let () =
 
   let cb = Elm_check.add win in
   Elm_object.text_set cb "checkbox";
-  Evas_object_smart.callback_add cb "changed" print;
+  Evas_object_smart.callback_add_safe cb Elm_check.E.changed print;
   Evas_object.move cb 10 10;
   Evas_object.resize cb 200 30;
   Evas_object.show cb;

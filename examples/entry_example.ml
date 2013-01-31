@@ -43,8 +43,8 @@ let add_cancel_btn win inwin box =
   default_size_hint o;
   Elm_box.pack_end box2 o;
   Evas_object.show o;
-  let cancel_cb _ _ = Evas_object.del inwin in
-  Evas_object_smart.callback_add o "clicked" cancel_cb
+  let cancel_cb _ = Evas_object.del inwin in
+  Evas_object_smart.callback_add_safe o Elm_button.E.clicked cancel_cb
 
 let add_radio_box win box list q =
   let hbox = Elm_box.add win in
@@ -58,8 +58,8 @@ let add_radio_box win box list q =
     Elm_radio.state_value_set r i;
     Elm_box.pack_end hbox r;
     Evas_object.show r;
-    let changed_cb _ _ = q := Elm_radio.value_get r in
-    Evas_object_smart.callback_add r "changed" changed_cb;
+    let changed_cb _ = q := Elm_radio.value_get r in
+    Evas_object_smart.callback_add_safe r Elm_radio.E.changed changed_cb;
     r in
   match mapi aux list with
   | [] -> ()
@@ -81,9 +81,9 @@ let add_dim_en win box name q =
   default_size_hint_h e;
   Elm_object.content_set f e;
   Evas_object.show e;
-  let changed_cb _ _ =
+  let changed_cb _ =
     try q := int_of_string (Elm_object.text_get e) with _ -> () in
-  Evas_object_smart.callback_add e "changed" changed_cb
+  Evas_object_smart.callback_add_safe e Elm_entry.E.changed changed_cb
 
 let () =
   Elm.init Sys.argv;
@@ -135,7 +135,7 @@ let () =
   Elm_box.pack_end box en;
   Evas_object.show en;
 
-  let format_changed_cb _ _ =
+  let format_changed_cb _ =
     let f s =
       if not !markup then Elm_entry.markup_to_utf8 s
       else Elm_entry.utf8_to_markup s in
@@ -155,20 +155,21 @@ let () =
     markup := not !markup;
     Elm_object.focus_set en true;
     Elm_entry.cursor_pos_set en new_cursor in
-  Evas_object_smart.callback_add bformat_changed "clicked" format_changed_cb;
+  Evas_object_smart.callback_add_safe bformat_changed Elm_button.E.clicked
+    format_changed_cb;
 
-  let autosave_change_cb obj _ =
+  let autosave_change_cb obj =
     let state = Elm_check.state_get obj in
     Elm_entry.autosave_set en state;
     if state then Elm_entry.file_save en in
-  Evas_object_smart.callback_add c "changed" autosave_change_cb;
+  Evas_object_smart.callback_add_safe c Elm_check.E.changed autosave_change_cb;
 
-  let dblclick_cb _ _ =
+  let dblclick_cb _ =
     Elm_entry.cursor_line_end_set en;
     Elm_entry.select_none en in
-  Evas_object_smart.callback_add en "clicked,double" dblclick_cb;
+  Evas_object_smart.callback_add_safe en Elm_entry.E.clicked_double dblclick_cb;
 
-  let image_insert_cb _ _ =
+  let image_insert_cb _ =
     let width = ref 64 and height = ref 64 in
     let size = ref 1 and vsize = ref 1 in
     let remo = ref None in
@@ -257,14 +258,15 @@ let () =
       Elm_box.pack_end box binsert;
       Evas_object.show binsert;
 
-      let btn_insert_cb _ _ =
+      let btn_insert_cb _ =
         let emo = match !remo with Some x -> x | None -> assert false in
         let s = sprintf "<item %s=%dx%d vsize=%s href=emoticon/%s>"
           size_array.(!size) !width !height vsize_array.(!vsize) emo in
         let s1 = if not !markup then Elm_entry.utf8_to_markup s else s in
         edit_buffer_insert en s1;
         Evas_object.del inwin in
-      Evas_object_smart.callback_add binsert "clicked" btn_insert_cb in
+      Evas_object_smart.callback_add_safe binsert Elm_button.E.clicked
+        btn_insert_cb in
     fill_settings ();
     let _ = Elm_naviframe.item_simple_push naviframe settings in
 
@@ -272,10 +274,11 @@ let () =
 
     add_cancel_btn win inwin box in
 
-  Evas_object_smart.callback_add image_insert_bt "clicked" image_insert_cb;
+  Evas_object_smart.callback_add_safe image_insert_bt Elm_button.E.clicked
+    image_insert_cb;
 
-  let win_del_cb obj _ = Evas_object.del obj; Elm.exit () in
-  Evas_object_smart.callback_add win "delete,request" win_del_cb;
+  let win_del_cb obj = Evas_object.del obj; Elm.exit () in
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request win_del_cb;
 
   Elm_object.focus_set en true;
 

@@ -1,7 +1,7 @@
 open Format
 open Efl
 
-let cb obj _ = printf "val is now: %d\n%!" (Elm_radio.value_get obj)
+let cb obj = printf "val is now: %d\n%!" (Elm_radio.value_get obj)
 
 let format_obj obj =
   Evas_object.size_hint_weight_set obj Evas.hint_expand Evas.hint_expand;
@@ -31,7 +31,7 @@ let add_radio win bx i icon_name group =
   (match group with
   | Nothing -> ()
   | Cb_only | Group_and_cb _ ->
-    Evas_object_smart.callback_add radio "changed" cb);
+    Evas_object_smart.callback_add_safe radio Elm_radio.E.changed cb);
   radio
 
 let add_radio_next win bx i icon_name group =

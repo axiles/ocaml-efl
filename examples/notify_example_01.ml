@@ -1,6 +1,6 @@
 open Efl
 
-let hide obj _ = Evas_object.hide obj
+let hide obj = Evas_object.hide obj
 
 let add_notify win bx ?orient allow_events ?timeout ?cb name =
   let content = Elm_label.add win in
@@ -16,7 +16,8 @@ let add_notify win bx ?orient allow_events ?timeout ?cb name =
   Evas_object.show notify;
   Elm_box.pack_end bx notify;
   (match cb with
-  | Some f-> Evas_object_smart.callback_add notify "block,clicked" f
+  | Some f->
+    Evas_object_smart.callback_add_safe notify Elm_notify.E.block_clicked f
   | None -> ())
 
 let add_notify1 win bx = add_notify win bx false ~timeout:5. ~cb:hide "default"

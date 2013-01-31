@@ -1,13 +1,13 @@
 open Efl
 
-let on_done _ _ = Elm.exit ()
+let on_done _ = Elm.exit ()
 
 let () =
   Elm.init Sys.argv;
 
   let win = Elm_win.add "bg-plain" `basic in
   Elm_win.title_set win "Bg Plain";
-  Evas_object_smart.callback_add win "delete,request" on_done;
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request on_done;
   Elm_win.autodel_set win true;
 
   let bg = Elm_bg.add win in

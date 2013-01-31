@@ -1,13 +1,13 @@
 open Efl
 
-let on_done _ _ = Elm.exit ()
+let on_done _ = Elm.exit ()
 
 let () =
   Elm.init Sys.argv;
 
   let win = Elm_win.add "hello" `basic in
   Elm_win.title_set win "Hello";
-  Evas_object_smart.callback_add win "delete,request" on_done;
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request on_done;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg 0. 0.;
@@ -31,7 +31,7 @@ let () =
   Evas_object.size_hint_weight_set btn 0. 0.;
   Elm_box.pack_end box btn;
   Evas_object.show btn;
-  Evas_object_smart.callback_add btn "clicked" on_done;
+  Evas_object_smart.callback_add_safe btn Elm_button.E.clicked on_done;
 
   Evas_object.show win;
 

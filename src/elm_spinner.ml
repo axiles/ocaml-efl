@@ -13,3 +13,9 @@ external special_value_add : Evas.obj -> float -> string -> unit =
 
 external value_get : Evas.obj -> float = "ml_elm_spinner_value_get"
 
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let changed = f "changed"
+end
+

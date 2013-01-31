@@ -85,14 +85,14 @@ let () =
 
   let icon_still = ref None in
 
-  let release_cb _ _ =
+  let release_cb _ =
     match !icon_still with
     | None -> ()
     | Some icon ->
       Elm_object.part_content_set mid ~p:"icon" icon;
       icon_still := None in
 
-  let move_cursor obj _ =
+  let move_cursor obj =
     (match !icon_still with
     | Some _ -> ()
     | None ->
@@ -114,11 +114,13 @@ let () =
     Evas_object.size_hint_align_set mid ax2 ay2 in
 
   let aux1 cursor =
-    Evas_object_smart.callback_add cursor "repeated" move_cursor;
-    Evas_object_smart.callback_add cursor "unpressed" release_cb in
+    Evas_object_smart.callback_add_safe cursor Elm_button.E.repeated
+      move_cursor;
+    Evas_object_smart.callback_add_safe cursor Elm_button.E.unpressed
+      release_cb in
   List.iter aux1 cursors;
 
-  let options_cb obj _ =
+  let options_cb obj =
     let s, x = sscanf (Elm_object.text_get obj) "%s %f" (fun s x -> (s, x)) in
     let f = match s with
     | "Initial:" -> Elm_button.autorepeat_initial_timeout_set
@@ -127,7 +129,8 @@ let () =
     List.iter (fun cursor -> f cursor x) cursors in
 
   let aux2 cursor =
-    Evas_object_smart.callback_add cursor "clicked" options_cb in
+    Evas_object_smart.callback_add_safe cursor Elm_button.E.clicked options_cb
+  in
   List.iter aux2 (initial_param_list @ gap_param_list);
 
 

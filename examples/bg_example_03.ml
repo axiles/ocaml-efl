@@ -1,7 +1,7 @@
 open Efl
 open Format
 
-let on_done _ _ = Elm.exit ()
+let on_done _ = Elm.exit ()
 
 let bg_opt_of_int = function
   | 1 -> `center
@@ -18,10 +18,10 @@ let int_of_bg_opt = function
   | `tile -> 4
   | `last -> 5
 
-let cb_radio_changed bg obj _ =
+let cb_radio_changed bg obj =
   Elm_bg.option_set bg (bg_opt_of_int (Elm_radio.value_get obj))
 
-let cb_overlay_changed bg obj _ =
+let cb_overlay_changed bg obj =
   if Elm_check.state_get obj then (
     let buff = sprintf "%s/objects/test.edj" (Elm_app.data_dir_get ()) in
     let parent = match Elm_object.parent_widget_get bg with
@@ -32,7 +32,7 @@ let cb_overlay_changed bg obj _ =
     Elm_object.part_content_set bg ~p:"overlay" over;
   ) else Elm_object.part_content_set_null bg ~p:"overlay" ()
 
-let cb_color_changed bg obj _ =
+let cb_color_changed bg obj =
   let r, g, b = match Elm_spinner.value_get obj with
   | 1. -> (255, 255, 255)
   | 2. -> (255, 0, 0)
@@ -47,7 +47,8 @@ let add_radio win box bg ?rdg name opt =
   (match rdg with Some r1 -> Elm_radio.group_add rd r1 | None -> ());
   Elm_object.text_set rd name;
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_fill;
-  Evas_object_smart.callback_add rd "changed" (cb_radio_changed bg);
+  Evas_object_smart.callback_add_safe rd Elm_radio.E.changed
+    (cb_radio_changed bg);
   Elm_box.pack_end box rd;
   Evas_object.show rd;
   rd
@@ -65,7 +66,7 @@ let () =
   Elm_app.info_set "elementary" ~checkfile:"object/test.edj" ();
   let win = Elm_win.add "bg-options" `basic in
   Elm_win.title_set win "Bg Options";
-  Evas_object_smart.callback_add win "delete,request" on_done;
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request on_done;
   Elm_win.autodel_set win true;
 
   let bg = Elm_bg.add win in
@@ -96,7 +97,8 @@ let () =
   let rd = Elm_check.add win in
   Elm_object.text_set rd "Show Overlay";
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_fill;
-  Evas_object_smart.callback_add rd "changed" (cb_overlay_changed o_bg);
+  Evas_object_smart.callback_add_safe rd Elm_check.E.changed
+    (cb_overlay_changed o_bg);
   Elm_box.pack_end hbox rd;
   Evas_object.show rd;
 
@@ -109,7 +111,8 @@ let () =
   List.iter (fun (i, c) -> Elm_spinner.special_value_add rd i c) list;
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set rd Evas.hint_fill Evas.hint_fill;
-  Evas_object_smart.callback_add rd "changed" (cb_color_changed o_bg);
+  Evas_object_smart.callback_add_safe rd Elm_spinner.E.changed
+    (cb_color_changed o_bg);
   Elm_box.pack_end hbox rd;
   Evas_object.show rd;
 

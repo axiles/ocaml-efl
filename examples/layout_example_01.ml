@@ -9,11 +9,11 @@ let swallow = "example/custom"
 let box_buttons = ref 0
 
 
-let tbl_btn_cb layout btn _ =
+let tbl_btn_cb layout btn =
   let (_ : Evas.obj option) = Elm_layout.table_unpack layout table btn in
   Evas_object.del btn
 
-let rec box_btn_cb layout btn _ =
+let rec box_btn_cb layout btn =
   let buf = sprintf "Button %02d" !box_buttons in
   incr box_buttons;
   let parent = match Elm_object.parent_widget_get layout with
@@ -24,10 +24,11 @@ let rec box_btn_cb layout btn _ =
   Evas_object.size_hint_weight_set item Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set item Evas.hint_fill Evas.hint_fill;
   let (_ : bool) = Elm_layout.box_insert_before layout box item btn in
-  Evas_object_smart.callback_add item "clicked" (box_btn_cb layout);
+  Evas_object_smart.callback_add_safe item Elm_button.E.clicked
+    (box_btn_cb layout);
   Evas_object.show item
 
-let swallow_btn_cb layout btn _ =
+let swallow_btn_cb layout btn =
   let (_ : bool) = Elm_layout.table_clear layout table true in
   let (_ : bool) = Elm_layout.box_remove_all layout box true in
   let item = Elm_object.part_content_unset layout ~p:swallow () in
@@ -43,14 +44,15 @@ module Item : sig
     content : content;
     fill : bool;
     pos : pos;
-    cb : (Evas.obj -> Evas.smart_cb) option;
+    cb : (Evas.obj -> Evas.obj -> unit) option;
   }
 
   val add : Evas.obj -> Evas.obj -> t -> unit
 
   val create_icon : string -> int -> int -> t
 
-  val create_button : string -> bool -> pos -> (Evas.obj -> Evas.smart_cb) -> t
+  val create_button :
+    string -> bool -> pos -> (Evas.obj -> Evas.obj -> unit) -> t
 
 end = struct
   type content = Standard of string | Text of string | No_content
@@ -62,7 +64,7 @@ end = struct
     content : content;
     fill : bool;
     pos : pos;
-    cb : (Evas.obj -> Evas.smart_cb) option;
+    cb : (Evas.obj -> Evas.obj -> unit) option;
   }
 
   let add win layout item =
@@ -82,7 +84,8 @@ end = struct
     | Prepend -> let (_ : bool) = Elm_layout.box_prepend layout box obj in ()
     | Content -> Elm_object.part_content_set layout ~p:swallow obj);
     (match item.cb with
-    | Some f -> Evas_object_smart.callback_add obj "clicked" (f layout)
+    | Some f -> Evas_object_smart.callback_add_safe obj Elm_button.E.clicked
+      (f layout)
     | None -> ());
     Evas_object.show obj
 

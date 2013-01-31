@@ -44,14 +44,14 @@ let () =
   Elm_box.pack_end bigbox bx;
   Evas_object.show bx;
 
-  let unpack_cb obj _ =
+  let unpack_cb obj =
     Elm_box.unpack bx obj;
     Evas_object.move obj 0 50;
     Evas_object.color_set obj 128 64 0 128 in
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 1";
-  Evas_object_smart.callback_add bt "clicked" unpack_cb;
+  Evas_object_smart.callback_add_safe bt Elm_button.E.clicked unpack_cb;
   Evas_object.size_hint_weight_set bt Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set bt Evas.hint_fill Evas.hint_fill;
   Elm_box.pack_end bx bt;
@@ -59,7 +59,7 @@ let () =
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 2";
-  Evas_object_smart.callback_add bt "clicked" unpack_cb;
+  Evas_object_smart.callback_add_safe bt Elm_button.E.clicked unpack_cb;
   Evas_object.size_hint_weight_set bt Evas.hint_expand 0.;
   Evas_object.size_hint_align_set bt 1. 0.5;
   Elm_box.pack_end bx bt;
@@ -67,11 +67,11 @@ let () =
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 3";
-  Evas_object_smart.callback_add bt "clicked" unpack_cb;
+  Evas_object_smart.callback_add_safe bt Elm_button.E.clicked unpack_cb;
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
-  let add_cb _ _ =
+  let add_cb _ =
     let btn = Elm_button.add bx in
     Elm_object.text_set btn "I do nothing";
     let children = Elm_box.children_get bx in
@@ -79,10 +79,10 @@ let () =
     | [] -> Elm_box.pack_end bx btn
     | o :: _ -> Elm_box.pack_after bx btn o);
     Evas_object.show btn in
-  Evas_object_smart.callback_add bt_add "clicked" add_cb;
+  Evas_object_smart.callback_add_safe bt_add Elm_button.E.clicked add_cb;
 
-  let clear_cb _ _ = Elm_box.clear bx in
-  Evas_object_smart.callback_add bt_clear "clicked" clear_cb;
+  let clear_cb _ = Elm_box.clear bx in
+  Evas_object_smart.callback_add_safe bt_clear Elm_button.E.clicked clear_cb;
 
   Elm.run ();
   Elm.shutdown ()
