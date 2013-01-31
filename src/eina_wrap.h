@@ -10,4 +10,6 @@ PREFIX inline value copy_Eina_List_string(Eina_List* list);
 
 PREFIX inline value copy_Eina_List_Evas_Object(Eina_List* list);
 
+PREFIX inline value copy_Eina_List_Elm_Object_Item(Eina_List* list);
+
 #endif
