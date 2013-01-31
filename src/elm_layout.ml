@@ -86,3 +86,9 @@ external end_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_end_set"
 
 let end_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.end" ()
 
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let theme_changed = f "theme,changed"
+end
+
