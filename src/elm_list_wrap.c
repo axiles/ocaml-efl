@@ -320,3 +320,12 @@ PREFIX value ml_elm_list_item_prev(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_list_item_next(value v_it)
+{
+        Elm_Object_Item* it1 = elm_list_item_next((Elm_Object_Item*) v_it);
+        if(it1 == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it1);
+        return v;
+}
+

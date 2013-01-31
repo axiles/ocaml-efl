@@ -77,3 +77,6 @@ external item_object_get : Elm_object.item -> Evas.obj =
 external item_prev : Elm_object.item -> Elm_object.item option =
   "ml_elm_list_item_prev"
 
+external item_next : Elm_object.item -> Elm_object.item option =
+  "ml_elm_list_item_next"
+
