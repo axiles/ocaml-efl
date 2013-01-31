@@ -60,3 +60,5 @@ val item_prev : Elm_object.item -> Elm_object.item option
 
 val item_next : Elm_object.item -> Elm_object.item option
 
+val first_item_get : Evas.obj -> Elm_object.item option
+

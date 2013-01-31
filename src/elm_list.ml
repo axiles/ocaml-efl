@@ -80,3 +80,6 @@ external item_prev : Elm_object.item -> Elm_object.item option =
 external item_next : Elm_object.item -> Elm_object.item option =
   "ml_elm_list_item_next"
 
+external first_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_list_first_item_get"
+
