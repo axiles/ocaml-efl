@@ -38,5 +38,14 @@ external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_fileselector_mode_get"
 
-let _done = Evas.Event_type.create "done" Evas.string_opt_of_ptr
+module E = struct
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let g x = Evas.Event_type.create x Evas.string_of_ptr
+  let h x = Evas.Event_type.create x Evas.string_opt_of_ptr
+  let selected = f "selected"
+  let directory_open = g "directory,open"
+  let _done = h "done"
+end
 

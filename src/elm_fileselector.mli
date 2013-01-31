@@ -32,5 +32,11 @@ val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
 
-val _done : (string option) Evas.Event_type.v
+module E : sig
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  val selected : u
+  val directory_open : string v
+  val _done : (string option) v
+end
 

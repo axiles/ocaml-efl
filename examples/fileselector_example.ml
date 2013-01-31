@@ -70,7 +70,7 @@ let () =
   Elm_box.pack_end vbox fs;
   Evas_object.show fs;
 
-  Evas_object_smart.callback_add_safe fs EF._done fs_done;
+  Evas_object_smart.callback_add_safe fs EF.E._done fs_done;
   Evas_object_smart.callback_add fs "selected" fs_selected;
 
   let sep = Elm_separator.add win in
