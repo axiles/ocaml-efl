@@ -67,3 +67,8 @@ PREFIX value ml_elm_list_horizontal_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_list_horizontal_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_list_horizontal_get((Evas_Object*) v_obj));
+}
+

@@ -16,3 +16,5 @@ external mode_get : Evas.obj -> mode = "ml_elm_list_mode_get"
 external horizontal_set : Evas.obj -> bool -> unit =
   "ml_elm_list_horizontal_set"
 
+external horizontal_get : Evas.obj -> bool = "ml_elm_list_horizontal_get"
+
