@@ -274,3 +274,10 @@ PREFIX value ml_elm_list_selected_items_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_list_item_selected_set(value v_it, value v_flag)
+{
+        elm_list_item_selected_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

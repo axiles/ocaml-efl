@@ -44,3 +44,5 @@ val selected_item_get : Evas.obj -> Elm_object.item option
 
 val selected_items_get : Evas.obj -> Elm_object.item list
 
+val item_selected_set : Elm_object.item -> bool -> unit
+
