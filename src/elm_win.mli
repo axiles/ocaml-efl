@@ -230,5 +230,20 @@ val xwindow_get : Evas.obj -> Ecore.x_window
 
 val wl_window_get : Evas.obj -> Ecore.wl_window
 
-val delete_request : Evas.Event_type.u
+module E : sig
+  type u = Evas.Event_type.u
+  val delete_request : u
+  val focus_in : u
+  val moved : u
+  val withdrawn : u
+  val iconified : u
+  val normal : u
+  val stick : u
+  val unstick : u
+  val fullscreen : u
+  val unfullscreen : u
+  val maximized : u
+  val unmaximized : u
+  val ioerr : u
+end
 

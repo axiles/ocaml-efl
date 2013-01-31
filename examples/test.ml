@@ -4,7 +4,7 @@ let () =
   Elm.init Sys.argv;
   let win = Elm_win.add "hello" `basic in
   Elm_win.title_set win "Hello";
-  Evas_object_smart.callback_add_safe win Elm_win.delete_request
+  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request
     (fun _ -> print_endline "Exiting..."; Elm.exit ());
 
   let bg = Elm_bg.add win in

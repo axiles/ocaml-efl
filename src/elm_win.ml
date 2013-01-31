@@ -258,5 +258,24 @@ external xwindow_get : Evas.obj -> Ecore.x_window = "ml_elm_win_xwindow_get"
 external wl_window_get : Evas.obj -> Ecore.wl_window =
   "ml_elm_win_wl_window_get"
 
-let delete_request = Evas.Event_type.create_unit "delete,request"
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let delete_request = f "delete,request"
+  let focus_in = f "focus,in"
+  let focus_out = f "focus,out"
+  let moved = f "moved"
+  let withdrawn = f "widthdrawn"
+  let iconified = f "iconified"
+  let normal = f "normal"
+  let stick = f "stick"
+  let unstick = f "unstick"
+  let fullscreen = f "fullscreen"
+  let unfullscreen = f "unfullscreen"
+  let maximized = f "maximized"
+  let unmaximized = f "unmaximized"
+  let ioerr = f "ioerr"
+end
+
+
 
