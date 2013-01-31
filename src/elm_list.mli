@@ -1,3 +1,11 @@
+(** elm_list_* Elm_List_* *)
+
+(** The following function is not interfaced:
+
+elm_list_item_sorted_insert
+
+*)
+
 type mode = [`compress | `scroll | `limit | `expand | `last]
 
 val add : Evas.obj -> Evas.obj
