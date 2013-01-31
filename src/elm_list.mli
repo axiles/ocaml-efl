@@ -48,3 +48,5 @@ val item_selected_set : Elm_object.item -> bool -> unit
 
 val item_separator_set : Elm_object.item -> bool -> unit
 
+val item_separator_get : Elm_object.item -> bool
+

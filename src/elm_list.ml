@@ -64,3 +64,6 @@ external item_selected_set : Elm_object.item -> bool -> unit =
 external item_separator_set : Elm_object.item -> bool -> unit =
   "ml_elm_list_item_separator_set"
 
+external item_separator_get : Elm_object.item -> bool =
+  "ml_elm_list_item_separator_get"
+

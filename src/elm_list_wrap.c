@@ -288,3 +288,9 @@ PREFIX value ml_elm_list_item_separator_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_list_item_separator_get(value v_it, value v_flag)
+{
+        return Val_Eina_Bool(elm_list_item_separator_get(
+                (Elm_Object_Item*) v_it));
+}
+
