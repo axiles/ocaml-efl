@@ -12,3 +12,8 @@ val state_set : Evas.obj -> bool -> unit
 
 val state_get : Evas.obj -> bool
 
+module E : sig
+  type u = Evas.Event_type.u
+  val changed : u
+end
+
