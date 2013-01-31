@@ -32,3 +32,9 @@ val item_insert_before :
   Evas.obj -> Elm_object.item -> ?label:string -> ?icon:Evas.obj ->
     ?iend:Evas.obj -> ?func:Evas.smart_cb -> unit -> Elm_object.item
 
+val item_insert_after :
+  Evas.obj -> Elm_object.item -> ?label:string -> ?icon:Evas.obj ->
+    ?iend:Evas.obj -> ?func:Evas.smart_cb -> unit -> Elm_object.item
+
+val clear : Evas.obj -> unit
+

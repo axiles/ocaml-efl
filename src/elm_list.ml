@@ -42,3 +42,11 @@ external item_insert_before :
   "ml_elm_list_item_insert_before_byte"
   "ml_elm_list_item_insert_before_native"
 
+external item_insert_after :
+  Evas.obj -> Elm_object.item -> ?label:string -> ?icon:Evas.obj ->
+    ?iend:Evas.obj -> ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_list_item_insert_after_byte"
+  "ml_elm_list_item_insert_after_native"
+
+external clear : Evas.obj -> unit = "ml_elm_list_clear"
+

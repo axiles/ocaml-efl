@@ -206,3 +206,49 @@ PREFIX value ml_elm_list_item_insert_before_byte(value* argv, int argn)
                 argv[3], argv[4], argv[5], argv[6]);
 }
 
+PREFIX value ml_elm_list_item_insert_after_native(
+        value v_obj, value v_after, value v_label, value v_icon, value v_end,
+        value v_func, value v_unit)
+{
+        const char* label;
+        if(v_label == Val_int(0)) label = NULL;
+        else label = String_val(Field(v_label, 0));
+        Evas_Object* icon;
+        if(v_icon == Val_int(0)) icon = NULL;
+        else icon = (Evas_Object*) Field(v_icon, 0);
+        Evas_Object* end;
+        if(v_end == Val_int(0)) end = NULL;
+        else end = (Evas_Object*) Field(v_end, 0);
+        Evas_Smart_Cb func;
+        value* data;
+        if(v_func == Val_int(0)) {
+                func = ml_Evas_Smart_Cb;
+                data = (value*) caml_stat_alloc(sizeof(value));
+                *data = Field(v_func, 0);
+                caml_register_global_root(data);
+        } else {
+                func = NULL;
+                data = NULL;
+        }
+        Elm_Object_Item* item = elm_list_item_insert_after((Evas_Object*) v_obj,
+                (Elm_Object_Item*) v_after, label, icon, end, func, data);
+        if(item == NULL) {
+                caml_remove_global_root(data);
+                free(data);
+                caml_failwith("elm_list_item_insert_after");
+        }
+        return (value) item;
+}
+
+PREFIX value ml_elm_list_item_insert_after_byte(value* argv, int argn)
+{
+        return ml_elm_list_item_insert_after_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6]);
+}
+
+PREFIX value ml_elm_list_clear(value v_obj)
+{
+        elm_list_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
