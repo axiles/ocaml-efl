@@ -20,3 +20,7 @@ val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
 
 val select_mode_get : Evas.obj -> Elm_object.select_mode
 
+val item_append :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?iend:Evas.obj ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
+

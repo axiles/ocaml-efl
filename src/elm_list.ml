@@ -24,3 +24,9 @@ external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
 external select_mode_get : Evas.obj -> Elm_object.select_mode =
   "ml_elm_list_select_mode_get"
 
+external item_append :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?iend:Evas.obj ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_list_item_append_byte"
+  "ml_elm_list_item_append_native"
+
