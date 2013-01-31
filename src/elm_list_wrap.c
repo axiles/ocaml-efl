@@ -294,3 +294,9 @@ PREFIX value ml_elm_list_item_separator_get(value v_it, value v_flag)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_list_item_show(value v_it)
+{
+        elm_list_item_show((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
