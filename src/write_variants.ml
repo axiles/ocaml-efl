@@ -20,6 +20,7 @@ let () =
   g "char";
   g "close";
   g "combo";
+  g "compress";
   g "default";
   g "desktop";
   g "dialog_basic";
@@ -28,6 +29,7 @@ let () =
   f "Val_done" "_done";
   g "dropdown_menu";
   g "email";
+  g "expand";
   g "fdo";
   g "fdo_theme";
   g "file";
@@ -52,6 +54,7 @@ let () =
   g "last";
   g "last_window_closed";
   g "left";
+  g "limit";
   g "list";
   g "login";
   g "markup";
@@ -85,6 +88,7 @@ let () =
   g "rotate_270";
   g "rotate_90";
   g "scale";
+  g "scroll";
   g "search";
   g "send";
   g "sentence";
