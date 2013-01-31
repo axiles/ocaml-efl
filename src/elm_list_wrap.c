@@ -50,3 +50,9 @@ PREFIX value ml_elm_list_multi_select_get(value v_obj)
         return Val_Eina_Bool(elm_list_multi_select_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_list_mode_set(value v_obj, value v_mode)
+{
+        elm_list_mode_set((Evas_Object*) v_obj, Elm_List_Mode_val(v_mode));
+        return Val_unit;
+}
+
