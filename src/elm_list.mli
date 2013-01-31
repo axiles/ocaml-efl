@@ -52,3 +52,5 @@ val item_separator_get : Elm_object.item -> bool
 
 val item_show : Elm_object.item -> unit
 
+val item_bring_in : Elm_object.item -> unit
+

@@ -69,3 +69,5 @@ external item_separator_get : Elm_object.item -> bool =
 
 external item_show : Elm_object.item -> unit = "ml_elm_list_item_show"
 
+external item_bring_in : Elm_object.item -> unit = "ml_elm_list_item_bring_in"
+
