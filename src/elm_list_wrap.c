@@ -72,3 +72,10 @@ PREFIX value ml_elm_list_horizontal_get(value v_obj)
         return Val_Eina_Bool(elm_list_horizontal_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_list_select_mode_set(value v_obj, value v_mode)
+{
+        elm_list_select_mode_set((Evas_Object*) v_obj,
+                Elm_Object_Select_Mode_val(v_mode));
+        return Val_unit;
+}
+

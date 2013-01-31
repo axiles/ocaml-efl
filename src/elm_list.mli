@@ -16,3 +16,5 @@ val horizontal_set : Evas.obj -> bool -> unit
 
 val horizontal_get : Evas.obj -> bool
 
+val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
+

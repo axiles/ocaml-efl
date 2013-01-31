@@ -18,3 +18,6 @@ external horizontal_set : Evas.obj -> bool -> unit =
 
 external horizontal_get : Evas.obj -> bool = "ml_elm_list_horizontal_get"
 
+external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
+  "ml_elm_list_select_mode_set"
+
