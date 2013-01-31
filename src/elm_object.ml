@@ -55,3 +55,5 @@ external parent_widget_get : Evas.obj -> Evas.obj option =
 external top_widget_get : Evas.obj -> Evas.obj option =
   "ml_elm_object_top_widget_get"
 
+external item_of_ptr : Evas.ptr -> item = "%identity"
+
