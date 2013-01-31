@@ -14,27 +14,26 @@ let fs_selected obj event_info =
   let selected = Evas.string_of_ptr event_info in
   printf "There's been a selection: %s\n%!" selected
 
-let option_clicked msg f_set f_get fs obj _ =
-  let old_val = f_get fs in
-  let old_val_s = if old_val then "Disabling" else "Enabling" in
-  printf "%s %s\n%!" msg old_val_s;
-  f_set fs (not old_val)
-  
-let is_save_clicked =
-  let f_set = EF.is_save_set and f_get = EF.is_save_get in
-  option_clicked "text entry with selected item's name" f_set f_get
+let add_check win box fs name msg f_set f_get =
+  let cb obj _ =
+    let old_val = f_get fs in
+    let old_val_s = if old_val then "Disabling" else "Enabling" in
+    printf "%s %s\n%!" msg old_val_s;
+    f_set fs (not old_val) in
+  let bt = Elm_check.add win in
+  Elm_object.text_set bt name;
+  Elm_check.state_set bt (f_get fs);
+  Evas_object_smart.callback_add bt "changed" cb;
+  Elm_box.pack_end box bt;
+  Evas_object.show bt
 
-let folder_only_clicked =
-  option_clicked "folder-only mode" EF.folder_only_set EF.folder_only_get
-
-let expandable_clicked =
-  option_clicked "tree-view mode" EF.expandable_set EF.expandable_get
-
-let data_clicked name f_get fs _ _ = printf "%s name is: %s\n%!" name (f_get fs)
-
-let sel_get_clicked = data_clicked "Current selection" EF.selected_get
-
-let path_get_clicked = data_clicked "Current selection's directory" EF.path_get
+let add_data_button win box fs name msg f_get =
+  let cb _ _ = printf "%s name is: %s\n%!" msg (f_get fs) in
+  let bt = Elm_button.add win in
+  Elm_object.text_set bt name;
+  Evas_object_smart.callback_add bt "clicked" cb;
+  Elm_box.pack_end box bt;
+  Evas_object.show bt
 
 let () =
   Elm.init Sys.argv;
@@ -84,43 +83,26 @@ let () =
   Elm_box.pack_end vbox buttons_bx;
   Evas_object.show buttons_bx;
 
-  let bt = Elm_check.add win in
-  Elm_object.text_set bt "editable selection";
-  Elm_check.state_set bt (EF.is_save_get fs);
-  Evas_object_smart.callback_add bt "changed" (is_save_clicked fs);
-  Elm_box.pack_end buttons_bx bt;
-  Evas_object.show bt;
-
-  let bt = Elm_check.add win in
-  Elm_object.text_set bt "folder only";
-  Elm_check.state_set bt (EF.folder_only_get fs);
-  Evas_object_smart.callback_add bt "changed" (folder_only_clicked fs);
-  Elm_box.pack_end buttons_bx bt;
-  Evas_object.show bt;
-
-  let bt = Elm_check.add win in
-  Elm_object.text_set bt "expandable";
-  Elm_check.state_set bt (EF.expandable_get fs);
-  Evas_object_smart.callback_add bt "changed" (expandable_clicked fs);
-  Elm_box.pack_end buttons_bx bt;
-  Evas_object.show bt;
+  let list_check = [
+    ("enable selection", "text entry with selected item's name", EF.is_save_set,
+      EF.is_save_get);
+    ("folder only", "folder-only mode", EF.folder_only_set, EF.folder_only_get);
+    ("expandable", "tree-view mode", EF.expandable_set, EF.expandable_get)] in
+  let check_aux (name, msg, f_get, f_set) =
+    add_check win buttons_bx fs name msg f_get f_set in
+  List.iter check_aux list_check;
 
   let buttons_bx = Elm_box.add win in
   Elm_box.horizontal_set  buttons_bx true;
   Elm_box.pack_end vbox buttons_bx;
   Evas_object.show buttons_bx;
 
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Print selection";
-  Evas_object_smart.callback_add bt "clicked" (sel_get_clicked fs);
-  Elm_box.pack_end buttons_bx bt;
-  Evas_object.show bt;
-
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Print path";
-  Evas_object_smart.callback_add bt "clicked" (path_get_clicked fs);
-  Elm_box.pack_end buttons_bx bt;
-  Evas_object.show bt;
+  let list_bts = [
+    ("Print selection", "Current selection", EF.selected_get);
+    ("Print path", "Current selection's directory", EF.path_get)] in
+  let data_aux (name, msg, f_get) =
+    add_data_button win buttons_bx fs name msg f_get in
+  List.iter data_aux list_bts;
 
   let sep = Elm_separator.add win in
   Elm_separator.horizontal_set sep false;
