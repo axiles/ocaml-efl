@@ -41,7 +41,7 @@ PREFIX inline value copy_Eina_List_Evas_Object(Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Eina_List_Elm_Object_Item(Eina_List* list)
+PREFIX inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);

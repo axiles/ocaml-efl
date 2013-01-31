@@ -50,3 +50,5 @@ external item_insert_after :
 
 external clear : Evas.obj -> unit = "ml_elm_list_clear"
 
+external items_get : Evas.obj -> Elm_object.item list = "ml_elm_list_items_get"
+

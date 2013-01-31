@@ -38,3 +38,5 @@ val item_insert_after :
 
 val clear : Evas.obj -> unit
 
+val items_get : Evas.obj -> Elm_object.item list
+
