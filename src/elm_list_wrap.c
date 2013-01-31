@@ -311,3 +311,12 @@ PREFIX value ml_elm_list_item_object_get(value v_it)
         return (value) elm_list_item_object_get((Elm_Object_Item*) v_it);
 }
 
+PREFIX value ml_elm_list_item_prev(value v_it)
+{
+        Elm_Object_Item* it1 = elm_list_item_prev((Elm_Object_Item*) v_it);
+        if(it1 == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it1);
+        return v;
+}
+

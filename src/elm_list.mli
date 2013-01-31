@@ -56,3 +56,5 @@ val item_bring_in : Elm_object.item -> unit
 
 val item_object_get : Elm_object.item -> Evas.obj
 
+val item_prev : Elm_object.item -> Elm_object.item option
+

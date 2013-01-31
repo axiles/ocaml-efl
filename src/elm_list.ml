@@ -74,3 +74,6 @@ external item_bring_in : Elm_object.item -> unit = "ml_elm_list_item_bring_in"
 external item_object_get : Elm_object.item -> Evas.obj =
   "ml_elm_list_item_object_get"
 
+external item_prev : Elm_object.item -> Elm_object.item option =
+  "ml_elm_list_item_prev"
+
