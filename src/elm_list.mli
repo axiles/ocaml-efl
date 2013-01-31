@@ -10,3 +10,5 @@ val multi_select_get : Evas.obj -> bool
 
 val mode_set : Evas.obj -> mode -> unit
 
+val mode_get : Evas.obj -> mode
+

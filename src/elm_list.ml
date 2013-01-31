@@ -11,3 +11,5 @@ external multi_select_get : Evas.obj -> bool = "ml_elm_list_multi_select_get"
 
 external mode_set : Evas.obj -> mode -> unit = "ml_elm_list_mode_set"
 
+external mode_get : Evas.obj -> mode = "ml_elm_list_mode_get"
+
