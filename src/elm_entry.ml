@@ -296,3 +296,35 @@ external anchor_info_of_ptr : Evas.ptr -> anchor_info =
 external anchor_hover_info_of_ptr : Evas.ptr -> anchor_hover_info =
   "ml_elm_entry_anchor_hover_info_of_ptr"
 
+module E = struct
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let g x = Evas.Event_type.create x anchor_info_of_ptr
+  let changed = f "changed"
+  let changed_user = f "changed_user"
+  let activated = f "activated"
+  let aborted = f "aborted"
+  let press = f "press"
+  let longpressed = f "longpressed"
+  let clicked = f "clicked"
+  let clicked_double = f "clicked,double"
+  let clicked_triple = f "clicked,triple"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
+  let selection_paste = f "selection,paste"
+  let selection_copy = f "selection,copy"
+  let selection_cut = f "selection,cut"
+  let selection_start = f "selection,start"
+  let selection_changed = f "selection,changed"
+  let selection_cleared = f "selection,cleared"
+  let cursor_changed = f "cursor,changed"
+  let anchor_clicked = g "anchor,clicked"
+  let anchor_in = g "anchor,in"
+  let anchor_out = g "anchor,out"
+  let anchor_up = g "anchor,up"
+  let anchor_down = g "anchor,down"
+  let preedit_changed = f "preedit,changed"
+  let language_changed = f "language,changed"
+end
+

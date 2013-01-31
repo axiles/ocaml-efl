@@ -245,3 +245,33 @@ val anchor_info_of_ptr : Evas.ptr -> anchor_info
 
 val anchor_info_of_ptr : Evas.ptr -> anchor_info
 
+module E : sig
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  val changed : u
+  val changed_user : u
+  val activated : u
+  val aborted : u
+  val press : u
+  val longpressed : u
+  val clicked : u
+  val clicked_double : u
+  val clicked_triple : u
+  val focused : u
+  val unfocused : u
+  val selection_paste : u
+  val selection_copy : u
+  val selection_cut : u
+  val selection_start : u
+  val selection_changed : u
+  val selection_cleared : u
+  val cursor_changed : u
+  val anchor_clicked : anchor_info v
+  val anchor_in : anchor_info v
+  val anchor_out : anchor_info v
+  val anchor_up : anchor_info v
+  val anchor_down : anchor_info v
+  val preedit_changed : u
+  val language_changed : u
+end
+
