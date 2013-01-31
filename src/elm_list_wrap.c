@@ -281,3 +281,10 @@ PREFIX value ml_elm_list_item_selected_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_list_item_separator_set(value v_it, value v_flag)
+{
+        elm_list_item_separator_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

@@ -61,3 +61,6 @@ external selected_items_get : Evas.obj -> Elm_object.item list =
 external item_selected_set : Elm_object.item -> bool -> unit =
   "ml_elm_list_item_selected_set"
 
+external item_separator_set : Elm_object.item -> bool -> unit =
+  "ml_elm_list_item_separator_set"
+
