@@ -24,3 +24,7 @@ val item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?iend:Evas.obj ->
     ?func:Evas.smart_cb -> unit -> Elm_object.item
 
+val item_prepend :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?iend:Evas.obj ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
+
