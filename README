@@ -99,7 +99,8 @@ And then, you can execute it by entering:
 
 './main.byte'
 
-If you want to compile natively, just replace 'main.byte' by 'main.native'.
+If you want to compile to native code, just replace 'main.byte' by
+'main.native'.
 
 Findlib homepage: http://projects.camlcity.org/projects/findlib.html
 Ocamlbuild homepage: http://brion.inria.fr/gallium/index.php/Ocamlbuild
