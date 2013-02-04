@@ -59,3 +59,6 @@ external item_of_ptr : Evas.ptr -> item = "%identity"
 
 external item_del : item -> unit = "ml_elm_object_item_del"
 
+external item_disabled_set : item -> bool -> unit =
+  "ml_elm_object_item_disabled_set"
+

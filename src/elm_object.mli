@@ -44,3 +44,5 @@ val item_of_ptr : Evas.ptr -> item
 
 val item_del : item -> unit
 
+val item_disabled_set : item -> bool -> unit
+

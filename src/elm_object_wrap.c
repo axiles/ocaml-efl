@@ -226,3 +226,10 @@ PREFIX value ml_elm_object_item_del(value v_item)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_disabled_set(value v_item, value v_flag)
+{
+        elm_object_item_disabled_set((Elm_Object_Item*) v_item,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
