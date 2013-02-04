@@ -199,3 +199,9 @@ Executable list_example_02
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: list_example_02.ml
+Executable list_example_03
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: list_example_03.ml
