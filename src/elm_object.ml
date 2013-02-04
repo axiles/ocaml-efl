@@ -57,3 +57,5 @@ external top_widget_get : Evas.obj -> Evas.obj option =
 
 external item_of_ptr : Evas.ptr -> item = "%identity"
 
+external item_del : item -> unit = "ml_elm_object_item_del"
+

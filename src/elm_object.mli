@@ -42,3 +42,5 @@ val top_widget_get : Evas.obj -> Evas.obj option
 
 val item_of_ptr : Evas.ptr -> item
 
+val item_del : item -> unit
+

@@ -220,3 +220,9 @@ PREFIX value ml_elm_object_top_widget_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_object_item_del(value v_item)
+{
+        elm_object_item_del((Elm_Object_Item*) v_item);
+        return Val_unit;
+}
+
