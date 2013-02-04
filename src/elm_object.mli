@@ -46,3 +46,5 @@ val item_del : item -> unit
 
 val item_disabled_set : item -> bool -> unit
 
+val item_text_get : item -> string
+

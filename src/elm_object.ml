@@ -62,3 +62,5 @@ external item_del : item -> unit = "ml_elm_object_item_del"
 external item_disabled_set : item -> bool -> unit =
   "ml_elm_object_item_disabled_set"
 
+external item_text_get : item -> string = "ml_elm_object_item_text_get"
+
