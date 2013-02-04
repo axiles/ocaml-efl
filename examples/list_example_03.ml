@@ -31,7 +31,8 @@ let incr_cb (f_add : 'a) with_icon with_sel with_content li _ =
     else None in      
   try
     let (_ : Elm_object.item) = f_add li ~label ?icon ?func () in ()
-  with _ -> print_endline "Error adding Item"
+  with _ -> print_endline "Error adding Item";
+  Elm_list.go li
 
 let prepend_cb = incr_cb Elm_list.item_prepend false false false
 let add_cb_aux = incr_cb Elm_list.item_append
@@ -46,46 +47,47 @@ let action_cb f li _ =
 let action_cb_bool f b = action_cb (fun i -> f i b)
 
 let del_cb = action_cb Elm_object.item_del
-let unselected_cb = action_cb_bool Elm_list.item_selected_set false
+let unselect_cb = action_cb_bool Elm_list.item_selected_set false
 
 let print_cb li _ =
-  List.iter (fun x -> printf "%s\n" x) (Elm_list.items_get li);
-  flush stdout
+  let aux x = printf "%s\n" (Elm_object.item_text_get x) in
+  List.iter aux (Elm_list.items_get li);
+  printf "%!"
 
-let clear_cb _ = Elm_list.clear li
+let clear_cb li _ = Elm_list.clear li
 
 let select_pos_cb f li _ =
   match Elm_list.selected_item_get li with
   | None -> ()
   | Some i1 ->
     match f i1 with
-    | Some i2 -> Elm_list.selected_item_set i true
+    | Some i2 -> Elm_list.item_selected_set i2 true
     | None -> ()
 
-let select_next_cb = select_pos_cb Elm_list.select_item_next
+let select_next_cb = select_pos_cb Elm_list.item_next
 
 let insert_after_cb li obj =
   match Elm_list.selected_item_get li with
   | None -> ()
   | Some i ->
-    let f_add li1 = Elm_list.insert_after li1 obj in
-    incr_cb li f_add false false false
+    let f_add li1 = Elm_list.item_insert_after li1 i in
+    incr_cb f_add false false false li obj
 
-let selected_prev_cb = select_pos_cb Elm_list.select_item_prev
+let select_prev_cb = select_pos_cb Elm_list.item_prev
 
-let insert_before_cb li ob =
+let insert_before_cb li obj =
   match Elm_list.selected_item_get li with
   | None -> ()
   | Some i ->
-    let f_add li1 = Elm_list.insert_before li1 obj in
-    incr_cb li f_add false false false
+    let f_add li1 = Elm_list.item_insert_before li1 i in
+    incr_cb f_add false false false li obj
 
-let set_separator = action_cb_bool Elm_list.item_separator_set true
-let disable_cb = action_cb_bool Elm_list.item_disabled_set true
+let set_separator_cb = action_cb_bool Elm_list.item_separator_set true
+let disable_cb = action_cb_bool Elm_object.item_disabled_set true
 
 let add_button win li bx label cb =
   let bt = Elm_button.add win in
-  Elm_object.text_set bt label
+  Elm_object.text_set bt label;
   Evas_object_smart.callback_add_safe bt clicked (cb li);
   Elm_box.pack_end bx bt;
   Evas_object.size_hint_weight_set bt Evas.hint_expand 0.;
@@ -102,29 +104,31 @@ let add_hbox win bx li list =
   List.iter (fun (label, cb) -> add_button win li hbx label cb) list
 
 let () =
-  Elm.init sys.argv;
+  Elm.init Sys.argv;
 
-  let win = Elmw_in.add "list" `basic in
+  let win = Elm_win.add "list" `basic in
   Elm_win.title_set win "List Items Example";
-  Evas_object_smart.callback_add win delete_request on_done;
+  Evas_object_smart.callback_add_safe win delete_request on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
-  Evas_object.size_hint_weight_set Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
   Evas_object.show bg;
 
   let bx = Elm_box.add win in
-  Evas_object.size_hint_weight_set Evas.hint_expand Evas.hint_expand;
-  Elm_win.resize_object.add win bx;
+  Evas_object.size_hint_weight_set bx Evas.hint_expand Evas.hint_expand;
+  Elm_win.resize_object_add win bx;
   Evas_object.show bx;
 
   let li = Elm_list.add win in
   Evas_object.size_hint_weight_set li Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set li Evas.hint_fill Evas.hint_fill;
-  Elm_box.pack_end bx;
+  Elm_box.pack_end bx li;
 
   let first_items = ["Item 0"; "Item 1"; "Item 2"] in
-  List.iter (fun label -> Elm_list.item_append li ~label ()) first_items;
+  let first_items_aux label =
+    let (_ : Elm_object.item) = Elm_list.item_append li ~label () in () in
+  List.iter first_items_aux first_items;
 
   let list_bts = [
     [("Prepend item", prepend_cb); ("Append item", add_cb)];
@@ -134,7 +138,7 @@ let () =
       ("Append with data", add_data_cb)];
     [
       ("Delete item", del_cb);
-      ("Unselect item", unselect_cn);
+      ("Unselect item", unselect_cb);
       ("Print items", print_cb);
       ("Clear", clear_cb)];
     [
@@ -143,7 +147,7 @@ let () =
       ("Select previous item", select_prev_cb);
       ("Insert before item", insert_before_cb)];
     [("Set as separator", set_separator_cb); ("Disable item", disable_cb)]] in
-  List.iter (add_hbox win bx li) list_bts
+  List.iter (add_hbox win bx li) list_bts;
 
   Elm_list.go li;
   Evas_object.show li;
