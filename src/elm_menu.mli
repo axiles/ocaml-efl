@@ -36,3 +36,5 @@ val selected_item_get : Evas.obj -> Elm_object.item option
 
 val last_item_get : Evas.obj -> Elm_object.item option
 
+val first_item_get : Evas.obj -> Elm_object.item option
+
