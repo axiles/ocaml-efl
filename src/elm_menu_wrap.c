@@ -124,3 +124,9 @@ PREFIX value ml_elm_menu_item_separator_add(value v_obj, value v_parent)
         return v;
 }
 
+PREFIX value ml_elm_menu_item_is_separator(value v_it)
+{
+        return Val_Eina_Bool(elm_menu_item_is_separator(
+                (Elm_Object_Item*) v_it)); 
+}
+

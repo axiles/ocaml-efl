@@ -26,3 +26,5 @@ val item_selected_get : Elm_object.item -> bool
 
 val item_separator_add : Evas.obj -> Elm_object.item -> Elm_object.item
 
+val item_is_separator : Elm_object.item -> bool
+

@@ -35,3 +35,6 @@ external item_selected_get : Elm_object.item -> bool =
 external item_separator_add : Evas.obj -> Elm_object.item -> Elm_object.item =
   "ml_elm_menu_item_separator_add"
 
+external item_is_separator : Elm_object.item -> bool =
+  "ml_elm_menu_item_is_separator"
+
