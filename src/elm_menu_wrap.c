@@ -168,3 +168,12 @@ PREFIX value ml_elm_menu_first_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_menu_item_next_get(value v_it)
+{
+        Elm_Object_Item* next = elm_menu_item_next_get((Elm_Object_Item*) v_it);
+        if(next == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) next);
+        return v;
+}
+
