@@ -30,3 +30,14 @@ PREFIX value ml_elm_menu_close(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_menu_items_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Object_Item(elm_menu_items_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_menu_item_object_get(value v_item)
+{
+        return (value) elm_menu_item_object_get((Elm_Object_Item*) v_item);
+}
+

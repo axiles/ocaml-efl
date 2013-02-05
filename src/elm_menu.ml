@@ -8,3 +8,8 @@ external move : Evas.obj -> int -> int -> unit = "ml_elm_menu_move"
 
 external close : Evas.obj -> unit = "ml_elm_menu_close"
 
+external items_get : Evas.obj -> Elm_object.item list = "ml_elm_menu_items_get"
+
+external item_object_get : Elm_object.item -> Evas.obj =
+  "ml_elm_menu_item_object_get"
+
