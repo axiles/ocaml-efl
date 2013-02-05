@@ -240,3 +240,10 @@ PREFIX value ml_elm_object_item_text_get(value v_item)
         return copy_string(text);
 }
 
+PREFIX value ml_elm_object_item_content_set(value v_item, value v_content)
+{
+        elm_object_item_content_set((Elm_Object_Item*) v_item,
+                (Evas_Object*) v_content);
+        return Val_unit;
+}
+

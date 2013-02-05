@@ -48,3 +48,5 @@ val item_disabled_set : item -> bool -> unit
 
 val item_text_get : item -> string
 
+val item_content_set : item -> Evas.obj -> unit
+
