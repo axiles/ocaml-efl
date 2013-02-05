@@ -90,3 +90,14 @@ PREFIX value ml_elm_menu_item_icon_name_set(value v_it, value v_icon)
         return Val_unit;
 }
 
+PREFIX value ml_elm_menu_item_icon_name_get(value v_it)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* icon = elm_menu_item_icon_name_get((Elm_Object_Item*) v_it);
+        if(icon == NULL) return Val_int(0);
+        v = caml_alloc(1, 0);
+        Store_field(v, 0, copy_string(icon));
+        CAMLreturn(v);
+}
+

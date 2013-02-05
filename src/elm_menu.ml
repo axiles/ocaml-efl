@@ -23,3 +23,6 @@ external item_add :
 external item_icon_name_set : Elm_object.item -> string -> unit =
   "ml_elm_menu_item_icon_name_set"
 
+external item_icon_name_get : Elm_object.item -> string option =
+  "ml_elm_menu_item_icon_name_get"
+

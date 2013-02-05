@@ -18,3 +18,5 @@ val item_add :
 
 val item_icon_name_set : Elm_object.item -> string -> unit
 
+val item_icon_name_get : Elm_object.item -> string option
+
