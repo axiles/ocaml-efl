@@ -184,7 +184,7 @@ Executable inwin_example
   MainIs: inwin_example.ml
 Executable fileselector_example
   Path: examples
-  Install$: flag(install_expamples)
+  Install$: flag(install_examples)
   BuildDepends: efl
   MainIs: fileselector_example.ml
 Executable list_example_01
