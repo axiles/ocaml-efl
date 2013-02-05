@@ -31,8 +31,7 @@ let incr_cb (f_add : 'a) with_icon with_sel with_content li _ =
     else None in      
   try
     let (_ : Elm_object.item) = f_add li ~label ?icon ?func () in ()
-  with _ -> print_endline "Error adding Item";
-  Elm_list.go li
+  with _ -> print_endline "Error adding Item"
 
 let prepend_cb = incr_cb Elm_list.item_prepend false false false
 let add_cb_aux = incr_cb Elm_list.item_append
