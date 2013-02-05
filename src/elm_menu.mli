@@ -30,3 +30,5 @@ val item_is_separator : Elm_object.item -> bool
 
 val item_subitems_get : Elm_object.item -> Elm_object.item list
 
+val item_index_get : Elm_object.item -> int
+
