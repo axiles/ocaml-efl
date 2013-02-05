@@ -131,3 +131,17 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down ev)
+{
+        value v = caml_alloc(8, 0);
+        Store_field(v, 0, Val_int(ev.button));
+        Store_field(v, 1, Val_int(ev.output.x));
+        Store_field(v, 2, Val_int(ev.output.y));
+        Store_field(v, 3, Val_int(ev.canvas.x));
+        Store_field(v, 4, Val_int(ev.canvas.y));
+        Store_field(v, 5, (value) ev.modifiers);
+        Store_field(v, 6, Val_bool(ev.flags & EVAS_BUTTON_DOUBLE_CLICK));
+        Store_field(v, 7, Val_bool(ev.flags & EVAS_BUTTON_TRIPLE_CLICK));
+        return v;
+}
+

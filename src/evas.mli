@@ -6,6 +6,19 @@ type t
 
 type smart_cb = obj -> ptr -> unit
 
+type modifier
+
+type event_mouse_down = {
+  button : int;
+  output_x : int;
+  output_y : int;
+  canvas_x : int;
+  canvas_y : int;
+  modifiers : modifier;
+  flags_double_click : bool;
+  flags_triple_click : bool;
+}
+
 module Event_type : sig
   type 'a t
   type 'a v = (obj -> 'a -> unit) t
