@@ -2,6 +2,8 @@ type box_data
 
 type box_layout = Evas.obj -> box_data -> unit
 
+type 'a event_cb = Evas.t -> Evas.obj -> 'a -> unit
+
 external show : Evas.obj -> unit = "ml_evas_object_show"
 
 external size_hint_weight_set : Evas.obj -> float -> float -> unit =
@@ -32,4 +34,8 @@ external rectangle_add : Evas.t -> Evas.obj = "ml_evas_object_rectangle_add"
 
 external size_hint_min_set : Evas.obj -> int -> int -> unit =
   "ml_evas_object_size_hint_min_set"
+
+external event_callback_add_mouse_down :
+  Evas.obj -> Evas.event_mouse_down event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_down"
 
