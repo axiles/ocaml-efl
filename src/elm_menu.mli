@@ -40,3 +40,5 @@ val first_item_get : Evas.obj -> Elm_object.item option
 
 val item_next_get : Elm_object.item -> Elm_object.item option
 
+val item_prev_get : Elm_object.item -> Elm_object.item option
+
