@@ -73,6 +73,7 @@ The following widgets and container are almost fully implemented:
 * layouts
 * inwins
 * file selectors
+* simple lists
 
 It is already possible to write some small graphical applications with these
 widgets. However, ocaml-efl is still in alpha stage and some API may break.
