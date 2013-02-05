@@ -20,3 +20,6 @@ external item_add :
     "ml_elm_menu_item_add_byte"
     "ml_elm_menu_item_add_native"
 
+external item_icon_name_set : Elm_object.item -> string -> unit =
+  "ml_elm_menu_item_icon_name_set"
+

@@ -83,3 +83,10 @@ PREFIX value ml_elm_menu_item_add_byte(value* argv, int argn)
                 argv[4], argv[5]);
 }
 
+PREFIX value ml_elm_menu_item_icon_name_set(value v_it, value v_icon)
+{
+        elm_menu_item_icon_name_set((Elm_Object_Item*) v_it,
+                String_val(v_icon));
+        return Val_unit;
+}
+

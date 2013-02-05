@@ -15,3 +15,6 @@ val item_object_get : Elm_object.item -> Evas.obj
 val item_add :
   Evas.obj -> ?parent:Elm_object.item -> ?icon:string -> ?label:string ->
     ?func:Evas.smart_cb -> unit -> Elm_object.item
+
+val item_icon_name_set : Elm_object.item -> string -> unit
+
