@@ -108,3 +108,9 @@ PREFIX value ml_elm_menu_item_selected_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_menu_item_selected_get(value v_it)
+{
+        return Val_Eina_Bool(elm_menu_item_selected_get(
+                (Elm_Object_Item*) v_it));
+}
+
