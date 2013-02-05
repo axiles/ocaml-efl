@@ -130,3 +130,9 @@ PREFIX value ml_elm_menu_item_is_separator(value v_it)
                 (Elm_Object_Item*) v_it)); 
 }
 
+PREFIX value ml_elm_menu_item_subitems_get(value v_it)
+{
+        return copy_Eina_List_Elm_Object_Item(elm_menu_item_subitems_get(
+                (Elm_Object_Item*) v_it));
+}
+
