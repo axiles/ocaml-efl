@@ -26,3 +26,6 @@ external item_icon_name_set : Elm_object.item -> string -> unit =
 external item_icon_name_get : Elm_object.item -> string option =
   "ml_elm_menu_item_icon_name_get"
 
+external item_selected_set : Elm_object.item -> bool -> unit =
+  "ml_elm_menu_item_selected_set"
+

@@ -101,3 +101,10 @@ PREFIX value ml_elm_menu_item_icon_name_get(value v_it)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_menu_item_selected_set(value v_it, value v_flag)
+{
+        elm_menu_item_selected_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
