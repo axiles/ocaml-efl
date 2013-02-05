@@ -13,3 +13,10 @@ external items_get : Evas.obj -> Elm_object.item list = "ml_elm_menu_items_get"
 external item_object_get : Elm_object.item -> Evas.obj =
   "ml_elm_menu_item_object_get"
 
+external item_add :
+  Evas.obj -> ?parent:Elm_object.item -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
+  =
+    "ml_elm_menu_item_add_byte"
+    "ml_elm_menu_item_add_native"
+

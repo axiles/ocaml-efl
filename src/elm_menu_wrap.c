@@ -41,3 +41,45 @@ PREFIX value ml_elm_menu_item_object_get(value v_item)
         return (value) elm_menu_item_object_get((Elm_Object_Item*) v_item);
 }
 
+PREFIX value ml_elm_menu_item_add_native(
+        value v_obj, value v_parent, value v_icon, value v_label, value v_func,
+        value v_unit)
+{
+        Elm_Object_Item* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        else parent = (Elm_Object_Item*) Field(v_parent, 0);
+        const char* icon;
+        if(v_icon == Val_int(0)) icon = NULL;
+        else icon = String_val(Field(v_icon, 0));
+        const char* label;
+        if(v_label == Val_int(0)) label = NULL;
+        else label = String_val(Field(v_label, 0));
+        Evas_Smart_Cb func;
+        value* data;
+        if(v_func == Val_int(0)) {
+                func = NULL;
+                data = NULL;
+        } else {
+                func = ml_Evas_Smart_Cb;
+                data = caml_stat_alloc(sizeof(value));
+                *data = Field(v_func, 0);
+                caml_register_global_root(data);
+        }
+        Elm_Object_Item* item = elm_menu_item_add((Evas_Object*) v_obj, parent,
+                icon, label, func, data);
+        if(item == NULL) {
+                if(data != NULL) {
+                        caml_remove_global_root(data);
+                        free(data);
+                }
+                caml_failwith("elm_menu_item_add");
+        }
+        return (value) item;
+}
+
+PREFIX value ml_elm_menu_item_add_byte(value* argv, int argn)
+{
+        return ml_elm_menu_item_add_native(argv[0], argv[1], argv[2], argv[3],
+                argv[4], argv[5]);
+}
+

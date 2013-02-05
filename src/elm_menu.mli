@@ -12,3 +12,6 @@ val items_get : Evas.obj -> Elm_object.item list
 
 val item_object_get : Elm_object.item -> Evas.obj
 
+val item_add :
+  Evas.obj -> ?parent:Elm_object.item -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
