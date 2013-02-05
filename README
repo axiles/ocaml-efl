@@ -43,7 +43,7 @@ Homepage: http://www.enlightenment.org/
 INSTALLING
 ==========
 
-This package uses OASIS to generated its build sytsem. You can find more
+This package uses OASIS to generated its build system. You can find more
 detailed instructions in the INSTALL file.
 
 LICENSE
@@ -57,7 +57,7 @@ CURRENT STATE OF THE INTERFACE
 
 Currently, only a small portion of the EFL has been interface. Our primary
 efforts are in interfacing Elementary (the high-level widget part of the EFL).
-The following widgets and container are almost fully implemented:
+The following widgets and containers are almost fully implemented:
 
 * windows
 * buttons
@@ -74,6 +74,7 @@ The following widgets and container are almost fully implemented:
 * inwins
 * file selectors
 * simple lists
+* menus
 
 It is already possible to write some small graphical applications with these
 widgets. However, ocaml-efl is still in alpha stage and some API may break.
