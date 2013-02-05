@@ -7,3 +7,9 @@ PREFIX value ml_elm_menu_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_menu_parent_set(value v_obj, value v_parent)
+{
+        elm_menu_parent_set((Evas_Object*) v_obj, (Evas_Object*) v_parent);
+        return Val_unit;
+}
+
