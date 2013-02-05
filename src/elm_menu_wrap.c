@@ -114,3 +114,13 @@ PREFIX value ml_elm_menu_item_selected_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_menu_item_separator_add(value v_obj, value v_parent)
+{
+        Elm_Object_Item* it = elm_menu_item_separator_add((Evas_Object*) v_obj,
+                (Elm_Object_Item*) v_parent);
+        if(it == NULL) caml_failwith("elm_menu_item_separator_add");
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
+}
+
