@@ -18,3 +18,9 @@ PREFIX value ml_elm_menu_parent_get(value v_obj)
         return (value) elm_menu_parent_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_elm_menu_move(value v_obj, value v_x, value v_y)
+{
+        elm_menu_move((Evas_Object*) v_obj, Int_val(v_x), Int_val(v_y));
+        return Val_unit;
+}
+
