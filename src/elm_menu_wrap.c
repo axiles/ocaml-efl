@@ -95,7 +95,7 @@ PREFIX value ml_elm_menu_item_icon_name_get(value v_it)
         CAMLparam0();
         CAMLlocal1(v);
         const char* icon = elm_menu_item_icon_name_get((Elm_Object_Item*) v_it);
-        if(icon == NULL) return Val_int(0);
+        if(icon == NULL) CAMLreturn(Val_int(0));
         v = caml_alloc(1, 0);
         Store_field(v, 0, copy_string(icon));
         CAMLreturn(v);
@@ -139,5 +139,14 @@ PREFIX value ml_elm_menu_item_subitems_get(value v_it)
 PREFIX value ml_elm_menu_item_index_get(value v_it)
 {
         return Val_int(elm_menu_item_index_get((Elm_Object_Item*) v_it));
+}
+
+PREFIX value ml_elm_menu_selected_item_get(value v_obj)
+{
+        Elm_Object_Item* it = elm_menu_selected_item_get((Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
 }
 

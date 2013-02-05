@@ -43,3 +43,6 @@ external item_subitems_get : Elm_object.item -> Elm_object.item list =
 
 external item_index_get : Elm_object.item -> int = "ml_elm_menu_item_index_get"
 
+external selected_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_menu_selected_item_get"
+

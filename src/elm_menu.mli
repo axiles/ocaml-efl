@@ -32,3 +32,5 @@ val item_subitems_get : Elm_object.item -> Elm_object.item list
 
 val item_index_get : Elm_object.item -> int
 
+val selected_item_get : Evas.obj -> Elm_object.item option
+
