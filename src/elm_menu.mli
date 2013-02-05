@@ -6,3 +6,5 @@ val parent_get : Evas.obj -> Evas.obj
 
 val move : Evas.obj -> int -> int -> unit
 
+val close : Evas.obj -> unit
+

@@ -24,3 +24,9 @@ PREFIX value ml_elm_menu_move(value v_obj, value v_x, value v_y)
         return Val_unit;
 }
 
+PREFIX value ml_elm_menu_close(value v_obj)
+{
+        elm_menu_close((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
