@@ -191,6 +191,13 @@ PREFIX value ml_elm_naviframe_items_get(value v_obj)
         return v_list;
 }
 
+PREFIX value ml_elm_naviframe_event_enabled_set(value v_obj, value v_flag)
+{
+        elm_naviframe_event_enabled_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_naviframe_item_simple_promote(value v_obj, value v_content)
 {
         elm_naviframe_item_simple_promote((Evas_Object*) v_obj,
