@@ -1,3 +1,5 @@
+(** elm_naviframe_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val item_push :
