@@ -76,8 +76,8 @@ The following widgets and containers are almost fully implemented:
 * simple lists
 * menus
 
-It is already possible to write some small graphical applications with these
-widgets. However, ocaml-efl is still in alpha stage and some API may break.
+It is already possible to write some small gui applications with these widgets.
+However, ocaml-efl is still in alpha stage and some API may break.
 
 The last version can be obtained here: https://github.com/axiles/ocaml-efl
 
