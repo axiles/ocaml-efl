@@ -36,6 +36,9 @@ external content_preserve_on_pop_set : Evas.obj -> bool -> unit =
 external content_preserve_on_pop_get : Evas.obj -> bool =
   "ml_elm_naviframe_content_preserve_on_pop_get"
 
+external top_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_naviframe_top_item_get"
+
 external item_title_visible_set : Elm_object.item -> bool -> unit =
   "ml_elm_naviframe_item_title_visible_set"
 

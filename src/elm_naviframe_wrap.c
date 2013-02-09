@@ -123,6 +123,15 @@ PREFIX value ml_elm_naviframe_content_preserve_on_pop_get(value v_obj)
         (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_naviframe_top_item_get(value v_obj)
+{
+        Elm_Object_Item* it = elm_naviframe_top_item_get((Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
+}
+
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
