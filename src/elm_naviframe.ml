@@ -57,6 +57,9 @@ external item_title_visible_get : Elm_object.item -> bool =
 external prev_btn_auto_pushed_set : Evas.obj -> bool -> unit =
   "ml_elm_naviframe_prev_btn_auto_pushed_set"
 
+external prev_btn_auto_pushed_get : Evas.obj -> bool =
+  "ml_elm_naviframe_prev_btn_auto_pushed_get"
+
 external item_simple_promote : Evas.obj -> Evas.obj -> unit =
   "ml_elm_naviframe_item_simple_promote"
 

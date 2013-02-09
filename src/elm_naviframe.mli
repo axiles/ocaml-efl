@@ -38,6 +38,8 @@ val item_title_visible_get : Elm_object.item -> bool
 
 val prev_btn_auto_pushed_set : Evas.obj -> bool -> unit
 
+val prev_btn_auto_pushed_get : Evas.obj -> bool
+
 val item_simple_promote : Evas.obj -> Evas.obj -> unit
 
 val item_simple_push : Evas.obj -> Evas.obj -> Elm_object.item
