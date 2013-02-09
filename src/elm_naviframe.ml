@@ -66,6 +66,9 @@ external items_get : Evas.obj -> Elm_object.item list =
 external event_enabled_set : Evas.obj -> bool -> unit =
   "ml_elm_naviframe_event_enabled_set"
 
+external event_enabled_get : Evas.obj -> bool =
+  "ml_elm_naviframe_event_enabled_get"
+
 external item_simple_promote : Evas.obj -> Evas.obj -> unit =
   "ml_elm_naviframe_item_simple_promote"
 
