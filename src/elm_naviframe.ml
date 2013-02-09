@@ -15,6 +15,14 @@ let item_simple_push obj content =
   item_title_visible_set it false;
   it
 
+external item_insert_before :
+  Evas.obj -> Elm_object.item -> ?title_label:string -> ?prev_btn:Evas.obj ->
+    ?next_btn:Evas.obj -> Evas.obj -> ?item_style:string -> unit ->
+    Elm_object.item
+  =
+    "ml_elm_naviframe_item_insert_before_byte"
+    "ml_elm_naviframe_item_insert_before_native"
+
 external item_simple_promote : Evas.obj -> Evas.obj -> unit =
   "ml_elm_naviframe_item_simple_promote"
 
