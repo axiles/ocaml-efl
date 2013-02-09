@@ -109,6 +109,14 @@ PREFIX value ml_elm_naviframe_item_promote(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_naviframe_content_preserve_on_pop_set(
+        value v_obj, value v_flag)
+{
+        elm_naviframe_content_preserve_on_pop_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
