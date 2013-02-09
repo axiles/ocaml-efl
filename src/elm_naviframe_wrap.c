@@ -153,14 +153,8 @@ PREFIX value ml_elm_naviframe_item_style_set(value v_it, value v_style)
 
 PREFIX value ml_elm_naviframe_item_style_get(value v_it)
 {
-        CAMLparam0();
-        CAMLlocal1(v);
-        const char* style = elm_naviframe_item_style_get(
-                (Elm_Object_Item*) v_it);
-        if(style == NULL) CAMLreturn(Val_int(0));
-        v = caml_alloc(1, 0);
-        Store_field(v, 1, copy_string(style));
-        CAMLreturn(v);
+        return copy_string(elm_naviframe_item_style_get(
+                (Elm_Object_Item*) v_it));
 }
 
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)

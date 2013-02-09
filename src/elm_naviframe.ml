@@ -45,7 +45,7 @@ external bottom_item_get : Evas.obj -> Elm_object.item option =
 external item_style_set : Elm_object.item -> string option -> unit =
   "ml_elm_naviframe_item_style_set"
 
-external item_style_get : Elm_object.item -> string option =
+external item_style_get : Elm_object.item -> string =
   "ml_elm_naviframe_item_style_get"
 
 external item_title_visible_set : Elm_object.item -> bool -> unit =
