@@ -61,6 +61,33 @@ PREFIX value ml_elm_naviframe_item_insert_before_byte(value* argv, int argn)
                 argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
+PREFIX value ml_elm_naviframe_item_insert_after_native(
+        value v_obj, value v_after, value v_title_label, value v_prev_btn,
+        value v_next_btn, value v_content, value v_item_style, value v_unit)
+{
+        Evas_Object *prev_btn, *next_btn;
+        if(v_prev_btn == Val_int(0)) prev_btn = NULL;
+        else prev_btn = (Evas_Object*) Field(v_prev_btn, 0);
+        if(v_next_btn == Val_int(0)) next_btn = NULL;
+        else next_btn = (Evas_Object*) Field(v_next_btn, 0);
+        char *title_label, *item_style;
+        if(v_title_label == Val_int(0)) title_label = NULL;
+        else title_label = String_val(Field(v_title_label, 0));
+        if(v_item_style == Val_int(0)) item_style = NULL;
+        else item_style = String_val(Field(v_item_style, 0));
+        Elm_Object_Item* item = elm_naviframe_item_insert_after(
+                (Evas_Object*) v_obj, (Elm_Object_Item*) v_after, title_label,
+                prev_btn, next_btn, (Evas_Object*) v_content, item_style);
+        if(item == NULL) caml_failwith("elm_naviframe_item_insert_after");
+        return (value) item;
+}
+        
+PREFIX value ml_elm_naviframe_item_insert_after_byte(value* argv, int argn)
+{
+        return ml_elm_naviframe_item_insert_after_native(argv[0], argv[1],
+                argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+}
+
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
