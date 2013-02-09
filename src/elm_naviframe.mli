@@ -30,6 +30,8 @@ val bottom_item_get : Evas.obj -> Elm_object.item option
 
 val item_style_set : Elm_object.item -> string option -> unit
 
+val item_style_get : Elm_object.item -> string option
+
 val item_title_visible_set : Elm_object.item -> bool -> unit
 
 val item_simple_promote : Evas.obj -> Evas.obj -> unit
