@@ -60,6 +60,9 @@ external prev_btn_auto_pushed_set : Evas.obj -> bool -> unit =
 external prev_btn_auto_pushed_get : Evas.obj -> bool =
   "ml_elm_naviframe_prev_btn_auto_pushed_get"
 
+external items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_naviframe_items_get"
+
 external item_simple_promote : Evas.obj -> Evas.obj -> unit =
   "ml_elm_naviframe_item_simple_promote"
 

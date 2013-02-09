@@ -183,6 +183,14 @@ PREFIX value ml_elm_naviframe_prev_btn_auto_pushed_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_naviframe_items_get(value v_obj)
+{
+        Eina_List* list = elm_naviframe_items_get((Evas_Object*) v_obj);
+        value v_list = copy_Eina_List_Elm_Object_Item(list);
+        eina_list_free(list);
+        return v_list;
+}
+
 PREFIX value ml_elm_naviframe_item_simple_promote(value v_obj, value v_content)
 {
         elm_naviframe_item_simple_promote((Evas_Object*) v_obj,
