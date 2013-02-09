@@ -170,6 +170,13 @@ PREFIX value ml_elm_naviframe_item_title_visible_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_naviframe_prev_btn_auto_pushed_set(value v_obj, value v_flag)
+{
+        elm_naviframe_prev_btn_auto_pushed_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_naviframe_item_simple_promote(value v_obj, value v_content)
 {
         elm_naviframe_item_simple_promote((Evas_Object*) v_obj,
