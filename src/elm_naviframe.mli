@@ -22,6 +22,8 @@ val item_promote : Elm_object.item -> unit
 
 val content_preserve_on_pop_set : Evas.obj -> bool -> unit
 
+val content_preserve_on_pop_get : Evas.obj -> bool
+
 val item_title_visible_set : Elm_object.item -> bool -> unit
 
 val item_simple_promote : Evas.obj -> Evas.obj -> unit
