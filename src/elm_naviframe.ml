@@ -35,6 +35,9 @@ external item_pop : Evas.obj -> Evas.obj option = "ml_elm_naviframe_item_pop"
 
 external item_pop_to : Elm_object.item -> unit = "ml_elm_naviframe_item_pop_to"
 
+external item_promote : Elm_object.item -> unit =
+  "ml_elm_naviframe_item_promote"
+
 external item_simple_promote : Evas.obj -> Evas.obj -> unit =
   "ml_elm_naviframe_item_simple_promote"
 

@@ -20,6 +20,8 @@ val item_pop : Evas.obj -> Evas.obj option
 
 val item_pop_to : Elm_object.item -> unit
 
+val item_promote : Elm_object.item -> unit
+
 val item_title_visible_set : Elm_object.item -> bool -> unit
 
 val item_simple_promote : Evas.obj -> Evas.obj -> unit
