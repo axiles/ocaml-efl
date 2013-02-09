@@ -97,6 +97,12 @@ PREFIX value ml_elm_naviframe_item_pop(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_naviframe_item_pop_to(value v_it)
+{
+        elm_naviframe_item_pop_to((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
