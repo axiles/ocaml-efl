@@ -88,6 +88,15 @@ PREFIX value ml_elm_naviframe_item_insert_after_byte(value* argv, int argn)
                 argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
+PREFIX value ml_elm_naviframe_item_pop(value v_obj)
+{
+        Evas_Object* top = elm_naviframe_item_pop((Evas_Object*) v_obj);
+        if(top == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) top);
+        return v;
+}
+
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,

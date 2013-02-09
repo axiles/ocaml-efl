@@ -31,6 +31,8 @@ external item_insert_after :
     "ml_elm_naviframe_item_insert_after_byte"
     "ml_elm_naviframe_item_insert_after_native"
 
+external item_pop : Evas.obj -> Evas.obj option = "ml_elm_naviframe_item_pop"
+
 external item_simple_promote : Evas.obj -> Evas.obj -> unit =
   "ml_elm_naviframe_item_simple_promote"
 
