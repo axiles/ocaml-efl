@@ -142,6 +142,15 @@ PREFIX value ml_elm_naviframe_bottom_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_naviframe_item_style_set(value v_it, value v_style)
+{
+        const char* style;
+        if(v_style == Val_int(0)) style = NULL;
+        else style = String_val(Field(v_style, 0));
+        elm_naviframe_item_style_set((Elm_Object_Item*) v_it, style);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
 {
         elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
