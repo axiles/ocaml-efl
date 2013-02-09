@@ -164,6 +164,12 @@ PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_naviframe_item_title_visible_get(value v_it)
+{
+        return Val_Eina_Bool(elm_naviframe_item_title_visible_get(
+                (Elm_Object_Item*) v_it));
+}
+
 PREFIX value ml_elm_naviframe_item_simple_promote(value v_obj, value v_content)
 {
         elm_naviframe_item_simple_promote((Evas_Object*) v_obj,
