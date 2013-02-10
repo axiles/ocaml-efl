@@ -46,3 +46,12 @@ PREFIX value ml_elm_progressbar_span_size_get(value v_obj)
         return Val_int(elm_progressbar_span_size_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_progressbar_unit_format_set(value v_obj, value v_format)
+{
+        const char* format;
+        if(v_format == Val_int(0)) format = NULL;
+        else format = String_val(Field(v_format, 0));
+        elm_progressbar_unit_format_set((Evas_Object*) v_obj, format);
+        return Val_unit;
+}
+
