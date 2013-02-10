@@ -6,3 +6,5 @@ val pulse_get : Evas.obj -> bool
 
 val pulse : Evas.obj -> bool -> unit
 
+val value_set : Evas.obj -> float -> unit
+

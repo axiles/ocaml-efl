@@ -24,3 +24,9 @@ PREFIX value ml_elm_progressbar_pulse(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_progressbar_value_set(value v_obj, value v_v)
+{
+        elm_progressbar_value_set((Evas_Object*) v_obj, Double_val(v_v));
+        return Val_unit;
+}
+
