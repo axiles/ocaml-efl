@@ -43,3 +43,9 @@ external inverted_set : Evas.obj -> bool -> unit =
 
 external inverted_get : Evas.obj -> bool = "ml_elm_progressbar_inverted_get"
 
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let changed = f "changed"
+end
+
