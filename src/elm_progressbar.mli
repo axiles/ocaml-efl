@@ -25,3 +25,5 @@ val unit_format_get : Evas.obj -> string option
 
 val horizontal_set : Evas.obj -> bool -> unit
 
+val horizontal_get : Evas.obj -> bool
+
