@@ -33,3 +33,6 @@ let unit_format_set obj fmt =
 external unit_format_get : Evas.obj -> string option =
   "ml_elm_progressbar_unit_format_get"
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_progressbar_horizontal_set"
+

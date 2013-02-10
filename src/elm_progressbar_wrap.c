@@ -67,3 +67,10 @@ PREFIX value ml_elm_progressbar_unit_format_get(value v_obj)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_progressbar_horizontal_set(value v_obj, value v_flag)
+{
+        elm_progressbar_horizontal_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
