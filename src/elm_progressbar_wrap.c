@@ -18,3 +18,9 @@ PREFIX value ml_elm_progressbar_pulse_get(value v_obj)
         return Val_Eina_Bool(elm_progressbar_pulse_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_progressbar_pulse(value v_obj, value v_flag)
+{
+        elm_progressbar_pulse((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

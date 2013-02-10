@@ -4,3 +4,5 @@ external pulse_set : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse_set"
 
 external pulse_get : Evas.obj -> bool = "ml_elm_progressbar_pulse_get"
 
+external pulse : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse"
+
