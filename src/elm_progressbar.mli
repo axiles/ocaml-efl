@@ -21,3 +21,5 @@ val span_size_get : Evas.obj -> int
 
 val unit_format_set : Evas.obj -> format -> unit
 
+val unit_format_get : Evas.obj -> string option
+

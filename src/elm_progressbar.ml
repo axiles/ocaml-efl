@@ -30,3 +30,6 @@ let unit_format_set obj fmt =
   | Float f -> Some (string_of_format f) in
   unit_format_set_ obj fmt1
 
+external unit_format_get : Evas.obj -> string option =
+  "ml_elm_progressbar_unit_format_get"
+

@@ -55,3 +55,15 @@ PREFIX value ml_elm_progressbar_unit_format_set(value v_obj, value v_format)
         return Val_unit;
 }
 
+PREFIX value ml_elm_progressbar_unit_format_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        const char* format = elm_progressbar_unit_format_get(
+                (Evas_Object*) v_obj);
+        if(format == NULL) CAMLreturn(Val_int(0));
+        v = caml_alloc(1, 0);
+        Store_field(v, 0, copy_string(format));
+        CAMLreturn(v);
+}
+
