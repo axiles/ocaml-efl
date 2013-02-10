@@ -35,3 +35,9 @@ PREFIX value ml_elm_progressbar_value_get(value v_obj)
         return copy_double(elm_progressbar_value_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_progressbar_span_size_set(value v_obj, value v_v)
+{
+        elm_progressbar_span_size_set((Evas_Object*) v_obj, Int_val(v_v));
+        return Val_unit;
+}
+

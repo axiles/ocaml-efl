@@ -10,3 +10,5 @@ val value_set : Evas.obj -> float -> unit
 
 val value_get : Evas.obj -> float
 
+val span_size_set : Evas.obj -> int -> unit
+
