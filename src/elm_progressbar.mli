@@ -1,3 +1,11 @@
+(** elm_progressbar_* *)
+
+(** The following function will not be interfaced:
+
+elm_progressbar_unit_format_function_set
+
+Use a callback instead. *)
+
 type format =
   | Hidden
   | Unit of (unit, unit, unit) Pervasives.format
