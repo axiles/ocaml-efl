@@ -29,3 +29,5 @@ val horizontal_get : Evas.obj -> bool
 
 val inverted_set : Evas.obj -> bool -> unit
 
+val inverted_get : Evas.obj -> bool
+

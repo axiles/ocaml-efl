@@ -41,3 +41,5 @@ external horizontal_get : Evas.obj -> bool = "ml_elm_progressbar_horizontal_get"
 external inverted_set : Evas.obj -> bool -> unit =
   "ml_elm_progressbar_inverted_set"
 
+external inverted_get : Evas.obj -> bool = "ml_elm_progressbar_inverted_get"
+
