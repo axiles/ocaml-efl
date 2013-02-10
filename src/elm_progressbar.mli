@@ -12,3 +12,5 @@ val value_get : Evas.obj -> float
 
 val span_size_set : Evas.obj -> int -> unit
 
+val span_size_get : Evas.obj -> int
+
