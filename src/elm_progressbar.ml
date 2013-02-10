@@ -8,3 +8,5 @@ external pulse : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse"
 
 external value_set : Evas.obj -> float -> unit = "ml_elm_progressbar_value_set"
 
+external value_get : Evas.obj -> float = "ml_elm_progressbar_value_get"
+

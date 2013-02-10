@@ -30,3 +30,8 @@ PREFIX value ml_elm_progressbar_value_set(value v_obj, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_progressbar_value_get(value v_obj)
+{
+        return copy_double(elm_progressbar_value_get((Evas_Object*) v_obj));
+}
+
