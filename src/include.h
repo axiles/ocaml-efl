@@ -29,6 +29,7 @@
 #include "edje_wrap.h"
 #include "elm_wrap.h"
 #include "elm_scroller_wrap.h"
+#include "elm_list_wrap.h"
 
 #endif
 
