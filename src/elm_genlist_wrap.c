@@ -32,3 +32,8 @@ PREFIX value ml_elm_genlist_mode_set(value v_obj, value v_mode)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_mode_get(value v_obj)
+{
+        return Val_Elm_List_Mode(elm_genlist_mode_get((Evas_Object*) v_obj));
+}
+
