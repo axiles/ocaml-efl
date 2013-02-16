@@ -7,3 +7,9 @@ PREFIX value ml_elm_genlist_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_genlist_clear(value v_obj)
+{
+        elm_genlist_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
