@@ -212,3 +212,9 @@ Executable menu_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: menu_example_01.ml
+Executable progressbar_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: progressbar_example.ml
