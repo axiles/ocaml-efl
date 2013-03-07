@@ -36,3 +36,5 @@ val item_insert_after :
   Evas.obj -> item_class -> Elm_object.item option -> Elm_object.item ->
     item_type -> Evas.smart_cb -> Elm_object.item
 
+val selected_item_get : Evas.obj -> Elm_object.item option
+

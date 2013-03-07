@@ -44,3 +44,6 @@ external item_insert_after :
   "ml_elm_genlist_item_insert_after_byte"
   "ml_elm_genlist_item_insert_after_native"
 
+external selected_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_genlist_selected_item_get"
+
