@@ -1,5 +1,25 @@
 #include "include.h"
 
+PREFIX void ml_Elm_Genlist_Item_Class(
+        Elm_Gen_Item_Class** class, void** data, value v)
+{
+        Elm_Gen_Item_Class* c = elm_genlist_item_class_new();
+        if(c == NULL) caml_raise_out_of_memory();
+
+        c->item_style = String_val(Field(v, 0));
+        c->func.text_get = ml_Elm_Gen_Item_Text_Get_Cb;
+        c->func.content_get = ml_Elm_Gen_Item_Content_Get_Cb;
+        c->func.state_get = ml_Elm_Gen_Item_State_Get_Cb;
+        c->func.del = ml_Elm_Gen_Item_Del_Cb;
+
+        value* v_data = caml_stat_alloc(sizeof(value));
+        *v_data = v;
+        caml_register_global_root(v_data);
+
+        *class = c;
+        *data = v_data;
+}
+
 PREFIX value ml_elm_genlist_add(value v_parent)
 {
         Evas_Object* obj = elm_genlist_add((Evas_Object*) v_parent);

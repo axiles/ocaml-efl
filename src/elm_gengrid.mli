@@ -1,4 +1,4 @@
-type item_class = {
+type item_class = Elm_gen.item_class = {
   item_style : string;
   func_text_get : Evas.obj -> string -> string;
   func_content_get : Evas.obj -> string -> Evas.obj option;
