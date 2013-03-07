@@ -20,7 +20,7 @@ Library efl
   Modules:
     Evas, Evas_object, Evas_object_smart, Ecore, Edje, Elm, Elm_object,
     Elm_layout, Elm_scroller, Elm_win, Elm_bg, Elm_label, Elm_box, Elm_button,
-    Elm_frame, Elm_icon, Elm_entry, Elm_gengrid, Elm_check, Elm_inwin,
+    Elm_frame, Elm_icon, Elm_entry, Elm_gen, Elm_gengrid, Elm_check, Elm_inwin,
     Elm_win_inwin, Elm_naviframe, Elm_theme, Elm_radio, Elm_app, Elm_image,
     Elm_separator, Elm_notify, Elm_spinner, Elm_clock, Elm_hover, Ecore_timer,
     Elm_config_engine, Elm_fileselector, Elm_list, Elm_menu, Elm_progressbar,
@@ -36,7 +36,7 @@ Library efl
     elm_inwin_wrap.c, elm_hover_wrap.c, elm_config_engine_wrap.c,
     elm_fileselector_wrap.c, elm_list_wrap.c, elm_menu_wrap.c,
     elm_naviframe_wrap.c, elm_progressbar_wrap.c, elm_genlist_wrap.c,
-    elm_list_wrap.h
+    elm_list_wrap.h, elm_gen_wrap.c, elm_gen_wrap.h
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
