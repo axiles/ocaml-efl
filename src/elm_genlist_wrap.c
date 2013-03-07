@@ -220,3 +220,11 @@ PREFIX value ml_elm_genlist_selected_items_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_realized_items_get(value v_obj)
+{
+        Eina_List* list = elm_genlist_realized_items_get((Evas_Object*) v_obj);
+        value v = copy_Eina_List_Elm_Object_Item(list);
+        eina_list_free(list);
+        return v;
+}
+
