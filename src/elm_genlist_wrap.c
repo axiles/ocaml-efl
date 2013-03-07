@@ -214,3 +214,9 @@ PREFIX value ml_elm_genlist_selected_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_genlist_selected_items_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Object_Item(elm_genlist_selected_items_get(
+                (Evas_Object*) v_obj));
+}
+

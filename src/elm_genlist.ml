@@ -47,3 +47,6 @@ external item_insert_after :
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_genlist_selected_item_get"
 
+external selected_items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_genlist_selected_items_get"
+
