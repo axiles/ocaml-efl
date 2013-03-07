@@ -27,3 +27,8 @@ external item_append :
     Evas.smart_cb -> Elm_object.item =
   "ml_elm_genlist_item_append"
 
+external item_prepend :
+  Evas.obj -> item_class -> Elm_object.item option -> item_type ->
+    Evas.smart_cb -> Elm_object.item =
+  "ml_elm_genlist_item_prepend"
+
