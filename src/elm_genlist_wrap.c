@@ -258,3 +258,13 @@ PREFIX value ml_elm_genlist_item_next_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_genlist_item_prev_get(value v_it)
+{
+        Elm_Object_Item* prev = elm_genlist_item_prev_get(
+                (Elm_Object_Item*) v_it);
+        if(prev == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) prev);
+        return v;
+}
+
