@@ -22,3 +22,8 @@ external mode_set : Evas.obj -> Elm_list.mode -> unit =
 
 external mode_get : Evas.obj -> Elm_list.mode = "ml_elm_genlist_mode_get"
 
+external item_append :
+  Evas.obj -> item_class -> Elm_object.item option -> item_type ->
+    Evas.smart_cb -> Elm_object.item =
+  "ml_elm_genlist_item_append"
+

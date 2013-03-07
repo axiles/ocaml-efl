@@ -68,3 +68,33 @@ PREFIX value ml_elm_genlist_mode_get(value v_obj)
         return Val_Elm_List_Mode(elm_genlist_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_item_append(
+        value v_obj, value v_itc, value v_parent, value v_type, value v_func)
+{
+        Elm_Genlist_Item_Class* itc;
+        void* data;
+        ml_Elm_Genlist_Item_Class(&itc, &data, v_itc);
+
+        Elm_Object_Item* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        else parent = (Elm_Object_Item*) Field(v_parent, 0);
+
+        value* func_data = caml_stat_alloc(sizeof(value));
+        *func_data = v_func;
+        caml_register_global_root(data);
+
+        Elm_Object_Item* item = elm_genlist_item_append((Evas_Object*) v_obj,
+                itc, data, parent, Elm_Genlist_Item_Type_val(v_type),
+                ml_Evas_Smart_Cb, func_data);
+        elm_genlist_item_class_free(itc);
+
+        if(item == NULL) {
+                caml_remove_global_root((value*) data);
+                caml_remove_global_root(func_data);
+                free(data);
+                free(func_data);
+                caml_failwith("elm_genlist_item_append");
+        }
+        return (value) item;
+}
+

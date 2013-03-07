@@ -20,3 +20,7 @@ val mode_set : Evas.obj -> Elm_list.mode -> unit
 
 val mode_get : Evas.obj -> Elm_list.mode
 
+val item_append :
+  Evas.obj -> item_class -> Elm_object.item option -> item_type ->
+    Evas.smart_cb -> Elm_object.item
+
