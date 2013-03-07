@@ -32,3 +32,9 @@ external item_prepend :
     Evas.smart_cb -> Elm_object.item =
   "ml_elm_genlist_item_prepend"
 
+external item_insert_before :
+  Evas.obj -> item_class -> Elm_object.item option -> Elm_object.item ->
+    item_type -> Evas.smart_cb -> Elm_object.item =
+  "ml_elm_genlist_item_insert_before_byte"
+  "ml_elm_genlist_item_insert_before_native"
+
