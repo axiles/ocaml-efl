@@ -44,3 +44,5 @@ val realized_items_get : Evas.obj -> Elm_object.item list
 
 val first_item_get : Evas.obj -> Elm_object.item option
 
+val last_item_get : Evas.obj -> Elm_object.item option
+

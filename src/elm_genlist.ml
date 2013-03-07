@@ -56,3 +56,6 @@ external realized_items_get : Evas.obj -> Elm_object.item list =
 external first_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_genlist_first_item_get"
 
+external last_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_genlist_last_item_get"
+
