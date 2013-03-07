@@ -44,6 +44,7 @@ let () =
   g "focus_home";
   g "go";
   g "grid";
+  g "group";
   g "hex";
   g "hide";
   g "host";
@@ -110,6 +111,7 @@ let () =
   g "top_right";
   g "translucent";
   g "transparent";
+  g "tree";
   g "unknown";
   g "url";
   g "utility";

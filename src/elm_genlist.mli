@@ -6,6 +6,8 @@ type item_class = Elm_gen.item_class = {
   func_del : Evas.obj -> unit;
 }
 
+type item_type = [`none | `tree | `group]
+
 val add : Evas.obj -> Evas.obj
 
 val clear : Evas.obj -> unit

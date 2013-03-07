@@ -20,6 +20,17 @@ PREFIX void ml_Elm_Genlist_Item_Class(
         *data = v_data;
 }
 
+PREFIX inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_GENLIST_ITEM_NONE;
+                case Val_tree: return ELM_GENLIST_ITEM_TREE;
+                case Val_group: return ELM_GENLIST_ITEM_GROUP;
+        }
+        caml_failwith("Elm_Genlist_Item_Type_val");
+        return ELM_GENLIST_ITEM_NONE;
+}
+
 PREFIX value ml_elm_genlist_add(value v_parent)
 {
         Evas_Object* obj = elm_genlist_add((Evas_Object*) v_parent);
