@@ -38,3 +38,9 @@ external item_insert_before :
   "ml_elm_genlist_item_insert_before_byte"
   "ml_elm_genlist_item_insert_before_native"
 
+external item_insert_after :
+  Evas.obj -> item_class -> Elm_object.item option -> Elm_object.item ->
+    item_type -> Evas.smart_cb -> Elm_object.item =
+  "ml_elm_genlist_item_insert_after_byte"
+  "ml_elm_genlist_item_insert_after_native"
+

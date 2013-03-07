@@ -166,3 +166,41 @@ PREFIX value ml_elm_genlist_item_insert_before_byte(value* argv, int argn)
                 argv[2], argv[3], argv[4], argv[5]);
 }
 
+PREFIX value ml_elm_genlist_item_insert_after_native(
+        value v_obj, value v_itc, value v_parent, value v_after, value v_type,
+        value v_func)
+{
+        Elm_Genlist_Item_Class* itc;
+        void* data;
+        ml_Elm_Genlist_Item_Class(&itc, &data, v_itc);
+
+        Elm_Object_Item* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        else parent = (Elm_Object_Item*) Field(v_parent, 0);
+
+        value* func_data = caml_stat_alloc(sizeof(value));
+        *func_data = v_func;
+        caml_register_global_root(data);
+
+        Elm_Object_Item* item = elm_genlist_item_insert_after(
+                (Evas_Object*) v_obj, itc, data, parent,
+                (Elm_Object_Item*) v_after, Elm_Genlist_Item_Type_val(v_type),
+                ml_Evas_Smart_Cb, func_data);
+        elm_genlist_item_class_free(itc);
+
+        if(item == NULL) {
+                caml_remove_global_root((value*) data);
+                caml_remove_global_root(func_data);
+                free(data);
+                free(func_data);
+                caml_failwith("elm_genlist_item_insert_after");
+        }
+        return (value) item;
+}
+
+PREFIX value ml_elm_genlist_item_insert_after_byte(value* argv, int argn)
+{
+        return ml_elm_genlist_item_insert_after_native(argv[0], argv[1],
+                argv[2], argv[3], argv[4], argv[5]);
+}
+
