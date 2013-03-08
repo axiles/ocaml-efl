@@ -68,3 +68,6 @@ external item_prev_get : Elm_object.item -> Elm_object.item option =
 external item_selected_set : Elm_object.item -> bool -> unit =
   "ml_elm_genlist_item_selected_set"
 
+external item_selected_get : Elm_object.item -> bool =
+  "ml_elm_genlist_item_selected_get"
+
