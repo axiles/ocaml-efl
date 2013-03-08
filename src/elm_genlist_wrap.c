@@ -268,3 +268,10 @@ PREFIX value ml_elm_genlist_item_prev_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_genlist_item_selected_set(value v_it, value v_flag)
+{
+        elm_genlist_item_selected_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
