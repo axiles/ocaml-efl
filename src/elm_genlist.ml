@@ -89,3 +89,6 @@ external realized_items_update : Evas.obj -> unit =
 
 external items_count : Evas.obj -> int = "ml_elm_genlist_items_count"
 
+external item_tooltip_text_set : Elm_object.item -> string -> unit =
+  "ml_elm_genlist_item_tooltip_text_set"
+

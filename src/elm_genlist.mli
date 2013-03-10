@@ -68,3 +68,5 @@ val realized_items_update : Evas.obj -> unit
 
 val items_count : Evas.obj -> int
 
+val item_tooltip_text_set : Elm_object.item -> string -> unit
+

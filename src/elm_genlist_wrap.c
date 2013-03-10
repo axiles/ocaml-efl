@@ -330,3 +330,10 @@ PREFIX value ml_elm_genlist_items_count(value v_obj)
         return Val_int(elm_genlist_items_count((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_item_tooltip_text_set(value v_it, value v_text)
+{
+        elm_genlist_item_tooltip_text_set((Elm_Object_Item*) v_it,
+                String_val(v_text));
+        return Val_unit;
+}
+
