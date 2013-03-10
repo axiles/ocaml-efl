@@ -48,6 +48,7 @@ let () =
   g "hex";
   g "hide";
   g "host";
+  f "Val_in" "_in";
   g "inlined_image";
   g "invalid";
   g "ip";
@@ -63,6 +64,7 @@ let () =
   g "markup";
   g "markup_utf8";
   g "menu";
+  g "middle";
   g "mixed";
   g "month";
   g "next";

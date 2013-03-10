@@ -31,6 +31,19 @@ PREFIX inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
         return ELM_GENLIST_ITEM_NONE;
 }
 
+PREFIX inline Elm_Genlist_Item_Scrollto_Type
+Elm_Genlist_Item_Scrollto_Type_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_GENLIST_ITEM_SCROLLTO_NONE;
+                case Val_in: return ELM_GENLIST_ITEM_SCROLLTO_IN;
+                case Val_top: return ELM_GENLIST_ITEM_SCROLLTO_TOP;
+                case Val_middle: return ELM_GENLIST_ITEM_SCROLLTO_MIDDLE;
+        }
+        caml_failwith("Elm_Genlist_Item_Scrollto_Type_val");
+        return ELM_GENLIST_ITEM_SCROLLTO_NONE;
+}
+
 PREFIX value ml_elm_genlist_add(value v_parent)
 {
         Evas_Object* obj = elm_genlist_add((Evas_Object*) v_parent);
