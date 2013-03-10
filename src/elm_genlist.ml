@@ -73,3 +73,6 @@ external item_selected_set : Elm_object.item -> bool -> unit =
 external item_selected_get : Elm_object.item -> bool =
   "ml_elm_genlist_item_selected_get"
 
+external item_show : Elm_object.item -> item_scrollto_type -> unit =
+  "ml_elm_genlist_item_show"
+

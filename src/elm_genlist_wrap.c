@@ -294,3 +294,10 @@ PREFIX value ml_elm_genlist_item_selected_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_item_show(value v_it, value v_type)
+{
+        elm_genlist_item_show((Elm_Object_Item*) v_it,
+                Elm_Genlist_Item_Scrollto_Type_val(v_type));
+        return Val_unit;
+}
+
