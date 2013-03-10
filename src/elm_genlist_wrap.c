@@ -325,3 +325,8 @@ PREFIX value ml_elm_genlist_realized_items_update(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_items_count(value v_obj)
+{
+        return Val_int(elm_genlist_items_count((Evas_Object*) v_obj));
+}
+
