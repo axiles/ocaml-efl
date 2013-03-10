@@ -301,3 +301,10 @@ PREFIX value ml_elm_genlist_item_show(value v_it, value v_type)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_bring_in(value v_it, value v_type)
+{
+        elm_genlist_item_bring_in((Elm_Object_Item*) v_it,
+                Elm_Genlist_Item_Scrollto_Type_val(v_type));
+        return Val_unit;
+}
+

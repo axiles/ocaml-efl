@@ -58,3 +58,5 @@ val item_selected_get : Elm_object.item -> bool
 
 val item_show : Elm_object.item -> item_scrollto_type -> unit
 
+val item_bring_in : Elm_object.item -> item_scrollto_type -> unit
+
