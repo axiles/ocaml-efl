@@ -81,3 +81,6 @@ external item_bring_in : Elm_object.item -> item_scrollto_type -> unit =
 
 external item_update : Elm_object.item -> unit = "ml_elm_genlist_item_update"
 
+external item_index_get : Elm_object.item -> int =
+  "ml_elm_genlist_item_index_get"
+

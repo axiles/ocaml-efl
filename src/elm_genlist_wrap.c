@@ -314,3 +314,8 @@ PREFIX value ml_elm_genlist_item_update(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_index_get(value v_it)
+{
+        return Val_int(elm_genlist_item_index_get((Elm_Object_Item*) v_it));
+}
+
