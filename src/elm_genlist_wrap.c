@@ -319,3 +319,9 @@ PREFIX value ml_elm_genlist_item_index_get(value v_it)
         return Val_int(elm_genlist_item_index_get((Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_realized_items_update(value v_obj)
+{
+        elm_genlist_realized_items_update((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

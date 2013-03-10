@@ -84,3 +84,6 @@ external item_update : Elm_object.item -> unit = "ml_elm_genlist_item_update"
 external item_index_get : Elm_object.item -> int =
   "ml_elm_genlist_item_index_get"
 
+external realized_items_update : Evas.obj -> unit =
+  "ml_elm_genlist_realized_items_update"
+

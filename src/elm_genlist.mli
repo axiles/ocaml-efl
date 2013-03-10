@@ -64,3 +64,5 @@ val item_update : Elm_object.item -> unit
 
 val item_index_get : Elm_object.item -> int
 
+val realized_items_update : Evas.obj -> unit
+
