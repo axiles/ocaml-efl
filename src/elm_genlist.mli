@@ -60,3 +60,5 @@ val item_show : Elm_object.item -> item_scrollto_type -> unit
 
 val item_bring_in : Elm_object.item -> item_scrollto_type -> unit
 
+val item_update : Elm_object.item -> unit
+

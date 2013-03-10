@@ -308,3 +308,9 @@ PREFIX value ml_elm_genlist_item_bring_in(value v_it, value v_type)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_update(value v_it)
+{
+        elm_genlist_item_update((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
