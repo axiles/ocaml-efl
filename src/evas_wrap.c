@@ -168,3 +168,8 @@ PREFIX value ml_evas_object_event_callback_add_mouse_down(
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_visible_get(value v_obj)
+{
+        return Val_Eina_Bool(evas_object_visible_get((Evas_Object*) v_obj));
+}
+

@@ -39,3 +39,5 @@ external event_callback_add_mouse_down :
   Evas.obj -> Evas.event_mouse_down event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_down"
 
+external visible_get : Evas.obj -> bool = "ml_evas_object_visible_get"
+

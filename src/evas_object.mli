@@ -31,3 +31,5 @@ val size_hint_min_set : Evas.obj -> int -> int -> unit
 val event_callback_add_mouse_down :
   Evas.obj -> Evas.event_mouse_down event_cb -> unit
 
+val visible_get : Evas.obj -> bool
+
