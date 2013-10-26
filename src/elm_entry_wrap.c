@@ -50,7 +50,8 @@ PREFIX inline Elm_Entry_Filter_Accept_Set
         return as;
 }
 
-PREFIX inline copy_Elm_Entry_Filter_Accept_Set(Elm_Entry_Filter_Accept_Set as)
+PREFIX inline value
+        copy_Elm_Entry_Filter_Accept_Set(Elm_Entry_Filter_Accept_Set as)
 {
         CAMLparam0();
         CAMLlocal1(v);
