@@ -6764,7 +6764,7 @@ let () =
 
   (* Check the installed version of the EFL *)
   let () =
-    let efl_version = "1.7.5" in
+    let efl_version = "1.7.8" in
     let check_error2 i = if i <> 0 then exit i in
     let check_error i =
       if i <> 0 then (
