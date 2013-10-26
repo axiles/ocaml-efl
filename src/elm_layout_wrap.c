@@ -12,27 +12,28 @@ PREFIX value ml_elm_layout_add(value v_parent)
         return (value) layout;
 }
 
-PREFIX ml_elm_layout_file_set(value v_obj, value v_file, value v_group)
+PREFIX value ml_elm_layout_file_set(value v_obj, value v_file, value v_group)
 {
         return Val_Eina_Bool(elm_layout_file_set((Evas_Object*) v_obj,
                 String_val(v_file), String_val(v_group)));
 }
 
-PREFIX ml_elm_layout_theme_set(
+PREFIX value ml_elm_layout_theme_set(
         value v_obj, value v_clas, value v_group, value v_style)
 {
         return Val_Eina_Bool(elm_layout_theme_set((Evas_Object*) v_obj,
                 String_val(v_clas), String_val(v_group), String_val(v_style)));
 }
 
-PREFIX ml_elm_layout_signal_emit(value v_obj, value v_emission, value v_source)
+PREFIX value ml_elm_layout_signal_emit(
+	value v_obj, value v_emission, value v_source)
 {
         elm_layout_signal_emit((Evas_Object*) v_obj, String_val(v_emission),
                 String_val(v_source));
         return Val_unit;
 }
 
-PREFIX ml_elm_layout_signal_callback_add(
+PREFIX value ml_elm_layout_signal_callback_add(
         value v_obj, value v_emission, value v_source, value v_fun)
 {
         value *data = caml_stat_alloc(sizeof(value));
@@ -44,7 +45,7 @@ PREFIX ml_elm_layout_signal_callback_add(
         return Val_unit;
 }
 
-PREFIX ml_elm_layout_signal_callback_del(
+PREFIX value ml_elm_layout_signal_callback_del(
         value v_obj, value v_emission, value v_source, value v_fun)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;

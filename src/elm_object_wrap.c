@@ -101,7 +101,7 @@ PREFIX value ml_elm_object_signal_emit(
         return Val_unit;
 }
 
-PREFIX ml_elm_object_signal_callback_add(
+PREFIX value ml_elm_object_signal_callback_add(
         value v_obj, value v_emission, value v_source, value v_fun)
 {
         CAMLparam4(v_obj, v_emission, v_source, v_fun);
