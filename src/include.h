@@ -29,6 +29,7 @@
 #include "ecore_wrap.h"
 #include "edje_wrap.h"
 #include "elm_wrap.h"
+#include "elm_object_wrap.h"
 #include "elm_gen_wrap.h"
 #include "elm_scroller_wrap.h"
 #include "elm_list_wrap.h"
