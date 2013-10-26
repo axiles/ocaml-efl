@@ -154,6 +154,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_down(
         v_fun = *d;
         v_ev = copy_Evas_Event_Mouse_Down((Evas_Event_Mouse_Down*) event_info);
         caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
 }
 
 PREFIX value ml_evas_object_event_callback_add_mouse_down(
