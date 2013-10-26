@@ -67,6 +67,7 @@ PREFIX inline Elm_Text_Format Elm_Text_Format_val(value v)
         switch(v) {
                 case Val_plain_utf8: return ELM_TEXT_FORMAT_PLAIN_UTF8;
                 case Val_markup_utf8: return ELM_TEXT_FORMAT_MARKUP_UTF8;
+		default: break;
         }
         caml_failwith("Elm_Text_Format_val");
         return ELM_TEXT_FORMAT_PLAIN_UTF8;
@@ -77,6 +78,7 @@ PREFIX inline value Val_Elm_Text_Format(Elm_Text_Format f)
         switch(f) {
                 case ELM_TEXT_FORMAT_PLAIN_UTF8: return Val_plain_utf8;
                 case ELM_TEXT_FORMAT_MARKUP_UTF8: return Val_markup_utf8;
+		default: break;
         }
         caml_failwith("Val_Elm_Text_Format");
         return Val_plain_utf8;
@@ -89,6 +91,7 @@ PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v)
                 case Val_char: return ELM_WRAP_CHAR;
                 case Val_word: return ELM_WRAP_WORD;
                 case Val_mixed: return ELM_WRAP_MIXED;
+		default: break;
         }
         caml_failwith("Elm_Wrap_Type_val");
         return ELM_WRAP_NONE;
@@ -100,6 +103,7 @@ PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t) {
                 case ELM_WRAP_CHAR: return Val_char;
                 case ELM_WRAP_WORD: return Val_word;
                 case ELM_WRAP_MIXED: return Val_mixed;
+		default: break;
         }
         caml_failwith("Val_Elm_Wrap_Type");
         return Val_none;

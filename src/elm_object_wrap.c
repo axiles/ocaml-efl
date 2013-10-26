@@ -8,6 +8,7 @@ PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
                 case Val_none: return ELM_OBJECT_SELECT_MODE_NONE;
                 case Val_display_only:
                                return ELM_OBJECT_SELECT_MODE_DISPLAY_ONLY;
+		default: break;
         }
         caml_failwith("Elm_Object_Select_Mode_val");
         return ELM_OBJECT_SELECT_MODE_DEFAULT;
@@ -20,7 +21,8 @@ PREFIX inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
                 case ELM_OBJECT_SELECT_MODE_ALWAYS: return Val_always;
                 case ELM_OBJECT_SELECT_MODE_NONE: return Val_none;
                 case ELM_OBJECT_SELECT_MODE_DISPLAY_ONLY:
-                                                  return Val_display_only; 
+                                                  return Val_display_only;
+		default: break;
         }
         caml_failwith("Val_Elm_Object_Select_Mode");
         return Val_default;
