@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: adfe16e9713c901edbd98d4896eda14e)
-version = "1.7.5-alpha1"
+# DO NOT EDIT (digest: 3c04c9b8039d1b404afcfd7771e38c36)
+version = "1.7.9-alpha1"
 description =
 "An OCaml interface to the Enlightenment Foundation Libraries (EFL)."
 archive(byte) = "efl.cma"
