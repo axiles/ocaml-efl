@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: ce2f174b14984093d9ad2d34beebd0c2) *)
+(* DO NOT EDIT (digest: f0ac4ae1f86ac4dda2336554ded97a7d) *)
 module OASISGettext = struct
 # 21 "/home/axiles/src/oasis-0.3.0/src/oasis/OASISGettext.ml"
 
@@ -507,39 +507,43 @@ let package_default =
                       A "-cclib";
                       A "-lm";
                       A "-cclib";
+                      A "-leina";
+                      A "-cclib";
+                      A "-lpthread";
+                      A "-cclib";
                       A "-leet";
                       A "-cclib";
                       A "-levas";
                       A "-cclib";
                       A "-lecore";
                       A "-cclib";
-                      A "-leina";
-                      A "-cclib";
                       A "-lecore_evas";
                       A "-cclib";
                       A "-lecore_file";
                       A "-cclib";
+                      A "-lecore_input";
+                      A "-cclib";
                       A "-ledje";
+                      A "-cclib";
+                      A "-leo";
+                      A "-cclib";
+                      A "-lethumb_client";
+                      A "-cclib";
+                      A "-lemotion";
+                      A "-cclib";
+                      A "-lecore_imf";
+                      A "-cclib";
+                      A "-lecore_con";
+                      A "-cclib";
+                      A "-leio";
+                      A "-cclib";
+                      A "-leldbus";
                       A "-cclib";
                       A "-lefreet";
                       A "-cclib";
                       A "-lefreet_mime";
                       A "-cclib";
-                      A "-lefreet_trash";
-                      A "-cclib";
-                      A "-ledbus";
-                      A "-cclib";
-                      A "-ldbus-1";
-                      A "-cclib";
-                      A "-lpthread";
-                      A "-cclib";
-                      A "-lrt";
-                      A "-cclib";
-                      A "-lethumb_client";
-                      A "-cclib";
-                      A "-lecore_imf";
-                      A "-cclib";
-                      A "-lecore_con"
+                      A "-lefreet_trash"
                    ])
             ]);
           (["oasis_library_efl_cclib"; "ocamlmklib"; "c"],
@@ -549,23 +553,25 @@ let package_default =
                    [
                       A "-lelementary";
                       A "-lm";
+                      A "-leina";
+                      A "-lpthread";
                       A "-leet";
                       A "-levas";
                       A "-lecore";
-                      A "-leina";
                       A "-lecore_evas";
                       A "-lecore_file";
+                      A "-lecore_input";
                       A "-ledje";
+                      A "-leo";
+                      A "-lethumb_client";
+                      A "-lemotion";
+                      A "-lecore_imf";
+                      A "-lecore_con";
+                      A "-leio";
+                      A "-leldbus";
                       A "-lefreet";
                       A "-lefreet_mime";
-                      A "-lefreet_trash";
-                      A "-ledbus";
-                      A "-ldbus-1";
-                      A "-lpthread";
-                      A "-lrt";
-                      A "-lethumb_client";
-                      A "-lecore_imf";
-                      A "-lecore_con"
+                      A "-lefreet_trash"
                    ])
             ])
        ];
@@ -575,7 +581,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 579 "myocamlbuild.ml"
+# 585 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 open Ocamlbuild_plugin

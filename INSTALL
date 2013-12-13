@@ -8,7 +8,7 @@ In order to compile this package, you will need:
 * ocaml (>= 3.12)
 * findlib
 * pkg-config
-* elementary (>= 1.7.5) from the Enlightenment Foundation Libraries (EFL)
+* elementary (>= 1.8) from the Enlightenment Foundation Libraries (EFL)
 
 In particular, to install elementary, you will need to install the other
 libraries of the EFL.
