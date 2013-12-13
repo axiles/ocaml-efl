@@ -19,6 +19,7 @@ type input_panel_layout = [
   | `hex
   | `terminal
   | `password
+  | `datetime
 ]
 
 type autocapital_type = [`none | `word | `sentence | `allcharacter]

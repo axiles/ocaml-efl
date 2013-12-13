@@ -22,6 +22,7 @@ let () =
   g "close";
   g "combo";
   g "compress";
+  g "datetime";
   g "default";
   g "desktop";
   g "dialog_basic";

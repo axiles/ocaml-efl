@@ -125,6 +125,7 @@ PREFIX inline Elm_Input_Panel_Layout Elm_Input_Panel_Layout_val(value v)
                 case Val_hex: return ELM_INPUT_PANEL_LAYOUT_HEX;
                 case Val_terminal: return ELM_INPUT_PANEL_LAYOUT_TERMINAL;
                 case Val_password: return ELM_INPUT_PANEL_LAYOUT_PASSWORD;
+                case Val_datetime: return ELM_INPUT_PANEL_LAYOUT_DATETIME;
         }
         caml_failwith("Elm_Input_Panel_Layout_val");
         return ELM_INPUT_PANEL_LAYOUT_NORMAL;
@@ -145,6 +146,7 @@ PREFIX inline value Val_Elm_Input_Panel_Layout(Elm_Input_Panel_Layout l)
                 case ELM_INPUT_PANEL_LAYOUT_HEX: return Val_hex;
                 case ELM_INPUT_PANEL_LAYOUT_TERMINAL: return Val_terminal;
                 case ELM_INPUT_PANEL_LAYOUT_PASSWORD: return Val_password;
+                case ELM_INPUT_PANEL_LAYOUT_DATETIME: return Val_datetime;
         }
         caml_failwith("Val_Elm_Input_Pannel_Layout");
         return Val_normal;
