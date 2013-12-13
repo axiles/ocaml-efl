@@ -99,6 +99,7 @@ let () =
   g "send";
   g "sentence";
   g "show";
+  g "signin";
   g "socket_image";
   g "splash";
   g "standard";

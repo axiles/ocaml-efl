@@ -209,6 +209,7 @@ PREFIX inline Elm_Input_Panel_Return_Key_Type
                 case Val_next: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_NEXT;
                 case Val_search: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEARCH;
                 case Val_send: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEND;
+                case Val_signin: return ELM_INPUT_PANEL_RETURN_KEY_TYPE_SIGNIN;
         }
         caml_failwith("Elm_Input_Panel_Return_Key_Type_val");
         return ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT;
@@ -227,6 +228,7 @@ PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
                 case ELM_INPUT_PANEL_RETURN_KEY_TYPE_NEXT: return Val_next;
                 case ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEARCH: return Val_search;
                 case ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEND: return Val_send;
+                case ELM_INPUT_PANEL_RETURN_KEY_TYPE_SIGNIN: return Val_signin;
         }
         caml_failwith("Val_Elm_INput_Return_Key_Type");
         return Val_default;

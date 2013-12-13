@@ -35,6 +35,7 @@ type input_panel_return_key_type = [
   | `next
   | `search
   | `send
+  | `signin
 ]
 
 type cnp_mode = [`markup | `no_image | `plaintext]
