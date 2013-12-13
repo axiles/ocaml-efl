@@ -178,13 +178,6 @@ val icon_visible_set : Evas.obj -> bool -> unit
 
 val end_visible_set : Evas.obj -> bool -> unit
 
-val scrollbar_policy_set :
-  Evas.obj -> Elm_scroller.policy -> Elm_scroller.policy -> unit
-
-val bounce_set : Evas.obj -> bool -> bool -> unit
-
-val bounce_get : Evas.obj -> bool * bool
-
 val input_panel_layout_set : Evas.obj -> Elm.input_panel_layout -> unit
 
 val input_panel_layout_get : Evas.obj -> Elm.input_panel_layout

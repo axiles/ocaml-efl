@@ -8,7 +8,9 @@ let add_notify win bx ?orient allow_events ?timeout ?cb name =
   Evas_object.show content;
 
   let notify = Elm_notify.add win in
-  (match orient with Some o -> Elm_notify.orient_set notify o | None -> ());
+  (match orient with
+  | Some((h, v)) -> Elm_notify.align_set notify h v
+  | None -> ());
   Elm_notify.allow_events_set notify allow_events;
   (match timeout with Some x -> Elm_notify.timeout_set notify x | None -> ());
   Elm_object.content_set notify content;
@@ -44,8 +46,8 @@ let () =
   Evas_object.show bx;
   
   add_notify1 win bx;
-  add_notify2 win bx "bottom" `bottom;
-  add_notify2 win bx "center" `center;
+  add_notify2 win bx "bottom" (0.5, 1.);
+  add_notify2 win bx "center" (0.5, 0.5);
 
   Evas_object.resize win 100 200;
   Evas_object.show win;

@@ -658,30 +658,6 @@ PREFIX value ml_elm_entry_end_visible_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
-PREFIX value ml_elm_entry_scrollbar_policy_set(value v_obj, value v_h, value v_v)
-{
-        elm_entry_scrollbar_policy_set((Evas_Object*) v_obj,
-                Elm_Scroller_Policy_val(v_h), Elm_Scroller_Policy_val(v_v));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_entry_bounce_set(value v_obj, value v_h, value v_v)
-{
-        elm_entry_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),
-                Eina_Bool_val(v_v));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_entry_bounce_get(value v_obj)
-{
-        Eina_Bool h_bounce, v_bounce;
-        elm_entry_bounce_get((Evas_Object*) v_obj, &h_bounce, &v_bounce);
-        value v = caml_alloc(2, 0);
-        Store_field(v, 0, Val_Eina_Bool(h_bounce));
-        Store_field(v, 1, Val_Eina_Bool(v_bounce));
-        return v;
-}
-
 PREFIX value ml_elm_entry_input_panel_layout_set(value v_obj, value v_layout)
 {
         elm_entry_input_panel_layout_set((Evas_Object*) v_obj,

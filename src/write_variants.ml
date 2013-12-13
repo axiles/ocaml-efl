@@ -14,9 +14,6 @@ let () =
   g "auto";
   g "automatic";
   g "basic";
-  g "bottom";
-  g "bottom_left";
-  g "bottom_right";
   g "center";
   g "char";
   g "close";
@@ -58,7 +55,6 @@ let () =
   g "keypad";
   g "last";
   g "last_window_closed";
-  g "left";
   g "limit";
   g "list";
   g "login";
@@ -89,7 +85,6 @@ let () =
   g "plaintext";
   g "popup_menu";
   g "quit";
-  g "right";
   g "rotate_180";
   g "rotate_270";
   g "rotate_90";
@@ -111,8 +106,6 @@ let () =
   g "toolbar";
   g "tooltip";
   g "top";
-  g "top_left";
-  g "top_right";
   g "translucent";
   g "transparent";
   g "tree";

@@ -1,26 +1,14 @@
 (** elm_notify_* Elm_Notify_* *)
 
-type orient = [
-  | `top
-  | `center
-  | `bottom
-  | `left
-  | `right
-  | `top_left
-  | `top_right
-  | `bottom_left
-  | `bottom_right
-  | `last]
-
 val add : Evas.obj -> Evas.obj
 
 val parent_set : Evas.obj -> Evas.obj -> unit
 
 val parent_get : Evas.obj -> Evas.obj
 
-val orient_set : Evas.obj -> orient -> unit
+val align_set : Evas.obj -> float -> float -> unit
 
-val orient_get : Evas.obj -> orient
+val align_get : Evas.obj -> float * float
 
 val timeout_set : Evas.obj -> float -> unit
 

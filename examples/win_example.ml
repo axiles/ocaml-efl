@@ -42,7 +42,7 @@ let win_action_all win box win2 =
 
 let main_win_del_cb obj =
   let msg = Elm_notify.add obj in
-  Elm_notify.orient_set msg `center;
+  Elm_notify.align_set msg 0.5 0.5;
   Elm_notify.allow_events_set msg false;
   Evas_object.show msg;
 
