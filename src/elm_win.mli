@@ -230,6 +230,10 @@ val xwindow_get : Evas.obj -> Ecore.x_window
 
 val wl_window_get : Evas.obj -> Ecore.wl_window
 
+val floating_mode_set : Evas.obj -> bool -> unit
+
+val floating_mode_get : Evas.obj -> bool
+
 module E : sig
   type u = Evas.Event_type.u
   val delete_request : u
