@@ -18,11 +18,11 @@ external ellipsis_set : Evas.obj -> bool -> unit =
 external ellipsis_get : Evas.obj -> bool =
   "ml_elm_label_ellipsis_get"
 
-external slide_set : Evas.obj -> bool -> unit =
-  "ml_elm_label_slide_set"
+external slide_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_label_slide_mode_set"
 
-external slide_get : Evas.obj -> bool =
-  "ml_elm_label_slide_get"
+external slide_mode_get : Evas.obj -> bool =
+  "ml_elm_label_slide_mode_get"
 
 external slide_duration_set : Evas.obj -> float -> unit =
   "ml_elm_label_slide_duration_set"

@@ -14,9 +14,9 @@ val ellipsis_set : Evas.obj -> bool -> unit
 
 val ellipsis_get : Evas.obj -> bool
 
-val slide_set : Evas.obj -> bool -> unit
+val slide_mode_set : Evas.obj -> bool -> unit
 
-val slide_get : Evas.obj -> bool
+val slide_mode_get : Evas.obj -> bool
 
 val slide_duration_set : Evas.obj -> float -> unit
 

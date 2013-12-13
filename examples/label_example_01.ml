@@ -17,7 +17,7 @@ let () =
   Elm_object.text_set label "Some long text for our label, that is long but \
     not too long.";
   Elm_label.slide_duration_set label 3.;
-  Elm_label.slide_set label true;
+  Elm_label.slide_mode_set label true;
   let (_ : bool) = Elm_object.style_set label "slide_bounce" in
   Evas_object.move label 0 10;
   Evas_object.resize label 200 15;

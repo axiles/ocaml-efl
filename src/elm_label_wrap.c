@@ -41,15 +41,15 @@ PREFIX value ml_elm_label_ellipsis_get(value v_obj)
         return Val_Eina_Bool(elm_label_ellipsis_get((Evas_Object*) v_obj));
 }
 
-PREFIX value ml_elm_label_slide_set(value v_obj, value v_slide)
+PREFIX value ml_elm_label_slide_mode_set(value v_obj, value v_slide)
 {
-        elm_label_slide_set((Evas_Object*) v_obj, Eina_Bool_val(v_slide));
+        elm_label_slide_mode_set((Evas_Object*) v_obj, Eina_Bool_val(v_slide));
         return Val_unit;
 }
 
-PREFIX value ml_elm_label_slide_get(value v_obj)
+PREFIX value ml_elm_label_slide_mode_get(value v_obj)
 {
-        return Val_Eina_Bool(elm_label_slide_get((Evas_Object*) v_obj));
+        return Val_Eina_Bool(elm_label_slide_mode_get((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_label_slide_duration_set(value v_label, value v_d)
