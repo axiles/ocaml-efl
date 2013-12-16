@@ -247,7 +247,6 @@ val window_id_get : Evas.obj -> Ecore.window
 module E : sig
   type u = Evas.Event_type.u
   val delete_request : u
-  val focus_in : u
   val moved : u
   val withdrawn : u
   val iconified : u
@@ -259,5 +258,10 @@ module E : sig
   val maximized : u
   val unmaximized : u
   val ioerr : u
+  val indicator_prop_changed : u
+  val rotation_changed : u
+  val profile_changed : u
+  val focused : u
+  val unfocused : u
 end
 

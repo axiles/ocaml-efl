@@ -62,5 +62,6 @@ val end_get : Evas.obj -> Evas.obj
 module E : sig
   type u = Evas.Event_type.u
   val theme_changed : u
+  val language_changed : u
 end
 

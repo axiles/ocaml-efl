@@ -44,3 +44,9 @@ val item_next_get : Elm_object.item -> Elm_object.item option
 
 val item_prev_get : Elm_object.item -> Elm_object.item option
 
+module E : sig
+  type u = Evas.Event_type.u
+  val clicked : u
+  val dismissed : u
+end
+

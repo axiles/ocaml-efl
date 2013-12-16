@@ -35,7 +35,9 @@ val mode_get : Evas.obj -> mode
 module E : sig
   type 'a v = 'a Evas.Event_type.v
   type u = Evas.Event_type.u
+  val activated : string v
   val selected : string v
+  val selected_invalid : u
   val directory_open : string v
   val _done : (string option) v
 end

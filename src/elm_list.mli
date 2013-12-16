@@ -84,6 +84,10 @@ module E : sig
   val edge_bottom : u
   val edge_left : u
   val edge_right : u
+  val highlighted : u
+  val unhighlighted : u
   val language_changed : u
+  val focused : u
+  val unfocused : u
 end
 

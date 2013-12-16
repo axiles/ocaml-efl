@@ -20,5 +20,7 @@ module E : sig
   val repeated : u
   val pressed : u
   val unpressed : u
+  val focused : u
+  val unfocused : u
 end
 

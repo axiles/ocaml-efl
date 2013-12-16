@@ -310,6 +310,7 @@ module E = struct
   let selection_changed = f "selection,changed"
   let selection_cleared = f "selection,cleared"
   let cursor_changed = f "cursor,changed"
+  let cursor_changed_manual = f "cursor,changed,manual"
   let anchor_clicked = g "anchor,clicked"
   let anchor_in = g "anchor,in"
   let anchor_out = g "anchor,out"
@@ -317,5 +318,6 @@ module E = struct
   let anchor_down = g "anchor,down"
   let preedit_changed = f "preedit,changed"
   let language_changed = f "language,changed"
+  let text_set_done = f "text,set,done"
 end
 

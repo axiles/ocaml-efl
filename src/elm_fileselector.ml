@@ -44,7 +44,9 @@ module E = struct
   let f = Evas.Event_type.create_unit
   let g x = Evas.Event_type.create x Evas.string_of_ptr
   let h x = Evas.Event_type.create x Evas.string_opt_of_ptr
+  let activated = g "activated"
   let selected = g "selected"
+  let selected_invalid = f "selected,invalid"
   let directory_open = g "directory,open"
   let _done = h "done"
 end

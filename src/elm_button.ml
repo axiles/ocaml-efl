@@ -24,5 +24,7 @@ module E = struct
   let repeated = f "repeated"
   let pressed = f "pressed"
   let unpressed = f "unpressed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
 end
 

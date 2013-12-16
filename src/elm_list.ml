@@ -100,6 +100,10 @@ module E = struct
   let edge_bottom = f "edge,bottom"
   let edge_left = f "edge,left"
   let edge_right = f "edge,right"
+  let highlighted = f "highlighted"
+  let unhighlighted = f "unhighlighted"
   let language_changed = f "language,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
 end
 

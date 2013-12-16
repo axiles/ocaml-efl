@@ -93,7 +93,7 @@ let force_focus_cb win _ =
 
 let add_win_focus_cb win name =
   let cb _ = printf "Window focused: %s\n%!" name in
-  Evas_object_smart.callback_add_safe win Elm_win.E.focus_in cb
+  Evas_object_smart.callback_add_safe win Elm_win.E.focused cb
 
 let () =
   Elm.init Sys.argv;

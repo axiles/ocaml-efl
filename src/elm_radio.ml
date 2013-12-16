@@ -19,5 +19,7 @@ module E = struct
   type u = Evas.Event_type.u
   let f = Evas.Event_type.create_unit
   let changed = f "changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
 end
 

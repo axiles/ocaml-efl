@@ -90,5 +90,6 @@ module E = struct
   type u = Evas.Event_type.u
   let f = Evas.Event_type.create_unit
   let theme_changed = f "theme,changed"
+  let language_changed = f "language,changed"
 end
 

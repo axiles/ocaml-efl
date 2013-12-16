@@ -279,8 +279,6 @@ module E = struct
   type u = Evas.Event_type.u
   let f = Evas.Event_type.create_unit
   let delete_request = f "delete,request"
-  let focus_in = f "focus,in"
-  let focus_out = f "focus,out"
   let moved = f "moved"
   let withdrawn = f "widthdrawn"
   let iconified = f "iconified"
@@ -292,6 +290,11 @@ module E = struct
   let maximized = f "maximized"
   let unmaximized = f "unmaximized"
   let ioerr = f "ioerr"
+  let indicator_prop_changed = f "indicator,prop,changed"
+  let rotation_changed = f "rotation,changed"
+  let profile_changed = f "profile,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
 end
 
 

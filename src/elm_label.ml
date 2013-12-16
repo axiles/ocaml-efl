@@ -32,3 +32,10 @@ external slide_duration_get : Evas.obj -> float =
 
 external slide_go : Evas.obj -> unit = "ml_elm_label_slide_go"
 
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let language_changed = f "language,changed"
+  let slide_end = f "slide,end"
+end
+

@@ -259,6 +259,7 @@ module E : sig
   val selection_changed : u
   val selection_cleared : u
   val cursor_changed : u
+  val cursor_changed_manual : u
   val anchor_clicked : anchor_info v
   val anchor_in : anchor_info v
   val anchor_out : anchor_info v
@@ -266,5 +267,6 @@ module E : sig
   val anchor_down : anchor_info v
   val preedit_changed : u
   val language_changed : u
+  val text_set_done : u
 end
 
