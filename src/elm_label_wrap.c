@@ -64,3 +64,9 @@ PREFIX value ml_elm_label_slide_duration_get(value v_label)
                 (Evas_Object*) v_label));
 }
 
+PREFIX value ml_elm_label_slide_go(value v_obj)
+{
+        elm_label_slide_go((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
