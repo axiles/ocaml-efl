@@ -742,3 +742,8 @@ PREFIX value ml_elm_win_floating_mode_get(value v_obj)
         return Val_bool(elm_win_floating_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_window_id_get(value v_obj)
+{
+        return (value) elm_win_window_id_get((Evas_Object*) v_obj);
+}
+

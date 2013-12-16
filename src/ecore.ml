@@ -12,6 +12,8 @@ type task_cb = unit -> bool
 
 type timer
 
+type window
+
 type x_window = int
 
 type wl_window

@@ -273,6 +273,8 @@ external floating_mode_set : Evas.obj -> bool -> unit =
 
 external floating_mode_get : Evas.obj -> bool = "ml_elm_win_floating_mode_get"
 
+external window_id_get : Evas.obj -> Ecore.window = "ml_elm_win_window_id_get"
+
 module E = struct
   type u = Evas.Event_type.u
   let f = Evas.Event_type.create_unit
