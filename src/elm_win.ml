@@ -120,6 +120,16 @@ external withdrawn_set : Evas.obj -> bool -> unit = "ml_elm_win_withdrawn_set"
 
 external withdrawn_get : Evas.obj -> bool = "ml_elm_win_withdrawn_get"
 
+external available_profiles_set : Evas.obj -> string array -> unit =
+  "ml_elm_win_available_profiles_set"
+
+external available_profiles_get : Evas.obj -> string array =
+  "ml_elm_win_available_profiles_get"
+
+external profile_set : Evas.obj -> string -> unit = "ml_elm_win_profile_set"
+
+external profile_get : Evas.obj -> string = "ml_elm_win_profile_get"
+
 external urgent_set : Evas.obj -> bool-> unit = "ml_elm_win_urgent_set"
 
 external urgent_get : Evas.obj -> bool = "ml_elm_win_urgent_get"

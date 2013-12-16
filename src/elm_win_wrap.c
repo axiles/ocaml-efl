@@ -334,6 +334,48 @@ PREFIX value ml_elm_win_withdrawn_get(value v_obj)
         return Val_Eina_Bool(elm_win_withdrawn_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_available_profiles_set(value v_obj, value v_profiles)
+{
+        int size = Wosize_val(v_profiles);
+        char* profiles[size];
+        int i;
+        for(i = 0; i < size; i++) {
+                profiles[i] = String_val(Field(v_profiles, i));
+        }
+        elm_win_available_profiles_set((Evas_Object*) v_obj, (const char**) profiles, size);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_win_available_profiles_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_profiles);
+        unsigned int size;
+        char** profiles;
+        if(!elm_win_available_profiles_get((Evas_Object*) v_obj, &profiles,
+                &size))
+                size = 0;
+        v_profiles = caml_alloc(size, 0);
+        int i;
+        for(i = 0; i < size; i++) {
+                Store_field(v_profiles, i, copy_string(profiles[i]));
+        }
+        CAMLreturn(v_profiles);
+}
+
+PREFIX value ml_elm_win_profile_set(value v_obj, value v_profile)
+{
+        elm_win_profile_set((Evas_Object*) v_obj, String_val(v_profile));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_win_profile_get(value v_obj)
+{
+        const char* profile = elm_win_profile_get((Evas_Object*) v_obj);
+        if(profile == NULL) profile = "";
+        return copy_string(profile);
+}
+
 PREFIX value ml_elm_win_urgent_set(value v_obj, value v_flag)
 {
         elm_win_urgent_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));

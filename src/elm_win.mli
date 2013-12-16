@@ -124,6 +124,14 @@ val withdrawn_set : Evas.obj -> bool -> unit
 
 val withdrawn_get : Evas.obj -> bool
 
+val available_profiles_set : Evas.obj -> string array -> unit
+
+val available_profiles_get : Evas.obj -> string array
+
+val profile_set : Evas.obj -> string -> unit
+
+val profile_get : Evas.obj -> string
+
 val urgent_set : Evas.obj -> bool -> unit
 
 val urgent_get : Evas.obj -> bool
