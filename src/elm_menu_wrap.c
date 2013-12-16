@@ -136,6 +136,12 @@ PREFIX value ml_elm_menu_item_subitems_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_menu_item_subitems_clear(value v_it)
+{
+        elm_menu_item_subitems_clear((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_menu_item_index_get(value v_it)
 {
         return Val_int(elm_menu_item_index_get((Elm_Object_Item*) v_it));

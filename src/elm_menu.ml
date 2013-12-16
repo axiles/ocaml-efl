@@ -41,6 +41,9 @@ external item_is_separator : Elm_object.item -> bool =
 external item_subitems_get : Elm_object.item -> Elm_object.item list =
   "ml_elm_menu_item_subitems_get"
 
+external item_subitems_clear : Elm_object.item -> unit =
+  "ml_elm_menu_item_subitems_clear"
+
 external item_index_get : Elm_object.item -> int = "ml_elm_menu_item_index_get"
 
 external selected_item_get : Evas.obj -> Elm_object.item option =
