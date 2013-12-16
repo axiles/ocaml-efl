@@ -864,6 +864,19 @@ PREFIX value ml_elm_entry_anchor_hover_end(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_input_panel_layout_variation_set(value v_obj, value v_x)
+{
+        elm_entry_input_panel_layout_variation_set(
+                (Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_entry_input_panel_layout_variation_get(value v_obj)
+{
+        return Val_int(elm_entry_input_panel_layout_variation_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
 {
         CAMLparam0();

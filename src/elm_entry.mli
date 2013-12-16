@@ -234,6 +234,10 @@ val anchor_hover_style_get : Evas.obj -> string
 
 val anchor_hover_end : Evas.obj -> unit
 
+val input_panel_layout_variation_set : Evas.obj -> int -> unit
+
+val input_panel_layout_variation_get : Evas.obj -> int
+
 val anchor_info_of_ptr : Evas.ptr -> anchor_info
 
 val anchor_info_of_ptr : Evas.ptr -> anchor_info

@@ -281,6 +281,12 @@ external anchor_hover_style_get : Evas.obj -> string =
 external anchor_hover_end : Evas.obj -> unit =
   "ml_elm_entry_anchor_hover_end"
 
+external input_panel_layout_variation_set : Evas.obj -> int -> unit =
+  "ml_elm_entry_input_panel_layout_variation_set"
+
+external input_panel_layout_variation_get : Evas.obj -> int =
+  "ml_elm_entry_input_panel_layout_variation_get"
+
 external anchor_info_of_ptr : Evas.ptr -> anchor_info =
   "ml_elm_entry_anchor_info_of_ptr"
 
