@@ -233,6 +233,12 @@ external focus_highlight_style_set : Evas.obj -> string option -> unit =
 external focus_highlight_style_get : Evas.obj -> string option =
   "ml_elm_win_focus_highlight_style_get"
 
+external focus_highlight_animate_set : Evas.obj -> bool -> unit =
+  "ml_elm_win_focus_highlight_animate_set"
+
+external focus_highlight_animate_get : Evas.obj -> bool =
+  "ml_elm_win_focus_highlight_animate_get"
+
 external keyboard_mode_set : Evas.obj -> keyboard_mode -> unit =
   "ml_elm_win_keyboard_mode_set"
 

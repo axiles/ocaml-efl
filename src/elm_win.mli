@@ -214,6 +214,10 @@ val focus_highlight_style_set : Evas.obj -> string option -> unit
 
 val focus_highlight_style_get : Evas.obj -> string option
 
+val focus_highlight_animate_set : Evas.obj -> bool -> unit
+
+val focus_highlight_animate_get : Evas.obj -> bool
+
 val keyboard_mode_set : Evas.obj -> keyboard_mode -> unit
 
 val keyboard_mode_get : Evas.obj -> keyboard_mode
