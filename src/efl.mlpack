@@ -1,9 +1,10 @@
 # OASIS_START
-# DO NOT EDIT (digest: 8d33eb7360fe5f0958c28c6cd5d5d93d)
+# DO NOT EDIT (digest: 3cac16e85907ddcdfe65e72d3d314d12)
 Evas
 Evas_object
 Evas_object_smart
 Ecore
+Ecore_thread
 Edje
 Elm
 Elm_object

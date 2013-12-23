@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 89e9836c935ee71eed06a3e5f92708e5)
+# DO NOT EDIT (digest: 59329f3c08ca4ff0bdc2080b79d72eee)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -19,6 +19,7 @@
 "src/evas_object.cmx": for-pack(Efl)
 "src/evas_object_smart.cmx": for-pack(Efl)
 "src/ecore.cmx": for-pack(Efl)
+"src/ecore_thread.cmx": for-pack(Efl)
 "src/edje.cmx": for-pack(Efl)
 "src/elm.cmx": for-pack(Efl)
 "src/elm_object.cmx": for-pack(Efl)
