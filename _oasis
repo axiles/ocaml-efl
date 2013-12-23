@@ -36,7 +36,8 @@ Library efl
     elm_clock_wrap.c, elm_inwin_wrap.c, elm_hover_wrap.c,
     elm_config_engine_wrap.c, elm_fileselector_wrap.c, elm_list_wrap.c,
     elm_menu_wrap.c, elm_naviframe_wrap.c, elm_progressbar_wrap.c,
-    elm_genlist_wrap.c, elm_list_wrap.h, elm_gen_wrap.c, elm_gen_wrap.h
+    elm_genlist_wrap.c, elm_list_wrap.h, elm_gen_wrap.c, elm_gen_wrap.h,
+    ecore_thread_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
