@@ -227,3 +227,9 @@ Executable test_efl_ocaml_threads
   Build$: flag(examples)
   BuildDepends: efl, threads
   MainIs: test_efl_ocaml_threads.ml
+Executable test_efl_ocaml_threads2
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl, threads
+  MainIs: test_efl_ocaml_threads2.ml
