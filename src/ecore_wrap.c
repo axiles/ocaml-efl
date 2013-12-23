@@ -16,32 +16,35 @@ PREFIX void raise_not_Wayland()
 
 PREFIX void ml_Ecore_Cb_1_free(void* data)
 {
-        CAMLparam0();
+        CAMLparam0Acquire();
         CAMLlocal1(v_fun);
         value* v_data = (value*) data;
         v_fun = Field(*v_data, 1);
         caml_callback(v_fun, Val_unit);
         caml_remove_global_root(v_data);
         free(v_data);
-        CAMLreturn0;
+        CAMLreturn0Release;
 }
 
 PREFIX void ml_Ecore_Cb_free(void* data)
 {
-        CAMLparam0();
+        CAMLparam0Acquire();
         CAMLlocal1(v_fun);
         value* v_data = (value*) data;
         v_fun = *v_data;
         caml_callback(v_fun, Val_unit);
         caml_remove_global_root(v_data);
         free(v_data);
-        CAMLreturn0;
+        CAMLreturn0Release;
 }
 
 PREFIX Eina_Bool ml_Ecore_Task_Cb(void* data)
 {
+        caml_acquire_runtime_system();
         value* v_fun = (value*) data;
-        return Eina_Bool_val(caml_callback(*v_fun, Val_unit));
+        Eina_Bool b = Eina_Bool_val(caml_callback(*v_fun, Val_unit));
+        caml_release_runtime_system();
+        return b;
 }
 
 PREFIX value ml_ecore_x_window_focus(value v_win)

@@ -17,7 +17,9 @@ PREFIX value ml_elm_init_with_counter(value v_argv)
 
 PREFIX value ml_elm_run(value v_unit)
 {
+        caml_release_runtime_system();
         elm_run();
+        caml_acquire_runtime_system();
         return Val_unit;
 }
 
