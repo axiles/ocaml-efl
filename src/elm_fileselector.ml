@@ -44,6 +44,12 @@ external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_fileselector_mode_get"
 
+external multi_select_set : Evas.obj -> bool -> unit =
+  "ml_elm_fileselector_multi_select_set"
+
+external multi_select_get : Evas.obj -> bool =
+  "ml_elm_fileselector_multi_select_get"
+
 module E = struct
   type 'a v = 'a Evas.Event_type.v
   type u = Evas.Event_type.u

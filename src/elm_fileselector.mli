@@ -37,6 +37,10 @@ val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
 
+val multi_select_set : Evas.obj -> bool -> unit
+
+val multi_select_get : Evas.obj -> bool
+
 module E : sig
   type 'a v = 'a Evas.Event_type.v
   type u = Evas.Event_type.u
