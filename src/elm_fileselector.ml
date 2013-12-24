@@ -50,6 +50,9 @@ external multi_select_set : Evas.obj -> bool -> unit =
 external multi_select_get : Evas.obj -> bool =
   "ml_elm_fileselector_multi_select_get"
 
+external selected_paths_get : Evas.obj -> string list =
+  "ml_elm_fileselector_selected_paths_get"
+
 module E = struct
   type 'a v = 'a Evas.Event_type.v
   type u = Evas.Event_type.u

@@ -146,3 +146,9 @@ PREFIX value ml_elm_fileselector_multi_select_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_fileselector_selected_paths_get(value v_obj)
+{
+        return copy_Eina_List_string(
+                elm_fileselector_selected_paths_get((Evas_Object*) v_obj));
+}
+

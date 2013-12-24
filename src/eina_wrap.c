@@ -8,7 +8,7 @@ PREFIX inline value Val_Eina_Bool(Eina_Bool b) {
         return Val_int (b);
 }
 
-PREFIX inline value copy_Eina_List_string(Eina_List* list)
+PREFIX inline value copy_Eina_List_string(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);
@@ -25,7 +25,7 @@ PREFIX inline value copy_Eina_List_string(Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Eina_List_Evas_Object(Eina_List* list)
+PREFIX inline value copy_Eina_List_Evas_Object(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);

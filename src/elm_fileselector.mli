@@ -41,6 +41,8 @@ val multi_select_set : Evas.obj -> bool -> unit
 
 val multi_select_get : Evas.obj -> bool
 
+val selected_paths_get : Evas.obj -> string list
+
 module E : sig
   type 'a v = 'a Evas.Event_type.v
   type u = Evas.Event_type.u
