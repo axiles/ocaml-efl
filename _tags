@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 2837eed650c0eb9ff5940bda5806d6cb)
+# DO NOT EDIT (digest: 3f46ba3d1e65a0ea5792fa0d9b4d834c)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -15,11 +15,12 @@
 "_darcs": not_hygienic
 # Library efl
 "src/efl.cmxs": use_efl
+"src/ecore.cmx": for-pack(Efl)
+"src/ecore_thread.cmx": for-pack(Efl)
+"src/ecore_timer.cmx": for-pack(Efl)
 "src/evas.cmx": for-pack(Efl)
 "src/evas_object.cmx": for-pack(Efl)
 "src/evas_object_smart.cmx": for-pack(Efl)
-"src/ecore.cmx": for-pack(Efl)
-"src/ecore_thread.cmx": for-pack(Efl)
 "src/edje.cmx": for-pack(Efl)
 "src/elm.cmx": for-pack(Efl)
 "src/elm_object.cmx": for-pack(Efl)
@@ -48,7 +49,6 @@
 "src/elm_spinner.cmx": for-pack(Efl)
 "src/elm_clock.cmx": for-pack(Efl)
 "src/elm_hover.cmx": for-pack(Efl)
-"src/ecore_timer.cmx": for-pack(Efl)
 "src/elm_config_engine.cmx": for-pack(Efl)
 "src/elm_fileselector.cmx": for-pack(Efl)
 "src/elm_list.cmx": for-pack(Efl)
