@@ -337,3 +337,17 @@ PREFIX value ml_elm_genlist_item_tooltip_text_set(value v_it, value v_text)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_tooltip_content_cb_set(
+        value v_it, value v_func, value v_del_cb)
+{
+        CAMLparam3(v_it, v_func, v_del_cb);
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = caml_alloc(2, 0);
+        Store_field(*data, 0, v_func);
+        Store_field(*data, 1, v_del_cb);
+        caml_register_global_root(data);
+        elm_genlist_item_tooltip_content_cb_set((Elm_Object_Item*) v_it,
+                ml_Elm_Tooltip_Item_Content_Cb_0, data, ml_Evas_Smart_Cb_1);
+        CAMLreturn(Val_unit);
+}
+

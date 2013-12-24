@@ -27,6 +27,7 @@ Library efl
     Edje,
     Elm,
     Elm_object,
+    Elm_tooltip,
     Elm_layout,
     Elm_scroller,
     Elm_win,
