@@ -38,6 +38,8 @@ external mime_types_filter_append :
   Evas.obj -> string -> ?filter_name:string -> unit -> bool =
     "ml_elm_fileselector_mime_types_filter_append"
 
+external filters_clear : Evas.obj -> unit = "ml_elm_fileselector_filters_clear"
+
 external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_fileselector_mode_get"

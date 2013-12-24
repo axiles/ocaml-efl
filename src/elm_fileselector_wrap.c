@@ -114,6 +114,12 @@ PREFIX value ml_elm_fileselector_mime_types_filter_append(
                 (Evas_Object*) v_obj, String_val(v_mime_types), filter_name));
 }
 
+PREFIX value ml_elm_fileselector_filters_clear(value v_obj)
+{
+        elm_fileselector_filters_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
 {
         elm_fileselector_mode_set((Evas_Object*) v_obj,

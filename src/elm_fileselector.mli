@@ -31,6 +31,8 @@ val selected_get : Evas.obj -> string
 val mime_types_filter_append :
   Evas.obj -> string -> ?filter_name:string -> unit -> bool
 
+val filters_clear : Evas.obj -> unit
+
 val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
