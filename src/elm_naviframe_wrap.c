@@ -179,6 +179,16 @@ PREFIX value ml_elm_naviframe_item_title_visible_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_naviframe_item_pop_cb_set(value v_it, value v_fun)
+{
+        CAMLparam2(v_it, v_fun);
+        value* data = caml_stat_alloc(sizeof(value));
+        caml_register_global_root(data);
+        elm_naviframe_item_pop_cb_set((Elm_Object_Item*) v_it,
+                ml_Elm_Naviframe_Item_Pop_Cb, data);
+        CAMLreturn(Val_unit);
+}
+
 PREFIX value ml_elm_naviframe_prev_btn_auto_pushed_set(value v_obj, value v_flag)
 {
         elm_naviframe_prev_btn_auto_pushed_set((Evas_Object*) v_obj,

@@ -1,6 +1,6 @@
 (** elm_naviframe_* *)
 
-type item_pos_cb = Elm_object.item -> bool
+type item_pop_cb = Elm_object.item -> bool
 
 val add : Evas.obj -> Evas.obj
 
@@ -39,6 +39,8 @@ val item_style_get : Elm_object.item -> string
 val item_title_visible_set : Elm_object.item -> bool -> unit
 
 val item_title_visible_get : Elm_object.item -> bool
+
+val item_pop_cb_set : Elm_object.item -> item_pop_cb -> unit
 
 val prev_btn_auto_pushed_set : Evas.obj -> bool -> unit
 

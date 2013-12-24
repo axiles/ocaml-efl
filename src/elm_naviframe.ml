@@ -1,4 +1,4 @@
-type item_pos_cb = Elm_object.item -> bool
+type item_pop_cb = Elm_object.item -> bool
 
 external add : Evas.obj -> Evas.obj = "ml_elm_naviframe_add"
 
@@ -55,6 +55,9 @@ external item_title_visible_set : Elm_object.item -> bool -> unit =
 
 external item_title_visible_get : Elm_object.item -> bool =
   "ml_elm_naviframe_item_title_visible_get"
+
+external item_pop_cb_set : Elm_object.item -> item_pop_cb -> unit =
+  "ml_elm_naviframe_item_pop_cb_set"
 
 external prev_btn_auto_pushed_set : Evas.obj -> bool -> unit =
   "ml_elm_naviframe_prev_btn_auto_pushed_set"
