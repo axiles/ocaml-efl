@@ -105,3 +105,9 @@ let item_tooltip_content_cb_set it func del_cb =
 external item_tooltip_unset : Elm_object.item -> unit =
   "ml_elm_genlist_item_tooltip_unset"
 
+external item_tooltip_style_set : Elm_object.item -> string -> unit =
+  "ml_elm_genlist_item_tooltip_style_set"
+
+external item_tooltip_style_get : Elm_object.item -> string =
+  "ml_elm_genlist_item_tooltip_style_get"
+

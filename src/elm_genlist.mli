@@ -76,3 +76,7 @@ val item_tooltip_content_cb_set :
 
 val item_tooltip_unset : Elm_object.item -> unit
 
+val item_tooltip_style_set : Elm_object.item -> string -> unit
+
+val item_tooltip_style_get : Elm_object.item -> string
+
