@@ -74,3 +74,5 @@ val item_tooltip_content_cb_set :
   Elm_object.item -> Elm_object.item Elm_tooltip.item_content_cb ->
     (Evas.obj -> unit) -> unit
 
+val item_tooltip_unset : Elm_object.item -> unit
+

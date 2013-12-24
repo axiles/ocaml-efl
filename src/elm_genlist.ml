@@ -102,3 +102,6 @@ let item_tooltip_content_cb_set it func del_cb =
   let del_cb1 obj ptr = del_cb obj in
   item_tooltip_content_cb_set_aux it func1 del_cb1
 
+external item_tooltip_unset : Elm_object.item -> unit =
+  "ml_elm_genlist_item_tooltip_unset"
+

@@ -351,3 +351,9 @@ PREFIX value ml_elm_genlist_item_tooltip_content_cb_set(
         CAMLreturn(Val_unit);
 }
 
+PREFIX value ml_elm_genlist_item_tooltip_unset(value v_it)
+{
+        elm_genlist_item_tooltip_unset((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
