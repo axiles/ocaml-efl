@@ -102,7 +102,9 @@ Library efl
     elm_list_wrap.h,
     elm_gen_wrap.c,
     elm_gen_wrap.h,
-    ecore_thread_wrap.c
+    ecore_thread_wrap.c,
+    elm_tooltip_wrap.h,
+    elm_tooltip_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api

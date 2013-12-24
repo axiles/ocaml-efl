@@ -78,6 +78,7 @@
 #include "elm_gen_wrap.h"
 #include "elm_scroller_wrap.h"
 #include "elm_list_wrap.h"
+#include "elm_tooltip_wrap.h"
 
 #endif
 
