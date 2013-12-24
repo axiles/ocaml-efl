@@ -117,3 +117,12 @@ external item_tooltip_window_mode_set : Elm_object.item -> bool -> unit =
 external item_tooltip_window_mode_get : Elm_object.item -> bool =
   "ml_elm_genlist_item_tooltip_window_mode_get"
 
+external item_cursor_set : Elm_object.item -> string -> unit =
+  "ml_elm_genlist_item_cursor_set"
+
+external item_cursor_get : Elm_object.item -> string option =
+  "ml_elm_genlist_item_cursor_get"
+
+external item_cursor_unset : Elm_object.item -> unit =
+  "ml_elm_genlist_item_cursor_unset"
+

@@ -84,3 +84,9 @@ val item_tooltip_window_mode_set : Elm_object.item -> bool -> unit
 
 val item_tooltip_window_mode_get : Elm_object.item -> bool
 
+val item_cursor_set : Elm_object.item -> string -> unit
+
+val item_cursor_get : Elm_object.item -> string option
+
+val item_cursor_unset : Elm_object.item -> unit
+

@@ -384,3 +384,30 @@ PREFIX value ml_elm_genlist_item_tooltip_window_mode_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_item_cursor_set(value v_it, value v_cursor)
+{
+        char* cursor = String_val(v_cursor);
+        elm_genlist_item_cursor_set((Elm_Object_Item*) v_it, cursor);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_cursor_get(value v_it)
+{
+        CAMLparam1(v_it);
+        CAMLlocal1(v_cursor);
+        const char* cursor =
+                elm_genlist_item_cursor_get((Elm_Object_Item*) v_it);
+        if(cursor == NULL) v_cursor = Val_int(0);
+        else {
+                v_cursor = caml_alloc(1, 0);
+                Store_field(v_cursor, 0, copy_string(cursor));
+        }
+        CAMLreturn(v_cursor);
+}
+
+PREFIX value ml_elm_genlist_item_cursor_unset(value v_it)
+{
+        elm_genlist_item_cursor_unset((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
