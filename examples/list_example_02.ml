@@ -11,7 +11,7 @@ let () =
 
   let win = Elm_win.add "list" `basic in
   Elm_win.title_set win "List Example";
-  Evas_object_smart.callback_add_safe win delete_request on_done;
+  Evas_object_smart.callback_add win delete_request on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

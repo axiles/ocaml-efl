@@ -46,7 +46,7 @@ let () =
   Elm_object.text_set button "button - delete items";
   let menu_it1 = add () in
   Elm_object.item_content_set menu_it1 button;
-  Evas_object_smart.callback_add_safe button clicked (del_it menu);
+  Evas_object_smart.callback_add button clicked (del_it menu);
   let (_ : item) = Elm_menu.item_separator_add menu menu_it in
   let (_ : item) = add ~label:"third item" () in
   let (_ : item) = add ~label:"fourth item"  () in

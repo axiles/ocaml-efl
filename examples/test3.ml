@@ -22,7 +22,7 @@ let () =
 
   let win = Elm_win.add "dialog" `basic in
   Elm_win.title_set win "Dialog";
-  Evas_object_smart.callback_add_safe win Elm_win.E.delete_request win_del;
+  Evas_object_smart.callback_add win Elm_win.E.delete_request win_del;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg 0. 0.;
@@ -70,7 +70,7 @@ let () =
   Evas_object.size_hint_align_set bt (-1.) (-1.);
   Elm_box.pack_end bx2 bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add_safe bt Elm_button.E.clicked on_ok;
+  Evas_object_smart.callback_add bt Elm_button.E.clicked on_ok;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Cancel";
@@ -78,7 +78,7 @@ let () =
   Evas_object.size_hint_align_set bt (-1.) (-1.);
   Elm_box.pack_end bx2 bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add_safe bt Elm_button.E.clicked on_cancel;
+  Evas_object_smart.callback_add bt Elm_button.E.clicked on_cancel;
 
   Evas_object.show win;
 

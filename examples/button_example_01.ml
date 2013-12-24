@@ -114,9 +114,9 @@ let () =
     Evas_object.size_hint_align_set mid ax2 ay2 in
 
   let aux1 cursor =
-    Evas_object_smart.callback_add_safe cursor Elm_button.E.repeated
+    Evas_object_smart.callback_add cursor Elm_button.E.repeated
       move_cursor;
-    Evas_object_smart.callback_add_safe cursor Elm_button.E.unpressed
+    Evas_object_smart.callback_add cursor Elm_button.E.unpressed
       release_cb in
   List.iter aux1 cursors;
 
@@ -129,7 +129,7 @@ let () =
     List.iter (fun cursor -> f cursor x) cursors in
 
   let aux2 cursor =
-    Evas_object_smart.callback_add_safe cursor Elm_button.E.clicked options_cb
+    Evas_object_smart.callback_add cursor Elm_button.E.clicked options_cb
   in
   List.iter aux2 (initial_param_list @ gap_param_list);
 

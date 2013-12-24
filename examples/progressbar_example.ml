@@ -59,7 +59,7 @@ let stop_cb list_pb _ =
 let add_bt win bt_bx label cb =
   let bt = Elm_button.add win in
   Elm_object.text_set bt label;
-  Evas_object_smart.callback_add_safe bt clicked cb;
+  Evas_object_smart.callback_add bt clicked cb;
   Elm_box.pack_end bt_bx bt;
   Evas_object.show bt
 
@@ -69,7 +69,7 @@ let () =
   Elm_app.info_set "elementary" ~checkfile:"images/logo_small.jpg" ();
   let win = Elm_win.add "progressbar" `basic in
   Elm_win.title_set win "Progress bar example";
-  Evas_object_smart.callback_add_safe win delete_request on_done;
+  Evas_object_smart.callback_add win delete_request on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
