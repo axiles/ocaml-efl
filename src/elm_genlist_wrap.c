@@ -370,3 +370,17 @@ PREFIX value ml_elm_genlist_item_tooltip_style_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_item_tooltip_window_mode_set(
+        value v_it, value v_flag)
+{
+        elm_genlist_item_tooltip_window_mode_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_tooltip_window_mode_get(value v_it)
+{
+        return Val_bool(elm_genlist_item_tooltip_window_mode_get(
+                (Elm_Object_Item*) v_it));
+}
+

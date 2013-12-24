@@ -111,3 +111,9 @@ external item_tooltip_style_set : Elm_object.item -> string -> unit =
 external item_tooltip_style_get : Elm_object.item -> string =
   "ml_elm_genlist_item_tooltip_style_get"
 
+external item_tooltip_window_mode_set : Elm_object.item -> bool -> unit =
+  "ml_elm_genlist_item_tooltip_window_mode_set"
+
+external item_tooltip_window_mode_get : Elm_object.item -> bool =
+  "ml_elm_genlist_item_tooltip_window_mode_get"
+

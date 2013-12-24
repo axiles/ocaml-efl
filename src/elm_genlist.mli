@@ -80,3 +80,7 @@ val item_tooltip_style_set : Elm_object.item -> string -> unit
 
 val item_tooltip_style_get : Elm_object.item -> string
 
+val item_tooltip_window_mode_set : Elm_object.item -> bool -> unit
+
+val item_tooltip_window_mode_get : Elm_object.item -> bool
+
