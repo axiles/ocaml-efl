@@ -1,5 +1,7 @@
 (** elm_naviframe_* *)
 
+type item_pos_cb = Elm_object.item -> bool
+
 val add : Evas.obj -> Evas.obj
 
 val item_push :
