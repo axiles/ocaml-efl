@@ -8,6 +8,15 @@ PREFIX void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
         caml_release_runtime_system();
 }
 
+PREFIX void ml_Evas_Smart_Cb_1(void *data, Evas_Object *obj, void *event_info)
+{
+        caml_acquire_runtime_system();
+        value* v_data = (value*) data;
+        value v_fun = Field(*v_data, 1);
+        caml_callback2(v_fun, (value) obj, (value) event_info);
+        caml_release_runtime_system();
+}
+
 PREFIX value ml_evas_object_smart_callback_add(
         value v_obj, value v_event, value v_func)
 {
