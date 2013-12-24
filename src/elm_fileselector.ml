@@ -34,6 +34,10 @@ external selected_set : Evas.obj -> string -> bool =
 
 external selected_get : Evas.obj -> string = "ml_elm_fileselector_selected_get"
 
+external mime_types_filter_append :
+  Evas.obj -> string -> ?filter_name:string -> unit -> bool =
+    "ml_elm_fileselector_mime_types_filter_append"
+
 external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_fileselector_mode_get"

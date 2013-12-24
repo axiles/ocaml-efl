@@ -104,6 +104,16 @@ PREFIX value ml_elm_fileselector_selected_get(value v_obj)
         return copy_string(elm_fileselector_selected_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_fileselector_mime_types_filter_append(
+        value v_obj, value v_mime_types, value v_filter_name, value v_unit)
+{
+        char* filter_name;
+        if(v_filter_name == Val_int(0)) filter_name = NULL;
+        else filter_name = String_val(Field(v_filter_name, 0));
+        return Val_bool(elm_fileselector_mime_types_filter_append(
+                (Evas_Object*) v_obj, String_val(v_mime_types), filter_name));
+}
+
 PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
 {
         elm_fileselector_mode_set((Evas_Object*) v_obj,

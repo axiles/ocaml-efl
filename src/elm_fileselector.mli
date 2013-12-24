@@ -28,6 +28,9 @@ val selected_set : Evas.obj -> string -> bool
 
 val selected_get : Evas.obj -> string
 
+val mime_types_filter_append :
+  Evas.obj -> string -> ?filter_name:string -> unit -> bool
+
 val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
