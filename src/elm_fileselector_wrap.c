@@ -120,6 +120,19 @@ PREFIX value ml_elm_fileselector_filters_clear(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_fileselector_hidden_visible_set(value v_obj, value v_flag)
+{
+        elm_fileselector_hidden_visible_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_hidden_visible_get(value v_obj)
+{
+        return Val_bool(elm_fileselector_hidden_visible_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
 {
         elm_fileselector_mode_set((Evas_Object*) v_obj,

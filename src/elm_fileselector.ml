@@ -40,6 +40,12 @@ external mime_types_filter_append :
 
 external filters_clear : Evas.obj -> unit = "ml_elm_fileselector_filters_clear"
 
+external hidden_visible_set : Evas.obj -> bool -> unit =
+  "ml_elm_fileselector_hidden_visible_set"
+
+external hidden_visible_get : Evas.obj -> bool =
+  "ml_elm_fileselector_hidden_visible_get"
+
 external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_fileselector_mode_get"

@@ -33,6 +33,10 @@ val mime_types_filter_append :
 
 val filters_clear : Evas.obj -> unit
 
+val hidden_visible_set : Evas.obj -> bool -> unit
+
+val hidden_visible_get : Evas.obj -> bool
+
 val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
