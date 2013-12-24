@@ -52,7 +52,11 @@ external shutdown : unit -> unit = "ml_elm_shutdown"
 
 external exit : unit -> unit = "ml_elm_exit"
 
-external policy_set : policy -> policy_value -> bool = "ml_elm_policy_set"
+external policy_set_bool : policy -> policy_value -> bool = "ml_elm_policy_set"
+
+let policy_set p pv =
+  let (_ : bool) = policy_set_bool p pv in
+  ()
 
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 

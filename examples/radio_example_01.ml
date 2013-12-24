@@ -44,7 +44,7 @@ let () =
   let win = Elm_win.add "radio" `basic in
   Elm_win.title_set win "Radio";
   Elm_win.autodel_set win true;
-  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
+  Elm.policy_set `quit `last_window_closed;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

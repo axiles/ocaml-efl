@@ -18,7 +18,7 @@ let add_button window box text =
 
 let () =
   Elm.init Sys.argv;
-  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
+  Elm.policy_set `quit `last_window_closed;
   let window = Elm_win.add "two buttons" `basic in
   Elm_win.autodel_set window true;
 

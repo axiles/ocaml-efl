@@ -6,7 +6,7 @@ let () =
   Elm.init Sys.argv;
 
   let win = Elm_win.add "Button example" `basic in
-  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
+  Elm.policy_set `quit `last_window_closed;
   Elm_win.title_set win "Button example";
   Elm_win.autodel_set win true;
   Evas_object.resize win 300 320;

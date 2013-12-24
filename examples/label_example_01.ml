@@ -6,7 +6,7 @@ let () =
   let win = Elm_win.add "label" `basic in
   Elm_win.title_set win "Label";
   Elm_win.autodel_set win true;
-  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
+  Elm.policy_set `quit `last_window_closed;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;

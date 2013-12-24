@@ -82,7 +82,7 @@ let screenshot_hack_cb data () = btn_clicked data ; false
 let () =
   Elm.init Sys.argv;
 
-  let (_ : bool) = Elm.policy_set `quit `last_window_closed in
+  Elm.policy_set `quit `last_window_closed;
   let win = Elm_win.add "inwin-example" `basic in
   Elm_win.title_set win "Inwin Example";
   Evas_object.resize win 400 400;
