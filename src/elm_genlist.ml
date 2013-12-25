@@ -171,3 +171,6 @@ external item_expanded_set : Elm_object.item -> bool -> unit =
 external item_expanded_get : Elm_object.item -> bool =
   "ml_elm_genlist_item_expanded_get"
 
+external item_expanded_depth_get : Elm_object.item -> int =
+  "ml_elm_genlist_item_expanded_depth_get"
+

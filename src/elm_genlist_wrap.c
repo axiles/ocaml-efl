@@ -531,3 +531,9 @@ PREFIX value ml_elm_genlist_item_expanded_get(value v_it, value v_flag)
         return Val_bool(elm_genlist_item_expanded_get((Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_item_expanded_depth_get(value v_it)
+{
+        return Val_int(elm_genlist_item_expanded_depth_get(
+                (Elm_Object_Item*) v_it));
+}
+

@@ -120,3 +120,5 @@ val item_expanded_set : Elm_object.item -> bool -> unit
 
 val item_expanded_get : Elm_object.item -> bool
 
+val item_expanded_depth_get : Elm_object.item -> int
+
