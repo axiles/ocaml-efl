@@ -132,3 +132,9 @@ external item_cursor_style_set : Elm_object.item -> string -> unit =
 external item_cursor_style_get : Elm_object.item -> string option =
   "ml_elm_genlist_item_cursor_style_get"
 
+external item_cursor_engine_only_set : Elm_object.item -> bool -> unit =
+  "ml_elm_genlist_item_cursor_engine_only_set"
+
+external item_cursor_engine_only_get : Elm_object.item -> bool =
+  "ml_elm_genlist_item_cursor_engine_only_get"
+

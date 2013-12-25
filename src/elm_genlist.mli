@@ -94,3 +94,7 @@ val item_cursor_style_set : Elm_object.item -> string -> unit
 
 val item_cursor_style_get : Elm_object.item -> string option
 
+val item_cursor_engine_only_set : Elm_object.item -> bool -> unit
+
+val item_cursor_engine_only_get : Elm_object.item -> bool
+
