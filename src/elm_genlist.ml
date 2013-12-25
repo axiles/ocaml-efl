@@ -138,3 +138,9 @@ external item_cursor_engine_only_set : Elm_object.item -> bool -> unit =
 external item_cursor_engine_only_get : Elm_object.item -> bool =
   "ml_elm_genlist_item_cursor_engine_only_get"
 
+external homogeneous_set : Evas.obj -> bool -> unit =
+  "ml_elm_genlist_homogeneous_set"
+
+external homogeneous_get : Evas.obj -> bool =
+  "elm_genlist_homogeneous_get"
+

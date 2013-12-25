@@ -98,3 +98,7 @@ val item_cursor_engine_only_set : Elm_object.item -> bool -> unit
 
 val item_cursor_engine_only_get : Elm_object.item -> bool
 
+val homogeneous_set : Evas.obj -> bool -> unit
+
+val homogeneous_get : Evas.obj -> bool
+
