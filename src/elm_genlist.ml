@@ -174,3 +174,6 @@ external item_expanded_get : Elm_object.item -> bool =
 external item_expanded_depth_get : Elm_object.item -> int =
   "ml_elm_genlist_item_expanded_depth_get"
 
+external item_all_contents_unset : Elm_object.item -> Elm_object.item list =
+   "ml_elm_genlist_item_all_contents_unset"
+

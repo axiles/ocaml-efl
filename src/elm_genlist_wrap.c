@@ -537,3 +537,10 @@ PREFIX value ml_elm_genlist_item_expanded_depth_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_item_all_contents_unset(value v_it)
+{
+        Eina_List* list;
+        elm_genlist_item_all_contents_unset((Elm_Object_Item*) v_it, &list);
+        return copy_Eina_List_Elm_Object_Item(list);
+}
+

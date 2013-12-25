@@ -122,3 +122,5 @@ val item_expanded_get : Elm_object.item -> bool
 
 val item_expanded_depth_get : Elm_object.item -> int
 
+val item_all_contents_unset : Elm_object.item -> Elm_object.item list
+
