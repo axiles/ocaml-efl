@@ -116,3 +116,7 @@ val item_parent_get : Elm_object.item -> Elm_object.item option
 
 val item_subitems_clear : Elm_object.item -> unit
 
+val item_expanded_set : Elm_object.item -> bool -> unit
+
+val item_expanded_get : Elm_object.item -> bool
+

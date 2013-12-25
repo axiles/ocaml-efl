@@ -519,3 +519,15 @@ PREFIX value ml_elm_genlist_item_subitems_clear(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_expanded_set(value v_it, value v_flag)
+{
+        elm_genlist_item_expanded_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_expanded_get(value v_it, value v_flag)
+{
+        return Val_bool(elm_genlist_item_expanded_get((Elm_Object_Item*) v_it));
+}
+

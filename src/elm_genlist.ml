@@ -165,3 +165,9 @@ external item_parent_get : Elm_object.item -> Elm_object.item option =
 external item_subitems_clear : Elm_object.item -> unit =
   "ml_elm_genlist_item_subitems_clear"
 
+external item_expanded_set : Elm_object.item -> bool -> unit =
+  "ml_elm_genlist_item_expanded_set"
+
+external item_expanded_get : Elm_object.item -> bool =
+  "ml_elm_genlist_item_expanded_get"
+
