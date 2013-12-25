@@ -144,3 +144,8 @@ external homogeneous_set : Evas.obj -> bool -> unit =
 external homogeneous_get : Evas.obj -> bool =
   "elm_genlist_homogeneous_get"
 
+external block_count_set : Evas.obj -> int -> unit =
+  "ml_elm_genlist_block_count_set"
+
+external block_count_get : Evas.obj -> int = "ml_elm_genlist_block_count_get"
+

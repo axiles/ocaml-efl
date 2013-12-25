@@ -458,3 +458,14 @@ PREFIX value ml_elm_genlist_homogeneous_get(value v_obj)
         return Val_bool(elm_genlist_homogeneous_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_block_count_set(value v_obj, value v_x)
+{
+        elm_genlist_block_count_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_block_count_get(value v_obj)
+{
+        return Val_int(elm_genlist_block_count_get((Evas_Object*) v_obj));
+}
+

@@ -102,3 +102,7 @@ val homogeneous_set : Evas.obj -> bool -> unit
 
 val homogeneous_get : Evas.obj -> bool
 
+val block_count_set : Evas.obj -> int -> unit
+
+val block_count_get : Evas.obj -> int
+
