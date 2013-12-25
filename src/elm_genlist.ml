@@ -149,3 +149,9 @@ external block_count_set : Evas.obj -> int -> unit =
 
 external block_count_get : Evas.obj -> int = "ml_elm_genlist_block_count_get"
 
+external longpress_timeout_set : Evas.obj -> float -> unit =
+  "ml_elm_genlist_longpress_timeout_set"
+
+external longpress_timeout_get : Evas.obj -> float =
+  "ml_elm_genlist_longpress_timeout_get"
+

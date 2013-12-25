@@ -106,3 +106,7 @@ val block_count_set : Evas.obj -> int -> unit
 
 val block_count_get : Evas.obj -> int
 
+val longpress_timeout_set : Evas.obj -> float -> unit
+
+val longpress_timeout_get : Evas.obj -> float
+
