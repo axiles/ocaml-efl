@@ -502,5 +502,14 @@ PREFIX value ml_elm_genlist_at_xy_item_get(value v_obj, value v_x, value v_y)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_genlist_item_parent_get(value v_it)
+{
+        Elm_Object_Item* parent = elm_genlist_item_parent_get(
+                (Elm_Object_Item*) v_it);
+        if(parent == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) parent);
+        return v_r;
+}
 
 
