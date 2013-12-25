@@ -155,3 +155,7 @@ external longpress_timeout_set : Evas.obj -> float -> unit =
 external longpress_timeout_get : Evas.obj -> float =
   "ml_elm_genlist_longpress_timeout_get"
 
+external at_xy_item_get :
+  Evas.obj -> int -> int -> (Elm_object.item * int) option =
+    "elm_genlist_at_xy_item_get"
+

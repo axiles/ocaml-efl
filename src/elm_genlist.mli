@@ -110,3 +110,5 @@ val longpress_timeout_set : Evas.obj -> float -> unit
 
 val longpress_timeout_get : Evas.obj -> float
 
+val at_xy_item_get : Evas.obj -> int -> int -> (Elm_object.item * int) option
+

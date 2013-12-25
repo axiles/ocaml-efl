@@ -482,3 +482,25 @@ PREFIX value ml_elm_genlist_longpress_timeout_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_at_xy_item_get(value v_obj, value v_x, value v_y)
+{
+        CAMLparam3(v_obj, v_x, v_y);
+        CAMLlocal2(v_item, v_r);
+        Elm_Object_Item* item;
+        int posret;
+        item = elm_genlist_at_xy_item_get((Evas_Object*) v_obj,
+                Int_val(v_x), Int_val(v_y), &posret);
+        if(item == NULL) {
+                v_r = Val_int(0);
+        } else {
+                v_item = caml_alloc(2, 0);
+                Store_field(v_item, 0, (value) item);
+                Store_field(v_item, 1, Val_int(posret));
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, v_item);
+        }
+        CAMLreturn(v_r);
+}
+
+
+
