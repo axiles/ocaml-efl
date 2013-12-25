@@ -513,3 +513,9 @@ PREFIX value ml_elm_genlist_item_parent_get(value v_it)
 }
 
 
+PREFIX value ml_elm_genlist_item_subitems_clear(value v_it)
+{
+        elm_genlist_item_subitems_clear((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
