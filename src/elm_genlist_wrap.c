@@ -544,3 +544,15 @@ PREFIX value ml_elm_genlist_item_all_contents_unset(value v_it)
         return copy_Eina_List_Elm_Object_Item(list);
 }
 
+PREFIX value ml_elm_genlist_item_promote(value v_it)
+{
+        elm_genlist_item_promote((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_demote(value v_it)
+{
+        elm_genlist_item_demote((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+

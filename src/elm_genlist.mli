@@ -124,3 +124,7 @@ val item_expanded_depth_get : Elm_object.item -> int
 
 val item_all_contents_unset : Elm_object.item -> Elm_object.item list
 
+val item_promote : Elm_object.item -> unit
+
+val item_demote : Elm_object.item -> unit
+

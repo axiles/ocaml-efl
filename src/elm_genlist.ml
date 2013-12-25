@@ -177,3 +177,7 @@ external item_expanded_depth_get : Elm_object.item -> int =
 external item_all_contents_unset : Elm_object.item -> Elm_object.item list =
    "ml_elm_genlist_item_all_contents_unset"
 
+external item_promote : Elm_object.item -> unit = "ml_elm_genlist_item_promote"
+
+external item_demote : Elm_object.item -> unit = "ml_elm_genlist_item_demote"
+
