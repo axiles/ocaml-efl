@@ -411,3 +411,25 @@ PREFIX value ml_elm_genlist_item_cursor_unset(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_cursor_style_set(value v_it, value v_style)
+{
+        elm_genlist_item_cursor_style_set((Elm_Object_Item*) v_it,
+                String_val(v_style));
+        return Val_unit;
+}
+
+
+PREFIX value ml_elm_genlist_item_cursor_style_get(value v_it)
+{
+        CAMLparam1(v_it);
+        CAMLlocal1(v_style);
+        const char* style =
+                elm_genlist_item_cursor_style_get((Elm_Object_Item*) v_it);
+        if(style == NULL) v_style = Val_int(0);
+        else {
+                v_style = caml_alloc(1, 0);
+                Store_field(v_style, 0, copy_string(style));
+        }
+        CAMLreturn(v_style);
+}
+

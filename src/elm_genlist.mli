@@ -90,3 +90,7 @@ val item_cursor_get : Elm_object.item -> string option
 
 val item_cursor_unset : Elm_object.item -> unit
 
+val item_cursor_style_set : Elm_object.item -> string -> unit
+
+val item_cursor_style_get : Elm_object.item -> string option
+
