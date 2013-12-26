@@ -691,3 +691,16 @@ PREFIX value ml_elm_genlist_highlight_mode_get(value v_obj)
         return Val_bool(elm_genlist_highlight_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_item_select_mode_set(value v_it, value v_mode)
+{
+        elm_genlist_item_select_mode_set((Elm_Object_Item*) v_it,
+                Elm_Object_Select_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_select_mode_get(value v_it)
+{
+        return Val_Elm_Object_Select_Mode(elm_genlist_item_select_mode_get(
+                (Elm_Object_Item*) v_it));
+}
+
