@@ -31,6 +31,18 @@ PREFIX inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
         return ELM_GENLIST_ITEM_NONE;
 }
 
+PREFIX inline value Val_Elm_Genlist_Item_Type(Elm_Genlist_Item_Type t)
+{
+        switch(t) {
+                case ELM_GENLIST_ITEM_NONE: return Val_none;
+                case ELM_GENLIST_ITEM_TREE: return Val_tree;
+                case ELM_GENLIST_ITEM_GROUP: return Val_group;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Genlist_Item_Type_val");
+        return Val_none;
+}
+
 PREFIX inline Elm_Genlist_Item_Field_Type Elm_Genlist_Item_Field_Type_val(
         value v)
 {
@@ -614,4 +626,9 @@ PREFIX value ml_elm_genlist_reorder_mode_get(value v_obj)
         return Val_bool(elm_genlist_reorder_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_item_type_get(value v_it)
+{
+        return Val_Elm_Genlist_Item_Type(elm_genlist_item_type_get(
+                (Elm_Object_Item*) v_it));
+}
 

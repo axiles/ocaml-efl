@@ -201,3 +201,6 @@ external reorder_mode_set : Evas.obj -> bool -> unit =
 
 external reorder_mode_get : Evas.obj -> bool = "ml_elm_genlist_reorder_mode_get"
 
+external item_type_get : Elm_object.item -> item_type =
+  "ml_elm_genlist_item_type_get"
+
