@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 5fd9053f2f380e7b4bf6ab77037b3ab1)
+# DO NOT EDIT (digest: f0dcc9ca1b1c2bd32c9428704d4e08ae)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -124,8 +124,10 @@
 # Executable test_efl_ocaml_threads2
 "examples/test_efl_ocaml_threads2.byte": use_efl
 "examples/test_efl_ocaml_threads2.byte": pkg_threads
-<examples/*.ml{,i}>: use_efl
 <examples/*.ml{,i}>: pkg_threads
+# Executable genlist_example_01
+"examples/genlist_example_01.byte": use_efl
+<examples/*.ml{,i}>: use_efl
 # OASIS_STOP
 <src/eina_*>: efl
 <src/evas_*>: efl
