@@ -643,3 +643,14 @@ PREFIX value ml_elm_genlist_decorate_mode_get(value v_obj)
         return Val_bool(elm_genlist_decorate_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_item_flip_set(value v_it, value v_flag)
+{
+        elm_genlist_item_flip_set((Elm_Object_Item*) v_it, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_flip_get(value v_it)
+{
+        return Val_bool(elm_genlist_item_flip_get((Elm_Object_Item*) v_it));
+}
+

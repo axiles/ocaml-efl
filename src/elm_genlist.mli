@@ -148,3 +148,7 @@ val decorate_mode_set : Evas.obj -> bool -> unit
 
 val decorate_mode_get : Evas.obj -> bool
 
+val item_flip_set : Elm_object.item -> bool -> unit
+
+val item_flip_get : Elm_object.item -> bool
+

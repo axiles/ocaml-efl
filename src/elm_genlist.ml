@@ -210,3 +210,9 @@ external decorate_mode_set : Evas.obj -> bool -> unit =
 external decorate_mode_get : Evas.obj -> bool =
   "ml_elm_genlist_decorate_mode_get"
 
+external item_flip_set : Elm_object.item -> bool -> unit =
+  "ml_elm_genlist_item_flip_set"
+
+external item_flip_get : Elm_object.item -> bool =
+  "ml_elm_genlist_item_flip_get"
+
