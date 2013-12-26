@@ -183,3 +183,7 @@ external item_promote : Elm_object.item -> unit = "ml_elm_genlist_item_promote"
 
 external item_demote : Elm_object.item -> unit = "ml_elm_genlist_item_demote"
 
+external item_fields_update :
+  Elm_object.item -> string -> item_field_type -> unit =
+    "ml_elm_genlist_item_fields_update"
+

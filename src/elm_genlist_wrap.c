@@ -569,3 +569,11 @@ PREFIX value ml_elm_genlist_item_demote(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_fields_update(
+        value v_it, value v_part, value v_itf)
+{
+        elm_genlist_item_fields_update((Elm_Object_Item*) v_it,
+                String_val(v_part), Elm_Genlist_Item_Field_Type_val(v_itf));
+        return Val_unit;
+}
+
