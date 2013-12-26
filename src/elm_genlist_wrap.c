@@ -704,6 +704,16 @@ PREFIX value ml_elm_genlist_highlight_mode_get(value v_obj)
         return Val_bool(elm_genlist_highlight_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_nth_item_get(value v_obj, value v_k)
+{
+        Elm_Object_Item* it = elm_genlist_nth_item_get((Evas_Object*) v_obj,
+                Int_val(v_k));
+        if(it == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) it);
+        return v_r;
+}
+
 PREFIX value ml_elm_genlist_item_select_mode_set(value v_it, value v_mode)
 {
         elm_genlist_item_select_mode_set((Elm_Object_Item*) v_it,
