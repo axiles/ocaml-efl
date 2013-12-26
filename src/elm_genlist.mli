@@ -144,3 +144,7 @@ val reorder_mode_get : Evas.obj -> bool
 
 val item_type_get : Elm_object.item -> item_type
 
+val decorate_mode_set : Evas.obj -> bool -> unit
+
+val decorate_mode_get : Evas.obj -> bool
+
