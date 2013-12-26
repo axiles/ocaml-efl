@@ -95,6 +95,19 @@ PREFIX value ml_elm_genlist_multi_select_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_genlist_multi_select_mode_set(value v_obj, value v_flag)
+{
+        elm_genlist_multi_select_mode_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_multi_select_mode_get(value v_obj)
+{
+        return Val_bool(elm_genlist_multi_select_mode_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_genlist_mode_set(value v_obj, value v_mode)
 {
         elm_genlist_mode_set((Evas_Object*) v_obj, Elm_List_Mode_val(v_mode));

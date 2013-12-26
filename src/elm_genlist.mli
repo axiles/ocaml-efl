@@ -20,6 +20,10 @@ val multi_select_set : Evas.obj -> bool -> unit
 
 val multi_select_get : Evas.obj -> bool
 
+val multi_select_mode_set : Evas.obj -> bool -> unit
+
+val multi_select_mode_get : Evas.obj -> bool
+
 val mode_set : Evas.obj -> Elm_list.mode -> unit
 
 val mode_get : Evas.obj -> Elm_list.mode
