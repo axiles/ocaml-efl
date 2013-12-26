@@ -160,3 +160,7 @@ val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
 
 val select_mode_get : Evas.obj -> Elm_object.select_mode
 
+val highlight_mode_set : Evas.obj -> bool -> unit
+
+val highlight_mode_get : Evas.obj -> bool
+

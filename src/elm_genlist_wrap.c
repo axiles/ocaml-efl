@@ -667,14 +667,27 @@ PREFIX value ml_elm_genlist_tree_effect_enabled_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
-PREFIX value ml_elm_genlist_select_mode_set(value v_obj, value v_flag)
+PREFIX value ml_elm_genlist_select_mode_set(value v_obj, value v_mode)
 {
-        elm_genlist_select_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        elm_genlist_select_mode_set((Evas_Object*) v_obj,
+                Elm_Object_Select_Mode_val(v_mode));
         return Val_unit;
 }
 
 PREFIX value ml_elm_genlist_select_mode_get(value v_obj)
 {
-        return Val_bool(elm_genlist_select_mode_get((Evas_Object*) v_obj));
+        return Val_Elm_Object_Select_Mode(elm_genlist_select_mode_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_genlist_highlight_mode_set(value v_obj, value v_flag)
+{
+        elm_genlist_highlight_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_highlight_mode_get(value v_obj)
+{
+        return Val_bool(elm_genlist_highlight_mode_get((Evas_Object*) v_obj));
 }
 

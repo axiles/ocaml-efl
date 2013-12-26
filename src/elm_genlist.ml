@@ -228,3 +228,9 @@ external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
 external select_mode_get : Evas.obj -> Elm_object.select_mode =
   "ml_elm_genlist_select_mode_get"
 
+external highlight_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_genlist_highlight_mode_set"
+
+external highlight_mode_get : Evas.obj -> bool =
+  "ml_elm_genlist_highlight_mode_get"
+
