@@ -19,6 +19,8 @@ type event_mouse_down = {
   flags_triple_click : bool;
 }
 
+type aspect_ratio = [`none | `neither | `horizontal | `vertical | `both]
+
 module Event_type : sig
   type 'a t
   type 'a v = (obj -> 'a -> unit) t

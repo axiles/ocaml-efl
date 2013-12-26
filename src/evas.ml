@@ -19,6 +19,8 @@ type event_mouse_down = {
   flags_triple_click : bool;
 }
 
+type aspect_ratio = [`none | `neither | `horizontal | `vertical | `both]
+
 module Event_type = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
   type 'a v = (obj -> 'a -> unit) t

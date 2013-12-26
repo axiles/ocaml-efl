@@ -15,6 +15,7 @@ let () =
   g "auto";
   g "automatic";
   g "basic";
+  g "both";
   g "center";
   g "char";
   g "close";
@@ -47,6 +48,7 @@ let () =
   g "group";
   g "hex";
   g "hide";
+  g "horizontal";
   g "host";
   f "Val_in" "_in";
   g "inlined_image";
@@ -66,6 +68,7 @@ let () =
   g "middle";
   g "mixed";
   g "month";
+  g "neither";
   g "next";
   g "no_image";
   g "none";
@@ -116,5 +119,6 @@ let () =
   g "unknown";
   g "url";
   g "utility";
+  g "vertical";
   g "word";
   flush stdout

@@ -156,6 +156,19 @@ PREFIX inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
         return v;
 }
 
+PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
+{
+        switch(v) {
+                case Val_none: return EVAS_ASPECT_CONTROL_NONE;
+                case Val_neither: return EVAS_ASPECT_CONTROL_NEITHER;
+                case Val_horizontal: return EVAS_ASPECT_CONTROL_HORIZONTAL;
+                case Val_vertical: return EVAS_ASPECT_CONTROL_VERTICAL;
+                case Val_both: return EVAS_ASPECT_CONTROL_BOTH;
+        }
+        caml_failwith("Evas_Aspect_Control_val");
+        return EVAS_ASPECT_CONTROL_NONE;
+}
+
 PREFIX void ml_Evas_Object_Event_Cb_mouse_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
