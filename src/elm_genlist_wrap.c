@@ -577,3 +577,17 @@ PREFIX value ml_elm_genlist_item_fields_update(
         return Val_unit;
 }
 
+PREFIX value ml_elm_genlist_item_decorate_mode_set(
+        value v_it, value v_t, value v_flag)
+{
+        elm_genlist_item_decorate_mode_set((Elm_Object_Item*) v_it,
+                String_val(v_t), Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_genlist_item_decorate_mode_get(value v_it)
+{
+        return copy_string(elm_genlist_item_decorate_mode_get(
+                (Elm_Object_Item*) v_it));
+}
+

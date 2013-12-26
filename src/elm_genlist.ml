@@ -187,3 +187,9 @@ external item_fields_update :
   Elm_object.item -> string -> item_field_type -> unit =
     "ml_elm_genlist_item_fields_update"
 
+external item_decorate_mode_set : Elm_object.item -> string -> bool -> unit =
+  "ml_elm_genlist_item_decorate_mode_set"
+
+external item_decorate_mode_get : Elm_object.item -> string =
+  "ml_elm_genlist_item_decorate_mode_get"
+

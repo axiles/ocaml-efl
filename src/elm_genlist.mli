@@ -132,3 +132,7 @@ val item_demote : Elm_object.item -> unit
 
 val item_fields_update : Elm_object.item -> string -> item_field_type -> unit
 
+val item_decorate_mode_set : Elm_object.item -> string -> bool -> unit
+
+val item_decorate_mode_get : Elm_object.item -> string
+
