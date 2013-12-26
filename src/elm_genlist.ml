@@ -216,3 +216,9 @@ external item_flip_set : Elm_object.item -> bool -> unit =
 external item_flip_get : Elm_object.item -> bool =
   "ml_elm_genlist_item_flip_get"
 
+external tree_effect_enabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_genlist_tree_effect_enabled_set"
+
+external tree_effect_enabled_get : Evas.obj -> bool =
+  "ml_elm_genlist_tree_effect_enabled_get"
+

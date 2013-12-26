@@ -152,3 +152,7 @@ val item_flip_set : Elm_object.item -> bool -> unit
 
 val item_flip_get : Elm_object.item -> bool
 
+val tree_effect_enabled_set : Evas.obj -> bool -> unit
+
+val tree_effect_enabled_get : Evas.obj -> bool
+
