@@ -138,3 +138,7 @@ val item_decorate_mode_get : Elm_object.item -> string
 
 val decorated_item_get : Evas.obj -> Elm_object.item option
 
+val reorder_mode_set : Evas.obj -> bool -> unit
+
+val reorder_mode_get : Evas.obj -> bool
+

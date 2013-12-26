@@ -196,3 +196,8 @@ external item_decorate_mode_get : Elm_object.item -> string =
 external decorated_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_genlist_decorated_item_get"
 
+external reorder_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_genlist_reorder_mode_set"
+
+external reorder_mode_get : Evas.obj -> bool = "ml_elm_genlist_reorder_mode_get"
+
