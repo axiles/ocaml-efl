@@ -222,3 +222,9 @@ external tree_effect_enabled_set : Evas.obj -> bool -> unit =
 external tree_effect_enabled_get : Evas.obj -> bool =
   "ml_elm_genlist_tree_effect_enabled_get"
 
+external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
+  "ml_elm_genlist_select_mode_set"
+
+external select_mode_get : Evas.obj -> Elm_object.select_mode =
+  "ml_elm_genlist_select_mode_get"
+

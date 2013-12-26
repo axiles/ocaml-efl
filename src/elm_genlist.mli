@@ -156,3 +156,7 @@ val tree_effect_enabled_set : Evas.obj -> bool -> unit
 
 val tree_effect_enabled_get : Evas.obj -> bool
 
+val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
+
+val select_mode_get : Evas.obj -> Elm_object.select_mode
+
