@@ -1,3 +1,6 @@
+(* Contrary to the original genlist_example_01, no information about pointers
+is printed*)
+
 open Efl
 open Printf
 
@@ -10,6 +13,7 @@ let add_item win list i =
     if part = "elm.swallow.icon" then (
       let (_ : bool) = Elm_icon.standard_set ic "clock" in
       ());
+    Evas_object.size_hint_aspect_set ic `vertical 1 1;
     Some ic in
   let sel_cb obj item = printf "Item %d selected\n%!" i in
   let state_get obj part = false in
