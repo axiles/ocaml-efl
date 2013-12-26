@@ -198,3 +198,11 @@ PREFIX value ml_evas_object_visible_get(value v_obj)
         return Val_Eina_Bool(evas_object_visible_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_size_hint_aspect_set(
+        value v_obj, value v_aspect, value v_w, value v_h)
+{
+        evas_object_size_hint_aspect_set((Evas_Object*) v_obj,
+                Evas_Aspect_Control_val(v_aspect), Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+

@@ -33,3 +33,4 @@ val event_callback_add_mouse_down :
 
 val visible_get : Evas.obj -> bool
 
+val size_hint_aspect_set : Evas.obj -> Evas.aspect_control -> int -> int -> unit
