@@ -136,3 +136,5 @@ val item_decorate_mode_set : Elm_object.item -> string -> bool -> unit
 
 val item_decorate_mode_get : Elm_object.item -> string
 
+val decorated_item_get : Evas.obj -> Elm_object.item option
+

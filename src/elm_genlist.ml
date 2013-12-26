@@ -193,3 +193,6 @@ external item_decorate_mode_set : Elm_object.item -> string -> bool -> unit =
 external item_decorate_mode_get : Elm_object.item -> string =
   "ml_elm_genlist_item_decorate_mode_get"
 
+external decorated_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_genlist_decorated_item_get"
+

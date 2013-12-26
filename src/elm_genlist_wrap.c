@@ -591,3 +591,15 @@ PREFIX value ml_elm_genlist_item_decorate_mode_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_genlist_decorated_item_get(value v_obj)
+{
+        Elm_Object_Item* it = elm_genlist_decorated_item_get(
+                (Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        else {
+                value v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, (value) it);
+                return v_r;
+        }
+}
+
