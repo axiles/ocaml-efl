@@ -31,6 +31,19 @@ PREFIX inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
         return ELM_GENLIST_ITEM_NONE;
 }
 
+PREFIX inline Elm_Genlist_Item_Field_Type Elm_Genlist_Item_Field_Type_val(
+        value v)
+{
+        switch(v) {
+                case Val_all: return ELM_GENLIST_ITEM_FIELD_ALL;
+                case Val_text: return ELM_GENLIST_ITEM_FIELD_TEXT;
+                case Val_content: return ELM_GENLIST_ITEM_FIELD_CONTENT;
+                case Val_state: return ELM_GENLIST_ITEM_FIELD_STATE;
+        }
+        caml_failwith("Elm_Genlist_Item_Type_val");
+        return ELM_GENLIST_ITEM_FIELD_ALL;
+}
+
 PREFIX inline Elm_Genlist_Item_Scrollto_Type
 Elm_Genlist_Item_Scrollto_Type_val(value v)
 {

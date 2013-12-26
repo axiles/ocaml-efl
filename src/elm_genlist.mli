@@ -8,6 +8,8 @@ type item_class = Elm_gen.item_class = {
 
 type item_type = [`none | `tree | `group]
 
+type item_field_type = [`all | `text | `content | `state]
+
 type item_scrollto_type = [`none | `_in | `top | `middle]
 
 val add : Evas.obj -> Evas.obj

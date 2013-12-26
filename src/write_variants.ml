@@ -7,6 +7,7 @@ let f x y = printf "#define %s %s\n" x (get_hash_value y)
 let g x = f (sprintf "Val_%s" x) x
 
 let () =
+  g "all";
   g "allcharacter";
   g "alpha";
   g "alphabet";
@@ -19,6 +20,7 @@ let () =
   g "close";
   g "combo";
   g "compress";
+  g "content";
   g "datetime";
   g "default";
   g "desktop";
@@ -98,8 +100,10 @@ let () =
   g "socket_image";
   g "splash";
   g "standard";
+  g "state";
   g "stretch";
   g "terminal";
+  g "text";
   g "theme";
   g "theme_fdo";
   g "tile";
