@@ -307,3 +307,9 @@ Executable genlist_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: genlist_example_01.ml
+Executable genlist_example_02
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: genlist_example_02.ml
