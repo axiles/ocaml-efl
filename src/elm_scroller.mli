@@ -6,3 +6,5 @@ val bounce_get : Evas.obj -> bool * bool
 
 val policy_set : Evas.obj -> policy -> policy -> unit
 
+val policy_get : Evas.obj -> policy * policy
+
