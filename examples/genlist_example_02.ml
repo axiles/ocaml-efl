@@ -3,6 +3,14 @@
 open Efl
 open Printf
 
+let string_of_mode (m : Elm_list.mode) =
+  match m with
+  | `compress -> "compress"
+  | `scroll -> "scroll"
+  | `limit -> "limit"
+  | `expand -> "expand"
+  | `last -> "last"
+
 let () =
   Elm.init Sys.argv;
   let win = Elm_win.add "genlist" `basic in
@@ -31,7 +39,7 @@ let () =
   let hbounce, vbounce = Elm_scroller.bounce_get list in
   printf "bounce - horizontal %b, vertical: %b\n" hbounce vbounce;
   printf "homogeneous: %b\n" (Elm_genlist.homogeneous_get list);
-  (*printf "horizontal mode: %b\n" (Elm_genlist.mode_get list);*)
+  printf "horizontal mode: %s\n" (string_of_mode (Elm_genlist.mode_get list));
   printf "longpress timeout: %0.3f\n" (Elm_genlist.longpress_timeout_get list);
   printf "multi selection: %b\n" (Elm_genlist.multi_select_get list);
   printf "no selection mode: %b\n" no_sel;
