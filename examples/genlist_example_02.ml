@@ -11,6 +11,12 @@ let string_of_mode (m : Elm_list.mode) =
   | `expand -> "expand"
   | `last -> "last"
 
+let string_of_policy (p : Elm_scroller.policy) =
+  match p with
+  | `auto -> "auto"
+  | `on -> "on"
+  | `off -> "off"
+
 let () =
   Elm.init Sys.argv;
   let win = Elm_win.add "genlist" `basic in
@@ -43,7 +49,9 @@ let () =
   printf "longpress timeout: %0.3f\n" (Elm_genlist.longpress_timeout_get list);
   printf "multi selection: %b\n" (Elm_genlist.multi_select_get list);
   printf "no selection mode: %b\n" no_sel;
-  (* TODO: policy_get *)
+  let hp, vp = Elm_scroller.policy_get list in
+  printf "scroller policy - horizontal: %s, vertical: %s\n"
+    (string_of_policy hp) (string_of_policy vp);
   printf "block count: %d\n" (Elm_genlist.block_count_get list);
   printf "%!";
 
