@@ -44,3 +44,29 @@ val gravity_set : Evas.obj -> float -> float -> unit
 
 val gravity_get : Evas.obj -> float * float
 
+module E : sig
+  type u = Evas.Event_type.u
+  val edge_left : u
+  val edge_right : u
+  val edge_top : u
+  val edge_bottom : u
+  val scroll : u
+  val scroll_left : u
+  val scroll_right : u
+  val scroll_up : u
+  val scroll_down : u
+  val scroll_anim_start : u
+  val scroll_anim_stop : u
+  val scroll_drag_start : u
+  val scroll_drag_stop : u
+  val vbar_drag : u
+  val vbar_press : u
+  val vbar_unpress : u
+  val hbar_drag : u
+  val hbar_press : u
+  val hbar_unpress : u
+  val scroll_page_changed : u
+  val focused : u
+  val unfocused : u
+end
+

@@ -61,3 +61,30 @@ external gravity_set : Evas.obj -> float -> float -> unit =
 
 external gravity_get : Evas.obj -> float * float = "ml_elm_scroller_gravity_get"
 
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let edge_left = f "edge,left"
+  let edge_right = f "edge,right"
+  let edge_top = f "edge,top"
+  let edge_bottom = f "edge,bottom"
+  let scroll = f "scroll"
+  let scroll_left = f "scroll,left"
+  let scroll_right = f "scroll,right"
+  let scroll_up = f "scroll,up"
+  let scroll_down = f "scroll,dwon"
+  let scroll_anim_start = f "scroll,anim,start"
+  let scroll_anim_stop = f "scroll,anim,stop"
+  let scroll_drag_start = f "scroll,drag,start"
+  let scroll_drag_stop = f "scroll,drag,stop"
+  let vbar_drag = f "vbar,drag"
+  let vbar_press = f "vbar,press"
+  let vbar_unpress = f "vbar,unpress"
+  let hbar_drag = f "hbar,drag"
+  let hbar_press = f "hbar,press"
+  let hbar_unpress = f "hbar,unpress"
+  let scroll_page_changed = f "scroll,page,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
+end
+
