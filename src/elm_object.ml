@@ -67,3 +67,5 @@ external item_text_get : item -> string = "ml_elm_object_item_text_get"
 external item_content_set : item -> Evas.obj -> unit =
   "ml_elm_object_item_content_set"
 
+external item_widget_get : item -> Evas.obj = "ml_elm_object_item_widget_get"
+

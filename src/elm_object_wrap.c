@@ -249,3 +249,8 @@ PREFIX value ml_elm_object_item_content_set(value v_item, value v_content)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_widget_get(value v_item)
+{
+        return (value) elm_object_item_widget_get((Elm_Object_Item*) v_item);
+}
+

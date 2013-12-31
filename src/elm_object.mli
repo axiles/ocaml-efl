@@ -50,3 +50,5 @@ val item_text_get : item -> string
 
 val item_content_set : item -> Evas.obj -> unit
 
+val item_widget_get : item -> Evas.obj
+
