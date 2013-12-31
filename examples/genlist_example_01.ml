@@ -38,7 +38,7 @@ let () =
   Elm_win.autodel_set win true;
 
   let bg = Elm_bg.add win in
-  Elm_bg.color_set bg 255 255 255;
+  (*Elm_bg.color_set bg 255 255 255;*)
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
   Elm_win.resize_object_add win bg;
   Evas_object.show bg;

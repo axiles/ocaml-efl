@@ -313,3 +313,9 @@ Executable genlist_example_02
   Build$: flag(examples)
   BuildDepends: efl, unix
   MainIs: genlist_example_02.ml
+Executable genlist_example_03
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl, unix
+  MainIs: genlist_example_03.ml
