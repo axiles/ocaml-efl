@@ -165,7 +165,7 @@ external longpress_timeout_get : Evas.obj -> float =
 
 external at_xy_item_get :
   Evas.obj -> int -> int -> (Elm_object.item * int) option =
-    "elm_genlist_at_xy_item_get"
+    "ml_elm_genlist_at_xy_item_get"
 
 external item_parent_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_genlist_item_parent_get"

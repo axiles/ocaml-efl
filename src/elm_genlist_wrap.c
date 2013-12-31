@@ -132,7 +132,7 @@ PREFIX value ml_elm_genlist_item_append(
 
         value* func_data = caml_stat_alloc(sizeof(value));
         *func_data = v_func;
-        caml_register_global_root(data);
+        caml_register_global_root(func_data);
 
         Elm_Object_Item* item = elm_genlist_item_append((Evas_Object*) v_obj,
                 itc, data, parent, Elm_Genlist_Item_Type_val(v_type),
@@ -162,7 +162,7 @@ PREFIX value ml_elm_genlist_item_prepend(
 
         value* func_data = caml_stat_alloc(sizeof(value));
         *func_data = v_func;
-        caml_register_global_root(data);
+        caml_register_global_root(func_data);
 
         Elm_Object_Item* item = elm_genlist_item_prepend((Evas_Object*) v_obj,
                 itc, data, parent, Elm_Genlist_Item_Type_val(v_type),
@@ -193,7 +193,7 @@ PREFIX value ml_elm_genlist_item_insert_before_native(
 
         value* func_data = caml_stat_alloc(sizeof(value));
         *func_data = v_func;
-        caml_register_global_root(data);
+        caml_register_global_root(func_data);
 
         Elm_Object_Item* item = elm_genlist_item_insert_before(
                 (Evas_Object*) v_obj, itc, data, parent,
@@ -231,7 +231,7 @@ PREFIX value ml_elm_genlist_item_insert_after_native(
 
         value* func_data = caml_stat_alloc(sizeof(value));
         *func_data = v_func;
-        caml_register_global_root(data);
+        caml_register_global_root(func_data);
 
         Elm_Object_Item* item = elm_genlist_item_insert_after(
                 (Evas_Object*) v_obj, itc, data, parent,

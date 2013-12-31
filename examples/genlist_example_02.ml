@@ -1,4 +1,7 @@
-(* Warning: this example is still under developpment *)
+(* Contrary to the original genlist_example_02, no information about pointers
+is printed.
+
+The index of the items is printed instead.*)
 
 open Efl
 open Printf
@@ -72,6 +75,32 @@ let add_item list i =
     func_del = item_del} in
   Elm_genlist.item_append list itc None `none item_sel_cb
 
+let show_status_cb list obj =
+  let int_of_item item = Elm_genlist.item_index_get item - 1 in
+  let aux item = printf "%d " (int_of_item item) in
+  (match Elm_genlist.selected_item_get list with
+  | None -> printf "\nNo items selected\n"
+  | Some glit ->
+    printf "\nfirst selected item: %d\n" (int_of_item glit);
+    let selected = Elm_genlist.selected_items_get list in
+    printf "all selected items (%d): " (List.length selected);
+    List.iter aux selected;
+    printf "\n");
+  let realized = Elm_genlist.realized_items_get list in
+  printf "realized items (%d): " (List.length realized);
+  List.iter aux realized;
+  printf "\n";
+  printf "genlist mode: %b\n" (Elm_genlist.decorate_mode_get list);
+  (match Elm_genlist.decorated_item_get list with
+  | None -> printf "mode item: none\n"
+  | Some item -> printf "mode item: %d\n" (int_of_item item));
+  let x, y, w, h = Evas_object.geometry_get list in
+  let mx = w / 2 + x and my = h / 2 + y in
+  (match Elm_genlist.at_xy_item_get list mx my with
+  | None -> printf "There are no items in the middle of the screen\n%!"
+  | Some(item, _) ->
+    printf "Item %d is in the middle of the screen\n%!" (int_of_item item))
+
 let realize_cb list obj = Elm_genlist.realized_items_update list
 
 let () =
@@ -142,7 +171,7 @@ let () =
   Elm_object.text_set btn "Show status";
   Evas_object.size_hint_weight_set btn 0. 0.;
   Evas_object.size_hint_align_set btn 0.5 0.5;
-  (* TODO: Add cb *)
+  Evas_object_smart.callback_add btn Elm_button.E.clicked (show_status_cb list);
   Elm_box.pack_end hbox btn;
   Evas_object.show btn;
 

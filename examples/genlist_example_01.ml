@@ -1,5 +1,7 @@
 (* Contrary to the original genlist_example_01, no information about pointers
-is printed*)
+is printed.
+
+The index of the items is printed instead.*)
 
 open Efl
 open Printf
