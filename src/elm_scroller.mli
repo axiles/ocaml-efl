@@ -1,5 +1,7 @@
 type policy = [`auto | `on | `off]
 
+type single_direction = [`none | `soft | `hard | `last]
+
 val add : Evas.obj -> Evas.obj
 
 val content_min_limit : Evas.obj -> int -> int -> unit

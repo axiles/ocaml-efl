@@ -24,6 +24,34 @@ PREFIX inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
         return Val_auto;
 }
 
+PREFIX inline Elm_Scroller_Single_Direction
+Elm_Scroller_Single_Direction_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_SCROLLER_SINGLE_DIRECTION_NONE;
+                case Val_soft: return ELM_SCROLLER_SINGLE_DIRECTION_SOFT;
+                case Val_hard: return ELM_SCROLLER_SINGLE_DIRECTION_HARD;
+                case Val_last: return ELM_SCROLLER_SINGLE_DIRECTION_LAST;
+                default: break;
+        }
+        caml_failwith("Elm_Scroller_Single_Direction_val");
+        return ELM_SCROLLER_SINGLE_DIRECTION_NONE;
+}
+
+PREFIX inline value Val_Elm_Scroller_Single_Direction(
+        Elm_Scroller_Single_Direction sd)
+{
+        switch(sd) {
+                case ELM_SCROLLER_SINGLE_DIRECTION_NONE: return Val_none;
+                case ELM_SCROLLER_SINGLE_DIRECTION_SOFT: return Val_soft;
+                case ELM_SCROLLER_SINGLE_DIRECTION_HARD: return Val_hard;
+                case ELM_SCROLLER_SINGLE_DIRECTION_LAST: return Val_last;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Scroller_Single_Direction");
+        return Val_none;
+}
+
 PREFIX value ml_elm_scroller_add(value v_parent)
 {
         Evas_Object* obj = elm_scroller_add((Evas_Object*) v_parent);

@@ -46,6 +46,7 @@ let () =
   g "go";
   g "grid";
   g "group";
+  g "hard";
   g "hex";
   g "hide";
   g "horizontal";
@@ -101,6 +102,7 @@ let () =
   g "show";
   g "signin";
   g "socket_image";
+  g "soft";
   g "splash";
   g "standard";
   g "state";
