@@ -2,6 +2,9 @@ type policy = [`auto | `on | `off]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_scroller_add"
 
+external content_min_limit : Evas.obj -> int -> int -> unit =
+  "ml_elm_scroller_content_min_limit"
+
 external bounce_set : Evas.obj -> bool -> bool -> unit =
   "ml_elm_scroller_bounce_set"
 

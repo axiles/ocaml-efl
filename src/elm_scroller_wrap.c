@@ -31,6 +31,14 @@ PREFIX value ml_elm_scroller_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_scroller_content_min_limit(
+        value v_obj, value v_w, value v_h)
+{
+        elm_scroller_content_min_limit((Evas_Object*) v_obj, Int_val(v_w),
+                Int_val(v_h));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_scroller_bounce_set(value v_obj, value v_h, value v_v)
 {
         elm_scroller_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),
