@@ -12,6 +12,10 @@ val policy_set : Evas.obj -> policy -> policy -> unit
 
 val policy_get : Evas.obj -> policy * policy
 
+val single_direction_set : Evas.obj -> single_direction -> unit
+
+val single_direction_get : Evas.obj -> single_direction
+
 val region_get : Evas.obj -> int * int * int * int
 
 val child_size_get : Evas.obj -> int * int

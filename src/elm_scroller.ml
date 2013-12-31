@@ -15,6 +15,12 @@ external policy_set : Evas.obj -> policy -> policy -> unit =
 
 external policy_get : Evas.obj -> policy * policy = "ml_elm_scroller_policy_get"
 
+external single_direction_set : Evas.obj -> single_direction -> unit =
+  "ml_elm_scroller_single_direction_set"
+
+external single_direction_get : Evas.obj -> single_direction =
+  "ml_elm_scroller_single_direction_get"
+
 external region_get : Evas.obj -> int * int * int * int =
   "ml_elm_scroller_region_get"
 

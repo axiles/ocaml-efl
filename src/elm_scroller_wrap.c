@@ -92,6 +92,19 @@ PREFIX value ml_elm_scroller_policy_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_scroller_single_direction_set(value v_obj, value v_sd)
+{
+        elm_scroller_single_direction_set((Evas_Object*) v_obj,
+                Elm_Scroller_Single_Direction_val(v_sd));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_scroller_single_direction_get(value v_obj)
+{
+        return Val_Elm_Scroller_Single_Direction(
+                elm_scroller_single_direction_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_scroller_region_get(value v_obj)
 {
         Evas_Coord x, y, w, h;
