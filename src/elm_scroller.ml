@@ -38,3 +38,6 @@ external page_size_get : Evas.obj -> int * int = "ml_elm_scroller_page_size_get"
 external current_page_get : Evas.obj -> int * int =
   "ml_elm_scroller_current_page_get"
 
+external last_page_get : Evas.obj -> int * int =
+  "ml_elm_scroller_last_page_get"
+
