@@ -32,3 +32,7 @@ val last_page_get : Evas.obj -> int * int
 
 val page_show : Evas.obj -> int -> int -> unit
 
+val page_bring_in : Evas.obj -> int -> int -> unit
+
+val region_bring_in : Evas.obj -> int -> int -> int -> int -> unit
+

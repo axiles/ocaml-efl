@@ -167,3 +167,18 @@ PREFIX value ml_elm_scroller_page_show(value v_obj, value v_h, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_scroller_page_bring_in(value v_obj, value v_h, value v_v)
+{
+        elm_scroller_page_bring_in((Evas_Object*) v_obj, Int_val(v_h),
+                Int_val(v_v));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_scroller_region_bring_in(
+        value v_obj, value v_x, value v_y, value v_w, value v_h)
+{
+        elm_scroller_region_bring_in((Evas_Object*) v_obj, Int_val(v_x),
+                Int_val(v_y), Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+

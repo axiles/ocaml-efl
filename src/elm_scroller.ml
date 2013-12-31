@@ -44,3 +44,9 @@ external last_page_get : Evas.obj -> int * int =
 external page_show : Evas.obj -> int -> int -> unit =
   "ml_elm_scroller_page_show"
 
+external page_bring_in : Evas.obj -> int -> int -> unit =
+  "ml_elm_scroller_page_bring_in"
+
+external region_bring_in : Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_elm_scroller_region_bring_in"
+
