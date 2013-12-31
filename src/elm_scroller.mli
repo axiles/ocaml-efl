@@ -40,3 +40,7 @@ val propagate_events_set : Evas.obj -> bool -> unit
 
 val propagate_events_get : Evas.obj -> bool
 
+val gravity_set : Evas.obj -> float -> float -> unit
+
+val gravity_get : Evas.obj -> float * float
+

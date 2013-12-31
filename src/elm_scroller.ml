@@ -56,3 +56,8 @@ external propagate_events_set : Evas.obj -> bool -> unit =
 external propagate_events_get : Evas.obj -> bool =
   "ml_elm_scroller_propagate_events_get"
 
+external gravity_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_scroller_gravity_set"
+
+external gravity_get : Evas.obj -> float * float = "ml_elm_scroller_gravity_get"
+
