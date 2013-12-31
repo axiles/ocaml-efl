@@ -3,6 +3,8 @@
 open Efl
 open Printf
 
+let n_items = 300
+
 let string_of_mode (m : Elm_list.mode) =
   match m with
   | `compress -> "compress"
@@ -16,6 +18,61 @@ let string_of_policy (p : Elm_scroller.policy) =
   | `auto -> "auto"
   | `on -> "on"
   | `off -> "off"
+
+let string_of_weekday = function
+  | 0 -> "Sun"
+  | 1 -> "Mon"
+  | 2 -> "Tue"
+  | 3 -> "Wed"
+  | 4 -> "Thu"
+  | 5 -> "Fri"
+  | 6 -> "Sat"
+  | _ -> invalid_arg "string_of_weekday"
+
+let string_of_month = function
+  | 0 -> "Jan"
+  | 1 -> "Feb"
+  | 2 -> "Mar"
+  | 3 -> "Apr"
+  | 4 -> "May"
+  | 5 -> "Jun"
+  | 6 -> "Jul"
+  | 7 -> "Aug"
+  | 8 -> "Sep"
+  | 9 -> "Oct"
+  | 10 -> "Nov"
+  | 11 -> "Dec"
+  | _ -> invalid_arg "string_of_month"
+
+let string_of_time t =
+  let open Unix in
+  sprintf "%s %s %d %d:%d:%d %d" (string_of_weekday t.tm_wday)
+    (string_of_month t.tm_mon) t.tm_mday t.tm_hour t.tm_min t.tm_sec
+    (t.tm_year + 1900)
+
+let add_item list i =
+  let item_label_get obj part =
+    let t = Unix.localtime (Unix.time ()) in
+    if i mod 2 <> 0 then
+      sprintf "Very long item # %d - realized at %s" i (string_of_time t)
+    else sprintf "short item %d" i in
+  let item_content_get obj part =
+    let ic = Elm_icon.add obj in
+    if part = "elm.swallow.icon" then
+      (let (_ : bool) = Elm_icon.standard_set ic "clock" in ());
+    Evas_object.size_hint_aspect_set ic `vertical 1 1;
+    Some ic in
+  let item_state_get obj part = false in
+  let item_del obj = () in
+  let item_sel_cb obj _ = printf "Selected item %d\n%!" i in
+  let itc = {Elm_genlist.item_style = "default";
+    func_text_get = item_label_get;
+    func_content_get = item_content_get;
+    func_state_get = item_state_get;
+    func_del = item_del} in
+  Elm_genlist.item_append list itc None `none item_sel_cb
+
+let realize_cb list obj = Elm_genlist.realized_items_update list
 
 let () =
   Elm.init Sys.argv;
@@ -57,14 +114,17 @@ let () =
 
   Elm_scroller.bounce_set list false false;
   Elm_genlist.homogeneous_set list false;
-  (* TODO: mode_set *)
+  Elm_genlist.mode_set list `limit;
   Elm_genlist.multi_select_set list true;
-  (* TODO: select_mode_set *)
+  Elm_genlist.select_mode_set list `default;
   Elm_scroller.policy_set list `off `on;
   Elm_genlist.longpress_timeout_set list 0.5;
   Elm_genlist.block_count_set list 16;
 
-  (* TODO: add items and itc *)
+  for i = 0 to n_items - 1 do
+    let (_ : Elm_object.item) = add_item list i in
+    ()
+  done;
 
   Evas_object.size_hint_weight_set list Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set list Evas.hint_fill Evas.hint_fill;
@@ -83,6 +143,14 @@ let () =
   Evas_object.size_hint_weight_set btn 0. 0.;
   Evas_object.size_hint_align_set btn 0.5 0.5;
   (* TODO: Add cb *)
+  Elm_box.pack_end hbox btn;
+  Evas_object.show btn;
+
+  let btn = Elm_button.add win in
+  Elm_object.text_set btn "Realize";
+  Evas_object.size_hint_weight_set btn 0. 0.;
+  Evas_object.size_hint_align_set btn 0.5 0.5;
+  Evas_object_smart.callback_add btn Elm_button.E.clicked (realize_cb list);
   Elm_box.pack_end hbox btn;
   Evas_object.show btn;
 
