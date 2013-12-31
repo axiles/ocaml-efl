@@ -36,3 +36,7 @@ val page_bring_in : Evas.obj -> int -> int -> unit
 
 val region_bring_in : Evas.obj -> int -> int -> int -> int -> unit
 
+val propagate_events_set : Evas.obj -> bool -> unit
+
+val propagate_events_get : Evas.obj -> bool
+

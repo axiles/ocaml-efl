@@ -50,3 +50,9 @@ external page_bring_in : Evas.obj -> int -> int -> unit =
 external region_bring_in : Evas.obj -> int -> int -> int -> int -> unit =
   "ml_elm_scroller_region_bring_in"
 
+external propagate_events_set : Evas.obj -> bool -> unit =
+  "ml_elm_scroller_propagate_events_set"
+
+external propagate_events_get : Evas.obj -> bool =
+  "ml_elm_scroller_propagate_events_get"
+
