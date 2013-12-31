@@ -24,3 +24,9 @@ external bounce_set : Evas.obj -> bool -> bool -> unit =
 
 external bounce_get : Evas.obj -> bool * bool = "ml_elm_scroller_bounce_get"
 
+external page_relative_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_scroller_page_relative_set"
+
+external page_relative_get : Evas.obj -> float * float =
+  "ml_elm_scroller_page_relative_get"
+

@@ -18,3 +18,7 @@ val bounce_set : Evas.obj -> bool -> bool -> unit
 
 val bounce_get : Evas.obj -> bool * bool
 
+val page_relative_set : Evas.obj -> float -> float -> unit
+
+val page_relative_get : Evas.obj -> float * float
+

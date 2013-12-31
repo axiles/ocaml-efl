@@ -103,3 +103,23 @@ PREFIX value ml_elm_scroller_bounce_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_scroller_page_relative_set(
+        value v_obj, value v_w, value v_h, value v_v)
+{
+        elm_scroller_page_relative_set((Evas_Object*) v_obj,
+                Double_val(v_h), Double_val(v_v));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_scroller_page_relative_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double h, v;
+        elm_scroller_page_relative_get((Evas_Object*) v_obj, &h, &v);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(h));
+        Store_field(v_r, 1, copy_double(v));
+        CAMLreturn(v_r);
+}
+
