@@ -45,3 +45,6 @@ external size_hint_aspect_set :
   Evas.obj -> Evas.aspect_control -> int -> int -> unit =
     "ml_evas_object_size_hint_aspect_set"
 
+external geometry_get : Evas.obj -> int * int * int * int =
+  "ml_evas_object_geometry_get"
+
