@@ -26,3 +26,5 @@ val page_size_set : Evas.obj -> int -> int -> unit
 
 val page_size_get : Evas.obj -> int * int
 
+val current_page_get : Evas.obj -> int * int
+

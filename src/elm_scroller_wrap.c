@@ -140,3 +140,13 @@ PREFIX value ml_elm_scroller_page_size_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_scroller_current_page_get(value v_obj)
+{
+        Evas_Coord h, v;
+        elm_scroller_current_page_get((Evas_Object*) v_obj, &h, &v);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(h));
+        Store_field(v_r, 1, Val_int(v));
+        return v_r;
+}
+
