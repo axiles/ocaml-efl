@@ -41,3 +41,6 @@ external current_page_get : Evas.obj -> int * int =
 external last_page_get : Evas.obj -> int * int =
   "ml_elm_scroller_last_page_get"
 
+external page_show : Evas.obj -> int -> int -> unit =
+  "ml_elm_scroller_page_show"
+

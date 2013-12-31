@@ -160,3 +160,10 @@ PREFIX value ml_elm_scroller_last_page_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_scroller_page_show(value v_obj, value v_h, value v_v)
+{
+        elm_scroller_page_show((Evas_Object*) v_obj, Int_val(v_h),
+                Int_val(v_v));
+        return Val_unit;
+}
+

@@ -30,3 +30,5 @@ val current_page_get : Evas.obj -> int * int
 
 val last_page_get : Evas.obj -> int * int
 
+val page_show : Evas.obj -> int -> int -> unit
+
