@@ -30,3 +30,8 @@ external page_relative_set : Evas.obj -> float -> float -> unit =
 external page_relative_get : Evas.obj -> float * float =
   "ml_elm_scroller_page_relative_get"
 
+external page_size_set : Evas.obj -> int -> int -> unit =
+  "ml_elm_scroller_page_size_set"
+
+external page_size_get : Evas.obj -> int * int = "ml_elm_scroller_page_size_get"
+

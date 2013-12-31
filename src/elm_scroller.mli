@@ -22,3 +22,7 @@ val page_relative_set : Evas.obj -> float -> float -> unit
 
 val page_relative_get : Evas.obj -> float * float
 
+val page_size_set : Evas.obj -> int -> int -> unit
+
+val page_size_get : Evas.obj -> int * int
+
