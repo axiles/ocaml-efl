@@ -24,6 +24,13 @@ PREFIX inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
         return Val_auto;
 }
 
+PREFIX value ml_elm_scroller_add(value v_parent)
+{
+        Evas_Object* obj = elm_scroller_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_scroller_add");
+        return (value) obj;
+}
+
 PREFIX value ml_elm_scroller_bounce_set(value v_obj, value v_h, value v_v)
 {
         elm_scroller_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),

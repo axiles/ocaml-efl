@@ -1,5 +1,7 @@
 type policy = [`auto | `on | `off]
 
+external add : Evas.obj -> Evas.obj = "ml_elm_scroller_add"
+
 external bounce_set : Evas.obj -> bool -> bool -> unit =
   "ml_elm_scroller_bounce_set"
 
