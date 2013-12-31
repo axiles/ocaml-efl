@@ -69,10 +69,20 @@ PREFIX value ml_elm_scroller_region_get(value v_obj)
         Evas_Coord x, y, w, h;
         elm_scroller_region_get((Evas_Object*) v_obj, &x, &y, &w, &h);
         value v = caml_alloc(4, 0);
-        Store_field(v, 0, Int_val(x));
-        Store_field(v, 1, Int_val(y));
-        Store_field(v, 2, Int_val(w));
-        Store_field(v, 3, Int_val(h));
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        Store_field(v, 2, Val_int(w));
+        Store_field(v, 3, Val_int(h));
+        return v;
+}
+
+PREFIX value ml_elm_scroller_child_size_get(value v_obj, value v_w, value v_h)
+{
+        Evas_Coord w, h;
+        elm_scroller_child_size_get((Evas_Object*) v_obj, &w, &h);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
         return v;
 }
 

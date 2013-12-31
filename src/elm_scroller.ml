@@ -16,6 +16,9 @@ external policy_get : Evas.obj -> policy * policy = "ml_elm_scroller_policy_get"
 external region_get : Evas.obj -> int * int * int * int =
   "ml_elm_scroller_region_get"
 
+external child_size_get : Evas.obj -> int * int =
+  "ml_elm_scroller_child_size_get"
+
 external bounce_set : Evas.obj -> bool -> bool -> unit =
   "ml_elm_scroller_bounce_set"
 

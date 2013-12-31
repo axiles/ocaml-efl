@@ -12,6 +12,8 @@ val policy_get : Evas.obj -> policy * policy
 
 val region_get : Evas.obj -> int * int * int * int
 
+val child_size_get : Evas.obj -> int * int
+
 val bounce_set : Evas.obj -> bool -> bool -> unit
 
 val bounce_get : Evas.obj -> bool * bool
