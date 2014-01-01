@@ -49,6 +49,12 @@ external page_size_set : Evas.obj -> int -> int -> unit =
 
 external page_size_get : Evas.obj -> int * int = "ml_elm_scroller_page_size_get"
 
+external page_scroll_limit_set : Evas.obj -> int -> int -> unit =
+  "ml_elm_scroller_page_scroll_limit_set"
+
+external page_scroll_limit_get : Evas.obj -> int * int =
+  "ml_elm_scroller_page_scroll_limit_get"
+
 external current_page_get : Evas.obj -> int * int =
   "ml_elm_scroller_current_page_get"
 

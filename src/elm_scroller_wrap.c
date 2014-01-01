@@ -198,6 +198,24 @@ PREFIX value ml_elm_scroller_page_size_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_scroller_page_scroll_limit_set(
+        value v_obj, value v_lph, value v_lpv)
+{
+        elm_scroller_page_scroll_limit_set((Evas_Object*) v_obj,
+                Int_val(v_lph), Int_val(v_lpv));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_scroller_page_scroll_limit_get(value v_obj)
+{
+        Evas_Coord lph, lpv;
+        elm_scroller_page_scroll_limit_get((Evas_Object*) v_obj, &lph, &lpv);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(lph));
+        Store_field(v_r, 1, Val_int(lpv));
+        return v_r;
+}
+
 PREFIX value ml_elm_scroller_current_page_get(value v_obj)
 {
         Evas_Coord h, v;
