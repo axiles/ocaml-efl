@@ -14,3 +14,5 @@ val pack_set : Evas.obj -> int -> int -> int -> int -> unit
 
 val pack_get : Evas.obj -> int * int * int * int
 
+val children_get : Evas.obj -> Evas.obj list
+

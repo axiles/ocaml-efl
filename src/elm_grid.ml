@@ -16,3 +16,5 @@ external pack_set : Evas.obj -> int -> int -> int -> int -> unit =
 
 external pack_get : Evas.obj -> int * int * int * int = "ml_elm_grid_pack_get"
 
+external children_get : Evas.obj -> Evas.obj list = "ml_elm_grid_children_get"
+

@@ -69,3 +69,9 @@ PREFIX value ml_elm_grid_pack_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_grid_children_get(value v_obj)
+{
+        return copy_Eina_List_Evas_Object(elm_grid_children_get(
+                (Evas_Object*) v_obj));
+}
+
