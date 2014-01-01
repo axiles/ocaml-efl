@@ -322,3 +322,16 @@ PREFIX value ml_elm_scroller_gravity_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_scroller_movement_block_set(value v_obj, value v_mb)
+{
+        elm_scroller_movement_block_set((Evas_Object*) v_obj,
+                Elm_Scroller_Movement_Block_val(v_mb));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_scroller_movement_block_get(value v_obj)
+{
+        return Val_Elm_Scroller_Movement_Block(elm_scroller_movement_block_get(
+                (Evas_Object*) v_obj));
+}
+

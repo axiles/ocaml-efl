@@ -64,6 +64,10 @@ val gravity_set : Evas.obj -> float -> float -> unit
 
 val gravity_get : Evas.obj -> float * float
 
+val movement_block_set : Evas.obj -> movement_block -> unit
+
+val movement_block_get : Evas.obj -> movement_block
+
 module E : sig
   type u = Evas.Event_type.u
   val edge_left : u

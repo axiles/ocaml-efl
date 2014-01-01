@@ -87,6 +87,12 @@ external gravity_set : Evas.obj -> float -> float -> unit =
 
 external gravity_get : Evas.obj -> float * float = "ml_elm_scroller_gravity_get"
 
+external movement_block_set : Evas.obj -> movement_block -> unit =
+  "ml_elm_scroller_movement_block_set"
+
+external movement_block_get : Evas.obj -> movement_block =
+  "ml_elm_scroller_movement_block_get"
+
 module E = struct
   type u = Evas.Event_type.u
   let f = Evas.Event_type.create_unit
