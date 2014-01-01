@@ -20,6 +20,10 @@ val region_get : Evas.obj -> int * int * int * int
 
 val child_size_get : Evas.obj -> int * int
 
+val page_snap_set : Evas.obj -> bool -> bool -> unit
+
+val page_snap_get : Evas.obj -> bool * bool
+
 val bounce_set : Evas.obj -> bool -> bool -> unit
 
 val bounce_get : Evas.obj -> bool * bool

@@ -27,6 +27,12 @@ external region_get : Evas.obj -> int * int * int * int =
 external child_size_get : Evas.obj -> int * int =
   "ml_elm_scroller_child_size_get"
 
+external page_snap_set : Evas.obj -> bool -> bool -> unit =
+  "ml_elm_scroller_page_snap_set"
+
+external page_snap_get : Evas.obj -> bool * bool =
+  "ml_elm_scroller_page_snap_get"
+
 external bounce_set : Evas.obj -> bool -> bool -> unit =
   "ml_elm_scroller_bounce_set"
 

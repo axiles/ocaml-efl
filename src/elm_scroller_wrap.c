@@ -127,6 +127,23 @@ PREFIX value ml_elm_scroller_child_size_get(value v_obj, value v_w, value v_h)
         return v;
 }
 
+PREFIX value ml_elm_scroller_page_snap_set(value v_obj, value v_ph, value v_pv)
+{
+        elm_scroller_page_snap_set((Evas_Object*) v_obj, Bool_val(v_ph),
+                Bool_val(v_pv));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_scroller_page_snap_get(value v_obj)
+{
+        Eina_Bool ph, pv;
+        elm_scroller_page_snap_get((Evas_Object*) v_obj, &ph, &pv);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_bool(ph));
+        Store_field(v_r, 1, Val_bool(pv));
+        return v_r;
+}
+
 PREFIX value ml_elm_scroller_bounce_set(value v_obj, value v_h, value v_v)
 {
         elm_scroller_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),
