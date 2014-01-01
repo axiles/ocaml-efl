@@ -325,3 +325,9 @@ Executable scroller_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: scroller_example_01.ml
+Executable genlist_example_04
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl, unix
+  MainIs: genlist_example_04.ml
