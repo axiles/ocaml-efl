@@ -1,3 +1,5 @@
+(** elm_scroller_* *)
+
 type policy = [`auto | `on | `off]
 
 type single_direction = [`none | `soft | `hard | `last]
