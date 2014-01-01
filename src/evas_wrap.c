@@ -111,7 +111,7 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
         CAMLlocal1(v_fun);
         value* v_user_data = (value*) user_data;
         v_fun = Field(*v_user_data, 0);
-        caml_callback(v_fun, (value) priv);
+        caml_callback2(v_fun, (value) obj, (value) priv);
         CAMLreturn0Release;
 }
 

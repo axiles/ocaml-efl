@@ -1,4 +1,7 @@
-(* WARNING: this example is still under construction *)
+(* Contrary to the original genlist_example_04, no information about pointers
+is printed.
+
+The index of the items is printed instead.*)
 
 open Efl
 open Printf
@@ -169,7 +172,8 @@ let () =
   Evas_object.show list;
 
   let fbox = Elm_box.add win in
-  (* TODO: layout_set *)
+  Elm_box.layout_set fbox Evas_object.box_layout_flow_horizontal
+    (fun () -> ());
   Evas_object.size_hint_weight_set fbox Evas.hint_expand 0.;
   Evas_object.size_hint_align_set fbox Evas.hint_fill Evas.hint_fill;
   Elm_box.pack_end box fbox;
