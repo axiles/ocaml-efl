@@ -102,6 +102,36 @@ let insert_aux_cb f_add list obj =
 let insert_before_cb = insert_aux_cb Elm_genlist.item_insert_before
 let insert_after_cb = insert_aux_cb Elm_genlist.item_insert_after
 
+let next_or_prev_cb f list obj =
+  let glit =
+    match Elm_genlist.selected_item_get list with
+    | None ->
+      (match Elm_genlist.first_item_get list with
+      | None -> assert false
+      | Some x -> x)
+    | Some x -> x in
+  let glit1 =
+    match f glit with
+    | None -> glit
+    | Some x -> x in
+  Elm_genlist.item_selected_set glit1 true;
+  Elm_genlist.item_show glit1 `_in
+
+let next_cb = next_or_prev_cb Elm_genlist.item_next_get
+let prev_cb = next_or_prev_cb Elm_genlist.item_prev_get
+
+let realize_cb list obj =
+  match Elm_genlist.selected_item_get list with
+  | None -> ()
+  | Some glit -> Elm_genlist.item_update glit
+
+let bring_in_cb glit obj = Elm_genlist.item_bring_in glit `_in
+let show_cb glit obj = Elm_genlist.item_show glit `_in
+let middle_in_cb glit obj = Elm_genlist.item_bring_in glit `middle
+let middle_show_cb glit obj = Elm_genlist.item_show glit `middle
+let top_in_cb glit obj = Elm_genlist.item_bring_in glit `top
+let top_show_cb glit obj = Elm_genlist.item_show glit `top
+
 let button_add win box list label cb =
   let bt = Elm_button.add win in
   Elm_object.text_set bt label;
@@ -145,25 +175,42 @@ let () =
   Elm_box.pack_end box fbox;
   Evas_object.show fbox;
 
-  (* TODO: add buttons *)
-  let (_ : Evas.obj) = button_add win fbox list "prepend" (Some prepend_cb) in
-  let (_ : Evas.obj) = button_add win fbox list "append" (Some append_cb) in
-  let (_ : Evas.obj) =
-    button_add win fbox list "insert after" (Some insert_after_cb) in
-  let (_ : Evas.obj) =
-    button_add win fbox list "insert before" (Some insert_before_cb) in
+  let button_add1 (label, cb) =
+    let (_ : Evas.obj) = button_add win fbox list label (Some cb) in
+    () in
+  let buttons = [
+    ("prepend", prepend_cb); ("append", append_cb);
+    ("insert before", insert_before_cb); ("insert after", insert_after_cb);
+    ("prev", prev_cb); ("next", next_cb); ("realize", realize_cb)] in
+  List.iter button_add1 buttons;
+  let button_add2 label = button_add win fbox list label None in
+  let bt_bring_in = button_add2 "bring #50" in
+  let bt_show = button_add2 "show #50" in
+  let bt_middle_in = button_add2 "bring to middle #200" in
+  let bt_middle_show = button_add2 "show in middle #200" in
+  let bt_top_in = button_add2 "bring to top #250" in
+  let bt_top_show = button_add2 "show in top #250" in
 
   let glg = ref None in
   for i = 0 to n_items - 1 do
-    let (_ : Elm_object.item) =
+    let gli =
       if i mod 7 = 0 then (
         let item = add_group list !nitems in
+        Elm_genlist.item_select_mode_set item `display_only;
         glg := Some item;
         item)
       else add_item list !nitems !glg in
     incr nitems;
 
-    (* TODO: Other things on items *)
+    let add_cb bt cb =
+      Evas_object_smart.callback_add bt Elm_button.E.clicked (cb gli) in
+    let add_cb2 bt1 cb1 bt2 cb2 = add_cb bt1 cb1; add_cb bt2 cb2 in
+    match i with
+    | 3 -> Elm_object.item_disabled_set gli true
+    | 50 -> add_cb2 bt_bring_in bring_in_cb bt_show show_cb
+    | 200 -> add_cb2 bt_middle_in middle_in_cb bt_middle_show middle_show_cb
+    | 250 -> add_cb2 bt_top_in top_in_cb bt_top_show top_show_cb
+    | _ -> ()
   done;
 
   Evas_object.resize win 420 320;
