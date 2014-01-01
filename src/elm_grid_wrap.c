@@ -49,3 +49,23 @@ PREFIX value ml_elm_grid_clear(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_grid_pack_set(
+        value v_obj, value v_x, value v_y, value v_w, value v_h)
+{
+        elm_grid_pack_set((Evas_Object*) v_obj, Int_val(v_x), Int_val(v_y),
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_grid_pack_get(value v_obj)
+{
+        Evas_Coord x, y, w, h;
+        elm_grid_pack_get((Evas_Object*) v_obj, &x, &y, &w, &h);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(x));
+        Store_field(v_r, 1, Val_int(y));
+        Store_field(v_r, 2, Val_int(w));
+        Store_field(v_r, 3, Val_int(h));
+        return v_r;
+}
+
