@@ -218,3 +218,11 @@ PREFIX value ml_evas_object_geometry_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_evas_object_box_layout_flow_horizontal(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_flow_horizontal((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+

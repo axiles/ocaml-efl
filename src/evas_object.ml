@@ -48,3 +48,6 @@ external size_hint_aspect_set :
 external geometry_get : Evas.obj -> int * int * int * int =
   "ml_evas_object_geometry_get"
 
+external box_layout_flow_horizontal : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_flow_horizontal"
+

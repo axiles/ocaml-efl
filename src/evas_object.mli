@@ -37,3 +37,5 @@ val size_hint_aspect_set : Evas.obj -> Evas.aspect_control -> int -> int -> unit
 
 val geometry_get : Evas.obj -> int * int * int * int
 
+val box_layout_flow_horizontal : Evas.obj -> box_data -> unit
+
