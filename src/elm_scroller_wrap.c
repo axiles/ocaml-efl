@@ -52,6 +52,37 @@ PREFIX inline value Val_Elm_Scroller_Single_Direction(
         return Val_none;
 }
 
+PREFIX inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val(
+        value v)
+{
+        switch(v) {
+                case Val_no_block: return ELM_SCROLLER_MOVEMENT_NO_BLOCK;
+                case Val_block_vertical:
+                        return ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL;
+                case Val_block_horizontal:
+                        return ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL;
+                case Val_block_vertical_horizontal:
+                        return ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL |
+                                ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL;
+                default: break;
+        }
+        caml_failwith("Elm_Scroller_Movement_Block_val");
+        return ELM_SCROLLER_MOVEMENT_NO_BLOCK;
+}
+
+PREFIX inline value Val_Elm_Scroller_Movement_Block(
+        Elm_Scroller_Movement_Block mb)
+{
+        if(mb == ELM_SCROLLER_MOVEMENT_NO_BLOCK) return Val_no_block;
+        int bv = mb & ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL;
+        int bh = mb & ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL;
+        if(bv && bh) return Val_block_vertical_horizontal;
+        if(bv) return Val_block_vertical;
+        if(bh) return Val_block_horizontal;
+        caml_failwith("Val_Elm_Scroller_Movement_Block");
+        return Val_no_block;
+}
+
 PREFIX value ml_elm_scroller_add(value v_parent)
 {
         Evas_Object* obj = elm_scroller_add((Evas_Object*) v_parent);

@@ -15,6 +15,9 @@ let () =
   g "auto";
   g "automatic";
   g "basic";
+  g "block_horizontal";
+  g "block_vertical";
+  g "block_vertical_horizontal";
   g "both";
   g "center";
   g "char";
@@ -71,6 +74,7 @@ let () =
   g "month";
   g "neither";
   g "next";
+  g "no_block";
   g "no_image";
   g "none";
   g "normal";
