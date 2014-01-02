@@ -1,4 +1,4 @@
-(** elm_scroller_* *)
+(** elm_scroller_* Elm_Scroller_* *)
 
 type policy = [`auto | `on | `off]
 
