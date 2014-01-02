@@ -14,6 +14,10 @@ val multi_select_set : Evas.obj -> bool -> unit
 
 val multi_select_get : Evas.obj -> bool
 
+val horizontal_set : Evas.obj -> bool -> unit
+
+val horizontal_get : Evas.obj -> bool
+
 val item_append : Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item
 
 val item_size_set : Evas.obj -> int -> int -> unit

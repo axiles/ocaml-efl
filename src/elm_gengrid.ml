@@ -15,6 +15,11 @@ external multi_select_set : Evas.obj -> bool -> unit =
 
 external multi_select_get : Evas.obj -> bool = "ml_elm_gengrid_multi_select_get"
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_gengrid_horizontal_set"
+
+external horizontal_get : Evas.obj -> bool = "ml_elm_gengrid_horizontal_get"
+
 external item_append :
   Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item =
   "ml_elm_gengrid_item_append"

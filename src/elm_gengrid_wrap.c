@@ -46,6 +46,17 @@ PREFIX value ml_elm_gengrid_multi_select_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_gengrid_horizontal_set(value v_obj, value v_flag)
+{
+        elm_gengrid_horizontal_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_horizontal_get(value v_obj)
+{
+        return Val_bool(elm_gengrid_horizontal_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_gengrid_item_append(
         value v_obj, value v_class, value v_func)
 {
