@@ -95,6 +95,26 @@ PREFIX value ml_elm_gengrid_item_prepend(
         return (value) item;
 }
 
+PREFIX value ml_elm_gengrid_item_insert_before(
+        value v_obj, value v_class, value v_rel, value v_func)
+{
+        Elm_Gengrid_Item_Class* class;
+        void* data;
+        ml_Elm_Gengrid_Item_Class(&class, &data, v_class);
+
+        value* data_func = caml_stat_alloc(sizeof(value));
+        *data_func = v_func;
+        caml_register_global_root(data_func);
+
+        Elm_Object_Item* item = elm_gengrid_item_insert_before(
+                (Evas_Object*) v_obj, class, data, (Elm_Object_Item*) v_rel,
+                ml_Evas_Smart_Cb, data_func);
+        elm_gengrid_item_class_free(class);
+
+        if(item == NULL) caml_failwith("elm_gengrid_item_insert_before");
+        return (value) item;
+}
+
 PREFIX value ml_elm_gengrid_item_size_set(value v_obj, value v_w, value v_h)
 {
         elm_gengrid_item_size_set((Evas_Object*) v_obj, Int_val(v_w),
