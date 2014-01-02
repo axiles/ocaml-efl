@@ -8,6 +8,8 @@ type item_class = Elm_gen.item_class = {
 
 val add : Evas.obj -> Evas.obj
 
+val clear : Evas.obj -> unit
+
 val item_append : Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item
 
 val item_size_set : Evas.obj -> int -> int -> unit

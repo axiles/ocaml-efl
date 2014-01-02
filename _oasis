@@ -109,7 +109,8 @@ Library efl
     elm_tooltip_wrap.h,
     elm_tooltip_wrap.c,
     elm_grid_wrap.c,
-    elm_actionslider_wrap.c
+    elm_actionslider_wrap.c,
+    elm_gengrid_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
