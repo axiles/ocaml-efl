@@ -7,3 +7,9 @@ PREFIX value ml_elm_actionslider_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_actionslider_selected_label_get(value v_obj)
+{
+        return copy_string(elm_actionslider_selected_label_get(
+                (Evas_Object*) v_obj));
+}
+
