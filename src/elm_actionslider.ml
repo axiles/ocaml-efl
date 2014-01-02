@@ -15,3 +15,9 @@ external magnet_pos_set : Evas.obj -> bool -> bool -> bool -> unit =
 external magnet_pos_get : Evas.obj -> bool * bool * bool =
   "ml_elm_actionslider_magnet_pos_get"
 
+external enabled_pos_set : Evas.obj -> bool -> bool -> bool -> unit =
+  "ml_elm_actionslider_enabled_pos_set"
+
+external enabled_pos_get : Evas.obj -> bool * bool * bool =
+  "ml_elm_actionslider_enabled_pos_get"
+
