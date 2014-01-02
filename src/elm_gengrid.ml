@@ -33,6 +33,11 @@ external item_insert_before :
     Elm_object.item =
       "ml_elm_gengrid_item_insert_before"
 
+external item_insert_after :
+  Evas.obj -> item_class -> Elm_object.item -> Evas.smart_cb ->
+    Elm_object.item =
+      "ml_elm_gengrid_item_insert_after"
+
 external item_size_set : Evas.obj -> int -> int -> unit =
   "ml_elm_gengrid_item_size_set"
 

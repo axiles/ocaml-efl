@@ -25,5 +25,8 @@ val item_prepend : Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item
 val item_insert_before :
   Evas.obj -> item_class -> Elm_object.item -> Evas.smart_cb -> Elm_object.item
 
+val item_insert_after :
+  Evas.obj -> item_class -> Elm_object.item -> Evas.smart_cb -> Elm_object.item
+
 val item_size_set : Evas.obj -> int -> int -> unit
 
