@@ -10,6 +10,11 @@ external add : Evas.obj -> Evas.obj = "ml_elm_gengrid_add"
 
 external clear : Evas.obj -> unit = "ml_elm_gengrid_clear"
 
+external multi_select_set : Evas.obj -> bool -> unit =
+  "ml_elm_gengrid_multi_select_set"
+
+external multi_select_get : Evas.obj -> bool = "ml_elm_gengrid_multi_select_get"
+
 external item_append :
   Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item =
   "ml_elm_gengrid_item_append"

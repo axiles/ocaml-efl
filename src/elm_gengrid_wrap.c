@@ -33,6 +33,19 @@ PREFIX value ml_elm_gengrid_clear(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_gengrid_multi_select_set(value v_obj, value v_flag)
+{
+        elm_gengrid_multi_select_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_multi_select_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_gengrid_multi_select_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_gengrid_item_append(
         value v_obj, value v_class, value v_func)
 {
