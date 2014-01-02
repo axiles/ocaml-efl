@@ -46,3 +46,17 @@ PREFIX value ml_elm_actionslider_indicator_pos_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_actionslider_magnet_pos_set(
+        value v_obj, value v_left, value v_center, value v_right)
+{
+        elm_actionslider_magnet_pos_set((Evas_Object*) v_obj,
+                Elm_Actionslider_Pos_vals(v_left, v_center, v_right));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_actionslider_magnet_pos_get(value v_obj)
+{
+        return copy_Elm_Actionslider_Pos(elm_actionslider_magnet_pos_get(
+                (Evas_Object*) v_obj));
+}
+
