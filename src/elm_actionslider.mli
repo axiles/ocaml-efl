@@ -14,3 +14,10 @@ val enabled_pos_set : Evas.obj -> bool -> bool -> bool -> unit
 
 val enabled_pos_get : Evas.obj -> bool * bool * bool
 
+module E : sig
+  type u = Evas.Event_type.u
+  type 'a v = 'a Evas.Event_type.v
+  val selected : string v
+  val pos_changed : u
+end
+
