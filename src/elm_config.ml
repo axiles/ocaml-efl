@@ -72,3 +72,10 @@ external mirrored_get : unit -> bool = "ml_elm_config_mirrored_get"
 
 external mirrored_set : bool -> unit = "ml_elm_config_mirrored_set"
 
+(* Elementary fonts *)
+
+type text_class = {
+  name : string;
+  desc : string;
+}
+

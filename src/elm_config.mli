@@ -57,3 +57,10 @@ val mirrored_get : unit -> bool
 
 val mirrored_set : bool -> unit
 
+(** {2 Elementary fonts} *)
+
+type text_class = {
+  name : string;
+  desc : string;
+}
+

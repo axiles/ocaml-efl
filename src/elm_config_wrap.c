@@ -142,3 +142,31 @@ PREFIX value ml_elm_config_mirrored_set(value v_flag)
         return Val_unit;
 }
 
+/* Elementary Fonts */
+
+PREFIX value copy_Elm_Text_Class(Elm_Text_Class* c)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        Store_field(v, 0, copy_string(c->name));
+        Store_field(v, 1, copy_string(c->desc));
+        CAMLreturn(v);
+}
+
+PREFIX inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal3(v, v1, v_s);
+        Eina_List* it;
+        Elm_Text_Class* s;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, s) {
+                v1 = v;
+                v_s = copy_Elm_Text_Class(s);
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, v_s);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
