@@ -17,6 +17,12 @@ external multi_select_set : Evas.obj -> bool -> unit =
 
 external multi_select_get : Evas.obj -> bool = "ml_elm_gengrid_multi_select_get"
 
+external multi_select_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_gengrid_multi_select_mode_set"
+
+external multi_select_mode_get : Evas.obj -> bool =
+  "ml_elm_gengrid_multi_select_mode_get"
+
 external horizontal_set : Evas.obj -> bool -> unit =
   "ml_elm_gengrid_horizontal_set"
 
@@ -159,4 +165,26 @@ external item_pos_get : Elm_object.item -> int * int =
 external filled_set : Evas.obj -> bool -> unit = "ml_elm_gengrid_filled_set"
 
 external filled_get : Evas.obj -> bool = "ml_elm_gengrid_filled_get"
+
+external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
+  "ml_elm_gengrid_select_mode_set"
+
+external select_mode_get : Evas.obj -> Elm_object.select_mode =
+  "ml_elm_gengrid_select_mode_get"
+
+external highlight_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_gengrid_highlight_mode_set"
+
+external highlight_mode_get : Evas.obj -> bool =
+  "ml_elm_gengrid_highlight_mode_get"
+
+external nth_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_gengrid_nth_item_get"
+
+external item_select_mode_set :
+  Elm_object.item -> Elm_object.select_mode -> unit =
+    "ml_elm_gengrid_item_select_mode_set"
+
+external item_select_mode_get : Elm_object.item -> Elm_object.select_mode =
+  "ml_elm_gengrid_item_select_mode_get"
 

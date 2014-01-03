@@ -16,6 +16,10 @@ val multi_select_set : Evas.obj -> bool -> unit
 
 val multi_select_get : Evas.obj -> bool
 
+val multi_select_mode_set : Evas.obj -> bool -> unit
+
+val multi_select_mode_get : Evas.obj -> bool
+
 val horizontal_set : Evas.obj -> bool -> unit
 
 val horizontal_get : Evas.obj -> bool
@@ -111,4 +115,18 @@ val item_pos_get : Elm_object.item -> int * int
 val filled_set : Evas.obj -> bool -> unit
 
 val filled_get : Evas.obj -> bool
+
+val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
+
+val select_mode_get : Evas.obj -> Elm_object.select_mode
+
+val highlight_mode_set : Evas.obj -> bool -> unit
+
+val highlight_mode_get : Evas.obj -> bool
+
+val nth_item_get : Evas.obj -> Elm_object.item option
+
+val item_select_mode_set : Elm_object.item -> Elm_object.select_mode -> unit
+
+val item_select_mode_get : Elm_object.item -> Elm_object.select_mode
 

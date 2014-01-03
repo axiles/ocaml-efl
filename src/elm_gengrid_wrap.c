@@ -20,29 +20,6 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         *data = v_data;
 }
 
-/*PREFIX inline Elm_Gengrid_Item_Type Elm_Gengrid_Item_Type_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_GENGRID_ITEM_NONE;
-                case Val_tree: return ELM_GENGRID_ITEM_TREE;
-                case Val_group: return ELM_GENGRID_ITEM_GROUP;
-        }
-        caml_failwith("Elm_Gengrid_Item_Type_val");
-        return ELM_GENGRID_ITEM_NONE;
-}
-
-PREFIX inline value Val_Elm_Gengrid_Item_Type(Elm_Gengrid_Item_Type t)
-{
-        switch(t) {
-                case ELM_GENGRID_ITEM_NONE: return Val_none;
-                case ELM_GENGRID_ITEM_TREE: return Val_tree;
-                case ELM_GENGRID_ITEM_GROUP: return Val_group;
-                default: break;
-        }
-        caml_failwith("Val_Elm_Gengrid_Item_Type_val");
-        return Val_none;
-}*/
-
 PREFIX inline Elm_Gengrid_Item_Scrollto_Type
 Elm_Gengrid_Item_Scrollto_Type_val(value v)
 {
@@ -79,6 +56,19 @@ PREFIX value ml_elm_gengrid_multi_select_set(value v_obj, value v_flag)
 PREFIX value ml_elm_gengrid_multi_select_get(value v_obj)
 {
         return Val_Eina_Bool(elm_gengrid_multi_select_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_gengrid_multi_select_mode_set(value v_obj, value v_flag)
+{
+        elm_gengrid_multi_select_mode_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_multi_select_mode_get(value v_obj)
+{
+        return Val_bool(elm_gengrid_multi_select_mode_get(
                 (Evas_Object*) v_obj));
 }
 
@@ -485,5 +475,52 @@ PREFIX value ml_elm_gengrid_filled_set(value v_obj, value v_flag)
 PREFIX value ml_elm_gengrid_filled_get(value v_obj)
 {
         return Val_bool(elm_gengrid_filled_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_gengrid_select_mode_set(value v_obj, value v_mode)
+{
+        elm_gengrid_select_mode_set((Evas_Object*) v_obj,
+                Elm_Object_Select_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_select_mode_get(value v_obj)
+{
+        return Val_Elm_Object_Select_Mode(elm_gengrid_select_mode_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_gengrid_highlight_mode_set(value v_obj, value v_flag)
+{
+        elm_gengrid_highlight_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_highlight_mode_get(value v_obj)
+{
+        return Val_bool(elm_gengrid_highlight_mode_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_gengrid_nth_item_get(value v_obj, value v_k)
+{
+        Elm_Object_Item* it = elm_gengrid_nth_item_get((Evas_Object*) v_obj,
+                Int_val(v_k));
+        if(it == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) it);
+        return v_r;
+}
+
+PREFIX value ml_elm_gengrid_item_select_mode_set(value v_it, value v_mode)
+{
+        elm_gengrid_item_select_mode_set((Elm_Object_Item*) v_it,
+                Elm_Object_Select_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_select_mode_get(value v_it)
+{
+        return Val_Elm_Object_Select_Mode(elm_gengrid_item_select_mode_get(
+                (Elm_Object_Item*) v_it));
 }
 
