@@ -11,7 +11,14 @@ external cursor_style_set : Evas.obj -> string -> unit =
 
 external cursor_style_get : Evas.obj -> string = "ml_elm_object_cursor_get"
 
+external cursor_theme_search_enabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_cursor_theme_search_enabled_set"
+
+external cursor_theme_search_enabled_get : Evas.obj -> bool =
+  "ml_elm_object_cursor_theme_search_enabled_get"
+
 (* Other *)
+
 type item
 
 type select_mode = [`default | `always | `none | `display_only]

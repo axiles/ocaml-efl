@@ -30,6 +30,20 @@ PREFIX value ml_elm_object_cursor_style_get(value v_obj)
         return copy_string(elm_object_cursor_style_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_cursor_theme_search_enabled_set(
+        value v_obj, value v_flag)
+{
+        elm_object_cursor_theme_search_enabled_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_cursor_theme_search_enabled_get(value v_obj)
+{
+        return Val_bool(elm_object_cursor_theme_search_enabled_get(
+                (Evas_Object*) v_obj));
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

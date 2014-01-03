@@ -12,6 +12,10 @@ val cursor_style_set : Evas.obj -> string -> unit
 
 val cursor_style_get : Evas.obj -> string
 
+val cursor_theme_search_enabled_set : Evas.obj -> bool -> unit
+
+val cursor_theme_search_enabled_get : Evas.obj -> bool
+
 (** {2 Other} *)
 
 type item
