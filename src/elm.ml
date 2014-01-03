@@ -42,6 +42,8 @@ type cnp_mode = [`markup | `no_image | `plaintext]
 
 type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
 
+external cache_all_flush : unit -> unit = "ml_elm_cache_all_flush"
+
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
 let init a = ignore (init_with_counter a)

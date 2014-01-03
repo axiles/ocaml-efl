@@ -1,5 +1,11 @@
 #include "include.h"
 
+PREFIX value ml_elm_cache_all_flush(value v_unit)
+{
+        elm_cache_all_flush();
+        return Val_unit;
+}
+
 PREFIX value ml_elm_init_with_counter(value v_argv)
 {
         int argc = Wosize_val(v_argv);
