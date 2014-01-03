@@ -1,3 +1,9 @@
+type overlay = {
+  text_class : string;
+  font : string;
+  size : int;
+}
+
 type properties = {
   name : string;
   styles : string list;

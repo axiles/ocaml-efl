@@ -79,16 +79,10 @@ type text_class = {
   desc : string;
 }
 
-type font_overlay = {
-  text_class : string;
-  font : string;
-  size : int;
-}
-
 external text_classes_list_get : unit -> text_class list =
   "ml_elm_config_text_classes_list_get"
 
-external font_overlay_list_get : unit -> font_overlay list =
+external font_overlay_list_get : unit -> Elm_font.overlay list =
   "ml_elm_config_font_overlay_list_get"
 
 external font_overlay_set : string -> string -> int -> unit =
