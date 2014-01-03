@@ -92,3 +92,7 @@ val item_size_set : Evas.obj -> int -> int -> unit
 
 val item_size_get : Evas.obj -> int * int
 
+val group_item_size_set : Evas.obj -> int -> int -> unit
+
+val group_item_size_get : Evas.obj -> int * int
+

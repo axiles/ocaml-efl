@@ -134,3 +134,9 @@ external item_size_set : Evas.obj -> int -> int -> unit =
 
 external item_size_get : Evas.obj -> int * int = "ml_elm_gengrid_item_size_get"
 
+external group_item_size_set : Evas.obj -> int -> int -> unit =
+  "ml_elm_gengrid_group_item_size_set"
+
+external group_item_size_get : Evas.obj -> int * int =
+  "ml_elm_gengrid_group_item_size_get"
+
