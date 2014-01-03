@@ -100,3 +100,7 @@ val align_set : Evas.obj -> float -> float -> unit
 
 val align_get : Evas.obj -> float * float
 
+val reorder_mode_set : Evas.obj -> bool -> unit
+
+val reorder_mode_get : Evas.obj -> bool
+

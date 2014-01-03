@@ -145,3 +145,8 @@ external align_set : Evas.obj -> float -> float -> unit =
 
 external align_get : Evas.obj -> float * float = "ml_elm_gengrid_align_get"
 
+external reorder_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_gengrid_reorder_mode_set"
+
+external reorder_mode_get : Evas.obj -> bool = "ml_elm_gengrid_reorder_mode_get"
+
