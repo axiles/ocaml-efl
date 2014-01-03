@@ -205,3 +205,9 @@ PREFIX value ml_elm_config_text_classes_list_get(value v_unit)
         return v_l;
 }
 
+PREFIX value ml_elm_config_font_overlay_list_get(value v_unit)
+{
+        return copy_Eina_List_Elm_Font_Overlay(
+                elm_config_font_overlay_list_get());
+}
+

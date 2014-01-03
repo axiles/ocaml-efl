@@ -88,3 +88,6 @@ type font_overlay = {
 external text_classes_list_get : unit -> text_class list =
   "ml_elm_config_text_classes_list_get"
 
+external font_overlay_list_get : unit -> font_overlay list =
+  "ml_elm_config_font_overlay_list_get"
+

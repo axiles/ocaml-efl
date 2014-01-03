@@ -72,3 +72,5 @@ type font_overlay = {
 
 val text_classes_list_get : unit -> text_class list
 
+val font_overlay_list_get : unit -> font_overlay list
+
