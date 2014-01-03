@@ -56,5 +56,37 @@ val item_update : Elm_object.item -> unit
 
 val item_index_get : Elm_object.item -> int
 
+val items_count : Evas.obj -> int
+
+val item_tooltip_text_set : Elm_object.item -> string -> unit
+
+val item_tooltip_content_cb_set :
+  Elm_object.item -> Elm_object.item Elm_tooltip.item_content_cb ->
+    (Evas.obj -> unit) -> unit
+
+val item_tooltip_unset : Elm_object.item -> unit
+
+val item_tooltip_style_set : Elm_object.item -> string -> unit
+
+val item_tooltip_style_get : Elm_object.item -> string
+
+val item_tooltip_window_mode_set : Elm_object.item -> bool -> unit
+
+val item_tooltip_window_mode_get : Elm_object.item -> bool
+
+val item_cursor_set : Elm_object.item -> string -> unit
+
+val item_cursor_get : Elm_object.item -> string option
+
+val item_cursor_unset : Elm_object.item -> unit
+
+val item_cursor_style_set : Elm_object.item -> string -> unit
+
+val item_cursor_style_get : Elm_object.item -> string option
+
+val item_cursor_engine_only_set : Elm_object.item -> bool -> unit
+
+val item_cursor_engine_only_get : Elm_object.item -> bool
+
 val item_size_set : Evas.obj -> int -> int -> unit
 

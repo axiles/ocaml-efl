@@ -78,6 +78,57 @@ external item_update : Elm_object.item -> unit = "ml_elm_gengrid_item_update"
 external item_index_get : Elm_object.item -> int =
   "ml_elm_gengrid_item_index_get"
 
+external items_count : Evas.obj -> int = "ml_elm_gengrid_items_count"
+
+external item_tooltip_text_set : Elm_object.item -> string -> unit =
+  "ml_elm_gengrid_item_tooltip_text_set"
+
+external item_tooltip_content_cb_set_aux :
+  Elm_object.item -> (Evas.obj -> Evas.obj -> Evas.obj) ->
+    Evas.smart_cb -> unit =
+      "ml_elm_gengrid_item_tooltip_content_cb_set"
+
+let item_tooltip_content_cb_set it func del_cb =
+  let func1 obj tooltip = func obj tooltip it in
+  let del_cb1 obj ptr = del_cb obj in
+  item_tooltip_content_cb_set_aux it func1 del_cb1
+
+external item_tooltip_unset : Elm_object.item -> unit =
+  "ml_elm_gengrid_item_tooltip_unset"
+
+external item_tooltip_style_set : Elm_object.item -> string -> unit =
+  "ml_elm_gengrid_item_tooltip_style_set"
+
+external item_tooltip_style_get : Elm_object.item -> string =
+  "ml_elm_gengrid_item_tooltip_style_get"
+
+external item_tooltip_window_mode_set : Elm_object.item -> bool -> unit =
+  "ml_elm_gengrid_item_tooltip_window_mode_set"
+
+external item_tooltip_window_mode_get : Elm_object.item -> bool =
+  "ml_elm_gengrid_item_tooltip_window_mode_get"
+
+external item_cursor_set : Elm_object.item -> string -> unit =
+  "ml_elm_gengrid_item_cursor_set"
+
+external item_cursor_get : Elm_object.item -> string option =
+  "ml_elm_gengrid_item_cursor_get"
+
+external item_cursor_unset : Elm_object.item -> unit =
+  "ml_elm_gengrid_item_cursor_unset"
+
+external item_cursor_style_set : Elm_object.item -> string -> unit =
+  "ml_elm_gengrid_item_cursor_style_set"
+
+external item_cursor_style_get : Elm_object.item -> string option =
+  "ml_elm_gengrid_item_cursor_style_get"
+
+external item_cursor_engine_only_set : Elm_object.item -> bool -> unit =
+  "ml_elm_gengrid_item_cursor_engine_only_set"
+
+external item_cursor_engine_only_get : Elm_object.item -> bool =
+  "ml_elm_gengrid_item_cursor_engine_only_get"
+
 external item_size_set : Evas.obj -> int -> int -> unit =
   "ml_elm_gengrid_item_size_set"
 

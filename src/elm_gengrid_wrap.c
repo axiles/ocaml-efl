@@ -273,6 +273,128 @@ PREFIX value ml_elm_gengrid_item_index_get(value v_it)
         return Val_int(elm_gengrid_item_index_get((Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_gengrid_items_count(value v_obj)
+{
+        return Val_int(elm_gengrid_items_count((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_text_set(value v_it, value v_text)
+{
+        elm_gengrid_item_tooltip_text_set((Elm_Object_Item*) v_it,
+                String_val(v_text));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_content_cb_set(
+        value v_it, value v_func, value v_del_cb)
+{
+        CAMLparam3(v_it, v_func, v_del_cb);
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = caml_alloc(2, 0);
+        Store_field(*data, 0, v_func);
+        Store_field(*data, 1, v_del_cb);
+        caml_register_global_root(data);
+        elm_gengrid_item_tooltip_content_cb_set((Elm_Object_Item*) v_it,
+                ml_Elm_Tooltip_Item_Content_Cb_0, data, ml_Evas_Smart_Cb_1);
+        CAMLreturn(Val_unit);
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_unset(value v_it)
+{
+        elm_gengrid_item_tooltip_unset((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_style_set(value v_it, value v_style)
+{
+        elm_gengrid_item_tooltip_style_set((Elm_Object_Item*) v_it,
+                String_val(v_style));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_style_get(value v_it)
+{
+        return copy_string(elm_gengrid_item_tooltip_style_get(
+                (Elm_Object_Item*) v_it));
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_window_mode_set(
+        value v_it, value v_flag)
+{
+        elm_gengrid_item_tooltip_window_mode_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_tooltip_window_mode_get(value v_it)
+{
+        return Val_bool(elm_gengrid_item_tooltip_window_mode_get(
+                (Elm_Object_Item*) v_it));
+}
+
+PREFIX value ml_elm_gengrid_item_cursor_set(value v_it, value v_cursor)
+{
+        char* cursor = String_val(v_cursor);
+        elm_gengrid_item_cursor_set((Elm_Object_Item*) v_it, cursor);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_cursor_get(value v_it)
+{
+        CAMLparam1(v_it);
+        CAMLlocal1(v_cursor);
+        const char* cursor =
+                elm_gengrid_item_cursor_get((Elm_Object_Item*) v_it);
+        if(cursor == NULL) v_cursor = Val_int(0);
+        else {
+                v_cursor = caml_alloc(1, 0);
+                Store_field(v_cursor, 0, copy_string(cursor));
+        }
+        CAMLreturn(v_cursor);
+}
+
+PREFIX value ml_elm_gengrid_item_cursor_unset(value v_it)
+{
+        elm_gengrid_item_cursor_unset((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_cursor_style_set(value v_it, value v_style)
+{
+        elm_gengrid_item_cursor_style_set((Elm_Object_Item*) v_it,
+                String_val(v_style));
+        return Val_unit;
+}
+
+
+PREFIX value ml_elm_gengrid_item_cursor_style_get(value v_it)
+{
+        CAMLparam1(v_it);
+        CAMLlocal1(v_style);
+        const char* style =
+                elm_gengrid_item_cursor_style_get((Elm_Object_Item*) v_it);
+        if(style == NULL) v_style = Val_int(0);
+        else {
+                v_style = caml_alloc(1, 0);
+                Store_field(v_style, 0, copy_string(style));
+        }
+        CAMLreturn(v_style);
+}
+
+PREFIX value ml_elm_gengrid_item_cursor_engine_only_set(
+        value v_it, value v_flag)
+{
+        elm_gengrid_item_cursor_engine_only_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_cursor_engine_only_get(value v_it)
+{
+        return Val_bool(elm_gengrid_item_cursor_engine_only_get(
+                (Elm_Object_Item*) v_it));
+}
+
 PREFIX value ml_elm_gengrid_item_size_set(value v_obj, value v_w, value v_h)
 {
         elm_gengrid_item_size_set((Evas_Object*) v_obj, Int_val(v_w),
