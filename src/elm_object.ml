@@ -1,3 +1,12 @@
+(* Cursors *)
+
+external cursor_set : Evas.obj -> string -> unit = "ml_elm_object_cursor_set"
+
+external cursor_get : Evas.obj -> string = "ml_elm_object_cursor_get"
+
+external cursor_unset : Evas.obj -> unit = "ml_elm_object_cursor_unset"
+
+(* Other *)
 type item
 
 type select_mode = [`default | `always | `none | `display_only]

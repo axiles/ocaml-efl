@@ -1,5 +1,26 @@
 #include "include.h"
 
+/* Cursors */
+
+PREFIX value ml_elm_object_cursor_set(value v_obj, value v_cursor)
+{
+        elm_object_cursor_set((Evas_Object*) v_obj, String_val(v_cursor));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_cursor_get(value v_obj)
+{
+        return copy_string(elm_object_cursor_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_cursor_unset(value v_obj)
+{
+        elm_object_cursor_unset((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+/* Other */
+
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
 {
         switch(v_m) {

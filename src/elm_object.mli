@@ -1,3 +1,15 @@
+(** elm_object_* Elm_Object_* *)
+
+(** {2 Cursors} *)
+
+val cursor_set : Evas.obj -> string -> unit
+
+val cursor_get : Evas.obj -> string
+
+val cursor_unset : Evas.obj -> unit
+
+(** {2 Other} *)
+
 type item
 
 type select_mode = [`default | `always | `none | `display_only]

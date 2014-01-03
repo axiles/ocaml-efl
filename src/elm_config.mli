@@ -1,5 +1,5 @@
 
-(** Cache *)
+(** {2 Cache} *)
 
 val cache_flush_interval_get : unit -> int
 
@@ -25,7 +25,7 @@ val cache_edje_collection_cache_size_get : unit -> int
 
 val cache_edje_collection_cache_size_set : int -> unit
 
-(** Cursors *)
+(** {2 Cursors} *)
 
 val cursor_engine_only_get : unit -> bool
 
