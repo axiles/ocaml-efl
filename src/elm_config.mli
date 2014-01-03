@@ -45,4 +45,7 @@ val engine_get : unit -> string
 
 val engine_set : string -> unit
 
+val preferred_engine_get : unit -> string
+
+val preferred_engine_set : string -> unit
 

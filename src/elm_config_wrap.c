@@ -109,3 +109,14 @@ PREFIX value ml_elm_config_engine_set(value v_engine)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_preferred_engine_get(value v_unit)
+{
+        return copy_string(elm_config_preferred_engine_get());
+}
+
+PREFIX value ml_elm_config_preferred_engine_set(value v_preferred_engine)
+{
+        elm_config_preferred_engine_set(String_val(v_preferred_engine));
+        return Val_unit;
+}
+

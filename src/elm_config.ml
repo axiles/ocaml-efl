@@ -58,3 +58,9 @@ external engine_get : unit -> string = "ml_elm_config_engine_get"
 
 external engine_set : string -> unit = "ml_elm_config_engine_set"
 
+external preferred_engine_get : unit -> string =
+  "ml_elm_config_preferred_engine_get"
+
+external preferred_engine_set : string -> unit =
+  "ml_elm_config_preferred_engine_set"
+
