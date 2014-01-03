@@ -28,8 +28,16 @@ PREFIX value ml_elm_actionslider_add(value v_parent)
 
 PREFIX value ml_elm_actionslider_selected_label_get(value v_obj)
 {
-        return copy_string(elm_actionslider_selected_label_get(
-                (Evas_Object*) v_obj));
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        const char* label = elm_actionslider_selected_label_get(
+                (Evas_Object*) v_obj);
+        if(label == NULL) v_r = Val_int(0);
+        else {
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, copy_string(label));
+        }
+        CAMLreturn(v_r);
 }
 
 PREFIX value ml_elm_actionslider_indicator_pos_set(

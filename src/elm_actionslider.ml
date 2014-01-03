@@ -1,6 +1,6 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_actionslider_add"
 
-external selected_label_get : Evas.obj -> string =
+external selected_label_get : Evas.obj -> string option =
   "ml_elm_actionslider_selected_label_get"
 
 external indicator_pos_set : Evas.obj -> bool -> bool -> bool -> unit =
@@ -25,8 +25,8 @@ module E = struct
   type u = Evas.Event_type.u
   type 'a v = 'a Evas.Event_type.v
   let f = Evas.Event_type.create_unit
-  let g x = Evas.Event_type.create x Evas.string_of_ptr
+  let g x = Evas.Event_type.create x Evas.string_opt_of_ptr
   let selected = g "selected"
-  let pos_changed = f "pos_changed"
+  let pos_changed = g "pos_changed"
 end
 

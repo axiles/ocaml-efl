@@ -342,3 +342,9 @@ Executable genlist_example_05
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: genlist_example_05.ml
+Executable actionslider_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: actionslider_example_01.ml
