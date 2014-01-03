@@ -44,6 +44,20 @@ PREFIX value ml_elm_object_cursor_theme_search_enabled_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+/* Debug */
+
+PREFIX value ml_elm_object_tree_dump(value v_obj)
+{
+        elm_object_tree_dump((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tree_dot_dump(value v_obj, value v_file)
+{
+        elm_object_tree_dot_dump((Evas_Object*) v_obj, String_val(v_file));
+        return Val_unit;
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

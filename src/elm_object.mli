@@ -16,6 +16,12 @@ val cursor_theme_search_enabled_set : Evas.obj -> bool -> unit
 
 val cursor_theme_search_enabled_get : Evas.obj -> bool
 
+(** {2 Debug} *)
+
+val tree_dump : Evas.obj -> unit
+
+val tree_dot_dump : Evas.obj -> string -> unit
+
 (** {2 Other} *)
 
 type item

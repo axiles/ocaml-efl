@@ -17,6 +17,13 @@ external cursor_theme_search_enabled_set : Evas.obj -> bool -> unit =
 external cursor_theme_search_enabled_get : Evas.obj -> bool =
   "ml_elm_object_cursor_theme_search_enabled_get"
 
+(* Debug *)
+
+external tree_dump : Evas.obj -> unit = "ml_elm_object_tree_dump"
+
+external tree_dot_dump : Evas.obj -> string -> unit =
+  "ml_elm_object_tree_dot_dump"
+
 (* Other *)
 
 type item
