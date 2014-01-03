@@ -55,3 +55,14 @@ PREFIX value ml_elm_config_cache_edje_file_cache_size_set(value v_x)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_cache_edje_collection_cache_size_get(value v_unit)
+{
+        return Val_int(elm_config_cache_edje_collection_cache_size_get());
+}
+
+PREFIX value ml_elm_config_cache_edje_collection_cache_size_set(value v_x)
+{
+        elm_config_cache_edje_collection_cache_size_set(Int_val(v_x));
+        return Val_unit;
+}
+

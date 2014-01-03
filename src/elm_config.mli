@@ -18,3 +18,7 @@ val cache_edje_file_cache_size_get : unit -> int
 
 val cache_edje_file_cache_size_set : int -> unit
 
+val cache_edje_collection_cache_size_get : unit -> int
+
+val cache_edje_collection_cache_size_set : int -> unit
+
