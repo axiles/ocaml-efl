@@ -3,3 +3,5 @@ type properties = {
   styles : string list;
 }
 
+val properties_get : string -> properties
+
