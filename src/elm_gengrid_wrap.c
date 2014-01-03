@@ -459,3 +459,20 @@ PREFIX value ml_elm_gengrid_reorder_mode_get(value v_obj)
         return Val_bool(elm_gengrid_reorder_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_gengrid_page_show(value v_obj, value v_h, value v_v)
+{
+        elm_gengrid_page_show((Evas_Object*) v_obj, Int_val(v_h),
+                Int_val(v_v));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_item_pos_get(value v_it)
+{
+        unsigned int x, y;
+        elm_gengrid_item_pos_get((Elm_Object_Item*) v_it, &x, &y);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(x));
+        Store_field(v_r, 1, Val_int(y));
+        return v_r;
+}
+

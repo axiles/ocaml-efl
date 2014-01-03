@@ -150,3 +150,9 @@ external reorder_mode_set : Evas.obj -> bool -> unit =
 
 external reorder_mode_get : Evas.obj -> bool = "ml_elm_gengrid_reorder_mode_get"
 
+external page_show : Evas.obj -> int -> int -> unit =
+  "ml_elm_gengrid_page_show"
+
+external item_pos_get : Elm_object.item -> int * int =
+  "ml_elm_gengrid_item_pos_get"
+
