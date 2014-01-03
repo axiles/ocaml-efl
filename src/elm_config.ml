@@ -79,3 +79,6 @@ type text_class = {
   desc : string;
 }
 
+external text_classes_list_get : unit -> text_class list =
+  "ml_elm_config_text_classes_list_get"
+

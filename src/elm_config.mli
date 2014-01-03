@@ -64,3 +64,5 @@ type text_class = {
   desc : string;
 }
 
+val text_classes_list_get : unit -> text_class list
+
