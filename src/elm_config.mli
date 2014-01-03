@@ -10,3 +10,7 @@ val cache_font_cache_size_get : unit -> int
 
 val cache_font_cache_size_set : int -> unit
 
+val cache_image_cache_size_get : unit -> int
+
+val cache_image_cache_size_set : int -> unit
+
