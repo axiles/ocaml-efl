@@ -44,3 +44,11 @@ external cursor_engine_only_get : unit -> bool =
 external cursor_engine_only_set : bool -> unit =
   "elm_config_cursor_engine_only_set"
 
+(* Elementary Config *)
+
+external save : unit -> bool = "ml_elm_config_save"
+
+external reload : unit -> unit = "ml_elm_config_reload"
+
+external all_flush : unit -> unit = "ml_elm_config_all_flush"
+

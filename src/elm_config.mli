@@ -31,3 +31,11 @@ val cursor_engine_only_get : unit -> bool
 
 val cursor_engine_only_set : bool -> unit
 
+(** {2 Elementary Config} *)
+
+val save : unit -> bool
+
+val reload : unit -> unit
+
+val all_flush : unit -> unit
+

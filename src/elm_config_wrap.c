@@ -77,3 +77,22 @@ PREFIX value ml_elm_config_cursor_engine_only_set(value v_flag)
         return Val_unit;
 }
 
+/* Elementary Config */
+
+PREFIX value ml_elm_config_save(value v_unit)
+{
+        return Val_bool(elm_config_save());
+}
+
+PREFIX value ml_elm_config_reload(value v_unit)
+{
+        elm_config_reload();
+        return Val_unit;
+}
+
+PREFIX value ml_elm_config_all_flush(value v_unit)
+{
+        elm_config_all_flush();
+        return Val_unit;
+}
+
