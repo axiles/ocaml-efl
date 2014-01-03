@@ -211,3 +211,23 @@ PREFIX value ml_elm_config_font_overlay_list_get(value v_unit)
                 elm_config_font_overlay_list_get());
 }
 
+PREFIX value ml_elm_config_font_overlay_set(
+        value v_class, value v_font, value v_size)
+{
+        elm_config_font_overlay_set(String_val(v_class), String_val(v_font),
+                Int_val(v_size));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_config_font_overlay_unset(value v_class)
+{
+        elm_config_font_overlay_unset(String_val(v_class));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_config_font_overlay_apply(value v_unit)
+{
+        elm_config_font_overlay_apply();
+        return Val_unit;
+}
+

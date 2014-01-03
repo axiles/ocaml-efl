@@ -91,3 +91,11 @@ external text_classes_list_get : unit -> text_class list =
 external font_overlay_list_get : unit -> font_overlay list =
   "ml_elm_config_font_overlay_list_get"
 
+external font_overlay_set : string -> string -> int -> unit =
+  "ml_elm_config_font_overlay_set"
+
+external font_overlay_unset : string -> unit =
+  "ml_elm_config_font_overlay_unset"
+
+external font_overlay_apply : unit -> unit = "ml_elm_config_font_overlay_apply"
+

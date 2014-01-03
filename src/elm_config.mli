@@ -74,3 +74,9 @@ val text_classes_list_get : unit -> text_class list
 
 val font_overlay_list_get : unit -> font_overlay list
 
+val font_overlay_set : string -> string -> int -> unit
+
+val font_overlay_unset : string -> unit
+
+val font_overlay_apply : unit -> unit
+
