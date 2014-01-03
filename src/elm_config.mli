@@ -64,5 +64,11 @@ type text_class = {
   desc : string;
 }
 
+type font_overlay = {
+  text_class : string;
+  font : string;
+  size : int;
+}
+
 val text_classes_list_get : unit -> text_class list
 

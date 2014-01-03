@@ -170,6 +170,33 @@ PREFIX inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        Store_field(v, 0, copy_string(c->text_class));
+        Store_field(v, 1, copy_string(c->font));
+        Store_field(v, 2, Val_int(c->size));
+        CAMLreturn(v);
+}
+
+PREFIX inline value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal3(v, v1, v_s);
+        Eina_List* it;
+        Elm_Font_Overlay* s;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, s) {
+                v1 = v;
+                v_s = copy_Elm_Font_Overlay(s);
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, v_s);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_config_text_classes_list_get(value v_unit)
 {
         Eina_List* l = elm_config_text_classes_list_get();
