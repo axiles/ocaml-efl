@@ -6,6 +6,11 @@ external cursor_get : Evas.obj -> string = "ml_elm_object_cursor_get"
 
 external cursor_unset : Evas.obj -> unit = "ml_elm_object_cursor_unset"
 
+external cursor_style_set : Evas.obj -> string -> unit =
+  "ml_elm_object_cursor_set"
+
+external cursor_style_get : Evas.obj -> string = "ml_elm_object_cursor_get"
+
 (* Other *)
 type item
 

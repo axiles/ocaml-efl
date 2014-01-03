@@ -8,6 +8,10 @@ val cursor_get : Evas.obj -> string
 
 val cursor_unset : Evas.obj -> unit
 
+val cursor_style_set : Evas.obj -> string -> unit
+
+val cursor_style_get : Evas.obj -> string
+
 (** {2 Other} *)
 
 type item

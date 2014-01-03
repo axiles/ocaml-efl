@@ -19,6 +19,17 @@ PREFIX value ml_elm_object_cursor_unset(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_cursor_style_set(value v_obj, value v_cursor)
+{
+        elm_object_cursor_style_set((Evas_Object*) v_obj, String_val(v_cursor));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_cursor_style_get(value v_obj)
+{
+        return copy_string(elm_object_cursor_style_get((Evas_Object*) v_obj));
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
