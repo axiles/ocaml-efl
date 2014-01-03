@@ -156,3 +156,7 @@ external page_show : Evas.obj -> int -> int -> unit =
 external item_pos_get : Elm_object.item -> int * int =
   "ml_elm_gengrid_item_pos_get"
 
+external filled_set : Evas.obj -> bool -> unit = "ml_elm_gengrid_filled_set"
+
+external filled_get : Evas.obj -> bool = "ml_elm_gengrid_filled_get"
+

@@ -108,3 +108,7 @@ val page_show : Evas.obj -> int -> int -> unit
 
 val item_pos_get : Elm_object.item -> int * int
 
+val filled_set : Evas.obj -> bool -> unit
+
+val filled_get : Evas.obj -> bool
+
