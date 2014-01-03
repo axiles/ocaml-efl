@@ -132,3 +132,5 @@ external item_cursor_engine_only_get : Elm_object.item -> bool =
 external item_size_set : Evas.obj -> int -> int -> unit =
   "ml_elm_gengrid_item_size_set"
 
+external item_size_get : Evas.obj -> int * int = "ml_elm_gengrid_item_size_get"
+

@@ -90,3 +90,5 @@ val item_cursor_engine_only_get : Elm_object.item -> bool
 
 val item_size_set : Evas.obj -> int -> int -> unit
 
+val item_size_get : Evas.obj -> int * int
+
