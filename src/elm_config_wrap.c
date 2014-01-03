@@ -131,3 +131,14 @@ PREFIX value ml_elm_config_access_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_mirrored_get(value v_unit)
+{
+        return Val_bool(elm_config_mirrored_get());
+}
+
+PREFIX value ml_elm_config_mirrored_set(value v_flag)
+{
+        elm_config_mirrored_set(Bool_val(v_flag));
+        return Val_unit;
+}
+

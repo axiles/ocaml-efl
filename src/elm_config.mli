@@ -53,3 +53,7 @@ val access_get : unit -> bool
 
 val access_set : bool -> unit
 
+val mirrored_get : unit -> bool
+
+val mirrored_set : bool -> unit
+
