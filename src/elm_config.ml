@@ -64,3 +64,7 @@ external preferred_engine_get : unit -> string =
 external preferred_engine_set : string -> unit =
   "ml_elm_config_preferred_engine_set"
 
+external access_get : unit -> bool = "ml_elm_config_access_get"
+
+external access_set : bool -> unit = "ml_elm_config_access_set"
+

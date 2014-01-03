@@ -120,3 +120,14 @@ PREFIX value ml_elm_config_preferred_engine_set(value v_preferred_engine)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_access_get(value v_unit)
+{
+        return Val_bool(elm_config_access_get());
+}
+
+PREFIX value ml_elm_config_access_set(value v_flag)
+{
+        elm_config_access_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
