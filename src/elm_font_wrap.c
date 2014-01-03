@@ -17,3 +17,15 @@ PREFIX value ml_elm_font_properties_get(value v_font)
         return v_fp;
 }
 
+PREFIX value ml_elm_font_fontconfig_name_get(value v_name, value v_style)
+{
+        const char* style;
+        if(v_style == Val_int(0)) style = NULL;
+        else style = String_val(Field(v_style, 0));
+        char* s = elm_font_fontconfig_name_get(String_val(v_name), style);
+        if(s == NULL) caml_failwith("elm_fontconfig_name_get");
+        value v_s = copy_string(s);
+        elm_font_fontconfig_name_free(s);
+        return v_s;
+}
+
