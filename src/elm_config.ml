@@ -22,3 +22,9 @@ external cache_image_cache_size_get : unit -> int =
 external cache_image_cache_size_set : int -> unit =
   "ml_elm_config_cache_image_cache_size_set"
 
+external cache_edje_file_cache_size_get : unit -> int =
+  "ml_elm_config_cache_edje_file_cache_size_get"
+
+external cache_edje_file_cache_size_set : int -> unit =
+  "ml_elm_config_cache_edje_file_cache_size_set"
+
