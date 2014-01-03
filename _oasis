@@ -60,7 +60,8 @@ Library efl
     Elm_progressbar,
     Elm_genlist,
     Elm_grid,
-    Elm_actionslider
+    Elm_actionslider,
+    Elm_config
   CSources:
     include.h,
     eina_wrap.c,
@@ -110,7 +111,8 @@ Library efl
     elm_tooltip_wrap.c,
     elm_grid_wrap.c,
     elm_actionslider_wrap.c,
-    elm_gengrid_wrap.c
+    elm_gengrid_wrap.c,
+    elm_config_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
