@@ -1,3 +1,5 @@
+(* Cache *)
+
 external cache_flush_interval_get : unit -> int =
   "ml_elm_config_cache_flush_interval_get"
 
@@ -33,4 +35,12 @@ external cache_edje_collection_cache_size_get : unit -> int =
 
 external cache_edje_collection_cache_size_set : int -> unit =
   "ml_elm_config_cache_edje_collection_cache_size_set"
+
+(* Cursors *)
+
+external cursor_engine_only_get : unit -> bool =
+  "elm_config_cursor_engine_only_get"
+
+external cursor_engine_only_set : bool -> unit =
+  "elm_config_cursor_engine_only_set"
 
