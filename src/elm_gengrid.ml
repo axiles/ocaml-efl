@@ -140,3 +140,8 @@ external group_item_size_set : Evas.obj -> int -> int -> unit =
 external group_item_size_get : Evas.obj -> int * int =
   "ml_elm_gengrid_group_item_size_get"
 
+external align_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_gengrid_align_set"
+
+external align_get : Evas.obj -> float * float = "ml_elm_gengrid_align_get"
+

@@ -429,3 +429,22 @@ PREFIX value ml_elm_gengrid_group_item_size_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_gengrid_align_set(value v_obj, value v_x, value v_y)
+{
+        elm_gengrid_align_set((Evas_Object*) v_obj, Double_val(v_x),
+                Double_val(v_y));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_align_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double x, y;
+        elm_gengrid_align_get((Evas_Object*) v_obj, &x, &y);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(x));
+        Store_field(v_r, 1, copy_double(y));
+        CAMLreturn(v_r);
+}
+
