@@ -130,3 +130,41 @@ val item_select_mode_set : Elm_object.item -> Elm_object.select_mode -> unit
 
 val item_select_mode_get : Elm_object.item -> Elm_object.select_mode
 
+module E : sig
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  val activated : Elm_object.item v
+  val pressed : Elm_object.item v
+  val released : Elm_object.item v
+  val clicked_double : Elm_object.item v
+  val longpressed : u
+  val selected : Elm_object.item v
+  val unselected : Elm_object.item v
+  val realized : Elm_object.item v
+  val unrealized : u
+  val changed : u
+  val scroll_anim_start : u
+  val scroll_anim_stop : u
+  val drag_start_up : u
+  val drag_start_down : u
+  val drag_start_left : u
+  val drag_start_right : u
+  val drag_stop : u
+  val drag : u
+  val scroll : u
+  val scroll_drag_start : u
+  val scroll_drag_stop : u
+  val scroll_page_changed : u
+  val edge_top : u
+  val edge_bottom : u
+  val edge_left : u
+  val edge_right : u
+  val moved : u
+  val index_update : u
+  val highlighted : Elm_object.item v
+  val unhighlighted : Elm_object.item v
+  val language_changed : u
+  val focused : u
+  val unfocused : u
+end
+

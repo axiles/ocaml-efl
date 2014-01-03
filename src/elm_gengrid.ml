@@ -188,3 +188,43 @@ external item_select_mode_set :
 external item_select_mode_get : Elm_object.item -> Elm_object.select_mode =
   "ml_elm_gengrid_item_select_mode_get"
 
+module E = struct
+  type 'a v = 'a Evas.Event_type.v
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let g x = Evas.Event_type.create x Elm_object.item_of_ptr
+  let activated = g "activated"
+  let pressed = g "pressed"
+  let released = g "released"
+  let clicked_double = g "clicked_double"
+  let longpressed = f "longpressed"
+  let selected = g "selected"
+  let unselected = g "unselected"
+  let realized = g "realized"
+  let unrealized = f "unrealized"
+  let changed = f "changed"
+  let scroll_anim_start = f "scroll,anim,start"
+  let scroll_anim_stop = f "scroll,anim,stop"
+  let drag_start_up = f "drag,start,up"
+  let drag_start_down = f "drag,start,down"
+  let drag_start_right = f "drag,start,right"
+  let drag_start_left = f "drag,start,left"
+  let drag_stop = f "drag_stop"
+  let drag = f "drag"
+  let scroll = f "scroll"
+  let scroll_drag_start = f "scroll,drag,start"
+  let scroll_drag_stop = f "scroll,drag,stop"
+  let scroll_page_changed = f "scroll,page,changed"
+  let edge_top = f "edge,top"
+  let edge_bottom = f "edge,bottom"
+  let edge_left = f "edge,left"
+  let edge_right = f "edge,right"
+  let moved = f "moved"
+  let index_update = f "index,update"
+  let highlighted = g "highlighted"
+  let unhighlighted = g "unhighlighted"
+  let language_changed = f "language,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
+end
+
