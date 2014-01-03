@@ -109,7 +109,7 @@ let () =
 
   Evas_object_smart.callback_add o Elm_button.E.clicked btn_clicked;
 
-  if Elm_config_engine.get () = "shot" then
+  if Elm_config.engine_get () = "shot" then
     (let (_ : Ecore.timer) = Ecore_timer.add 0.1 (screenshot_hack_cb o) in ());
 
   Elm.run ();

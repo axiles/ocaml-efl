@@ -1,2 +1,0 @@
-val get : unit -> string
-

@@ -52,3 +52,9 @@ external reload : unit -> unit = "ml_elm_config_reload"
 
 external all_flush : unit -> unit = "ml_elm_config_all_flush"
 
+(* Elementary Engine *)
+
+external engine_get : unit -> string = "ml_elm_config_engine_get"
+
+external engine_set : string -> unit = "ml_elm_config_engine_set"
+

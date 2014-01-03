@@ -96,3 +96,16 @@ PREFIX value ml_elm_config_all_flush(value v_unit)
         return Val_unit;
 }
 
+/* Elementary Engine */
+
+PREFIX value ml_elm_config_engine_get(value v_unit)
+{
+        return copy_string(elm_config_engine_get());
+}
+
+PREFIX value ml_elm_config_engine_set(value v_engine)
+{
+        elm_config_engine_set(String_val(v_engine));
+        return Val_unit;
+}
+
