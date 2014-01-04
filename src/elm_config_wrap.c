@@ -231,3 +231,10 @@ PREFIX value ml_elm_config_font_overlay_apply(value v_unit)
         return Val_unit;
 }
 
+/* Elementary Profile */
+
+PREFIX value ml_elm_config_profile_get(value v_unit)
+{
+        return copy_string(elm_config_profile_get());
+}
+

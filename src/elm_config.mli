@@ -74,3 +74,7 @@ val font_overlay_unset : string -> unit
 
 val font_overlay_apply : unit -> unit
 
+(** {2 Elementary Profile} *)
+
+val profile_get : unit -> string
+

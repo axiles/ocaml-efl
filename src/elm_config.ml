@@ -93,3 +93,7 @@ external font_overlay_unset : string -> unit =
 
 external font_overlay_apply : unit -> unit = "ml_elm_config_font_overlay_apply"
 
+(** Elementary Profile *)
+
+external profile_get : unit -> string = "ml_elm_config_profile_get"
+
