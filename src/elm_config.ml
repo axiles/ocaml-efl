@@ -93,7 +93,7 @@ external font_overlay_unset : string -> unit =
 
 external font_overlay_apply : unit -> unit = "ml_elm_config_font_overlay_apply"
 
-(** Elementary Profile *)
+(* Elementary Profile *)
 
 external profile_get : unit -> string = "ml_elm_config_profile_get"
 
@@ -105,9 +105,17 @@ external profile_list_get : unit -> string list =
 
 external profile_set : string -> unit = "ml_elm_config_profile_set"
 
-(** Fingers *)
+(* Fingers *)
 
 external finger_size_get : unit -> int = "ml_elm_config_finger_size_get"
 
 external finger_size_set : int -> unit = "ml_elm_config_finger_size_set"
+
+(* Focus *)
+
+external focus_highlight_enabled_get : unit -> bool =
+  "ml_elm_config_focus_highlight_enabled_get"
+
+external focus_highlight_enabled_set : bool -> unit =
+  "ml_elm_config_focus_highlight_enabled_set"
 

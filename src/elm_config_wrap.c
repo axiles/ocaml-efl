@@ -274,3 +274,16 @@ PREFIX value ml_elm_config_finger_size_set(value v_size)
         return Val_unit;
 }
 
+/* Focus */
+
+PREFIX value ml_elm_config_focus_highlight_enabled_get(value v_unit)
+{
+        return Val_bool(elm_config_focus_highlight_enabled_get());
+}
+
+PREFIX value ml_elm_config_focus_highlight_enabled_set(value v_flag)
+{
+        elm_config_focus_highlight_enabled_set(Bool_val(v_flag));
+        return Val_unit;
+}
+

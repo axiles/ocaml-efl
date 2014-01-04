@@ -91,3 +91,9 @@ val finger_size_get : unit -> int
 
 val finger_size_set : int -> unit
 
+(** {2 Focus} *)
+
+val focus_highlight_enabled_get : unit -> bool
+
+val focus_highlight_enabled_set : bool -> unit
+
