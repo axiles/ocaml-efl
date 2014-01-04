@@ -97,3 +97,7 @@ val focus_highlight_enabled_get : unit -> bool
 
 val focus_highlight_enabled_set : bool -> unit
 
+val focus_highlight_animate_get : unit -> bool
+
+val focus_highlight_animate_set : bool -> unit
+

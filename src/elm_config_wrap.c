@@ -287,3 +287,14 @@ PREFIX value ml_elm_config_focus_highlight_enabled_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_focus_highlight_animate_get(value v_unit)
+{
+        return Val_bool(elm_config_focus_highlight_animate_get());
+}
+
+PREFIX value ml_elm_config_focus_highlight_animate_set(value v_flag)
+{
+        elm_config_focus_highlight_animate_set(Bool_val(v_flag));
+        return Val_unit;
+}
+

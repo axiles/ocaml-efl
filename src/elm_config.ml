@@ -119,3 +119,9 @@ external focus_highlight_enabled_get : unit -> bool =
 external focus_highlight_enabled_set : bool -> unit =
   "ml_elm_config_focus_highlight_enabled_set"
 
+external focus_highlight_animate_get : unit -> bool =
+  "ml_elm_config_focus_highlight_animate_get"
+
+external focus_highlight_animate_set : bool -> unit =
+  "ml_elm_config_focus_highlight_animate_set"
+
