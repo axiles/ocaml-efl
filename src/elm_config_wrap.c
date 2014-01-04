@@ -247,3 +247,17 @@ PREFIX value ml_elm_config_profile_dir_get(value v_profile, value v_is_user)
         return v_dir;
 }
 
+PREFIX value ml_elm_config_profile_list_get(value v_unit)
+{
+        Eina_List* list = elm_config_profile_list_get();
+        value v_list = copy_Eina_List_string(list);
+        elm_config_profile_list_free(list);
+        return v_list;
+}
+
+PREFIX value ml_elm_config_profile_set(value v_profile)
+{
+        elm_config_profile_set(String_val(v_profile));
+        return Val_unit;
+}
+

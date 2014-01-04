@@ -1,3 +1,4 @@
+(** elm_config_* *)
 
 (** {2 Cache} *)
 
@@ -79,4 +80,8 @@ val font_overlay_apply : unit -> unit
 val profile_get : unit -> string
 
 val profile_dir_get : string -> bool -> string
+
+val profile_list_get : unit -> string list
+
+val profile_set : string -> unit
 

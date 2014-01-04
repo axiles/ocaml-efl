@@ -100,3 +100,8 @@ external profile_get : unit -> string = "ml_elm_config_profile_get"
 external profile_dir_get : string -> bool -> string =
   "ml_elm_config_profile_dir_get"
 
+external profile_list_get : unit -> string list =
+  "ml_elm_config_profile_list_get"
+
+external profile_set : string -> unit = "ml_elm_config_profile_set"
+
