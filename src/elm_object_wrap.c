@@ -123,6 +123,13 @@ PREFIX value ml_elm_object_focus_custom_chain_prepend(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_focus_next(value v_obj, value v_d)
+{
+        elm_object_focus_next((Evas_Object*) v_obj,
+                Elm_Focus_Direction_val(v_d));
+        return Val_unit;
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

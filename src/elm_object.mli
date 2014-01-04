@@ -42,6 +42,8 @@ val focus_custom_chain_append : Evas.obj -> Evas.obj -> Evas.obj option -> unit
 
 val focus_custom_chain_prepend : Evas.obj -> Evas.obj -> Evas.obj option -> unit
 
+val focus_next : Evas.obj -> Elm.focus_direction -> unit
+
 (** {2 Other} *)
 
 type item

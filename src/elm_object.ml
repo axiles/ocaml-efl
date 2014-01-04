@@ -52,6 +52,9 @@ external focus_custom_chain_prepend :
   Evas.obj -> Evas.obj -> Evas.obj option -> unit =
     "ml_elm_object_focus_custom_chain_prepend"
 
+external focus_next : Evas.obj -> Elm.focus_direction -> unit =
+  "ml_elm_object_focus_next"
+
 (* Other *)
 
 type item
