@@ -130,6 +130,27 @@ PREFIX value ml_elm_object_focus_next(value v_obj, value v_d)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_focus_next_object_get(value v_obj, value v_d)
+{
+        Evas_Object* next = elm_object_focus_next_object_get(
+                (Evas_Object*) v_obj, Elm_Focus_Direction_val(v_d));
+        if(next == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) next);
+        return v_r;
+}
+
+PREFIX value ml_elm_object_focus_next_object_set(
+        value v_obj, value v_next, value v_d)
+{
+        Evas_Object* next;
+        if(v_next == Val_int(0)) next = NULL;
+        else next = (Evas_Object*) Field(v_next, 0);
+        elm_object_focus_next_object_set((Evas_Object*) v_obj, next,
+                Elm_Focus_Direction_val(v_d));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_tree_focus_allow_set(value v_obj, value v_flag)
 {
         elm_object_tree_focus_allow_set((Evas_Object*) v_obj,
