@@ -130,6 +130,18 @@ PREFIX value ml_elm_object_focus_next(value v_obj, value v_d)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_tree_focus_allow_set(value v_obj, value v_flag)
+{
+        elm_object_tree_focus_allow_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tree_focus_allow_get(value v_obj)
+{
+        return Val_bool(elm_object_tree_focus_allow_get((Evas_Object*) v_obj));
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

@@ -55,6 +55,12 @@ external focus_custom_chain_prepend :
 external focus_next : Evas.obj -> Elm.focus_direction -> unit =
   "ml_elm_object_focus_next"
 
+external tree_focus_allow_get : Evas.obj -> bool =
+  "ml_elm_object_tree_focus_allow_get"
+
+external tree_focus_allow_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_tree_focus_allow_set"
+
 (* Other *)
 
 type item

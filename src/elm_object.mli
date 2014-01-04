@@ -44,6 +44,10 @@ val focus_custom_chain_prepend : Evas.obj -> Evas.obj -> Evas.obj option -> unit
 
 val focus_next : Evas.obj -> Elm.focus_direction -> unit
 
+val tree_focus_allow_get : Evas.obj -> bool
+
+val tree_focus_allow_set : Evas.obj -> bool -> unit
+
 (** {2 Other} *)
 
 type item
