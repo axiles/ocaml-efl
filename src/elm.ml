@@ -1,3 +1,8 @@
+(* Fingers *)
+
+external coords_finger_size_adjust : int -> int -> int * int =
+  "ml_elm_coords_finger_size_adjust"
+
 type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]

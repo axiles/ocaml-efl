@@ -1,5 +1,20 @@
 #include "include.h"
 
+/* Fingers */
+
+PREFIX value ml_elm_coords_finger_size_adjust(value v_times_w, value v_times_h)
+{
+        Evas_Coord w, h;
+        elm_coords_finger_size_adjust(Int_val(v_times_w), &w,
+                Int_val(v_times_h), &h);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(w));
+        Store_field(v_r, 1, Val_int(h));
+        return v_r;
+}
+
+/* Others */
+
 PREFIX value ml_elm_cache_all_flush(value v_unit)
 {
         elm_cache_all_flush();

@@ -1,3 +1,11 @@
+(** elm_* Elm_* *)
+
+(** {2 Fingers} *)
+
+val coords_finger_size_adjust : int -> int -> int * int
+
+(** {2 Others *)
+
 type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]
