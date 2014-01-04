@@ -101,6 +101,17 @@ PREFIX value ml_elm_object_focus_custom_chain_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_focus_custom_chain_append(
+        value v_obj, value v_child, value v_relative_child)
+{
+        Evas_Object* relative_child;
+        if(v_relative_child == Val_int(0)) relative_child = NULL;
+        else relative_child = (Evas_Object*) Field(v_relative_child, 0);
+        elm_object_focus_custom_chain_append((Evas_Object*) v_obj,
+                (Evas_Object*) v_child, relative_child);
+        return Val_unit;
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

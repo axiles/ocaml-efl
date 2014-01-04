@@ -44,6 +44,10 @@ external focus_custom_chain_unset : Evas.obj -> unit =
 external focus_custom_chain_get : Evas.obj -> Evas.obj list =
   "ml_elm_object_focus_custom_chain_get"
 
+external focus_custom_chain_append :
+  Evas.obj -> Evas.obj -> Evas.obj option -> unit =
+    "ml_elm_object_focus_custom_chain_append"
+
 (* Other *)
 
 type item
