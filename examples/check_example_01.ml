@@ -5,7 +5,7 @@ let print obj =
   printf "check %smarked\n%!" (if Elm_check.state_get obj then "" else "un")
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "check" `basic in
   Elm_win.title_set win "check";

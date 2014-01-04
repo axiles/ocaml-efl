@@ -15,7 +15,7 @@ let on_cancel _ =
   Elm.exit ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
  
   let text =
     if Array.length Sys.argv > 1 then Sys.argv.(1) else "No text provided" in

@@ -1,7 +1,7 @@
 open Efl
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "label" `basic in
   Elm_win.title_set win "Label";

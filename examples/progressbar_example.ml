@@ -64,7 +64,7 @@ let add_bt win bt_bx label cb =
   Evas_object.show bt
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm_app.info_set "elementary" ~checkfile:"images/logo_small.jpg" ();
   let win = Elm_win.add "progressbar" `basic in

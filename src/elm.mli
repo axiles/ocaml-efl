@@ -1,5 +1,9 @@
 (** elm_* Elm_* *)
 
+(** {2 Cache} *)
+
+val cache_all_flush : unit -> unit
+
 (** {2 Fingers} *)
 
 val coords_finger_size_adjust : int -> int -> int * int
@@ -14,11 +18,25 @@ type focus_direction = [
   `right |
   `left]
 
-(** {2 Others *)
+(** {2 General} *)
 
 type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]
+
+val init : unit -> unit
+
+val shutdown : unit -> unit
+
+val run : unit -> unit
+
+val exit : unit -> unit
+
+val policy_set_bool : policy -> policy_value -> bool
+
+val policy_set : policy -> policy_value -> unit
+
+(** {2 Others} *)
 
 type text_format = [`plain_utf8 | `markup_utf8]
 
@@ -60,21 +78,7 @@ type cnp_mode = [`markup | `no_image | `plaintext]
 
 type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
 
-val cache_all_flush : unit -> unit
-
-val init : string array -> unit
-
-val run : unit -> unit
-
-val shutdown : unit -> unit
-
-val exit : unit -> unit
-
 val init_with_counter : string array -> int
-
-val policy_set_bool : policy -> policy_value -> bool
-
-val policy_set : policy -> policy_value -> unit
 
 val need_ethumb : unit -> bool
 

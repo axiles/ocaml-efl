@@ -86,7 +86,7 @@ let add_dim_en win box name q =
   Evas_object_smart.callback_add e Elm_entry.E.changed changed_cb
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   
   let win = Elm_win.add "entry-example" `basic in
   Elm_win.title_set win "Emacs Lite";

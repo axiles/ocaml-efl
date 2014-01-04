@@ -26,7 +26,7 @@ let magnet_enable_disable_cb obj part =
   | _ -> ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   let win = Elm_win.add "actionslider" `basic in
   Elm_win.title_set win "Actionslider";
   Elm_win.autodel_set win true;

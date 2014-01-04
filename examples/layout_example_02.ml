@@ -24,7 +24,7 @@ let signal_cb current o emission source =
   ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let current = ref 0 in
 

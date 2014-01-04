@@ -19,7 +19,7 @@ let show menu _ _ ev =
   Evas_object.show menu
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "menu" `basic in
   Elm_win.title_set win "Menu";

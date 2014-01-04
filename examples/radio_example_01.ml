@@ -39,7 +39,7 @@ let add_radio_next win bx i icon_name group =
   let _ = add_radio win bx i icon_name g in ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "radio" `basic in
   Elm_win.title_set win "Radio";

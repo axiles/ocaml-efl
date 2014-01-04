@@ -104,7 +104,7 @@ let add_hbox win bx li list =
   List.iter (fun (label, cb) -> add_button win li hbx label cb) list
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "list" `basic in
   Elm_win.title_set win "List Items Example";

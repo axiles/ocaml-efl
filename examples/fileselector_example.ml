@@ -35,7 +35,7 @@ let add_data_button win box fs name msg f_get =
   Evas_object.show bt
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   let (_ : bool) = Elm.need_ethumb () in
 
   let win = Elm_win.add "fileselector" `basic in

@@ -92,7 +92,7 @@ let button_add win box list label cb =
   Evas_object_smart.callback_add bt Elm_button.E.clicked (cb list)
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   let win = Elm_win.add "icon" `basic in
   Elm_win.title_set win "Icon";
   Elm.policy_set `quit `last_window_closed;

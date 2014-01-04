@@ -4,7 +4,7 @@ open Format
 let on_done _ = Elm.exit ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm_app.info_set "elementary" ~checkfile:"images/plant_01.jpg" ();
   let win = Elm_win.add "bg-image" `basic in

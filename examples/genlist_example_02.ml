@@ -104,7 +104,7 @@ let show_status_cb list obj =
 let realize_cb list obj = Elm_genlist.realized_items_update list
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   let win = Elm_win.add "genlist" `basic in
   Elm_win.title_set win "Genlist - simple";
   Elm.policy_set `quit `last_window_closed;

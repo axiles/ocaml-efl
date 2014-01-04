@@ -61,7 +61,7 @@ let add_radios win box bg =
   Elm_radio.value_set rdg (int_of_bg_opt `scale)
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm_app.info_set "elementary" ~checkfile:"object/test.edj" ();
   let win = Elm_win.add "bg-options" `basic in

@@ -3,7 +3,7 @@ open Efl
 let on_click _ = Elm.exit ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "Greetins" `basic in
   Elm_win.title_set win "Hello, World!";

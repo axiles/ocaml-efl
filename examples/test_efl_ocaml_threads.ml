@@ -17,7 +17,7 @@ let add_button window box text =
   Evas_object.show btn
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   Elm.policy_set `quit `last_window_closed;
   let window = Elm_win.add "two buttons" `basic in
   Elm_win.autodel_set window true;

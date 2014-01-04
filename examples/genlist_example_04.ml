@@ -147,7 +147,7 @@ let button_add win box list label cb =
   bt
   
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   let win = Elm_win.add "icon" `basic in
   Elm_win.title_set win "Icon";
   Elm.policy_set `quit `last_window_closed;

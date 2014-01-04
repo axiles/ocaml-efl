@@ -45,16 +45,11 @@ PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
         return Val_previous;
 }
 
-/* Others */
-
-PREFIX value ml_elm_cache_all_flush(value v_unit)
-{
-        elm_cache_all_flush();
-        return Val_unit;
-}
+/* General */
 
 PREFIX value ml_elm_init_with_counter(value v_argv)
 {
+        _elm_startup_time = ecore_time_unix_get(); 
         int argc = Wosize_val(v_argv);
 	char** argv = (char**) caml_stat_alloc(sizeof(char*) * (argc + 1));
 	int i;
@@ -66,6 +61,15 @@ PREFIX value ml_elm_init_with_counter(value v_argv)
         }
         argv[argc] = NULL;
         return Val_int(elm_init(argc, argv));
+}
+
+
+/* Others */
+
+PREFIX value ml_elm_cache_all_flush(value v_unit)
+{
+        elm_cache_all_flush();
+        return Val_unit;
 }
 
 PREFIX value ml_elm_run(value v_unit)

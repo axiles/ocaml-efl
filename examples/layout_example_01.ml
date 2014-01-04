@@ -99,7 +99,7 @@ end = struct
 end
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm_app.info_set "elementary" ~checkfile:"examples/layout_example.edj" ();
   let win = Elm_win.add "layout" `basic in

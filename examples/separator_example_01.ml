@@ -11,7 +11,7 @@ let add_rect win bx r g b =
 
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "separator" `basic in
   Elm_win.title_set win "Separator";

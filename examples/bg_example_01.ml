@@ -3,7 +3,7 @@ open Efl
 let on_done _ = Elm.exit ()
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "bg-plain" `basic in
   Elm_win.title_set win "Bg Plain";

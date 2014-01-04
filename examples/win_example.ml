@@ -96,7 +96,7 @@ let add_win_focus_cb win name =
   Evas_object_smart.callback_add win Elm_win.E.focused cb
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm_app.info_set "elementary" ~checkfile:"images/logo.png" ();
   let win = Elm_win.add "win-example" `basic in

@@ -1,7 +1,7 @@
 open Efl
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
   let win = Elm_win.add "hello" `basic in
   Elm_win.title_set win "Hello";
   Evas_object_smart.callback_add win Elm_win.E.delete_request

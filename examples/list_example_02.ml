@@ -7,7 +7,7 @@ let lbl = [
   "Sunday"; "Monday"; "Tuesday"; "Wednesday"; "Thursday"; "Friday"; "Saturday"]
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "list" `basic in
   Elm_win.title_set win "List Example";

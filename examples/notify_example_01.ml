@@ -26,7 +26,7 @@ let add_notify1 win bx = add_notify win bx false ~timeout:5. ~cb:hide "default"
 let add_notify2 win bx name orient = add_notify win bx ~orient true name
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   let win = Elm_win.add "notify" `basic in
   Elm_win.title_set win "Notify";

@@ -80,7 +80,7 @@ let win_del_cb obj =
 let screenshot_hack_cb data () = btn_clicked data ; false
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm.policy_set `quit `last_window_closed;
   let win = Elm_win.add "inwin-example" `basic in

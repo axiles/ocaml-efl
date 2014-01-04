@@ -2,7 +2,7 @@ open Efl
 open Format
 
 let () =
-  Elm.init Sys.argv;
+  Elm.init ();
 
   Elm_app.info_set "elementary" ~checkfile:"images/plant_01.jpg" ();
   let win = Elm_win.add "image" `basic in
