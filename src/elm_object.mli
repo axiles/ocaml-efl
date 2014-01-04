@@ -53,11 +53,13 @@ val tree_focus_allow_get : Evas.obj -> bool
 
 val tree_focus_allow_set : Evas.obj -> bool -> unit
 
-(** {2 Other} *)
+(** {2 General} *)
 
 type item
 
 type select_mode = [`default | `always | `none | `display_only]
+
+(** {2 Other} *)
 
 val part_text_set : Evas.obj -> ?p:string -> string -> unit
 

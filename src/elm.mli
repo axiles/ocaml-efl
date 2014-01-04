@@ -36,6 +36,8 @@ val policy_set_bool : policy -> policy_value -> bool
 
 val policy_set : policy -> policy_value -> unit
 
+val policy_get : policy -> policy_value
+
 (** {2 Others} *)
 
 type text_format = [`plain_utf8 | `markup_utf8]

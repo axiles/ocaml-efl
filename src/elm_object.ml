@@ -69,11 +69,13 @@ external tree_focus_allow_get : Evas.obj -> bool =
 external tree_focus_allow_set : Evas.obj -> bool -> unit =
   "ml_elm_object_tree_focus_allow_set"
 
-(* Other *)
+(* General *)
 
 type item
 
 type select_mode = [`default | `always | `none | `display_only]
+
+(* Other *)
 
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =
   "ml_elm_object_part_text_set"

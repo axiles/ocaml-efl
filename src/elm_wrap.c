@@ -1,5 +1,13 @@
 #include "include.h"
 
+/* Cache */
+
+PREFIX value ml_elm_cache_all_flush(value v_unit)
+{
+        elm_cache_all_flush();
+        return Val_unit;
+}
+
 /* Fingers */
 
 PREFIX value ml_elm_coords_finger_size_adjust(value v_times_w, value v_times_h)
@@ -47,58 +55,6 @@ PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
 
 /* General */
 
-PREFIX value ml_elm_init_with_counter(value v_argv)
-{
-        _elm_startup_time = ecore_time_unix_get(); 
-        int argc = Wosize_val(v_argv);
-	char** argv = (char**) caml_stat_alloc(sizeof(char*) * (argc + 1));
-	int i;
-	for(i = 0; i < argc; i++) {
-                char* arg = String_val(Field(v_argv, i));
-                argv[i] = caml_stat_alloc(strlen(arg) + 1);
-                strcpy(argv[i], arg);
-                argv[i][strlen(arg)] = '\0';
-        }
-        argv[argc] = NULL;
-        return Val_int(elm_init(argc, argv));
-}
-
-
-/* Others */
-
-PREFIX value ml_elm_cache_all_flush(value v_unit)
-{
-        elm_cache_all_flush();
-        return Val_unit;
-}
-
-PREFIX value ml_elm_run(value v_unit)
-{
-        caml_release_runtime_system();
-        elm_run();
-        caml_acquire_runtime_system();
-        return Val_unit;
-}
-
-PREFIX value ml_elm_shutdown(value v_unit)
-{
-        elm_shutdown();
-        return Val_unit;
-}
-
-PREFIX value ml_elm_exit(value v_unit)
-{
-        elm_exit();
-        return Val_unit;
-}
-
-PREFIX value ml_elm_frame_add(value v_parent)
-{
-        Evas_Object* frame = elm_frame_add((Evas_Object*) v_parent);
-        if(frame == NULL) caml_failwith("elm_frame_add");
-        return (value) frame;
-}
-
 PREFIX inline unsigned int Elm_Policy_val(value v)
 {
         switch(v) {
@@ -119,10 +75,73 @@ PREFIX inline int Elm_Policy_Value_val(value v)
         return ELM_POLICY_QUIT_NONE;
 }
 
+PREFIX inline value Val_Elm_Policy_Value(int pv)
+{
+        switch(pv) {
+                case ELM_POLICY_QUIT_NONE: return Val_none;
+                case ELM_POLICY_QUIT_LAST_WINDOW_CLOSED:
+                        return Val_last_window_closed;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Policy_Value");
+        return Val_none;
+}
+
+PREFIX value ml_elm_init_with_counter(value v_argv)
+{
+        _elm_startup_time = ecore_time_unix_get(); 
+        int argc = Wosize_val(v_argv);
+	char** argv = (char**) caml_stat_alloc(sizeof(char*) * (argc + 1));
+	int i;
+	for(i = 0; i < argc; i++) {
+                char* arg = String_val(Field(v_argv, i));
+                argv[i] = caml_stat_alloc(strlen(arg) + 1);
+                strcpy(argv[i], arg);
+                argv[i][strlen(arg)] = '\0';
+        }
+        argv[argc] = NULL;
+        return Val_int(elm_init(argc, argv));
+}
+
+
+PREFIX value ml_elm_shutdown(value v_unit)
+{
+        elm_shutdown();
+        return Val_unit;
+}
+
+PREFIX value ml_elm_run(value v_unit)
+{
+        caml_release_runtime_system();
+        elm_run();
+        caml_acquire_runtime_system();
+        return Val_unit;
+}
+
+PREFIX value ml_elm_exit(value v_unit)
+{
+        elm_exit();
+        return Val_unit;
+}
+
 PREFIX value ml_elm_policy_set(value v_policy, value v_value)
 {
         return Val_Eina_Bool(elm_policy_set(Elm_Policy_val(v_policy),
                 Elm_Policy_Value_val(v_value)));
+}
+
+PREFIX value ml_elm_policy_get(value v_policy)
+{
+        return Val_Elm_Policy_Value(elm_policy_get(Elm_Policy_val(v_policy)));
+}
+
+/* Others */
+
+PREFIX value ml_elm_frame_add(value v_parent)
+{
+        Evas_Object* frame = elm_frame_add((Evas_Object*) v_parent);
+        if(frame == NULL) caml_failwith("elm_frame_add");
+        return (value) frame;
 }
 
 PREFIX value ml_elm_theme_list_item_path_get(value v_f)
