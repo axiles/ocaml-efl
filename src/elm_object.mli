@@ -40,6 +40,8 @@ val focus_custom_chain_get : Evas.obj -> Evas.obj list
 
 val focus_custom_chain_append : Evas.obj -> Evas.obj -> Evas.obj option -> unit
 
+val focus_custom_chain_prepend : Evas.obj -> Evas.obj -> Evas.obj option -> unit
+
 (** {2 Other} *)
 
 type item

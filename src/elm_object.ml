@@ -48,6 +48,10 @@ external focus_custom_chain_append :
   Evas.obj -> Evas.obj -> Evas.obj option -> unit =
     "ml_elm_object_focus_custom_chain_append"
 
+external focus_custom_chain_prepend :
+  Evas.obj -> Evas.obj -> Evas.obj option -> unit =
+    "ml_elm_object_focus_custom_chain_prepend"
+
 (* Other *)
 
 type item
