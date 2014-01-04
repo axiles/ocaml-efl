@@ -22,6 +22,12 @@ val tree_dump : Evas.obj -> unit
 
 val tree_dot_dump : Evas.obj -> string -> unit
 
+(** {2 Focus} *)
+
+val focus_get : Evas.obj -> bool
+
+val focus_set : Evas.obj -> bool -> unit
+
 (** {2 Other} *)
 
 type item
@@ -59,8 +65,6 @@ val content_unset : Evas.obj -> Evas.obj
 val disabled_set : Evas.obj -> bool -> unit
 
 val disabled_get : Evas.obj -> bool
-
-val focus_set : Evas.obj -> bool -> unit
 
 val parent_widget_get : Evas.obj -> Evas.obj option
 

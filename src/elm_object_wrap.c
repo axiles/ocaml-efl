@@ -58,6 +58,19 @@ PREFIX value ml_elm_object_tree_dot_dump(value v_obj, value v_file)
         return Val_unit;
 }
 
+/* Focus */
+
+PREFIX value ml_elm_object_focus_get(value v_obj)
+{
+        return Val_bool(elm_object_focus_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_focus_set(value v_obj, value v_flag)
+{
+        elm_object_focus_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
@@ -255,12 +268,6 @@ PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
 PREFIX value ml_elm_object_disabled_get(value v_obj)
 {
         return Val_Eina_Bool(elm_object_disabled_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_object_focus_set(value v_obj, value v_flag)
-{
-        elm_object_focus_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
-        return Val_unit;
 }
 
 PREFIX value ml_elm_object_parent_widget_get(value v_obj)

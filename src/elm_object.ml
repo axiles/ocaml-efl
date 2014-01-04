@@ -24,6 +24,12 @@ external tree_dump : Evas.obj -> unit = "ml_elm_object_tree_dump"
 external tree_dot_dump : Evas.obj -> string -> unit =
   "ml_elm_object_tree_dot_dump"
 
+(* Focus *)
+
+external focus_get : Evas.obj -> bool = "ml_elm_object_focus_get"
+
+external focus_set : Evas.obj -> bool -> unit = "ml_elm_object_focus_set"
+
 (* Other *)
 
 type item
@@ -74,8 +80,6 @@ external content_unset : Evas.obj -> Evas.obj =
 external disabled_set : Evas.obj -> bool -> unit = "ml_elm_object_disabled_set"
 
 external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
-
-external focus_set : Evas.obj -> bool -> unit = "ml_elm_object_focus_set"
 
 external parent_widget_get : Evas.obj -> Evas.obj option =
   "ml_elm_object_parent_widget_get"
