@@ -82,6 +82,25 @@ PREFIX value ml_elm_object_focus_allow_get(value v_obj)
         return Val_bool(elm_object_focus_allow_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_focus_custom_chain_set(value v_obj, value v_list)
+{
+        elm_object_focus_custom_chain_set((Evas_Object*) v_obj,
+                Eina_List_Evas_Object_val(v_list));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_focus_custom_chain_unset(value v_obj)
+{
+        elm_object_focus_custom_chain_unset((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_focus_custom_chain_get(value v_obj)
+{
+        return copy_Eina_List_Evas_Object(elm_object_focus_custom_chain_get(
+                (Evas_Object*) v_obj));
+}
+
 /* Other */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

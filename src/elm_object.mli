@@ -32,6 +32,12 @@ val focus_allow_set : Evas.obj -> bool -> unit
 
 val focus_allow_get : Evas.obj -> bool
 
+val focus_custom_chain_set : Evas.obj -> Evas.obj list -> unit
+
+val focus_custom_chain_unset : Evas.obj -> unit
+
+val focus_custom_chain_get : Evas.obj -> Evas.obj list
+
 (** {2 Other} *)
 
 type item
