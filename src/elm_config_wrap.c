@@ -261,3 +261,16 @@ PREFIX value ml_elm_config_profile_set(value v_profile)
         return Val_unit;
 }
 
+/* Fingers */
+
+PREFIX value ml_elm_config_finger_size_get(value v_unit)
+{
+        return Val_int(elm_config_finger_size_get());
+}
+
+PREFIX value ml_elm_config_finger_size_set(value v_size)
+{
+        elm_config_finger_size_set(Int_val(v_size));
+        return Val_unit;
+}
+

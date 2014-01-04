@@ -105,3 +105,9 @@ external profile_list_get : unit -> string list =
 
 external profile_set : string -> unit = "ml_elm_config_profile_set"
 
+(** Fingers *)
+
+external finger_size_get : unit -> int = "ml_elm_config_finger_size_get"
+
+external finger_size_set : int -> unit = "ml_elm_config_finger_size_set"
+

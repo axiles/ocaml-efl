@@ -85,3 +85,9 @@ val profile_list_get : unit -> string list
 
 val profile_set : string -> unit
 
+(** {2 Fingers} *)
+
+val finger_size_get : unit -> int
+
+val finger_size_set : int -> unit
+
