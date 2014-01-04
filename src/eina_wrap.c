@@ -41,6 +41,17 @@ PREFIX inline value copy_Eina_List_Evas_Object(const Eina_List* list)
         CAMLreturn(v);
 }
 
+PREFIX inline Eina_List* Eina_List_Evas_Object_val(value v_list)
+{
+        Eina_List* list = NULL;
+        value v;
+        while(v != Val_int(0)) {
+                list = eina_list_append(list, (Evas_Object*) Field(v, 0));
+                v = Field(v, 1);
+        }
+        return list;
+}
+
 PREFIX inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
 {
         CAMLparam0();
