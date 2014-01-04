@@ -33,6 +33,7 @@ let () =
   g "dnd";
   g "dock";
   f "Val_done" "_done";
+  g "down";
   g "dropdown_menu";
   g "email";
   g "expand";
@@ -63,6 +64,7 @@ let () =
   g "keypad";
   g "last";
   g "last_window_closed";
+  g "left";
   g "limit";
   g "list";
   g "login";
@@ -94,7 +96,9 @@ let () =
   g "plain_utf8";
   g "plaintext";
   g "popup_menu";
+  g "previous";
   g "quit";
+  g "right";
   g "rotate_180";
   g "rotate_270";
   g "rotate_90";
@@ -123,6 +127,7 @@ let () =
   g "transparent";
   g "tree";
   g "unknown";
+  g "up";
   g "url";
   g "utility";
   g "vertical";

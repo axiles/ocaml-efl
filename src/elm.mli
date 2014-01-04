@@ -4,6 +4,16 @@
 
 val coords_finger_size_adjust : int -> int -> int * int
 
+(** {2 Focus *)
+
+type focus_direction = [
+  `previous |
+  `next |
+  `up |
+  `down |
+  `right |
+  `left]
+
 (** {2 Others *)
 
 type policy = [`quit]

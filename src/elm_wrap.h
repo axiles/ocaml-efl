@@ -3,6 +3,13 @@
 
 #include "include.h"
 
+/* Focus */
+
+PREFIX inline Elm_Focus_Direction Elm_Focus_Direction_val(value v);
+PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d);
+
+/* Other */
+
 PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v);
 PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t);
 

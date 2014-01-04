@@ -3,6 +3,18 @@
 external coords_finger_size_adjust : int -> int -> int * int =
   "ml_elm_coords_finger_size_adjust"
 
+(* Focus *)
+
+type focus_direction = [
+  `previous |
+  `next |
+  `up |
+  `down |
+  `right |
+  `left]
+
+(* Others *)
+
 type policy = [`quit]
 
 type policy_value = [`none | `last_window_closed]

@@ -13,6 +13,38 @@ PREFIX value ml_elm_coords_finger_size_adjust(value v_times_w, value v_times_h)
         return v_r;
 }
 
+/* Focus */
+
+PREFIX inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
+{
+        switch(v) {
+                case Val_previous: return ELM_FOCUS_PREVIOUS;
+                case Val_next: return ELM_FOCUS_NEXT;
+                case Val_up: return ELM_FOCUS_UP;
+                case Val_down: return ELM_FOCUS_DOWN;
+                case Val_right: return ELM_FOCUS_RIGHT;
+                case Val_left: return ELM_FOCUS_LEFT;
+                default: break;
+        }
+        caml_failwith("Elm_Focus_Direction_val");
+        return ELM_FOCUS_PREVIOUS;
+}
+
+PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
+{
+        switch(d) {
+                case ELM_FOCUS_PREVIOUS: return Val_previous;
+                case ELM_FOCUS_NEXT: return Val_next;
+                case ELM_FOCUS_UP: return Val_up;
+                case ELM_FOCUS_DOWN: return Val_down;
+                case ELM_FOCUS_RIGHT: return Val_right;
+                case ELM_FOCUS_LEFT: return Val_left;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Focus_Direction");
+        return Val_previous;
+}
+
 /* Others */
 
 PREFIX value ml_elm_cache_all_flush(value v_unit)
