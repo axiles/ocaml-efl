@@ -41,6 +41,8 @@ let policy_set p pv =
 
 external policy_get : policy -> policy_value = "ml_elm_policy_get"
 
+external language_set : string -> unit = "ml_elm_language_set"
+
 (* Others *)
 
 type wrap_type = [`none | `char | `word | `mixed]

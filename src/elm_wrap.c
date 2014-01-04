@@ -135,6 +135,12 @@ PREFIX value ml_elm_policy_get(value v_policy)
         return Val_Elm_Policy_Value(elm_policy_get(Elm_Policy_val(v_policy)));
 }
 
+PREFIX value ml_elm_language_set(value v_lang)
+{
+        elm_language_set(String_val(v_lang));
+        return Val_unit;
+}
+
 /* Others */
 
 PREFIX value ml_elm_frame_add(value v_parent)

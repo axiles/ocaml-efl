@@ -38,6 +38,8 @@ val policy_set : policy -> policy_value -> unit
 
 val policy_get : policy -> policy_value
 
+val language_set : string -> unit
+
 (** {2 Others} *)
 
 type text_format = [`plain_utf8 | `markup_utf8]
