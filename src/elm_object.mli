@@ -28,6 +28,10 @@ val focus_get : Evas.obj -> bool
 
 val focus_set : Evas.obj -> bool -> unit
 
+val focus_allow_set : Evas.obj -> bool -> unit
+
+val focus_allow_get : Evas.obj -> bool
+
 (** {2 Other} *)
 
 type item

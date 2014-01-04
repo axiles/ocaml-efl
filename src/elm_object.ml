@@ -30,6 +30,11 @@ external focus_get : Evas.obj -> bool = "ml_elm_object_focus_get"
 
 external focus_set : Evas.obj -> bool -> unit = "ml_elm_object_focus_set"
 
+external focus_allow_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_focus_allow_set"
+
+external focus_allow_get : Evas.obj -> bool = "ml_elm_object_focus_allow_get"
+
 (* Other *)
 
 type item
