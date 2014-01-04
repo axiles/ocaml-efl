@@ -238,3 +238,12 @@ PREFIX value ml_elm_config_profile_get(value v_unit)
         return copy_string(elm_config_profile_get());
 }
 
+PREFIX value ml_elm_config_profile_dir_get(value v_profile, value v_is_user)
+{
+        const char* dir = elm_config_profile_dir_get(String_val(v_profile),
+                Bool_val(v_is_user));
+        value v_dir = copy_string(dir);
+        elm_config_profile_dir_free(dir);
+        return v_dir;
+}
+

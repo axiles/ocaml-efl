@@ -78,3 +78,5 @@ val font_overlay_apply : unit -> unit
 
 val profile_get : unit -> string
 
+val profile_dir_get : string -> bool -> string
+

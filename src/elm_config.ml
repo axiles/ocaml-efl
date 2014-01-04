@@ -97,3 +97,6 @@ external font_overlay_apply : unit -> unit = "ml_elm_config_font_overlay_apply"
 
 external profile_get : unit -> string = "ml_elm_config_profile_get"
 
+external profile_dir_get : string -> bool -> string =
+  "ml_elm_config_profile_dir_get"
+
