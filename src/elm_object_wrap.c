@@ -163,7 +163,7 @@ PREFIX value ml_elm_object_tree_focus_allow_get(value v_obj)
         return Val_bool(elm_object_tree_focus_allow_get((Evas_Object*) v_obj));
 }
 
-/* Other */
+/* General */
 
 PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
 {
@@ -192,6 +192,25 @@ PREFIX inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
         caml_failwith("Val_Elm_Object_Select_Mode");
         return Val_default;
 }
+
+PREFIX value ml_elm_object_domain_translatable_part_text_set(
+        value v_obj, value v_part, value v_domain, value v_text, value v_unit)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        const char* domain;
+        if(v_domain == Val_int(0)) domain = NULL;
+        else domain = String_val(Field(v_domain, 0));
+        const char* text;
+        if(v_text == Val_int(0)) text = NULL;
+        else text = String_val(Field(v_text, 0));
+        elm_object_domain_translatable_part_text_set((Evas_Object*) v_obj,
+                part, domain, text);
+        return Val_unit;
+}
+
+/* Other */
 
 PREFIX value ml_elm_object_part_text_set(
         value v_obj, value v_part, value v_text)

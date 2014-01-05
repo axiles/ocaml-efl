@@ -75,6 +75,10 @@ type item
 
 type select_mode = [`default | `always | `none | `display_only]
 
+external domain_translatable_part_text_set :
+  Evas.obj -> ?part:string -> ?domain:string -> ?text:string -> unit -> unit =
+    "ml_elm_object_domain_translatable_part_text_set"
+
 (* Other *)
 
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =
