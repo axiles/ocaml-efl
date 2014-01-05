@@ -64,9 +64,15 @@ val domain_translatable_part_text_set :
 
 val translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string
 
+val text_set : Evas.obj -> string -> unit
+
 val part_text_set : Evas.obj -> ?p:string -> string -> unit
 
+val text_get : Evas.obj -> string
+
 val part_text_get : Evas.obj -> ?p:string -> unit -> string
+
+val content_set : Evas.obj -> Evas.obj -> unit
 
 val part_content_set : Evas.obj -> ?p:string -> Evas.obj -> unit 
 
@@ -74,13 +80,13 @@ val part_content_set_null : Evas.obj -> ?p:string -> unit -> unit
 
 val part_content_get : Evas.obj -> ?p:string -> unit -> Evas.obj
 
+val content_unset : Evas.obj -> Evas.obj
+
 val part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj
 
 val access_info_set : Evas.obj -> string -> unit
 
 val name_find : Evas.obj -> string -> int -> Evas.obj option
-
-(** {2 Other} *)
 
 val signal_emit : Evas.obj -> string -> string -> unit
 
@@ -88,15 +94,11 @@ val signal_callback_add : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
 val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
-val text_set : Evas.obj -> string -> unit
+val item_widget_get : item -> Evas.obj
+
+(** {2 Other} *)
 
 val style_set : Evas.obj -> string -> bool
-
-val content_set : Evas.obj -> Evas.obj -> unit
-
-val text_get : Evas.obj -> string
-
-val content_unset : Evas.obj -> Evas.obj
 
 val disabled_set : Evas.obj -> bool -> unit
 
@@ -115,6 +117,4 @@ val item_disabled_set : item -> bool -> unit
 val item_text_get : item -> string
 
 val item_content_set : item -> Evas.obj -> unit
-
-val item_widget_get : item -> Evas.obj
 

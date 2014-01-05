@@ -82,11 +82,18 @@ external domain_translatable_part_text_set :
 external translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string =
   "ml_elm_object_translatable_part_text_get"
 
+external text_set : Evas.obj -> string -> unit = "ml_elm_object_text_set"
+
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =
   "ml_elm_object_part_text_set"
 
+external text_get : Evas.obj -> string = "ml_elm_object_text_get"
+
 external part_text_get : Evas.obj -> ?p:string -> unit -> string =
   "ml_elm_object_part_text_get"
+
+external content_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_object_content_set"
 
 external part_content_set : Evas.obj -> ?p:string -> Evas.obj -> unit =
   "ml_elm_object_part_content_set"
@@ -97,6 +104,9 @@ external part_content_set_null : Evas.obj -> ?p:string -> unit -> unit =
 external part_content_get : Evas.obj -> ?p:string -> unit -> Evas.obj =
   "ml_elm_object_part_content_get"
 
+external content_unset : Evas.obj -> Evas.obj =
+  "ml_elm_object_content_unset"
+
 external part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj =
   "ml_elm_object_part_content_unset"
 
@@ -105,8 +115,6 @@ external access_info_set : Evas.obj -> string -> unit =
 
 external name_find : Evas.obj -> string -> int -> Evas.obj option =
   "ml_elm_object_name_find"
-
-(* Other *)
 
 external signal_emit : Evas.obj -> string -> string -> unit =
   "ml_elm_object_signal_emit"
@@ -119,17 +127,11 @@ external signal_callback_del :
   Evas.obj -> string -> string -> Edje.signal_cb -> unit =
   "ml_elm_object_signal_callback_del"
 
-external text_set : Evas.obj -> string -> unit = "ml_elm_object_text_set"
+external item_widget_get : item -> Evas.obj = "ml_elm_object_item_widget_get"
+
+(* Other *)
 
 external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
-
-external content_set : Evas.obj -> Evas.obj -> unit =
-  "ml_elm_object_content_set"
-
-external text_get : Evas.obj -> string = "ml_elm_object_text_get"
-
-external content_unset : Evas.obj -> Evas.obj =
-  "ml_elm_object_content_unset"
 
 external disabled_set : Evas.obj -> bool -> unit = "ml_elm_object_disabled_set"
 
@@ -152,6 +154,4 @@ external item_text_get : item -> string = "ml_elm_object_item_text_get"
 
 external item_content_set : item -> Evas.obj -> unit =
   "ml_elm_object_item_content_set"
-
-external item_widget_get : item -> Evas.obj = "ml_elm_object_item_widget_get"
 
