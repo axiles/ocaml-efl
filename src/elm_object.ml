@@ -82,8 +82,6 @@ external domain_translatable_part_text_set :
 external translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string =
   "ml_elm_object_translatable_part_text_get"
 
-(* Other *)
-
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =
   "ml_elm_object_part_text_set"
 
@@ -101,6 +99,11 @@ external part_content_get : Evas.obj -> ?p:string -> unit -> Evas.obj =
 
 external part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj =
   "ml_elm_object_part_content_unset"
+
+external access_info_set : Evas.obj -> string -> unit =
+  "ml_elm_object_access_info_set"
+
+(* Other *)
 
 external signal_emit : Evas.obj -> string -> string -> unit =
   "ml_elm_object_signal_emit"

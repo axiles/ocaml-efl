@@ -64,8 +64,6 @@ val domain_translatable_part_text_set :
 
 val translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string
 
-(** {2 Other} *)
-
 val part_text_set : Evas.obj -> ?p:string -> string -> unit
 
 val part_text_get : Evas.obj -> ?p:string -> unit -> string
@@ -77,6 +75,10 @@ val part_content_set_null : Evas.obj -> ?p:string -> unit -> unit
 val part_content_get : Evas.obj -> ?p:string -> unit -> Evas.obj
 
 val part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj
+
+val access_info_set : Evas.obj -> string -> unit
+
+(** {2 Other} *)
 
 val signal_emit : Evas.obj -> string -> string -> unit
 

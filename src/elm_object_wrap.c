@@ -222,8 +222,6 @@ PREFIX value ml_elm_object_translatable_part_text_get(
         return copy_string(text);
 }
 
-/* Other */
-
 PREFIX value ml_elm_object_part_text_set(
         value v_obj, value v_part, value v_text)
 {
@@ -289,6 +287,14 @@ PREFIX value ml_elm_object_part_content_unset(
         if(content == NULL) caml_failwith("elm_object_part_content_unset");
         return (value) content;
 }
+
+PREFIX value ml_elm_object_access_info_set(value v_obj, value v_txt)
+{
+        elm_object_access_info_set((Evas_Object*) v_obj, String_val(v_txt));
+        return Val_unit;
+}
+
+/* Other */
 
 PREFIX value ml_elm_object_signal_emit(
         value v_obj, value v_emission, value v_source)
