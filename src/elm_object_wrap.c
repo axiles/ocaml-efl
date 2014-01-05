@@ -210,6 +210,18 @@ PREFIX value ml_elm_object_domain_translatable_part_text_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_translatable_part_text_get(
+        value v_obj, value v_translatable_part, value v_unit)
+{
+        char* translatable_part;
+        if(v_translatable_part == Val_int(0)) translatable_part = NULL;
+        else translatable_part = String_val(Field(v_translatable_part, 0));
+        const char* text = elm_object_translatable_part_text_get(
+                (Evas_Object*) v_obj, translatable_part);
+        if(text == NULL) caml_failwith("elm_object_translatable_part_text_get");
+        return copy_string(text);
+}
+
 /* Other */
 
 PREFIX value ml_elm_object_part_text_set(
@@ -223,7 +235,8 @@ PREFIX value ml_elm_object_part_text_set(
         return Val_unit;
 }
 
-PREFIX value ml_elm_object_part_tex_get(value v_obj, value v_part, value v_unit)
+PREFIX value ml_elm_object_part_text_get(
+        value v_obj, value v_part, value v_unit)
 {
         char* part;
         if(v_part == Val_int(0)) part = NULL;

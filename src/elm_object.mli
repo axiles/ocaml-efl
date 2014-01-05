@@ -62,6 +62,8 @@ type select_mode = [`default | `always | `none | `display_only]
 val domain_translatable_part_text_set :
   Evas.obj -> ?part:string -> ?domain:string -> ?text:string -> unit -> unit
 
+val translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string
+
 (** {2 Other} *)
 
 val part_text_set : Evas.obj -> ?p:string -> string -> unit
