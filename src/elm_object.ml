@@ -103,6 +103,9 @@ external part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj =
 external access_info_set : Evas.obj -> string -> unit =
   "ml_elm_object_access_info_set"
 
+external name_find : Evas.obj -> string -> int -> Evas.obj option =
+  "ml_elm_object_name_find"
+
 (* Other *)
 
 external signal_emit : Evas.obj -> string -> string -> unit =

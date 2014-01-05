@@ -294,6 +294,16 @@ PREFIX value ml_elm_object_access_info_set(value v_obj, value v_txt)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_name_find(value v_obj, value v_name, value v_recurse)
+{
+        Evas_Object* child = elm_object_name_find((Evas_Object*) v_obj,
+                String_val(v_name), Int_val(v_recurse));
+        if(child == NULL) return Val_int(0);
+        value v_child = caml_alloc(1, 0);
+        Store_field(v_child, 0, (value) child);
+        return v_child;
+}
+
 /* Other */
 
 PREFIX value ml_elm_object_signal_emit(

@@ -78,6 +78,8 @@ val part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj
 
 val access_info_set : Evas.obj -> string -> unit
 
+val name_find : Evas.obj -> string -> int -> Evas.obj option
+
 (** {2 Other} *)
 
 val signal_emit : Evas.obj -> string -> string -> unit
