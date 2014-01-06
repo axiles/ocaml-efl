@@ -19,6 +19,8 @@ let () =
   g "block_vertical";
   g "block_vertical_horizontal";
   g "both";
+  g "bottom_left";
+  g "bottom_right";
   g "center";
   g "char";
   g "close";
@@ -123,6 +125,8 @@ let () =
   g "toolbar";
   g "tooltip";
   g "top";
+  g "top_left";
+  g "top_right";
   g "translucent";
   g "transparent";
   g "tree";
