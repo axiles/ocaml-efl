@@ -151,6 +151,9 @@ external parent_widget_get : Evas.obj -> Evas.obj option =
 external top_widget_get : Evas.obj -> Evas.obj option =
   "ml_elm_object_top_widget_get"
 
+external widget_type_get : Evas.obj -> string option =
+  "ml_elm_object_widget_type_get"
+
 (* Other *)
 
 external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"

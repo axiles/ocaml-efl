@@ -463,6 +463,19 @@ PREFIX value ml_elm_object_top_widget_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_object_widget_type_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_t);
+        const char* t = elm_object_widget_type_get((Evas_Object*) v_obj);
+        if(t == NULL) v_t = Val_int(0);
+        else {
+                v_t = caml_alloc(1, 0);
+                Store_field(v_t, 0, copy_string(t));
+        }
+        CAMLreturn(v_t);
+}
+
 /* Other */
 
 PREFIX value ml_elm_object_style_set(value v_obj, value v_style)

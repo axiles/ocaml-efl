@@ -112,6 +112,8 @@ val parent_widget_get : Evas.obj -> Evas.obj option
 
 val top_widget_get : Evas.obj -> Evas.obj option
 
+val widget_type_get : Evas.obj -> string option
+
 (** {2 Other} *)
 
 val style_set : Evas.obj -> string -> bool
