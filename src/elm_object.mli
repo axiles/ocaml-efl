@@ -104,6 +104,14 @@ val item_part_content_get : item -> ?p:string -> unit -> Evas.obj
 
 val item_part_content_unset : item -> ?p:string -> unit -> Evas.obj
 
+(** {2 Widget Tree Navigation} *)
+
+val widget_check : Evas.obj -> bool
+
+val parent_widget_get : Evas.obj -> Evas.obj option
+
+val top_widget_get : Evas.obj -> Evas.obj option
+
 (** {2 Other} *)
 
 val style_set : Evas.obj -> string -> bool
@@ -111,10 +119,6 @@ val style_set : Evas.obj -> string -> bool
 val disabled_set : Evas.obj -> bool -> unit
 
 val disabled_get : Evas.obj -> bool
-
-val parent_widget_get : Evas.obj -> Evas.obj option
-
-val top_widget_get : Evas.obj -> Evas.obj option
 
 val item_of_ptr : Evas.ptr -> item
 

@@ -437,23 +437,11 @@ PREFIX value ml_elm_object_item_part_content_unset(
 }
 
 
-/* Other */
+/* Widget Tree Navigation */
 
-PREFIX value ml_elm_object_style_set(value v_obj, value v_style)
+PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)
 {
-        return Val_Eina_Bool(elm_object_style_set((Evas_Object*) v_obj,
-                String_val(v_style)));
-}
-
-PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
-{
-        elm_object_disabled_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_object_disabled_get(value v_obj)
-{
-        return Val_Eina_Bool(elm_object_disabled_get((Evas_Object*) v_obj));
+        return Val_bool(elm_object_widget_check((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_object_parent_widget_get(value v_obj)
@@ -473,6 +461,25 @@ PREFIX value ml_elm_object_top_widget_get(value v_obj)
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) top);
         return v;
+}
+
+/* Other */
+
+PREFIX value ml_elm_object_style_set(value v_obj, value v_style)
+{
+        return Val_Eina_Bool(elm_object_style_set((Evas_Object*) v_obj,
+                String_val(v_style)));
+}
+
+PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
+{
+        elm_object_disabled_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_disabled_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_object_disabled_get((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_object_item_del(value v_item)

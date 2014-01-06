@@ -141,6 +141,16 @@ external item_part_content_get : item -> ?p:string -> unit -> Evas.obj =
 external item_part_content_unset : item -> ?p:string -> unit -> Evas.obj =
   "ml_elm_object_item_part_content_unset"
 
+(* Widget Tree Navigation *)
+
+external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"
+
+external parent_widget_get : Evas.obj -> Evas.obj option =
+  "ml_elm_object_parent_widget_get"
+
+external top_widget_get : Evas.obj -> Evas.obj option =
+  "ml_elm_object_top_widget_get"
+
 (* Other *)
 
 external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
@@ -148,12 +158,6 @@ external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
 external disabled_set : Evas.obj -> bool -> unit = "ml_elm_object_disabled_set"
 
 external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
-
-external parent_widget_get : Evas.obj -> Evas.obj option =
-  "ml_elm_object_parent_widget_get"
-
-external top_widget_get : Evas.obj -> Evas.obj option =
-  "ml_elm_object_top_widget_get"
 
 external item_of_ptr : Evas.ptr -> item = "%identity"
 
