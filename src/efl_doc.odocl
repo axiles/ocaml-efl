@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: ade71fe5664770493e4679a80bf476a9)
+# DO NOT EDIT (digest: 502b1c5c19037b215ee39c94bda41cd3)
 Ecore
 Ecore_thread
 Ecore_timer
@@ -44,4 +44,5 @@ Elm_grid
 Elm_actionslider
 Elm_config
 Elm_font
+Elm_bubble
 # OASIS_STOP
