@@ -352,3 +352,9 @@ Executable actionslider_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: actionslider_example_01.ml
+Executable bubble_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: bubble_example_01.ml
