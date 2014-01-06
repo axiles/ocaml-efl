@@ -396,6 +396,47 @@ PREFIX value ml_elm_object_item_widget_get(value v_item)
         return (value) elm_object_item_widget_get((Elm_Object_Item*) v_item);
 }
 
+PREFIX value ml_elm_object_item_content_set(value v_item, value v_content)
+{
+        elm_object_item_content_set((Elm_Object_Item*) v_item,
+                (Evas_Object*) v_content);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_part_content_set(
+        value v_it, value v_parent, value v_content)
+{
+        const char* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        else parent = String_val(Field(v_parent, 0));
+        elm_object_item_part_content_set((Elm_Object_Item*) v_it, parent,
+                (Evas_Object*) v_content);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_part_content_get(
+        value v_it, value v_parent, value v_unit)
+{
+        const char* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        Evas_Object* content = elm_object_item_part_content_get(
+                (Elm_Object_Item*) v_it, parent);
+        if(content == NULL) caml_failwith("elm_object_item_part_content_get");
+        return (value) content;
+}
+
+PREFIX value ml_elm_object_item_part_content_unset(
+        value v_it, value v_parent, value v_unit)
+{
+        const char* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        Evas_Object* content = elm_object_item_part_content_unset(
+                (Elm_Object_Item*) v_it, parent);
+        if(content == NULL) caml_failwith("elm_object_item_part_content_unset");
+        return (value) content;
+}
+
+
 /* Other */
 
 PREFIX value ml_elm_object_style_set(value v_obj, value v_style)
@@ -452,12 +493,5 @@ PREFIX value ml_elm_object_item_text_get(value v_item)
         const char* text = elm_object_item_text_get((Elm_Object_Item*) v_item);
         if(text == NULL) caml_failwith("elm_object_item_text_get");
         return copy_string(text);
-}
-
-PREFIX value ml_elm_object_item_content_set(value v_item, value v_content)
-{
-        elm_object_item_content_set((Elm_Object_Item*) v_item,
-                (Evas_Object*) v_content);
-        return Val_unit;
 }
 

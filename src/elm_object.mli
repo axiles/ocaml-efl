@@ -96,6 +96,14 @@ val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
 val item_widget_get : item -> Evas.obj
 
+val item_content_set : item -> Evas.obj -> unit
+
+val item_part_content_set : item -> ?p:string -> Evas.obj -> unit
+
+val item_part_content_get : item -> ?p:string -> unit -> Evas.obj
+
+val item_part_content_unset : item -> ?p:string -> unit -> Evas.obj
+
 (** {2 Other} *)
 
 val style_set : Evas.obj -> string -> bool
@@ -115,6 +123,4 @@ val item_del : item -> unit
 val item_disabled_set : item -> bool -> unit
 
 val item_text_get : item -> string
-
-val item_content_set : item -> Evas.obj -> unit
 

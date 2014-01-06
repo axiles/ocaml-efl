@@ -129,6 +129,18 @@ external signal_callback_del :
 
 external item_widget_get : item -> Evas.obj = "ml_elm_object_item_widget_get"
 
+external item_content_set : item -> Evas.obj -> unit =
+  "ml_elm_object_item_content_set"
+
+external item_part_content_set : item -> ?p:string -> Evas.obj -> unit =
+  "ml_elm_object_item_part_content_set"
+
+external item_part_content_get : item -> ?p:string -> unit -> Evas.obj =
+  "ml_elm_object_item_part_content_get"
+
+external item_part_content_unset : item -> ?p:string -> unit -> Evas.obj =
+  "ml_elm_object_item_part_content_unset"
+
 (* Other *)
 
 external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
@@ -151,7 +163,4 @@ external item_disabled_set : item -> bool -> unit =
   "ml_elm_object_item_disabled_set"
 
 external item_text_get : item -> string = "ml_elm_object_item_text_get"
-
-external item_content_set : item -> Evas.obj -> unit =
-  "ml_elm_object_item_content_set"
 
