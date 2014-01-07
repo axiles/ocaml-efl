@@ -2,14 +2,9 @@
 
 (** The following function will not be interfaced:
 
-elm_progressbar_unit_format_function_set
+elm_progressbar_unit_format_get
 
-Use a callback instead. *)
-
-type format =
-  | Hidden
-  | Unit of (unit, unit, unit) Pervasives.format
-  | Float of (float -> unit, unit, unit) Pervasives.format
+*)
 
 val add : Evas.obj -> Evas.obj
 
@@ -27,9 +22,7 @@ val span_size_set : Evas.obj -> int -> unit
 
 val span_size_get : Evas.obj -> int
 
-val unit_format_set : Evas.obj -> format -> unit
-
-val unit_format_get : Evas.obj -> string option
+val unit_format_set : Evas.obj -> (float -> string, unit, string) format -> unit
 
 val horizontal_set : Evas.obj -> bool -> unit
 
