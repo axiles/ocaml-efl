@@ -458,6 +458,13 @@ PREFIX value ml_elm_object_item_part_text_get(
         return copy_string(text);
 }
 
+PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
+{
+        elm_object_item_access_info_set((Elm_Object_Item*) v_it,
+                String_val(v_txt));
+        return Val_unit;
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)
