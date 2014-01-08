@@ -24,6 +24,8 @@ val span_size_get : Evas.obj -> int
 
 val unit_format_set : Evas.obj -> (float -> string, unit, string) format -> unit
 
+val unit_format_function_set : Evas.obj -> (float -> string) -> unit
+
 val horizontal_set : Evas.obj -> bool -> unit
 
 val horizontal_get : Evas.obj -> bool

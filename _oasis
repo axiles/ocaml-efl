@@ -296,7 +296,7 @@ Executable progressbar_example
   Path: examples
   Install$: flag(install_examples)
   Build$: flag(examples)
-  BuildDepends: efl
+  BuildDepends: efl, threads
   MainIs: progressbar_example.ml
 Executable test_efl_ocaml_threads
   Path: examples

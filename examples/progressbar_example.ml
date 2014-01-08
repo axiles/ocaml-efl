@@ -1,16 +1,35 @@
-(* WARNING: This example is still in heavy development *)
-
 open Efl
 open Format
 open Elm_win.E
 open Elm_button.E
+
+let run = ref false
+
+let progress_format_cb x =
+  let files = int_of_float ((1. -. x) *. 14000.) in
+  sprintf "%d files left" files
+
+let on_changed =
+  let tstart = ref 0. in
+  let eta = ref 0. in
+  fun label obj ->
+    let x = Elm_progressbar.value_get obj in
+    if x = 0. then (
+      tstart := 0.;
+      Elm_object.text_set label "ETA: N/A";
+    ) else (
+      if !tstart = 0. then tstart := Unix.time ();
+      let tdiff = Unix.time () -. !tstart in
+      eta := 0.3 *. !eta +. 0.7 *. (tdiff /. x) *. (1. -. x);
+      let buf = sprintf "ETA: %.0fs" !eta in
+      Elm_object.text_set label buf)
 
 let on_done _ = Elm.exit ()
 
 let add_pb win bx =
   let pb = Elm_progressbar.add win in
   Evas_object.size_hint_weight_set pb Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_weight_set pb Evas.hint_fill 0.5;
+  Evas_object.size_hint_align_set pb Evas.hint_fill 0.5;
   Elm_box.pack_end bx pb;
   pb
 
@@ -30,11 +49,13 @@ let add_pb3 win bx =
   let ic = Elm_icon.add win in
   let buf = sprintf "%s/images/logo_small.png" (Elm_app.data_dir_get ()) in
   let (_ : bool) = Elm_image.file_set ic buf () in
+  Evas_object.size_hint_aspect_set ic `vertical 1 1;
   let pb = add_pb win bx in
   Elm_object.text_set pb "Label";
   Elm_object.part_content_set pb ~p:"icon" ic;
   Elm_progressbar.inverted_set pb true;
   Elm_progressbar.span_size_set pb 200;
+  Elm_progressbar.unit_format_function_set pb progress_format_cb;
   Evas_object.show ic;
   Evas_object.show pb;
   pb
@@ -45,16 +66,84 @@ let add_pb4 win bx =
   Evas_object.show pb;
   let label = Elm_label.add win in
   Elm_object.text_set label "ETA: N/A";
+  Evas_object.size_hint_align_set label 0.5 0.5;
   Evas_object.size_hint_weight_set label Evas.hint_expand Evas.hint_expand;
   Elm_box.pack_end bx label;
   Evas_object.show label;
+  Evas_object_smart.callback_add pb Elm_progressbar.E.changed
+    (on_changed label);
   pb
 
-let start_cb list_pb _ =
-  List.iter (fun pb -> Elm_progressbar.pulse pb true) list_pb
+let add_pb5 win bx =
+  let pb = Elm_progressbar.add win in
+  Elm_progressbar.horizontal_set pb false;
+  Evas_object.size_hint_align_set pb Evas.hint_fill Evas.hint_fill;
+  Evas_object.size_hint_weight_set pb Evas.hint_expand Evas.hint_expand;
+  Elm_box.pack_end bx pb;
+  Elm_object.text_set pb "percent";
+  Evas_object.show pb;
+  pb
 
-let stop_cb list_pb _ =
-  List.iter (fun pb -> Elm_progressbar.pulse pb false) list_pb
+let add_pb6 win bx =
+  let pb = add_pb win bx in
+  Elm_progressbar.horizontal_set pb false;
+  Elm_progressbar.span_size_set pb 80;
+  Elm_progressbar.pulse_set pb true;
+  Elm_progressbar.unit_format_function_set pb (fun x -> "");
+  Elm_object.text_set pb "Infinite bounce";
+  Evas_object.show pb;
+  pb
+
+let add_pb7 win bx =
+  let ic = Elm_icon.add win in
+  let buf = sprintf "%s/images/logo_small.png" (Elm_app.data_dir_get ()) in
+  let (_ : bool) = Elm_image.file_set ic buf () in
+  let pb = add_pb win bx in
+  Elm_progressbar.horizontal_set pb false;
+  Elm_object.text_set pb "Label";
+  Elm_object.part_content_set pb ~p:"icon" ic;
+  Elm_progressbar.inverted_set pb true;
+  Elm_progressbar.unit_format_set pb "%1.2f%%";
+  Elm_progressbar.span_size_set pb 200;
+  Evas_object.show ic;
+  Evas_object.show pb;
+  pb
+
+let add_pb8 win bx =
+  let pb = add_pb win bx in
+  let (_ : bool) = Elm_object.style_set pb "wheel" in
+  Elm_object.text_set pb "Style: wheel";
+  Elm_progressbar.pulse_set pb true;
+  Evas_object.show pb;
+  pb
+
+let progressbar_example_value_set list =
+  let pb1 = match list with [] -> assert false | x :: _ -> x in
+  let progress = Elm_progressbar.value_get pb1 in
+  let x = if progress < 1. then progress +. 0.0123 else 0. in
+  List.iter (fun pb -> Elm_progressbar.value_set pb x) list;
+  if x >= 1. then run := false;
+  !run
+
+let timer_fun list =
+  let rec loop () =
+    Thread.delay 0.1;
+    Ecore_thread.main_loop_begin ();
+    let flag = progressbar_example_value_set list in
+    Ecore_thread.main_loop_end ();
+    if flag then loop () in
+  loop ()
+
+let start_cb list_pb_pulse list_pb_values _ =
+  List.iter (fun pb -> Elm_progressbar.pulse pb true) list_pb_pulse;
+  if not !run then (
+    let (_ : Thread.t) = Thread.create timer_fun list_pb_values in
+    run := true;
+  )
+
+let stop_cb list_pb _ _ =
+  List.iter (fun pb -> Elm_progressbar.pulse pb false) list_pb;
+  run := false
 
 let add_bt win bt_bx label cb =
   let bt = Elm_button.add win in
@@ -81,10 +170,22 @@ let () =
   Evas_object.size_hint_weight_set bx Evas.hint_expand Evas.hint_expand;
   Evas_object.show bx;
 
-  let (_ : Evas.obj) = add_pb1 win bx in
+  let pb1 = add_pb1 win bx in
   let pb2 = add_pb2 win bx in
-  let (_ : Evas.obj) = add_pb3 win bx in
-  let (_ : Evas.obj) = add_pb4 win bx in
+  let pb3 = add_pb3 win bx in
+  let pb4 = add_pb4 win bx in
+
+  let hbx = Elm_box.add win in
+  Elm_box.horizontal_set hbx true;
+  Evas_object.size_hint_weight_set hbx Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_align_set hbx Evas.hint_fill Evas.hint_fill;
+  Elm_box.pack_end bx hbx;
+  Evas_object.show hbx;
+
+  let pb5 = add_pb5 win hbx in
+  let pb6 = add_pb6 win hbx in
+  let pb7 = add_pb7 win hbx in
+  let pb8 = add_pb8 win bx in
 
   let bt_bx = Elm_box.add win in
   Elm_box.horizontal_set bt_bx true;
@@ -93,7 +194,9 @@ let () =
   Evas_object.show bt_bx;
 
   let list_bt = [("Start", start_cb); ("Stop", stop_cb)] in
-  List.iter (fun (label, cb) -> add_bt win bt_bx label (cb [pb2])) list_bt;
+  List.iter
+    (fun (label, cb) -> add_bt win bt_bx label (cb [pb2; pb6; pb8]
+    [pb1; pb3; pb4; pb5; pb7])) list_bt;
 
   Evas_object.show win;
 
