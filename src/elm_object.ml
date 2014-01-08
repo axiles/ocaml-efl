@@ -141,6 +141,12 @@ external item_part_content_get : item -> ?p:string -> unit -> Evas.obj =
 external item_part_content_unset : item -> ?p:string -> unit -> Evas.obj =
   "ml_elm_object_item_part_content_unset"
 
+external item_part_text_set : item -> ?p:string -> string -> unit =
+  "ml_elm_object_item_part_text_set"
+
+external item_part_text_get : item -> ?p:string -> unit -> string =
+  "ml_elm_object_item_part_text_get"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"

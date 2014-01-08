@@ -436,6 +436,27 @@ PREFIX value ml_elm_object_item_part_content_unset(
         return (value) content;
 }
 
+PREFIX value ml_elm_object_item_part_text_set(
+        value v_it, value v_parent, value v_text)
+{
+        const char* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        else parent = String_val(Field(v_parent, 0));
+        elm_object_item_part_text_set((Elm_Object_Item*) v_it, parent,
+                String_val(v_text));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_part_text_get(
+        value v_it, value v_parent, value v_unit)
+{
+        const char* parent;
+        if(v_parent == Val_int(0)) parent = NULL;
+        const char* text = elm_object_item_part_text_get(
+                (Elm_Object_Item*) v_it, parent);
+        if(text == NULL) caml_failwith("elm_object_item_part_text_get");
+        return copy_string(text);
+}
 
 /* Widget Tree Navigation */
 

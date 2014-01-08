@@ -104,6 +104,10 @@ val item_part_content_get : item -> ?p:string -> unit -> Evas.obj
 
 val item_part_content_unset : item -> ?p:string -> unit -> Evas.obj
 
+val item_part_text_set : item -> ?p:string -> string -> unit
+
+val item_part_text_get : item -> ?p:string -> unit -> string
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool
