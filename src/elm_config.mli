@@ -107,3 +107,7 @@ val password_show_last_get : unit -> bool
 
 val password_show_last_set : bool -> unit
 
+val password_show_last_timeout_get : unit -> float
+
+val password_show_last_timeout_set : float -> unit
+

@@ -311,3 +311,14 @@ PREFIX value ml_elm_config_password_show_last_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_password_show_last_timeout_get(value v_unit)
+{
+        return copy_double(elm_config_password_show_last_timeout_get());
+}
+
+PREFIX value ml_elm_config_password_show_last_timeout_set(value v_t)
+{
+        elm_config_password_show_last_timeout_set(Double_val(v_t));
+        return Val_unit;
+}
+

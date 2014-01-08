@@ -133,3 +133,9 @@ external password_show_last_get : unit -> bool =
 external password_show_last_set : bool -> unit =
   "ml_elm_config_password_show_last_set"
 
+external password_show_last_timeout_get : unit -> float =
+  "ml_elm_config_password_show_last_timeout_get"
+
+external password_show_last_timeout_set : float -> unit =
+  "ml_elm_config_password_show_last_timeout_set"
+
