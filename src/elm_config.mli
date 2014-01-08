@@ -101,3 +101,9 @@ val focus_highlight_animate_get : unit -> bool
 
 val focus_highlight_animate_set : bool -> unit
 
+(** {Password show last} *)
+
+val password_show_last_get : unit -> bool
+
+val password_show_last_set : bool -> unit
+

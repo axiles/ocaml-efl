@@ -298,3 +298,16 @@ PREFIX value ml_elm_config_focus_highlight_animate_set(value v_flag)
         return Val_unit;
 }
 
+/* Password show last */
+
+PREFIX value ml_elm_config_password_show_last_get(value v_unit)
+{
+        return Val_bool(elm_config_password_show_last_get());
+}
+
+PREFIX value ml_elm_config_password_show_last_set(value v_flag)
+{
+        elm_config_password_show_last_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
