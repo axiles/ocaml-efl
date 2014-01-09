@@ -465,6 +465,14 @@ PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_signal_emit(
+        value v_it, value v_emission, value v_source)
+{
+        elm_object_item_signal_emit((Elm_Object_Item*) v_it,
+                String_val(v_emission), String_val(v_source));
+        return Val_unit;
+}
+
 /* Scrollhints */
 
 PREFIX value ml_elm_object_scroll_hold_push(value v_obj)
