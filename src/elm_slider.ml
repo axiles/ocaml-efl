@@ -13,6 +13,11 @@ module E = struct
   type u = Evas.Event_type.u
   let f = Evas.Event_type.create_unit
   let changed = f "changed"
+  let slider_drag_start = f "slider,drag,start"
+  let slider_drag_stop = f "slider,drag,stop"
+  let delay_changed = f "delay,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
 end
 
 let changed_cb obj =
@@ -63,4 +68,10 @@ external inverted_set : Evas.obj -> bool -> unit =
   "ml_elm_slider_inverted_set"
 
 external inverted_get : Evas.obj -> bool = "ml_elm_slider_inverted_get"
+
+external indicator_show_set : Evas.obj -> bool -> unit =
+  "ml_elm_slider_indicator_show_set"
+
+external indicator_show_get : Evas.obj -> bool =
+  "ml_elm_slider_indicator_show_get"
 

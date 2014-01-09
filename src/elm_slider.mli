@@ -1,3 +1,5 @@
+(** elm_slider_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val unit_format_set : Evas.obj -> (float -> string, unit, string) format -> unit
@@ -24,4 +26,18 @@ val value_get : Evas.obj -> float
 val inverted_set : Evas.obj -> bool -> unit
 
 val inverted_get : Evas.obj -> bool
+
+val indicator_show_set : Evas.obj -> bool -> unit
+
+val indicator_show_get : Evas.obj -> bool
+
+module E : sig
+  type u = Evas.Event_type.u
+  val changed : u
+  val slider_drag_start : u
+  val slider_drag_stop : u
+  val delay_changed : u
+  val focused : u
+  val unfocused : u
+end
 
