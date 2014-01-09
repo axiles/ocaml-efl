@@ -126,7 +126,11 @@ val scroll_freeze_get : Evas.obj -> int
 
 val scroll_lock_x_set : Evas.obj -> bool -> unit
 
+val scroll_lock_y_set : Evas.obj -> bool -> unit
+
 val scroll_lock_x_get : Evas.obj -> bool
+
+val scroll_lock_y_get : Evas.obj -> bool
 
 (** {2 Widget Tree Navigation} *)
 

@@ -507,9 +507,20 @@ PREFIX value ml_elm_object_scroll_lock_x_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_scroll_lock_y_set(value v_obj, value v_flag)
+{
+        elm_object_scroll_lock_y_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_scroll_lock_x_get(value v_obj, value v_flag)
 {
         return Val_bool(elm_object_scroll_lock_x_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_scroll_lock_y_get(value v_obj, value v_flag)
+{
+        return Val_bool(elm_object_scroll_lock_y_get((Evas_Object*) v_obj));
 }
 
 /* Widget Tree Navigation */

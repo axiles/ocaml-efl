@@ -169,8 +169,14 @@ external scroll_freeze_get : Evas.obj -> int = "ml_elm_object_scroll_freeze_get"
 external scroll_lock_x_set : Evas.obj -> bool -> unit =
   "ml_elm_object_scroll_lock_x_set"
 
+external scroll_lock_y_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_scroll_lock_y_set"
+
 external scroll_lock_x_get : Evas.obj -> bool =
   "ml_elm_object_scroll_lock_x_get"
+
+external scroll_lock_y_get : Evas.obj -> bool =
+  "ml_elm_object_scroll_lock_y_get"
 
 (* Widget Tree Navigation *)
 
