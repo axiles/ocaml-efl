@@ -357,3 +357,9 @@ Executable bubble_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: bubble_example_01.ml
+Executable frame_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: frame_example_01.ml
