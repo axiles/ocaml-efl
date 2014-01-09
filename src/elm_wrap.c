@@ -160,13 +160,6 @@ PREFIX value ml_elm_language_set(value v_lang)
 
 /* Others */
 
-PREFIX value ml_elm_frame_add(value v_parent)
-{
-        Evas_Object* frame = elm_frame_add((Evas_Object*) v_parent);
-        if(frame == NULL) caml_failwith("elm_frame_add");
-        return (value) frame;
-}
-
 PREFIX value ml_elm_theme_list_item_path_get(value v_f)
 {
         CAMLparam0();
