@@ -54,3 +54,8 @@ external horizontal_set : Evas.obj -> bool -> unit =
 
 external horizontal_get : Evas.obj -> bool = "ml_elm_slider_horizontal_get"
 
+external min_max_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_slider_min_max_set"
+
+external min_max_get : Evas.obj -> float * float = "ml_elm_slider_min_max_get"
+

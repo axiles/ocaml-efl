@@ -20,6 +20,25 @@ PREFIX value ml_elm_slider_horizontal_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slider_min_max_set(value v_obj, value v_min, value v_max)
+{
+        elm_slider_min_max_set((Evas_Object*) v_obj, Double_val(v_min),
+                Double_val(v_max));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slider_min_max_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double min, max;
+        elm_slider_min_max_get((Evas_Object*) v_obj, &min, &max);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(min));
+        Store_field(v_r, 1, copy_double(max));
+        CAMLreturn(v_r);
+}
+
 PREFIX value ml_elm_slider_value_set(value v_obj, value v_v)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
