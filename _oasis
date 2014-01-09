@@ -61,7 +61,8 @@ Library efl
     Elm_actionslider,
     Elm_config,
     Elm_font,
-    Elm_bubble
+    Elm_bubble,
+    Elm_slider
   CSources:
     include.h,
     eina_wrap.c,
@@ -113,7 +114,8 @@ Library efl
     elm_config_wrap.c,
     elm_font_wrap.c,
     elm_bubble_wrap.c,
-    elm_frame_wrap.c
+    elm_frame_wrap.c,
+    elm_slider_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
