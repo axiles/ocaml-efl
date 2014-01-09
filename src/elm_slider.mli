@@ -21,3 +21,7 @@ val value_set : Evas.obj -> float -> unit
 
 val value_get : Evas.obj -> float
 
+val inverted_set : Evas.obj -> bool -> unit
+
+val inverted_get : Evas.obj -> bool
+
