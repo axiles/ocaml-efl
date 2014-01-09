@@ -20,3 +20,5 @@ type wl_window
 
 external x_window_focus : x_window -> unit = "ml_ecore_x_window_focus"
 
+external main_loop_thread_safe_call_sync : cb -> unit =
+  "ml_ecore_main_loop_thread_safe_call_sync"

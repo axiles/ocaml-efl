@@ -22,50 +22,6 @@
 
 #define PREFIX CAMLprim EAPI
 
-/* Convenient macros */
-
-#define CAMLparam0Acquire() \
-  caml_acquire_runtime_system(); \
-  struct caml__roots_block *caml__frame = caml_local_roots
-
-#define CAMLparam1Acquire(x) \
-  CAMLparam0Acquire(); \
-  CAMLxparam1(x)
-
-#define CAMLparam2Acquire(x, y) \
-  CAMLparam0Acquire(); \
-  CAMLxparam2(x, y)
-
-#define CAMLparam3Acquire(x, y, z) \
-  CAMLparam0Acquire(); \
-  CAMLxparam3(x, y, z)
-
-
-#define CAMLparam4Acquire(x, y, z, t) \
-  CAMLparam0Acquire(); \
-  CAMLxparam4(x, y, z, t)
-
-#define CAMLparam5Acquire(x, y, z, t, u) \
-  CAMLparam0Acquire(); \
-  CAMLxparam5(x, y, z, t, u)
-
-#define CAMLparamNRelease(x, size) \
-  CAMLparam0Acquire (); \
-  CAMLxparamN (x, (size))
-
-#define CAMLreturn0Release do{ \
-  caml_local_roots = caml__frame; \
-  caml_release_runtime_system(); \
-  return; \
-}while (0)
-
-#define CAMLreturnTRelease(type, result) do{ \
-  type caml__temp_result = (result); \
-  caml_local_roots = caml__frame; \
-  caml_release_runtime_system(); \
-  return (caml__temp_result); \
-}while(0)
-
 /* Local headers */
 
 #include "variants.h"

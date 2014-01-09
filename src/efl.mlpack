@@ -1,7 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: 502b1c5c19037b215ee39c94bda41cd3)
+# DO NOT EDIT (digest: 9c95575a140922f456f071561cd507c9)
 Ecore
-Ecore_thread
 Ecore_timer
 Evas
 Evas_object

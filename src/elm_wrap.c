@@ -87,6 +87,19 @@ PREFIX inline value Val_Elm_Policy_Value(int pv)
         return Val_none;
 }
 
+Ecore_Select_Function original_select_function = NULL;
+
+PREFIX int my_select_function(
+        int nfds, fd_set* readfds, fd_set* writefds, fd_set* exceptfds,
+        struct timeval* timeout)
+{
+        caml_release_runtime_system();
+        int r = original_select_function(nfds, readfds, writefds, exceptfds,
+                timeout);
+        caml_acquire_runtime_system();
+        return r;
+}
+
 PREFIX value ml_elm_init_with_counter(value v_argv)
 {
         _elm_startup_time = ecore_time_unix_get(); 
@@ -100,7 +113,11 @@ PREFIX value ml_elm_init_with_counter(value v_argv)
                 argv[i][strlen(arg)] = '\0';
         }
         argv[argc] = NULL;
-        return Val_int(elm_init(argc, argv));
+        int r = elm_init(argc, argv);
+        if(original_select_function == NULL)
+                original_select_function = ecore_main_loop_select_func_get();
+        ecore_main_loop_select_func_set(my_select_function);
+        return Val_int(r);
 }
 
 
@@ -112,9 +129,9 @@ PREFIX value ml_elm_shutdown(value v_unit)
 
 PREFIX value ml_elm_run(value v_unit)
 {
-        caml_release_runtime_system();
+      
         elm_run();
-        caml_acquire_runtime_system();
+      
         return Val_unit;
 }
 

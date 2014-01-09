@@ -122,16 +122,16 @@ let progressbar_example_value_set list =
   let progress = Elm_progressbar.value_get pb1 in
   let x = if progress < 1. then progress +. 0.0123 else 0. in
   List.iter (fun pb -> Elm_progressbar.value_set pb x) list;
-  if x >= 1. then run := false;
-  !run
+  if x >= 1. then run := false
 
 let timer_fun list =
   let rec loop () =
     Thread.delay 0.1;
-    Ecore_thread.main_loop_begin ();
-    let flag = progressbar_example_value_set list in
-    Ecore_thread.main_loop_end ();
-    if flag then loop () in
+    (*Ecore_thread.main_loop_begin ();*)
+    Ecore.main_loop_thread_safe_call_sync (fun () ->
+      progressbar_example_value_set list);
+    (*Ecore_thread.main_loop_end ();*)
+    if !run then loop () in
   loop ()
 
 let start_cb list_pb_pulse list_pb_values _ =

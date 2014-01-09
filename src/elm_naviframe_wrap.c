@@ -2,10 +2,10 @@
 
 PREFIX Eina_Bool ml_Elm_Naviframe_Item_Pop_Cb(void* data, Elm_Object_Item* it)
 {
-        caml_acquire_runtime_system();
+      
         value* v_fun = (value*) data;
         Eina_Bool b = Bool_val(caml_callback(*v_fun, (value) it));
-        caml_release_runtime_system();
+      
         return b;
 }
 

@@ -28,9 +28,9 @@ PREFIX value ml_elm_progressbar_value_set(value v_obj, value v_v)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
         double x = Double_val(v_v);
-        caml_release_runtime_system();
+      
         elm_progressbar_value_set(obj, x);
-        caml_acquire_runtime_system();
+      
         return Val_unit;
 }
 

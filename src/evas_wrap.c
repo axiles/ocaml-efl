@@ -2,19 +2,19 @@
 
 PREFIX void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
 {
-        caml_acquire_runtime_system();
+      
         value *v_fun = (value*) data;
         caml_callback2(*v_fun, (value) obj, (value) event_info);
-        caml_release_runtime_system();
+      
 }
 
 PREFIX void ml_Evas_Smart_Cb_1(void *data, Evas_Object *obj, void *event_info)
 {
-        caml_acquire_runtime_system();
+      
         value* v_data = (value*) data;
         value v_fun = Field(*v_data, 1);
         caml_callback2(v_fun, (value) obj, (value) event_info);
-        caml_release_runtime_system();
+      
 }
 
 PREFIX value ml_evas_object_smart_callback_add(
@@ -107,12 +107,12 @@ PREFIX value ml_evas_object_rectangle_add(value v_e)
 PREFIX void ml_Evas_Object_Box_Layout_0(
         Evas_Object* obj, Evas_Object_Box_Data* priv, void* user_data)
 {
-        CAMLparam0Acquire();
+        CAMLparam0();
         CAMLlocal1(v_fun);
         value* v_user_data = (value*) user_data;
         v_fun = Field(*v_user_data, 0);
         caml_callback2(v_fun, (value) obj, (value) priv);
-        CAMLreturn0Release;
+        CAMLreturn0;
 }
 
 PREFIX value ml_evas_object_size_hint_min_set(value v_obj, value v_w, value v_h)
@@ -172,13 +172,13 @@ PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
 PREFIX void ml_Evas_Object_Event_Cb_mouse_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
-        CAMLparam0Acquire();
+        CAMLparam0();
         CAMLlocal2(v_fun, v_ev);
         value* d = (value*) data;
         v_fun = *d;
         v_ev = copy_Evas_Event_Mouse_Down((Evas_Event_Mouse_Down*) event_info);
         caml_callback3(v_fun, (value) e, (value) obj, v_ev);
-	CAMLreturn0Release;
+	CAMLreturn0;
 }
 
 PREFIX value ml_evas_object_event_callback_add_mouse_down(

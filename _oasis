@@ -19,7 +19,6 @@ Library efl
     -lecore_imf -lecore_con -leio -leldbus -lefreet -lefreet_mime -lefreet_trash
   Modules:
     Ecore,
-    Ecore_thread,
     Ecore_timer,
     Evas,
     Evas_object,
@@ -106,7 +105,6 @@ Library efl
     elm_list_wrap.h,
     elm_gen_wrap.c,
     elm_gen_wrap.h,
-    ecore_thread_wrap.c,
     elm_tooltip_wrap.h,
     elm_tooltip_wrap.c,
     elm_grid_wrap.c,

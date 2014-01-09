@@ -16,3 +16,5 @@ type wl_window
 
 val x_window_focus : x_window -> unit
 
+val main_loop_thread_safe_call_sync : cb -> unit
+
