@@ -118,6 +118,12 @@ val scroll_hold_pop : Evas.obj -> unit
 
 val scroll_hold_get : Evas.obj -> int
 
+val scroll_freeze_push : Evas.obj -> unit
+
+val scroll_freeze_pop : Evas.obj -> unit
+
+val scroll_freeze_get : Evas.obj -> int
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool

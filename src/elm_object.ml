@@ -158,6 +158,14 @@ external scroll_hold_pop : Evas.obj -> unit = "ml_elm_object_scroll_hold_pop"
 
 external scroll_hold_get : Evas.obj -> int = "ml_elm_object_scroll_hold_get"
 
+external scroll_freeze_push : Evas.obj -> unit =
+  "ml_elm_object_scroll_freeze_push"
+
+external scroll_freeze_pop : Evas.obj -> unit =
+  "ml_elm_object_scroll_freeze_pop"
+
+external scroll_freeze_get : Evas.obj -> int = "ml_elm_object_scroll_freeze_get"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"
