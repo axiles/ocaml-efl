@@ -5,3 +5,9 @@ external autocollapse_set : Evas.obj -> bool -> unit =
 
 external autocollapse_get : Evas.obj -> bool = "ml_elm_frame_autocollapse_get"
 
+external collapse_set : Evas.obj -> bool -> unit = "ml_elm_frame_collapse_set"
+
+external collapse_get : Evas.obj -> bool = "ml_elm_frame_collapse_get"
+
+external collapse_go : Evas.obj -> bool -> unit = "ml_elm_frame_collapse_go"
+
