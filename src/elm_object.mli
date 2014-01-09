@@ -110,6 +110,14 @@ val item_part_text_get : item -> ?p:string -> unit -> string
 
 val item_access_info_set : item -> string -> unit
 
+(** {2 Scrollhints} *)
+
+val scroll_hold_push : Evas.obj -> unit
+
+val scroll_hold_pop : Evas.obj -> unit
+
+val scroll_hold_get : Evas.obj -> int
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool

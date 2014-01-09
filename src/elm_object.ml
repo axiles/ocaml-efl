@@ -150,6 +150,14 @@ external item_part_text_get : item -> ?p:string -> unit -> string =
 external item_access_info_set : item -> string -> unit =
   "ml_elm_object_item_access_info_set"
 
+(* Scrollhints *)
+
+external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"
+
+external scroll_hold_pop : Evas.obj -> unit = "ml_elm_object_scroll_hold_pop"
+
+external scroll_hold_get : Evas.obj -> int = "ml_elm_object_scroll_hold_get"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"

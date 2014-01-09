@@ -465,6 +465,25 @@ PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
         return Val_unit;
 }
 
+/* Scrollhints */
+
+PREFIX value ml_elm_object_scroll_hold_push(value v_obj)
+{
+        elm_object_scroll_hold_push((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_scroll_hold_pop(value v_obj)
+{
+        elm_object_scroll_hold_pop((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_scroll_hold_get(value v_obj)
+{
+        return Val_int(elm_object_scroll_hold_get((Evas_Object*) v_obj));
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)
