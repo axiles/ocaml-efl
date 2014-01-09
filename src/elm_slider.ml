@@ -49,3 +49,8 @@ let indicator_format_set obj fmt =
   let f x = sprintf fmt x in
   indicator_format_function_set obj f
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_slider_horizontal_set"
+
+external horizontal_get : Evas.obj -> bool = "ml_elm_slider_horizontal_get"
+
