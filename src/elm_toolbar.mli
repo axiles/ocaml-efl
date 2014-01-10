@@ -39,3 +39,5 @@ val item_priority_get : Elm_object.item -> int
 
 val item_find_by_label : Evas.obj -> string -> Elm_object.item option
 
+val selected_item_get : Evas.obj -> Elm_object.item option
+
