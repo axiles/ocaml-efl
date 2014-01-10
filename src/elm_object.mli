@@ -132,6 +132,10 @@ val item_cursor_style_set : item -> string -> unit
 
 val item_cursor_style_get : item -> string
 
+val item_cursor_engine_only_set : item -> bool -> unit
+
+val item_cursor_engine_only_get : item -> bool
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit
