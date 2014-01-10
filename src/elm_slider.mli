@@ -13,7 +13,7 @@ val indicator_format_set :
 
 val indicator_format_function_set : Evas.obj -> (float -> string) -> unit
 
-val unit_format_function_set : Evas.obj -> (float -> string) -> unit
+val units_format_function_set : Evas.obj -> (float -> string) -> unit
 
 val horizontal_set : Evas.obj -> bool -> unit
 

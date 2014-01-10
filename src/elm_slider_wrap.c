@@ -7,6 +7,19 @@ PREFIX value ml_elm_slider_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_slider_unit_format_set(value v_obj, value v_fmt)
+{
+        elm_slider_unit_format_set((Evas_Object*) v_obj, String_val(v_fmt));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slider_indicator_format_set(value v_obj, value v_fmt)
+{
+        elm_slider_indicator_format_set((Evas_Object*) v_obj,
+                String_val(v_fmt));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_slider_span_size_set(value v_obj, value v_size)
 {
         elm_slider_span_size_set((Evas_Object*) v_obj, Int_val(v_size));

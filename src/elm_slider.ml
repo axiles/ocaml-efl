@@ -1,11 +1,36 @@
 open Printf
 
+(* This replace every % by %% *)
+let fstring_of_string s =
+  let num_percent = ref 0 in
+  String.iter (fun c -> if c = '%' then incr num_percent) s;
+  let s1 = String.create (String.length s + !num_percent) in
+  let rec aux i j =
+    if i >= String.length s then ()
+    else (
+      let c = s.[i] in
+      if c = '%' then (
+        s1.[j] <- '%';
+        s1.[j + 1] <- '%';
+        aux (i + 1) (j + 2)
+      ) else (
+        s1.[j] <- c;
+        aux (i + 1) (j + 1))) in
+  aux 0 0;
+  s1
+
 let ht = Hashtbl.create 255
 let ht_ind = Hashtbl.create 255
 
 external value_set : Evas.obj -> float -> unit = "ml_elm_slider_value_set"
  
 external value_get : Evas.obj -> float = "ml_elm_slider_value_get"
+
+external unit_format_set_aux : Evas.obj -> string -> unit =
+  "ml_elm_slider_unit_format_set"
+
+external indicator_format_set_aux : Evas.obj -> string -> unit =
+  "ml_elm_slider_indicator_format_set"
 
 let default_format x = ""
 
@@ -25,10 +50,8 @@ let changed_cb obj =
   let ind_format_fun = try Hashtbl.find ht_ind obj
     with Not_found -> default_format in
   let x = value_get obj in
-  let ind = ind_format_fun x in
-  Elm_object.part_text_set obj ~p:"elm.units" (format_fun x);
-  Elm_object.part_text_set obj ~p:"elm.indicator" ind;
-  Elm_object.part_text_set obj ~p:"elm.dragable.slider:elm.indicator" ind
+  unit_format_set_aux obj (fstring_of_string (format_fun x));
+  indicator_format_set_aux obj (fstring_of_string (ind_format_fun x))
 
 external add_aux : Evas.obj -> Evas.obj = "ml_elm_slider_add"
 
@@ -38,20 +61,20 @@ let add parent =
   changed_cb pb;
   pb
 
-let unit_format_function_set obj func =
+let units_format_function_set obj func =
   Hashtbl.replace ht obj func;
   changed_cb obj
 
 let unit_format_set obj fmt =
-  let f x = sprintf fmt x in
-  unit_format_function_set obj f
+  let f x = sprintf fmt (x *. 100.) in
+  units_format_function_set obj f
 
 let indicator_format_function_set obj func =
   Hashtbl.replace ht_ind obj func;
   changed_cb obj
 
 let indicator_format_set obj fmt =
-  let f x = sprintf fmt x in
+  let f x = sprintf fmt (x *. 100.) in
   indicator_format_function_set obj f
 
 external span_size_set : Evas.obj -> int -> unit = "ml_elm_slider_span_size_set"

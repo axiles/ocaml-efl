@@ -3,18 +3,40 @@ reproduce this function via a callback *)
 
 open Printf
 
+(* This replace every % by %% *)
+let fstring_of_string s =
+  let num_percent = ref 0 in
+  String.iter (fun c -> if c = '%' then incr num_percent) s;
+  let s1 = String.create (String.length s + !num_percent) in
+  let rec aux i j =
+    if i >= String.length s then ()
+    else (
+      let c = s.[i] in
+      if c = '%' then (
+        s1.[j] <- '%';
+        s1.[j + 1] <- '%';
+        aux (i + 1) (j + 2)
+      ) else (
+        s1.[j] <- c;
+        aux (i + 1) (j + 1))) in
+  aux 0 0;
+  s1
+
 let ht = Hashtbl.create 255
 
 external value_set : Evas.obj -> float -> unit = "ml_elm_progressbar_value_set"
  
 external value_get : Evas.obj -> float = "ml_elm_progressbar_value_get"
 
+external unit_format_set_aux : Evas.obj -> string -> unit =
+  "ml_elm_progressbar_unit_format_set"
+
 let default_format x = sprintf "%d %%" (int_of_float (x *. 100.))
 
 let changed_cb obj =
   let format_fun = try Hashtbl.find ht obj with Not_found -> default_format in
   let x = value_get obj in
-  Elm_object.part_text_set obj ~p:"elm.text.status" (format_fun x)
+  unit_format_set_aux obj (fstring_of_string (format_fun x))
 
 module E = struct
   type u = Evas.Event_type.u
@@ -46,7 +68,7 @@ let unit_format_function_set obj func =
   changed_cb obj
 
 let unit_format_set obj fmt =
-  let f x = sprintf fmt x in
+  let f x = sprintf fmt (x *. 100.) in
   unit_format_function_set obj f
 
 external horizontal_set : Evas.obj -> bool -> unit =
