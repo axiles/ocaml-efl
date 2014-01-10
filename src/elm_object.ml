@@ -153,6 +153,9 @@ external item_access_info_set : item -> string -> unit =
 external item_signal_emit : item -> string -> string -> unit =
   "ml_elm_object_item_signal_emit"
 
+external item_tooltip_text_set : item -> string -> unit =
+  "ml_elm_object_item_tooltip_text_set"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"

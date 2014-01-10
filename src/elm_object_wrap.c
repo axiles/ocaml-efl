@@ -473,6 +473,13 @@ PREFIX value ml_elm_object_item_signal_emit(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_tooltip_text_set(value v_obj, value v_text)
+{
+        elm_object_item_tooltip_text_set((Elm_Object_Item*) v_obj,
+                String_val(v_text));
+        return Val_unit;
+}
+
 /* Scrollhints */
 
 PREFIX value ml_elm_object_scroll_hold_push(value v_obj)

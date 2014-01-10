@@ -112,6 +112,8 @@ val item_access_info_set : item -> string -> unit
 
 val item_signal_emit : item -> string -> string -> unit
 
+val item_tooltip_text_set : item -> string -> unit
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit
