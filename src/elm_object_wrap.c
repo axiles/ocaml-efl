@@ -517,6 +517,19 @@ PREFIX value ml_elm_object_item_tooltip_unset(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_tooltip_style_set(value v_it, value v_style)
+{
+        elm_object_item_tooltip_style_set((Elm_Object_Item*) v_it,
+                String_val(v_style));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_tooltip_style_get(value v_it)
+{
+        return copy_string(elm_object_item_tooltip_style_get(
+                (Elm_Object_Item*) v_it));
+}
+
 /* Scrollhints */
 
 PREFIX value ml_elm_object_scroll_hold_push(value v_obj)

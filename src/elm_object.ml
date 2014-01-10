@@ -7,9 +7,10 @@ external cursor_get : Evas.obj -> string = "ml_elm_object_cursor_get"
 external cursor_unset : Evas.obj -> unit = "ml_elm_object_cursor_unset"
 
 external cursor_style_set : Evas.obj -> string -> unit =
-  "ml_elm_object_cursor_set"
+  "ml_elm_object_cursor_style_set"
 
-external cursor_style_get : Evas.obj -> string = "ml_elm_object_cursor_get"
+external cursor_style_get : Evas.obj -> string =
+  "ml_elm_object_cursor_style_get"
 
 external cursor_theme_search_enabled_set : Evas.obj -> bool -> unit =
   "ml_elm_object_cursor_theme_search_enabled_set"
@@ -163,6 +164,12 @@ external item_tooltip_content_cb_set :
     "ml_elm_object_item_tooltip_content_cb_set"
 
 external item_tooltip_unset : item -> unit = "ml_elm_object_item_tooltip_unset"
+
+external item_tooltip_style_set : item -> string -> unit =
+  "ml_elm_object_item_tooltip_style_set"
+
+external item_tooltip_style_get : item -> string =
+  "ml_elm_object_item_tooltip_style_get"
 
 (* Scrollhints *)
 
