@@ -224,3 +224,14 @@ PREFIX value ml_elm_toolbar_item_priority_get(value v_it)
         return Val_int(elm_toolbar_item_priority_get((Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_toolbar_item_find_by_label(value v_obj, value v_label)
+{
+       Elm_Object_Item* it = elm_toolbar_item_find_by_label(
+               (Evas_Object*) v_obj, String_val(v_label));
+       if(it == NULL) return Val_int(0);
+       value v_it = caml_alloc(1, 0);
+       Store_field(v_it, 0, (value) it);
+       return (value) v_it;
+}
+
+

@@ -51,3 +51,7 @@ external item_priority_set : Elm_object.item -> int -> unit =
 external item_priority_get : Elm_object.item -> int =
   "ml_elm_toolbar_item_priority_get"
 
+external item_find_by_label : Evas.obj -> string -> Elm_object.item option =
+  "ml_elm_toolbar_item_find_by_label"
+
+

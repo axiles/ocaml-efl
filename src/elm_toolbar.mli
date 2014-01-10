@@ -37,3 +37,5 @@ val item_priority_set : Elm_object.item -> int -> unit
 
 val item_priority_get : Elm_object.item -> int
 
+val item_find_by_label : Evas.obj -> string -> Elm_object.item option
+
