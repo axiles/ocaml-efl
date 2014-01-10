@@ -26,7 +26,7 @@ let changed_cb obj =
     with Not_found -> default_format in
   let x = value_get obj in
   let ind = ind_format_fun x in
-  Elm_object.part_text_set obj ~p:"elm.text.status" (format_fun x);
+  Elm_object.part_text_set obj ~p:"elm.units" (format_fun x);
   Elm_object.part_text_set obj ~p:"elm.indicator" ind;
   Elm_object.part_text_set obj ~p:"elm.dragable.slider:elm.indicator" ind
 
@@ -53,6 +53,10 @@ let indicator_format_function_set obj func =
 let indicator_format_set obj fmt =
   let f x = sprintf fmt x in
   indicator_format_function_set obj f
+
+external span_size_set : Evas.obj -> int -> unit = "ml_elm_slider_span_size_set"
+
+external span_size_get : Evas.obj -> int = "ml_elm_slider_span_size_get"
 
 external horizontal_set : Evas.obj -> bool -> unit =
   "ml_elm_slider_horizontal_set"

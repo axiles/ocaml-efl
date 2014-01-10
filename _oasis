@@ -365,3 +365,9 @@ Executable frame_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: frame_example_01.ml
+Executable slider_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: slider_example.ml

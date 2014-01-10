@@ -2,6 +2,10 @@
 
 val add : Evas.obj -> Evas.obj
 
+val span_size_set : Evas.obj -> int -> unit
+
+val span_size_get : Evas.obj -> int
+
 val unit_format_set : Evas.obj -> (float -> string, unit, string) format -> unit
 
 val indicator_format_set :
