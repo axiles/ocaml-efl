@@ -11,3 +11,25 @@ external icon_order_lookup_set : Evas.obj -> Elm_icon.lookup_order -> unit =
 external icon_order_lookup_get : Evas.obj -> Elm_icon.lookup_order =
   "ml_elm_toolbar_icon_order_lookup_get"
 
+external item_append :
+  Evas.obj -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_toolbar_item_append"
+
+external item_prepend :
+  Evas.obj -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_toolbar_item_prepend"
+
+external item_insert_before :
+  Evas.obj -> Elm_object.item -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_toolbar_item_insert_before_byte"
+  "ml_elm_toolbar_item_insert_before_native"
+
+external item_insert_after :
+  Evas.obj -> Elm_object.item -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item =
+  "ml_elm_toolbar_item_insert_after_byte"
+  "ml_elm_toolbar_item_insert_after_native"
+

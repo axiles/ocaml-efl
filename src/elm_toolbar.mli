@@ -9,3 +9,19 @@ val icon_order_lookup_set : Evas.obj -> Elm_icon.lookup_order -> unit
 
 val icon_order_lookup_get : Evas.obj -> Elm_icon.lookup_order
 
+val item_append :
+  Evas.obj -> ?icon:string -> ?label:string -> ?func:Evas.smart_cb -> unit ->
+    Elm_object.item
+
+val item_prepend :
+  Evas.obj -> ?icon:string -> ?label:string -> ?func:Evas.smart_cb ->
+    unit -> Elm_object.item
+
+val item_insert_before :
+  Evas.obj -> Elm_object.item -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
+
+val item_insert_after :
+  Evas.obj -> Elm_object.item -> ?icon:string -> ?label:string ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
+
