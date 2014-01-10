@@ -640,6 +640,19 @@ PREFIX value ml_elm_object_mirrored_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_mirrored_automatic_get(value v_obj)
+{
+        return Val_bool(elm_object_mirrored_automatic_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_mirrored_automatic_set(value v_obj, value v_flag)
+{
+        elm_object_mirrored_automatic_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)

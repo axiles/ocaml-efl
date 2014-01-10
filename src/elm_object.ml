@@ -223,6 +223,12 @@ external mirrored_get : Evas.obj -> bool = "ml_elm_object_mirrored_get"
 
 external mirrored_set : Evas.obj -> bool -> unit = "ml_elm_object_mirrored_set"
 
+external mirrored_automatic_get : Evas.obj -> bool =
+  "ml_elm_object_mirrored_automatic_get"
+
+external mirrored_automatic_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_mirrored_automatic_set"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"

@@ -164,6 +164,10 @@ val mirrored_get : Evas.obj -> bool
 
 val mirrored_set : Evas.obj -> bool -> unit
 
+val mirrored_automatic_get : Evas.obj -> bool
+
+val mirrored_automatic_set : Evas.obj -> bool -> unit
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool
