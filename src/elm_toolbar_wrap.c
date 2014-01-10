@@ -213,3 +213,14 @@ PREFIX value ml_elm_toolbar_item_prev_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_toolbar_item_priority_set(value v_it, value v_x)
+{
+        elm_toolbar_item_priority_set((Elm_Object_Item*) v_it, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_item_priority_get(value v_it)
+{
+        return Val_int(elm_toolbar_item_priority_get((Elm_Object_Item*) v_it));
+}
+
