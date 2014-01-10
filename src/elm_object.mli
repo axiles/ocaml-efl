@@ -124,6 +124,10 @@ val item_tooltip_style_set : item -> string -> unit
 
 val item_tooltip_style_get : item -> string
 
+val item_cursor_set : Evas.obj -> string -> unit
+
+val item_cursor_unset : Evas.obj -> unit
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit

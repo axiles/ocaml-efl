@@ -171,6 +171,12 @@ external item_tooltip_style_set : item -> string -> unit =
 external item_tooltip_style_get : item -> string =
   "ml_elm_object_item_tooltip_style_get"
 
+external item_cursor_set : Evas.obj -> string -> unit =
+  "ml_elm_object_item_cursor_set"
+
+external item_cursor_unset : Evas.obj -> unit =
+  "ml_elm_object_item_cursor_unset"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"
