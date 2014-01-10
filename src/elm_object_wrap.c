@@ -193,6 +193,26 @@ PREFIX inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
         return Val_default;
 }
 
+PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
+        void* data, Evas_Object* obj, Evas_Object* v_tooltip, void* item)
+{
+        CAMLparam0();
+        CAMLlocal1(v_content);
+        value* v_fun = (value*) data;
+        v_content = caml_callback2(*v_fun, (value) obj, (value) v_tooltip);
+        Evas_Object* content;
+        if(v_content == Val_int(0)) content = NULL;
+        else content = (Evas_Object*) Field(v_content, 0);
+        CAMLreturnT(Evas_Object*, content);
+}
+
+PREFIX void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
+{
+        value* v_fun = (value*) data;
+        caml_remove_global_root(v_fun);
+        free(v_fun);
+}
+
 PREFIX value ml_elm_object_domain_translatable_part_text_set(
         value v_obj, value v_part, value v_domain, value v_text, value v_unit)
 {
@@ -473,10 +493,21 @@ PREFIX value ml_elm_object_item_signal_emit(
         return Val_unit;
 }
 
-PREFIX value ml_elm_object_item_tooltip_text_set(value v_obj, value v_text)
+PREFIX value ml_elm_object_item_tooltip_text_set(value v_it, value v_text)
 {
-        elm_object_item_tooltip_text_set((Elm_Object_Item*) v_obj,
+        elm_object_item_tooltip_text_set((Elm_Object_Item*) v_it,
                 String_val(v_text));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_tooltip_content_cb_set(
+        value v_item, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_object_item_tooltip_content_cb_set((Elm_Object_Item*) v_item,
+                ml_Elm_Tooltip_Item_Content_Cb, data, ml_Evas_Smart_Cb_del);
         return Val_unit;
 }
 

@@ -114,6 +114,10 @@ val item_signal_emit : item -> string -> string -> unit
 
 val item_tooltip_text_set : item -> string -> unit
 
+type tooltip_item_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
+
+val item_tooltip_content_cb_set : item -> tooltip_item_content_cb -> unit
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit

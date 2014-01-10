@@ -156,6 +156,12 @@ external item_signal_emit : item -> string -> string -> unit =
 external item_tooltip_text_set : item -> string -> unit =
   "ml_elm_object_item_tooltip_text_set"
 
+type tooltip_item_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
+
+external item_tooltip_content_cb_set :
+  item -> tooltip_item_content_cb -> unit =
+    "ml_elm_object_item_tooltip_content_cb_set"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"
