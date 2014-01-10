@@ -128,6 +128,10 @@ val item_cursor_set : Evas.obj -> string -> unit
 
 val item_cursor_unset : Evas.obj -> unit
 
+val item_cursor_style_set : item -> string -> unit
+
+val item_cursor_style_get : item -> string
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit

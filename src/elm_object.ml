@@ -177,6 +177,12 @@ external item_cursor_set : Evas.obj -> string -> unit =
 external item_cursor_unset : Evas.obj -> unit =
   "ml_elm_object_item_cursor_unset"
 
+external item_cursor_style_set : item -> string -> unit =
+  "ml_elm_object_item_cursor_style_set"
+
+external item_cursor_style_get : item -> string =
+  "ml_elm_object_item_cursor_style_get"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"
