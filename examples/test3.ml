@@ -25,19 +25,18 @@ let () =
   Evas_object_smart.callback_add win Elm_win.E.delete_request win_del;
 
   let bg = Elm_bg.add win in
-  Evas_object.size_hint_weight_set bg 0. 0.;
+  Evas_object.size_hint_set bg [`weight0];
   Elm_win.resize_object_add win bg;
   Evas_object.show bg;
 
   let bx = Elm_box.add win in
-  Evas_object.size_hint_weight_set bx 0. 0.;
+  Evas_object.size_hint_set bx [`weight0];
   Elm_win.resize_object_add win bx;
   Evas_object.show bx;
 
   let fr = Elm_frame.add win in
   let (_ : bool) = Elm_object.style_set fr "pad_large" in
-  Evas_object.size_hint_weight_set fr 0. 0.;
-  Evas_object.size_hint_align_set fr (-1.) (-1.);
+  Evas_object.size_hint_set fr [`weight0; `fill];
   Elm_box.pack_end bx fr;
   Evas_object.show fr;
 
@@ -48,8 +47,7 @@ let () =
 
   let fr0 = Elm_frame.add win in
   let (_ : bool) = Elm_object.style_set fr0 "outdent_bottom" in
-  Evas_object.size_hint_weight_set fr0 0. 0.;
-  Evas_object.size_hint_align_set fr (-1.) (-1.);
+  Evas_object.size_hint_set fr0 [`weight0; `fill];
   Elm_box.pack_end bx fr0;
   Evas_object.show fr0;
 
@@ -66,16 +64,14 @@ let () =
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "OK";
-  Evas_object.size_hint_weight_set bt 1. 1.;
-  Evas_object.size_hint_align_set bt (-1.) (-1.);
+  Evas_object.size_hint_set bt [`expand; `fill];
   Elm_box.pack_end bx2 bt;
   Evas_object.show bt;
   Evas_object_smart.callback_add bt Elm_button.E.clicked on_ok;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Cancel";
-  Evas_object.size_hint_weight_set bt 1. 1.;
-  Evas_object.size_hint_align_set bt (-1.) (-1.);
+  Evas_object.size_hint_set bt [`expand; `fill];
   Elm_box.pack_end bx2 bt;
   Evas_object.show bt;
   Evas_object_smart.callback_add bt Elm_button.E.clicked on_cancel;

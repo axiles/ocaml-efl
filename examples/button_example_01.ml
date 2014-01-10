@@ -13,7 +13,7 @@ let () =
   Evas_object.show win;
 
   let bg = Elm_bg.add win in
-  Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set bg [`expand];
   Elm_win.resize_object_add win bg;
   Evas_object.show bg;
 
@@ -27,7 +27,7 @@ let () =
   let add_param_line box name val_list =
     let box2 = Elm_box.add win in
     Elm_box.horizontal_set box2 true;
-    Evas_object.size_hint_weight_set box2 Evas.hint_expand 0.;
+    Evas_object.size_hint_set box2 [`hexpand];
     Elm_box.pack_end box box2;
     Evas_object.show box2;
     let get_text x = sprintf "%s: %.1f" name x in
@@ -47,7 +47,7 @@ let () =
       Evas_object.size_hint_weight_set btn wx wy;
       Evas_object.size_hint_align_set btn ax ay
     | None ->
-      Evas_object.size_hint_weight_set btn Evas.hint_expand Evas.hint_expand);
+      Evas_object.size_hint_set btn [`expand]);
     Elm_box.pack_end box btn;
     Evas_object.show btn;
     let icon = Elm_icon.add win in
@@ -59,7 +59,7 @@ let () =
     add_icon_button box icon_name (Some horizontal) in
 
   let box = Elm_box.add win in
-  Evas_object.size_hint_weight_set box Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set box [`expand];
   Elm_win.resize_object_add win box;
   Evas_object.show box;
 
@@ -70,8 +70,7 @@ let () =
 
   let box2 = Elm_box.add win in
   Elm_box.horizontal_set box2 true;
-  Evas_object.size_hint_weight_set box2 Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_align_set box2 Evas.hint_fill Evas.hint_fill;
+  Evas_object.size_hint_set box2 [`expand; `fill];
   Elm_box.pack_end box box2;
   Evas_object.show box2;
 

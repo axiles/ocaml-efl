@@ -10,13 +10,13 @@ let () =
   Evas_object_smart.callback_add win Elm_win.E.delete_request on_done;
 
   let bg = Elm_bg.add win in
-  Evas_object.size_hint_weight_set bg 0. 0.;
+  Evas_object.size_hint_set bg [`weight0];
   Elm_win.resize_object_add win bg;
   Evas_object.show bg;
 
   let box = Elm_box.add win in
   Elm_box.horizontal_set box true;
-  Evas_object.size_hint_weight_set box 0. 0.;
+  Evas_object.size_hint_set box [`weight0];
   Elm_win.resize_object_add win box;
   Evas_object.show box;
 

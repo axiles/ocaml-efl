@@ -28,8 +28,7 @@ let on_done _ = Elm.exit ()
 
 let add_pb win bx =
   let pb = Elm_progressbar.add win in
-  Evas_object.size_hint_weight_set pb Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_align_set pb Evas.hint_fill 0.5;
+  Evas_object.size_hint_set pb [`expand; `hfill];
   Elm_box.pack_end bx pb;
   pb
 
@@ -66,8 +65,7 @@ let add_pb4 win bx =
   Evas_object.show pb;
   let label = Elm_label.add win in
   Elm_object.text_set label "ETA: N/A";
-  Evas_object.size_hint_align_set label 0.5 0.5;
-  Evas_object.size_hint_weight_set label Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set label [`center; `expand];
   Elm_box.pack_end bx label;
   Evas_object.show label;
   Evas_object_smart.callback_add pb Elm_progressbar.E.changed
@@ -77,8 +75,7 @@ let add_pb4 win bx =
 let add_pb5 win bx =
   let pb = Elm_progressbar.add win in
   Elm_progressbar.horizontal_set pb false;
-  Evas_object.size_hint_align_set pb Evas.hint_fill Evas.hint_fill;
-  Evas_object.size_hint_weight_set pb Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set pb [`fill; `expand];
   Elm_box.pack_end bx pb;
   Elm_object.text_set pb "percent";
   Evas_object.show pb;
@@ -162,12 +159,12 @@ let () =
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
-  Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set bg [`expand];
   Evas_object.show bg;
 
   let bx = Elm_box.add win in
   Elm_win.resize_object_add win bx;
-  Evas_object.size_hint_weight_set bx Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set bx [`expand];
   Evas_object.show bx;
 
   let pb1 = add_pb1 win bx in
@@ -177,8 +174,7 @@ let () =
 
   let hbx = Elm_box.add win in
   Elm_box.horizontal_set hbx true;
-  Evas_object.size_hint_weight_set hbx Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_align_set hbx Evas.hint_fill Evas.hint_fill;
+  Evas_object.size_hint_set hbx [`expand; `fill];
   Elm_box.pack_end bx hbx;
   Evas_object.show hbx;
 
@@ -189,7 +185,7 @@ let () =
 
   let bt_bx = Elm_box.add win in
   Elm_box.horizontal_set bt_bx true;
-  Evas_object.size_hint_weight_set bt_bx Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set bt_bx [`expand];
   Elm_box.pack_end bx bt_bx;
   Evas_object.show bt_bx;
 
