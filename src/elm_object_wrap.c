@@ -511,6 +511,12 @@ PREFIX value ml_elm_object_item_tooltip_content_cb_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_tooltip_unset(value v_it)
+{
+        elm_object_item_tooltip_unset((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
 /* Scrollhints */
 
 PREFIX value ml_elm_object_scroll_hold_push(value v_obj)

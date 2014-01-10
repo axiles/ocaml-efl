@@ -162,6 +162,8 @@ external item_tooltip_content_cb_set :
   item -> tooltip_item_content_cb -> unit =
     "ml_elm_object_item_tooltip_content_cb_set"
 
+external item_tooltip_unset : item -> unit = "ml_elm_object_item_tooltip_unset"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"
