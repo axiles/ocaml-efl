@@ -10,6 +10,28 @@ val size_hint_weight_set : Evas.obj -> float -> float -> unit
 
 val size_hint_align_set : Evas.obj -> float -> float -> unit
 
+type size_hint = [
+  | `expand
+  | `hexpand
+  | `vexpand
+  | `fill
+  | `hfill
+  | `vfill
+  | `center
+  | `hcenter
+  | `vcenter
+  | `weight0
+  | `hweight0
+  | `vweight0
+  | `weight of float
+  | `hweight of float
+  | `vweight of float
+  | `align of float
+  | `halign of float
+  | `valign of float]
+
+val size_hint_set : Evas.obj -> size_hint list -> unit
+
 val resize : Evas.obj -> int -> int -> unit
 
 val move : Evas.obj -> int -> int -> unit

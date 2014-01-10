@@ -12,6 +12,51 @@ external size_hint_weight_set : Evas.obj -> float -> float -> unit =
 external size_hint_align_set : Evas.obj -> float -> float -> unit =
   "ml_evas_object_size_hint_align_set"
 
+type size_hint = [
+  | `expand
+  | `hexpand
+  | `vexpand
+  | `fill
+  | `hfill
+  | `vfill
+  | `center
+  | `hcenter
+  | `vcenter
+  | `weight0
+  | `hweight0
+  | `vweight0
+  | `weight of float
+  | `hweight of float
+  | `vweight of float
+  | `align of float
+  | `halign of float
+  | `valign of float]
+
+let size_hint_set obj list =
+  let aux (hw, vw, ha, va) hint =
+    match (hint : size_hint) with
+    | `expand -> (Evas.hint_expand, Evas.hint_expand, ha, va)
+    | `hexpand -> (Evas.hint_expand, vw, ha, va)
+    | `vexpand -> (hw, Evas.hint_expand, ha, va)
+    | `fill -> (hw, vw, Evas.hint_fill, Evas.hint_fill)
+    | `hfill -> (hw, vw, Evas.hint_fill, va)
+    | `vfill -> (hw, vw, ha, Evas.hint_fill)
+    | `center -> (hw, vw, 0.5, 0.5)
+    | `hcenter -> (hw, vw, 0.5, va)
+    | `vcenter -> (hw, vw, ha, 0.5)
+    | `weight0 -> (0., 0., ha, va)
+    | `hweight0 -> (0., vw, ha, va)
+    | `vweight0 -> (hw, 0., ha, va)
+    | `weight x -> (x, x, ha, va)
+    | `hweight x -> (x, vw, ha, va)
+    | `vweight x -> (hw, x, ha, va)
+    | `align x -> (hw, vw, x, x)
+    | `halign x -> (hw, vw, x, va)
+    | `valign x -> (hw, vw, ha, x) in
+  let (hw, vw, ha, va) = List.fold_left aux (0., 0., 0.5, 0.5) list in
+  size_hint_weight_set obj hw vw;
+  size_hint_align_set obj ha va
+
 external resize : Evas.obj -> int -> int -> unit =
   "ml_evas_object_resize"
 
