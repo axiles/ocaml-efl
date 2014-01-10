@@ -90,6 +90,7 @@ Library efl
     elm_image_wrap.c,
     elm_separator_wrap.c,
     elm_notify_wrap.c,
+    elm_icon_wrap.h,
     elm_icon_wrap.c,
     elm_bg_wrap.c,
     elm_object_wrap.h,

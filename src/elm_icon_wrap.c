@@ -1,4 +1,4 @@
-#include "include.h"
+#include "elm_icon_wrap.h"
 
 PREFIX inline Elm_Icon_Type Elm_Icon_Type_val(value v)
 {
