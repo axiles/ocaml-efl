@@ -175,3 +175,41 @@ PREFIX value ml_elm_toolbar_item_insert_after_byte(value* argv, int argn)
                 argv[3], argv[4], argv[5]);
 }
 
+PREFIX value ml_elm_toolbar_first_item_get(value v_obj)
+{
+        Elm_Object_Item *it = elm_toolbar_first_item_get((Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
+}
+
+PREFIX value ml_elm_toolbar_last_item_get(value v_obj)
+{
+        Elm_Object_Item *it = elm_toolbar_last_item_get((Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
+}
+
+PREFIX value ml_elm_toolbar_item_next_get(value v_it)
+{
+        Elm_Object_Item* it1 = elm_toolbar_item_next_get(
+                (Elm_Object_Item*) v_it);
+        if(it1 == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it1);
+        return v;
+}
+
+PREFIX value ml_elm_toolbar_item_prev_get(value v_it)
+{
+        Elm_Object_Item* it1 = elm_toolbar_item_prev_get(
+                (Elm_Object_Item*) v_it);
+        if(it1 == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it1);
+        return v;
+}
+
