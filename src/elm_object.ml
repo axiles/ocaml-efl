@@ -217,6 +217,12 @@ external scroll_lock_x_get : Evas.obj -> bool =
 external scroll_lock_y_get : Evas.obj -> bool =
   "ml_elm_object_scroll_lock_y_get"
 
+(* Mirroring *)
+
+external mirrored_get : Evas.obj -> bool = "ml_elm_object_mirrored_get"
+
+external mirrored_set : Evas.obj -> bool -> unit = "ml_elm_object_mirrored_set"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"

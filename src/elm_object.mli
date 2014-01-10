@@ -158,6 +158,12 @@ val scroll_lock_x_get : Evas.obj -> bool
 
 val scroll_lock_y_get : Evas.obj -> bool
 
+(** {2 Mirroring} *)
+
+val mirrored_get : Evas.obj -> bool
+
+val mirrored_set : Evas.obj -> bool -> unit
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool
