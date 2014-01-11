@@ -140,3 +140,9 @@ external item_state_next : Elm_object.item -> item_state option =
 external item_state_prev : Elm_object.item -> item_state option =
   "ml_elm_toolbar_item_state_prev"
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_toolbar_horizontal_set"
+
+external horizontal_get : Evas.obj -> bool =
+  "ml_elm_toolbar_horizontal_get"
+
