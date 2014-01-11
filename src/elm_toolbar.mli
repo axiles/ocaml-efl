@@ -73,3 +73,7 @@ val homogeneous_set : Evas.obj -> bool -> unit
 
 val homogeneous_get : Evas.obj -> bool
 
+val menu_parent_set : Evas.obj -> Evas.obj -> unit
+
+val menu_parent_get : Evas.obj -> Evas.obj
+

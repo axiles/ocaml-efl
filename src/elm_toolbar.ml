@@ -102,3 +102,9 @@ external homogeneous_set : Evas.obj -> bool -> unit =
 external homogeneous_get : Evas.obj -> bool =
   "ml_elm_toolbar_homogeneous_get"
 
+external menu_parent_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_toolbar_menu_parent_set"
+
+external menu_parent_get : Evas.obj -> Evas.obj =
+  "ml_elm_toolbar_menu_parent_get"
+
