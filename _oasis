@@ -374,3 +374,9 @@ Executable slider_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: slider_example.ml
+Executable toolbar_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: toolbar_example_01.ml
