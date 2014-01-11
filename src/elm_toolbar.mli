@@ -47,3 +47,5 @@ val item_icon_set : Elm_object.item -> string -> unit
 
 val item_icon_get : Elm_object.item -> string
 
+val item_object_get : Elm_object.item -> Evas.obj
+

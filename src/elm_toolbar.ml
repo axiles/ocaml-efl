@@ -66,3 +66,6 @@ external item_icon_set : Elm_object.item -> string -> unit =
 external item_icon_get : Elm_object.item -> string =
   "ml_elm_toolbar_item_icon_get"
 
+external item_object_get : Elm_object.item -> Evas.obj =
+  "ml_elm_toolbar_item_object_get"
+

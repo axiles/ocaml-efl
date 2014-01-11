@@ -267,3 +267,10 @@ PREFIX value ml_elm_toolbar_item_icon_get(value v_it)
         return copy_string(icon);
 }
 
+PREFIX value ml_elm_toolbar_item_object_get(value v_it)
+{
+        Evas_Object* obj = elm_toolbar_item_object_get((Elm_Object_Item*) v_it);
+        if(obj == NULL) caml_failwith("elm_toolbar_item_object_get");
+        return (value) obj;
+}
+
