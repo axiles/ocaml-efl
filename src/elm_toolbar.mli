@@ -8,6 +8,14 @@ type shrink_mode = [
   | `expand
   | `last]
 
+type item_scrollto_type = [
+  | `none
+  | `_in
+  | `first
+  | `middle
+  | `last
+]
+
 val add : Evas.obj -> Evas.obj
 
 val icon_size_set : Evas.obj -> int -> unit

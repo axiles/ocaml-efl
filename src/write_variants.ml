@@ -42,6 +42,7 @@ let () =
   g "fdo";
   g "fdo_theme";
   g "file";
+  g "first";
   g "flip_horizontal";
   g "flip_transpose";
   g "flip_transverse";

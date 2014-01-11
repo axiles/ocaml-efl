@@ -30,6 +30,33 @@ PREFIX inline value Val_Elm_Toolbar_Shrink_Mode(Elm_Toolbar_Shrink_Mode m)
        return Val_none;
 }
 
+PREFIX inline Elm_Toolbar_Item_Scrollto_Type
+Elm_Toolbar_Item_Scrollto_Type_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
+                case Val_in: return ELM_TOOLBAR_ITEM_SCROLLTO_IN;
+                case Val_first: return ELM_TOOLBAR_ITEM_SCROLLTO_FIRST;
+                case Val_middle: return ELM_TOOLBAR_ITEM_SCROLLTO_MIDDLE;
+                case Val_last: return ELM_TOOLBAR_ITEM_SCROLLTO_LAST;
+                default: break;
+        }
+        caml_failwith("Elm_Toolbar_Scrollto_Type_val");
+        return ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
+}
+
+PREFIX inline Elm_Toolbar_Item_Scrollto_Type
+Elm_Toolbar_Item_Scrollto_Type_val_list(value v)
+{
+        Elm_Toolbar_Item_Scrollto_Type r;
+        value v_tmp = v;
+        while(v_tmp != Val_int(0)) {
+                r = r | Elm_Toolbar_Item_Scrollto_Type_val(Field(v_tmp, 0));
+                v_tmp = Field(v_tmp, 1);
+        }
+        return r;
+}
+
 PREFIX value ml_elm_toolbar_add(value v_parent)
 {
         Evas_Object* obj = elm_toolbar_add((Evas_Object*) v_parent);

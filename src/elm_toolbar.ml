@@ -8,6 +8,14 @@ type shrink_mode = [
   | `expand
   | `last]
 
+type item_scrollto_type = [
+  | `none
+  | `_in
+  | `first
+  | `middle
+  | `last
+]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_toolbar_add"
 
 external icon_size_set : Evas.obj -> int -> unit =
