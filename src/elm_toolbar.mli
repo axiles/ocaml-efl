@@ -49,3 +49,5 @@ val item_icon_get : Elm_object.item -> string
 
 val item_object_get : Elm_object.item -> Evas.obj
 
+val item_icon_object_get : Elm_object.item -> Evas.obj
+
