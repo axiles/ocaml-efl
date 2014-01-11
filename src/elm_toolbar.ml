@@ -57,3 +57,6 @@ external item_find_by_label : Evas.obj -> string -> Elm_object.item option =
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_toolbar_selected_item_get"
 
+external more_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_toolbar_more_item_get"
+
