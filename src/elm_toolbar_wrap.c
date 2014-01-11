@@ -371,3 +371,14 @@ PREFIX value ml_elm_toolbar_menu_parent_get(value v_obj)
         return (value) elm_toolbar_menu_parent_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_elm_toolbar_align_set(value v_obj, value v_x)
+{
+        elm_toolbar_align_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_align_get(value v_obj)
+{
+        return copy_double(elm_toolbar_align_get((Evas_Object*) v_obj));
+}
+

@@ -77,3 +77,7 @@ val menu_parent_set : Evas.obj -> Evas.obj -> unit
 
 val menu_parent_get : Evas.obj -> Evas.obj
 
+val align_set : Evas.obj -> float -> unit
+
+val align_get : Evas.obj -> float
+

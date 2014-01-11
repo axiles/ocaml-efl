@@ -108,3 +108,7 @@ external menu_parent_set : Evas.obj -> Evas.obj -> unit =
 external menu_parent_get : Evas.obj -> Evas.obj =
   "ml_elm_toolbar_menu_parent_get"
 
+external align_set : Evas.obj -> float -> unit = "ml_elm_toolbar_align_set"
+
+external align_get : Evas.obj -> float = "ml_elm_toolbar_align_get"
+
