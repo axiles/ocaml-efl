@@ -492,3 +492,16 @@ PREFIX value ml_elm_toolbar_standard_priority_get(value v_obj)
         return Val_int(elm_toolbar_standard_priority_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_toolbar_select_mode_set(value v_obj, value v_mode)
+{
+        elm_toolbar_select_mode_set((Evas_Object*) v_obj,
+                Elm_Object_Select_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_select_mode_get(value v_obj)
+{
+        return Val_Elm_Object_Select_Mode(elm_toolbar_select_mode_get(
+                (Evas_Object*) v_obj));
+}
+

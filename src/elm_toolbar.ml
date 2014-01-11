@@ -154,3 +154,9 @@ external standard_priority_set : Evas.obj -> int -> unit =
 external standard_priority_get : Evas.obj -> int =
   "ml_elm_toolbar_standard_priority_get"
 
+external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
+  "ml_elm_toolbar_select_mode_set"
+
+external select_mode_get : Evas.obj -> Elm_object.select_mode =
+  "ml_elm_toolbar_select_mode_get"
+

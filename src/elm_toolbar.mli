@@ -111,3 +111,7 @@ val standard_priority_set : Evas.obj -> int -> unit
 
 val standard_priority_get : Evas.obj -> int
 
+val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
+
+val select_mode_get : Evas.obj -> Elm_object.select_mode
+
