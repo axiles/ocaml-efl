@@ -96,3 +96,9 @@ external shrink_mode_set : Evas.obj -> shrink_mode -> unit =
 external shrink_mode_get : Evas.obj -> shrink_mode =
   "ml_elm_toolbar_shrink_mode_get"
 
+external homogeneous_set : Evas.obj -> bool -> unit =
+  "ml_elm_toolbar_homogeneous_set"
+
+external homogeneous_get : Evas.obj -> bool =
+  "ml_elm_toolbar_homogeneous_get"
+
