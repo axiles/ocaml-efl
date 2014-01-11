@@ -6,6 +6,8 @@ type shrink_mode = [
   | `expand
   | `last]
 
+type item_state
+
 external add : Evas.obj -> Evas.obj = "ml_elm_toolbar_add"
 
 external icon_size_set : Evas.obj -> int -> unit =
@@ -117,4 +119,9 @@ external item_menu_set : Elm_object.item -> bool -> unit =
 
 external item_menu_get : Elm_object.item -> Evas.obj option =
   "ml_elm_toolbar_item_menu_get"
+
+external item_state_add :
+  Elm_object.item -> ?icon:string -> ?label:string -> ?func:Evas.smart_cb ->
+    unit -> item_state =
+      "ml_elm_toolbar_item_state_add"
 

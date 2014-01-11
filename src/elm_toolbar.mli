@@ -6,6 +6,8 @@ type shrink_mode = [
   | `expand
   | `last]
 
+type item_state
+
 val add : Evas.obj -> Evas.obj
 
 val icon_size_set : Evas.obj -> int -> unit
@@ -85,4 +87,7 @@ val item_menu_set : Elm_object.item -> bool -> unit
 
 val item_menu_get : Elm_object.item -> Evas.obj option
 
+val item_state_add :
+  Elm_object.item -> ?icon:string -> ?label:string -> ?func:Evas.smart_cb ->
+    unit -> item_state
 

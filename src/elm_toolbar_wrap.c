@@ -397,3 +397,29 @@ PREFIX value ml_elm_toolbar_item_menu_get(value v_it)
         return v_obj;
 }
 
+PREFIX value ml_elm_toolbar_item_state_add(
+        value v_it, value v_icon, value v_label, value v_func, value v_unit)
+{
+        const char* icon;
+        if(v_icon == Val_int(0)) icon = NULL;
+        else icon = String_val(Field(v_icon, 0));
+        const char* label;
+        if(v_label == Val_int(0)) label = NULL;
+        else label = String_val(Field(v_label, 0));
+        Evas_Smart_Cb func;
+        value* data;
+        if(v_func == Val_int(0)) {
+                func = NULL;
+                data = NULL;
+        } else {
+                func = ml_Evas_Smart_Cb;
+                data = caml_stat_alloc(sizeof(value));
+                *data = Field(v_func, 0);
+                caml_register_global_root(data);
+        }
+        Elm_Toolbar_Item_State* state = elm_toolbar_item_state_add(
+                (Elm_Object_Item*) v_it, icon, label, func, data);
+        if(state == NULL) caml_failwith("elm_toolbar_item_state_add");
+        return (value) state;
+}
+
