@@ -1,3 +1,11 @@
+type shrink_mode = [
+  | `none
+  | `hide
+  | `scroll
+  | `menu
+  | `expand
+  | `last]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_toolbar_add"
 
 external icon_size_set : Evas.obj -> int -> unit =

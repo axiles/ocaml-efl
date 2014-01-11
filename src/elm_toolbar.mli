@@ -1,3 +1,10 @@
+type shrink_mode = [
+  | `none
+  | `hide
+  | `scroll
+  | `menu
+  | `expand
+  | `last]
 
 val add : Evas.obj -> Evas.obj
 
