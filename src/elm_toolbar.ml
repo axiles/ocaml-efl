@@ -146,3 +146,11 @@ external horizontal_set : Evas.obj -> bool -> unit =
 external horizontal_get : Evas.obj -> bool =
   "ml_elm_toolbar_horizontal_get"
 
+external items_count : Evas.obj -> int = "ml_elm_toolbar_items_count"
+
+external standard_priority_set : Evas.obj -> int -> unit =
+  "ml_elm_toolbar_standard_priority_set"
+
+external standard_priority_get : Evas.obj -> int =
+  "ml_elm_toolbar_standard_priority_get"
+

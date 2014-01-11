@@ -476,3 +476,19 @@ PREFIX value ml_elm_toolbar_horizontal_get(value v_obj)
         return Val_bool(elm_toolbar_horizontal_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_toolbar_items_count(value v_obj)
+{
+        return Val_int(elm_toolbar_items_count((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_toolbar_standard_priority_set(value v_obj, value v_x)
+{
+        elm_toolbar_standard_priority_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_standard_priority_get(value v_obj)
+{
+        return Val_int(elm_toolbar_standard_priority_get((Evas_Object*) v_obj));
+}
+

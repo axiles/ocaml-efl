@@ -105,3 +105,9 @@ val horizontal_set : Evas.obj -> bool -> unit
 
 val horizontal_get : Evas.obj -> bool
 
+val items_count : Evas.obj -> int
+
+val standard_priority_set : Evas.obj -> int -> unit
+
+val standard_priority_get : Evas.obj -> int
+
