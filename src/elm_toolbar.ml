@@ -125,3 +125,9 @@ external item_state_add :
     unit -> item_state =
       "ml_elm_toolbar_item_state_add"
 
+external item_state_del : Elm_object.item -> item_state -> bool =
+  "ml_elm_toolbar_item_state_del"
+
+external item_state_set : Elm_object.item -> item_state -> bool =
+  "ml_elm_toolbar_item_state_set"
+

@@ -91,3 +91,7 @@ val item_state_add :
   Elm_object.item -> ?icon:string -> ?label:string -> ?func:Evas.smart_cb ->
     unit -> item_state
 
+val item_state_del : Elm_object.item -> item_state -> bool
+
+val item_state_set : Elm_object.item -> item_state -> bool
+

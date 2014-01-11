@@ -423,3 +423,15 @@ PREFIX value ml_elm_toolbar_item_state_add(
         return (value) state;
 }
 
+PREFIX value ml_elm_toolbar_item_state_del(value v_it, value v_state)
+{
+        return Bool_val(elm_toolbar_item_state_del((Elm_Object_Item*) v_it,
+                (Elm_Toolbar_Item_State*) v_state));
+}
+
+PREFIX value ml_elm_toolbar_item_state_set(value v_it, value v_state)
+{
+        return Bool_val(elm_toolbar_item_state_set((Elm_Object_Item*) v_it,
+                (Elm_Toolbar_Item_State*) v_state));
+}
+
