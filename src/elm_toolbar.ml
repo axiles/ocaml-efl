@@ -112,3 +112,9 @@ external align_set : Evas.obj -> float -> unit = "ml_elm_toolbar_align_set"
 
 external align_get : Evas.obj -> float = "ml_elm_toolbar_align_get"
 
+external item_menu_set : Elm_object.item -> bool -> unit =
+  "ml_elm_toolbar_item_menu_set"
+
+external item_menu_get : Elm_object.item -> Evas.obj option =
+  "ml_elm_toolbar_item_menu_get"
+

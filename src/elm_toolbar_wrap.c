@@ -382,3 +382,18 @@ PREFIX value ml_elm_toolbar_align_get(value v_obj)
         return copy_double(elm_toolbar_align_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_toolbar_item_menu_set(value v_it, value v_flag)
+{
+        elm_toolbar_item_menu_set((Elm_Object_Item*) v_it, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_item_menu_get(value v_it)
+{
+        Evas_Object* obj = elm_toolbar_item_menu_get((Elm_Object_Item*) v_it);
+        if(obj == NULL) return Val_int(0);
+        value v_obj = caml_alloc(1, 0);
+        Store_field(v_obj, 0, (value) obj);
+        return v_obj;
+}
+

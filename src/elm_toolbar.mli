@@ -81,3 +81,8 @@ val align_set : Evas.obj -> float -> unit
 
 val align_get : Evas.obj -> float
 
+val item_menu_set : Elm_object.item -> bool -> unit
+
+val item_menu_get : Elm_object.item -> Evas.obj option
+
+
