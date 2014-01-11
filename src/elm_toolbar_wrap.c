@@ -282,3 +282,13 @@ PREFIX value ml_elm_toolbar_item_icon_object_get(value v_it)
         return (value) obj;
 }
 
+PREFIX value ml_elm_toolbar_item_icon_file_set(
+        value v_it, value v_file, value v_key, value v_unit)
+{
+        const char* key;
+        if(v_key == Val_int(0)) key = NULL;
+        else key = String_val(Field(v_key, 0));
+        return Val_bool(elm_toolbar_item_icon_file_set((Elm_Object_Item*) v_it,
+                String_val(v_file), key));
+}
+

@@ -72,3 +72,8 @@ external item_object_get : Elm_object.item -> Evas.obj =
 external item_icon_object_get : Elm_object.item -> Evas.obj =
   "ml_elm_toolbar_item_icon_object_get"
 
+external item_icon_file_set :
+  Elm_object.item -> string -> ?key:string -> unit -> bool =
+    "ml_elm_toolbar_item_icon_file_set"
+
+
