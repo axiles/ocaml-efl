@@ -1,3 +1,5 @@
+type item_state
+
 type shrink_mode = [
   | `none
   | `hide
@@ -5,8 +7,6 @@ type shrink_mode = [
   | `menu
   | `expand
   | `last]
-
-type item_state
 
 val add : Evas.obj -> Evas.obj
 
@@ -114,4 +114,13 @@ val standard_priority_get : Evas.obj -> int
 val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
 
 val select_mode_get : Evas.obj -> Elm_object.select_mode
+
+module E : sig
+  type u = Evas.Event_type.u
+  val clicked : u
+  val longpressed : u
+  val language_changed : u
+  val focused : u
+  val unfocused : u
+end
 

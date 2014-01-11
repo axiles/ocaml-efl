@@ -1,3 +1,5 @@
+type item_state
+
 type shrink_mode = [
   | `none
   | `hide
@@ -5,8 +7,6 @@ type shrink_mode = [
   | `menu
   | `expand
   | `last]
-
-type item_state
 
 external add : Evas.obj -> Evas.obj = "ml_elm_toolbar_add"
 
@@ -159,4 +159,14 @@ external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
 
 external select_mode_get : Evas.obj -> Elm_object.select_mode =
   "ml_elm_toolbar_select_mode_get"
+
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let clicked = f "clicked"
+  let longpressed = f "longpressed"
+  let language_changed = f "language,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
+end
 
