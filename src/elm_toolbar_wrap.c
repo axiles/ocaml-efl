@@ -254,3 +254,16 @@ PREFIX value ml_elm_toolbar_more_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_toolbar_item_icon_set(value v_it, value v_icon)
+{
+        elm_toolbar_item_icon_set((Elm_Object_Item*) v_it, String_val(v_icon));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_item_icon_get(value v_it)
+{
+        const char* icon = elm_toolbar_item_icon_get((Elm_Object_Item*) v_it);
+        if(icon == NULL) caml_failwith("elm_toolbar_item_icon_get");
+        return copy_string(icon);
+}
+

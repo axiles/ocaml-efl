@@ -43,3 +43,7 @@ val selected_item_get : Evas.obj -> Elm_object.item option
 
 val more_item_get : Evas.obj -> Elm_object.item option
 
+val item_icon_set : Elm_object.item -> string -> unit
+
+val item_icon_get : Elm_object.item -> string
+

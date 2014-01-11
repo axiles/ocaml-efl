@@ -60,3 +60,9 @@ external selected_item_get : Evas.obj -> Elm_object.item option =
 external more_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_toolbar_more_item_get"
 
+external item_icon_set : Elm_object.item -> string -> unit =
+  "ml_elm_toolbar_item_icon_set"
+
+external item_icon_get : Elm_object.item -> string =
+  "ml_elm_toolbar_item_icon_get"
+
