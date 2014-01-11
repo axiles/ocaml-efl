@@ -65,3 +65,7 @@ val item_separator_set : Elm_object.item -> bool -> unit
 
 val item_separator_get : Elm_object.item -> bool
 
+val shrink_mode_set : Evas.obj -> shrink_mode -> unit
+
+val shrink_mode_get : Evas.obj -> shrink_mode
+

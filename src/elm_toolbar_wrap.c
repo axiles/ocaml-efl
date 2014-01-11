@@ -335,3 +335,16 @@ PREFIX value ml_elm_toolbar_item_separator_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_toolbar_shrink_mode_set(value v_obj, value v_mode)
+{
+        elm_toolbar_shrink_mode_set((Evas_Object*) v_obj,
+                Elm_Toolbar_Shrink_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_shrink_mode_get(value v_obj)
+{
+        return Val_Elm_Toolbar_Shrink_Mode(elm_toolbar_shrink_mode_get(
+                (Evas_Object*) v_obj));
+}
+

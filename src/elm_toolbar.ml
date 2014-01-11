@@ -90,3 +90,9 @@ external item_separator_set : Elm_object.item -> bool -> unit =
 external item_separator_get : Elm_object.item -> bool =
   "ml_elm_toolbar_item_separator_get"
 
+external shrink_mode_set : Evas.obj -> shrink_mode -> unit =
+  "ml_elm_toolbar_shrink_mode_set"
+
+external shrink_mode_get : Evas.obj -> shrink_mode =
+  "ml_elm_toolbar_shrink_mode_get"
+
