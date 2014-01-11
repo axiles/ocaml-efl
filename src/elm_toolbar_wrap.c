@@ -270,6 +270,20 @@ PREFIX value ml_elm_toolbar_item_prev_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_toolbar_item_show(value v_it, value v_t)
+{
+        elm_toolbar_item_show((Elm_Object_Item*) v_it,
+                Elm_Toolbar_Item_Scrollto_Type_val_list(v_t));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_item_bring_in(value v_it, value v_t)
+{
+        elm_toolbar_item_bring_in((Elm_Object_Item*) v_it,
+                Elm_Toolbar_Item_Scrollto_Type_val_list(v_t));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_toolbar_item_priority_set(value v_it, value v_x)
 {
         elm_toolbar_item_priority_set((Elm_Object_Item*) v_it, Int_val(v_x));

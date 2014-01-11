@@ -1,3 +1,5 @@
+(** elm_toolbar_* Elm_Toolbar_* *)
+
 type item_state
 
 type shrink_mode = [
@@ -108,6 +110,10 @@ val item_state_get : Elm_object.item -> item_state option
 val item_state_next : Elm_object.item -> item_state option
 
 val item_state_prev : Elm_object.item -> item_state option
+
+val item_show : Elm_object.item -> item_scrollto_type list -> unit
+
+val item_bring_in : Elm_object.item -> item_scrollto_type list -> unit
 
 val horizontal_set : Evas.obj -> bool -> unit
 

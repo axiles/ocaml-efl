@@ -63,6 +63,12 @@ external item_next_get : Elm_object.item -> Elm_object.item option =
 external item_prev_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_toolbar_item_prev_get"
 
+external item_show : Elm_object.item -> item_scrollto_type list -> unit =
+  "ml_elm_toolbar_item_show"
+
+external item_bring_in : Elm_object.item -> item_scrollto_type list -> unit =
+  "ml_elm_toolbar_item_bring_in"
+
 external item_priority_set : Elm_object.item -> int -> unit =
   "ml_elm_toolbar_item_priority_set"
 
