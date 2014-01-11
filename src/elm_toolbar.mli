@@ -54,3 +54,7 @@ val item_icon_object_get : Elm_object.item -> Evas.obj
 val item_icon_file_set :
   Elm_object.item -> string -> ?key:string -> unit -> bool
 
+val item_separator_set : Elm_object.item -> bool -> unit
+
+val item_separator_get : Elm_object.item -> bool
+

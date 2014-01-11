@@ -76,4 +76,9 @@ external item_icon_file_set :
   Elm_object.item -> string -> ?key:string -> unit -> bool =
     "ml_elm_toolbar_item_icon_file_set"
 
+external item_separator_set : Elm_object.item -> bool -> unit =
+  "ml_elm_toolbar_item_separator_set"
+
+external item_separator_get : Elm_object.item -> bool =
+  "ml_elm_toolbar_item_separator_get"
 
