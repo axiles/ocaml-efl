@@ -81,3 +81,9 @@ external inverted_set : Evas.obj -> bool -> unit =
 
 external inverted_get : Evas.obj -> bool = "ml_elm_progressbar_inverted_get"
 
+external part_value_set : Evas.obj -> ?p:string -> float -> unit =
+  "ml_elm_progressbar_part_value_set"
+
+external part_value_get : Evas.obj -> ?p:string -> unit -> float =
+  "ml_elm_progressbar_part_value_get"
+

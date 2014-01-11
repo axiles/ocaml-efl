@@ -83,3 +83,25 @@ PREFIX value ml_elm_progressbar_inverted_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_progressbar_part_value_set(
+        value v_obj, value v_part, value v_x)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        elm_progressbar_part_value_set((Evas_Object*) v_obj, part,
+                Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_progressbar_part_value_get(
+        value v_obj, value v_part, value v_unit)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        return copy_double(elm_progressbar_part_value_get((Evas_Object*) v_obj,
+                part));
+}
+
+
