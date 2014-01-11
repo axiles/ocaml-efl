@@ -435,3 +435,33 @@ PREFIX value ml_elm_toolbar_item_state_set(value v_it, value v_state)
                 (Elm_Toolbar_Item_State*) v_state));
 }
 
+PREFIX value ml_elm_toolbar_item_state_get(value v_it)
+{
+        Elm_Toolbar_Item_State* state = elm_toolbar_item_state_get(
+                (Elm_Object_Item*) v_it);
+        if(state == NULL) return Val_int(0);
+        value v_state = caml_alloc(1, 0);
+        Store_field(v_state, 0, (value) state);
+        return v_state;
+}
+
+PREFIX value ml_elm_toolbar_item_state_next(value v_it)
+{
+        Elm_Toolbar_Item_State* state = elm_toolbar_item_state_next(
+                (Elm_Object_Item*) v_it);
+        if(state == NULL) return Val_int(0);
+        value v_state = caml_alloc(1, 0);
+        Store_field(v_state, 0, (value) state);
+        return v_state;
+}
+
+PREFIX value ml_elm_toolbar_item_state_prev(value v_it)
+{
+        Elm_Toolbar_Item_State* state = elm_toolbar_item_state_prev(
+                (Elm_Object_Item*) v_it);
+        if(state == NULL) return Val_int(0);
+        value v_state = caml_alloc(1, 0);
+        Store_field(v_state, 0, (value) state);
+        return v_state;
+}
+

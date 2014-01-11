@@ -95,3 +95,9 @@ val item_state_del : Elm_object.item -> item_state -> bool
 
 val item_state_set : Elm_object.item -> item_state -> bool
 
+val item_state_get : Elm_object.item -> item_state option
+
+val item_state_next : Elm_object.item -> item_state option
+
+val item_state_prev : Elm_object.item -> item_state option
+

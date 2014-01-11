@@ -131,3 +131,12 @@ external item_state_del : Elm_object.item -> item_state -> bool =
 external item_state_set : Elm_object.item -> item_state -> bool =
   "ml_elm_toolbar_item_state_set"
 
+external item_state_get : Elm_object.item -> item_state option =
+  "ml_elm_toolbar_item_state_get"
+
+external item_state_next : Elm_object.item -> item_state option =
+  "ml_elm_toolbar_item_state_next"
+
+external item_state_prev : Elm_object.item -> item_state option =
+  "ml_elm_toolbar_item_state_prev"
+
