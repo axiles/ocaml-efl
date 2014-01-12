@@ -111,6 +111,12 @@ val password_show_last_timeout_get : unit -> float
 
 val password_show_last_timeout_set : float -> unit
 
+(** {2 Elementary Scrolling} *)
+
+val scroll_bounce_enabled_get : unit -> bool
+
+val scroll_bounce_enabled_set : bool -> unit
+
 (** {2 Widget Scaling} *)
 
 val scale_get : unit -> float

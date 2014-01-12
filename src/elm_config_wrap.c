@@ -322,6 +322,19 @@ PREFIX value ml_elm_config_password_show_last_timeout_set(value v_t)
         return Val_unit;
 }
 
+/* Elementary Scrolling */
+
+PREFIX value ml_elm_config_scroll_bounce_enabled_get(value v_unit)
+{
+        return Val_bool(elm_config_scroll_bounce_enabled_get());
+}
+
+PREFIX value ml_elm_config_scroll_bounce_enabled_set(value v_flag)
+{
+        elm_config_scroll_bounce_enabled_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Widget Scaling */
 
 PREFIX value ml_elm_config_scale_get(value v_unit)
