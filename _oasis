@@ -380,3 +380,9 @@ Executable toolbar_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: toolbar_example_01.ml
+Executable toolbar_example_02
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: toolbar_example_02.ml

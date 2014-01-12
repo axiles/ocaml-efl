@@ -78,6 +78,9 @@ external item_priority_get : Elm_object.item -> int =
 external item_find_by_label : Evas.obj -> string -> Elm_object.item option =
   "ml_elm_toolbar_item_find_by_label"
 
+external item_selected_set : Elm_object.item -> bool -> unit =
+  "ml_elm_toolbar_item_selected_set"
+
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_toolbar_selected_item_get"
 
@@ -144,6 +147,9 @@ external item_state_del : Elm_object.item -> item_state -> bool =
 
 external item_state_set : Elm_object.item -> item_state -> bool =
   "ml_elm_toolbar_item_state_set"
+
+external item_state_set_null : Elm_object.item -> bool =
+  "ml_elm_toolbar_item_state_set_null"
 
 external item_state_get : Elm_object.item -> item_state option =
   "ml_elm_toolbar_item_state_get"

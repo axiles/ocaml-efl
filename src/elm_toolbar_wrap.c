@@ -305,6 +305,13 @@ PREFIX value ml_elm_toolbar_item_find_by_label(value v_obj, value v_label)
        return (value) v_it;
 }
 
+PREFIX value ml_elm_toolbar_item_selected_set(value v_it, value v_flag)
+{
+        elm_toolbar_item_selected_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_toolbar_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item =
@@ -474,6 +481,12 @@ PREFIX value ml_elm_toolbar_item_state_set(value v_it, value v_state)
 {
         return Bool_val(elm_toolbar_item_state_set((Elm_Object_Item*) v_it,
                 (Elm_Toolbar_Item_State*) v_state));
+}
+
+PREFIX value ml_elm_toolbar_item_state_set_null(value v_it)
+{
+        return Bool_val(elm_toolbar_item_state_set((Elm_Object_Item*) v_it,
+                NULL));
 }
 
 PREFIX value ml_elm_toolbar_item_state_get(value v_it)
