@@ -18,5 +18,11 @@ val overlay_del : ?th:t -> string -> unit
 
 val overlay_list_get : t -> string list
 
+val extension_add : ?th:t -> string -> unit
+
+val extension_del : ?th:t -> string -> unit
+
+val extension_list_get : t -> string list
+
 val list_item_path_get : string -> (string * bool) option
 
