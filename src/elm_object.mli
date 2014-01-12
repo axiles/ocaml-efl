@@ -168,6 +168,24 @@ val mirrored_automatic_get : Evas.obj -> bool
 
 val mirrored_automatic_set : Evas.obj -> bool -> unit
 
+(** {2 Widget Scaling} *)
+
+val scale_set : Evas.obj -> float -> unit
+
+val scale_get : Evas.obj -> float
+
+(** {2 Styles} *)
+
+val style_set : Evas.obj -> string -> bool
+
+val style_get : Evas.obj -> string
+
+val disabled_set : Evas.obj -> bool -> unit
+
+val disabled_get : Evas.obj -> bool
+
+val item_disabled_set : item -> bool -> unit
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool
@@ -178,25 +196,11 @@ val top_widget_get : Evas.obj -> Evas.obj option
 
 val widget_type_get : Evas.obj -> string option
 
-(** {2 Widget Scaling} *)
-
-val scale_set : Evas.obj -> float -> unit
-
-val scale_get : Evas.obj -> float
-
 (** {2 Other} *)
-
-val style_set : Evas.obj -> string -> bool
-
-val disabled_set : Evas.obj -> bool -> unit
-
-val disabled_get : Evas.obj -> bool
 
 val item_of_ptr : Evas.ptr -> item
 
 val item_del : item -> unit
-
-val item_disabled_set : item -> bool -> unit
 
 val item_text_get : item -> string
 

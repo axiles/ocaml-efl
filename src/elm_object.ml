@@ -235,6 +235,19 @@ external scale_set : Evas.obj -> float -> unit = "ml_elm_object_scale_set"
 
 external scale_get : Evas.obj -> float = "ml_elm_object_scale_get"
 
+(* Styles *)
+
+external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
+
+external style_get : Evas.obj -> string = "ml_elm_object_style_get"
+
+external disabled_set : Evas.obj -> bool -> unit = "ml_elm_object_disabled_set"
+
+external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
+
+external item_disabled_set : item -> bool -> unit =
+  "ml_elm_object_item_disabled_set"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"
@@ -250,18 +263,9 @@ external widget_type_get : Evas.obj -> string option =
 
 (* Other *)
 
-external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
-
-external disabled_set : Evas.obj -> bool -> unit = "ml_elm_object_disabled_set"
-
-external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
-
 external item_of_ptr : Evas.ptr -> item = "%identity"
 
 external item_del : item -> unit = "ml_elm_object_item_del"
-
-external item_disabled_set : item -> bool -> unit =
-  "ml_elm_object_item_disabled_set"
 
 external item_text_get : item -> string = "ml_elm_object_item_text_get"
 

@@ -666,6 +666,37 @@ PREFIX value ml_elm_object_scale_get(value v_obj)
         return copy_double(elm_object_scale_get((Evas_Object*) v_obj));
 }
 
+/* Styles */
+
+PREFIX value ml_elm_object_style_set(value v_obj, value v_style)
+{
+        return Val_Eina_Bool(elm_object_style_set((Evas_Object*) v_obj,
+                String_val(v_style)));
+}
+
+PREFIX value ml_elm_object_style_get(value v_obj)
+{
+        return copy_string(elm_object_style_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
+{
+        elm_object_disabled_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_disabled_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_object_disabled_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_item_disabled_set(value v_item, value v_flag)
+{
+        elm_object_item_disabled_set((Elm_Object_Item*) v_item,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)
@@ -707,33 +738,9 @@ PREFIX value ml_elm_object_widget_type_get(value v_obj)
 
 /* Other */
 
-PREFIX value ml_elm_object_style_set(value v_obj, value v_style)
-{
-        return Val_Eina_Bool(elm_object_style_set((Evas_Object*) v_obj,
-                String_val(v_style)));
-}
-
-PREFIX value ml_elm_object_disabled_set(value v_obj, value v_flag)
-{
-        elm_object_disabled_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_object_disabled_get(value v_obj)
-{
-        return Val_Eina_Bool(elm_object_disabled_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_object_item_del(value v_item)
 {
         elm_object_item_del((Elm_Object_Item*) v_item);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_object_item_disabled_set(value v_item, value v_flag)
-{
-        elm_object_item_disabled_set((Elm_Object_Item*) v_item,
-                Eina_Bool_val(v_flag));
         return Val_unit;
 }
 
