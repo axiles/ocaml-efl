@@ -88,6 +88,31 @@ PREFIX value ml_elm_theme_extension_list_get(value v_th)
                 (Elm_Theme*) v_th));
 }
 
+PREFIX value ml_elm_theme_set(value v_th, value v_theme)
+{
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        elm_theme_set(th, String_val(v_theme));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_theme_get(value v_th, value v_unit)
+{
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        return copy_string(elm_theme_get(th));
+}
+
+PREFIX value ml_elm_theme_list_get(value v_th)
+{
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        return copy_Eina_List_string(elm_theme_list_get(th));
+}
+
 PREFIX value ml_elm_theme_list_item_path_get(value v_f)
 {
         CAMLparam0();

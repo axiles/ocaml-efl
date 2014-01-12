@@ -24,5 +24,11 @@ val extension_del : ?th:t -> string -> unit
 
 val extension_list_get : t -> string list
 
+val set : ?th:t -> string -> unit
+
+val get : ?th:t -> unit -> string
+
+val list_get : ?th:t -> unit -> string list
+
 val list_item_path_get : string -> (string * bool) option
 
