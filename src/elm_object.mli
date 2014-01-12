@@ -178,6 +178,12 @@ val top_widget_get : Evas.obj -> Evas.obj option
 
 val widget_type_get : Evas.obj -> string option
 
+(** {2 Widget Scaling} *)
+
+val scale_set : Evas.obj -> float -> unit
+
+val scale_get : Evas.obj -> float
+
 (** {2 Other} *)
 
 val style_set : Evas.obj -> string -> bool

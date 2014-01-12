@@ -653,6 +653,19 @@ PREFIX value ml_elm_object_mirrored_automatic_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+/* Widget Scaling */
+
+PREFIX value ml_elm_object_scale_set(value v_obj, value v_scale)
+{
+        elm_object_scale_set((Evas_Object*) v_obj, Double_val(v_scale));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_scale_get(value v_obj)
+{
+        return copy_double(elm_object_scale_get((Evas_Object*) v_obj));
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)

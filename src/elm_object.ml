@@ -229,6 +229,12 @@ external mirrored_automatic_get : Evas.obj -> bool =
 external mirrored_automatic_set : Evas.obj -> bool -> unit =
   "ml_elm_object_mirrored_automatic_set"
 
+(* Widget Scaling *)
+
+external scale_set : Evas.obj -> float -> unit = "ml_elm_object_scale_set"
+
+external scale_get : Evas.obj -> float = "ml_elm_object_scale_get"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"
