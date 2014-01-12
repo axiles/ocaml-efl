@@ -16,6 +16,8 @@ external overlay_add : ?th:t -> string -> unit = "ml_elm_theme_overlay_add"
 
 external overlay_del : ?th:t -> string -> unit = "ml_elm_theme_overlay_del"
 
+external overlay_list_get : t -> string list = "ml_elm_theme_overlay_list_get"
+
 external list_item_path_get : string -> (string * bool) option =
   "ml_elm_theme_list_item_path_get"
 

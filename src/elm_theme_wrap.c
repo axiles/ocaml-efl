@@ -58,6 +58,12 @@ PREFIX value ml_elm_theme_overlay_del(value v_th, value v_item)
         return Val_unit;
 }
 
+PREFIX value ml_elm_theme_overlay_list_get(value v_th)
+{
+        return copy_Eina_List_string(elm_theme_overlay_list_get(
+                (Elm_Theme*) v_th));
+}
+
 PREFIX value ml_elm_theme_list_item_path_get(value v_f)
 {
         CAMLparam0();
