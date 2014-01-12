@@ -390,6 +390,31 @@ PREFIX value ml_elm_config_scroll_thumbscroll_enabled_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_scroll_thumbscroll_threshold_get(
+        value v_unit)
+{
+        return Val_int(elm_config_scroll_thumbscroll_threshold_get());
+}
+
+PREFIX value ml_elm_config_scroll_thumbscroll_threshold_set(value v_x)
+{
+        elm_config_scroll_thumbscroll_threshold_set(Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_config_scroll_thumbscroll_momentum_threshold_get(
+        value v_unit)
+{
+        return copy_double(
+                elm_config_scroll_thumbscroll_momentum_threshold_get());
+}
+
+PREFIX value ml_elm_config_scroll_thumbscroll_momentum_threshold_set(value v_x)
+{
+        elm_config_scroll_thumbscroll_momentum_threshold_set(Double_val(v_x));
+        return Val_unit;
+}
+
 /* Widget Scaling */
 
 PREFIX value ml_elm_config_scale_get(value v_unit)

@@ -177,6 +177,18 @@ external scroll_thumbscroll_enabled_get : unit -> bool =
 external scroll_thumbscroll_enabled_set : bool -> unit =
   "ml_elm_config_scroll_thumbscroll_enabled_set"
 
+external scroll_thumbscroll_threshold_get : unit -> int =
+  "ml_elm_config_scroll_thumbscroll_threshold_get"
+
+external scroll_thumbscroll_threshold_set : int -> unit =
+  "ml_elm_config_scroll_thumbscroll_threshold_set"
+
+external scroll_thumbscroll_momentum_threshold_get : unit -> float =
+  "ml_elm_config_scroll_thumbscroll_momentum_threshold_get"
+
+external scroll_thumbscroll_momentum_threshold_set : float -> unit =
+  "ml_elm_config_scroll_thumbscroll_momentum_threshold_set"
+
 (* Widget Scaling *)
 
 external scale_get : unit -> float = "elm_config_scale_get"

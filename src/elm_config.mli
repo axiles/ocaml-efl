@@ -137,6 +137,14 @@ val scroll_thumbscroll_enabled_get : unit -> bool
 
 val scroll_thumbscroll_enabled_set : bool -> unit
 
+val scroll_thumbscroll_threshold_get : unit -> int
+
+val scroll_thumbscroll_threshold_set : int -> unit
+
+val scroll_thumbscroll_momentum_threshold_get : unit -> float
+
+val scroll_thumbscroll_momentum_threshold_set : float -> unit
+
 (** {2 Widget Scaling} *)
 
 val scale_get : unit -> float
