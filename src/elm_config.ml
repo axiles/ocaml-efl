@@ -153,6 +153,12 @@ external scroll_bounce_friction_get : unit -> float =
 external scroll_bounce_friction_set : float -> unit =
   "ml_elm_config_scroll_bounce_friction_set"
 
+external scroll_page_scroll_friction_get : unit -> float =
+  "ml_elm_config_scroll_page_scroll_friction_get"
+
+external scroll_page_scroll_friction_set : float -> unit =
+  "ml_elm_config_scroll_page_scroll_friction_set"
+
 (* Widget Scaling *)
 
 external scale_get : unit -> float = "elm_config_scale_get"
