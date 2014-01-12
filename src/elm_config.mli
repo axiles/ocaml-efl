@@ -117,6 +117,10 @@ val scroll_bounce_enabled_get : unit -> bool
 
 val scroll_bounce_enabled_set : bool -> unit
 
+val scroll_bounce_friction_get : unit -> float
+
+val scroll_bounce_friction_set : float -> unit
+
 (** {2 Widget Scaling} *)
 
 val scale_get : unit -> float
