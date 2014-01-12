@@ -1,0 +1,37 @@
+#include "include.h"
+
+PREFIX value ml_elm_theme_new(value v_unit)
+{
+        return (value) elm_theme_new();
+}
+
+PREFIX value ml_elm_theme_free(value v_th)
+{
+        elm_theme_free((Elm_Theme*) v_th);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_theme_copy(value v_th, value v_thref)
+{
+        elm_theme_copy((Elm_Theme*) v_th, (Elm_Theme*) v_thref);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_theme_list_item_path_get(value v_f)
+{
+        CAMLparam0();
+        CAMLlocal2(v, v1);
+        Eina_Bool flag;
+        char* path = elm_theme_list_item_path_get(String_val(v_f), &flag);
+        if(path == NULL) v = Val_int(0);
+        else {
+                v1 = caml_alloc(2, 0);
+                Store_field(v1, 0, copy_string(path));
+                Store_field(v1, 1, Val_Eina_Bool(flag));
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, v1);
+                free(path);
+        }
+        CAMLreturn(v);
+}
+

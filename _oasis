@@ -118,7 +118,8 @@ Library efl
     elm_bubble_wrap.c,
     elm_frame_wrap.c,
     elm_slider_wrap.c,
-    elm_toolbar_wrap.c
+    elm_toolbar_wrap.c,
+    elm_theme_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
