@@ -379,6 +379,17 @@ PREFIX value ml_elm_config_scroll_zoom_friction_set(value v_x)
         return Val_unit;
 }
        
+PREFIX value ml_elm_config_scroll_thumbscroll_enabled_get(value v_unit)
+{
+        return Val_bool(elm_config_scroll_thumbscroll_enabled_get());
+}
+
+PREFIX value ml_elm_config_scroll_thumbscroll_enabled_set(value v_flag)
+{
+        elm_config_scroll_thumbscroll_enabled_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Widget Scaling */
 
 PREFIX value ml_elm_config_scale_get(value v_unit)

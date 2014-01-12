@@ -171,6 +171,12 @@ external scroll_zoom_friction_get : unit -> float =
 external scroll_zoom_friction_set : float -> unit =
   "ml_elm_config_scroll_zoom_friction_set"
 
+external scroll_thumbscroll_enabled_get : unit -> bool =
+  "ml_elm_config_scroll_thumbscroll_enabled_get"
+
+external scroll_thumbscroll_enabled_set : bool -> unit =
+  "ml_elm_config_scroll_thumbscroll_enabled_set"
+
 (* Widget Scaling *)
 
 external scale_get : unit -> float = "elm_config_scale_get"

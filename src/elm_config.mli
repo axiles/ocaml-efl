@@ -133,6 +133,10 @@ val scroll_zoom_friction_get : unit -> float
 
 val scroll_zoom_friction_set : float -> unit
 
+val scroll_thumbscroll_enabled_get : unit -> bool
+
+val scroll_thumbscroll_enabled_set : bool -> unit
+
 (** {2 Widget Scaling} *)
 
 val scale_get : unit -> float
