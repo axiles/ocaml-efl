@@ -63,7 +63,8 @@ Library efl
     Elm_font,
     Elm_bubble,
     Elm_slider,
-    Elm_toolbar
+    Elm_toolbar,
+    Elm_conformant
   CSources:
     include.h,
     eina_wrap.c,
@@ -119,7 +120,8 @@ Library efl
     elm_frame_wrap.c,
     elm_slider_wrap.c,
     elm_toolbar_wrap.c,
-    elm_theme_wrap.c
+    elm_theme_wrap.c,
+    elm_conformant_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
