@@ -357,6 +357,17 @@ PREFIX value ml_elm_config_scroll_page_scroll_friction_set(value v_x)
         return Val_unit;
 }
        
+PREFIX value ml_elm_config_scroll_bring_in_scroll_friction_get(value v_unit)
+{
+        return copy_double(elm_config_scroll_bring_in_scroll_friction_get());
+}
+
+PREFIX value ml_elm_config_scroll_bring_in_scroll_friction_set(value v_x)
+{
+        elm_config_scroll_bring_in_scroll_friction_set(Double_val(v_x));
+        return Val_unit;
+}
+       
 /* Widget Scaling */
 
 PREFIX value ml_elm_config_scale_get(value v_unit)
