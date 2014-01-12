@@ -41,3 +41,5 @@ external full_flush : unit -> unit = "ml_elm_theme_full_flush"
 external name_available_list_get : unit -> string list =
   "ml_elm_theme_name_available_list_get"
 
+external data_get : ?th:t -> string -> string option = "ml_elm_theme_data_get"
+

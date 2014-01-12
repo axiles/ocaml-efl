@@ -38,3 +38,5 @@ val full_flush : unit -> unit
 
 val name_available_list_get : unit -> string list
 
+val data_get : ?th:t -> string -> string option
+
