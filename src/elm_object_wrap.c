@@ -715,6 +715,26 @@ PREFIX value ml_elm_object_item_disabled_get(value v_it)
         return Val_bool(elm_object_item_disabled_get((Elm_Object_Item*) v_it));
 }
 
+/* Theme */
+
+PREFIX value ml_elm_object_theme_set(value v_obj, value v_th)
+{
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        elm_object_theme_set((Evas_Object*) v_obj, th);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_theme_get(value v_obj)
+{
+        Elm_Theme* th = elm_object_theme_get((Evas_Object*) v_obj);
+        if(th == NULL) return Val_int(0);
+        value v_th = caml_alloc(1, 0);
+        Store_field(v_th, 0, (value) th);
+        return v_th;
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)

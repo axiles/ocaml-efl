@@ -256,6 +256,13 @@ external item_disabled_set : item -> bool -> unit =
 
 external item_disabled_get : item -> bool = "ml_elm_object_item_disabled_get"
 
+(* Theme *)
+
+external theme_set : Evas.obj -> Elm.theme option -> unit =
+  "ml_elm_object_theme_set"
+
+external theme_get : Evas.obj -> Elm.theme option = "ml_elm_object_theme_get"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"

@@ -194,6 +194,12 @@ val item_disabled_set : item -> bool -> unit
 
 val item_disabled_get : item -> bool
 
+(** {2 Theme} *)
+
+val theme_set : Evas.obj -> Elm.theme option -> unit
+
+val theme_get : Evas.obj -> Elm.theme option
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool
