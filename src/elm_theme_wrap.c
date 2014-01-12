@@ -35,6 +35,11 @@ PREFIX value ml_elm_theme_ref_get(value v_th)
         return v_thref;
 }
 
+PREFIX value ml_elm_theme_default_get(value v_unit)
+{
+        return (value) elm_theme_default_get();
+}
+
 PREFIX value ml_elm_theme_list_item_path_get(value v_f)
 {
         CAMLparam0();
