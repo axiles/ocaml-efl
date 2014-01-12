@@ -146,3 +146,11 @@ PREFIX value ml_elm_theme_full_flush(value v_unit)
         return Val_unit;
 }
 
+PREFIX value ml_elm_theme_name_available_list_get(value v_unit)
+{
+        Eina_List* list = elm_theme_name_available_list_new();
+        value v_list = copy_Eina_List_string(list);
+        elm_theme_name_available_list_free(list);
+        return v_list;
+}
+

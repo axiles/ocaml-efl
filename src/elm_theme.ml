@@ -38,3 +38,6 @@ external flush : ?th:t -> unit -> unit = "ml_elm_theme_flush"
 
 external full_flush : unit -> unit = "ml_elm_theme_full_flush"
 
+external name_available_list_get : unit -> string list =
+  "ml_elm_theme_name_available_list_get"
+

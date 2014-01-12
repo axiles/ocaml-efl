@@ -36,3 +36,5 @@ val flush : ?th:t -> unit -> unit
 
 val full_flush : unit -> unit
 
+val name_available_list_get : unit -> string list
+
