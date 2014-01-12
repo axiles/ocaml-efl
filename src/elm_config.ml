@@ -195,6 +195,12 @@ external scroll_thumbscroll_friction_get : unit -> float =
 external scroll_thumbscroll_friction_set : float -> unit =
   "ml_elm_config_scroll_thumbscroll_friction_set"
 
+external scroll_thumbscroll_border_friction_get : unit -> float =
+  "ml_elm_config_scroll_thumbscroll_border_friction_get"
+
+external scroll_thumbscroll_border_friction_set : float -> unit =
+  "ml_elm_config_scroll_thumbscroll_border_friction_set"
+
 (* Widget Scaling *)
 
 external scale_get : unit -> float = "elm_config_scale_get"
