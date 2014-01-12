@@ -34,3 +34,7 @@ external list_get : ?th:t -> unit -> string list = "ml_elm_theme_list_get"
 external list_item_path_get : string -> (string * bool) option =
   "ml_elm_theme_list_item_path_get"
 
+external flush : ?th:t -> unit -> unit = "ml_elm_theme_flush"
+
+external full_flush : unit -> unit = "ml_elm_theme_full_flush"
+

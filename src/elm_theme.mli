@@ -32,3 +32,7 @@ val list_get : ?th:t -> unit -> string list
 
 val list_item_path_get : string -> (string * bool) option
 
+val flush : ?th:t -> unit -> unit
+
+val full_flush : unit -> unit
+

@@ -131,3 +131,18 @@ PREFIX value ml_elm_theme_list_item_path_get(value v_f)
         CAMLreturn(v);
 }
 
+PREFIX value ml_elm_theme_flush(value v_th, value v_unit)
+{
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        elm_theme_flush(th);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_theme_full_flush(value v_unit)
+{
+        elm_theme_full_flush();
+        return Val_unit;
+}
+
