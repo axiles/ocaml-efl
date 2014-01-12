@@ -12,6 +12,10 @@ external ref_get : t -> t option = "ml_elm_theme_ref_get"
 
 external default_get : unit -> t = "ml_elm_theme_default_get"
 
+external overlay_add : ?th:t -> string -> unit = "ml_elm_theme_overlay_add"
+
+external overlay_del : ?th:t -> string -> unit = "ml_elm_theme_overlay_del"
+
 external list_item_path_get : string -> (string * bool) option =
   "ml_elm_theme_list_item_path_get"
 

@@ -12,5 +12,9 @@ val ref_get : t -> t option
 
 val default_get : unit -> t
 
+val overlay_add : ?th:t -> string -> unit
+
+val overlay_del : ?th:t -> string -> unit
+
 val list_item_path_get : string -> (string * bool) option
 
