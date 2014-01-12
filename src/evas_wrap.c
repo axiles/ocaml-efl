@@ -226,3 +226,51 @@ PREFIX value ml_evas_object_box_layout_flow_horizontal(
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_box_layout_horizontal(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_horizontal((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_box_layout_vertical(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_vertical((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_box_layout_homogeneous_vertical(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_homogeneous_vertical((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_box_layout_homogeneous_horizontal(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_homogeneous_horizontal((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_box_layout_flow_vertical(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_flow_vertical((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_box_layout_stack(
+        value v_obj, value v_priv)
+{
+        evas_object_box_layout_stack((Evas_Object*) v_obj,
+                (Evas_Object_Box_Data*) v_priv, NULL);
+        return Val_unit;
+}
+

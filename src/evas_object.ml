@@ -96,3 +96,21 @@ external geometry_get : Evas.obj -> int * int * int * int =
 external box_layout_flow_horizontal : Evas.obj -> box_data -> unit =
   "ml_evas_object_box_layout_flow_horizontal"
 
+external box_layout_horizontal : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_horizontal"
+
+external box_layout_vertical : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_vertical"
+
+external box_layout_stack : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_stack"
+
+external box_layout_homogeneous_vertical : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_homogeneous_vertical"
+
+external box_layout_homogeneous_horizontal : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_homogeneous_horizontal"
+
+external box_layout_flow_vertical : Evas.obj -> box_data -> unit =
+  "ml_evas_object_box_layout_flow_vertical"
+

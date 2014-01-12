@@ -1,25 +1,42 @@
-(* Compared to the official example, this example does not have box transitions
-yet. *)
-
 open Efl
+
+let test_box_transition_change box list0 =
+  let hd0, tl0 = match list0 with
+  | [] -> assert false
+  | x :: xs -> (x, xs) in
+  let rec aux list last_layout () =
+    let next_layout, list1 = match list with
+    | [] -> (hd0, tl0)
+    | x :: xs -> (x, xs) in
+    let free () = () in
+    let aux1 = aux list1 next_layout in
+    let layout_data = Elm_box.transition_new 2. last_layout free next_layout
+      free aux1 in
+    Elm_box.layout_set box (Elm_box.layout_transition layout_data) free in
+  aux list0 Evas_object.box_layout_horizontal ()
+
+
+let transitions = Evas_object.([
+  box_layout_vertical;
+  box_layout_horizontal;
+  box_layout_stack;
+  box_layout_homogeneous_vertical;
+  box_layout_homogeneous_horizontal;
+  box_layout_flow_vertical;
+  box_layout_flow_horizontal;
+  box_layout_stack])
 
 let () =
   Elm.init ();
   Elm.policy_set `quit `last_window_closed;
 
-  let win = Elm_win.add "box-transition" `basic; in
-  Elm_win.title_set win "Box transition";
+  let win = Elm_win.util_standard_add "box-transition" "Box transition" in
   Elm_win.autodel_set win true;
   Evas_object.resize win 300 320;
   Evas_object.show win;
 
-  let bg = Elm_bg.add win in
-  Elm_win.resize_object_add win bg;
-  Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
-  Evas_object.show bg;
-
   let bigbox = Elm_box.add win in
-  Evas_object.size_hint_weight_set bigbox Evas.hint_expand Evas.hint_expand;
+  Evas_object.size_hint_set bigbox [`expand];
   Elm_win.resize_object_add win bigbox;
   Evas_object.show bigbox;
 
@@ -39,8 +56,7 @@ let () =
   Evas_object.show bt_clear;
 
   let bx = Elm_box.add win in
-  Evas_object.size_hint_weight_set bx Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_align_set bx Evas.hint_fill Evas.hint_fill;
+  Evas_object.size_hint_set bx [`expand; `fill];
   Elm_box.pack_end bigbox bx;
   Evas_object.show bx;
 
@@ -52,16 +68,14 @@ let () =
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 1";
   Evas_object_smart.callback_add bt Elm_button.E.clicked unpack_cb;
-  Evas_object.size_hint_weight_set bt Evas.hint_expand Evas.hint_expand;
-  Evas_object.size_hint_align_set bt Evas.hint_fill Evas.hint_fill;
+  Evas_object.size_hint_set bt [`expand; `fill];
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 2";
   Evas_object_smart.callback_add bt Elm_button.E.clicked unpack_cb;
-  Evas_object.size_hint_weight_set bt Evas.hint_expand 0.;
-  Evas_object.size_hint_align_set bt 1. 0.5;
+  Evas_object.size_hint_set bt [`hexpand; `valign 1.];
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
@@ -83,6 +97,9 @@ let () =
 
   let clear_cb _ = Elm_box.clear bx in
   Evas_object_smart.callback_add bt_clear Elm_button.E.clicked clear_cb;
+
+  Elm_box.layout_set bx Evas_object.box_layout_horizontal (fun () -> ());
+  test_box_transition_change bx transitions;
 
   Elm.run ();
   Elm.shutdown ()

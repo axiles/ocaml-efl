@@ -61,3 +61,15 @@ val geometry_get : Evas.obj -> int * int * int * int
 
 val box_layout_flow_horizontal : Evas.obj -> box_data -> unit
 
+val box_layout_horizontal : Evas.obj -> box_data -> unit
+
+val box_layout_vertical : Evas.obj -> box_data -> unit
+
+val box_layout_stack : Evas.obj -> box_data -> unit
+
+val box_layout_homogeneous_vertical : Evas.obj -> box_data -> unit
+
+val box_layout_homogeneous_horizontal : Evas.obj -> box_data -> unit
+
+val box_layout_flow_vertical : Evas.obj -> box_data -> unit
+
