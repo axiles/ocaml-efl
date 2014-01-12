@@ -322,3 +322,16 @@ PREFIX value ml_elm_config_password_show_last_timeout_set(value v_t)
         return Val_unit;
 }
 
+/* Widget Scaling */
+
+PREFIX value ml_elm_config_scale_get(value v_unit)
+{
+        return copy_double(elm_config_scale_get());
+}
+
+PREFIX value ml_elm_config_scale_set(value v_scale)
+{
+        elm_config_scale_set(Double_val(v_scale));
+        return Val_unit;
+}
+

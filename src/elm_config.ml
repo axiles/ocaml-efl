@@ -139,3 +139,9 @@ external password_show_last_timeout_get : unit -> float =
 external password_show_last_timeout_set : float -> unit =
   "ml_elm_config_password_show_last_timeout_set"
 
+(* Widget Scaling *)
+
+external scale_get : unit -> float = "elm_config_scale_get"
+
+external scale_set : float -> unit = "elm_config_scale_set"
+
