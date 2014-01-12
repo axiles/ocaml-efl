@@ -76,6 +76,8 @@ type item
 
 type select_mode = [`default | `always | `none | `display_only]
 
+external item_of_ptr : Evas.ptr -> item = "%identity"
+
 external domain_translatable_part_text_set :
   Evas.obj -> ?part:string -> ?domain:string -> ?text:string -> unit -> unit =
     "ml_elm_object_domain_translatable_part_text_set"
@@ -145,6 +147,8 @@ external item_part_content_unset : item -> ?p:string -> unit -> Evas.obj =
 external item_part_text_set : item -> ?p:string -> string -> unit =
   "ml_elm_object_item_part_text_set"
 
+external item_text_get : item -> string = "ml_elm_object_item_text_get"
+
 external item_part_text_get : item -> ?p:string -> unit -> string =
   "ml_elm_object_item_part_text_get"
 
@@ -153,6 +157,8 @@ external item_access_info_set : item -> string -> unit =
 
 external item_signal_emit : item -> string -> string -> unit =
   "ml_elm_object_item_signal_emit"
+
+external item_del : item -> unit = "ml_elm_object_item_del"
 
 external item_tooltip_text_set : item -> string -> unit =
   "ml_elm_object_item_tooltip_text_set"
@@ -248,6 +254,8 @@ external disabled_get : Evas.obj -> bool = "ml_elm_object_disabled_get"
 external item_disabled_set : item -> bool -> unit =
   "ml_elm_object_item_disabled_set"
 
+external item_disabled_get : item -> bool = "ml_elm_object_item_disabled_get"
+
 (* Widget Tree Navigation *)
 
 external widget_check : Evas.obj -> bool = "ml_elm_object_widget_check"
@@ -260,12 +268,4 @@ external top_widget_get : Evas.obj -> Evas.obj option =
 
 external widget_type_get : Evas.obj -> string option =
   "ml_elm_object_widget_type_get"
-
-(* Other *)
-
-external item_of_ptr : Evas.ptr -> item = "%identity"
-
-external item_del : item -> unit = "ml_elm_object_item_del"
-
-external item_text_get : item -> string = "ml_elm_object_item_text_get"
 

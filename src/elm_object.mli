@@ -59,6 +59,8 @@ type item
 
 type select_mode = [`default | `always | `none | `display_only]
 
+val item_of_ptr : Evas.ptr -> item
+
 val domain_translatable_part_text_set :
   Evas.obj -> ?part:string -> ?domain:string -> ?text:string -> unit -> unit
 
@@ -106,11 +108,15 @@ val item_part_content_unset : item -> ?p:string -> unit -> Evas.obj
 
 val item_part_text_set : item -> ?p:string -> string -> unit
 
+val item_text_get : item -> string
+
 val item_part_text_get : item -> ?p:string -> unit -> string
 
 val item_access_info_set : item -> string -> unit
 
 val item_signal_emit : item -> string -> string -> unit
+
+val item_del : item -> unit
 
 val item_tooltip_text_set : item -> string -> unit
 
@@ -186,6 +192,8 @@ val disabled_get : Evas.obj -> bool
 
 val item_disabled_set : item -> bool -> unit
 
+val item_disabled_get : item -> bool
+
 (** {2 Widget Tree Navigation} *)
 
 val widget_check : Evas.obj -> bool
@@ -195,12 +203,4 @@ val parent_widget_get : Evas.obj -> Evas.obj option
 val top_widget_get : Evas.obj -> Evas.obj option
 
 val widget_type_get : Evas.obj -> string option
-
-(** {2 Other} *)
-
-val item_of_ptr : Evas.ptr -> item
-
-val item_del : item -> unit
-
-val item_text_get : item -> string
 

@@ -467,6 +467,13 @@ PREFIX value ml_elm_object_item_part_text_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_text_get(value v_item)
+{
+        const char* text = elm_object_item_text_get((Elm_Object_Item*) v_item);
+        if(text == NULL) caml_failwith("elm_object_item_text_get");
+        return copy_string(text);
+}
+
 PREFIX value ml_elm_object_item_part_text_get(
         value v_it, value v_parent, value v_unit)
 {
@@ -490,6 +497,12 @@ PREFIX value ml_elm_object_item_signal_emit(
 {
         elm_object_item_signal_emit((Elm_Object_Item*) v_it,
                 String_val(v_emission), String_val(v_source));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_del(value v_item)
+{
+        elm_object_item_del((Elm_Object_Item*) v_item);
         return Val_unit;
 }
 
@@ -697,6 +710,11 @@ PREFIX value ml_elm_object_item_disabled_set(value v_item, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_disabled_get(value v_it)
+{
+        return Val_bool(elm_object_item_disabled_get((Elm_Object_Item*) v_it));
+}
+
 /* Widget Tree Navigation */
 
 PREFIX value ml_elm_object_widget_check(Evas_Object* v_obj)
@@ -734,20 +752,5 @@ PREFIX value ml_elm_object_widget_type_get(value v_obj)
                 Store_field(v_t, 0, copy_string(t));
         }
         CAMLreturn(v_t);
-}
-
-/* Other */
-
-PREFIX value ml_elm_object_item_del(value v_item)
-{
-        elm_object_item_del((Elm_Object_Item*) v_item);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_object_item_text_get(value v_item)
-{
-        const char* text = elm_object_item_text_get((Elm_Object_Item*) v_item);
-        if(text == NULL) caml_failwith("elm_object_item_text_get");
-        return copy_string(text);
 }
 
