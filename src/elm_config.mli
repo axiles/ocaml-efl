@@ -153,6 +153,10 @@ val scroll_thumbscroll_border_friction_get : unit -> float
 
 val scroll_thumbscroll_border_friction_set : float -> unit
 
+val scroll_thumbscroll_sensitivity_friction_get : unit -> float
+
+val scroll_thumbscroll_sensitivity_friction_set : float -> unit
+
 (** {2 Widget Scaling} *)
 
 val scale_get : unit -> float
