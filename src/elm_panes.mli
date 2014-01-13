@@ -18,3 +18,11 @@ val horizontal_set : Evas.obj -> bool -> unit
 
 val horizontal_get : Evas.obj -> bool
 
+module E : sig
+  type u = Evas.Event_type.u
+  val press : u
+  val unpress : u
+  val clicked : u
+  val clicked_double : u
+end
+
