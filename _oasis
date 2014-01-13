@@ -399,3 +399,9 @@ Executable toolbar_example_03
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: toolbar_example_03.ml
+Executable panes_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: panes_example.ml
