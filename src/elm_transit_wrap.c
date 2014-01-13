@@ -115,3 +115,14 @@ PREFIX value ml_elm_transit_auto_reverse_get(value v_tr)
         return Val_bool(elm_transit_auto_reverse_get((Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_repeat_times_set(value v_tr, value v_num)
+{
+        elm_transit_repeat_times_set((Elm_Transit*) v_tr, Int_val(v_num));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_repeat_times_get(value v_tr)
+{
+        return Val_int(elm_transit_repeat_times_get((Elm_Transit*) v_tr));
+}
+

@@ -26,3 +26,7 @@ val auto_reverse_set : t -> bool -> unit
 
 val auto_reverse_get : t -> bool
 
+val repeat_times_set : t -> int -> unit
+
+val repeat_times_get : t -> int
+

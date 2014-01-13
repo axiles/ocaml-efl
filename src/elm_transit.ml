@@ -31,3 +31,7 @@ external auto_reverse_set : t -> bool -> unit =
 
 external auto_reverse_get : t -> bool = "ml_elm_transit_auto_reverse_get"
 
+external repeat_times_set : t -> int -> unit = "ml_elm_transit_repeat_times_set"
+
+external repeat_times_get : t -> int = "ml_elm_transit_repeat_times_get"
+
