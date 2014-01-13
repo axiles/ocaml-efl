@@ -8,3 +8,7 @@ val hold_events_get : Evas.obj -> bool
 
 val hold_events_set : Evas.obj -> bool -> unit
 
+val zoom_step_set : Evas.obj -> float -> unit
+
+val zoom_step_get : Evas.obj -> float
+

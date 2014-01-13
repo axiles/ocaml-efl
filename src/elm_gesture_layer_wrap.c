@@ -64,3 +64,16 @@ PREFIX value ml_elm_gesture_layer_hold_events_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_gesture_layer_zoom_step_set(value v_obj, value v_step)
+{
+        elm_gesture_layer_zoom_step_set((Evas_Object*) v_obj,
+                Double_val(v_step));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gesture_layer_zoom_step_get(value v_obj)
+{
+        return copy_double(elm_gesture_layer_zoom_step_get(
+                (Evas_Object*) v_obj));
+}
+
