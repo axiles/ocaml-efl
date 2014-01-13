@@ -133,5 +133,23 @@ module Gesture_momentum_info = struct
   external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Momentum_Info_of_ptr"
 end
 
+module Gesture_line_info = struct
+  type t = {
+    momentum : Gesture_momentum_info.t;
+    angle : float;
+  }
+  external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Line_Info_of_ptr"
+end
+
+module Gesture_zoom_info = struct
+  type t = {
+    y : int;
+    radius : int;
+    zoom : float;
+    momentum : float;
+  }
+  external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Zoom_Info_of_ptr"
+end
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
