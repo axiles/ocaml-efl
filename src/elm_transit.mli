@@ -50,3 +50,5 @@ val paused_set : t -> bool -> unit
 
 val paused_get : t -> bool
 
+val progress_value_get : t -> float
+

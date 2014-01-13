@@ -56,3 +56,5 @@ external paused_set : t -> bool -> unit = "ml_elm_transit_paused_set"
 
 external paused_get : t -> bool = "ml_elm_transit_paused_get"
 
+external progress_value_get : t -> float = "ml_elm_transit_progress_value_get"
+

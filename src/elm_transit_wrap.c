@@ -193,3 +193,8 @@ PREFIX value ml_elm_transit_paused_get(value v_tr)
         return Val_bool(elm_transit_paused_get((Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_progress_value_get(value v_tr)
+{
+        return copy_double(elm_transit_progress_value_get((Elm_Transit*) v_tr));
+}
+
