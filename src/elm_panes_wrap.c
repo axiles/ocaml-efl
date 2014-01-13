@@ -44,3 +44,14 @@ PREFIX value ml_elm_panes_content_right_size_set(value v_obj, value v_size)
         return Val_unit;
 }
 
+PREFIX value ml_elm_panes_horizontal_set(value v_obj, value v_flag)
+{
+        elm_panes_horizontal_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_panes_horizontal_get(value v_obj)
+{
+        return Val_bool(elm_panes_horizontal_get((Evas_Object*) v_obj));
+}
+

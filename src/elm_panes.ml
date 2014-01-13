@@ -16,3 +16,8 @@ external content_right_size_get : Evas.obj -> float =
 external content_right_size_set : Evas.obj -> float -> unit =
   "ml_elm_panes_content_right_size_set"
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_panes_horizontal_set"
+
+external horizontal_get : Evas.obj -> bool = "ml_elm_panes_horizontal_get"
+

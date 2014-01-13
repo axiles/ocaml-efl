@@ -14,3 +14,7 @@ val content_right_size_get : Evas.obj -> float
 
 val content_right_size_set : Evas.obj -> float -> unit
 
+val horizontal_set : Evas.obj -> bool -> unit
+
+val horizontal_get : Evas.obj -> bool
+
