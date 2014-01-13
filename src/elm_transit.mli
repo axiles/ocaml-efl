@@ -8,6 +8,10 @@ type tween_mode = [
 
 type effect_flip_axis = [`x | `y]
 
+type effect_wipe_type = [`hide | `show]
+
+type effect_wipe_dir = [`left | `right | `up | `down]
+
 val add : unit -> t
 
 val del : t -> unit
@@ -69,4 +73,6 @@ val effect_zoom_add : t -> float -> float -> unit
 val effect_flip_add : t -> effect_flip_axis -> bool -> unit
 
 val effect_resizable_flip_add : t -> effect_flip_axis -> bool -> unit
+
+val effect_wipe_add : t -> effect_wipe_type -> effect_wipe_dir -> unit
 

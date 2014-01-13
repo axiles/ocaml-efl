@@ -81,6 +81,32 @@ PREFIX inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
         return ELM_TRANSIT_EFFECT_FLIP_AXIS_X;
 }
 
+PREFIX inline Elm_Transit_Effect_Wipe_Type Elm_Transit_Effect_Wipe_Type_val(
+        value v)
+{
+        switch(v) {
+                case Val_hide: return ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE;
+                case Val_show: return ELM_TRANSIT_EFFECT_WIPE_TYPE_SHOW;
+                default: break;
+        }
+        caml_failwith("Elm_Transit_Effect_Wipe_Type_val");
+        return ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE;
+}
+
+PREFIX inline Elm_Transit_Effect_Wipe_Dir Elm_Transit_Effect_Wipe_Dir_val(
+        value v)
+{
+        switch(v) {
+                case Val_left: return ELM_TRANSIT_EFFECT_WIPE_DIR_LEFT;
+                case Val_right: return ELM_TRANSIT_EFFECT_WIPE_DIR_RIGHT;
+                case Val_up: return ELM_TRANSIT_EFFECT_WIPE_DIR_UP;
+                case Val_down: return ELM_TRANSIT_EFFECT_WIPE_DIR_DOWN;
+                default: break;
+        }
+        caml_failwith("Elm_Transit_Effect_Wipe_Dir_val");
+        return ELM_TRANSIT_EFFECT_WIPE_DIR_LEFT;
+}
+
 PREFIX value ml_elm_transit_add(value v_unit)
 {
         Elm_Transit* tr = elm_transit_add();
@@ -285,6 +311,15 @@ PREFIX value ml_elm_transit_effect_resizable_flip_add(
 {
         elm_transit_effect_resizable_flip_add((Elm_Transit*) v_tr,
                 Elm_Transit_Effect_Flip_Axis_val(v_axis), Bool_val(v_cw));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_effect_wipe_add(
+        value v_tr, value v_type, value v_dir)
+{
+        elm_transit_effect_wipe_add((Elm_Transit*) v_tr,
+                Elm_Transit_Effect_Wipe_Type_val(v_type),
+                Elm_Transit_Effect_Wipe_Dir_val(v_dir));
         return Val_unit;
 }
 

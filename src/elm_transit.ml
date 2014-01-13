@@ -8,6 +8,10 @@ type tween_mode = [
 
 type effect_flip_axis = [`x | `y]
 
+type effect_wipe_type = [`hide | `show]
+
+type effect_wipe_dir = [`left | `right | `up | `down]
+
 external add : unit -> t = "ml_elm_transit_add"
 
 external del : t -> unit = "ml_elm_transit_del"
@@ -80,4 +84,7 @@ external effect_flip_add : t -> effect_flip_axis -> bool -> unit =
 
 external effect_resizable_flip_add : t -> effect_flip_axis -> bool -> unit =
     "ml_elm_transit_effect_resizable_flip_add"
+
+external effect_wipe_add : t -> effect_wipe_type -> effect_wipe_dir -> unit =
+    "ml_elm_transit_effect_wipe_add"
 
