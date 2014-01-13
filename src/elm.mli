@@ -159,6 +159,8 @@ module Gesture_rotate_info : sig
   val of_ptr : Evas.ptr -> t
 end
 
+type transit
+
 val init_with_counter : string array -> int
 
 val need_ethumb : unit -> bool

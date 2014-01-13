@@ -162,5 +162,7 @@ module Gesture_rotate_info = struct
   external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Rotate_Info_of_ptr"
 end
 
+type transit
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
