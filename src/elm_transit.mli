@@ -76,3 +76,6 @@ val effect_resizable_flip_add : t -> effect_flip_axis -> bool -> unit
 
 val effect_wipe_add : t -> effect_wipe_type -> effect_wipe_dir -> unit
 
+val effect_color_add :
+  t -> int -> int -> int -> int -> int -> int -> int -> int -> unit
+

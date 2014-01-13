@@ -88,3 +88,8 @@ external effect_resizable_flip_add : t -> effect_flip_axis -> bool -> unit =
 external effect_wipe_add : t -> effect_wipe_type -> effect_wipe_dir -> unit =
     "ml_elm_transit_effect_wipe_add"
 
+external effect_color_add :
+  t -> int -> int -> int -> int -> int -> int -> int -> int -> unit =
+   "ml_elm_transit_effect_color_add_bytecode"
+   "ml_elm_transit_effect_color_add_native"
+

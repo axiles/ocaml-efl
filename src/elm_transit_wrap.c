@@ -323,3 +323,20 @@ PREFIX value ml_elm_transit_effect_wipe_add(
         return Val_unit;
 }
 
+PREFIX value ml_elm_transit_effect_color_add_native(
+        value v_tr, value v_from_r, value v_from_g, value v_from_b,
+        value v_from_a, value v_to_r, value v_to_g, value v_to_b, value v_to_a)
+{
+        elm_transit_effect_color_add((Elm_Transit*) v_tr,
+                Int_val(v_from_r), Int_val(v_from_g), Int_val(v_from_b),
+                Int_val(v_from_a), Int_val(v_to_r), Int_val(v_to_g),
+                Int_val(v_to_b), Int_val(v_to_a));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_effect_color_add_bytecode(value* argv, int argn)
+{
+        return ml_elm_transit_effect_color_add_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+}
+
