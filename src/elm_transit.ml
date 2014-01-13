@@ -70,3 +70,6 @@ external effect_resizing_add : t -> int -> int -> int -> int -> unit =
 external effect_translation_add : t -> int -> int -> int -> int -> unit =
   "ml_elm_transit_effect_translation_add"
 
+external effect_zoom_add : t -> float -> float -> unit =
+  "ml_elm_transit_effect_zoom_add"
+

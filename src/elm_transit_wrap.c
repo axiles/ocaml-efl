@@ -252,3 +252,11 @@ PREFIX value ml_elm_transit_effect_translation_add(
         return Val_unit;
 }
 
+PREFIX value ml_elm_transit_effect_zoom_add(
+        value v_tr, value v_from, value v_to)
+{
+        elm_transit_effect_zoom_add((Elm_Transit*) v_tr, Double_val(v_from),
+                Double_val(v_to));
+        return Val_unit;
+}
+

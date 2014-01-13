@@ -62,3 +62,5 @@ val effect_resizing_add : t -> int -> int -> int -> int -> unit
 
 val effect_translation_add : t -> int -> int -> int -> int -> unit
 
+val effect_zoom_add : t -> float -> float -> unit
+
