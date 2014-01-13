@@ -52,3 +52,9 @@ val paused_get : t -> bool
 
 val progress_value_get : t -> float
 
+val chain_transit_add : t -> t -> unit
+
+val chain_transit_del : t -> t -> unit
+
+val chain_transits_get : t -> t list
+

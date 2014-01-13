@@ -58,3 +58,9 @@ external paused_get : t -> bool = "ml_elm_transit_paused_get"
 
 external progress_value_get : t -> float = "ml_elm_transit_progress_value_get"
 
+external chain_transit_add : t -> t -> unit = "ml_elm_transit_chain_transit_add"
+
+external chain_transit_del : t -> t -> unit = "ml_elm_transit_chain_transit_del"
+
+external chain_transits_get : t -> t list = "ml_elm_transit_chain_transits_get"
+

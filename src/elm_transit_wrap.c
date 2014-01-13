@@ -53,6 +53,22 @@ PREFIX inline value Val_Elm_Transit_Tween_Mode(Elm_Transit_Tween_Mode m)
         return Val_linear;
 }
 
+PREFIX inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal2(v, v1);
+        Eina_List* it;
+        Elm_Transit* obj;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, obj) {
+                v1 = v;
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, (value) obj);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_transit_add(value v_unit)
 {
         Elm_Transit* tr = elm_transit_add();
@@ -196,5 +212,25 @@ PREFIX value ml_elm_transit_paused_get(value v_tr)
 PREFIX value ml_elm_transit_progress_value_get(value v_tr)
 {
         return copy_double(elm_transit_progress_value_get((Elm_Transit*) v_tr));
+}
+
+PREFIX value ml_elm_transit_chain_transit_add(value v_tr, value v_chain_tr)
+{
+        elm_transit_chain_transit_add((Elm_Transit*) v_tr,
+                (Elm_Transit*) v_chain_tr);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_chain_transit_del(value v_tr, value v_chain_tr)
+{
+        elm_transit_chain_transit_del((Elm_Transit*) v_tr,
+                (Elm_Transit*) v_chain_tr);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_chain_transits_get(value v_tr)
+{
+        return copy_Eina_List_Elm_Transit(elm_transit_chain_transits_get(
+                (Elm_Transit*) v_tr));
 }
 
