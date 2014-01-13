@@ -27,6 +27,32 @@ PREFIX void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
         free(v_fun);
 }
 
+PREFIX inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
+{
+        switch(v) {
+                case Val_linear: return ELM_TRANSIT_TWEEN_MODE_LINEAR;
+                case Val_sinusoidal: return ELM_TRANSIT_TWEEN_MODE_SINUSOIDAL;
+                case Val_decelerate: return ELM_TRANSIT_TWEEN_MODE_DECELERATE;
+                case Val_accelerate: return ELM_TRANSIT_TWEEN_MODE_ACCELERATE;
+                default: break;
+        }
+        caml_failwith("Elm_Transit_Tween_Mode_val");
+        return ELM_TRANSIT_TWEEN_MODE_LINEAR;
+}
+
+PREFIX inline value Val_Elm_Transit_Tween_Mode(Elm_Transit_Tween_Mode m)
+{
+        switch(m) {
+                case ELM_TRANSIT_TWEEN_MODE_LINEAR: return Val_linear;
+                case ELM_TRANSIT_TWEEN_MODE_SINUSOIDAL: return Val_sinusoidal;
+                case ELM_TRANSIT_TWEEN_MODE_DECELERATE: return Val_decelerate;
+                case ELM_TRANSIT_TWEEN_MODE_ACCELERATE: return Val_accelerate;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Transit_Tween_Mode");
+        return Val_linear;
+}
+
 PREFIX value ml_elm_transit_add(value v_unit)
 {
         Elm_Transit* tr = elm_transit_add();
@@ -124,5 +150,18 @@ PREFIX value ml_elm_transit_repeat_times_set(value v_tr, value v_num)
 PREFIX value ml_elm_transit_repeat_times_get(value v_tr)
 {
         return Val_int(elm_transit_repeat_times_get((Elm_Transit*) v_tr));
+}
+
+PREFIX value ml_elm_transit_tween_mode_set(value v_tr, value v_mode)
+{
+        elm_transit_tween_mode_set((Elm_Transit*) v_tr,
+                Elm_Transit_Tween_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_tween_mode_get(value v_tr)
+{
+        return Val_Elm_Transit_Tween_Mode(elm_transit_tween_mode_get(
+                (Elm_Transit*) v_tr));
 }
 

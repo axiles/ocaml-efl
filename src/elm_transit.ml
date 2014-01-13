@@ -1,5 +1,11 @@
 type t = Elm.transit
 
+type tween_mode = [
+  | `linear
+  | `sinusoidal
+  | `decelerate
+  | `accelerate]
+
 external add : unit -> t = "ml_elm_transit_add"
 
 external del : t -> unit = "ml_elm_transit_del"
@@ -34,4 +40,9 @@ external auto_reverse_get : t -> bool = "ml_elm_transit_auto_reverse_get"
 external repeat_times_set : t -> int -> unit = "ml_elm_transit_repeat_times_set"
 
 external repeat_times_get : t -> int = "ml_elm_transit_repeat_times_get"
+
+external tween_mode_set : t -> tween_mode -> unit =
+  "ml_elm_transit_tween_mode_set"
+
+external tween_mode_get : t -> tween_mode = "ml_elm_transit_tween_mode_get"
 

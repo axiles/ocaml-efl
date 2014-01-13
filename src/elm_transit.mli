@@ -1,5 +1,11 @@
 type t = Elm.transit
 
+type tween_mode = [
+  | `linear
+  | `sinusoidal
+  | `decelerate
+  | `accelerate]
+
 val add : unit -> t
 
 val del : t -> unit
@@ -29,4 +35,8 @@ val auto_reverse_get : t -> bool
 val repeat_times_set : t -> int -> unit
 
 val repeat_times_get : t -> int
+
+val tween_mode_set : t -> tween_mode -> unit
+
+val tween_mode_get : t -> tween_mode
 

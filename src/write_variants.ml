@@ -8,6 +8,7 @@ let g x = f (sprintf "Val_%s" x) x
 
 let () =
   g "abort";
+  g "accelerate";
   g "all";
   g "allcharacter";
   g "alpha";
@@ -29,6 +30,7 @@ let () =
   g "compress";
   g "content";
   g "datetime";
+  g "decelerate";
   g "default";
   g "desktop";
   g "dialog_basic";
@@ -71,6 +73,7 @@ let () =
   g "last_window_closed";
   g "left";
   g "limit";
+  g "linear";
   g "list";
   g "login";
   g "markup";
@@ -123,6 +126,7 @@ let () =
   g "sentence";
   g "show";
   g "signin";
+  g "sinusoidal";
   g "socket_image";
   g "soft";
   g "splash";
