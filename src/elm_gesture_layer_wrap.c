@@ -39,3 +39,15 @@ PREFIX Evas_Event_Flags ml_Elm_Gesture_Event_Cb(void* data, void* event_info)
         return EVAS_EVENT_FLAG_ON_HOLD;
 }
 
+PREFIX value ml_elm_gesture_layer_cb_set(
+        value v_obj, value v_type, value v_state, value v_cb)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_cb;
+        caml_register_global_root(data);
+        elm_gesture_layer_cb_set((Evas_Object*) v_obj,
+                Elm_Gesture_Type_val(v_type), Elm_Gesture_State_val(v_state),
+                ml_Elm_Gesture_Event_Cb, data);
+        return Val_unit;
+}
+
