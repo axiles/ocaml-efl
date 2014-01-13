@@ -10,3 +10,7 @@ val content_left_size_get : Evas.obj -> float
 
 val content_left_size_set : Evas.obj -> float -> unit
 
+val content_right_size_get : Evas.obj -> float
+
+val content_right_size_set : Evas.obj -> float -> unit
+
