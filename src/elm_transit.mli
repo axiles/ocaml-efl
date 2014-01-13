@@ -22,3 +22,7 @@ val event_enabled_get : t -> bool
 
 val del_cb_set : t -> (t -> unit) -> unit
 
+val auto_reverse_set : t -> bool -> unit
+
+val auto_reverse_get : t -> bool
+

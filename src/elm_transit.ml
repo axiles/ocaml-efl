@@ -26,3 +26,8 @@ external event_enabled_get : t -> bool = "ml_elm_transit_event_enabled_get"
 
 external del_cb_set : t -> (t -> unit) -> unit = "ml_elm_transit_del_cb_set"
 
+external auto_reverse_set : t -> bool -> unit =
+  "ml_elm_transit_auto_reverse_set"
+
+external auto_reverse_get : t -> bool = "ml_elm_transit_auto_reverse_get"
+

@@ -98,8 +98,20 @@ PREFIX value ml_elm_transit_del_cb_set(value v_tr, value v_fun)
 {
         value* data = caml_stat_alloc(sizeof(value));
         *data = v_fun;
+        caml_register_global_root(data);
         elm_transit_del_cb_set((Elm_Transit*) v_tr, ml_Elm_Transit_Del_Cb,
                 data);
         return Val_unit;
+}
+
+PREFIX value ml_elm_transit_auto_reverse_set(value v_tr, value v_flag)
+{
+        elm_transit_auto_reverse_set((Elm_Transit*) v_tr, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_auto_reverse_get(value v_tr)
+{
+        return Val_bool(elm_transit_auto_reverse_get((Elm_Transit*) v_tr));
 }
 
