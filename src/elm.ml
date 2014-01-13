@@ -89,5 +89,16 @@ type cnp_mode = [`markup | `no_image | `plaintext]
 
 type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
 
+type gesture_type = [
+  | `n_taps
+  | `n_long_taps
+  | `n_double_taps
+  | `n_triple_taps
+  | `momentum
+  | `n_lines
+  | `n_flicks
+  | `zoom
+  | `rotate]
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 

@@ -76,7 +76,14 @@ let () =
   g "menu";
   g "middle";
   g "mixed";
+  g "momentum";
   g "month";
+  g "n_double_taps";
+  g "n_flicks";
+  g "n_lines";
+  g "n_long_taps";
+  g "n_taps";
+  g "n_triple_taps";
   g "neither";
   g "next";
   g "no_block";
@@ -102,6 +109,7 @@ let () =
   g "previous";
   g "quit";
   g "right";
+  g "rotate";
   g "rotate_180";
   g "rotate_270";
   g "rotate_90";
@@ -137,4 +145,5 @@ let () =
   g "utility";
   g "vertical";
   g "word";
+  g "zoom";
   flush stdout
