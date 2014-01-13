@@ -242,3 +242,13 @@ PREFIX value ml_elm_transit_effect_resizing_add(
         return Val_unit;
 }
 
+PREFIX value ml_elm_transit_effect_translation_add(
+        value v_tr, value v_from_dx, value v_from_dy, value v_to_dx,
+        value v_to_dy)
+{
+        elm_transit_effect_translation_add((Elm_Transit*) v_tr,
+                Int_val(v_from_dx), Int_val(v_from_dy), Int_val(v_to_dx),
+                Int_val(v_to_dy));
+        return Val_unit;
+}
+

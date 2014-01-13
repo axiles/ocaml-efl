@@ -67,3 +67,6 @@ external chain_transits_get : t -> t list = "ml_elm_transit_chain_transits_get"
 external effect_resizing_add : t -> int -> int -> int -> int -> unit =
   "ml_elm_transit_effect_resizing_add"
 
+external effect_translation_add : t -> int -> int -> int -> int -> unit =
+  "ml_elm_transit_effect_translation_add"
+
