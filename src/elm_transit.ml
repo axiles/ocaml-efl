@@ -93,3 +93,7 @@ external effect_color_add :
    "ml_elm_transit_effect_color_add_bytecode"
    "ml_elm_transit_effect_color_add_native"
 
+external effect_fade_add : t -> unit = "ml_elm_transit_effect_fade_add"
+
+external effect_blend_add : t -> unit = "ml_elm_transit_effect_blend_add"
+

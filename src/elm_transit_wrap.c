@@ -340,3 +340,15 @@ PREFIX value ml_elm_transit_effect_color_add_bytecode(value* argv, int argn)
                 argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
 }
 
+PREFIX value ml_elm_transit_effect_fade_add(value v_tr)
+{
+        elm_transit_effect_fade_add((Elm_Transit*) v_tr);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_effect_blend_add(value v_tr)
+{
+        elm_transit_effect_blend_add((Elm_Transit*) v_tr);
+        return Val_unit;
+}
+

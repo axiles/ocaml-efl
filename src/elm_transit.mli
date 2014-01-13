@@ -79,3 +79,7 @@ val effect_wipe_add : t -> effect_wipe_type -> effect_wipe_dir -> unit
 val effect_color_add :
   t -> int -> int -> int -> int -> int -> int -> int -> int -> unit
 
+val effect_fade_add : t -> unit
+
+val effect_blend_add : t -> unit
+
