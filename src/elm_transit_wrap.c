@@ -69,6 +69,18 @@ PREFIX inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
         CAMLreturn(v);
 }
 
+PREFIX inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
+        value v)
+{
+        switch(v) {
+                case Val_x : return ELM_TRANSIT_EFFECT_FLIP_AXIS_X;
+                case Val_y: return ELM_TRANSIT_EFFECT_FLIP_AXIS_Y;
+                default: break;
+        }
+        caml_failwith("Elm_Transit_Effect_Flip_Axis_val");
+        return ELM_TRANSIT_EFFECT_FLIP_AXIS_X;
+}
+
 PREFIX value ml_elm_transit_add(value v_unit)
 {
         Elm_Transit* tr = elm_transit_add();
@@ -257,6 +269,22 @@ PREFIX value ml_elm_transit_effect_zoom_add(
 {
         elm_transit_effect_zoom_add((Elm_Transit*) v_tr, Double_val(v_from),
                 Double_val(v_to));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_effect_flip_add(
+        value v_tr, value v_axis, value v_cw)
+{
+        elm_transit_effect_flip_add((Elm_Transit*) v_tr,
+                Elm_Transit_Effect_Flip_Axis_val(v_axis), Bool_val(v_cw));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_effect_resizable_flip_add(
+        value v_tr, value v_axis, value v_cw)
+{
+        elm_transit_effect_resizable_flip_add((Elm_Transit*) v_tr,
+                Elm_Transit_Effect_Flip_Axis_val(v_axis), Bool_val(v_cw));
         return Val_unit;
 }
 

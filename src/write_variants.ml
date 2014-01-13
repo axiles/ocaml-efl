@@ -154,5 +154,7 @@ let () =
   g "utility";
   g "vertical";
   g "word";
+  g "x";
+  g "y";
   g "zoom";
   flush stdout

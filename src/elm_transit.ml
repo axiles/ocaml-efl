@@ -6,6 +6,8 @@ type tween_mode = [
   | `decelerate
   | `accelerate]
 
+type effect_flip_axis = [`x | `y]
+
 external add : unit -> t = "ml_elm_transit_add"
 
 external del : t -> unit = "ml_elm_transit_del"
@@ -72,4 +74,10 @@ external effect_translation_add : t -> int -> int -> int -> int -> unit =
 
 external effect_zoom_add : t -> float -> float -> unit =
   "ml_elm_transit_effect_zoom_add"
+
+external effect_flip_add : t -> effect_flip_axis -> bool -> unit =
+  "ml_elm_transit_effect_flip_add"
+
+external effect_resizable_flip_add : t -> effect_flip_axis -> bool -> unit =
+    "ml_elm_transit_effect_resizable_flip_add"
 

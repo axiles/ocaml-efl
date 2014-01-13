@@ -6,6 +6,8 @@ type tween_mode = [
   | `decelerate
   | `accelerate]
 
+type effect_flip_axis = [`x | `y]
+
 val add : unit -> t
 
 val del : t -> unit
@@ -63,4 +65,8 @@ val effect_resizing_add : t -> int -> int -> int -> int -> unit
 val effect_translation_add : t -> int -> int -> int -> int -> unit
 
 val effect_zoom_add : t -> float -> float -> unit
+
+val effect_flip_add : t -> effect_flip_axis -> bool -> unit
+
+val effect_resizable_flip_add : t -> effect_flip_axis -> bool -> unit
 
