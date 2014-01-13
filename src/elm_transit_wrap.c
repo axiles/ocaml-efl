@@ -43,3 +43,21 @@ PREFIX value ml_elm_transit_effect_add(value v_tr, value v_fun)
         CAMLreturn(Val_unit);
 }
 
+PREFIX value ml_elm_transit_object_add(value v_tr, value v_obj)
+{
+        elm_transit_object_add((Elm_Transit*) v_tr, (Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_object_remove(value v_tr, value v_obj)
+{
+        elm_transit_object_remove((Elm_Transit*) v_tr, (Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_objects_get(value v_tr)
+{
+        return copy_Eina_List_Evas_Object(elm_transit_objects_get(
+                (Elm_Transit*) v_tr));
+}
+
