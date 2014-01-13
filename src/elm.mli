@@ -148,6 +148,17 @@ module Gesture_zoom_info : sig
   val of_ptr : Evas.ptr -> t
 end
 
+module Gesture_rotate_info : sig
+  type t = {
+    y : int;
+    radius : int;
+    base_angle : float;
+    angle : float;
+    momentum : float;
+  }
+  val of_ptr : Evas.ptr -> t
+end
+
 val init_with_counter : string array -> int
 
 val need_ethumb : unit -> bool

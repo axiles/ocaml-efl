@@ -151,5 +151,16 @@ module Gesture_zoom_info = struct
   external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Zoom_Info_of_ptr"
 end
 
+module Gesture_rotate_info = struct
+  type t = {
+    y : int;
+    radius : int;
+    base_angle : float;
+    angle : float;
+    momentum : float;
+  }
+  external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Rotate_Info_of_ptr"
+end
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
