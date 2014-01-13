@@ -109,5 +109,29 @@ type gesture_state = [
 
 type gesture_event_cb = Evas.ptr -> unit
 
+module Gesture_taps_info = struct
+  type t = {
+    y : int;
+    n : int;
+    timestamp : int;
+  }
+  external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Taps_Info_of_ptr"
+end
+
+module Gesture_momentum_info = struct
+  type t = {
+    x1 : int;
+    y1 : int;
+    x2 : int;
+    y2 : int;
+    tx : int;
+    ty : int;
+    mx : int;
+    my : int;
+    n : int;
+  }
+  external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Momentum_Info_of_ptr"
+end
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 

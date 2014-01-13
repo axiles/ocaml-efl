@@ -106,6 +106,30 @@ type gesture_state = [
 
 type gesture_event_cb = Evas.ptr -> unit
 
+module Gesture_taps_info : sig
+  type t = {
+    y : int;
+    n : int;
+    timestamp : int;
+  }
+  val of_ptr : Evas.ptr -> t
+end
+
+module Gesture_momentum_info : sig
+  type t = {
+    x1 : int;
+    y1 : int;
+    x2 : int;
+    y2 : int;
+    tx : int;
+    ty : int;
+    mx : int;
+    my : int;
+    n : int;
+  }
+  val of_ptr : Evas.ptr -> t
+end
+
 val init_with_counter : string array -> int
 
 val need_ethumb : unit -> bool

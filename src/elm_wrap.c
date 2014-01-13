@@ -160,6 +160,32 @@ PREFIX value ml_elm_language_set(value v_lang)
 
 /* Others */
 
+PREFIX value ml_Elm_Gesture_Taps_Info_of_ptr(value v_ptr)
+{
+        Elm_Gesture_Taps_Info* info = (Elm_Gesture_Taps_Info*) v_ptr;
+        value v_info = caml_alloc(3, 0);
+        Store_field(v_info, 0, Val_int(info->y));
+        Store_field(v_info, 1, Val_int(info->n));
+        Store_field(v_info, 2, Val_int(info->timestamp));
+        return v_info;
+}
+
+PREFIX value ml_Elm_Gesture_Momentum_Info_of_ptr(value v_ptr)
+{
+        Elm_Gesture_Momentum_Info* info = (Elm_Gesture_Momentum_Info*) v_ptr;
+        value v_info = caml_alloc(9, 0);
+        Store_field(v_info, 0, Val_int(info->x1));
+        Store_field(v_info, 1, Val_int(info->y1));
+        Store_field(v_info, 2, Val_int(info->x2));
+        Store_field(v_info, 3, Val_int(info->y2));
+        Store_field(v_info, 4, Val_int(info->tx));
+        Store_field(v_info, 5, Val_int(info->ty));
+        Store_field(v_info, 6, Val_int(info->mx));
+        Store_field(v_info, 7, Val_int(info->my));
+        Store_field(v_info, 8, Val_int(info->n));
+        return v_info;
+}
+
 PREFIX value ml_elm_need_ethumb(value v_unit)
 {
         return Val_Eina_Bool(elm_need_ethumb());
