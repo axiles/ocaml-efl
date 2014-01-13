@@ -65,7 +65,8 @@ Library efl
     Elm_slider,
     Elm_toolbar,
     Elm_conformant,
-    Elm_gesture_layer
+    Elm_gesture_layer,
+    Elm_panes
   CSources:
     include.h,
     eina_wrap.c,
@@ -123,7 +124,8 @@ Library efl
     elm_toolbar_wrap.c,
     elm_theme_wrap.c,
     elm_conformant_wrap.c,
-    elm_gesture_layer_wrap.c
+    elm_gesture_layer_wrap.c,
+    elm_panes_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
