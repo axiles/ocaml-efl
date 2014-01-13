@@ -16,3 +16,7 @@ val objects_final_state_keep_set : t -> bool -> unit
 
 val objects_final_state_keep_get : t -> bool
 
+val event_enabled_set : t -> bool -> unit
+
+val event_enabled_get : t -> bool
+

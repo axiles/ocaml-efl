@@ -19,3 +19,8 @@ external objects_final_state_keep_set : t -> bool -> unit =
 external objects_final_state_keep_get : t -> bool =
   "ml_elm_transit_objects_final_state_keep_get"
 
+external event_enabled_set : t -> bool -> unit =
+  "ml_elm_transit_event_enabled_set"
+
+external event_enabled_get : t -> bool = "ml_elm_transit_event_enabled_get"
+

@@ -75,3 +75,14 @@ PREFIX value ml_elm_transit_objects_final_state_keep_get(value v_tr)
                 (Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_event_enabled_set(value v_tr, value v_flag)
+{
+        elm_transit_event_enabled_set((Elm_Transit*) v_tr, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_event_enabled_get(value v_tr)
+{
+        return Val_bool(elm_transit_event_enabled_get((Elm_Transit*) v_tr));
+}
+
