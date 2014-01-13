@@ -104,6 +104,8 @@ type gesture_state = [
   | `_end
   | `abort]
 
+type gesture_event_cb = Evas.ptr -> unit
+
 val init_with_counter : string array -> int
 
 val need_ethumb : unit -> bool

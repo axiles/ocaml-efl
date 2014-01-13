@@ -107,5 +107,7 @@ type gesture_state = [
   | `_end
   | `abort]
 
+type gesture_event_cb = Evas.ptr -> unit
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
