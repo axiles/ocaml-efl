@@ -90,3 +90,9 @@ PREFIX value ml_elm_gesture_layer_rotate_step_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_gesture_layer_attach(value v_obj, value v_target)
+{
+        return Val_bool(elm_gesture_layer_attach((Evas_Object*) v_obj,
+                (Evas_Object*) v_obj));
+}
+
