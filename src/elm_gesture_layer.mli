@@ -12,3 +12,7 @@ val zoom_step_set : Evas.obj -> float -> unit
 
 val zoom_step_get : Evas.obj -> float
 
+val rotate_step_set : Evas.obj -> float -> unit
+
+val rotate_step_get : Evas.obj -> float
+

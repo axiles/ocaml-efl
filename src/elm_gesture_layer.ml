@@ -15,3 +15,9 @@ external zoom_step_set : Evas.obj -> float -> unit =
 external zoom_step_get : Evas.obj -> float =
   "ml_elm_gesture_layer_zoom_step_get"
 
+external rotate_step_set : Evas.obj -> float -> unit =
+  "ml_elm_gesture_layer_rotate_step_set"
+
+external rotate_step_get : Evas.obj -> float =
+  "ml_elm_gesture_layer_rotate_step_get"
+
