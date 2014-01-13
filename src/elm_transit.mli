@@ -12,3 +12,7 @@ val object_remove : t -> Evas.obj -> unit
 
 val objects_get : t -> Evas.obj list
 
+val objects_final_state_keep_set : t -> bool -> unit
+
+val objects_final_state_keep_get : t -> bool
+
