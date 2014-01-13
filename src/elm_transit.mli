@@ -83,3 +83,5 @@ val effect_fade_add : t -> unit
 
 val effect_blend_add : t -> unit
 
+val effect_rotation_add : t -> float -> float -> unit
+

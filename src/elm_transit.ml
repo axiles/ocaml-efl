@@ -97,3 +97,6 @@ external effect_fade_add : t -> unit = "ml_elm_transit_effect_fade_add"
 
 external effect_blend_add : t -> unit = "ml_elm_transit_effect_blend_add"
 
+external effect_rotation_add : t -> float -> float -> unit =
+  "ml_elm_transit_effect_rotation_add"
+
