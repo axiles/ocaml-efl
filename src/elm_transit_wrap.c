@@ -182,3 +182,14 @@ PREFIX value ml_elm_transit_go(value v_tr)
         return Val_unit;
 }
 
+PREFIX value ml_elm_transit_paused_set(value v_tr, value v_flag)
+{
+        elm_transit_paused_set((Elm_Transit*) v_tr, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_paused_get(value v_tr)
+{
+        return Val_bool(elm_transit_paused_get((Elm_Transit*) v_tr));
+}
+

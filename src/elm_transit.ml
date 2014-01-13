@@ -52,3 +52,7 @@ external duration_get : t -> float = "ml_elm_transit_duration_get"
 
 external go : t -> unit = "ml_elm_transit_go"
 
+external paused_set : t -> bool -> unit = "ml_elm_transit_paused_set"
+
+external paused_get : t -> bool = "ml_elm_transit_paused_get"
+

@@ -46,3 +46,7 @@ val duration_get : t -> float
 
 val go : t -> unit
 
+val paused_set : t -> bool -> unit
+
+val paused_get : t -> bool
+
