@@ -97,6 +97,13 @@ type gesture_type = [
   | `zoom
   | `rotate]
 
+type gesture_state = [
+  | `undefined
+  | `start
+  | `move
+  | `_end
+  | `abort]
+
 val init_with_counter : string array -> int
 
 val need_ethumb : unit -> bool

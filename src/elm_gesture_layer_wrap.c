@@ -18,3 +18,17 @@ PREFIX inline Elm_Gesture_Type Elm_Gesture_Type_val(value v)
         return ELM_GESTURE_N_TAPS;
 }
 
+PREFIX inline Elm_Gesture_State Elm_Gesture_State_val(value v)
+{
+        switch(v) {
+                case Val_undefined: return ELM_GESTURE_STATE_UNDEFINED;
+                case Val_start: return ELM_GESTURE_STATE_START;
+                case Val_move: return ELM_GESTURE_STATE_MOVE;
+                case Val_end: return ELM_GESTURE_STATE_END;
+                case Val_abort: return ELM_GESTURE_STATE_ABORT;
+                default: break;
+        }
+        caml_failwith("Elm_Gesture_State_val");
+        return ELM_GESTURE_STATE_UNDEFINED;
+}
+

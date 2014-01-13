@@ -100,5 +100,12 @@ type gesture_type = [
   | `zoom
   | `rotate]
 
+type gesture_state = [
+  | `undefined
+  | `start
+  | `move
+  | `_end
+  | `abort]
+
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
