@@ -3,3 +3,9 @@ external cb_set :
     unit =
      "ml_elm_gesture_layer_cb_set"
 
+external hold_events_get : Evas.obj -> bool =
+  "ml_elm_gesture_layer_hold_events_get"
+
+external hold_events_set : Evas.obj -> bool -> unit =
+  "ml_elm_gesture_layer_hold_events_set"
+
