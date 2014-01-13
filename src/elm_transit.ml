@@ -24,3 +24,5 @@ external event_enabled_set : t -> bool -> unit =
 
 external event_enabled_get : t -> bool = "ml_elm_transit_event_enabled_get"
 
+external del_cb_set : t -> (t -> unit) -> unit = "ml_elm_transit_del_cb_set"
+

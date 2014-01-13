@@ -20,3 +20,5 @@ val event_enabled_set : t -> bool -> unit
 
 val event_enabled_get : t -> bool
 
+val del_cb_set : t -> (t -> unit) -> unit
+
