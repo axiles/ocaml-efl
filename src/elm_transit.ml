@@ -46,3 +46,7 @@ external tween_mode_set : t -> tween_mode -> unit =
 
 external tween_mode_get : t -> tween_mode = "ml_elm_transit_tween_mode_get"
 
+external duration_set : t -> float -> unit = "ml_elm_transit_duration_set"
+
+external duration_get : t -> float = "ml_elm_transit_duration_get"
+

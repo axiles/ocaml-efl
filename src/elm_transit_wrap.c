@@ -165,3 +165,14 @@ PREFIX value ml_elm_transit_tween_mode_get(value v_tr)
                 (Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_duration_set(value v_tr, value v_x)
+{
+        elm_transit_duration_set((Elm_Transit*) v_tr, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_duration_get(value v_tr)
+{
+        return copy_double(elm_transit_duration_get((Elm_Transit*) v_tr));
+}
+
