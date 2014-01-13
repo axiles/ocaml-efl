@@ -176,3 +176,9 @@ PREFIX value ml_elm_transit_duration_get(value v_tr)
         return copy_double(elm_transit_duration_get((Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_go(value v_tr)
+{
+        elm_transit_go((Elm_Transit*) v_tr);
+        return Val_unit;
+}
+

@@ -44,3 +44,5 @@ val duration_set : t -> float -> unit
 
 val duration_get : t -> float
 
+val go : t -> unit
+

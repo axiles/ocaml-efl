@@ -50,3 +50,5 @@ external duration_set : t -> float -> unit = "ml_elm_transit_duration_set"
 
 external duration_get : t -> float = "ml_elm_transit_duration_get"
 
+external go : t -> unit = "ml_elm_transit_go"
+
