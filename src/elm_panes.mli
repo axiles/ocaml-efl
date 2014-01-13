@@ -2,3 +2,7 @@
 
 val add : Evas.obj -> Evas.obj
 
+val fixed_set : Evas.obj -> bool -> unit
+
+val fixed_get : Evas.obj -> bool
+
