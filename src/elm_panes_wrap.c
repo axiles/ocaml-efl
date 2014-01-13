@@ -18,3 +18,16 @@ PREFIX value ml_elm_panes_fixed_get(value v_obj)
         return Val_bool(elm_panes_fixed_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_panes_content_left_size_get(value v_obj)
+{
+        return copy_double(elm_panes_content_left_size_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_panes_content_left_size_set(value v_obj, value v_size)
+{
+        elm_panes_content_left_size_set((Evas_Object*) v_obj,
+                Double_val(v_size));
+        return Val_unit;
+}
+
