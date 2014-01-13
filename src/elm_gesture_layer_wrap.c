@@ -96,3 +96,10 @@ PREFIX value ml_elm_gesture_layer_attach(value v_obj, value v_target)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_gesture_layer_add(value v_parent)
+{
+        Evas_Object* obj = elm_gesture_layer_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_gesture_layer_add");
+        return (value) obj;
+}
+

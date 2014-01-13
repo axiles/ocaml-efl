@@ -18,3 +18,5 @@ val rotate_step_get : Evas.obj -> float
 
 val attach : Evas.obj -> Evas.obj -> bool
 
+val add : Evas.obj -> Evas.obj
+

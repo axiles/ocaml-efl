@@ -23,3 +23,5 @@ external rotate_step_get : Evas.obj -> float =
 
 external attach : Evas.obj -> Evas.obj -> bool = "ml_elm_gesture_layer_attach"
 
+external add : Evas.obj -> Evas.obj = "ml_elm_gesture_layer_add"
+
