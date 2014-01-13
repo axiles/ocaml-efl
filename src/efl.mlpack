@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: e4758c1a5d85ddbae02ee70d5d44857f)
+# DO NOT EDIT (digest: 61d3ef008caf442161cf8fcadd3a6cf5)
 Ecore
 Ecore_timer
 Evas
@@ -49,4 +49,5 @@ Elm_toolbar
 Elm_conformant
 Elm_gesture_layer
 Elm_panes
+Elm_transit
 # OASIS_STOP
