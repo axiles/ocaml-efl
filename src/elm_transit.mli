@@ -58,3 +58,5 @@ val chain_transit_del : t -> t -> unit
 
 val chain_transits_get : t -> t list
 
+val effect_resizing_add : t -> int -> int -> int -> int -> unit
+

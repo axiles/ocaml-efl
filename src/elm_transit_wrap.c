@@ -234,3 +234,11 @@ PREFIX value ml_elm_transit_chain_transits_get(value v_tr)
                 (Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_effect_resizing_add(
+        value v_tr, value v_from_w, value v_from_h, value v_to_w, value v_to_h)
+{
+        elm_transit_effect_resizing_add((Elm_Transit*) v_tr, Int_val(v_from_w),
+                Int_val(v_from_h), Int_val(v_to_w), Int_val(v_to_h));
+        return Val_unit;
+}
+
