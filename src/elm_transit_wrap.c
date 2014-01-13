@@ -360,3 +360,10 @@ PREFIX value ml_elm_transit_effect_rotation_add(
         return Val_unit;
 }
 
+PREFIX value ml_elm_transit_effect_image_animation_add(value v_tr, value v_list)
+{
+        elm_transit_effect_image_animation_add((Elm_Transit*) v_tr,
+                Eina_List_string_val(v_list));
+        return Val_unit;
+}
+

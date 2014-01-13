@@ -85,3 +85,5 @@ val effect_blend_add : t -> unit
 
 val effect_rotation_add : t -> float -> float -> unit
 
+val effect_image_animation_add : t -> string list -> unit
+
