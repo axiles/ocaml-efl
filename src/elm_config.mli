@@ -64,6 +64,10 @@ val clouseau_enabled_set : bool -> unit
 
 val indicator_service_get : int -> string
 
+val glayer_long_tap_start_timeout_get : unit -> float
+
+val glayer_long_tap_start_timeout_set : float -> unit
+
 (** {2 Elementary fonts} *)
 
 type text_class = {

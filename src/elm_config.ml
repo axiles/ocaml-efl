@@ -81,6 +81,12 @@ external clouseau_enabled_set : bool -> unit =
 external indicator_service_get : int -> string =
   "ml_elm_config_indicator_service_get"
 
+external glayer_long_tap_start_timeout_get : unit -> float =
+  "ml_elm_config_glayer_long_tap_start_timeout_get"
+
+external glayer_long_tap_start_timeout_set : float -> unit =
+  "ml_elm_config_glayer_long_tap_start_timeout_set"
+
 (* Elementary fonts *)
 
 type text_class = {
