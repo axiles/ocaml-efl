@@ -142,6 +142,17 @@ PREFIX value ml_elm_config_mirrored_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_clouseau_enabled_get(value v_unit)
+{
+        return Val_bool(elm_config_clouseau_enabled_get());
+}
+
+PREFIX value ml_elm_config_clouseau_enabled_set(value v_flag)
+{
+        elm_config_clouseau_enabled_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Elementary Fonts */
 
 PREFIX inline value copy_Elm_Text_Class(Elm_Text_Class* c)

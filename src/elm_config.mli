@@ -58,6 +58,10 @@ val mirrored_get : unit -> bool
 
 val mirrored_set : bool -> unit
 
+val clouseau_enabled_get : unit -> bool
+
+val clouseau_enabled_set : bool -> unit
+
 (** {2 Elementary fonts} *)
 
 type text_class = {

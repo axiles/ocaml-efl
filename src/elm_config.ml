@@ -72,6 +72,12 @@ external mirrored_get : unit -> bool = "ml_elm_config_mirrored_get"
 
 external mirrored_set : bool -> unit = "ml_elm_config_mirrored_set"
 
+external clouseau_enabled_get : unit -> bool =
+  "ml_elm_config_clouseau_enabled_get"
+
+external clouseau_enabled_set : bool -> unit =
+  "ml_elm_config_clouseau_enabled_set"
+
 (* Elementary fonts *)
 
 type text_class = {
