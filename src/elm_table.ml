@@ -10,3 +10,15 @@ external padding_set : Evas.obj -> int -> int -> unit =
 
 external padding_get : Evas.obj -> int * int = "ml_elm_table_padding_get"
 
+external pack : Evas.obj -> Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_elm_table_pack_bytecode" "ml_elm_table_pack_native"
+
+external unpack : Evas.obj -> Evas.obj -> unit = "ml_elm_table_unpack"
+
+external clear : Evas.obj -> bool -> unit = "ml_elm_table_clear"
+
+external pack_set : Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_elm_table_pack_set"
+
+external pack_get : Evas.obj -> int * int * int * int = "ml_elm_table_pack_get"
+
