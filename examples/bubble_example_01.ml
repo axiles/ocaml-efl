@@ -19,7 +19,7 @@ let () =
   let win = Elm_win.add "bubble" `basic in
   Elm_win.title_set win "bubble";
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  Elm.policy_quit_set `last_window_closed;
   Evas_object.resize win 300 200;
   Evas_object.show win;
 

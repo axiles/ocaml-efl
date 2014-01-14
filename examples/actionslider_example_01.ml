@@ -30,7 +30,7 @@ let () =
   let win = Elm_win.add "actionslider" `basic in
   Elm_win.title_set win "Actionslider";
   Elm_win.autodel_set win true;
-  Elm.policy_set `quit `last_window_closed;
+  Elm.policy_quit_set `last_window_closed;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

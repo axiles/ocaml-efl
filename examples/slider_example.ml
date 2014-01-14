@@ -13,7 +13,7 @@ let indicator_format x = sprintf "%1.2f u" x
 
 let () =
   Elm.init ();
-  Elm.policy_set `quit `last_window_closed;
+  Elm.policy_quit_set `last_window_closed;
 
   let win = Elm_win.util_standard_add "slider" "Slider Example" in
   Elm_win.autodel_set win true;

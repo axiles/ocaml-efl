@@ -20,9 +20,11 @@ type focus_direction = [
 
 (** {2 General} *)
 
-type policy = [`quit]
+type policy_quit = [`none | `last_window_closed]
 
-type policy_value = [`none | `last_window_closed]
+type policy_exit = [`none | `windows_del]
+
+type policy_throttle = [`config | `hidden_always | `never]
 
 val init : unit -> unit
 
@@ -32,11 +34,23 @@ val run : unit -> unit
 
 val exit : unit -> unit
 
-val policy_set_bool : policy -> policy_value -> bool
+val policy_quit_set_bool : policy_quit -> bool
 
-val policy_set : policy -> policy_value -> unit
+val policy_quit_set : policy_quit -> unit
 
-val policy_get : policy -> policy_value
+val policy_exit_set_bool : policy_exit -> bool
+
+val policy_exit_set : policy_exit -> unit
+
+val policy_throttle_set_bool : policy_throttle -> bool
+
+val policy_throttle_set : policy_throttle -> unit
+
+val policy_quit_get : unit -> policy_quit
+
+val policy_exit_get : unit -> policy_exit
+
+val policy_throttle_get : unit -> policy_throttle
 
 val language_set : string -> unit
 

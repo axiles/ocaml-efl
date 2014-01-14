@@ -19,9 +19,11 @@ type focus_direction = [
 
 (* General *)
 
-type policy = [`quit]
+type policy_quit = [`none | `last_window_closed]
 
-type policy_value = [`none | `last_window_closed]
+type policy_exit = [`none | `windows_del]
+
+type policy_throttle = [`config | `hidden_always | `never]
 
 external init_with_counter : string array -> int = "ml_elm_init_with_counter"
 
@@ -33,13 +35,25 @@ external run : unit -> unit = "ml_elm_run"
 
 external exit : unit -> unit = "ml_elm_exit"
 
-external policy_set_bool : policy -> policy_value -> bool = "ml_elm_policy_set"
+external policy_quit_set_bool : policy_quit -> bool = "ml_elm_policy_quit_set"
 
-let policy_set p pv =
-  let (_ : bool) = policy_set_bool p pv in
-  ()
+let policy_quit_set x = ignore (policy_quit_set_bool x : bool)
 
-external policy_get : policy -> policy_value = "ml_elm_policy_get"
+external policy_exit_set_bool : policy_exit -> bool = "ml_elm_policy_exit_set"
+
+let policy_exit_set x = ignore (policy_exit_set_bool x : bool)
+
+external policy_throttle_set_bool : policy_throttle -> bool =
+  "ml_elm_policy_throttle_set"
+
+let policy_throttle_set x = ignore (policy_throttle_set_bool x : bool)
+
+external policy_quit_get : unit -> policy_quit = "ml_elm_policy_quit_set"
+
+external policy_exit_get : unit -> policy_exit = "ml_elm_policy_exit_set"
+
+external policy_throttle_get : unit -> policy_throttle =
+  "ml_elm_policy_throttle_set"
 
 external language_set : string -> unit = "ml_elm_language_set"
 

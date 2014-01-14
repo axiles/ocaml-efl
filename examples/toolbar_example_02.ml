@@ -9,7 +9,7 @@ let item_pressed obj ptr =
 
 let () =
   Elm.init ();
-  Elm.policy_set `quit `last_window_closed;
+  Elm.policy_quit_set `last_window_closed;
 
   let win = Elm_win.util_standard_add "toolbar" "Toolbar Example" in
   Elm_win.autodel_set win true;

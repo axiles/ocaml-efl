@@ -22,7 +22,7 @@ let add_button window box list text =
 
 let () =
   Elm.init ();
-  Elm.policy_set `quit `last_window_closed;
+  Elm.policy_quit_set `last_window_closed;
   let window = Elm_win.add "two buttons" `basic in
   Elm_win.autodel_set window true;
 

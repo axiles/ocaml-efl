@@ -55,27 +55,18 @@ PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
 
 /* General */
 
-PREFIX inline unsigned int Elm_Policy_val(value v)
-{
-        switch(v) {
-                case Val_quit: return ELM_POLICY_QUIT;
-        }
-        caml_failwith("Elm_Policy_val");
-        return 0;
-}
-
-PREFIX inline int Elm_Policy_Value_val(value v)
+PREFIX inline int Elm_Policy_Quit_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_POLICY_QUIT_NONE;
                 case Val_last_window_closed:
                                return ELM_POLICY_QUIT_LAST_WINDOW_CLOSED;
         }
-        caml_failwith("Elm_Policy_Value_val");
+        caml_failwith("Elm_Policy_Quit_val");
         return ELM_POLICY_QUIT_NONE;
 }
 
-PREFIX inline value Val_Elm_Policy_Value(int pv)
+PREFIX inline value Val_Elm_Policy_Quit(int pv)
 {
         switch(pv) {
                 case ELM_POLICY_QUIT_NONE: return Val_none;
@@ -83,8 +74,56 @@ PREFIX inline value Val_Elm_Policy_Value(int pv)
                         return Val_last_window_closed;
                 default: break;
         }
-        caml_failwith("Val_Elm_Policy_Value");
+        caml_failwith("Val_Elm_Policy_Quit");
         return Val_none;
+}
+
+PREFIX inline int Elm_Policy_Exit_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_POLICY_EXIT_NONE;
+                case Val_windows_del: return ELM_POLICY_EXIT_WINDOWS_DEL;
+                default: break;
+        }
+        caml_failwith("Elm_Policy_Exit_val");
+        return ELM_POLICY_EXIT_NONE;
+}
+
+PREFIX inline value Val_Elm_Policy_Exit(int pv)
+{
+        switch(pv) {
+                case ELM_POLICY_EXIT_NONE: return Val_none;
+                case ELM_POLICY_EXIT_WINDOWS_DEL: return Val_windows_del;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Policy_Exit");
+        return Val_none;
+}
+
+PREFIX inline int Elm_Policy_Throttle_val(value v)
+{
+        switch(v) {
+                case Val_config: return ELM_POLICY_THROTTLE_CONFIG;
+                case Val_hidden_always:
+                        return ELM_POLICY_THROTTLE_HIDDEN_ALWAYS;
+                case Val_never: return ELM_POLICY_THROTTLE_NEVER;
+                default: break;
+        }
+        caml_failwith("Elm_Policy_Throttle_val");
+        return ELM_POLICY_THROTTLE_CONFIG;
+}
+
+PREFIX inline value Val_Elm_Policy_Throttle(int pv)
+{
+        switch(pv) {
+                case ELM_POLICY_THROTTLE_CONFIG: return Val_config;
+                case ELM_POLICY_THROTTLE_HIDDEN_ALWAYS:
+                        return Val_hidden_always;
+                case ELM_POLICY_THROTTLE_NEVER: return Val_never;
+                default: break;
+        }
+        caml_failwith("Val_Elm_Policy_Throttle");
+        return Val_config;
 }
 
 Ecore_Select_Function original_select_function = NULL;
@@ -141,15 +180,37 @@ PREFIX value ml_elm_exit(value v_unit)
         return Val_unit;
 }
 
-PREFIX value ml_elm_policy_set(value v_policy, value v_value)
+PREFIX value ml_elm_policy_quit_set(value v_pv)
 {
-        return Val_Eina_Bool(elm_policy_set(Elm_Policy_val(v_policy),
-                Elm_Policy_Value_val(v_value)));
+        return Val_bool(elm_policy_set(ELM_POLICY_QUIT,
+                Elm_Policy_Quit_val(v_pv)));
 }
 
-PREFIX value ml_elm_policy_get(value v_policy)
+PREFIX value ml_elm_policy_quit_get(value v_unit)
 {
-        return Val_Elm_Policy_Value(elm_policy_get(Elm_Policy_val(v_policy)));
+        return Val_Elm_Policy_Quit(elm_policy_get(ELM_POLICY_QUIT));
+}
+
+PREFIX value ml_elm_policy_exit_set(value v_pv)
+{
+        return Val_bool(elm_policy_set(ELM_POLICY_EXIT,
+                Elm_Policy_Exit_val(v_pv)));
+}
+
+PREFIX value ml_elm_policy_exit_get(value v_unit)
+{
+        return Val_Elm_Policy_Exit(elm_policy_get(ELM_POLICY_EXIT));
+}
+
+PREFIX value ml_elm_policy_throttle_set(value v_pv)
+{
+        return Val_bool(elm_policy_set(ELM_POLICY_THROTTLE,
+                Elm_Policy_Throttle_val(v_pv)));
+}
+
+PREFIX value ml_elm_policy_throttle_get(value v_unit)
+{
+        return Val_Elm_Policy_Throttle(elm_policy_get(ELM_POLICY_THROTTLE));
 }
 
 PREFIX value ml_elm_language_set(value v_lang)

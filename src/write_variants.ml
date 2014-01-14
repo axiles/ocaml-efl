@@ -28,6 +28,7 @@ let () =
   g "close";
   g "combo";
   g "compress";
+  g "config";
   g "content";
   g "datetime";
   g "decelerate";
@@ -59,6 +60,7 @@ let () =
   g "group";
   g "hard";
   g "hex";
+  g "hidden_always";
   g "hide";
   g "horizontal";
   g "host";
@@ -91,6 +93,7 @@ let () =
   g "n_taps";
   g "n_triple_taps";
   g "neither";
+  g "never";
   g "next";
   g "no_block";
   g "no_image";
@@ -113,7 +116,6 @@ let () =
   g "plaintext";
   g "popup_menu";
   g "previous";
-  g "quit";
   g "right";
   g "rotate";
   g "rotate_180";
@@ -153,6 +155,7 @@ let () =
   g "url";
   g "utility";
   g "vertical";
+  g "windows_del";
   g "word";
   g "x";
   g "y";
