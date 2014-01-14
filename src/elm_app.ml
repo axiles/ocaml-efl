@@ -14,5 +14,17 @@ external compile_data_dir_set : string -> unit =
 
 external compile_locale_set : string -> unit = "ml_elm_app_compile_locale_set"
 
+external name_get : unit -> string = "ml_elm_app_name_get"
+
+external desktop_entry_get : unit -> string = "ml_elm_app_desktop_entry_get"
+
+external prefix_dir_get : unit -> string = "ml_elm_app_prefix_dir_get"
+
+external bin_dir_get : unit -> string = "ml_elm_app_bin_dir_get"
+
+external lib_dir_get : unit -> string = "ml_elm_app_lib_dir_get"
+
 external data_dir_get : unit -> string = "ml_elm_app_data_dir_get"
+
+external locale_dir_get : unit -> string = "ml_elm_app_locale_dir_get"
 

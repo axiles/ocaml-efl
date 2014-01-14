@@ -45,8 +45,38 @@ PREFIX value ml_elm_app_compile_locale_set(value v_compile_locale_dir)
         return Val_unit;
 }
 
+PREFIX value ml_elm_app_name_get(value v_unit)
+{
+        return copy_string(elm_app_name_get());
+}
+
+PREFIX value ml_elm_app_desktop_entry_get(value v_unit)
+{
+        return copy_string(elm_app_desktop_entry_get());
+}
+
+PREFIX value ml_elm_app_prefix_dir_get(value v_unit)
+{
+        return copy_string(elm_app_prefix_dir_get());
+}
+
+PREFIX value ml_elm_app_bin_dir_get(value v_unit)
+{
+        return copy_string(elm_app_bin_dir_get());
+}
+
+PREFIX value ml_elm_app_lib_dir_get(value v_unit)
+{
+        return copy_string(elm_app_lib_dir_get());
+}
+
 PREFIX value ml_elm_app_data_dir_get(value v_unit)
 {
         return copy_string(elm_app_data_dir_get());
+}
+
+PREFIX value ml_elm_app_locale_dir_get(value v_unit)
+{
+        return copy_string(elm_app_locale_dir_get());
 }
 
