@@ -62,6 +62,8 @@ val clouseau_enabled_get : unit -> bool
 
 val clouseau_enabled_set : bool -> unit
 
+val indicator_service_get : int -> string
+
 (** {2 Elementary fonts} *)
 
 type text_class = {

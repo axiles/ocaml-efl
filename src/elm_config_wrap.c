@@ -153,6 +153,11 @@ PREFIX value ml_elm_config_clouseau_enabled_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_indicator_service_get(value v_rot)
+{
+        return copy_string(elm_config_indicator_service_get(Int_val(v_rot)));
+}
+
 /* Elementary Fonts */
 
 PREFIX inline value copy_Elm_Text_Class(Elm_Text_Class* c)

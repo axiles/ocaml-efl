@@ -78,6 +78,9 @@ external clouseau_enabled_get : unit -> bool =
 external clouseau_enabled_set : bool -> unit =
   "ml_elm_config_clouseau_enabled_set"
 
+external indicator_service_get : int -> string =
+  "ml_elm_config_indicator_service_get"
+
 (* Elementary fonts *)
 
 type text_class = {
