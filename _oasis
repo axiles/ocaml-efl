@@ -68,7 +68,8 @@ Library efl
     Elm_gesture_layer,
     Elm_panes,
     Elm_transit,
-    Elm_table
+    Elm_table,
+    Elm_fileselector_button
   CSources:
     include.h,
     eina_wrap.c,
@@ -129,7 +130,8 @@ Library efl
     elm_gesture_layer_wrap.c,
     elm_panes_wrap.c,
     elm_transit_wrap.c,
-    elm_table_wrap.c
+    elm_table_wrap.c,
+    elm_fileselector_button_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
