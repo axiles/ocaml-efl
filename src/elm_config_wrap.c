@@ -169,6 +169,17 @@ PREFIX value ml_elm_config_glayer_long_tap_start_timeout_set(value v_x)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_glayer_double_tap_timeout_get(value v_unit)
+{
+        return copy_double(elm_config_glayer_double_tap_timeout_get());
+}
+
+PREFIX value ml_elm_config_glayer_double_tap_timeout_set(value v_x)
+{
+        elm_config_glayer_double_tap_timeout_set(Double_val(v_x));
+        return Val_unit;
+}
+
 /* Elementary Fonts */
 
 PREFIX inline value copy_Elm_Text_Class(Elm_Text_Class* c)

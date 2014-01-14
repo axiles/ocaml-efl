@@ -87,6 +87,12 @@ external glayer_long_tap_start_timeout_get : unit -> float =
 external glayer_long_tap_start_timeout_set : float -> unit =
   "ml_elm_config_glayer_long_tap_start_timeout_set"
 
+external glayer_double_tap_timeout_get : unit -> float =
+  "ml_elm_config_glayer_double_tap_timeout_get"
+
+external glayer_double_tap_timeout_set : float -> unit =
+  "ml_elm_config_glayer_double_tap_timeout_set"
+
 (* Elementary fonts *)
 
 type text_class = {

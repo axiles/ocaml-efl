@@ -68,6 +68,10 @@ val glayer_long_tap_start_timeout_get : unit -> float
 
 val glayer_long_tap_start_timeout_set : float -> unit
 
+val glayer_double_tap_timeout_get : unit -> float
+
+val glayer_double_tap_timeout_set : float -> unit
+
 (** {2 Elementary fonts} *)
 
 type text_class = {
