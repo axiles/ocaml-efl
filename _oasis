@@ -409,3 +409,15 @@ Executable panes_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: panes_example.ml
+Executable table_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: table_example_01.ml
+Executable table_example_02
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: table_example_02.ml
