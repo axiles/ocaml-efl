@@ -67,7 +67,8 @@ Library efl
     Elm_conformant,
     Elm_gesture_layer,
     Elm_panes,
-    Elm_transit
+    Elm_transit,
+    Elm_table
   CSources:
     include.h,
     eina_wrap.c,
@@ -127,7 +128,8 @@ Library efl
     elm_conformant_wrap.c,
     elm_gesture_layer_wrap.c,
     elm_panes_wrap.c,
-    elm_transit_wrap.c
+    elm_transit_wrap.c,
+    elm_table_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
