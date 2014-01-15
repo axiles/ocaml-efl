@@ -242,6 +242,20 @@ PREFIX value ml_elm_object_translatable_part_text_get(
         return copy_string(text);
 }
 
+PREFIX value ml_elm_object_domain_part_text_translatable_set(
+        value v_obj, value v_part, value v_domain, value v_flag)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        const char* domain;
+        if(v_domain == Val_int(0)) domain = NULL;
+        else domain = String_val(Field(v_domain, 0));
+        elm_object_domain_part_text_translatable_set((Evas_Object*) v_obj, part,
+                domain, Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_text_set(value v_obj, value v_text)
 {
         elm_object_text_set((Evas_Object*) v_obj, String_val(v_text));

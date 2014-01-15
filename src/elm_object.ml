@@ -85,6 +85,10 @@ external domain_translatable_part_text_set :
 external translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string =
   "ml_elm_object_translatable_part_text_get"
 
+external domain_part_text_translatable_set :
+  Evas.obj -> ?part:string -> ?domain:string -> bool -> unit =
+    "ml_elm_object_domain_part_text_translatable_set"
+
 external text_set : Evas.obj -> string -> unit = "ml_elm_object_text_set"
 
 external part_text_set : Evas.obj -> ?p:string -> string -> unit =

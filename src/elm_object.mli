@@ -66,6 +66,9 @@ val domain_translatable_part_text_set :
 
 val translatable_part_text_get : Evas.obj -> ?p:string -> unit -> string
 
+val domain_part_text_translatable_set :
+  Evas.obj -> ?part:string -> ?domain:string -> bool -> unit
+
 val text_set : Evas.obj -> string -> unit
 
 val part_text_set : Evas.obj -> ?p:string -> string -> unit
