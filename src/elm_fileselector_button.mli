@@ -30,3 +30,10 @@ val inwin_mode_set : Evas.obj -> bool -> unit
 
 val inwin_mode_get : Evas.obj -> bool
 
+module E : sig
+  type u = Evas.Event_type.u
+  type 'a v = 'a Evas.Event_type.v
+  val file_chosen : string v
+  val language_changed : u
+end
+
