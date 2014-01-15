@@ -8,3 +8,7 @@ val window_size_set : Evas.obj -> int -> int -> unit
 
 val window_size_get : Evas.obj -> int * int
 
+val path_set : Evas.obj -> string -> unit
+
+val path_get : Evas.obj -> string
+

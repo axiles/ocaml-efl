@@ -12,3 +12,8 @@ external window_size_set : Evas.obj -> int -> int -> unit =
 external window_size_get : Evas.obj -> int * int =
   "ml_elm_fileselector_button_window_size_get"
 
+external path_set : Evas.obj -> string -> unit =
+  "ml_elm_fileselector_button_path_set"
+
+external path_get : Evas.obj -> string = "ml_elm_fileselector_button_path_get"
+

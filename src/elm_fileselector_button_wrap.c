@@ -39,3 +39,16 @@ PREFIX value ml_elm_fileselector_button_window_size_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_fileselector_button_path_set(value v_obj, value v_path)
+{
+        elm_fileselector_button_path_set((Evas_Object*) v_obj,
+                String_val(v_path));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_button_path_get(value v_obj)
+{
+        return copy_string(elm_fileselector_button_path_get(
+                (Evas_Object*) v_obj));
+}
+
