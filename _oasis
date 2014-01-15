@@ -423,3 +423,8 @@ Executable table_example_02
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: table_example_02.ml
+Executable fileselector_button_example
+  Path: examples
+  Install$: flag(install_examples)
+  BuildDepends: efl
+  MainIs: fileselector_button_example.ml

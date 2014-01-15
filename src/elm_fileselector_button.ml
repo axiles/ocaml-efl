@@ -45,7 +45,7 @@ module E = struct
   type u = Evas.Event_type.u
   type 'a v = 'a Evas.Event_type.v
   let f = Evas.Event_type.create_unit
-  let g x = Evas.Event_type.create x Evas.string_of_ptr
+  let g x = Evas.Event_type.create x Evas.string_opt_of_ptr
   let file_chosen = g "file,chosen"
   let language_changed = f "language,changed"
 end
