@@ -29,3 +29,9 @@ external folder_only_set : Evas.obj -> bool -> unit =
 external folder_only_get : Evas.obj -> bool =
   "ml_elm_fileselector_button_folder_only_get"
 
+external is_save_set : Evas.obj -> bool -> unit =
+  "ml_elm_fileselector_button_is_save_set"
+
+external is_save_get : Evas.obj -> bool =
+  "ml_elm_fileselector_button_is_save_get"
+
