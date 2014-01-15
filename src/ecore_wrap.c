@@ -82,9 +82,10 @@ PREFIX value ml_ecore_timer_add(value v_x, value v_fun)
 PREFIX value ml_ecore_main_loop_thread_safe_call_sync(value v_fun)
 {
         CAMLparam1(v_fun);
-        caml_release_runtime_system();
+        Eina_Bool is_main_loop = eina_main_loop_is();
+        if(!is_main_loop) caml_release_runtime_system();
         ecore_main_loop_thread_safe_call_sync(ml_Ecore_Cb, &v_fun);
-        caml_acquire_runtime_system();
+        if(!is_main_loop) caml_acquire_runtime_system();
         CAMLreturn(Val_unit);
 }
 
