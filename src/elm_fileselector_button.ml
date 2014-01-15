@@ -35,3 +35,9 @@ external is_save_set : Evas.obj -> bool -> unit =
 external is_save_get : Evas.obj -> bool =
   "ml_elm_fileselector_button_is_save_get"
 
+external inwin_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_fileselector_button_inwin_mode_set"
+
+external inwin_mode_get : Evas.obj -> bool =
+  "ml_elm_fileselector_button_inwin_mode_get"
+

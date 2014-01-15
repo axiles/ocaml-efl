@@ -1,3 +1,5 @@
+(** elm_fileselector_button_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val window_title_set : Evas.obj -> string -> unit
@@ -23,4 +25,8 @@ val folder_only_get : Evas.obj -> bool
 val is_save_set : Evas.obj -> bool -> unit
 
 val is_save_get : Evas.obj -> bool
+
+val inwin_mode_set : Evas.obj -> bool -> unit
+
+val inwin_mode_get : Evas.obj -> bool
 
