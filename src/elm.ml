@@ -57,67 +57,7 @@ external policy_throttle_get : unit -> policy_throttle =
 
 external language_set : string -> unit = "ml_elm_language_set"
 
-(* Theme *)
-
-type theme
-
-(* Need *)
-
-external need_efreet : unit -> bool = "ml_elm_need_efreet"
-
-external need_systray : unit -> bool = "ml_elm_need_systray"
-
-external need_sys_notify : unit -> bool = "ml_elm_need_sys_notify"
-
-external need_eldbus : unit -> bool = "ml_elm_need_eldbus"
-
-external need_elocation : unit -> bool = "ml_elm_need_elocation"
-
-external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
-
-external need_web : unit -> bool = "ml_elm_need_web"
-
-(* Others *)
-
-type wrap_type = [`none | `char | `word | `mixed]
-
-type text_format = [`plain_utf8 | `markup_utf8]
-
-type input_panel_layout = [
-  | `normal
-  | `number
-  | `email
-  | `url
-  | `phonenumber
-  | `ip
-  | `month
-  | `numberonly
-  | `invalid
-  | `hex
-  | `terminal
-  | `password
-  | `datetime
-]
-
-type autocapital_type = [`none | `word | `sentence | `allcharacter]
-
-type input_panel_lang = [`automatic | `alphabet]
-
-type input_panel_return_key_type = [
-  | `default
-  | `_done
-  | `go
-  | `join
-  | `login
-  | `next
-  | `search
-  | `send
-  | `signin
-]
-
-type cnp_mode = [`markup | `no_image | `plaintext]
-
-type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+(* Gesture Layer *)
 
 type gesture_type = [
   | `n_taps
@@ -191,6 +131,72 @@ module Gesture_rotate_info = struct
   }
   external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Rotate_Info_of_ptr"
 end
+
+(* Theme *)
+
+type theme
+
+(* Need *)
+
+external need_efreet : unit -> bool = "ml_elm_need_efreet"
+
+external need_systray : unit -> bool = "ml_elm_need_systray"
+
+external need_sys_notify : unit -> bool = "ml_elm_need_sys_notify"
+
+external need_eldbus : unit -> bool = "ml_elm_need_eldbus"
+
+external need_elocation : unit -> bool = "ml_elm_need_elocation"
+
+external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
+
+external need_web : unit -> bool = "ml_elm_need_web"
+
+(* Entry *)
+
+type wrap_type = [`none | `char | `word | `mixed]
+
+type text_format = [`plain_utf8 | `markup_utf8]
+
+type input_panel_layout = [
+  | `normal
+  | `number
+  | `email
+  | `url
+  | `phonenumber
+  | `ip
+  | `month
+  | `numberonly
+  | `invalid
+  | `hex
+  | `terminal
+  | `password
+  | `datetime
+]
+
+type autocapital_type = [`none | `word | `sentence | `allcharacter]
+
+type input_panel_lang = [`automatic | `alphabet]
+
+type input_panel_return_key_type = [
+  | `default
+  | `_done
+  | `go
+  | `join
+  | `login
+  | `next
+  | `search
+  | `send
+  | `signin
+]
+
+type cnp_mode = [`markup | `no_image | `plaintext]
+
+(* Window *)
+
+type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+
+(* Transit *)
 
 type transit
 

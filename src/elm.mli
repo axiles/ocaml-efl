@@ -54,67 +54,7 @@ val policy_throttle_get : unit -> policy_throttle
 
 val language_set : string -> unit
 
-(** {2 Theme} *)
-
-type theme
-
-(** {2 Need} *)
-
-val need_efreet : unit -> bool
-
-val need_systray : unit -> bool
-
-val need_sys_notify : unit -> bool
-
-val need_eldbus : unit -> bool
-
-val need_elocation : unit -> bool
-
-val need_ethumb : unit -> bool
-
-val need_web : unit -> bool
-
-(** {2 Others} *)
-
-type text_format = [`plain_utf8 | `markup_utf8]
-
-type wrap_type = [`none | `char | `word | `mixed]
-
-type input_panel_layout = [
-  | `normal
-  | `number
-  | `email
-  | `url
-  | `phonenumber
-  | `ip
-  | `month
-  | `numberonly
-  | `invalid
-  | `hex
-  | `terminal
-  | `password
-  | `datetime
-]
-
-type input_panel_lang = [`automatic | `alphabet]
-
-type autocapital_type = [`none | `word | `sentence | `allcharacter]
-
-type input_panel_return_key_type = [
-  | `default
-  | `_done
-  | `go
-  | `join
-  | `login
-  | `next
-  | `search
-  | `send
-  | `signin
-]
-
-type cnp_mode = [`markup | `no_image | `plaintext]
-
-type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+(** {2 Gesture Layer} *)
 
 type gesture_type = [
   | `n_taps
@@ -189,7 +129,71 @@ module Gesture_rotate_info : sig
   val of_ptr : Evas.ptr -> t
 end
 
-type transit
+(** {2 Theme} *)
 
-val init_with_counter : string array -> int
+type theme
+
+(** {2 Need} *)
+
+val need_efreet : unit -> bool
+
+val need_systray : unit -> bool
+
+val need_sys_notify : unit -> bool
+
+val need_eldbus : unit -> bool
+
+val need_elocation : unit -> bool
+
+val need_ethumb : unit -> bool
+
+val need_web : unit -> bool
+
+(** Entry *)
+
+type text_format = [`plain_utf8 | `markup_utf8]
+
+type wrap_type = [`none | `char | `word | `mixed]
+
+type input_panel_layout = [
+  | `normal
+  | `number
+  | `email
+  | `url
+  | `phonenumber
+  | `ip
+  | `month
+  | `numberonly
+  | `invalid
+  | `hex
+  | `terminal
+  | `password
+  | `datetime
+]
+
+type input_panel_lang = [`automatic | `alphabet]
+
+type autocapital_type = [`none | `word | `sentence | `allcharacter]
+
+type input_panel_return_key_type = [
+  | `default
+  | `_done
+  | `go
+  | `join
+  | `login
+  | `next
+  | `search
+  | `send
+  | `signin
+]
+
+type cnp_mode = [`markup | `no_image | `plaintext]
+
+(** {2 Window *)
+
+type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+
+(** {2 Transit} *)
+
+type transit
 
