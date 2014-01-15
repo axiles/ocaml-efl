@@ -99,6 +99,10 @@ val signal_callback_add : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
 val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
+val orientation_mode_disabled_set : Evas.obj -> bool -> unit
+
+val orientation_mode_disabled_get : Evas.obj -> bool
+
 val item_widget_get : item -> Evas.obj
 
 val item_content_set : item -> Evas.obj -> unit

@@ -134,6 +134,12 @@ external signal_callback_del :
   Evas.obj -> string -> string -> Edje.signal_cb -> unit =
   "ml_elm_object_signal_callback_del"
 
+external orientation_mode_disabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_orientation_mode_disabled_set"
+
+external orientation_mode_disabled_get : Evas.obj -> bool =
+  "ml_elm_object_orientation_mode_disabled_get"
+
 external item_widget_get : item -> Evas.obj = "ml_elm_object_item_widget_get"
 
 external item_content_set : item -> Evas.obj -> unit =
