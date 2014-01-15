@@ -23,3 +23,9 @@ external expandable_set : Evas.obj -> bool -> unit =
 external expandable_get : Evas.obj -> bool =
   "ml_elm_fileselector_button_expandable_get"
 
+external folder_only_set : Evas.obj -> bool -> unit =
+  "ml_elm_fileselector_button_folder_only_set"
+
+external folder_only_get : Evas.obj -> bool =
+  "ml_elm_fileselector_button_folder_only_get"
+

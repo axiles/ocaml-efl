@@ -16,3 +16,7 @@ val expandable_set : Evas.obj -> bool -> unit
 
 val expandable_get : Evas.obj -> bool
 
+val folder_only_set : Evas.obj -> bool -> unit
+
+val folder_only_get : Evas.obj -> bool
+
