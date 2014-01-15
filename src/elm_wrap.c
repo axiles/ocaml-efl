@@ -219,10 +219,40 @@ PREFIX value ml_elm_language_set(value v_lang)
         return Val_unit;
 }
 
-/* Others */
+/* Need */
+
+PREFIX value ml_elm_need_efreet(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_efreet());
+}
+
+PREFIX value ml_elm_need_systray(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_systray());
+}
+
+PREFIX value ml_elm_need_sys_notify(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_sys_notify());
+}
+
+PREFIX value ml_elm_need_eldbus(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_eldbus());
+}
+
+PREFIX value ml_elm_need_elocation(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_elocation());
+}
 
 PREFIX value ml_elm_need_ethumb(value v_unit)
 {
         return Val_Eina_Bool(elm_need_ethumb());
+}
+
+PREFIX value ml_elm_need_web(value v_unit)
+{
+        return Val_Eina_Bool(elm_need_web());
 }
 

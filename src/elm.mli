@@ -58,6 +58,22 @@ val language_set : string -> unit
 
 type theme
 
+(** {2 Need} *)
+
+val need_efreet : unit -> bool
+
+val need_systray : unit -> bool
+
+val need_sys_notify : unit -> bool
+
+val need_eldbus : unit -> bool
+
+val need_elocation : unit -> bool
+
+val need_ethumb : unit -> bool
+
+val need_web : unit -> bool
+
 (** {2 Others} *)
 
 type text_format = [`plain_utf8 | `markup_utf8]
@@ -176,6 +192,4 @@ end
 type transit
 
 val init_with_counter : string array -> int
-
-val need_ethumb : unit -> bool
 

@@ -61,6 +61,22 @@ external language_set : string -> unit = "ml_elm_language_set"
 
 type theme
 
+(* Need *)
+
+external need_efreet : unit -> bool = "ml_elm_need_efreet"
+
+external need_systray : unit -> bool = "ml_elm_need_systray"
+
+external need_sys_notify : unit -> bool = "ml_elm_need_sys_notify"
+
+external need_eldbus : unit -> bool = "ml_elm_need_eldbus"
+
+external need_elocation : unit -> bool = "ml_elm_need_elocation"
+
+external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
+
+external need_web : unit -> bool = "ml_elm_need_web"
+
 (* Others *)
 
 type wrap_type = [`none | `char | `word | `mixed]
@@ -177,6 +193,4 @@ module Gesture_rotate_info = struct
 end
 
 type transit
-
-external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
