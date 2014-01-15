@@ -69,7 +69,8 @@ Library efl
     Elm_panes,
     Elm_transit,
     Elm_table,
-    Elm_fileselector_button
+    Elm_fileselector_button,
+    Elm_fileselector_entry
   CSources:
     include.h,
     eina_wrap.c,
@@ -131,7 +132,8 @@ Library efl
     elm_panes_wrap.c,
     elm_transit_wrap.c,
     elm_table_wrap.c,
-    elm_fileselector_button_wrap.c
+    elm_fileselector_button_wrap.c,
+    elm_fileselector_entry_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
@@ -428,3 +430,8 @@ Executable fileselector_button_example
   Install$: flag(install_examples)
   BuildDepends: efl
   MainIs: fileselector_button_example.ml
+Executable fileselector_entry_example
+  Path: examples
+  Install$: flag(install_examples)
+  BuildDepends: efl
+  MainIs: fileselector_entry_example.ml
