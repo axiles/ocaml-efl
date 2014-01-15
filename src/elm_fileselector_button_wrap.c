@@ -52,3 +52,17 @@ PREFIX value ml_elm_fileselector_button_path_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_fileselector_button_expandable_set(
+        value v_obj, value v_flag)
+{
+        elm_fileselector_button_expandable_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_button_expandable_get(value v_obj)
+{
+        return Val_bool(elm_fileselector_button_expandable_get(
+                (Evas_Object*) v_obj));
+}
+
