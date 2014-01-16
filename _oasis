@@ -437,3 +437,9 @@ Executable fileselector_entry_example
   Install$: flag(install_examples)
   BuildDepends: efl
   MainIs: fileselector_entry_example.ml
+Executable hoversel_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: hoversel_example_01.ml
