@@ -30,3 +30,26 @@ PREFIX value ml_elm_hoversel_hover_parent_get(value v_obj)
         return (value) elm_hoversel_hover_parent_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_elm_hoversel_hover_begin(value v_obj)
+{
+        elm_hoversel_hover_begin((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_hoversel_hover_end(value v_obj)
+{
+        elm_hoversel_hover_end((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_hoversel_expanded_get(value v_obj)
+{
+        return Val_bool(elm_hoversel_expanded_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_hoversel_clear(value v_obj)
+{
+        elm_hoversel_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

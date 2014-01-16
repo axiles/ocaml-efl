@@ -10,3 +10,11 @@ val hover_parent_set : Evas.obj -> Evas.obj -> unit
 
 val hover_parent_get : Evas.obj -> Evas.obj
 
+val hover_begin : Evas.obj -> unit
+
+val hover_end : Evas.obj -> unit
+
+val expanded_get : Evas.obj -> bool
+
+val clear : Evas.obj -> unit
+
