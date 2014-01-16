@@ -19,3 +19,11 @@ external expanded_get : Evas.obj -> bool = "ml_elm_hoversel_expanded_get"
 
 external clear : Evas.obj -> unit = "ml_elm_hoversel_clear"
 
+external items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_hoversel_items_get"
+
+external item_add :
+  Evas.obj -> ?label:string -> ?icon:(string * Elm_icon.ty) ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item =
+      "ml_elm_hoversel_item_add"
+

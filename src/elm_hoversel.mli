@@ -18,3 +18,8 @@ val expanded_get : Evas.obj -> bool
 
 val clear : Evas.obj -> unit
 
+val items_get : Evas.obj -> Elm_object.item list
+
+val item_add :
+  Evas.obj -> ?label:string -> ?icon:(string * Elm_icon.ty) ->
+    ?func:Evas.smart_cb -> unit -> Elm_object.item
