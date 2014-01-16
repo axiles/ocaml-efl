@@ -7,3 +7,14 @@ PREFIX value ml_elm_hoversel_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_hoversel_horizontal_set(value v_box, value v_flag)
+{
+        elm_hoversel_horizontal_set((Evas_Object*) v_box, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_hoversel_horizontal_get(value v_obj)
+{
+        return Val_bool(elm_hoversel_horizontal_get((Evas_Object*) v_obj));
+}
+
