@@ -124,6 +124,9 @@ val item_domain_translatable_part_text_set :
 
 val item_translatable_part_text_get : item -> ?p:string -> unit -> string
 
+val item_domain_part_text_translatable_set :
+  item -> ?p:string -> ?d:string -> bool -> unit
+
 val item_access_info_set : item -> string -> unit
 
 val item_signal_emit : item -> string -> string -> unit

@@ -536,11 +536,25 @@ PREFIX value ml_elm_object_item_translatable_part_text_get(
         const char* part;
         if(v_part == Val_int(0)) part = NULL;
         else part = String_val(Field(v_part, 0));
-        char* text = elm_object_item_translatable_part_text_get(
+        const char* text = elm_object_item_translatable_part_text_get(
                 (Elm_Object_Item*) v_it, part);
         if(text == NULL)
                 caml_failwith("elm_object_item_translatable_part_text_get");
         return copy_string(text);
+}
+
+PREFIX value ml_elm_object_item_domain_part_text_translatable_set(
+        value v_it, value v_part, value v_domain, value v_flag)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        const char* domain;
+        if(v_domain == Val_int(0)) domain = NULL;
+        else domain = String_val(Field(v_domain, 0));
+        elm_object_item_domain_part_text_translatable_set(
+                (Elm_Object_Item*) v_it, part, domain, Bool_val(v_flag));
+        return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
