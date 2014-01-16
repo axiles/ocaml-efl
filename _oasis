@@ -70,7 +70,8 @@ Library efl
     Elm_transit,
     Elm_table,
     Elm_fileselector_button,
-    Elm_fileselector_entry
+    Elm_fileselector_entry,
+    Elm_hoversel
   CSources:
     include.h,
     eina_wrap.c,
@@ -133,7 +134,8 @@ Library efl
     elm_transit_wrap.c,
     elm_table_wrap.c,
     elm_fileselector_button_wrap.c,
-    elm_fileselector_entry_wrap.c
+    elm_fileselector_entry_wrap.c,
+    elm_hoversel_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
