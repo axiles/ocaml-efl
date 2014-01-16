@@ -578,6 +578,14 @@ PREFIX value ml_elm_object_item_access_unregister(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_item_access_object_get(value v_it)
+{
+        Evas_Object* obj = elm_object_item_access_object_get(
+                (Elm_Object_Item*) v_it);
+        if(obj == NULL) caml_failwith("elm_object_item_access_object_get");
+        return (value) obj;
+}
+
 PREFIX value ml_elm_object_item_signal_emit(
         value v_it, value v_emission, value v_source)
 {

@@ -133,6 +133,8 @@ val item_access_register : item -> Evas.obj
 
 val item_access_unregister : item -> unit
 
+val item_access_object_get : item -> Evas.obj
+
 val item_signal_emit : item -> string -> string -> unit
 
 val item_del : item -> unit
