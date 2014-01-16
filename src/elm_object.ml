@@ -176,6 +176,12 @@ external item_domain_part_text_translatable_set :
 external item_access_info_set : item -> string -> unit =
   "ml_elm_object_item_access_info_set"
 
+external item_access_register : item -> Evas.obj =
+  "ml_elm_object_item_access_register"
+
+external item_access_unregister : item -> unit =
+  "ml_elm_object_item_access_unregister"
+
 external item_signal_emit : item -> string -> string -> unit =
   "ml_elm_object_item_signal_emit"
 

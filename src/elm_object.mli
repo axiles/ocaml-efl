@@ -129,6 +129,10 @@ val item_domain_part_text_translatable_set :
 
 val item_access_info_set : item -> string -> unit
 
+val item_access_register : item -> Evas.obj
+
+val item_access_unregister : item -> unit
+
 val item_signal_emit : item -> string -> string -> unit
 
 val item_del : item -> unit
