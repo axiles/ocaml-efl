@@ -206,6 +206,19 @@ PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
         CAMLreturnT(Evas_Object*, content);
 }
 
+PREFIX void ml_Elm_Object_Item_Signal_Cb(
+        void* data, Elm_Object_Item* it, const char* emission,
+        const char* source)
+{
+        CAMLparam0();
+        CAMLlocal2(v_emission, v_source);
+        value* v_fun = (value*) data;
+        v_emission = copy_string(emission);
+        v_source = copy_string(source);
+        caml_callback3(*v_fun, (value) it, v_emission, v_source);
+        CAMLreturn0;
+}
+
 PREFIX void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
 {
         value* v_fun = (value*) data;
@@ -610,6 +623,18 @@ PREFIX value ml_elm_object_item_signal_emit(
 {
         elm_object_item_signal_emit((Elm_Object_Item*) v_it,
                 String_val(v_emission), String_val(v_source));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_signal_callback_add(
+        value v_it, value v_emission, value v_source, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_object_item_signal_callback_add((Elm_Object_Item*) v_it,
+                String_val(v_emission), String_val(v_source),
+                ml_Elm_Object_Item_Signal_Cb, data);
         return Val_unit;
 }
 

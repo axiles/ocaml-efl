@@ -59,6 +59,8 @@ type item
 
 type select_mode = [`default | `always | `none | `display_only]
 
+type item_signal_cb = item -> string -> string -> unit
+
 val item_of_ptr : Evas.ptr -> item
 
 val domain_translatable_part_text_set :
@@ -142,6 +144,9 @@ val item_access_order_get : item -> Evas.obj list
 val item_access_order_unset : item -> unit
 
 val item_signal_emit : item -> string -> string -> unit
+
+val item_signal_callback_add :
+  item -> string -> string -> item_signal_cb -> unit
 
 val item_del : item -> unit
 

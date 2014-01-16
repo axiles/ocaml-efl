@@ -76,6 +76,8 @@ type item
 
 type select_mode = [`default | `always | `none | `display_only]
 
+type item_signal_cb = item -> string -> string -> unit
+
 external item_of_ptr : Evas.ptr -> item = "%identity"
 
 external domain_translatable_part_text_set :
@@ -196,6 +198,10 @@ external item_access_order_unset : item -> unit =
 
 external item_signal_emit : item -> string -> string -> unit =
   "ml_elm_object_item_signal_emit"
+
+external item_signal_callback_add :
+  item -> string -> string -> item_signal_cb -> unit =
+    "ml_elm_object_item_signal_callback_add"
 
 external item_del : item -> unit = "ml_elm_object_item_del"
 
