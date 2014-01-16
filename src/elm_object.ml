@@ -185,6 +185,15 @@ external item_access_unregister : item -> unit =
 external item_access_object_get : item -> Evas.obj =
   "ml_elm_object_item_access_object_get"
 
+external item_access_order_set : item -> Evas.obj list -> unit =
+  "ml_elm_object_item_access_order_set"
+
+external item_access_order_get : item -> Evas.obj list =
+  "ml_elm_object_item_access_order_get"
+
+external item_access_order_unset : item -> unit =
+  "ml_elm_object_item_access_order_unset"
+
 external item_signal_emit : item -> string -> string -> unit =
   "ml_elm_object_item_signal_emit"
 

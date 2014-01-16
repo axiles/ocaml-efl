@@ -586,6 +586,25 @@ PREFIX value ml_elm_object_item_access_object_get(value v_it)
         return (value) obj;
 }
 
+PREFIX value ml_elm_object_item_access_order_set(value v_it, value v_list)
+{
+        elm_object_item_access_order_set((Elm_Object_Item*) v_it,
+                Eina_List_Evas_Object_val(v_list));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_access_order_get(value v_it)
+{
+        return copy_Eina_List_Evas_Object(elm_object_item_access_order_get(
+                (Elm_Object_Item*) v_it));
+}
+
+PREFIX value ml_elm_object_item_access_order_unset(value v_it)
+{
+        elm_object_item_access_order_unset((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_item_signal_emit(
         value v_it, value v_emission, value v_source)
 {

@@ -135,6 +135,12 @@ val item_access_unregister : item -> unit
 
 val item_access_object_get : item -> Evas.obj
 
+val item_access_order_set : item -> Evas.obj list -> unit
+
+val item_access_order_get : item -> Evas.obj list
+
+val item_access_order_unset : item -> unit
+
 val item_signal_emit : item -> string -> string -> unit
 
 val item_del : item -> unit
