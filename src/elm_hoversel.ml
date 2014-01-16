@@ -5,3 +5,9 @@ external horizontal_set : Evas.obj -> bool -> unit =
 
 external horizontal_get : Evas.obj -> bool = "ml_elm_hoversel_horizontal_get"
 
+external hover_parent_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_hoversel_hover_parent_set"
+
+external hover_parent_get : Evas.obj -> Evas.obj =
+  "ml_elm_hoversel_hover_parent_get"
+

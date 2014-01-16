@@ -18,3 +18,15 @@ PREFIX value ml_elm_hoversel_horizontal_get(value v_obj)
         return Val_bool(elm_hoversel_horizontal_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_hoversel_hover_parent_set(value v_obj, value v_parent)
+{
+        elm_hoversel_hover_parent_set((Evas_Object*) v_obj,
+                (Evas_Object*) v_parent);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_hoversel_hover_parent_get(value v_obj)
+{
+        return (value) elm_hoversel_hover_parent_get((Evas_Object*) v_obj);
+}
+
