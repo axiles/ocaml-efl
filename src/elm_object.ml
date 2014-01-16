@@ -240,6 +240,12 @@ external item_cursor_engine_only_set : item -> bool -> unit =
 external item_cursor_engine_only_get : item -> bool =
   "ml_elm_object_item_cursor_engine_only_get"
 
+external item_track : item -> Evas.obj = "ml_elm_object_item_track"
+
+external item_untrack : item -> unit = "ml_elm_object_item_untrack"
+
+external item_track_get : item -> int = "ml_elm_object_item_track_get"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"

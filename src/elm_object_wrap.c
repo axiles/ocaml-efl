@@ -720,6 +720,24 @@ PREFIX value ml_elm_object_item_cursor_engine_only_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_object_item_track(value v_it)
+{
+        Evas_Object* obj = elm_object_item_track((Elm_Object_Item*) v_it);
+        if(obj == NULL) caml_failwith("elm_object_item_track");
+        return (value) obj;
+}
+
+PREFIX value ml_elm_object_item_untrack(value v_it)
+{
+        elm_object_item_untrack((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_track_get(value v_it)
+{
+        return Val_int(elm_object_item_track_get((Elm_Object_Item*) v_it));
+}
+
 /* Scrollhints */
 
 PREFIX value ml_elm_object_scroll_hold_push(value v_obj)

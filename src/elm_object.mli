@@ -174,6 +174,12 @@ val item_cursor_engine_only_set : item -> bool -> unit
 
 val item_cursor_engine_only_get : item -> bool
 
+val item_track : item -> Evas.obj
+
+val item_untrack : item -> unit
+
+val item_track_get : item -> int
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit
