@@ -23,3 +23,9 @@ val items_get : Evas.obj -> Elm_object.item list
 val item_add :
   Evas.obj -> ?label:string -> ?icon:(string * Elm_icon.ty) ->
     ?func:Evas.smart_cb -> unit -> Elm_object.item
+    
+val item_icon_set :
+  Elm_object.item -> string -> ?g:string -> Elm_icon.ty -> unit
+
+val item_icon_get : Elm_object.item -> string * string option * Elm_icon.ty
+

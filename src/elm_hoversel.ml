@@ -27,3 +27,11 @@ external item_add :
     ?func:Evas.smart_cb -> unit -> Elm_object.item =
       "ml_elm_hoversel_item_add"
 
+external item_icon_set :
+  Elm_object.item -> string -> ?g:string -> Elm_icon.ty -> unit =
+    "ml_elm_hoversel_item_icon_set"
+
+external item_icon_get :
+  Elm_object.item -> string * string option * Elm_icon.ty =
+    "ml_elm_hoversel_item_icon_get"
+

@@ -98,3 +98,36 @@ PREFIX value ml_elm_hoversel_item_add(
         return (value) item;
 }
 
+PREFIX value ml_elm_hoversel_item_icon_set(
+        value v_it, value v_icon_file, value v_icon_group, value v_icon_type)
+{
+        const char* icon_group;
+        if(v_icon_group == Val_int(0)) icon_group = NULL;
+        else icon_group = String_val(Field(v_icon_group, 0));
+        elm_hoversel_item_icon_set((Elm_Object_Item*) v_it,
+                String_val(v_icon_file), icon_group,
+                Elm_Icon_Type_val(v_icon_type));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_hoversel_item_icon_get(value v_it)
+{
+        CAMLparam1(v_it);
+        CAMLlocal2(v_r, v_tmp);
+        const char* icon_file;
+        const char* icon_group;
+        Elm_Icon_Type icon_type;
+        elm_hoversel_item_icon_get((Elm_Object_Item*) v_it, &icon_file,
+                &icon_group, &icon_type);
+        v_r = caml_alloc(3, 0);
+        Store_field(v_r, 0, copy_string(icon_file));
+        if(icon_group == NULL) v_tmp = Val_int(0);
+        else {
+                v_tmp = caml_alloc(1, 0);
+                Store_field(v_tmp, 0, copy_string(icon_group));
+        }
+        Store_field(v_r, 1, v_tmp);
+        Store_field(v_r, 2, Val_Elm_Icon_Type(icon_type));
+        CAMLreturn(v_r);
+}
+
