@@ -513,6 +513,23 @@ PREFIX value ml_elm_object_item_part_text_get(
         return copy_string(text);
 }
 
+PREFIX value ml_elm_object_item_domain_translatable_part_text_set(
+        value v_it, value v_part, value v_domain, value v_text)
+{
+        const char* part;
+        if(v_part == Val_int(0)) part = NULL;
+        else part = String_val(Field(v_part, 0));
+        const char* domain;
+        if(v_domain == Val_int(0)) domain = NULL;
+        else domain = String_val(Field(v_domain, 0));
+        const char* text;
+        if(v_text == Val_int(0)) text = NULL;
+        else text = String_val(Field(v_text, 0));
+        elm_object_item_domain_translatable_part_text_set(
+                (Elm_Object_Item*) v_it, part, domain, text);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
 {
         elm_object_item_access_info_set((Elm_Object_Item*) v_it,
