@@ -64,6 +64,9 @@ external focus_next_object_set :
   Evas.obj -> Evas.obj option -> Elm.focus_direction -> unit =
     "ml_elm_object_focus_next_object_set"
 
+external focused_object_get : Evas.obj -> Evas.obj option =
+  "ml_elm_object_focused_object_get"
+
 external tree_focus_allow_get : Evas.obj -> bool =
   "ml_elm_object_tree_focus_allow_get"
 

@@ -151,6 +151,16 @@ PREFIX value ml_elm_object_focus_next_object_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_object_focused_object_get(value v_obj)
+{
+        Evas_Object* focused = elm_object_focused_object_get(
+                (Evas_Object*) v_obj);
+        if(focused == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) focused);
+        return v_r;
+}
+
 PREFIX value ml_elm_object_tree_focus_allow_set(value v_obj, value v_flag)
 {
         elm_object_tree_focus_allow_set((Evas_Object*) v_obj,
