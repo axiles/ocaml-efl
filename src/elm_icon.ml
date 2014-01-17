@@ -19,10 +19,3 @@ external order_lookup_set : Evas.obj -> lookup_order -> unit =
 external order_lookup_get : Evas.obj -> lookup_order =
   "ml_elm_icon_order_lookup_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let thumb_done = f "thumb,done"
-  let thumb_error = f "thumb,error"
-end
-

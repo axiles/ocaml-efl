@@ -16,9 +16,3 @@ val order_lookup_set : Evas.obj -> lookup_order -> unit
 
 val order_lookup_get : Evas.obj -> lookup_order
 
-module E : sig
-  type u = Evas.Event_type.u
-  val thumb_done : u
-  val thumb_error : u
-end
-
