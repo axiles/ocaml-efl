@@ -20,3 +20,16 @@ PREFIX value ml_elm_hover_target_get(value v_obj)
         return (value) target;
 }
 
+PREFIX value ml_elm_hover_parent_set(value v_obj, value v_parent)
+{
+        elm_hover_parent_set((Evas_Object*) v_obj, (Evas_Object*) v_parent);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_hover_parent_get(value v_obj)
+{
+        Evas_Object* parent = elm_hover_parent_get((Evas_Object*) v_obj);
+        if(parent == NULL) caml_failwith("elm_hover_parent_get");
+        return (value) parent;
+}
+
