@@ -14,3 +14,5 @@ val parent_get : Evas.obj -> Evas.obj
 
 val best_content_location_get : Evas.obj -> axis -> string option
 
+val dismiss : Evas.obj -> unit
+

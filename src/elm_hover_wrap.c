@@ -59,3 +59,9 @@ PREFIX value ml_elm_hover_best_content_location_get(value v_obj, value v_axis)
         CAMLreturn(v_loc);
 }
 
+PREFIX value ml_elm_hover_dismiss(value v_obj)
+{
+        elm_hover_dismiss((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
