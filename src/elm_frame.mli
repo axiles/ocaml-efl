@@ -12,8 +12,3 @@ val collapse_get : Evas.obj -> bool
 
 val collapse_go : Evas.obj -> bool -> unit
 
-module E : sig
-  type u = Evas.Event_type.u
-  val clicked : u
-end
-

@@ -35,11 +35,3 @@ external item_icon_get :
   Elm_object.item -> string * string option * Elm_icon.ty =
     "ml_elm_hoversel_item_icon_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let clicked = f "clicked"
-  let selected = f "selected"
-  let dismissed = f "dismissed"
-end
-

@@ -29,10 +29,3 @@ val item_icon_set :
 
 val item_icon_get : Elm_object.item -> string * string option * Elm_icon.ty
 
-module E : sig
-  type u = Evas.Event_type.u
-  val clicked : u
-  val selected : u
-  val dismissed : u
-end
-

@@ -11,9 +11,3 @@ external collapse_get : Evas.obj -> bool = "ml_elm_frame_collapse_get"
 
 external collapse_go : Evas.obj -> bool -> unit = "ml_elm_frame_collapse_go"
 
-module E =  struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let clicked = f "clicked"
-end
-

@@ -21,6 +21,7 @@ val clicked_triple : u
 val cursor_changed : u
 val cursor_changed_manual : u
 val directory_open : string v
+val dismissed : u
 val _done : (string option) v
 val file_chosen : (string option) v
 val focused : u
@@ -39,6 +40,7 @@ val selection_copy : u
 val selection_cut : u
 val selection_paste : u
 val selection_start : u
+val smart_changed : u
 val text_set_done : u
 val unfocused : u
 val unpressed : u

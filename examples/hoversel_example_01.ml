@@ -38,7 +38,7 @@ let () =
     ~func:print_items () : Elm_object.item);
   ignore (Elm_hoversel.item_add hoversel ~label:"Option 2"
     ~icon:("home", `standard) () : Elm_object.item);
-  Evas_object_smart.callback_add hoversel Elm_hoversel.E.clicked add_item;
+  Evas_object_smart.callback_add hoversel Elm_sig.clicked add_item;
 
   Evas_object.resize hoversel 180 30;
   Evas_object.move hoversel 10 10;
