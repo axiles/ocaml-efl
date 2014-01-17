@@ -24,9 +24,3 @@ val slide_duration_get : Evas.obj -> float
 
 val slide_go : Evas.obj -> unit
 
-module E : sig
-  type u = Evas.Event_type.u
-  val language_changed : u
-  val slide_end : u
-end
-

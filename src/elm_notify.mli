@@ -18,9 +18,3 @@ val allow_events_set : Evas.obj -> bool -> unit
 
 val allow_events_get : Evas.obj -> bool
 
-module E : sig
-  type u = Evas.Event_type.u
-  val timeout : u
-  val block_clicked : u
-end
-

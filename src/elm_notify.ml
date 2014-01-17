@@ -18,10 +18,3 @@ external allow_events_set : Evas.obj -> bool -> unit =
 
 external allow_events_get : Evas.obj -> bool = "ml_elm_notify_allow_events_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let timeout = f "timeout"
-  let block_clicked = f "block,clicked"
-end
-

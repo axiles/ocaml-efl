@@ -14,6 +14,7 @@ val anchor_down : Elm_entry.anchor_info v
 val anchor_in : Elm_entry.anchor_info v
 val anchor_out : Elm_entry.anchor_info v
 val anchor_up : Elm_entry.anchor_info v
+val block_clicked : u
 val changed : u
 val changed_user : u
 val clicked : u
@@ -49,9 +50,11 @@ val selection_cut : u
 val selection_paste : u
 val selection_start : u
 val smart_changed : u
+val slide_end : u
 val text_set_done : u
 val thumb_done : u
 val thumb_error : u
+val timeout : u
 val unfocused : u
 val unhighlighted : u
 val unpressed : u
