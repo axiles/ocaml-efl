@@ -67,21 +67,21 @@ let () =
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 1";
-  Evas_object_smart.callback_add bt Elm_button.E.clicked unpack_cb;
+  Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
   Evas_object.size_hint_set bt [`expand; `fill];
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 2";
-  Evas_object_smart.callback_add bt Elm_button.E.clicked unpack_cb;
+  Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
   Evas_object.size_hint_set bt [`hexpand; `valign 1.];
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Button 3";
-  Evas_object_smart.callback_add bt Elm_button.E.clicked unpack_cb;
+  Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
   Elm_box.pack_end bx bt;
   Evas_object.show bt;
 
@@ -93,10 +93,10 @@ let () =
     | [] -> Elm_box.pack_end bx btn
     | o :: _ -> Elm_box.pack_after bx btn o);
     Evas_object.show btn in
-  Evas_object_smart.callback_add bt_add Elm_button.E.clicked add_cb;
+  Evas_object_smart.callback_add bt_add Elm_sig.clicked add_cb;
 
   let clear_cb _ = Elm_box.clear bx in
-  Evas_object_smart.callback_add bt_clear Elm_button.E.clicked clear_cb;
+  Evas_object_smart.callback_add bt_clear Elm_sig.clicked clear_cb;
 
   Elm_box.layout_set bx Evas_object.box_layout_horizontal (fun () -> ());
   test_box_transition_change bx transitions;

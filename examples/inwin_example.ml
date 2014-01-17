@@ -53,7 +53,7 @@ let btn_clicked obj =
     Elm_object.text_set o "Hide";
     Evas_object.show o;
 
-    Evas_object_smart.callback_add o Elm_button.E.clicked inwin_hide;
+    Evas_object_smart.callback_add o Elm_sig.clicked inwin_hide;
 
     Elm_box.pack_end (Elm_inwin.content_get iw) o;
 
@@ -61,7 +61,7 @@ let btn_clicked obj =
     Elm_object.text_set o "Destroy";
     Evas_object.show o;
 
-    Evas_object_smart.callback_add o Elm_button.E.clicked inwin_destroy;
+    Evas_object_smart.callback_add o Elm_sig.clicked inwin_destroy;
 
     Elm_box.pack_end (Elm_inwin.content_get iw) o
 
@@ -107,7 +107,7 @@ let () =
   Elm_box.pack_end box o;
   Evas_object.show o;
 
-  Evas_object_smart.callback_add o Elm_button.E.clicked btn_clicked;
+  Evas_object_smart.callback_add o Elm_sig.clicked btn_clicked;
 
   if Elm_config.engine_get () = "shot" then
     (let (_ : Ecore.timer) = Ecore_timer.add 0.1 (screenshot_hack_cb o) in ());

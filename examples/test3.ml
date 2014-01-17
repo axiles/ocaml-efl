@@ -67,14 +67,14 @@ let () =
   Evas_object.size_hint_set bt [`expand; `fill];
   Elm_box.pack_end bx2 bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add bt Elm_button.E.clicked on_ok;
+  Evas_object_smart.callback_add bt Elm_sig.clicked on_ok;
 
   let bt = Elm_button.add win in
   Elm_object.text_set bt "Cancel";
   Evas_object.size_hint_set bt [`expand; `fill];
   Elm_box.pack_end bx2 bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add bt Elm_button.E.clicked on_cancel;
+  Evas_object_smart.callback_add bt Elm_sig.clicked on_cancel;
 
   Evas_object.show win;
 

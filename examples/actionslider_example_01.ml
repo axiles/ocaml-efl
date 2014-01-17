@@ -1,6 +1,6 @@
 open Efl
 open Printf
-open Elm_actionslider.E
+open Elm_sig
 
 let pos_selected_cb obj part =
   let sel = match part with

@@ -44,7 +44,7 @@ let () =
   Evas_object.resize bubble 300 100;
   Evas_object.show bubble;
 
-  Evas_object_smart.callback_add bubble Elm_bubble.E.clicked bla;
+  Evas_object_smart.callback_add bubble Elm_sig.clicked bla;
 
   let label = Elm_label.add win in
   Elm_object.text_set label "Bubble with no icon, info or label";

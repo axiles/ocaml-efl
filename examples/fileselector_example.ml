@@ -22,7 +22,7 @@ let add_check win box fs name msg f_set f_get =
   let bt = Elm_check.add win in
   Elm_object.text_set bt name;
   Elm_check.state_set bt (f_get fs);
-  Evas_object_smart.callback_add bt Elm_check.E.changed cb;
+  Evas_object_smart.callback_add bt Elm_sig.changed cb;
   Elm_box.pack_end box bt;
   Evas_object.show bt
 
@@ -30,7 +30,7 @@ let add_data_button win box fs name msg f_get =
   let cb _ = printf "%s name is: %s\n%!" msg (f_get fs) in
   let bt = Elm_button.add win in
   Elm_object.text_set bt name;
-  Evas_object_smart.callback_add bt Elm_button.E.clicked cb;
+  Evas_object_smart.callback_add bt Elm_sig.clicked cb;
   Elm_box.pack_end box bt;
   Evas_object.show bt
 

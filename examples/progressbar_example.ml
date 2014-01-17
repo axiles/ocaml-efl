@@ -1,7 +1,7 @@
 open Efl
 open Format
 open Elm_win.E
-open Elm_button.E
+open Elm_sig
 
 let run = ref false
 

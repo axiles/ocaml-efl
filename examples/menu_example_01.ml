@@ -1,5 +1,5 @@
 open Efl
-open Elm_button.E
+open Elm_sig
 
 type item = Elm_object.item
 

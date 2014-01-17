@@ -44,7 +44,7 @@ let add_cancel_btn win inwin box =
   Elm_box.pack_end box2 o;
   Evas_object.show o;
   let cancel_cb _ = Evas_object.del inwin in
-  Evas_object_smart.callback_add o Elm_button.E.clicked cancel_cb
+  Evas_object_smart.callback_add o Elm_sig.clicked cancel_cb
 
 let add_radio_box win box list q =
   let hbox = Elm_box.add win in
@@ -83,7 +83,7 @@ let add_dim_en win box name q =
   Evas_object.show e;
   let changed_cb _ =
     try q := int_of_string (Elm_object.text_get e) with _ -> () in
-  Evas_object_smart.callback_add e Elm_entry.E.changed changed_cb
+  Evas_object_smart.callback_add e Elm_sig.changed changed_cb
 
 let () =
   Elm.init ();
@@ -155,19 +155,19 @@ let () =
     markup := not !markup;
     Elm_object.focus_set en true;
     Elm_entry.cursor_pos_set en new_cursor in
-  Evas_object_smart.callback_add bformat_changed Elm_button.E.clicked
+  Evas_object_smart.callback_add bformat_changed Elm_sig.clicked
     format_changed_cb;
 
   let autosave_change_cb obj =
     let state = Elm_check.state_get obj in
     Elm_entry.autosave_set en state;
     if state then Elm_entry.file_save en in
-  Evas_object_smart.callback_add c Elm_check.E.changed autosave_change_cb;
+  Evas_object_smart.callback_add c Elm_sig.changed autosave_change_cb;
 
   let dblclick_cb _ =
     Elm_entry.cursor_line_end_set en;
     Elm_entry.select_none en in
-  Evas_object_smart.callback_add en Elm_entry.E.clicked_double dblclick_cb;
+  Evas_object_smart.callback_add en Elm_sig.clicked_double dblclick_cb;
 
   let image_insert_cb _ =
     let width = ref 64 and height = ref 64 in
@@ -265,7 +265,7 @@ let () =
         let s1 = if not !markup then Elm_entry.utf8_to_markup s else s in
         edit_buffer_insert en s1;
         Evas_object.del inwin in
-      Evas_object_smart.callback_add binsert Elm_button.E.clicked
+      Evas_object_smart.callback_add binsert Elm_sig.clicked
         btn_insert_cb in
     fill_settings ();
     let _ = Elm_naviframe.item_simple_push naviframe settings in
@@ -274,7 +274,7 @@ let () =
 
     add_cancel_btn win inwin box in
 
-  Evas_object_smart.callback_add image_insert_bt Elm_button.E.clicked
+  Evas_object_smart.callback_add image_insert_bt Elm_sig.clicked
     image_insert_cb;
 
   let win_del_cb obj = Evas_object.del obj; Elm.exit () in

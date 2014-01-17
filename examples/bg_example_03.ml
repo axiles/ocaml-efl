@@ -97,7 +97,7 @@ let () =
   let rd = Elm_check.add win in
   Elm_object.text_set rd "Show Overlay";
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_fill;
-  Evas_object_smart.callback_add rd Elm_check.E.changed
+  Evas_object_smart.callback_add rd Elm_sig.changed
     (cb_overlay_changed o_bg);
   Elm_box.pack_end hbox rd;
   Evas_object.show rd;

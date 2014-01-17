@@ -6,11 +6,3 @@ external pos_set : Evas.obj -> pos -> unit = "ml_elm_bubble_pos_set"
 
 external pos_get : Evas.obj -> pos = "ml_elm_bubble_pos_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let clicked = f "clicked"
-  let focused = f "focused"
-  let unfocused = f "unfocused"
-end
-

@@ -68,7 +68,7 @@ let () =
   Evas_object.show hbox;
 
   let add_cb ck cb =
-    Evas_object_smart.callback_add ck Elm_check.E.changed (cb fs_bt) in
+    Evas_object_smart.callback_add ck Elm_sig.changed (cb fs_bt) in
 
   let ck = Elm_check.add win in
   Elm_object.text_set ck "editable selection";

@@ -71,7 +71,8 @@ Library efl
     Elm_table,
     Elm_fileselector_button,
     Elm_fileselector_entry,
-    Elm_hoversel
+    Elm_hoversel,
+    Elm_sig
   CSources:
     include.h,
     eina_wrap.c,

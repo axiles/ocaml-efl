@@ -14,13 +14,3 @@ val autorepeat_initial_timeout_set : Evas.obj -> float -> unit
 
 val autorepeat_set : Evas.obj -> bool -> unit
 
-module E : sig
-  type u = Evas.Event_type.u
-  val clicked : u
-  val repeated : u
-  val pressed : u
-  val unpressed : u
-  val focused : u
-  val unfocused : u
-end
-

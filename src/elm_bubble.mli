@@ -8,10 +8,3 @@ val pos_set : Evas.obj -> pos -> unit
 
 val pos_get : Evas.obj -> pos
 
-module E : sig
-  type u = Evas.Event_type.u
-  val clicked : u
-  val focused : u
-  val unfocused : u
-end
-

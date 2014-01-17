@@ -19,7 +19,7 @@ let () =
 
   let cb = Elm_check.add win in
   Elm_object.text_set cb "checkbox";
-  Evas_object_smart.callback_add cb Elm_check.E.changed print;
+  Evas_object_smart.callback_add cb Elm_sig.changed print;
   Evas_object.move cb 10 10;
   Evas_object.resize cb 200 30;
   Evas_object.show cb;

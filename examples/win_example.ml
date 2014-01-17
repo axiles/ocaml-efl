@@ -12,7 +12,7 @@ let win_action win box name cb =
     Elm_object.text_set btn name;
     Elm_box.pack_end box btn;
     Evas_object.show btn;
-    Evas_object_smart.callback_add btn Elm_button.E.clicked cb
+    Evas_object_smart.callback_add btn Elm_sig.clicked cb
 
 let win_action_do win box win2 name f =
   win_action win box name (win_action_do_cb win2 f)
@@ -77,7 +77,7 @@ let main_win_del_cb obj =
   Evas_object.show btn;
 
   let yes_quit_cb _ = Elm.exit () in
-  Evas_object_smart.callback_add btn Elm_button.E.clicked yes_quit_cb;
+  Evas_object_smart.callback_add btn Elm_sig.clicked yes_quit_cb;
 
   let btn = Elm_button.add obj in
   Elm_object.text_set btn "No";
@@ -85,7 +85,7 @@ let main_win_del_cb obj =
   Evas_object.show btn;
 
   let no_quit_cb _ = Evas_object.del msg in
-  Evas_object_smart.callback_add btn Elm_button.E.clicked no_quit_cb
+  Evas_object_smart.callback_add btn Elm_sig.clicked no_quit_cb
 
 let force_focus_cb win _ =
   try Ecore.x_window_focus (Elm_win.xwindow_get win)
@@ -197,7 +197,7 @@ let () =
   Elm_object.text_set o "Focus me";
   Elm_box.pack_end bigbox o;
   Evas_object.show o;
-  Evas_object_smart.callback_add o Elm_button.E.clicked
+  Evas_object_smart.callback_add o Elm_sig.clicked
     (force_focus_cb win2);
 
   let o = Elm_label.add win in

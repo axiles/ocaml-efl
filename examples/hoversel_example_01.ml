@@ -46,7 +46,7 @@ let () =
 
   let btn = Elm_button.add win in
   Elm_object.text_set btn "Clear all items";
-  Evas_object_smart.callback_add btn Elm_button.E.clicked
+  Evas_object_smart.callback_add btn Elm_sig.clicked
     (clear_btn_clicked_cb hoversel);
   Evas_object.resize btn 180 30;
   Evas_object.move btn 10 50;

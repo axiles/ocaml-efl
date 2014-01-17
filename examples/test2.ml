@@ -31,7 +31,7 @@ let () =
   Evas_object.size_hint_weight_set btn 0. 0.;
   Elm_box.pack_end box btn;
   Evas_object.show btn;
-  Evas_object_smart.callback_add btn Elm_button.E.clicked on_done;
+  Evas_object_smart.callback_add btn Elm_sig.clicked on_done;
 
   Evas_object.show win;
 

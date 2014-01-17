@@ -21,12 +21,3 @@ external enabled_pos_set : Evas.obj -> bool -> bool -> bool -> unit =
 external enabled_pos_get : Evas.obj -> bool * bool * bool =
   "ml_elm_actionslider_enabled_pos_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  type 'a v = 'a Evas.Event_type.v
-  let f = Evas.Event_type.create_unit
-  let g x = Evas.Event_type.create x Evas.string_opt_of_ptr
-  let selected = g "selected"
-  let pos_changed = g "pos_changed"
-end
-
