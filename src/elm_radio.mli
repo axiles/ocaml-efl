@@ -22,10 +22,3 @@ val value_get : Evas.obj -> int
 
 val selected_object_get : Evas.obj -> Evas.obj
 
-module E : sig
-  type u = Evas.Event_type.u
-  val changed : u
-  val focused : u
-  val unfocused : u
-end
-

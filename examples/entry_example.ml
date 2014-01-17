@@ -59,7 +59,7 @@ let add_radio_box win box list q =
     Elm_box.pack_end hbox r;
     Evas_object.show r;
     let changed_cb _ = q := Elm_radio.value_get r in
-    Evas_object_smart.callback_add r Elm_radio.E.changed changed_cb;
+    Evas_object_smart.callback_add r Elm_sig.changed changed_cb;
     r in
   match mapi aux list with
   | [] -> ()
@@ -278,7 +278,7 @@ let () =
     image_insert_cb;
 
   let win_del_cb obj = Evas_object.del obj; Elm.exit () in
-  Evas_object_smart.callback_add win Elm_win.E.delete_request win_del_cb;
+  Evas_object_smart.callback_add win Elm_sig.delete_request win_del_cb;
 
   Elm_object.focus_set en true;
 

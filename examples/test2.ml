@@ -7,7 +7,7 @@ let () =
 
   let win = Elm_win.add "hello" `basic in
   Elm_win.title_set win "Hello";
-  Evas_object_smart.callback_add win Elm_win.E.delete_request on_done;
+  Evas_object_smart.callback_add win Elm_sig.delete_request on_done;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_set bg [`weight0];

@@ -40,7 +40,7 @@ let () =
 
   let win = Elm_win.add "fileselector" `basic in
   Elm_win.title_set win "File Selector Example";
-  Evas_object_smart.callback_add win Elm_win.E.delete_request on_done;
+  Evas_object_smart.callback_add win Elm_sig.delete_request on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

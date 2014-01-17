@@ -1,6 +1,6 @@
 open Efl
 open Format
-open Elm_win.E
+open Elm_sig
 open Elm_sig
 
 let run = ref false
@@ -68,7 +68,7 @@ let add_pb4 win bx =
   Evas_object.size_hint_set label [`center; `expand];
   Elm_box.pack_end bx label;
   Evas_object.show label;
-  Evas_object_smart.callback_add pb Elm_progressbar.E.changed
+  Evas_object_smart.callback_add pb Elm_sig.changed
     (on_changed label);
   pb
 

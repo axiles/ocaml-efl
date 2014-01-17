@@ -1,5 +1,5 @@
 open Efl
-open Elm_win.E
+open Elm_sig
 
 let on_done _ = Elm.exit ()
 

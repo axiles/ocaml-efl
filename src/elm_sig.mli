@@ -23,6 +23,8 @@ val clicked_double__item : Elm_object.item v
 val clicked_triple : u
 val cursor_changed : u
 val cursor_changed_manual : u
+val delay_changed : u
+val delete_request : u
 val directory_open : string v
 val dismissed : u
 val _done : (string option) v
@@ -33,14 +35,23 @@ val edge_right : u
 val edge_top : u
 val file_chosen : (string option) v
 val focused : u
+val fullscreen : u
 val highlighted : u
+val iconified : u
+val indicator_prop_changed : u
+val ioerr : u
 val language_changed : u
 val longpressed : u
+val maximized : u
+val moved : u
+val normal : u
 val pos_changed : (string option) v
 val preedit_changed : u
 val press : u
 val pressed : u
+val profile_changed : u
 val repeated : u
+val rotation_changed : u
 val selected : (string option) v
 val selected_invalid : u
 val selection_changed : u
@@ -51,13 +62,20 @@ val selection_paste : u
 val selection_start : u
 val smart_changed : u
 val slide_end : u
+val slider_drag_start : u
+val slider_drag_stop : u
+val stick : u
 val text_set_done : u
 val thumb_done : u
 val thumb_error : u
 val timeout : u
+val unfullscreen : u
 val unfocused : u
 val unhighlighted : u
+val unmaximized : u
 val unpressed : u
 val unselected : u
+val unstick : u
+val withdrawn : u
 
 

@@ -180,13 +180,3 @@ external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
 external select_mode_get : Evas.obj -> Elm_object.select_mode =
   "ml_elm_toolbar_select_mode_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let clicked = f "clicked"
-  let longpressed = f "longpressed"
-  let language_changed = f "language,changed"
-  let focused = f "focused"
-  let unfocused = f "unfocused"
-end
-

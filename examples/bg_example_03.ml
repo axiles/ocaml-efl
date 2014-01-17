@@ -47,7 +47,7 @@ let add_radio win box bg ?rdg name opt =
   (match rdg with Some r1 -> Elm_radio.group_add rd r1 | None -> ());
   Elm_object.text_set rd name;
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_fill;
-  Evas_object_smart.callback_add rd Elm_radio.E.changed
+  Evas_object_smart.callback_add rd Elm_sig.changed
     (cb_radio_changed bg);
   Elm_box.pack_end box rd;
   Evas_object.show rd;
@@ -66,7 +66,7 @@ let () =
   Elm_app.info_set "elementary" ~checkfile:"object/test.edj" ();
   let win = Elm_win.add "bg-options" `basic in
   Elm_win.title_set win "Bg Options";
-  Evas_object_smart.callback_add win Elm_win.E.delete_request on_done;
+  Evas_object_smart.callback_add win Elm_sig.delete_request on_done;
   Elm_win.autodel_set win true;
 
   let bg = Elm_bg.add win in

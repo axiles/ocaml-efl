@@ -93,7 +93,7 @@ let force_focus_cb win _ =
 
 let add_win_focus_cb win name =
   let cb _ = printf "Window focused: %s\n%!" name in
-  Evas_object_smart.callback_add win Elm_win.E.focused cb
+  Evas_object_smart.callback_add win Elm_sig.focused cb
 
 let () =
   Elm.init ();
@@ -105,7 +105,7 @@ let () =
   Evas_object.resize win 400 400;
   Evas_object.show win;
   add_win_focus_cb win "mainwin";
-  Evas_object_smart.callback_add win Elm_win.E.delete_request
+  Evas_object_smart.callback_add win Elm_sig.delete_request
     main_win_del_cb;
 
   let bg = Elm_bg.add win in

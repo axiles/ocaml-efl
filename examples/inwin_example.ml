@@ -88,7 +88,7 @@ let () =
   Evas_object.resize win 400 400;
   Evas_object.show win;
 
-  Evas_object_smart.callback_add win Elm_win.E.delete_request win_del_cb;
+  Evas_object_smart.callback_add win Elm_sig.delete_request win_del_cb;
 
   let bg = Elm_bg.add win in
   Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;

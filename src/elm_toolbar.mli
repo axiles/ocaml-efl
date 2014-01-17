@@ -133,12 +133,3 @@ val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
 
 val select_mode_get : Evas.obj -> Elm_object.select_mode
 
-module E : sig
-  type u = Evas.Event_type.u
-  val clicked : u
-  val longpressed : u
-  val language_changed : u
-  val focused : u
-  val unfocused : u
-end
-

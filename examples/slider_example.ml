@@ -78,8 +78,8 @@ let () =
   Evas_object.size_hint_set sl [`hfill; `expand];
   Elm_box.pack_end bx sl;
   Evas_object.show sl;
-  Evas_object_smart.callback_add sl Elm_slider.E.changed changed_cb;
-  Evas_object_smart.callback_add sl Elm_slider.E.delay_changed delay_changed_cb;
+  Evas_object_smart.callback_add sl Elm_sig.changed changed_cb;
+  Evas_object_smart.callback_add sl Elm_sig.delay_changed delay_changed_cb;
 
 
   Evas_object.show win;

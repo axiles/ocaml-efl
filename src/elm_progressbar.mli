@@ -38,8 +38,3 @@ val part_value_set : Evas.obj -> ?p:string -> float -> unit
 
 val part_value_get : Evas.obj -> ?p:string -> unit -> float
 
-module E : sig
-  type u = Evas.Event_type.u
-  val changed : u
-end
-
