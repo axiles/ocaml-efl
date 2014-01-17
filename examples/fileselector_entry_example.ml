@@ -98,7 +98,7 @@ let () =
   Elm_box.pack_end hbox ck;
   Evas_object.show ck;
 
-  Evas_object_smart.callback_add fs_entry Elm_fileselector_entry.E.file_chosen
+  Evas_object_smart.callback_add fs_entry Elm_sig.file_chosen
     file_chosen;
 
   Evas_object.resize win 400 400;

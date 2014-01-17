@@ -106,7 +106,7 @@ let () =
   let en = Elm_entry.add win in
   Elm_entry.line_wrap_set en `none;
   Elm_entry.editable_set en false;
-  Evas_object_smart.callback_add fs_bt Elm_fileselector_button.E.file_chosen
+  Evas_object_smart.callback_add fs_bt Elm_sig.file_chosen
     (file_chosen en);
   Elm_box.pack_end vbox en;
   Evas_object.show en;

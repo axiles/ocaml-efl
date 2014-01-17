@@ -41,24 +41,3 @@ external inwin_mode_set : Evas.obj -> bool -> unit =
 external inwin_mode_get : Evas.obj -> bool =
   "ml_elm_fileselector_entry_inwin_mode_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  type 'a v = 'a Evas.Event_type.v
-  let f = Evas.Event_type.create_unit
-  let g x = Evas.Event_type.create x Evas.string_opt_of_ptr
-  let changed = f "changed"
-  let activated = f "activated"
-  let press = f "press"
-  let longpressed = f "longpressed"
-  let clicked = f "clicked"
-  let clicked_double = f "clicked,double"
-  let focused = f "focused"
-  let unfocused = f "unfocused"
-  let selection_paste = f "selection,paste"
-  let selection_copy = f "selection,copy"
-  let selection_cut = f "selection,cut"
-  let unpressed = f "unpressed"
-  let file_chosen = g "file,chosen"
-  let language_changed = f "language,changed"
-end
-

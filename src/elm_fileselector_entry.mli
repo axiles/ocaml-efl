@@ -30,22 +30,3 @@ val inwin_mode_set : Evas.obj -> bool -> unit
 
 val inwin_mode_get : Evas.obj -> bool
 
-module E : sig
-  type u = Evas.Event_type.u
-  type 'a v = 'a Evas.Event_type.v
-  val changed : u
-  val activated : u
-  val press : u
-  val longpressed : u
-  val clicked : u
-  val clicked_double : u
-  val focused : u
-  val unfocused : u
-  val selection_paste : u
-  val selection_copy : u
-  val selection_cut : u
-  val unpressed : u
-  val file_chosen : (string option) v
-  val language_changed : u
-end
-
