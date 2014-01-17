@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 36a70759261ed1f933f930ee0cc8ea85)
+# DO NOT EDIT (digest: 98d8edf56b4c3a392b7953e36a0a3d5a)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -181,6 +181,8 @@
 "examples/fileselector_entry_example.byte": use_efl
 # Executable hoversel_example_01
 "examples/hoversel_example_01.byte": use_efl
+# Executable hover_example_01
+"examples/hover_example_01.byte": use_efl
 <examples/*.ml{,i}>: use_efl
 # OASIS_STOP
 <src/eina_*>: efl

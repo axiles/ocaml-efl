@@ -443,3 +443,9 @@ Executable hoversel_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: hoversel_example_01.ml
+Executable hover_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: hover_example_01.ml
