@@ -70,6 +70,10 @@ external chain_transit_del : t -> t -> unit = "ml_elm_transit_chain_transit_del"
 
 external chain_transits_get : t -> t list = "ml_elm_transit_chain_transits_get"
 
+external smooth_set : t -> bool -> unit = "ml_elm_transit_smooth_set"
+
+external smooth_get : t -> bool = "ml_elm_transit_smooth_get"
+
 external effect_resizing_add : t -> int -> int -> int -> int -> unit =
   "ml_elm_transit_effect_resizing_add"
 

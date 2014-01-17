@@ -272,6 +272,17 @@ PREFIX value ml_elm_transit_chain_transits_get(value v_tr)
                 (Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_smooth_set(value v_tr, value v_flag)
+{
+        elm_transit_smooth_set((Elm_Transit*) v_tr, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_smooth_get(value v_tr)
+{
+        return Val_bool(elm_transit_smooth_get((Elm_Transit*) v_tr));
+}
+
 PREFIX value ml_elm_transit_effect_resizing_add(
         value v_tr, value v_from_w, value v_from_h, value v_to_w, value v_to_h)
 {

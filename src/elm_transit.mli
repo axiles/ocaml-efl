@@ -64,6 +64,10 @@ val chain_transit_del : t -> t -> unit
 
 val chain_transits_get : t -> t list
 
+val smooth_set : t -> bool -> unit
+
+val smooth_get : t -> bool
+
 val effect_resizing_add : t -> int -> int -> int -> int -> unit
 
 val effect_translation_add : t -> int -> int -> int -> int -> unit
