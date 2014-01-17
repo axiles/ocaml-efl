@@ -40,3 +40,5 @@ val name_available_list_get : unit -> string list
 
 val data_get : ?th:t -> string -> string option
 
+val group_path_find : ?th:t -> string -> string option
+

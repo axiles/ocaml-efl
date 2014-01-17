@@ -170,3 +170,19 @@ PREFIX value ml_elm_theme_data_get(value v_th, value v_key)
         CAMLreturn(v_data);
 }
 
+PREFIX value ml_elm_theme_group_path_find(value v_th, value v_path)
+{
+        CAMLparam2(v_th, v_path);
+        CAMLlocal1(v_data);
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        const char* data = elm_theme_group_path_find(th, String_val(v_path));
+        if(data == NULL) v_data = Val_int(0);
+        else {
+                v_data = caml_alloc(1, 0);
+                Store_field(v_data, 0, copy_string(data));
+        }
+        CAMLreturn(v_data);
+}
+

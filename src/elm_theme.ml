@@ -43,3 +43,6 @@ external name_available_list_get : unit -> string list =
 
 external data_get : ?th:t -> string -> string option = "ml_elm_theme_data_get"
 
+external group_path_find : ?th:t -> string -> string option =
+  "ml_elm_theme_group_path_find"
+
