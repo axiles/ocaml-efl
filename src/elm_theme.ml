@@ -49,3 +49,7 @@ external group_path_find : ?th:t -> string -> string option =
 external group_base_list : ?th:t -> string -> string list =
   "ml_elm_theme_group_base_list"
 
+external system_dir_get : unit -> string = "ml_elm_theme_system_dir_get"
+
+external user_dir_get : unit -> string = "ml_elm_theme_user_dir_get"
+

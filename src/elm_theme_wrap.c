@@ -200,3 +200,13 @@ PREFIX value ml_elm_theme_group_base_list(value v_th, value v_base)
         return v_list;
 }
 
+PREFIX value ml_elm_theme_system_dir_get(value v_unit)
+{
+        return copy_string(elm_theme_system_dir_get());
+}
+
+PREFIX value ml_elm_theme_user_dir_get(value v_unit)
+{
+        return copy_string(elm_theme_user_dir_get());
+}
+

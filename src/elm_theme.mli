@@ -44,3 +44,7 @@ val group_path_find : ?th:t -> string -> string option
 
 val group_base_list : ?th:t -> string -> string list
 
+val system_dir_get : unit -> string
+
+val user_dir_get : unit -> string
+
