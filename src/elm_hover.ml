@@ -15,3 +15,13 @@ external best_content_location_get : Evas.obj -> axis -> string option =
 
 external dismiss : Evas.obj -> unit = "ml_elm_hover_dismiss"
 
+module E = struct
+  type u = Evas.Event_type.u
+  let f = Evas.Event_type.create_unit
+  let clicked = f "clicked"
+  let dismissed = f "dismissed"
+  let smart_changed = f "smart,changed"
+  let focused = f "focused"
+  let unfocused = f "unfocused"
+end
+
