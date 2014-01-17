@@ -42,3 +42,5 @@ val data_get : ?th:t -> string -> string option
 
 val group_path_find : ?th:t -> string -> string option
 
+val group_base_list : ?th:t -> string -> string list
+

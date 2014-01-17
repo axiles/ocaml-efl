@@ -186,3 +186,17 @@ PREFIX value ml_elm_theme_group_path_find(value v_th, value v_path)
         CAMLreturn(v_data);
 }
 
+PREFIX value ml_elm_theme_group_base_list(value v_th, value v_base)
+{
+        Elm_Theme* th;
+        if(v_th == Val_int(0)) th = NULL;
+        else th = (Elm_Theme*) Field(v_th, 0);
+        Eina_List* list = elm_theme_group_base_list(th, String_val(v_base));
+        value v_list = copy_Eina_List_string(list);
+        Eina_List* l;
+        char* data;
+        EINA_LIST_FOREACH(list, l, data) eina_stringshare_del(data);
+        eina_list_free(list);
+        return v_list;
+}
+
