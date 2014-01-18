@@ -28,6 +28,12 @@ external zoom_wheel_factor_set : Evas.obj -> float -> unit =
 external zoom_wheel_factor_get : Evas.obj -> float =
   "ml_elm_gesture_layer_zoom_wheel_factor_get"
 
+external zoom_finger_factor_set : Evas.obj -> float -> unit =
+  "ml_elm_gesture_layer_zoom_finger_factor_set"
+
+external zoom_finger_factor_get : Evas.obj -> float =
+  "ml_elm_gesture_layer_zoom_finger_factor_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
