@@ -21,6 +21,8 @@ val clicked : u
 val clicked_double : u
 val clicked_double__item : Elm_object.item v
 val clicked_triple : u
+val clipboard_state_off : u
+val clipboard_state_on : u
 val cursor_changed : u
 val cursor_changed_manual : u
 val delay_changed : u
@@ -42,6 +44,9 @@ val edge_top : u
 val file_chosen : (string option) v
 val focused : u
 val fullscreen : u
+val hbar_drag : u
+val hbar_press : u
+val hbar_unpress : u
 val highlighted : u
 val highlighted__item : Elm_object.item v
 val iconified : u
@@ -84,19 +89,27 @@ val slider_drag_start : u
 val slider_drag_stop : u
 val stick : u
 val text_set_done : u
+val theme_changed : u
 val thumb_done : u
 val thumb_error : u
 val timeout : u
+val transition_finished : u
 val unfullscreen : u
 val unfocused : u
 val unhighlighted : u
 val unhighlighted__item : Elm_object.item v
 val unmaximized : u
+val unpress : u
 val unpressed : u
 val unrealized : u
 val unselected : u
 val unselected__item : Elm_object.item v
 val unstick : u
+val vbar_drag : u
+val vbar_press : u
+val vbar_unpress : u
+val virtualkeypad_state_off : u
+val virtualkeypad_state_on : u
 val withdrawn : u
 
 

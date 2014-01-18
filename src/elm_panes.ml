@@ -21,12 +21,3 @@ external horizontal_set : Evas.obj -> bool -> unit =
 
 external horizontal_get : Evas.obj -> bool = "ml_elm_panes_horizontal_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let press = f "press"
-  let unpress = f "unpress"
-  let clicked = f "clicked"
-  let clicked_double = f "clicked,double"
-end
-

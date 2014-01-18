@@ -59,10 +59,10 @@ let () =
   Elm_object.part_content_set panes_h ~p:"right" bt;
 
   let add_cb = Evas_object_smart.callback_add panes in
-  add_cb Elm_panes.E.clicked clicked;
-  add_cb Elm_panes.E.clicked_double clicked_double;
-  add_cb Elm_panes.E.press press;
-  add_cb Elm_panes.E.unpress unpress;
+  add_cb Elm_sig.clicked clicked;
+  add_cb Elm_sig.clicked_double clicked_double;
+  add_cb Elm_sig.press press;
+  add_cb Elm_sig.unpress unpress;
 
   Evas_object.resize win 320 400;
   Evas_object.show win;

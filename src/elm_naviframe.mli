@@ -56,10 +56,3 @@ val item_simple_promote : Evas.obj -> Evas.obj -> unit
 
 val item_simple_push : Evas.obj -> Evas.obj -> Elm_object.item
 
-module E : sig
-  type u = Evas.Event_type.u
-  val transition_finished : u
-  val focused : u
-  val unfocused : u
-end
-

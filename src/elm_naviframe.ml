@@ -82,11 +82,3 @@ let item_simple_push obj content =
   item_title_visible_set it false;
   it
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let transition_finished = f "transition,finished"
-  let focused = f "focused"
-  let unfocused = f "unfocused"
-end
-
