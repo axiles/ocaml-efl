@@ -32,6 +32,10 @@ val flick_time_limit_ms_set : Evas.obj -> int -> unit
 
 val flick_time_limit_ms_get : Evas.obj -> int
 
+val long_tap_start_timeout_set : Evas.obj -> float -> unit
+
+val long_tap_start_timeout_get : Evas.obj -> float
+
 val cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit

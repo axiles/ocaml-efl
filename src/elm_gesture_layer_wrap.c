@@ -216,6 +216,20 @@ PREFIX value ml_elm_gesture_layer_flick_time_limit_ms_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_gesture_layer_long_tap_start_timeout_set(
+        value v_obj, value v_x)
+{
+        elm_gesture_layer_long_tap_start_timeout_set((Evas_Object*) v_obj,
+                Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gesture_layer_long_tap_start_timeout_get(value v_obj)
+{
+        return copy_double(elm_gesture_layer_long_tap_start_timeout_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_gesture_layer_cb_set(
         value v_obj, value v_type, value v_state, value v_cb)
 {

@@ -46,6 +46,12 @@ external flick_time_limit_ms_set : Evas.obj -> int -> unit =
 external flick_time_limit_ms_get : Evas.obj -> int =
   "ml_elm_gesture_layer_flick_time_limit_ms_get"
 
+external long_tap_start_timeout_set : Evas.obj -> float -> unit =
+  "ml_elm_gesture_layer_long_tap_start_timeout_set"
+
+external long_tap_start_timeout_get : Evas.obj -> float =
+  "ml_elm_gesture_layer_long_tap_start_timeout_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
