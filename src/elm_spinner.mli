@@ -1,3 +1,5 @@
+(** elm_spinner_* *)
+
 val add : Evas.obj -> Evas.obj
 
 val label_format_function_set : Evas.obj -> (float -> string) -> unit
@@ -34,4 +36,8 @@ val interval_get : Evas.obj -> float
 val base_set : Evas.obj -> float -> unit
 
 val base_get : Evas.obj -> float
+
+val round_set : Evas.obj -> int -> unit
+
+val round_get : Evas.obj -> int
 

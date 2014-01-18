@@ -109,3 +109,14 @@ PREFIX value ml_elm_spinner_base_get(value v_obj)
         return copy_double(elm_spinner_base_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_spinner_round_set(value v_obj, value v_x)
+{
+        elm_spinner_round_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_spinner_round_get(value v_obj)
+{
+        return Val_int(elm_spinner_round_get((Evas_Object*) v_obj));
+}
+

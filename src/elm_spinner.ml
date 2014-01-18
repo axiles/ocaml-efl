@@ -80,3 +80,7 @@ external base_set : Evas.obj -> float -> unit = "ml_elm_spinner_base_set"
 
 external base_get : Evas.obj -> float = "ml_elm_spinner_base_get"
 
+external round_set : Evas.obj -> int -> unit = "ml_elm_spinner_round_set"
+
+external round_get : Evas.obj -> int = "ml_elm_spinner_round_get"
+
