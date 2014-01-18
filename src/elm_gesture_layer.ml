@@ -52,6 +52,12 @@ external long_tap_start_timeout_set : Evas.obj -> float -> unit =
 external long_tap_start_timeout_get : Evas.obj -> float =
   "ml_elm_gesture_layer_long_tap_start_timeout_get"
 
+external continues_enable_set : Evas.obj -> bool -> unit =
+  "ml_elm_gesture_layer_continues_enable_set"
+
+external continues_enable_get : Evas.obj -> bool =
+  "ml_elm_gesture_layer_continues_enable_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =

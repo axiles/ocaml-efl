@@ -36,6 +36,10 @@ val long_tap_start_timeout_set : Evas.obj -> float -> unit
 
 val long_tap_start_timeout_get : Evas.obj -> float
 
+val continues_enable_set : Evas.obj -> bool -> unit
+
+val continues_enable_get : Evas.obj -> bool
+
 val cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit

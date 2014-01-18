@@ -230,6 +230,20 @@ PREFIX value ml_elm_gesture_layer_long_tap_start_timeout_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_gesture_layer_continues_enable_set(
+        value v_obj, value v_flag)
+{
+        elm_gesture_layer_continues_enable_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gesture_layer_continues_enable_get(value v_obj)
+{
+        return Val_bool(elm_gesture_layer_continues_enable_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_gesture_layer_cb_set(
         value v_obj, value v_type, value v_state, value v_cb)
 {
