@@ -450,3 +450,9 @@ Executable hover_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: hover_example_01.ml
+Executable spinner_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: spinner_example.ml
