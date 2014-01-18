@@ -64,6 +64,12 @@ external double_tap_timeout_set : Evas.obj -> float -> unit =
 external double_tap_timeout_get : Evas.obj -> float =
   "ml_elm_gesture_layer_double_tap_timeout_get"
 
+external tap_finger_size_set : Evas.obj -> int -> unit =
+  "ml_elm_gesture_layer_tap_finger_size_set"
+
+external tap_finger_size_get : Evas.obj -> int =
+  "ml_elm_gesture_layer_tap_finger_size_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
