@@ -147,16 +147,30 @@ PREFIX value ml_elm_gesture_layer_line_distance_tolerance_get(value v_obj)
 }
 
 PREFIX value ml_elm_gesture_layer_line_angular_tolerance_set(
-        value v_obj, value v_step)
+        value v_obj, value v_x)
 {
         elm_gesture_layer_line_angular_tolerance_set((Evas_Object*) v_obj,
-                Double_val(v_step));
+                Double_val(v_x));
         return Val_unit;
 }
 
 PREFIX value ml_elm_gesture_layer_line_angular_tolerance_get(value v_obj)
 {
         return copy_double(elm_gesture_layer_line_angular_tolerance_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_gesture_layer_zoom_wheel_factor_set(
+        value v_obj, value v_x)
+{
+        elm_gesture_layer_zoom_wheel_factor_set((Evas_Object*) v_obj,
+                Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gesture_layer_zoom_wheel_factor_get(value v_obj)
+{
+        return copy_double(elm_gesture_layer_zoom_wheel_factor_get(
                 (Evas_Object*) v_obj));
 }
 

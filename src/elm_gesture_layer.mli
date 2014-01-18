@@ -16,6 +16,10 @@ val line_angular_tolerance_set : Evas.obj -> float -> unit
 
 val line_angular_tolerance_get : Evas.obj -> float
 
+val zoom_wheel_factor_set : Evas.obj -> float -> unit
+
+val zoom_wheel_factor_get : Evas.obj -> float
+
 val cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit

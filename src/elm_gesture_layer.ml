@@ -22,6 +22,12 @@ external line_angular_tolerance_set : Evas.obj -> float -> unit =
 external line_angular_tolerance_get : Evas.obj -> float =
   "ml_elm_gesture_layer_line_angular_tolerance_get"
 
+external zoom_wheel_factor_set : Evas.obj -> float -> unit =
+  "ml_elm_gesture_layer_zoom_wheel_factor_set"
+
+external zoom_wheel_factor_get : Evas.obj -> float =
+  "ml_elm_gesture_layer_zoom_wheel_factor_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
