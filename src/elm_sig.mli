@@ -28,6 +28,12 @@ val delete_request : u
 val directory_open : string v
 val dismissed : u
 val _done : (string option) v
+val drag : u
+val drag_start_down : u
+val drag_start_left : u
+val drag_start_right : u
+val drag_stop : u
+val drag_start_up : u
 val drop : string v
 val edge_bottom : u
 val edge_left : u
@@ -37,7 +43,9 @@ val file_chosen : (string option) v
 val focused : u
 val fullscreen : u
 val highlighted : u
+val highlighted__item : Elm_object.item v
 val iconified : u
+val index_update : u
 val indicator_prop_changed : u
 val ioerr : u
 val language_changed : u
@@ -49,10 +57,20 @@ val pos_changed : (string option) v
 val preedit_changed : u
 val press : u
 val pressed : u
+val pressed__item : Elm_object.item v
 val profile_changed : u
+val realized : Elm_object.item v
 val repeated : u
+val released : Elm_object.item v
 val rotation_changed : u
+val scroll : u
+val scroll_anim_start : u
+val scroll_anim_stop : u
+val scroll_drag_start : u
+val scroll_drag_stop : u
+val scroll_page_changed : u
 val selected : (string option) v
+val selected__item : Elm_object.item v
 val selected_invalid : u
 val selection_changed : u
 val selection_cleared : u
@@ -72,9 +90,12 @@ val timeout : u
 val unfullscreen : u
 val unfocused : u
 val unhighlighted : u
+val unhighlighted__item : Elm_object.item v
 val unmaximized : u
 val unpressed : u
+val unrealized : u
 val unselected : u
+val unselected__item : Elm_object.item v
 val unstick : u
 val withdrawn : u
 
