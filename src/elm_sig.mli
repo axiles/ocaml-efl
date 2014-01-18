@@ -23,6 +23,8 @@ val clicked_double__item : Elm_object.item v
 val clicked_triple : u
 val clipboard_state_off : u
 val clipboard_state_on : u
+val contracted : Elm_object.item v
+val contract_request : Elm_object.item v
 val cursor_changed : u
 val cursor_changed_manual : u
 val delay_changed : u
@@ -41,6 +43,8 @@ val edge_bottom : u
 val edge_left : u
 val edge_right : u
 val edge_top : u
+val expanded : Elm_object.item v
+val expand_request : Elm_object.item v
 val file_chosen : (string option) v
 val focused : u
 val fullscreen : u
@@ -57,6 +61,14 @@ val language_changed : u
 val longpressed : u
 val maximized : u
 val moved : u
+val moved_after : Elm_object.item v
+val moved_before : Elm_object.item v
+val multi_swipe_down : u
+val multi_swipe_left : u
+val multi_swipe_right : u
+val multi_swipe_up : u
+val multi_pinch_in : u
+val multi_pinch_out : u
 val normal : u
 val pos_changed : (string option) v
 val preedit_changed : u
@@ -88,12 +100,14 @@ val slide_end : u
 val slider_drag_start : u
 val slider_drag_stop : u
 val stick : u
+val swipe : u
 val text_set_done : u
 val theme_changed : u
 val thumb_done : u
 val thumb_error : u
 val timeout : u
 val transition_finished : u
+val tree_effect_finished : u
 val unfullscreen : u
 val unfocused : u
 val unhighlighted : u
