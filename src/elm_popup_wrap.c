@@ -39,3 +39,16 @@ PREFIX value ml_elm_popup_item_append(
         return (value) item;
 }
 
+PREFIX value ml_elm_popup_content_text_wrap_type_set(value v_obj, value v_wrap)
+{
+        elm_popup_content_text_wrap_type_set((Evas_Object*) v_obj,
+                Elm_Wrap_Type_val(v_wrap));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_popup_content_text_wrap_type_get(value v_obj)
+{
+        return Val_Elm_Wrap_Type(elm_popup_content_text_wrap_type_get(
+                (Evas_Object*) v_obj));
+}
+
