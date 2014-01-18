@@ -1,5 +1,42 @@
 #include "include.h"
 
+PREFIX inline Elm_Popup_Orient Elm_Popup_Orient_val(value v)
+{
+        switch(v) {
+                case Val_top: return ELM_POPUP_ORIENT_TOP;
+                case Val_center: return ELM_POPUP_ORIENT_CENTER;
+                case Val_bottom: return ELM_POPUP_ORIENT_BOTTOM;
+                case Val_left: return ELM_POPUP_ORIENT_LEFT;
+                case Val_right: return ELM_POPUP_ORIENT_RIGHT;
+                case Val_top_left: return ELM_POPUP_ORIENT_TOP_LEFT;
+                case Val_top_right: return ELM_POPUP_ORIENT_TOP_RIGHT;
+                case Val_bottom_left: return ELM_POPUP_ORIENT_BOTTOM_LEFT;
+                case Val_bottom_right: return ELM_POPUP_ORIENT_BOTTOM_RIGHT;
+                case Val_last: return ELM_POPUP_ORIENT_LAST;
+                default: break;
+        }
+        caml_failwith("Elm_Popup_Orient_val");
+        return ELM_POPUP_ORIENT_TOP;
+}
+
+PREFIX inline value Val_Elm_Popup_Orient(Elm_Popup_Orient o)
+{
+        switch(o) {
+                case ELM_POPUP_ORIENT_TOP: return Val_top;
+                case ELM_POPUP_ORIENT_CENTER: return Val_center;
+                case ELM_POPUP_ORIENT_BOTTOM: return Val_bottom;
+                case ELM_POPUP_ORIENT_LEFT: return Val_left;
+                case ELM_POPUP_ORIENT_RIGHT: return Val_right;
+                case ELM_POPUP_ORIENT_TOP_LEFT: return Val_top_left;
+                case ELM_POPUP_ORIENT_TOP_RIGHT: return Val_top_right;
+                case ELM_POPUP_ORIENT_BOTTOM_LEFT: return Val_bottom_left;
+                case ELM_POPUP_ORIENT_BOTTOM_RIGHT: return Val_bottom_right;
+                case ELM_POPUP_ORIENT_LAST: return Val_last;
+        }
+        caml_failwith("Val_Elm_Popup_Orient");
+        return Val_top;
+}
+
 PREFIX value ml_elm_popup_add(value v_parent)
 {
         Evas_Object* popup = elm_popup_add((Evas_Object*) v_parent);
@@ -50,5 +87,17 @@ PREFIX value ml_elm_popup_content_text_wrap_type_get(value v_obj)
 {
         return Val_Elm_Wrap_Type(elm_popup_content_text_wrap_type_get(
                 (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_popup_orient_set(value v_obj, value v_orient)
+{
+        elm_popup_orient_set((Evas_Object*) v_obj,
+                Elm_Popup_Orient_val(v_orient));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_popup_orient_get(value v_obj)
+{
+        return Val_Elm_Popup_Orient(elm_popup_orient_get((Evas_Object*) v_obj));
 }
 

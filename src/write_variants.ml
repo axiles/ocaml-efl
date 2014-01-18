@@ -21,6 +21,7 @@ let () =
   g "block_vertical";
   g "block_vertical_horizontal";
   g "both";
+  g "bottom";
   g "bottom_left";
   g "bottom_right";
   g "center";

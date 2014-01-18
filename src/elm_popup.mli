@@ -1,3 +1,15 @@
+type orient = [
+  | `top
+  | `centre
+  | `bottom
+  | `left
+  | `right
+  | `top_left
+  | `top_right
+  | `bottom_left
+  | `bottom_right
+  | `last]
+
 val add : Evas.obj -> Evas.obj
 
 val item_append :
@@ -7,4 +19,8 @@ val item_append :
 val content_text_wrap_type_set : Evas.obj -> Elm.wrap_type -> unit
 
 val content_text_wrap_type_get : Evas.obj -> Elm.wrap_type
+
+val orient_set : Evas.obj -> orient -> unit
+
+val orient_get : Evas.obj -> orient
 
