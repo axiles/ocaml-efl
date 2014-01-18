@@ -27,3 +27,7 @@ val editable_get : Evas.obj -> bool
 
 val special_value_add : Evas.obj -> float -> string -> unit
 
+val interval_set : Evas.obj -> float -> unit
+
+val interval_get : Evas.obj -> float
+

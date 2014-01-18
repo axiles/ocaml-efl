@@ -71,3 +71,8 @@ external editable_get : Evas.obj -> bool = "ml_elm_spinner_editable_get"
 external special_value_add : Evas.obj -> float -> string -> unit =
   "ml_elm_spinner_special_value_add"
 
+external interval_set : Evas.obj -> float -> unit =
+  "ml_elm_spinner_interval_set"
+
+external interval_get : Evas.obj -> float = "ml_elm_spinner_interval_get"
+
