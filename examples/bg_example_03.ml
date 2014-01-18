@@ -111,7 +111,7 @@ let () =
   List.iter (fun (i, c) -> Elm_spinner.special_value_add rd i c) list;
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set rd Evas.hint_fill Evas.hint_fill;
-  Evas_object_smart.callback_add rd Elm_spinner.E.changed
+  Evas_object_smart.callback_add rd Elm_sig.changed
     (cb_color_changed o_bg);
   Elm_box.pack_end hbox rd;
   Evas_object.show rd;

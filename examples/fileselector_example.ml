@@ -11,7 +11,8 @@ let fs_done obj event_info =
   Elm.exit ()
 
 let fs_selected obj selected =
-  printf "There's been a selection: %s\n%!" selected
+  let s = match selected with Some x -> x | None -> assert false in
+  printf "There's been a selection: %s\n%!" s
 
 let add_check win box fs name msg f_set f_get =
   let cb obj =
@@ -69,8 +70,8 @@ let () =
   Elm_box.pack_end vbox fs;
   Evas_object.show fs;
 
-  Evas_object_smart.callback_add fs EF.E._done fs_done;
-  Evas_object_smart.callback_add fs EF.E.selected fs_selected;
+  Evas_object_smart.callback_add fs Elm_sig._done fs_done;
+  Evas_object_smart.callback_add fs Elm_sig.selected fs_selected;
 
   let sep = Elm_separator.add win in
   Elm_separator.horizontal_set sep true;

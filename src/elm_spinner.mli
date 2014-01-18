@@ -10,8 +10,3 @@ val special_value_add : Evas.obj -> float -> string -> unit
 
 val value_get : Evas.obj -> float
 
-module E : sig
-  type u = Evas.Event_type.u
-  val changed : u
-end
-

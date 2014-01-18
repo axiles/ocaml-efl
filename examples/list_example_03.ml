@@ -1,6 +1,5 @@
 open Efl
 open Elm_sig
-open Elm_sig
 open Format
 
 let on_done _ = Elm.exit ()

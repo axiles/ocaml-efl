@@ -59,16 +59,3 @@ external multi_select_get : Evas.obj -> bool =
 external selected_paths_get : Evas.obj -> string list =
   "ml_elm_fileselector_selected_paths_get"
 
-module E = struct
-  type 'a v = 'a Evas.Event_type.v
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let g x = Evas.Event_type.create x Evas.string_of_ptr
-  let h x = Evas.Event_type.create x Evas.string_opt_of_ptr
-  let activated = g "activated"
-  let selected = g "selected"
-  let selected_invalid = f "selected,invalid"
-  let directory_open = g "directory,open"
-  let _done = h "done"
-end
-
