@@ -24,3 +24,7 @@ val orient_set : Evas.obj -> orient -> unit
 
 val orient_get : Evas.obj -> orient
 
+val timeout_set : Evas.obj -> float -> unit
+
+val timeout_get : Evas.obj -> float
+
