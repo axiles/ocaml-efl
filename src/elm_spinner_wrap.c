@@ -32,6 +32,17 @@ PREFIX value ml_elm_spinner_min_max_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_spinner_step_set(value v_obj, value v_x)
+{
+        elm_spinner_step_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_spinner_step_get(value v_obj)
+{
+        return copy_double(elm_spinner_step_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_spinner_value_set(value v_obj, value v_v)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
