@@ -283,6 +283,17 @@ PREFIX value ml_elm_gesture_layer_cb_set(
         return Val_unit;
 }
 
+PREFIX value ml_elm_gesture_layer_tap_longpress_cb_add(
+        value v_obj, value v_state, value v_cb)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_cb;
+        caml_register_global_root(data);
+        elm_gesture_layer_tap_longpress_cb_add((Evas_Object*) v_obj,
+                Elm_Gesture_State_val(v_state), ml_Elm_Gesture_Event_Cb, data);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_gesture_layer_hold_events_get(value v_obj)
 {
         return Val_bool(elm_gesture_layer_hold_events_get(
