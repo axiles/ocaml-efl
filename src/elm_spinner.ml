@@ -43,6 +43,11 @@ let add parent =
   changed_cb pb ();
   pb
 
+external min_max_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_spinner_min_max_set"
+
+external min_max_get : Evas.obj -> float * float = "ml_elm_spinner_min_max_get"
+
 let label_format_function_set obj func =
   Hashtbl.replace ht obj func;
   changed_cb obj ()
@@ -50,9 +55,6 @@ let label_format_function_set obj func =
 let label_format_set obj fmt =
   let format_func x = sprintf fmt x in
   label_format_function_set obj format_func
-
-external min_max_set : Evas.obj -> float -> float -> unit =
-  "ml_elm_spinner_min_max_set"
 
 external editable_set : Evas.obj -> bool -> unit = "ml_elm_spinner_editable_set"
 
