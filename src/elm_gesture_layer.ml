@@ -40,6 +40,12 @@ external rotate_angular_tolerance_set : Evas.obj -> float -> unit =
 external rotate_angular_tolerance_get : Evas.obj -> float =
   "ml_elm_gesture_layer_rotate_angular_tolerance_get"
 
+external flick_time_limit_ms_set : Evas.obj -> int -> unit =
+  "ml_elm_gesture_layer_flick_time_limit_ms_set"
+
+external flick_time_limit_ms_get : Evas.obj -> int =
+  "ml_elm_gesture_layer_flick_time_limit_ms_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
