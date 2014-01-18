@@ -1,3 +1,9 @@
+external line_min_length_set : Evas.obj -> int -> unit =
+  "ml_elm_gesture_layer_line_min_length_set"
+
+external line_min_length_get : Evas.obj -> int =
+  "ml_elm_gesture_layer_line_min_length_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =

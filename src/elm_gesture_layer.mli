@@ -1,5 +1,9 @@
 (** elm_gesture_layer_* *)
 
+val line_min_length_set : Evas.obj -> int -> unit
+
+val line_min_length_get : Evas.obj -> int
+
 val cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit
