@@ -12,6 +12,10 @@ val line_distance_tolerance_set : Evas.obj -> int -> unit
 
 val line_distance_tolerance_get : Evas.obj -> int
 
+val line_angular_tolerance_set : Evas.obj -> float -> unit
+
+val line_angular_tolerance_get : Evas.obj -> float
+
 val cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit

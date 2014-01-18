@@ -16,6 +16,12 @@ external line_distance_tolerance_set : Evas.obj -> int -> unit =
 external line_distance_tolerance_get : Evas.obj -> int =
   "ml_elm_gesture_layer_line_distance_tolerance_get"
 
+external line_angular_tolerance_set : Evas.obj -> float -> unit =
+  "ml_elm_gesture_layer_line_angular_tolerance_set"
+
+external line_angular_tolerance_get : Evas.obj -> float =
+  "ml_elm_gesture_layer_line_angular_tolerance_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
