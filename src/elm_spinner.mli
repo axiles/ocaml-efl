@@ -31,3 +31,7 @@ val interval_set : Evas.obj -> float -> unit
 
 val interval_get : Evas.obj -> float
 
+val base_set : Evas.obj -> float -> unit
+
+val base_get : Evas.obj -> float
+

@@ -98,3 +98,14 @@ PREFIX value ml_elm_spinner_interval_get(value v_obj)
         return copy_double(elm_spinner_interval_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_spinner_base_set(value v_obj, value v_x)
+{
+        elm_spinner_base_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_spinner_base_get(value v_obj)
+{
+        return copy_double(elm_spinner_base_get((Evas_Object*) v_obj));
+}
+
