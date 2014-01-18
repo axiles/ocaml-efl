@@ -60,7 +60,13 @@ let label_format_set obj fmt =
   let format_func x = sprintf fmt x in
   label_format_function_set obj format_func
 
+external wrap_set : Evas.obj -> bool -> unit = "ml_elm_spinner_wrap_set"
+
+external wrap_get : Evas.obj -> bool = "ml_elm_spinner_wrap_get"
+
 external editable_set : Evas.obj -> bool -> unit = "ml_elm_spinner_editable_set"
+
+external editable_get : Evas.obj -> bool = "ml_elm_spinner_editable_get"
 
 external special_value_add : Evas.obj -> float -> string -> unit =
   "ml_elm_spinner_special_value_add"

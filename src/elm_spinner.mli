@@ -13,9 +13,17 @@ val step_set : Evas.obj -> float -> unit
 
 val step_get : Evas.obj -> float
 
-val editable_set : Evas.obj -> bool -> unit
-
-val special_value_add : Evas.obj -> float -> string -> unit
+val value_set : Evas.obj -> float -> unit
 
 val value_get : Evas.obj -> float
+
+val wrap_set : Evas.obj -> bool -> unit
+
+val wrap_get : Evas.obj -> bool
+
+val editable_set : Evas.obj -> bool -> unit
+
+val editable_get : Evas.obj -> bool
+
+val special_value_add : Evas.obj -> float -> string -> unit
 

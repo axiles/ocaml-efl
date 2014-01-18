@@ -53,6 +53,17 @@ PREFIX value ml_elm_spinner_value_set(value v_obj, value v_v)
         return Val_unit;
 }
 
+PREFIX value ml_elm_spinner_wrap_set(value v_obj, value v_flag)
+{
+        elm_spinner_wrap_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_spinner_wrap_get(value v_obj)
+{
+        return Val_bool(elm_spinner_wrap_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_spinner_value_get(value v_obj)
 {
         return copy_double(elm_spinner_value_get((Evas_Object*) v_obj));
@@ -62,6 +73,11 @@ PREFIX value ml_elm_spinner_editable_set(value v_obj, value v_flag)
 {
         elm_spinner_editable_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
         return Val_unit;
+}
+
+PREFIX value ml_elm_spinner_editable_get(value v_obj)
+{
+        return Val_bool(elm_spinner_editable_get((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_spinner_special_value_add(value v_obj, value v_x, value v_s)
