@@ -8,6 +8,10 @@ val zoom_distance_tolerance_set : Evas.obj -> int -> unit
 
 val zoom_distance_tolerance_get : Evas.obj -> int
 
+val line_distance_tolerance_set : Evas.obj -> int -> unit
+
+val line_distance_tolerance_get : Evas.obj -> int
+
 val cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit

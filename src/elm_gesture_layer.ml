@@ -10,6 +10,12 @@ external zoom_distance_tolerance_set : Evas.obj -> int -> unit =
 external zoom_distance_tolerance_get : Evas.obj -> int =
   "ml_elm_gesture_layer_zoom_distance_tolerance_get"
 
+external line_distance_tolerance_set : Evas.obj -> int -> unit =
+  "ml_elm_gesture_layer_line_distance_tolerance_set"
+
+external line_distance_tolerance_get : Evas.obj -> int =
+  "ml_elm_gesture_layer_line_distance_tolerance_get"
+
 external cb_set :
   Evas.obj -> Elm.gesture_type -> Elm.gesture_state -> Elm.gesture_event_cb ->
     unit =
