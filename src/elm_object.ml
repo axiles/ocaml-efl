@@ -162,6 +162,8 @@ external item_part_content_unset : item -> ?p:string -> unit -> Evas.obj =
 external item_part_text_set : item -> ?p:string -> string -> unit =
   "ml_elm_object_item_part_text_set"
 
+let item_text_set obj text = item_part_text_set obj text
+
 external item_text_get : item -> string = "ml_elm_object_item_text_get"
 
 external item_part_text_get : item -> ?p:string -> unit -> string =
