@@ -464,3 +464,9 @@ Executable popup_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: popup_example_01.ml
+Executable popup_example_02
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: popup_example_02.ml
