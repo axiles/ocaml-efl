@@ -19,6 +19,8 @@ type event_mouse_down = {
   flags_triple_click : bool;
 }
 
+type event_mouse_up = event_mouse_down
+
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 
 module Event_type : sig
@@ -38,4 +40,6 @@ val hint_fill : float
 val string_of_ptr : ptr -> string
 
 val string_opt_of_ptr : ptr -> string option
+
+val pointer_canvas_xy_get : t -> int * int
 

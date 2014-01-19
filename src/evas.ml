@@ -19,6 +19,8 @@ type event_mouse_down = {
   flags_triple_click : bool;
 }
 
+type event_mouse_up = event_mouse_down
+
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 
 module Event_type = struct
@@ -42,4 +44,7 @@ let hint_fill = -1.
 external string_of_ptr : ptr -> string = "ml_string_of_ptr"
 
 external string_opt_of_ptr : ptr -> string option = "ml_string_opt_of_ptr"
+
+external pointer_canvas_xy_get : t -> int * int =
+  "ml_evas_pointer_canvas_xy_get"
 

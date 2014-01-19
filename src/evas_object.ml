@@ -84,6 +84,10 @@ external event_callback_add_mouse_down :
   Evas.obj -> Evas.event_mouse_down event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_down"
 
+external event_callback_add_mouse_up :
+  Evas.obj -> Evas.event_mouse_up event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_up"
+
 external visible_get : Evas.obj -> bool = "ml_evas_object_visible_get"
 
 external size_hint_aspect_set :

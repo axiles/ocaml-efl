@@ -478,3 +478,9 @@ Executable popup_example_03
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: popup_example_03.ml
+Executable ctxpopup_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: ctxpopup_example_01.ml
