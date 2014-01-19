@@ -19,3 +19,9 @@ PREFIX value ml_elm_ctxpopup_hover_parent_get(value v_obj)
         return (value) elm_ctxpopup_hover_parent_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_elm_ctxpopup_clear(value v_obj)
+{
+        elm_ctxpopup_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
