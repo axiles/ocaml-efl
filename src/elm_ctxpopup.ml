@@ -8,3 +8,8 @@ external hover_parent_get : Evas.obj -> Evas.obj =
 
 external clear : Evas.obj -> unit = "ml_elm_ctxpopup_clear"
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_ctxpopup_horizontal_set"
+
+external horizontal_get : Evas.obj -> bool = "ml_elm_ctxpopup_horizontal_get"
+
