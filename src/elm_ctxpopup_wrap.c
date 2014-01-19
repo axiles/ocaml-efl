@@ -7,3 +7,15 @@ PREFIX value ml_elm_ctxpopup_add(value v_parent)
         return (value) ctxpopup;
 }
 
+PREFIX value ml_elm_ctxpopup_hover_parent_set(value v_obj, value v_parent)
+{
+        elm_ctxpopup_hover_parent_set((Evas_Object*) v_obj,
+                (Evas_Object*) v_parent);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_ctxpopup_hover_parent_get(value v_obj)
+{
+        return (value) elm_ctxpopup_hover_parent_get((Evas_Object*) v_obj);
+}
+
