@@ -7,3 +7,8 @@ PREFIX value ml_elm_flip_add(value v_parent)
         return (value) flip;
 }
 
+PREFIX value ml_elm_flip_front_visible_get(value v_obj)
+{
+        return Val_bool(elm_flip_front_visible_get((Evas_Object*) v_obj));
+}
+
