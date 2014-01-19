@@ -458,3 +458,9 @@ Executable spinner_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: spinner_example.ml
+Executable popup_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: popup_example_01.ml
