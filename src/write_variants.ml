@@ -31,6 +31,10 @@ let () =
   g "compress";
   g "config";
   g "content";
+  g "cube_down";
+  g "cube_left";
+  g "cube_right";
+  g "cube_up";
   g "datetime";
   g "decelerate";
   g "default";
@@ -109,6 +113,10 @@ let () =
   g "opacity_unknown";
   g "opaque";
   g "orient_none";
+  g "page_down";
+  g "page_left";
+  g "page_right";
+  g "page_up";
   g "password";
   g "phone_number";
   g "phonenumber";
@@ -122,6 +130,10 @@ let () =
   g "rotate_180";
   g "rotate_270";
   g "rotate_90";
+  g "rotate_xz_center_axis";
+  g "rotate_x_center_axis";
+  g "rotate_yz_center_axis";
+  g "rotate_y_center_axis";
   g "scale";
   g "scroll";
   g "search";
