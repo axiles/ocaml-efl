@@ -1,3 +1,10 @@
+type direction = [
+  | `down
+  | `right
+  | `left
+  | `up
+  | `down]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_ctxpopup_add"
 
 external hover_parent_set : Evas.obj -> Evas.obj -> unit =
@@ -17,4 +24,14 @@ external item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
       Elm_object.item =
       "ml_elm_ctxpopup_item_append"
+
+external direction_priority_set :
+  Evas.obj -> direction -> direction -> direction -> direction -> unit =
+    "ml_elm_ctxpopup_direction_priority_set"
+
+external direction_priority_get :
+  Evas.obj -> direction * direction * direction * direction =
+    "ml_elm_ctxpopup_direction_priority_get"
+
+external direction_get : Evas.obj -> direction = "ml_elm_ctxpopup_direction_get"
 

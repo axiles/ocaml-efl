@@ -1,5 +1,31 @@
 #include "include.h"
 
+PREFIX inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
+{
+        switch(v) {
+                case Val_down: return ELM_CTXPOPUP_DIRECTION_DOWN;
+                case Val_right: return ELM_CTXPOPUP_DIRECTION_RIGHT;
+                case Val_left: return ELM_CTXPOPUP_DIRECTION_LEFT;
+                case Val_up: return ELM_CTXPOPUP_DIRECTION_UP;
+                case Val_unknown: return ELM_CTXPOPUP_DIRECTION_UNKNOWN;
+                default: break;
+        }
+        caml_failwith("Elm_Ctxpopup_Direction_val");
+        return ELM_CTXPOPUP_DIRECTION_DOWN;
+}
+
+PREFIX inline value Val_Elm_Ctxpopup_Direction(Elm_Ctxpopup_Direction d)
+{
+        switch(d) {
+                case ELM_CTXPOPUP_DIRECTION_DOWN: return Val_down;
+                case ELM_CTXPOPUP_DIRECTION_RIGHT: return Val_right;
+                case ELM_CTXPOPUP_DIRECTION_LEFT: return Val_left;
+                case ELM_CTXPOPUP_DIRECTION_UP: return Val_up;
+                case ELM_CTXPOPUP_DIRECTION_UNKNOWN: return Val_unknown;
+        }
+        return Val_down;
+}
+
 PREFIX value ml_elm_ctxpopup_add(value v_parent)
 {
         Evas_Object* ctxpopup = elm_ctxpopup_add((Evas_Object*) v_parent);
@@ -66,5 +92,35 @@ PREFIX value ml_elm_ctxpopup_item_append(
                 caml_failwith("elm_ctxpopup_item_append");
         }
         return (value) item;
+}
+
+PREFIX value ml_elm_ctxpopup_direction_priority_set(
+        value v_obj, value v_d1, value v_d2, value v_d3, value v_d4)
+{
+        elm_ctxpopup_direction_priority_set((Evas_Object*) v_obj,
+                Elm_Ctxpopup_Direction_val(v_d1),
+                Elm_Ctxpopup_Direction_val(v_d2),
+                Elm_Ctxpopup_Direction_val(v_d3),
+                Elm_Ctxpopup_Direction_val(v_d4));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_ctxpopup_direction_priority_get(value v_obj)
+{
+        Elm_Ctxpopup_Direction d1, d2, d3, d4;
+        elm_ctxpopup_direction_priority_get((Evas_Object*) v_obj, &d1, &d2, &d3,
+                &d4);
+        value v_r = caml_alloc(4, 0);
+        Store_field(v_r, 0, Val_Elm_Ctxpopup_Direction(d1));
+        Store_field(v_r, 1, Val_Elm_Ctxpopup_Direction(d2));
+        Store_field(v_r, 2, Val_Elm_Ctxpopup_Direction(d3));
+        Store_field(v_r, 3, Val_Elm_Ctxpopup_Direction(d4));
+        return v_r;
+}
+
+PREFIX value ml_elm_ctxpopup_direction_get(value v_obj)
+{
+        return Val_Elm_Ctxpopup_Direction(elm_ctxpopup_direction_get(
+                (Evas_Object*) v_obj));
 }
 
