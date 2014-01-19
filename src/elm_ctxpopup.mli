@@ -10,3 +10,7 @@ val horizontal_set : Evas.obj -> bool -> unit
 
 val horizontal_get : Evas.obj -> bool
 
+val item_append :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
+    Elm_object.item
+

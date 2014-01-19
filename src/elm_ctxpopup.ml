@@ -13,3 +13,8 @@ external horizontal_set : Evas.obj -> bool -> unit =
 
 external horizontal_get : Evas.obj -> bool = "ml_elm_ctxpopup_horizontal_get"
 
+external item_append :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
+      Elm_object.item =
+      "ml_elm_ctxpopup_item_append"
+
