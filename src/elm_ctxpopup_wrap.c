@@ -124,3 +124,9 @@ PREFIX value ml_elm_ctxpopup_direction_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_ctxpopup_dismiss(value v_obj)
+{
+        elm_ctxpopup_dismiss((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

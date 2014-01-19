@@ -29,3 +29,5 @@ val direction_priority_get :
 
 val direction_get : Evas.obj -> direction
 
+val dismiss : Evas.obj -> unit
+
