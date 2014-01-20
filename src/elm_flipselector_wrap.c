@@ -127,3 +127,23 @@ PREFIX value ml_elm_flipselector_item_selected_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_flipselector_item_prev_get(value v_it)
+{
+        Elm_Object_Item* it1 = elm_flipselector_item_prev_get(
+                (Elm_Object_Item*) v_it);
+        if(it1 == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it1);
+        return v;
+}
+
+PREFIX value ml_elm_flipselector_item_next_get(value v_it)
+{
+        Elm_Object_Item* it1 = elm_flipselector_item_next_get(
+                (Elm_Object_Item*) v_it);
+        if(it1 == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it1);
+        return v;
+}
+
