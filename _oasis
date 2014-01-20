@@ -494,3 +494,9 @@ Executable flip_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: flip_example_01.ml
+Executable flipselector_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: flipselector_example_01.ml
