@@ -10,3 +10,5 @@ val item_append :
 val item_prepend :
   Evas.obj -> ?label:string -> ?func:Evas.smart_cb -> unit -> Elm_object.item
 
+val items_get : Evas.obj -> Elm_object.item list
+
