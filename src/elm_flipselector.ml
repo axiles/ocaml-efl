@@ -21,3 +21,6 @@ external first_item_get : Evas.obj -> Elm_object.item option =
 external last_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_flipselector_last_item_get"
 
+external selected_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_flipselector_selected_item_get"
+
