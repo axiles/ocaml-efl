@@ -18,3 +18,7 @@ val last_item_get : Evas.obj -> Elm_object.item option
 
 val selected_item_get : Evas.obj -> Elm_object.item option
 
+val item_selected_set : Elm_object.item -> bool -> unit
+
+val item_selected_get : Elm_object.item -> bool
+

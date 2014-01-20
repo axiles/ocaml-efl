@@ -24,3 +24,9 @@ external last_item_get : Evas.obj -> Elm_object.item option =
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_flipselector_selected_item_get"
 
+external item_selected_set : Elm_object.item -> bool -> unit =
+  "ml_elm_flipselector_item_selected_set"
+
+external item_selected_get : Elm_object.item -> bool =
+  "ml_elm_flipselector_item_selected_get"
+

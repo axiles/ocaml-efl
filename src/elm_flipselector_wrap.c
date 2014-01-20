@@ -114,3 +114,16 @@ PREFIX value ml_elm_flipselector_selected_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_flipselector_item_selected_set(value v_it, value v_flag)
+{
+        elm_flipselector_item_selected_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_flipselector_item_selected_get(value v_it)
+{
+        return Val_bool(elm_flipselector_item_selected_get(
+                (Elm_Object_Item*) v_it));
+}
+
