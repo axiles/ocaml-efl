@@ -36,3 +36,9 @@ external item_prev_get : Elm_object.item -> Elm_object.item option =
 external item_next_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_flipselector_item_next_get"
 
+external first_interval_set : Evas.obj -> float -> unit =
+  "ml_elm_flipselector_first_interval_set"
+
+external first_interval_get : Evas.obj -> float =
+  "ml_elm_flipselector_first_interval_get"
+

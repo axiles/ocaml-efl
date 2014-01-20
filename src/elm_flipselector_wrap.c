@@ -147,3 +147,16 @@ PREFIX value ml_elm_flipselector_item_next_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_flipselector_first_interval_set(value v_obj, value v_x)
+{
+        elm_flipselector_first_interval_set((Evas_Object*) v_obj,
+                Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_flipselector_first_interval_get(value v_obj)
+{
+        return copy_double(elm_flipselector_first_interval_get(
+                (Evas_Object*) v_obj));
+}
+

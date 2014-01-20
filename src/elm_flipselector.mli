@@ -26,3 +26,7 @@ val item_prev_get : Elm_object.item -> Elm_object.item option
 
 val item_next_get : Elm_object.item -> Elm_object.item option
 
+val first_interval_set : Evas.obj -> float -> unit
+
+val first_interval_get : Evas.obj -> float
+
