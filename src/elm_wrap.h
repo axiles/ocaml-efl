@@ -10,6 +10,10 @@ PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d);
 
 /* Other */
 
+PREFIX inline Eina_Bool ml_Elm_Event_Cb(
+        void* data, Evas_Object* obj, Evas_Object* src, Evas_Callback_Type type,
+        void* event_info);
+
 PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v);
 PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t);
 

@@ -448,6 +448,16 @@ PREFIX value ml_elm_object_signal_callback_del(
         CAMLreturn(Val_unit);
 }
 
+PREFIX value ml_elm_object_event_callback_add(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_object_event_callback_add((Evas_Object*) v_obj, ml_Elm_Event_Cb,
+                data);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_object_orientation_mode_disabled_set(
         value v_obj, value v_flag)
 {
