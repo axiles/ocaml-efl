@@ -15,7 +15,7 @@ let del_it data _ =
         | it :: _ -> Elm_object.item_del it
 
 let show menu _ _ ev =
-  Elm_menu.move menu ev.Evas.canvas_x ev.Evas.canvas_y;
+  Evas.Event_mouse_down.(Elm_menu.move menu ev.canvas_x ev.canvas_y);
   Evas_object.show menu
 
 let () =

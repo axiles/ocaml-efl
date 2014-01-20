@@ -8,18 +8,35 @@ type smart_cb = obj -> ptr -> unit
 
 type modifier
 
-type event_mouse_down = {
-  button : int;
-  output_x : int;
-  output_y : int;
-  canvas_x : int;
-  canvas_y : int;
-  modifiers : modifier;
-  flags_double_click : bool;
-  flags_triple_click : bool;
-}
+module Event_mouse_down = struct
+  type t = {
+    button : int;
+    output_x : int;
+    output_y : int;
+    canvas_x : int;
+    canvas_y : int;
+    modifiers : modifier;
+    flags_double_click : bool;
+    flags_triple_click : bool;
+  }
+end
 
-type event_mouse_up = event_mouse_down
+type event_mouse_down = Event_mouse_down.t
+
+module Event_mouse_up = struct
+  type t = {
+    button : int;
+    output_x : int;
+    output_y : int;
+    canvas_x : int;
+    canvas_y : int;
+    modifiers : modifier;
+    flags_double_click : bool;
+    flags_triple_click : bool;
+  }
+end
+
+type event_mouse_up = Event_mouse_up.t
 
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 
