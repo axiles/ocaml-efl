@@ -40,3 +40,7 @@ val interaction_direction_enabled_set : Evas.obj -> direction -> bool -> unit
 
 val interaction_direction_enabled_get : Evas.obj -> direction -> bool
 
+val interaction_direction_hitsize_set : Evas.obj -> direction -> float -> unit
+
+val interaction_direction_hitsize_get : Evas.obj -> direction -> float
+

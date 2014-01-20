@@ -134,3 +134,18 @@ PREFIX value ml_elm_flip_interaction_direction_enabled_get(
                 (Evas_Object*) v_obj, Elm_Flip_Direction_val(v_dir)));
 }
 
+PREFIX value ml_elm_flip_interaction_direction_hitsize_set(
+        value v_obj, value v_dir, value v_x)
+{
+        elm_flip_interaction_direction_hitsize_set((Evas_Object*) v_obj,
+                Elm_Flip_Direction_val(v_dir), Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_flip_interaction_direction_hitsize_get(
+        value v_obj, value v_dir)
+{
+        return copy_double(elm_flip_interaction_direction_hitsize_get(
+                (Evas_Object*) v_obj, Elm_Flip_Direction_val(v_dir)));
+}
+

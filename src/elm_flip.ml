@@ -44,3 +44,10 @@ external interaction_direction_enabled_set :
 external interaction_direction_enabled_get : Evas.obj -> direction -> bool =
   "ml_elm_flip_interaction_direction_enabled_get"
 
+external interaction_direction_hitsize_set :
+  Evas.obj -> direction -> float -> unit =
+    "ml_elm_flip_interaction_direction_hitsize_set"
+
+external interaction_direction_hitsize_get : Evas.obj -> direction -> float =
+  "ml_elm_flip_interaction_direction_hitsize_get"
+
