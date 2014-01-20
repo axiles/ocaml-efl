@@ -36,3 +36,7 @@ val interaction_set : Evas.obj -> interaction -> unit
 
 val interaction_get : Evas.obj -> interaction
 
+val interaction_direction_enabled_set : Evas.obj -> direction -> bool -> unit
+
+val interaction_direction_enabled_get : Evas.obj -> direction -> bool
+

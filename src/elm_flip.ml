@@ -37,3 +37,10 @@ external interaction_set : Evas.obj -> interaction -> unit =
 external interaction_get : Evas.obj -> interaction =
   "ml_elm_flip_interaction_get"
 
+external interaction_direction_enabled_set :
+  Evas.obj -> direction -> bool -> unit =
+    "ml_elm_flip_interaction_direction_enabled_set"
+
+external interaction_direction_enabled_get : Evas.obj -> direction -> bool =
+  "ml_elm_flip_interaction_direction_enabled_get"
+

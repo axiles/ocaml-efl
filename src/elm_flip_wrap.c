@@ -119,3 +119,18 @@ PREFIX value ml_elm_flip_interaction_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_flip_interaction_direction_enabled_set(
+        value v_obj, value v_dir, value v_flag)
+{
+        elm_flip_interaction_direction_enabled_set((Evas_Object*) v_obj,
+                Elm_Flip_Direction_val(v_dir), Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_flip_interaction_direction_enabled_get(
+        value v_obj, value v_dir)
+{
+        return Val_bool(elm_flip_interaction_direction_enabled_get(
+                (Evas_Object*) v_obj, Elm_Flip_Direction_val(v_dir)));
+}
+
