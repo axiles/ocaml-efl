@@ -72,6 +72,7 @@ val multi_swipe_up : u
 val multi_pinch_in : u
 val multi_pinch_out : u
 val normal : u
+val overflowed : u
 val pos_changed : (string option) v
 val preedit_changed : u
 val press : u
@@ -110,6 +111,7 @@ val thumb_error : u
 val timeout : u
 val transition_finished : u
 val tree_effect_finished : u
+val underflowed : u
 val unfullscreen : u
 val unfocused : u
 val unhighlighted : u
