@@ -336,7 +336,7 @@ PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Callback_Type(
+PREFIX inline value copy_Evas_Event_Info(
         Evas_Callback_Type t, void* event_info)
 {
         CAMLparam0();

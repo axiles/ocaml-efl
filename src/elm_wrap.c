@@ -126,6 +126,18 @@ PREFIX inline value Val_Elm_Policy_Throttle(int pv)
         return Val_config;
 }
 
+PREFIX Eina_Bool ml_Elm_Event_Cb(
+        void* data, Evas_Object* obj, Evas_Object* src, Evas_Callback_Type type,
+        void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_event_info, v_r);
+        value* v_fun = (value*) data;
+        v_event_info = copy_Evas_Event_Info(type, event_info);
+        v_r = caml_callback3(*v_fun, (value) obj, (value) src, v_event_info);
+        CAMLreturnT(Eina_Bool, Bool_val(v_r));
+}
+
 Ecore_Select_Function original_select_function = NULL;
 
 PREFIX int my_select_function(

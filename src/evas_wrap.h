@@ -10,5 +10,8 @@ PREFIX void ml_Evas_Smart_Cb_1(void* data, Evas_Object* obj, void* event_info);
 PREFIX void ml_Evas_Object_Box_Layout_0(
         Evas_Object* obj, Evas_Object_Box_Data* priv, void* user_data);
 
+PREFIX inline value copy_Evas_Event_Info(
+        Evas_Callback_Type type, void* event_info);
+
 #endif
 
