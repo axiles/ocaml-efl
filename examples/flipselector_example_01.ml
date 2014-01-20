@@ -26,6 +26,39 @@ let underflow_cb obj = print_endline "Underflow!"
 
 let overflow_cb obj = print_endline "Overflow!"
 
+let on_keydown fp obj src (info : Evas.event_info) =
+  (match info with
+  | `key_down i ->
+    (match i.Evas.Event_key_down.keyname with
+    | "h" -> printf "%s%!" commands
+    | "n" ->
+      Elm_flipselector.flip_next fp;
+      print_endline "Flipping to next item"
+    | "p" ->
+      Elm_flipselector.flip_prev fp;
+      print_endline "Flipping to previous item"
+    | "f" ->
+      let it = match Elm_flipselector.first_item_get fp with
+      | None -> assert false
+      | Some x -> x in
+      printf "Flip selector's first item is: %s\n%!"
+        (Elm_object.item_text_get it)
+    | "l" ->
+      let it = match Elm_flipselector.last_item_get fp with
+      | None -> assert false
+      | Some x -> x in
+      printf "Flip selector's last item is: %s\n%!"
+        (Elm_object.item_text_get it)
+    | "s" ->
+      let it = match Elm_flipselector.selected_item_get fp with
+      | None -> assert false
+      | Some x -> x in
+      printf "Flip selector's selected item is: %s\n%!"
+        (Elm_object.item_text_get it)
+    | _ -> ())
+  | _ -> ());
+  true
+
 let lbl =
   ["Elementary"; "Evas"; "Eina"; "Edje"; "Eet"; "Ecore"; "Efreet"; "Eldbus"]
 
@@ -59,6 +92,8 @@ let () =
     Evas_object.show bt in
   add_bt "Unselect item" unsel_cb;
   add_bt "Delete item" del_cb;
+
+  Elm_object.event_callback_add win (on_keydown fp);
 
   Evas_object.show win;
   printf "%s%!" commands;

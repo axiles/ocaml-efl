@@ -347,16 +347,19 @@ PREFIX inline value copy_Evas_Event_Info(
                         Store_field(v, 0, Val_mouse_down);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Down(
                                 (Evas_Event_Mouse_Down*) event_info));
+                        break;
                 case EVAS_CALLBACK_MOUSE_UP:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_up);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Up(
                                 (Evas_Event_Mouse_Up*) event_info));
+                        break;
                 case EVAS_CALLBACK_KEY_DOWN:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_key_down);
                         Store_field(v, 1, copy_Evas_Event_Key_Down(
                                 (Evas_Event_Key_Down*) event_info));
+                        break;
                 default: v = Val_other;
         }
         CAMLreturn(v);
