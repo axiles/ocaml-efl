@@ -4,3 +4,9 @@ val flip_next : Evas.obj -> unit
 
 val flip_prev : Evas.obj -> unit
 
+val item_append :
+  Evas.obj -> ?label:string -> ?func:Evas.smart_cb -> unit -> Elm_object.item
+
+val item_prepend :
+  Evas.obj -> ?label:string -> ?func:Evas.smart_cb -> unit -> Elm_object.item
+
