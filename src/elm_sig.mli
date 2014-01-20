@@ -14,6 +14,8 @@ val anchor_down : Elm_entry.anchor_info v
 val anchor_in : Elm_entry.anchor_info v
 val anchor_out : Elm_entry.anchor_info v
 val anchor_up : Elm_entry.anchor_info v
+val animate_begin : u
+val animate_done : u
 val block_clicked : u
 val changed : u
 val changed_user : u
