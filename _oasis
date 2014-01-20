@@ -486,3 +486,9 @@ Executable ctxpopup_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: ctxpopup_example_01.ml
+Executable flip_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: flip_example_01.ml
