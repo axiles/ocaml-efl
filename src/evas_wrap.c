@@ -322,3 +322,24 @@ PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
         return v_r;
 }
 
+PREFIX inline value copy_Evas_Callback_Type(
+        Evas_Callback_Type t, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        switch(t) {
+                case EVAS_CALLBACK_MOUSE_DOWN:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_mouse_down);
+                        Store_field(v, 1, copy_Evas_Event_Mouse_Down(
+                                (Evas_Event_Mouse_Down*) event_info));
+                case EVAS_CALLBACK_MOUSE_UP:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_mouse_up);
+                        Store_field(v, 1, copy_Evas_Event_Mouse_Up(
+                                (Evas_Event_Mouse_Up*) event_info));
+                default: v = Val_other;
+        }
+        CAMLreturn(v);
+}
+

@@ -38,6 +38,12 @@ end
 
 type event_mouse_up = Event_mouse_up.t
 
+type callback_type = [
+  | `mouse_down of event_mouse_down
+  | `mouse_up of event_mouse_up
+  | `other
+]
+
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 
 module Event_type = struct

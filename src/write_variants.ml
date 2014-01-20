@@ -91,6 +91,8 @@ let () =
   g "mixed";
   g "momentum";
   g "month";
+  g "mouse_down";
+  g "mouse_up";
   g "move";
   g "n_double_taps";
   g "n_flicks";
@@ -114,6 +116,7 @@ let () =
   g "opacity_unknown";
   g "opaque";
   g "orient_none";
+  g "other";
   g "page";
   g "page_down";
   g "page_left";
