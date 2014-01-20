@@ -322,6 +322,20 @@ PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
         return v_r;
 }
 
+PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(6, 0);
+        Store_field(v, 0, copy_string(info->keyname));
+        Store_field(v, 1, (value) info->modifiers);
+        Store_field(v, 2, copy_string(info->key));
+        Store_field(v, 3, copy_string(info->string));
+        Store_field(v, 4, copy_string(info->compose));
+        Store_field(v, 5, Val_int(info->timestamp));
+        CAMLreturn(v);
+}
+
 PREFIX inline value copy_Evas_Callback_Type(
         Evas_Callback_Type t, void* event_info)
 {
@@ -338,6 +352,11 @@ PREFIX inline value copy_Evas_Callback_Type(
                         Store_field(v, 0, Val_mouse_up);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Up(
                                 (Evas_Event_Mouse_Up*) event_info));
+                case EVAS_CALLBACK_KEY_DOWN:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_key_down);
+                        Store_field(v, 1, copy_Evas_Event_Key_Down(
+                                (Evas_Event_Key_Down*) event_info));
                 default: v = Val_other;
         }
         CAMLreturn(v);

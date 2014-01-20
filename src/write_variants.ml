@@ -76,6 +76,7 @@ let () =
   g "ip";
   g "j2me";
   g "join";
+  g "key_down";
   g "keypad";
   g "last";
   g "last_window_closed";

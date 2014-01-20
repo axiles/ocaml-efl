@@ -38,9 +38,23 @@ end
 
 type event_mouse_up = Event_mouse_up.t
 
+module Event_key_down = struct
+  type t = {
+    keyname : string;
+    modifiers : modifier;
+    key : string;
+    str : string;
+    compose : string;
+    timestamp : int;
+  }
+end
+
+type event_key_down = Event_key_down.t
+
 type callback_type = [
   | `mouse_down of event_mouse_down
   | `mouse_up of event_mouse_up
+  | `key_down of event_key_down
   | `other
 ]
 
