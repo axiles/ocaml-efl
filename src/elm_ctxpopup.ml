@@ -3,7 +3,7 @@ type direction = [
   | `right
   | `left
   | `up
-  | `down]
+  | `unknown]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_ctxpopup_add"
 

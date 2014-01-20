@@ -14,6 +14,14 @@ type mode = [
   | `page_left
   | `page_right]
 
+type interaction = [`none | `rotate | `cube | `page]
+
+type direction = [
+  | `up
+  | `down
+  | `left
+  | `right]
+
 val add : Evas.obj -> Evas.obj
 
 val front_visible_get : Evas.obj -> bool
@@ -23,4 +31,8 @@ val perspective_set : Evas.obj -> int -> int -> int -> unit
 val go : Evas.obj -> mode -> unit
 
 val go_to : Evas.obj -> bool -> mode -> unit
+
+val interaction_set : Evas.obj -> interaction -> unit
+
+val interaction_get : Evas.obj -> interaction
 

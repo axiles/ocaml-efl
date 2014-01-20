@@ -12,6 +12,14 @@ type mode = [
   | `page_left
   | `page_right]
 
+type interaction = [`none | `rotate | `cube | `page]
+
+type direction = [
+  | `up
+  | `down
+  | `left
+  | `right]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_flip_add"
 
 external front_visible_get : Evas.obj -> bool = "ml_elm_flip_front_visible_get"
@@ -22,4 +30,10 @@ external perspective_set : Evas.obj -> int -> int -> int -> unit =
 external go : Evas.obj -> mode -> unit = "ml_elm_flip_go"
 
 external go_to : Evas.obj -> bool -> mode -> unit = "ml_elm_flip_go_to"
+
+external interaction_set : Evas.obj -> interaction -> unit =
+  "ml_elm_flip_interaction_set"
+
+external interaction_get : Evas.obj -> interaction =
+  "ml_elm_flip_interaction_get"
 

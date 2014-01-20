@@ -25,6 +25,54 @@ PREFIX inline Elm_Flip_Mode Elm_Flip_Mode_val(value v)
         return ELM_FLIP_ROTATE_Y_CENTER_AXIS;
 }
 
+PREFIX inline Elm_Flip_Interaction Elm_Flip_Interaction_val(value v)
+{
+        switch(v) {
+                case Val_none: return ELM_FLIP_INTERACTION_NONE;
+                case Val_rotate: return ELM_FLIP_INTERACTION_ROTATE;
+                case Val_cube: return ELM_FLIP_INTERACTION_CUBE;
+                case Val_page: return ELM_FLIP_INTERACTION_PAGE;
+                default: break;
+        }
+        caml_failwith("Elm_Flip_Interaction_val");
+        return ELM_FLIP_INTERACTION_NONE;
+}
+
+PREFIX inline value Val_Elm_Flip_Interaction(Elm_Flip_Interaction i)
+{
+        switch(i) {
+                case ELM_FLIP_INTERACTION_NONE: return Val_none;
+                case ELM_FLIP_INTERACTION_ROTATE: return Val_rotate;
+                case ELM_FLIP_INTERACTION_CUBE: return Val_cube;
+                case ELM_FLIP_INTERACTION_PAGE: return Val_page;
+        }
+        return Val_none;
+}
+
+PREFIX inline Elm_Flip_Direction Elm_Flip_Direction_val(value v)
+{
+        switch(v) {
+                case Val_up: return ELM_FLIP_DIRECTION_UP;
+                case Val_down: return ELM_FLIP_DIRECTION_DOWN;
+                case Val_left: return ELM_FLIP_DIRECTION_LEFT;
+                case Val_right: return ELM_FLIP_DIRECTION_RIGHT;
+                default: break;
+        }
+        caml_failwith("Elm_Flip_Direction_val");
+        return ELM_FLIP_DIRECTION_UP;
+}
+
+PREFIX inline value Val_Elm_Flip_Direction(Elm_Flip_Direction d)
+{
+        switch(d) {
+                case ELM_FLIP_DIRECTION_UP: return Val_up;
+                case ELM_FLIP_DIRECTION_DOWN: return Val_down;
+                case ELM_FLIP_DIRECTION_LEFT: return Val_left;
+                case ELM_FLIP_DIRECTION_RIGHT: return Val_right;
+        }
+        return Val_up;
+}
+
 PREFIX value ml_elm_flip_add(value v_parent)
 {
         Evas_Object* flip = elm_flip_add((Evas_Object*) v_parent);
@@ -56,5 +104,18 @@ PREFIX value ml_elm_flip_go_to(value v_obj, value v_front, value v_mode)
         elm_flip_go_to((Evas_Object*) v_obj, Bool_val(v_front),
                 Elm_Flip_Mode_val(v_mode));
         return Val_unit;
+}
+
+PREFIX value ml_elm_flip_interaction_set(value v_obj, value v_interaction)
+{
+        elm_flip_interaction_set((Evas_Object*) v_obj,
+                Elm_Flip_Interaction_val(v_interaction));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_flip_interaction_get(value v_obj)
+{
+        return Val_Elm_Flip_Interaction(elm_flip_interaction_get(
+                (Evas_Object*) v_obj));
 }
 

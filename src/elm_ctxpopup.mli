@@ -5,7 +5,7 @@ type direction = [
   | `right
   | `left
   | `up
-  | `down]
+  | `unknown]
 
 val add : Evas.obj -> Evas.obj
 

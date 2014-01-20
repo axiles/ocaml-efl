@@ -31,6 +31,7 @@ let () =
   g "compress";
   g "config";
   g "content";
+  g "cube";
   g "cube_down";
   g "cube_left";
   g "cube_right";
@@ -113,6 +114,7 @@ let () =
   g "opacity_unknown";
   g "opaque";
   g "orient_none";
+  g "page";
   g "page_down";
   g "page_left";
   g "page_right";
