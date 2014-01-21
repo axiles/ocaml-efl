@@ -33,3 +33,7 @@ external canvas_to_region_convert : Evas.obj -> int -> int -> float * float =
 external region_to_canvas_convert : Evas.obj -> float -> float -> int * int =
   "ml_elm_map_region_to_canvas_convert"
 
+external paused_set : Evas.obj -> bool -> unit = "ml_elm_map_paused_set"
+
+external paused_get : Evas.obj -> bool = "ml_elm_map_paused_get"
+

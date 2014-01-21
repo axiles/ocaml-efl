@@ -28,3 +28,7 @@ val canvas_to_region_convert : Evas.obj -> int -> int -> float * float
 
 val region_to_canvas_convert : Evas.obj -> float -> float -> int * int
 
+val paused_set : Evas.obj -> bool -> unit
+
+val paused_get : Evas.obj -> bool
+
