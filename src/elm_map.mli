@@ -20,3 +20,7 @@ val zoom_max_get : Evas.obj -> int
 
 val region_get : Evas.obj -> float * float
 
+val region_bring_in : Evas.obj -> float -> float -> unit
+
+val region_show : Evas.obj -> float -> float -> unit
+

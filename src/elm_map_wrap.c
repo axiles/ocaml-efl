@@ -90,3 +90,17 @@ PREFIX value ml_elm_map_region_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_map_region_bring_in(value v_obj, value v_lon, value v_lat)
+{
+        elm_map_region_bring_in((Evas_Object*) v_obj, Double_val(v_lon),
+                Double_val(v_lat));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_region_show(value v_obj, value v_lon, value v_lat)
+{
+        elm_map_region_show((Evas_Object*) v_obj, Double_val(v_lon),
+                Double_val(v_lat));
+        return Val_unit;
+}
+
