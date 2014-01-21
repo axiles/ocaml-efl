@@ -96,3 +96,7 @@ val overlay_color_set : overlay -> int -> int -> int -> int -> unit
 
 val overlay_color_get : overlay -> int * int * int * int
 
+val overlay_show : overlay -> unit
+
+val overlays_show : overlay list -> unit
+

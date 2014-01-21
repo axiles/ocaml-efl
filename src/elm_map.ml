@@ -119,3 +119,7 @@ external overlay_color_set : overlay -> int -> int -> int -> int -> unit =
 external overlay_color_get : overlay -> int * int * int * int =
   "ml_elm_map_overlay_color_get"
 
+external overlay_show : overlay -> unit = "ml_elm_map_overlay_show"
+
+external overlays_show : overlay list -> unit = "ml_elm_map_overlays_show"
+

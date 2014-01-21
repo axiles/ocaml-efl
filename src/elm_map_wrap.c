@@ -59,6 +59,17 @@ PREFIX inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
         CAMLreturn(v);
 }
 
+PREFIX inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
+{
+        Eina_List* list = NULL;
+        value v;
+        while(v != Val_int(0)) {
+                list = eina_list_append(list, (Elm_Map_Overlay*) Field(v, 0));
+                v = Field(v, 1);
+        }
+        return list;
+}
+
 PREFIX value ml_elm_map_add(Evas_Object* v_parent)
 {
         Evas_Object* map = elm_map_add((Evas_Object*) v_parent);
@@ -359,5 +370,19 @@ PREFIX value ml_elm_map_overlay_color_get(value v_ov)
         Store_field(v, 2, Val_int(b));
         Store_field(v, 3, Val_int(a));
         return v;
+}
+
+PREFIX value ml_elm_map_overlay_show(value v_ov)
+{
+        elm_map_overlay_show((Elm_Map_Overlay*) v_ov);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlays_show(value v_list)
+{
+        Eina_List* list = Eina_List_Elm_Map_Overlay_val(v_list);
+        elm_map_overlays_show(list);
+        eina_list_free(list);
+        return Val_unit;
 }
 
