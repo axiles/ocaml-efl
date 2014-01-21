@@ -92,3 +92,7 @@ val overlay_region_set : overlay -> float -> float -> unit
 
 val overlay_region_get : overlay -> float * float
 
+val overlay_color_set : overlay -> int -> int -> int -> int -> unit
+
+val overlay_color_get : overlay -> int * int * int * int
+

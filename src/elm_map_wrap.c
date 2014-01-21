@@ -341,3 +341,23 @@ PREFIX value ml_elm_map_overlay_region_get(value v_ov)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_map_overlay_color_set(
+        value v_ov, value v_r, value v_g, value v_b, value v_a)
+{
+        elm_map_overlay_color_set((Elm_Map_Overlay*) v_ov, Int_val(v_r),
+                Int_val(v_g), Int_val(v_b), Int_val(v_a));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_color_get(value v_ov)
+{
+        int r, g, b, a;
+        elm_map_overlay_color_get((Elm_Map_Overlay*) v_ov, &r, &g, &b, &a);
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        Store_field(v, 3, Val_int(a));
+        return v;
+}
+

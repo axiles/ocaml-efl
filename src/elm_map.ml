@@ -113,3 +113,9 @@ external overlay_region_set : overlay -> float -> float -> unit =
 external overlay_region_get : overlay -> float * float =
   "ml_elm_map_overlay_region_get"
 
+external overlay_color_set : overlay -> int -> int -> int -> int -> unit =
+  "ml_elm_map_overlay_color_set"
+
+external overlay_color_get : overlay -> int * int * int * int =
+  "ml_elm_map_overlay_color_get"
+
