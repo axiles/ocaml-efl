@@ -76,3 +76,8 @@ external overlay_del : overlay -> unit = "ml_elm_map_overlay_del"
 external overlay_type_get : overlay -> overlay_type =
   "ml_elm_map_overlay_type_get"
 
+external overlay_hide_set : overlay -> bool -> unit =
+  "ml_elm_map_overlay_hide_set"
+
+external overlay_hide_get : overlay -> bool = "ml_elm_map_overlay_hide_get"
+

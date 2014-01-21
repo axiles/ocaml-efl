@@ -244,3 +244,14 @@ PREFIX value ml_elm_map_overlay_type_get(value v_ov)
                 (Elm_Map_Overlay*) v_ov));
 }
 
+PREFIX value ml_elm_map_overlay_hide_set(value v_ov, value v_flag)
+{
+        elm_map_overlay_hide_set((Elm_Map_Overlay*) v_ov, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_hide_get(value v_ov, value v_flag)
+{
+        return Val_bool(elm_map_overlay_hide_get((Elm_Map_Overlay*) v_ov));
+}
+

@@ -66,3 +66,7 @@ val overlay_del : overlay -> unit
 
 val overlay_type_get : overlay -> overlay_type
 
+val overlay_hide_set : overlay -> bool -> unit
+
+val overlay_hide_get : overlay -> bool
+
