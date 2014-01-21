@@ -37,3 +37,8 @@ external paused_set : Evas.obj -> bool -> unit = "ml_elm_map_paused_set"
 
 external paused_get : Evas.obj -> bool = "ml_elm_map_paused_get"
 
+external rotate_set : Evas.obj -> float -> int -> int -> unit =
+  "ml_elm_map_rotate_set"
+
+external rotate_get : Evas.obj -> float * int * int = "ml_elm_map_rotate_get"
+

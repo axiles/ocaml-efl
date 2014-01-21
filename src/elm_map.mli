@@ -32,3 +32,7 @@ val paused_set : Evas.obj -> bool -> unit
 
 val paused_get : Evas.obj -> bool
 
+val rotate_set : Evas.obj -> float -> int -> int -> unit
+
+val rotate_get : Evas.obj -> float * int * int
+

@@ -141,3 +141,24 @@ PREFIX value ml_elm_map_paused_get(value v_obj)
         return Val_bool(elm_map_paused_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_map_rotate_set(value v_obj, value v_a, value v_x, value v_y)
+{
+        elm_map_rotate_set((Evas_Object*) v_obj, Double_val(v_a), Int_val(v_x),
+                Int_val(v_y));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_rotate_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double a;
+        Evas_Coord x, y;
+        elm_map_rotate_get((Evas_Object*) v_obj, &a, &x, &y);
+        v_r = caml_alloc(3, 0);
+        Store_field(v_r, 0, copy_double(a));
+        Store_field(v_r, 1, Val_int(x));
+        Store_field(v_r, 2, Val_int(y));
+        CAMLreturn(v_r);
+}
+
