@@ -97,6 +97,7 @@ The following widgets and containers are almost fully implemented:
 * flips
 * flip selectors
 * panels
+* tooltips
 
 It is already possible to write some small gui applications with these widgets.
 However, ocaml-efl is still in alpha stage and some API may break.
