@@ -55,3 +55,9 @@ PREFIX value ml_elm_panel_hidden_get(value v_obj)
         return Val_bool(elm_panel_hidden_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_panel_toggle(value v_obj)
+{
+        elm_panel_toggle((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

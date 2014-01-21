@@ -10,3 +10,5 @@ external hidden_set : Evas.obj -> bool -> unit = "ml_elm_panel_hidden_set"
 
 external hidden_get : Evas.obj -> bool = "ml_elm_panel_hidden_get"
 
+external toggle : Evas.obj -> unit = "ml_elm_panel_toggle"
+
