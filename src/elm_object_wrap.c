@@ -1014,3 +1014,15 @@ PREFIX value ml_elm_object_tooltip_style_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_tooltip_window_mode_set(value v_obj, value v_flag)
+{
+        return Val_bool(elm_object_tooltip_window_mode_set(
+                (Evas_Object*) v_obj, Bool_val(v_flag)));
+}
+
+PREFIX value ml_elm_object_tooltip_window_mode_get(value v_obj)
+{
+        return Val_bool(elm_object_tooltip_window_mode_get(
+                (Evas_Object*) v_obj));
+}
+
