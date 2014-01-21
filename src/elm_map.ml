@@ -87,3 +87,8 @@ external overlay_displayed_zoom_min_set : overlay -> int -> unit =
 external overlay_displayed_zoom_min_get : overlay -> int =
   "ml_elm_map_overlay_displayed_zoom_min_get"
 
+external overlay_paused_set : overlay -> bool -> unit =
+  "ml_elm_map_overlay_paused_set"
+
+external overlay_paused_get : overlay -> bool = "ml_elm_map_overlay_paused_get"
+

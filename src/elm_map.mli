@@ -74,3 +74,7 @@ val overlay_displayed_zoom_min_set : overlay -> int -> unit
 
 val overlay_displayed_zoom_min_get : overlay -> int
 
+val overlay_paused_set : overlay -> bool -> unit
+
+val overlay_paused_get : overlay -> bool
+
