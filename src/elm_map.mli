@@ -70,3 +70,7 @@ val overlay_hide_set : overlay -> bool -> unit
 
 val overlay_hide_get : overlay -> bool
 
+val overlay_displayed_zoom_min_set : overlay -> int -> unit
+
+val overlay_displayed_zoom_min_get : overlay -> int
+
