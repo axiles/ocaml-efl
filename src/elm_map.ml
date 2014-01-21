@@ -1,3 +1,5 @@
+type overlay
+
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_map_add"
@@ -51,4 +53,11 @@ external user_agent_set : Evas.obj -> string -> unit =
   "ml_elm_map_user_agent_set"
 
 external user_agent_get : Evas.obj -> string = "ml_elm_map_user_agent_get"
+
+external overlay_add : Evas.obj -> float -> float -> overlay =
+  "ml_elm_map_overlay_add"
+
+external overlays_get : Evas.obj -> overlay list = "ml_elm_map_overlays_get"
+
+external overlay_del : overlay -> unit = "ml_elm_map_overlay_del"
 

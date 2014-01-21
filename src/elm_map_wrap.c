@@ -25,6 +25,22 @@ PREFIX inline value Val_Elm_Map_Zoom_Mode(Elm_Map_Zoom_Mode m)
         return Val_manual;
 }
 
+PREFIX inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal2(v, v1);
+        Eina_List* it;
+        Elm_Map_Overlay* obj;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, obj) {
+                v1 = v;
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, (value) obj);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_map_add(Evas_Object* v_parent)
 {
         Evas_Object* map = elm_map_add((Evas_Object*) v_parent);
@@ -182,5 +198,25 @@ PREFIX value ml_elm_map_user_agent_set(value v_obj, value v_s)
 PREFIX value ml_elm_map_user_agent_get(value v_obj)
 {
         return copy_string(elm_map_user_agent_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_map_overlay_add(value v_obj, value v_lon, value v_lat)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_add((Evas_Object*) v_obj,
+                Double_val(v_lon), Double_val(v_lat));
+        if(ov == NULL) caml_failwith("elm_map_overlay_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlays_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Map_Overlay(elm_map_overlays_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_map_overlay_del(Elm_Map_Overlay* v_ov)
+{
+        elm_map_overlay_del((Elm_Map_Overlay*) v_ov);
+        return Val_unit;
 }
 

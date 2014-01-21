@@ -1,3 +1,5 @@
+type overlay
+
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
 val add : Evas.obj -> Evas.obj
@@ -43,4 +45,10 @@ val wheel_disabled_get : Evas.obj -> bool
 val user_agent_set : Evas.obj -> string -> unit
 
 val user_agent_get : Evas.obj -> string
+
+val overlay_add : Evas.obj -> float -> float -> overlay
+
+val overlays_get : Evas.obj -> overlay list
+
+val overlay_del : overlay -> unit
 
