@@ -56,3 +56,25 @@ PREFIX value ml_elm_map_zoom_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_map_zoom_min_set(value v_obj, value v_x)
+{
+        elm_map_zoom_min_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_zoom_min_get(value v_obj)
+{
+        return Val_int(elm_map_zoom_min_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_map_zoom_max_set(value v_obj, value v_x)
+{
+        elm_map_zoom_max_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_zoom_max_get(value v_obj)
+{
+        return Val_int(elm_map_zoom_max_get((Evas_Object*) v_obj));
+}
+
