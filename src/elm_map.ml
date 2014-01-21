@@ -47,3 +47,8 @@ external wheel_disabled_set : Evas.obj -> bool -> unit =
 
 external wheel_disabled_get : Evas.obj -> bool = "ml_elm_map_wheel_disabled_get"
 
+external user_agent_set : Evas.obj -> string -> unit =
+  "ml_elm_map_user_agent_set"
+
+external user_agent_get : Evas.obj -> string = "ml_elm_map_user_agent_get"
+

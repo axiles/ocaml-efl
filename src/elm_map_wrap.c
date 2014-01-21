@@ -173,3 +173,14 @@ PREFIX value ml_elm_map_wheel_disabled_get(value v_obj)
         return Val_bool(elm_map_wheel_disabled_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_map_user_agent_set(value v_obj, value v_s)
+{
+        elm_map_user_agent_set((Evas_Object*) v_obj, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_user_agent_get(value v_obj)
+{
+        return copy_string(elm_map_user_agent_get((Evas_Object*) v_obj));
+}
+

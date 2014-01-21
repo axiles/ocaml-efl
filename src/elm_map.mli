@@ -40,3 +40,7 @@ val wheel_disabled_set : Evas.obj -> bool -> unit
 
 val wheel_disabled_get : Evas.obj -> bool
 
+val user_agent_set : Evas.obj -> string -> unit
+
+val user_agent_get : Evas.obj -> string
+
