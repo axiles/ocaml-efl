@@ -78,3 +78,5 @@ val overlay_paused_set : overlay -> bool -> unit
 
 val overlay_paused_get : overlay -> bool
 
+val overlay_visible_get : overlay -> bool
+

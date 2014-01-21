@@ -92,3 +92,6 @@ external overlay_paused_set : overlay -> bool -> unit =
 
 external overlay_paused_get : overlay -> bool = "ml_elm_map_overlay_paused_get"
 
+external overlay_visible_get : overlay -> bool =
+  "ml_elm_map_overlay_visible_get"
+

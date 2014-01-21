@@ -279,3 +279,8 @@ PREFIX value ml_elm_map_overlay_paused_get(value v_ov, value v_flag)
         return Val_bool(elm_map_overlay_paused_get((Elm_Map_Overlay*) v_ov));
 }
 
+PREFIX value ml_elm_map_overlay_visible_get(value v_ov, value v_flag)
+{
+        return Val_bool(elm_map_overlay_visible_get((Elm_Map_Overlay*) v_ov));
+}
+
