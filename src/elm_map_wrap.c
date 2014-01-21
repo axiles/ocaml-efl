@@ -284,3 +284,22 @@ PREFIX value ml_elm_map_overlay_visible_get(value v_ov, value v_flag)
         return Val_bool(elm_map_overlay_visible_get((Elm_Map_Overlay*) v_ov));
 }
 
+PREFIX value ml_elm_map_overlay_content_set(value v_ov, value v_obj)
+{
+        Evas_Object* obj;
+        if(v_obj == Val_int(0)) obj = NULL;
+        else obj = (Evas_Object*) Field(v_obj, 0);
+        elm_map_overlay_content_set((Elm_Map_Overlay*) v_ov, obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_content_get(value v_ov)
+{
+        const Evas_Object* obj =
+                elm_map_overlay_content_get((Elm_Map_Overlay*) v_ov);
+        if(obj == NULL) return Val_int(0);
+        value v_obj = caml_alloc(1, 0);
+        Store_field(v_obj, 0, (value) obj);
+        return v_obj;
+}
+

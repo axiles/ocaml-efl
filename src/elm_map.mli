@@ -80,3 +80,7 @@ val overlay_paused_get : overlay -> bool
 
 val overlay_visible_get : overlay -> bool
 
+val overlay_content_set : overlay -> Evas.obj option -> unit
+
+val overlay_content_get : overlay -> Evas.obj option
+

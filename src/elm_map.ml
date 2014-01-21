@@ -95,3 +95,9 @@ external overlay_paused_get : overlay -> bool = "ml_elm_map_overlay_paused_get"
 external overlay_visible_get : overlay -> bool =
   "ml_elm_map_overlay_visible_get"
 
+external overlay_content_set : overlay -> Evas.obj option -> unit =
+  "ml_elm_map_overlay_content_set"
+
+external overlay_content_get : overlay -> Evas.obj option =
+  "ml_elm_map_overlay_content_get"
+
