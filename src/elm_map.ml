@@ -19,3 +19,5 @@ external zoom_max_set : Evas.obj -> int -> unit = "ml_elm_map_zoom_max_set"
 
 external zoom_max_get : Evas.obj -> int = "ml_elm_map_zoom_max_get"
 
+external region_get : Evas.obj -> float * float = "ml_elm_map_region_get"
+

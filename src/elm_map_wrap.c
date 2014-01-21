@@ -78,3 +78,15 @@ PREFIX value ml_elm_map_zoom_max_get(value v_obj)
         return Val_int(elm_map_zoom_max_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_map_region_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double lon, lat;
+        elm_map_region_get((Evas_Object*) v_obj, &lon, &lat);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(lon));
+        Store_field(v_r, 1, copy_double(lat));
+        CAMLreturn(v_r);
+}
+

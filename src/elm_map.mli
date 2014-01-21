@@ -18,3 +18,5 @@ val zoom_max_set : Evas.obj -> int -> unit
 
 val zoom_max_get : Evas.obj -> int
 
+val region_get : Evas.obj -> float * float
+
