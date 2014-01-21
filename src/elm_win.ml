@@ -281,27 +281,3 @@ external floating_mode_get : Evas.obj -> bool = "ml_elm_win_floating_mode_get"
 
 external window_id_get : Evas.obj -> Ecore.window = "ml_elm_win_window_id_get"
 
-module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
-  let delete_request = f "delete,request"
-  let moved = f "moved"
-  let withdrawn = f "widthdrawn"
-  let iconified = f "iconified"
-  let normal = f "normal"
-  let stick = f "stick"
-  let unstick = f "unstick"
-  let fullscreen = f "fullscreen"
-  let unfullscreen = f "unfullscreen"
-  let maximized = f "maximized"
-  let unmaximized = f "unmaximized"
-  let ioerr = f "ioerr"
-  let indicator_prop_changed = f "indicator,prop,changed"
-  let rotation_changed = f "rotation,changed"
-  let profile_changed = f "profile,changed"
-  let focused = f "focused"
-  let unfocused = f "unfocused"
-end
-
-
-
