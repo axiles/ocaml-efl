@@ -101,3 +101,9 @@ external overlay_content_set : overlay -> Evas.obj option -> unit =
 external overlay_content_get : overlay -> Evas.obj option =
   "ml_elm_map_overlay_content_get"
 
+external overlay_icon_set : overlay -> Evas.obj option -> unit =
+  "ml_elm_map_overlay_icon_set"
+
+external overlay_icon_get : overlay -> Evas.obj option =
+  "ml_elm_map_overlay_icon_get"
+
