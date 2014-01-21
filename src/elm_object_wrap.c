@@ -950,3 +950,17 @@ PREFIX value ml_elm_object_widget_type_get(value v_obj)
         CAMLreturn(v_t);
 }
 
+/* Tooltips */
+
+PREFIX value ml_elm_object_tooltip_show(value v_obj)
+{
+        elm_object_tooltip_show((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_hide(value v_obj)
+{
+        elm_object_tooltip_hide((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

@@ -254,3 +254,9 @@ val top_widget_get : Evas.obj -> Evas.obj option
 
 val widget_type_get : Evas.obj -> string option
 
+(** {2 Tooltips} *)
+
+val tooltip_show : Evas.obj -> unit
+
+val tooltip_hide : Evas.obj -> unit
+

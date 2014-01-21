@@ -335,3 +335,9 @@ external top_widget_get : Evas.obj -> Evas.obj option =
 external widget_type_get : Evas.obj -> string option =
   "ml_elm_object_widget_type_get"
 
+(* Tooltips *)
+
+external tooltip_show : Evas.obj -> unit = "ml_elm_object_tooltip_show"
+
+external tooltip_hide : Evas.obj -> unit = "ml_elm_object_tooltip_hide"
+
