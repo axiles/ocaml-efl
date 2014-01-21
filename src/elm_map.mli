@@ -1,3 +1,15 @@
+type overlay_type = [
+  | `none
+  | `default
+  | `_class
+  | `group
+  | `bubble
+  | `rout
+  | `line
+  | `polygon
+  | `circle
+  | `scale]
+
 type overlay
 
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
@@ -51,4 +63,6 @@ val overlay_add : Evas.obj -> float -> float -> overlay
 val overlays_get : Evas.obj -> overlay list
 
 val overlay_del : overlay -> unit
+
+val overlay_type_get : overlay -> overlay_type
 

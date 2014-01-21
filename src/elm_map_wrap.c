@@ -1,5 +1,23 @@
 #include "include.h"
 
+PREFIX inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
+{
+        switch(t) {
+                case ELM_MAP_OVERLAY_TYPE_NONE: return Val_none;
+                case ELM_MAP_OVERLAY_TYPE_DEFAULT: return Val_default;
+                case ELM_MAP_OVERLAY_TYPE_CLASS: return Val_class;
+                case ELM_MAP_OVERLAY_TYPE_GROUP: return Val_group;
+                case ELM_MAP_OVERLAY_TYPE_BUBBLE: return Val_bubble;
+                case ELM_MAP_OVERLAY_TYPE_ROUTE: return Val_route;
+                case ELM_MAP_OVERLAY_TYPE_LINE: return Val_line;
+                case ELM_MAP_OVERLAY_TYPE_POLYGON: return Val_polygon;
+                case ELM_MAP_OVERLAY_TYPE_CIRCLE: return Val_circle;
+                case ELM_MAP_OVERLAY_TYPE_SCALE: return Val_scale;
+        }
+        caml_failwith("Val_elm_Map_Overlay_Type");
+        return Val_none;
+}
+
 PREFIX inline Elm_Map_Zoom_Mode Elm_Map_Zoom_Mode_val(value v)
 {
         switch(v) {
@@ -214,9 +232,15 @@ PREFIX value ml_elm_map_overlays_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
-PREFIX value ml_elm_map_overlay_del(Elm_Map_Overlay* v_ov)
+PREFIX value ml_elm_map_overlay_del(value v_ov)
 {
         elm_map_overlay_del((Elm_Map_Overlay*) v_ov);
         return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_type_get(value v_ov)
+{
+        return Val_Elm_Map_Overlay_Type(elm_map_overlay_type_get(
+                (Elm_Map_Overlay*) v_ov));
 }
 

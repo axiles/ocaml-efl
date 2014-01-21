@@ -26,8 +26,11 @@ let () =
   g "bottom";
   g "bottom_left";
   g "bottom_right";
+  g "bubble";
   g "center";
   g "char";
+  g "circle";
+  f "Val_class" "_class";
   g "close";
   g "combo";
   g "compress";
@@ -84,6 +87,7 @@ let () =
   g "last_window_closed";
   g "left";
   g "limit";
+  g "line";
   g "linear";
   g "list";
   g "login";
@@ -132,6 +136,7 @@ let () =
   g "pin";
   g "plain_utf8";
   g "plaintext";
+  g "polygon";
   g "popup_menu";
   g "previous";
   g "right";
@@ -143,6 +148,7 @@ let () =
   g "rotate_x_center_axis";
   g "rotate_yz_center_axis";
   g "rotate_y_center_axis";
+  g "route";
   g "scale";
   g "scroll";
   g "search";
