@@ -162,3 +162,14 @@ PREFIX value ml_elm_map_rotate_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_map_wheel_disabled_set(value v_obj, value v_flag)
+{
+        elm_map_wheel_disabled_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_wheel_disabled_get(value v_obj)
+{
+        return Val_bool(elm_map_wheel_disabled_get((Evas_Object*) v_obj));
+}
+

@@ -36,3 +36,7 @@ val rotate_set : Evas.obj -> float -> int -> int -> unit
 
 val rotate_get : Evas.obj -> float * int * int
 
+val wheel_disabled_set : Evas.obj -> bool -> unit
+
+val wheel_disabled_get : Evas.obj -> bool
+
