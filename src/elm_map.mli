@@ -24,3 +24,7 @@ val region_bring_in : Evas.obj -> float -> float -> unit
 
 val region_show : Evas.obj -> float -> float -> unit
 
+val canvas_to_region_convert : Evas.obj -> int -> int -> float * float
+
+val region_to_canvas_convert : Evas.obj -> float -> float -> int * int
+

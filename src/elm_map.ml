@@ -27,3 +27,9 @@ external region_bring_in : Evas.obj -> float -> float -> unit =
 external region_show : Evas.obj -> float -> float -> unit =
   "ml_elm_map_region_show"
 
+external canvas_to_region_convert : Evas.obj -> int -> int -> float * float =
+  "ml_elm_map_canvas_to_region_convert"
+
+external region_to_canvas_convert : Evas.obj -> float -> float -> int * int =
+  "ml_elm_map_region_to_canvas_convert"
+
