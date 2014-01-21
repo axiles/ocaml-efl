@@ -77,7 +77,8 @@ Library efl
     Elm_ctxpopup,
     Elm_flip,
     Elm_flipselector,
-    Elm_panel
+    Elm_panel,
+    Elm_map
   CSources:
     include.h,
     eina_wrap.c,
@@ -146,7 +147,8 @@ Library efl
     elm_ctxpopup_wrap.c,
     elm_flip_wrap.c,
     elm_flipselector_wrap.c,
-    elm_panel_wrap.c
+    elm_panel_wrap.c,
+    elm_map_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
