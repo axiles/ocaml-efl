@@ -260,3 +260,15 @@ val tooltip_show : Evas.obj -> unit
 
 val tooltip_hide : Evas.obj -> unit
 
+val tooltip_text_set : Evas.obj -> string -> unit
+
+type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
+
+val tooltip_content_cb_set : Evas.obj -> tooltip_content_cb -> unit
+
+val tooltip_unset : Evas.obj -> unit
+
+val tooltip_style_set : Evas.obj -> string -> unit
+
+val tooltip_style_get : Evas.obj -> string
+

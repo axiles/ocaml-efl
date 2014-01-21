@@ -341,3 +341,20 @@ external tooltip_show : Evas.obj -> unit = "ml_elm_object_tooltip_show"
 
 external tooltip_hide : Evas.obj -> unit = "ml_elm_object_tooltip_hide"
 
+external tooltip_text_set : Evas.obj -> string -> unit =
+  "ml_elm_object_tooltip_text_set"
+
+type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
+
+external tooltip_content_cb_set :
+  Evas.obj -> tooltip_content_cb -> unit =
+    "ml_elm_object_tooltip_content_cb_set"
+
+external tooltip_unset : Evas.obj -> unit = "ml_elm_object_tooltip_unset"
+
+external tooltip_style_set : Evas.obj -> string -> unit =
+  "ml_elm_object_tooltip_style_set"
+
+external tooltip_style_get : Evas.obj -> string =
+  "ml_elm_object_tooltip_style_get"
+

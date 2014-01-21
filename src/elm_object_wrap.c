@@ -203,6 +203,19 @@ PREFIX inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
         return Val_default;
 }
 
+PREFIX Evas_Object* ml_Elm_Tooltip_Content_Cb(
+        void* data, Evas_Object* obj, Evas_Object* v_tooltip)
+{
+        CAMLparam0();
+        CAMLlocal1(v_content);
+        value* v_fun = (value*) data;
+        v_content = caml_callback2(*v_fun, (value) obj, (value) v_tooltip);
+        Evas_Object* content;
+        if(v_content == Val_int(0)) content = NULL;
+        else content = (Evas_Object*) Field(v_content, 0);
+        CAMLreturnT(Evas_Object*, content);
+}
+
 PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
         void* data, Evas_Object* obj, Evas_Object* v_tooltip, void* item)
 {
@@ -962,5 +975,42 @@ PREFIX value ml_elm_object_tooltip_hide(value v_obj)
 {
         elm_object_tooltip_hide((Evas_Object*) v_obj);
         return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_text_set(value v_obj, value v_text)
+{
+        elm_object_tooltip_text_set((Evas_Object*) v_obj,
+                String_val(v_text));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_content_cb_set(
+        value v_objem, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_object_tooltip_content_cb_set((Evas_Object*) v_objem,
+                ml_Elm_Tooltip_Content_Cb, data, ml_Evas_Smart_Cb_del);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_unset(value v_obj)
+{
+        elm_object_tooltip_unset((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_style_set(value v_obj, value v_style)
+{
+        elm_object_tooltip_style_set((Evas_Object*) v_obj,
+                String_val(v_style));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_style_get(value v_obj)
+{
+        return copy_string(elm_object_tooltip_style_get(
+                (Evas_Object*) v_obj));
 }
 
