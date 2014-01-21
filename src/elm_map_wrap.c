@@ -7,3 +7,14 @@ PREFIX value ml_elm_map_add(Evas_Object* v_parent)
         return (value) map;
 }
 
+PREFIX value ml_elm_map_zoom_set(value v_obj, value v_x)
+{
+        elm_map_zoom_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_zoom_get(value v_obj)
+{
+        return Val_int(elm_map_zoom_get((Evas_Object*) v_obj));
+}
+
