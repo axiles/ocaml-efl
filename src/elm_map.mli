@@ -88,3 +88,7 @@ val overlay_icon_set : overlay -> Evas.obj option -> unit
 
 val overlay_icon_get : overlay -> Evas.obj option
 
+val overlay_region_set : overlay -> float -> float -> unit
+
+val overlay_region_get : overlay -> float * float
+

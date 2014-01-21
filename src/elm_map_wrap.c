@@ -322,3 +322,22 @@ PREFIX value ml_elm_map_overlay_icon_get(value v_ov)
         return v_obj;
 }
 
+PREFIX value ml_elm_map_overlay_region_set(value v_ov, value v_lon, value v_lat)
+{
+        elm_map_overlay_region_set((Elm_Map_Overlay*) v_ov, Double_val(v_lon),
+                Double_val(v_lat));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_region_get(value v_ov)
+{
+        CAMLparam1(v_ov);
+        CAMLlocal1(v_r);
+        double lon, lat;
+        elm_map_overlay_region_get((Elm_Map_Overlay*) v_ov, &lon, &lat);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(lon));
+        Store_field(v_r, 1, copy_double(lat));
+        CAMLreturn(v_r);
+}
+

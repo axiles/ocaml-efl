@@ -107,3 +107,9 @@ external overlay_icon_set : overlay -> Evas.obj option -> unit =
 external overlay_icon_get : overlay -> Evas.obj option =
   "ml_elm_map_overlay_icon_get"
 
+external overlay_region_set : overlay -> float -> float -> unit =
+  "ml_elm_map_overlay_region_set"
+
+external overlay_region_get : overlay -> float * float =
+  "ml_elm_map_overlay_region_get"
+
