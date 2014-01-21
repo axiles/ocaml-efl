@@ -199,3 +199,9 @@ type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
 
 type transit
 
+(** {2 Tooltips} *)
+
+type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
+
+type 'a tooltip_item_content_cb = Evas.obj -> Evas.obj -> 'a -> Evas.obj option
+

@@ -89,15 +89,15 @@ external items_count : Evas.obj -> int = "ml_elm_gengrid_items_count"
 external item_tooltip_text_set : Elm_object.item -> string -> unit =
   "ml_elm_gengrid_item_tooltip_text_set"
 
-external item_tooltip_content_cb_set_aux :
-  Elm_object.item -> (Evas.obj -> Evas.obj -> Evas.obj) ->
+external item_tooltip_content_cb_set :
+  Elm_object.item -> Elm_object.item Elm.tooltip_item_content_cb ->
     Evas.smart_cb -> unit =
       "ml_elm_gengrid_item_tooltip_content_cb_set"
 
-let item_tooltip_content_cb_set it func del_cb =
+(*let item_tooltip_content_cb_set it func del_cb =
   let func1 obj tooltip = func obj tooltip it in
   let del_cb1 obj ptr = del_cb obj in
-  item_tooltip_content_cb_set_aux it func1 del_cb1
+  item_tooltip_content_cb_set_aux it func1 del_cb1*)
 
 external item_tooltip_unset : Elm_object.item -> unit =
   "ml_elm_gengrid_item_tooltip_unset"

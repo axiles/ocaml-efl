@@ -65,8 +65,8 @@ val items_count : Evas.obj -> int
 val item_tooltip_text_set : Elm_object.item -> string -> unit
 
 val item_tooltip_content_cb_set :
-  Elm_object.item -> Elm_object.item Elm_tooltip.item_content_cb ->
-    (Evas.obj -> unit) -> unit
+  Elm_object.item -> Elm_object.item Elm.tooltip_item_content_cb ->
+    Evas.smart_cb -> unit
 
 val item_tooltip_unset : Elm_object.item -> unit
 

@@ -216,13 +216,29 @@ PREFIX Evas_Object* ml_Elm_Tooltip_Content_Cb(
         CAMLreturnT(Evas_Object*, content);
 }
 
+PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(
+        void* data, Evas_Object* obj, Evas_Object* tooltip, void* item)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_content);
+        value* v_data = (value*) data;
+        v_fun = Field(*v_data, 0);
+        v_content = caml_callback3(v_fun, (value) obj, (value) tooltip,
+                (value) item);
+        Evas_Object* content;
+        if(v_content == Val_int(0)) content = NULL;
+        else content = (Evas_Object*) Field(v_content, 0);
+        CAMLreturnT(Evas_Object*, content);
+}
+
 PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
         void* data, Evas_Object* obj, Evas_Object* v_tooltip, void* item)
 {
         CAMLparam0();
         CAMLlocal1(v_content);
         value* v_fun = (value*) data;
-        v_content = caml_callback2(*v_fun, (value) obj, (value) v_tooltip);
+        v_content = caml_callback3(*v_fun, (value) obj, (value) v_tooltip,
+                (value) item);
         Evas_Object* content;
         if(v_content == Val_int(0)) content = NULL;
         else content = (Evas_Object*) Field(v_content, 0);

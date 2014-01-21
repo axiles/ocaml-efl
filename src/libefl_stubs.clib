@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 037c16dd528b9721cf3a6d9f78f09b42)
+# DO NOT EDIT (digest: d49354b6088345cf25ac79568f9a3d85)
 eina_wrap.o
 evas_wrap.o
 ecore_wrap.o
@@ -32,7 +32,6 @@ elm_naviframe_wrap.o
 elm_progressbar_wrap.o
 elm_genlist_wrap.o
 elm_gen_wrap.o
-elm_tooltip_wrap.o
 elm_grid_wrap.o
 elm_actionslider_wrap.o
 elm_gengrid_wrap.o

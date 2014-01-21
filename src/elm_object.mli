@@ -158,9 +158,8 @@ val item_del : item -> unit
 
 val item_tooltip_text_set : item -> string -> unit
 
-type tooltip_item_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
-
-val item_tooltip_content_cb_set : item -> tooltip_item_content_cb -> unit
+val item_tooltip_content_cb_set :
+  item -> item Elm.tooltip_item_content_cb -> unit
 
 val item_tooltip_unset : item -> unit
 
@@ -256,15 +255,13 @@ val widget_type_get : Evas.obj -> string option
 
 (** {2 Tooltips} *)
 
-type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
-
 val tooltip_show : Evas.obj -> unit
 
 val tooltip_hide : Evas.obj -> unit
 
 val tooltip_text_set : Evas.obj -> string -> unit
 
-val tooltip_content_cb_set : Evas.obj -> tooltip_content_cb -> unit
+val tooltip_content_cb_set : Evas.obj -> Elm.tooltip_content_cb -> unit
 
 val tooltip_unset : Evas.obj -> unit
 
