@@ -15,6 +15,8 @@ let () =
   g "alphabet";
   g "always";
   g "auto";
+  g "auto_fill";
+  g "auto_fit";
   g "automatic";
   g "basic";
   g "block_horizontal";
@@ -85,6 +87,7 @@ let () =
   g "linear";
   g "list";
   g "login";
+  g "manual";
   g "markup";
   g "markup_utf8";
   g "menu";
