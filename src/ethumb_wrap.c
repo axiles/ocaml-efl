@@ -44,4 +44,26 @@ PREFIX inline value Val_Ethumb_Thumb_FDO_Size(Ethumb_Thumb_FDO_Size s)
         return Val_normal;
 }
 
+PREFIX inline Ethumb_Thumb_Format Ethumb_Thumb_Format_val(value v)
+{
+        switch(v) {
+                case Val_fdo : return ETHUMB_THUMB_FDO;
+                case Val_jpeg: return ETHUMB_THUMB_JPEG;
+                case Val_eet: return ETHUMB_THUMB_EET;
+                default: break;
+        }
+        caml_failwith("Ethumb_Thumb_Format_val");
+        return ETHUMB_THUMB_FDO;
+}
+
+PREFIX inline value Val_Ethumb_Thumb_Format(Ethumb_Thumb_Format f)
+{
+        switch(f) {
+                case ETHUMB_THUMB_FDO: return Val_fdo;
+                case ETHUMB_THUMB_JPEG: return Val_jpeg;
+                case ETHUMB_THUMB_EET: return Val_eet;
+        }
+        caml_failwith("Val_Ethumb_Thumb_Format");
+        return Val_fdo;
+}
 

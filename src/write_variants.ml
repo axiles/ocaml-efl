@@ -53,6 +53,7 @@ let () =
   f "Val_done" "_done";
   g "down";
   g "dropdown_menu";
+  g "eet";
   g "email";
   f "Val_end" "_end";
   g "expand";
@@ -83,6 +84,7 @@ let () =
   g "ip";
   g "j2me";
   g "join";
+  g "jpeg";
   g "keep_aspect";
   g "key_down";
   g "keypad";

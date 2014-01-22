@@ -23,6 +23,12 @@ external fdo_size_set : Evas.obj -> Ethumb.thumb_fdo_size -> unit =
 external fdo_size_get : Evas.obj -> Ethumb.thumb_fdo_size =
   "ml_elm_thumb_fdo_size_get"
 
+external format_set : Evas.obj -> Ethumb.thumb_format -> unit =
+  "ml_elm_thumb_format_set"
+
+external format_get : Evas.obj -> Ethumb.thumb_format =
+  "ml_elm_thumb_format_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 

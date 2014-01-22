@@ -20,6 +20,10 @@ val fdo_size_set : Evas.obj -> Ethumb.thumb_fdo_size -> unit
 
 val fdo_size_get : Evas.obj -> Ethumb.thumb_fdo_size
 
+val format_set : Evas.obj -> Ethumb.thumb_format -> unit
+
+val format_get : Evas.obj -> Ethumb.thumb_format
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting
