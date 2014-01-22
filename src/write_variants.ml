@@ -131,6 +131,7 @@ let () =
   g "opacity_unknown";
   g "opaque";
   g "orient_none";
+  g "orient_original";
   g "other";
   g "page";
   g "page_down";
@@ -151,6 +152,8 @@ let () =
   g "rotate_180";
   g "rotate_270";
   g "rotate_90";
+  g "rotate_90_ccw";
+  g "rotate_90_cw";
   g "rotate_xz_center_axis";
   g "rotate_x_center_axis";
   g "rotate_yz_center_axis";

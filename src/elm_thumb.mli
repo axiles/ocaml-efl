@@ -24,6 +24,10 @@ val format_set : Evas.obj -> Ethumb.thumb_format -> unit
 
 val format_get : Evas.obj -> Ethumb.thumb_format
 
+val orientation_set : Evas.obj -> Ethumb.thumb_orientation -> unit
+
+val orientation_get : Evas.obj -> Ethumb.thumb_orientation
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting

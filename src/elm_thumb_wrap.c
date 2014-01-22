@@ -113,6 +113,19 @@ PREFIX value ml_elm_thumb_format_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_thumb_orientation_set(value v_obj, value v_or)
+{
+        elm_thumb_orientation_set((Evas_Object*) v_obj,
+                Ethumb_Thumb_Orientation_val(v_or));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_thumb_orientation_get(value v_obj)
+{
+        return Val_Ethumb_Thumb_Orientation(elm_thumb_orientation_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_thumb_animate_set(value v_obj, value v_s)
 {
         elm_thumb_animate_set((Evas_Object*) v_obj,

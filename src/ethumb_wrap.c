@@ -67,3 +67,38 @@ PREFIX inline value Val_Ethumb_Thumb_Format(Ethumb_Thumb_Format f)
         return Val_fdo;
 }
 
+PREFIX inline Ethumb_Thumb_Orientation Ethumb_Thumb_Orientation_val(value v)
+{
+        switch(v) {
+                case Val_orient_none: return ETHUMB_THUMB_ORIENT_NONE;
+                case Val_rotate_90_cw: return ETHUMB_THUMB_ROTATE_90_CW;
+                case Val_rotate_180: return ETHUMB_THUMB_ROTATE_180;
+                case Val_rotate_90_ccw: return ETHUMB_THUMB_ROTATE_90_CCW;
+                case Val_flip_horizontal: return ETHUMB_THUMB_FLIP_HORIZONTAL;
+                case Val_flip_vertical: return ETHUMB_THUMB_FLIP_VERTICAL;
+                case Val_flip_transpose: return ETHUMB_THUMB_FLIP_TRANSPOSE;
+                case Val_flip_transverse: return ETHUMB_THUMB_FLIP_TRANSVERSE;
+                case Val_orient_original: return ETHUMB_THUMB_ORIENT_ORIGINAL;
+                default: break;
+        }
+        caml_failwith("Ethumb_Thumb_Orientation_val");
+        return ETHUMB_THUMB_ORIENT_NONE;
+}
+
+PREFIX inline value Val_Ethumb_Thumb_Orientation(Ethumb_Thumb_Orientation o)
+{
+        switch(o) {
+                case ETHUMB_THUMB_ORIENT_NONE: return Val_orient_none;
+                case ETHUMB_THUMB_ROTATE_90_CW: return Val_rotate_90_cw;
+                case ETHUMB_THUMB_ROTATE_180: return Val_rotate_180;
+                case ETHUMB_THUMB_ROTATE_90_CCW: return Val_rotate_90_ccw;
+                case ETHUMB_THUMB_FLIP_HORIZONTAL: return Val_flip_horizontal;
+                case ETHUMB_THUMB_FLIP_VERTICAL: return Val_flip_vertical;
+                case ETHUMB_THUMB_FLIP_TRANSPOSE: return Val_flip_transpose;
+                case ETHUMB_THUMB_FLIP_TRANSVERSE: return Val_flip_transverse;
+                case ETHUMB_THUMB_ORIENT_ORIGINAL: return Val_orient_original;
+        }
+        caml_failwith("Val_Ethumb_Thumb_Orientation");
+        return Val_orient_none;
+}
+

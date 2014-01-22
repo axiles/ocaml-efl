@@ -29,6 +29,12 @@ external format_set : Evas.obj -> Ethumb.thumb_format -> unit =
 external format_get : Evas.obj -> Ethumb.thumb_format =
   "ml_elm_thumb_format_get"
 
+external orientation_set : Evas.obj -> Ethumb.thumb_orientation -> unit =
+  "ml_elm_thumb_orientation_set"
+
+external orientation_get : Evas.obj -> Ethumb.thumb_orientation =
+  "ml_elm_thumb_orientation_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 
