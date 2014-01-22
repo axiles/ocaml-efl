@@ -11,6 +11,12 @@ external file_get : Evas.obj -> string * string = "ml_elm_thumb_file_get"
 
 external path_get : Evas.obj -> string * string = "ml_elm_thumb_path_get"
 
+external aspect_set : Evas.obj -> Ethumb.thumb_aspect -> unit =
+  "ml_elm_thumb_aspect_set"
+
+external aspect_get : Evas.obj -> Ethumb.thumb_aspect =
+  "ml_elm_thumb_aspect_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 

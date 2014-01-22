@@ -12,6 +12,10 @@ val file_get : Evas.obj -> string * string
 
 val path_get : Evas.obj -> string * string
 
+val aspect_set : Evas.obj -> Ethumb.thumb_aspect -> unit
+
+val aspect_get : Evas.obj -> Ethumb.thumb_aspect
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting

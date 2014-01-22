@@ -75,6 +75,19 @@ PREFIX value ml_elm_thumb_path_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_thumb_aspect_set(value v_obj, value v_a)
+{
+        elm_thumb_aspect_set((Evas_Object*) v_obj,
+                Ethumb_Thumb_Aspect_val(v_a));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_thumb_aspect_get(value v_obj)
+{
+        return Val_Ethumb_Thumb_Aspect(elm_thumb_aspect_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_thumb_animate_set(value v_obj, value v_s)
 {
         elm_thumb_animate_set((Evas_Object*) v_obj,
