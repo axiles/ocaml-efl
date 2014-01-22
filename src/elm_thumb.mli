@@ -16,3 +16,5 @@ val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting
 
+val ethumb_client_connected_get : unit -> bool
+

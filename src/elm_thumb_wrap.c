@@ -88,3 +88,8 @@ PREFIX value ml_elm_thumb_animate_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_thumb_ethumb_client_connected_get(value v_unit)
+{
+        return Val_bool(elm_thumb_ethumb_client_connected_get());
+}
+
