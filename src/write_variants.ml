@@ -91,6 +91,7 @@ let () =
   g "linear";
   g "list";
   g "login";
+  g "loop";
   g "manual";
   g "markup";
   g "markup_utf8";
@@ -163,6 +164,7 @@ let () =
   g "standard";
   g "start";
   g "state";
+  g "stop";
   g "stretch";
   g "terminal";
   g "text";
