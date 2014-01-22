@@ -36,6 +36,7 @@ let () =
   g "compress";
   g "config";
   g "content";
+  g "crop";
   g "cube";
   g "cube_down";
   g "cube_left";
@@ -75,12 +76,14 @@ let () =
   g "hide";
   g "horizontal";
   g "host";
+  g "ignore_aspect";
   f "Val_in" "_in";
   g "inlined_image";
   g "invalid";
   g "ip";
   g "j2me";
   g "join";
+  g "keep_aspect";
   g "key_down";
   g "keypad";
   g "last";
