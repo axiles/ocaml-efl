@@ -18,3 +18,7 @@ val animate_get : Evas.obj -> animation_setting
 
 val ethumb_client_connected_get : unit -> bool
 
+val editable_set : Evas.obj -> bool -> unit
+
+val editable_get : Evas.obj -> bool
+

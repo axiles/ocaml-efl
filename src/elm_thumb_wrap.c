@@ -93,3 +93,14 @@ PREFIX value ml_elm_thumb_ethumb_client_connected_get(value v_unit)
         return Val_bool(elm_thumb_ethumb_client_connected_get());
 }
 
+PREFIX value ml_elm_thumb_editable_set(value v_obj, value v_flag)
+{
+        elm_thumb_editable_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_thumb_editable_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_thumb_editable_get((Evas_Object*) v_obj));
+}
+

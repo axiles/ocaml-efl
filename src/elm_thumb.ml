@@ -20,3 +20,7 @@ external animate_get : Evas.obj -> animation_setting =
 external ethumb_client_connected_get : unit -> bool =
   "ml_elm_thumb_ethumb_client_connected_get"
 
+external editable_set : Evas.obj -> bool -> unit = "ml_elm_thumb_editable_set"
+
+external editable_get : Evas.obj -> bool = "ml_elm_thumb_editable_get"
+
