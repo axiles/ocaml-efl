@@ -27,6 +27,7 @@
 #include "variants.h"
 #include "eina_wrap.h"
 #include "evas_wrap.h"
+#include "ethumb_wrap.h"
 #include "ecore_wrap.h"
 #include "edje_wrap.h"
 #include "elm_wrap.h"
