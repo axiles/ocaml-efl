@@ -16,6 +16,10 @@ val aspect_set : Evas.obj -> Ethumb.thumb_aspect -> unit
 
 val aspect_get : Evas.obj -> Ethumb.thumb_aspect
 
+val fdo_size_set : Evas.obj -> Ethumb.thumb_fdo_size -> unit
+
+val fdo_size_get : Evas.obj -> Ethumb.thumb_fdo_size
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting

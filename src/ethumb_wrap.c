@@ -23,3 +23,25 @@ PREFIX inline value Val_Ethumb_Thumb_Aspect(Ethumb_Thumb_Aspect a)
         return Val_keep_aspect;
 }
 
+PREFIX inline Ethumb_Thumb_FDO_Size Ethumb_Thumb_FDO_Size_val(value v)
+{
+        switch(v) {
+                case Val_normal: return ETHUMB_THUMB_NORMAL;
+                case Val_large: return ETHUMB_THUMB_LARGE;
+                default: break;
+        }
+        caml_failwith("Ethumb_Thumb_FDO_Size_val");
+        return ETHUMB_THUMB_NORMAL;
+}
+
+PREFIX inline value Val_Ethumb_Thumb_FDO_Size(Ethumb_Thumb_FDO_Size s)
+{
+        switch(s) {
+                case ETHUMB_THUMB_NORMAL: return Val_normal;
+                case ETHUMB_THUMB_LARGE: return Val_large;
+        }
+        caml_failwith("Val_Ethumb_Thumb_FDO_Size");
+        return Val_normal;
+}
+
+

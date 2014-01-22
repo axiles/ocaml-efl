@@ -86,6 +86,7 @@ let () =
   g "keep_aspect";
   g "key_down";
   g "keypad";
+  g "large";
   g "last";
   g "last_window_closed";
   g "left";

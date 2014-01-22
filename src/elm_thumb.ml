@@ -17,6 +17,12 @@ external aspect_set : Evas.obj -> Ethumb.thumb_aspect -> unit =
 external aspect_get : Evas.obj -> Ethumb.thumb_aspect =
   "ml_elm_thumb_aspect_get"
 
+external fdo_size_set : Evas.obj -> Ethumb.thumb_fdo_size -> unit =
+  "ml_elm_thumb_fdo_size_set"
+
+external fdo_size_get : Evas.obj -> Ethumb.thumb_fdo_size =
+  "ml_elm_thumb_fdo_size_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 

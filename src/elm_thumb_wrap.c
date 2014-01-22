@@ -88,6 +88,19 @@ PREFIX value ml_elm_thumb_aspect_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_thumb_fdo_size_set(value v_obj, value v_s)
+{
+        elm_thumb_fdo_size_set((Evas_Object*) v_obj,
+                Ethumb_Thumb_FDO_Size_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_thumb_fdo_size_get(value v_obj)
+{
+        return Val_Ethumb_Thumb_FDO_Size(elm_thumb_fdo_size_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_thumb_animate_set(value v_obj, value v_s)
 {
         elm_thumb_animate_set((Evas_Object*) v_obj,
