@@ -35,6 +35,10 @@ external orientation_set : Evas.obj -> Ethumb.thumb_orientation -> unit =
 external orientation_get : Evas.obj -> Ethumb.thumb_orientation =
   "ml_elm_thumb_orientation_get"
 
+external size_set : Evas.obj -> int -> int -> unit = "ml_elm_thumb_size_set"
+
+external size_get : Evas.obj -> int * int = "ml_elm_thumb_size_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 

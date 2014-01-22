@@ -28,6 +28,10 @@ val orientation_set : Evas.obj -> Ethumb.thumb_orientation -> unit
 
 val orientation_get : Evas.obj -> Ethumb.thumb_orientation
 
+val size_set : Evas.obj -> int -> int -> unit
+
+val size_get : Evas.obj -> int * int
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting
