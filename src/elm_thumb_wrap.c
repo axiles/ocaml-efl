@@ -34,3 +34,17 @@ PREFIX value ml_elm_thumb_file_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_thumb_path_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        const char* path;
+        const char* key;
+        elm_thumb_path_get((Evas_Object*) v_obj, &path, &key);
+        if(path == NULL) caml_failwith("elm_thumb_path_get");
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_string(path));
+        Store_field(v_r, 1, copy_string(key));
+        CAMLreturn(v_r);
+}
+

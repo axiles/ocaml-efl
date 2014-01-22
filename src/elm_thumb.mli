@@ -8,3 +8,5 @@ val file_set : Evas.obj -> string -> string -> unit
 
 val file_get : Evas.obj -> string * string
 
+val path_get : Evas.obj -> string * string
+

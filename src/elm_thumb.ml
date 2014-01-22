@@ -7,3 +7,5 @@ external file_set : Evas.obj -> string -> string -> unit =
 
 external file_get : Evas.obj -> string * string = "ml_elm_thumb_file_get"
 
+external path_get : Evas.obj -> string * string = "ml_elm_thumb_path_get"
+
