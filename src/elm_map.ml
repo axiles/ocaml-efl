@@ -137,3 +137,9 @@ external overlay_class_append : overlay -> overlay -> unit =
 external overlay_class_remove : overlay -> overlay -> unit =
   "ml_elm_map_overlay_class_remove"
 
+external overlay_class_zoom_max_set : overlay -> int -> unit =
+  "ml_elm_map_overlay_class_zoom_max_set"
+
+external overlay_class_zoom_max_get : overlay -> int =
+  "ml_elm_map_overlay_class_zoom_max_get"
+

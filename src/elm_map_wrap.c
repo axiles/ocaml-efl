@@ -424,3 +424,16 @@ PREFIX value ml_elm_map_overlay_class_remove(value v_cl, value v_ov)
         return Val_unit;
 }
 
+PREFIX value ml_elm_map_overlay_class_zoom_max_set(value v_ov, value v_x)
+{
+        elm_map_overlay_class_zoom_max_set((Elm_Map_Overlay*) v_ov,
+                Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_class_zoom_max_get(value v_ov)
+{
+        return Val_int(elm_map_overlay_class_zoom_max_get(
+                (Elm_Map_Overlay*) v_ov));
+}
+

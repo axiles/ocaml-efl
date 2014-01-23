@@ -110,3 +110,7 @@ val overlay_class_append : overlay -> overlay -> unit
 
 val overlay_class_remove : overlay -> overlay -> unit
 
+val overlay_class_zoom_max_set : overlay -> int -> unit
+
+val overlay_class_zoom_max_get : overlay -> int
+
