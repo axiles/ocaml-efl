@@ -36,6 +36,10 @@ val crop_align_set : Evas.obj -> float -> float -> unit
 
 val crop_align_get : Evas.obj -> float * float
 
+val compress_set : Evas.obj -> int -> unit
+
+val compress_get : Evas.obj -> int
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting
