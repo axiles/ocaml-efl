@@ -120,3 +120,7 @@ val overlay_bubble_add : Evas.obj -> overlay
 
 val overlay_bubble_follow : overlay -> overlay -> unit
 
+val overlay_bubble_content_append : overlay -> Evas.obj -> unit
+
+val overlay_bubble_content_clear : overlay -> unit
+

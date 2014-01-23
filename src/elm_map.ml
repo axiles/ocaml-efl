@@ -152,3 +152,9 @@ external overlay_bubble_add : Evas.obj -> overlay =
 external overlay_bubble_follow : overlay -> overlay -> unit =
   "ml_elm_map_overlay_bubble_follow"
 
+external overlay_bubble_content_append : overlay -> Evas.obj -> unit =
+  "ml_elm_map_overlay_bubble_content_append"
+
+external overlay_bubble_content_clear : overlay -> unit =
+  "ml_elm_map_overlay_bubble_content_clear"
+

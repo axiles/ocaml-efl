@@ -457,3 +457,16 @@ PREFIX value ml_elm_map_overlay_bubble_follow(value v_cl, value v_ov)
         return Val_unit;
 }
 
+PREFIX value ml_elm_map_overlay_bubble_content_append(value v_ov, value v_content)
+{
+        elm_map_overlay_bubble_content_append((Elm_Map_Overlay*) v_ov,
+                (Evas_Object*) v_content);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_bubble_content_clear(value v_ov)
+{
+        elm_map_overlay_bubble_content_clear((Elm_Map_Overlay*) v_ov);
+        return Val_unit;
+}
+
