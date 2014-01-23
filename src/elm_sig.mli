@@ -50,6 +50,9 @@ val expand_request : Elm_object.item v
 val file_chosen : (string option) v
 val focused : u
 val fullscreen : u
+val generate_error : u
+val generate_start : u
+val generate_stop : u
 val hbar_drag : u
 val hbar_press : u
 val hbar_unpress : u
@@ -60,6 +63,7 @@ val index_update : u
 val indicator_prop_changed : u
 val ioerr : u
 val language_changed : u
+val load_error : u
 val longpressed : u
 val maximized : u
 val moved : u
