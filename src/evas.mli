@@ -80,3 +80,5 @@ val string_opt_of_ptr : ptr -> string option
 
 val pointer_canvas_xy_get : t -> int * int
 
+val smart_objects_calculate : t -> unit
+

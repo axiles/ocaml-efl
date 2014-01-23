@@ -64,6 +64,7 @@ val indicator_prop_changed : u
 val ioerr : u
 val language_changed : u
 val load_error : u
+val loaded : u
 val longpressed : u
 val maximized : u
 val moved : u
@@ -75,8 +76,12 @@ val multi_swipe_right : u
 val multi_swipe_up : u
 val multi_pinch_in : u
 val multi_pinch_out : u
+val name_load : u
+val name_loaded : u
+val name_loaded_fail : u
 val normal : u
 val overflowed : u
+val overlay_clicked : u
 val pos_changed : (string option) v
 val preedit_changed : u
 val press : u
@@ -87,6 +92,9 @@ val realized : Elm_object.item v
 val repeated : u
 val released : Elm_object.item v
 val rotation_changed : u
+val route_load : u
+val route_loaded : u
+val route_loaded_fail : u
 val scroll : u
 val scroll_anim_start : u
 val scroll_anim_stop : u
@@ -112,6 +120,9 @@ val text_set_done : u
 val theme_changed : u
 val thumb_done : u
 val thumb_error : u
+val tile_load : u
+val tile_loaded : u
+val tile_loaded_fail : u
 val timeout : u
 val transition_finished : u
 val tree_effect_finished : u
@@ -133,5 +144,9 @@ val vbar_unpress : u
 val virtualkeypad_state_off : u
 val virtualkeypad_state_on : u
 val withdrawn : u
+val zoom_change : u
+val zoom_start : u
+val zoom_stop : u
+
 
 

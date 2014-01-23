@@ -367,3 +367,9 @@ PREFIX inline value copy_Evas_Event_Info(
         CAMLreturn(v);
 }
 
+PREFIX value ml_evas_smart_objects_calculate(value v_e)
+{
+        evas_smart_objects_calculate((Evas*) v_e);
+        return Val_unit;
+}
+

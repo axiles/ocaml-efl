@@ -85,3 +85,6 @@ external string_opt_of_ptr : ptr -> string option = "ml_string_opt_of_ptr"
 external pointer_canvas_xy_get : t -> int * int =
   "ml_evas_pointer_canvas_xy_get"
 
+external smart_objects_calculate : t -> unit =
+  "ml_evas_smart_objects_calculate"
+
