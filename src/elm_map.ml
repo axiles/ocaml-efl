@@ -146,3 +146,9 @@ external overlay_class_zoom_max_get : overlay -> int =
 external overlay_group_members_get : overlay -> overlay list =
   "ml_elm_map_overlay_group_members_get"
 
+external overlay_bubble_add : Evas.obj -> overlay =
+  "ml_elm_map_overlay_bubble_add"
+
+external overlay_bubble_follow : overlay -> overlay -> unit =
+  "ml_elm_map_overlay_bubble_follow"
+

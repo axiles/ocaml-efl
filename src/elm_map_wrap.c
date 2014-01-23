@@ -443,3 +443,17 @@ PREFIX value ml_elm_map_overlay_group_members_get(value v_ov)
                 (Elm_Map_Overlay*) v_ov));
 }
 
+PREFIX value ml_elm_map_overlay_bubble_add(value v_obj)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_bubble_add((Evas_Object*) v_obj);
+        if(ov == NULL) caml_failwith("elm_map_overlay_bubble_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlay_bubble_follow(value v_cl, value v_ov)
+{
+        elm_map_overlay_bubble_follow((Elm_Map_Overlay*) v_cl,
+                (Elm_Map_Overlay*) v_ov);
+        return Val_unit;
+}
+

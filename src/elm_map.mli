@@ -116,3 +116,7 @@ val overlay_class_zoom_max_get : overlay -> int
 
 val overlay_group_members_get : overlay -> overlay list
 
+val overlay_bubble_add : Evas.obj -> overlay
+
+val overlay_bubble_follow : overlay -> overlay -> unit
+
