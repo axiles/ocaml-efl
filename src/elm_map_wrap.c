@@ -70,6 +70,13 @@ PREFIX inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
         return list;
 }
 
+void ml_Elm_Map_Overlay_Get_Cb(
+        void* data, Evas_Object* map, Elm_Map_Overlay* overlay)
+{
+        value* v_fun = (value*) data;
+        caml_callback2(*v_fun, (value) map, (value) overlay);
+}
+
 PREFIX value ml_elm_map_add(Evas_Object* v_parent)
 {
         Evas_Object* map = elm_map_add((Evas_Object*) v_parent);
@@ -383,6 +390,16 @@ PREFIX value ml_elm_map_overlays_show(value v_list)
         Eina_List* list = Eina_List_Elm_Map_Overlay_val(v_list);
         elm_map_overlays_show(list);
         eina_list_free(list);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_get_cb_set(value v_ov, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_map_overlay_get_cb_set((Elm_Map_Overlay*) v_ov,
+                ml_Elm_Map_Overlay_Get_Cb, data);
         return Val_unit;
 }
 

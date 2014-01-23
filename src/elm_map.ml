@@ -14,6 +14,8 @@ type overlay
 
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
+type overlay_get_cb = Evas.obj -> overlay -> unit
+
 external add : Evas.obj -> Evas.obj = "ml_elm_map_add"
 
 external zoom_set : Evas.obj -> int -> unit = "ml_elm_map_zoom_set"
@@ -122,4 +124,7 @@ external overlay_color_get : overlay -> int * int * int * int =
 external overlay_show : overlay -> unit = "ml_elm_map_overlay_show"
 
 external overlays_show : overlay list -> unit = "ml_elm_map_overlays_show"
+
+external overlay_get_cb_set : overlay -> overlay_get_cb -> unit =
+  "ml_elm_map_overlay_get_cb_set"
 

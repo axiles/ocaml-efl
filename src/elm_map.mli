@@ -14,6 +14,8 @@ type overlay
 
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
+type overlay_get_cb = Evas.obj -> overlay -> unit
+
 val add : Evas.obj -> Evas.obj
 
 val zoom_set : Evas.obj -> int -> unit
@@ -99,4 +101,6 @@ val overlay_color_get : overlay -> int * int * int * int
 val overlay_show : overlay -> unit
 
 val overlays_show : overlay list -> unit
+
+val overlay_get_cb_set : overlay -> overlay_get_cb -> unit
 
