@@ -115,6 +115,7 @@ let () =
   g "n_long_taps";
   g "n_taps";
   g "n_triple_taps";
+  g "name";
   g "neither";
   g "never";
   g "next";

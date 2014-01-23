@@ -18,6 +18,8 @@ type overlay_get_cb = Evas.obj -> overlay -> unit
 
 type route
 
+type source_type = [`tile | `route | `name]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_map_add"
 
 external zoom_set : Evas.obj -> int -> unit = "ml_elm_map_zoom_set"
@@ -181,4 +183,13 @@ external overlay_scale_add : Evas.obj -> int -> int -> overlay =
 
 external tile_load_status_get : Evas.obj -> int * int =
   "ml_elm_map_tile_load_status_get"
+
+external sources_get : Evas.obj -> source_type -> string list =
+  "ml_elm_map_sources_get"
+
+external source_set : Evas.obj -> source_type -> string -> unit =
+  "ml_elm_map_source_set"
+
+external source_get : Evas.obj -> source_type -> string =
+  "ml_elm_map_source_get"
 

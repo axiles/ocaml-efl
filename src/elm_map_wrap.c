@@ -77,6 +77,18 @@ void ml_Elm_Map_Overlay_Get_Cb(
         caml_callback2(*v_fun, (value) map, (value) overlay);
 }
 
+PREFIX inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
+{
+        switch(v) {
+                case Val_tile: return ELM_MAP_SOURCE_TYPE_TILE;
+                case Val_route: return ELM_MAP_SOURCE_TYPE_ROUTE;
+                case Val_name: return ELM_MAP_SOURCE_TYPE_NAME;
+                default: break;
+        }
+        caml_failwith("Elm_Map_Source_Type_val");
+        return ELM_MAP_SOURCE_TYPE_TILE;
+}
+
 PREFIX value ml_elm_map_add(Evas_Object* v_parent)
 {
         Evas_Object* map = elm_map_add((Evas_Object*) v_parent);
@@ -531,4 +543,38 @@ PREFIX value ml_elm_map_tile_load_status_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_map_sources_get(value v_obj, value v_type)
+{
+        CAMLparam2(v_obj, v_type);
+        CAMLlocal3(v_r, v_tmp, v_tmp1);
+        const char** sources = elm_map_sources_get((Evas_Object*) v_obj,
+                Elm_Map_Source_Type_val(v_type));
+        if(sources[0] == NULL) CAMLreturn(Val_int(0));
+        v_tmp = caml_alloc(2, 0);
+        Store_field(v_tmp, 0, copy_string(sources[0]));
+        Store_field(v_tmp, 1, Val_int(0));
+        v_r = v_tmp;
+        int i;
+        for(i = 1; sources[i] != NULL; i++) {
+                v_tmp1 = v_tmp;
+                v_tmp = caml_alloc(2, 0);
+                Store_field(v_tmp, 0, copy_string(sources[i]));
+                Store_field(v_tmp, 1, Val_int(0));
+                Store_field(v_tmp1, 1, v_tmp);
+        }
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_elm_map_source_set(value v_obj, value v_type, value v_s)
+{
+        elm_map_source_set((Evas_Object*) v_obj,
+                Elm_Map_Source_Type_val(v_type), String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_source_get(value v_obj, value v_type)
+{
+        return copy_string(elm_map_source_get((Evas_Object*) v_obj,
+                Elm_Map_Source_Type_val(v_type)));
+}
 

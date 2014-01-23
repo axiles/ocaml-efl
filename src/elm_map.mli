@@ -18,6 +18,8 @@ type overlay_get_cb = Evas.obj -> overlay -> unit
 
 type route
 
+type source_type = [`tile | `route | `name]
+
 val add : Evas.obj -> Evas.obj
 
 val zoom_set : Evas.obj -> int -> unit
@@ -139,4 +141,10 @@ val overlay_circle_add : Evas.obj -> float -> float -> float -> overlay
 val overlay_scale_add : Evas.obj -> int -> int -> overlay
 
 val tile_load_status_get : Evas.obj -> int * int
+
+val sources_get : Evas.obj -> source_type -> string list
+
+val source_set : Evas.obj -> source_type -> string -> unit
+
+val source_get : Evas.obj -> source_type -> string
 
