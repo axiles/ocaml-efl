@@ -26,6 +26,10 @@ type route_method = [`fastest | `shortest]
 
 type route_cb = Evas.obj -> route -> unit
 
+type name
+
+type name_cb = Evas.obj -> name -> unit
+
 val add : Evas.obj -> Evas.obj
 
 val zoom_set : Evas.obj -> int -> unit
@@ -165,4 +169,8 @@ val route_distance_get : route -> float
 val route_node_get : route -> string
 
 val route_waypoint_get : route -> string
+
+val name_add :
+  Evas.obj -> ?addr:string -> ?lon:float -> ?lat:float -> ?cb:name_cb -> unit ->
+    name
 

@@ -26,6 +26,10 @@ type route_method = [`fastest | `shortest]
 
 type route_cb = Evas.obj -> route -> unit
 
+type name
+
+type name_cb = Evas.obj -> name -> unit
+
 external add : Evas.obj -> Evas.obj = "ml_elm_map_add"
 
 external zoom_set : Evas.obj -> int -> unit = "ml_elm_map_zoom_set"
@@ -212,4 +216,10 @@ external route_distance_get : route -> float = "ml_elm_map_route_distance_get"
 external route_node_get : route -> string = "ml_elm_map_route_node_get"
 
 external route_waypoint_get : route -> string = "ml_elm_map_route_waypoint_get"
+
+external name_add :
+  Evas.obj -> ?addr:string -> ?lon:float -> ?lat:float -> ?cb:name_cb -> unit ->
+    name =
+      "ml_elm_map_name_add_bytecode"
+      "ml_elm_map_name_add_native"
 

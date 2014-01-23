@@ -118,6 +118,12 @@ void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
         caml_callback2(*v_fun, (value) map, (value) route);
 }
 
+void ml_Elm_Map_Name_Cb(void* data, Evas_Object* map, Elm_Map_Name* name)
+{
+        value* v_fun = (value*) data;
+        caml_callback2(*v_fun, (value) map, (value) name);
+}
+
 PREFIX value ml_elm_map_add(Evas_Object* v_parent)
 {
         Evas_Object* map = elm_map_add((Evas_Object*) v_parent);
@@ -651,5 +657,41 @@ PREFIX value ml_elm_map_route_waypoint_get(value v_route)
 {
         return copy_string(elm_map_route_waypoint_get(
                 (Elm_Map_Route*) v_route));
+}
+
+PREFIX value ml_elm_map_name_add_native(
+        value v_obj, value v_addr, value v_lon, value v_lat, value v_cb,
+        value v_unit)
+{
+        const char* addr;
+        if(v_addr == Val_int(0)) addr = NULL;
+        else addr = String_val(Field(v_addr, 0));
+        double lon;
+        if(v_lon == Val_int(0)) lon = 0;
+        else lon = Double_val(Field(v_lon, 0));
+        double lat;
+        if(v_lat == Val_int(0)) lat = 0;
+        else lat = Double_val(Field(v_lat, 0));
+        Elm_Map_Name_Cb cb;
+        value* data;
+        if(v_cb == Val_int(0)) {
+                cb = NULL;
+                data = NULL;
+        } else {
+                cb = ml_Elm_Map_Name_Cb;
+                data = caml_stat_alloc(sizeof(value));
+                *data = Field(v_cb, 0);
+                caml_register_global_root(data);
+        }
+        Elm_Map_Name* name = elm_map_name_add((Evas_Object*) v_obj, addr, lon,
+                lat, cb, data);
+        if(name == NULL) caml_failwith("elm_map_name_add");
+        return (value) name;
+}
+
+PREFIX value ml_elm_map_name_add_bytecode(value* argv, int argn)
+{
+        return ml_elm_map_name_add_native(argv[0], argv[1], argv[2], argv[3],
+                argv[4], argv[5]);
 }
 
