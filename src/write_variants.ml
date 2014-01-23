@@ -19,6 +19,7 @@ let () =
   g "auto_fit";
   g "automatic";
   g "basic";
+  g "bicycle";
   g "block_horizontal";
   g "block_vertical";
   g "block_vertical_horizontal";
@@ -57,6 +58,7 @@ let () =
   g "email";
   f "Val_end" "_end";
   g "expand";
+  g "fastest";
   g "fdo";
   g "fdo_theme";
   g "file";
@@ -68,6 +70,7 @@ let () =
   g "focus_back";
   g "focus_forward";
   g "focus_home";
+  g "foot";
   g "go";
   g "grid";
   g "group";
@@ -106,6 +109,7 @@ let () =
   g "mixed";
   g "momentum";
   g "month";
+  g "motocar";
   g "mouse_down";
   g "mouse_up";
   g "move";
@@ -165,6 +169,7 @@ let () =
   g "search";
   g "send";
   g "sentence";
+  g "shortest";
   g "show";
   g "signin";
   g "sinusoidal";

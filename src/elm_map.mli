@@ -20,6 +20,12 @@ type route
 
 type source_type = [`tile | `route | `name]
 
+type route_type = [`motocar | `bicycle | `foot]
+
+type route_method = [`fastest | `shortest]
+
+type route_cb = Evas.obj -> route -> unit
+
 val add : Evas.obj -> Evas.obj
 
 val zoom_set : Evas.obj -> int -> unit
@@ -147,4 +153,10 @@ val sources_get : Evas.obj -> source_type -> string list
 val source_set : Evas.obj -> source_type -> string -> unit
 
 val source_get : Evas.obj -> source_type -> string
+
+val route_add :
+  Evas.obj -> route_type -> route_method -> float -> float -> float -> float ->
+    route_cb -> route
+
+val route_del : route -> unit
 

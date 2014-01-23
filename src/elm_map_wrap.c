@@ -89,6 +89,35 @@ PREFIX inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
         return ELM_MAP_SOURCE_TYPE_TILE;
 }
 
+PREFIX inline Elm_Map_Route_Type Elm_Map_Route_Type_val(value v)
+{
+        switch(v) {
+                case Val_motocar: return ELM_MAP_ROUTE_TYPE_MOTOCAR;
+                case Val_bicycle: return ELM_MAP_ROUTE_TYPE_BICYCLE;
+                case Val_foot: return ELM_MAP_ROUTE_TYPE_FOOT;
+                default: break;
+        }
+        caml_failwith("Elm_Map_Route_Type_val");
+        return ELM_MAP_ROUTE_TYPE_MOTOCAR;
+}
+
+PREFIX inline Elm_Map_Route_Method Elm_Map_Route_Method_val(value v)
+{
+        switch(v) {
+                case Val_fastest: return ELM_MAP_ROUTE_METHOD_FASTEST;
+                case Val_shortest: return ELM_MAP_ROUTE_METHOD_SHORTEST;
+                default: break;
+        }
+        caml_failwith("Elm_Map_Route_Method_val");
+        return ELM_MAP_ROUTE_METHOD_FASTEST;
+}
+
+void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
+{
+        value* v_fun = (value*) data;
+        caml_callback2(*v_fun, (value) map, (value) route);
+}
+
 PREFIX value ml_elm_map_add(Evas_Object* v_parent)
 {
         Evas_Object* map = elm_map_add((Evas_Object*) v_parent);
@@ -576,5 +605,34 @@ PREFIX value ml_elm_map_source_get(value v_obj, value v_type)
 {
         return copy_string(elm_map_source_get((Evas_Object*) v_obj,
                 Elm_Map_Source_Type_val(v_type)));
+}
+
+PREFIX value ml_elm_map_route_add_native(
+        value v_obj, value v_type, value v_method, value v_flon, value v_flat,
+        value v_tlon, value v_tlat, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        Elm_Map_Route* route = elm_map_route_add((Evas_Object*) v_obj,
+                Elm_Map_Route_Type_val(v_type),
+                Elm_Map_Route_Method_val(v_method), Double_val(v_flon),
+                Double_val(v_flat), Double_val(v_tlon), Double_val(v_tlat),
+                ml_Elm_Map_Route_Cb, data);
+        if(route == NULL) caml_failwith("elm_map_route_add");
+        return (value) route;
+}
+
+PREFIX value ml_elm_map_route_add_bytecode(value* argv, int argn)
+{
+        return ml_elm_map_route_add_native(argv[0], argv[1], argv[2], argv[3],
+                argv[4], argv[5], argv[6], argv[7]);
+}
+
+
+PREFIX value ml_elm_map_route_del(value v_route)
+{
+        elm_map_route_del((Elm_Map_Route*) v_route);
+        return Val_unit;
 }
 

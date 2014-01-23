@@ -20,6 +20,12 @@ type route
 
 type source_type = [`tile | `route | `name]
 
+type route_type = [`motocar | `bicycle | `foot]
+
+type route_method = [`fastest | `shortest]
+
+type route_cb = Evas.obj -> route -> unit
+
 external add : Evas.obj -> Evas.obj = "ml_elm_map_add"
 
 external zoom_set : Evas.obj -> int -> unit = "ml_elm_map_zoom_set"
@@ -192,4 +198,12 @@ external source_set : Evas.obj -> source_type -> string -> unit =
 
 external source_get : Evas.obj -> source_type -> string =
   "ml_elm_map_source_get"
+
+external route_add :
+  Evas.obj -> route_type -> route_method -> float -> float -> float -> float ->
+    route_cb -> route =
+      "ml_elm_map_route_add_bytecode"
+      "ml_elm_map_route_add_native"
+
+external route_del : route -> unit = "ml_elm_map_route_del"
 
