@@ -227,3 +227,5 @@ external name_address_get : name -> string = "ml_elm_map_name_address_get"
 
 external name_region_get : name -> float * float = "ml_elm_map_name_region_get"
 
+external name_del : name -> unit = "ml_elm_map_name_del"
+

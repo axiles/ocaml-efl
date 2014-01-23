@@ -178,3 +178,5 @@ val name_address_get : name -> string
 
 val name_region_get : name -> float * float
 
+val name_del : name -> unit
+

@@ -714,3 +714,9 @@ PREFIX value ml_elm_map_name_region_get(value v_name)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_map_name_del(value v_name)
+{
+        elm_map_name_del((Elm_Map_Name*) v_name);
+        return Val_unit;
+}
+
