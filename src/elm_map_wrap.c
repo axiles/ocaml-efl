@@ -520,3 +520,15 @@ PREFIX value ml_elm_map_overlay_scale_add(value v_obj, value v_x, value v_y)
         return (value) ov;
 }
 
+PREFIX value ml_elm_map_tile_load_status_get(value v_obj)
+{
+        int try_num, finish_num;
+        elm_map_tile_load_status_get((Evas_Object*) v_obj, &try_num,
+                &finish_num);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(try_num));
+        Store_field(v_r, 1, Val_int(finish_num));
+        return v_r;
+}
+
+

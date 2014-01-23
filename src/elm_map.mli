@@ -138,3 +138,5 @@ val overlay_circle_add : Evas.obj -> float -> float -> float -> overlay
 
 val overlay_scale_add : Evas.obj -> int -> int -> overlay
 
+val tile_load_status_get : Evas.obj -> int * int
+

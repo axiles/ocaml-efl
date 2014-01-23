@@ -179,3 +179,6 @@ external overlay_circle_add : Evas.obj -> float -> float -> float -> overlay =
 external overlay_scale_add : Evas.obj -> int -> int -> overlay =
   "ml_elm_map_overlay_scale_add"
 
+external tile_load_status_get : Evas.obj -> int * int =
+  "ml_elm_map_tile_load_status_get"
+
