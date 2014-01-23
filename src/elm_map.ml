@@ -229,3 +229,7 @@ external name_region_get : name -> float * float = "ml_elm_map_name_region_get"
 
 external name_del : name -> unit = "ml_elm_map_name_del"
 
+external track_add : Evas.obj -> route -> Evas.obj = "ml_elm_map_track_add"
+
+external track_remove : Evas.obj -> Evas.obj -> unit = "ml_elm_map_track_remove"
+

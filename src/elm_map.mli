@@ -180,3 +180,7 @@ val name_region_get : name -> float * float
 
 val name_del : name -> unit
 
+val track_add : Evas.obj -> route -> Evas.obj
+
+val track_remove : Evas.obj -> Evas.obj -> unit
+

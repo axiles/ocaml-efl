@@ -720,3 +720,17 @@ PREFIX value ml_elm_map_name_del(value v_name)
         return Val_unit;
 }
 
+PREFIX value ml_elm_map_track_add(value v_obj, value v_route)
+{
+        Evas_Object* r = elm_map_track_add((Evas_Object*) v_obj,
+                (Elm_Map_Route*) v_route);
+        if(r == NULL) caml_failwith("elm_map_track_add");
+        return (value) r;
+}
+
+PREFIX value ml_elm_map_track_remove(value v_obj, value v_route)
+{
+        elm_map_track_remove((Evas_Object*) v_obj, (Evas_Object*) v_route);
+        return Val_unit;
+}
+
