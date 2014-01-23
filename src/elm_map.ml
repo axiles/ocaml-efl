@@ -143,3 +143,6 @@ external overlay_class_zoom_max_set : overlay -> int -> unit =
 external overlay_class_zoom_max_get : overlay -> int =
   "ml_elm_map_overlay_class_zoom_max_get"
 
+external overlay_group_members_get : overlay -> overlay list =
+  "ml_elm_map_overlay_group_members_get"
+

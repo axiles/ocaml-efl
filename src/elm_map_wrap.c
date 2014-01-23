@@ -437,3 +437,9 @@ PREFIX value ml_elm_map_overlay_class_zoom_max_get(value v_ov)
                 (Elm_Map_Overlay*) v_ov));
 }
 
+PREFIX value ml_elm_map_overlay_group_members_get(value v_ov)
+{
+        return copy_Eina_List_Elm_Map_Overlay(elm_map_overlay_group_members_get(
+                (Elm_Map_Overlay*) v_ov));
+}
+

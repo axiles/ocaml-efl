@@ -114,3 +114,5 @@ val overlay_class_zoom_max_set : overlay -> int -> unit
 
 val overlay_class_zoom_max_get : overlay -> int
 
+val overlay_group_members_get : overlay -> overlay list
+
