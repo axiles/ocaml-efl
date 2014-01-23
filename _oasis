@@ -512,3 +512,9 @@ Executable panel_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: panel_example_01.ml
+Executable thumb_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: thumb_example_01.ml
