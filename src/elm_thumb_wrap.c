@@ -174,6 +174,19 @@ PREFIX value ml_elm_thumb_compress_get(value v_obj)
         return Val_int(x);
 }
 
+PREFIX value ml_elm_thumb_quality_set(value v_obj, value v_x)
+{
+        elm_thumb_quality_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_thumb_quality_get(value v_obj)
+{
+        int x;
+        elm_thumb_quality_get((Evas_Object*) v_obj, &x);
+        return Val_int(x);
+}
+
 PREFIX value ml_elm_thumb_animate_set(value v_obj, value v_s)
 {
         elm_thumb_animate_set((Evas_Object*) v_obj,

@@ -49,6 +49,10 @@ external compress_set : Evas.obj -> int -> unit = "ml_elm_thumb_compress_set"
 
 external compress_get : Evas.obj -> int = "ml_elm_thumb_compress_get"
 
+external quality_set : Evas.obj -> int -> unit = "ml_elm_thumb_quality_set"
+
+external quality_get : Evas.obj -> int = "ml_elm_thumb_quality_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 

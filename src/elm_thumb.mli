@@ -40,6 +40,10 @@ val compress_set : Evas.obj -> int -> unit
 
 val compress_get : Evas.obj -> int
 
+val quality_set : Evas.obj -> int -> unit
+
+val quality_get : Evas.obj -> int
+
 val animate_set : Evas.obj -> animation_setting -> unit
 
 val animate_get : Evas.obj -> animation_setting
