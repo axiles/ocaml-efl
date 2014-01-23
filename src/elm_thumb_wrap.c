@@ -101,6 +101,25 @@ PREFIX value ml_elm_thumb_fdo_size_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_thumb_crop_align_set(value v_obj, value v_x, value v_y)
+{
+        elm_thumb_crop_align_set((Evas_Object*) v_obj, Double_val(v_x),
+                Double_val(v_y));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_thumb_crop_align_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        double x, y;
+        elm_thumb_crop_align_get((Evas_Object*) v_obj, &x, &y);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_double(x));
+        Store_field(v, 1, copy_double(y));
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_thumb_format_set(value v_obj, value v_f) {
         elm_thumb_format_set((Evas_Object*) v_obj,
                 Ethumb_Thumb_Format_val(v_f));

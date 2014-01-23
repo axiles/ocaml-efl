@@ -39,6 +39,12 @@ external size_set : Evas.obj -> int -> int -> unit = "ml_elm_thumb_size_set"
 
 external size_get : Evas.obj -> int * int = "ml_elm_thumb_size_get"
 
+external crop_align_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_thumb_crop_align_set"
+
+external crop_align_get : Evas.obj -> float * float =
+  "ml_elm_thumb_crop_align_get"
+
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 

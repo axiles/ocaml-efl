@@ -36,14 +36,16 @@ PREFIX value ml_evas_object_show(value v_obj)
         return Val_unit;
 }
 
-PREFIX value ml_evas_object_size_hint_weight_set(value v_obj, value v_x, value v_y)
+PREFIX value ml_evas_object_size_hint_weight_set(
+        value v_obj, value v_x, value v_y)
 {
         evas_object_size_hint_weight_set((Evas_Object*) v_obj, Double_val(v_x),
                 Double_val(v_y));
         return Val_unit;
 }
 
-PREFIX value ml_evas_object_size_hint_align_set(value v_obj, value v_x, value v_y)
+PREFIX value ml_evas_object_size_hint_align_set(
+        value v_obj, value v_x, value v_y)
 {
         evas_object_size_hint_align_set((Evas_Object*) v_obj, Double_val(v_x),
                 Double_val(v_y));
