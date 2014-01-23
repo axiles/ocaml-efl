@@ -16,6 +16,8 @@ type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
 type overlay_get_cb = Evas.obj -> overlay -> unit
 
+type route
+
 external add : Evas.obj -> Evas.obj = "ml_elm_map_add"
 
 external zoom_set : Evas.obj -> int -> unit = "ml_elm_map_zoom_set"
@@ -157,4 +159,23 @@ external overlay_bubble_content_append : overlay -> Evas.obj -> unit =
 
 external overlay_bubble_content_clear : overlay -> unit =
   "ml_elm_map_overlay_bubble_content_clear"
+
+external overlay_route_add : Evas.obj -> route -> overlay =
+  "ml_elm_map_overlay_route_add"
+
+external overlay_line_add :
+  Evas.obj -> float -> float -> float -> float -> overlay =
+    "ml_elm_map_overlay_line_add"
+
+external overlay_polygon_add : Evas.obj -> overlay =
+  "ml_elm_map_overlay_polygon_add"
+
+external overlay_polygon_region_add : overlay -> float -> float -> unit =
+  "ml_elm_map_overlay_polygon_region_add"
+
+external overlay_circle_add : Evas.obj -> float -> float -> float -> overlay =
+  "ml_elm_map_overlay_circle_add"
+
+external overlay_scale_add : Evas.obj -> int -> int -> overlay =
+  "ml_elm_map_overlay_scale_add"
 

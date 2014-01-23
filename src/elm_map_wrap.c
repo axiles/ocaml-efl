@@ -470,3 +470,53 @@ PREFIX value ml_elm_map_overlay_bubble_content_clear(value v_ov)
         return Val_unit;
 }
 
+PREFIX value ml_elm_map_overlay_route_add(value v_obj, value v_route)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_route_add((Evas_Object*) v_obj,
+                (Elm_Map_Route*) v_route);
+        if(ov == NULL) caml_failwith("elm_map_overlay_route_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlay_line_add(
+        value v_obj, value v_flon, value v_flat, value v_tlon, value v_tlat)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_line_add((Evas_Object*) v_obj,
+                Double_val(v_flon), Double_val(v_flat), Double_val(v_tlon),
+                Double_val(v_tlat));
+        if(ov == NULL) caml_failwith("elm_map_overlay_line_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlay_polygon_add(value v_obj)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_polygon_add((Evas_Object*) v_obj);
+        if(ov == NULL) caml_failwith("elm_map_overlay_polygon_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlay_polygon_region_add(
+        value v_ov, value v_lon, value v_lat)
+{
+        elm_map_overlay_polygon_region_add((Elm_Map_Overlay*) v_ov,
+                Double_val(v_lon), Double_val(v_lat));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_circle_add(
+        value v_obj, value v_lon, value v_lat, value v_radius)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_circle_add((Evas_Object*) v_obj,
+                Double_val(v_lon), Double_val(v_lat), Double_val(v_radius));
+        if(ov == NULL) caml_failwith("elm_map_overlay_circle_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlay_scale_add(value v_obj, value v_x, value v_y)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_scale_add((Evas_Object*) v_obj,
+                Int_val(v_x), Int_val(v_y));
+        if(ov == NULL) caml_failwith("elm_map_overlay_scale_add");
+        return (value) ov;
+}
+

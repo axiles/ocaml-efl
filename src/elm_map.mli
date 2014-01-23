@@ -16,6 +16,8 @@ type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
 type overlay_get_cb = Evas.obj -> overlay -> unit
 
+type route
+
 val add : Evas.obj -> Evas.obj
 
 val zoom_set : Evas.obj -> int -> unit
@@ -123,4 +125,16 @@ val overlay_bubble_follow : overlay -> overlay -> unit
 val overlay_bubble_content_append : overlay -> Evas.obj -> unit
 
 val overlay_bubble_content_clear : overlay -> unit
+
+val overlay_route_add : Evas.obj -> route -> overlay
+
+val overlay_line_add : Evas.obj -> float -> float -> float -> float -> overlay
+
+val overlay_polygon_add : Evas.obj -> overlay
+
+val overlay_polygon_region_add : overlay -> float -> float -> unit
+
+val overlay_circle_add : Evas.obj -> float -> float -> float -> overlay
+
+val overlay_scale_add : Evas.obj -> int -> int -> overlay
 
