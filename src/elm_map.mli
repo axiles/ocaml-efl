@@ -174,3 +174,7 @@ val name_add :
   Evas.obj -> ?addr:string -> ?lon:float -> ?lat:float -> ?cb:name_cb -> unit ->
     name
 
+val name_address_get : name -> string
+
+val name_region_get : name -> float * float
+

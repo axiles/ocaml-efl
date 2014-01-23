@@ -695,3 +695,22 @@ PREFIX value ml_elm_map_name_add_bytecode(value* argv, int argn)
                 argv[4], argv[5]);
 }
 
+PREFIX value ml_elm_map_name_address_get(value v_name)
+{
+        const char* addr = elm_map_name_address_get((Elm_Map_Name*) v_name);
+        if(addr == NULL) caml_failwith("elm_map_name_address_get");
+        return copy_string(addr);
+}
+
+PREFIX value ml_elm_map_name_region_get(value v_name)
+{
+        CAMLparam1(v_name);
+        CAMLlocal1(v_r);
+        double lon, lat;
+        elm_map_name_region_get((Elm_Map_Name*) v_name, &lon, &lat);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(lon));
+        Store_field(v_r, 1, copy_double(lat));
+        CAMLreturn(v_r);
+}
+
