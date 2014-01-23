@@ -128,3 +128,12 @@ external overlays_show : overlay list -> unit = "ml_elm_map_overlays_show"
 external overlay_get_cb_set : overlay -> overlay_get_cb -> unit =
   "ml_elm_map_overlay_get_cb_set"
 
+external overlay_class_add : Evas.obj -> overlay =
+  "ml_elm_map_overlay_class_add"
+
+external overlay_class_append : overlay -> overlay -> unit =
+  "ml_elm_map_overlay_class_append"
+
+external overlay_class_remove : overlay -> overlay -> unit =
+  "ml_elm_map_overlay_class_remove"
+

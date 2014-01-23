@@ -403,3 +403,24 @@ PREFIX value ml_elm_map_overlay_get_cb_set(value v_ov, value v_fun)
         return Val_unit;
 }
 
+PREFIX value ml_elm_map_overlay_class_add(value v_obj)
+{
+        Elm_Map_Overlay* ov = elm_map_overlay_class_add((Evas_Object*) v_obj);
+        if(ov == NULL) caml_failwith("elm_map_overlay_class_add");
+        return (value) ov;
+}
+
+PREFIX value ml_elm_map_overlay_class_append(value v_cl, value v_ov)
+{
+        elm_map_overlay_class_append((Elm_Map_Overlay*) v_cl,
+                (Elm_Map_Overlay*) v_ov);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_map_overlay_class_remove(value v_cl, value v_ov)
+{
+        elm_map_overlay_class_remove((Elm_Map_Overlay*) v_cl,
+                (Elm_Map_Overlay*) v_ov);
+        return Val_unit;
+}
+

@@ -104,3 +104,9 @@ val overlays_show : overlay list -> unit
 
 val overlay_get_cb_set : overlay -> overlay_get_cb -> unit
 
+val overlay_class_add : Evas.obj -> overlay
+
+val overlay_class_append : overlay -> overlay -> unit
+
+val overlay_class_remove : overlay -> overlay -> unit
+
