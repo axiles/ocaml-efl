@@ -207,3 +207,9 @@ external route_add :
 
 external route_del : route -> unit = "ml_elm_map_route_del"
 
+external route_distance_get : route -> float = "ml_elm_map_route_distance_get"
+
+external route_node_get : route -> string = "ml_elm_map_route_node_get"
+
+external route_waypoint_get : route -> string = "ml_elm_map_route_waypoint_get"
+

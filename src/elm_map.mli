@@ -160,3 +160,9 @@ val route_add :
 
 val route_del : route -> unit
 
+val route_distance_get : route -> float
+
+val route_node_get : route -> string
+
+val route_waypoint_get : route -> string
+

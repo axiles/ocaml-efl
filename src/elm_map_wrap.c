@@ -636,3 +636,20 @@ PREFIX value ml_elm_map_route_del(value v_route)
         return Val_unit;
 }
 
+PREFIX value ml_elm_map_route_distance_get(value v_route)
+{
+        return copy_double(elm_map_route_distance_get(
+                (Elm_Map_Route*) v_route));
+}
+
+PREFIX value ml_elm_map_route_node_get(value v_route)
+{
+        return copy_string(elm_map_route_node_get((Elm_Map_Route*) v_route));
+}
+
+PREFIX value ml_elm_map_route_waypoint_get(value v_route)
+{
+        return copy_string(elm_map_route_waypoint_get(
+                (Elm_Map_Route*) v_route));
+}
+
