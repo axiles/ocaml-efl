@@ -21,3 +21,17 @@ PREFIX value ml_elm_diskselector_round_enabled_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_diskselector_side_text_max_length_get(value v_obj)
+{
+        return Val_int(elm_diskselector_side_text_max_length_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_diskselector_side_text_max_length_set(value v_obj,
+        value v_x)
+{
+        elm_diskselector_side_text_max_length_set((Evas_Object*) v_obj,
+                Int_val(v_x));
+        return Val_unit;
+}
+
