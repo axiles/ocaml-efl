@@ -79,7 +79,8 @@ Library efl
     Elm_flipselector,
     Elm_panel,
     Elm_map,
-    Elm_thumb
+    Elm_thumb,
+    Elm_diskselector
   CSources:
     include.h,
     eina_wrap.c,
@@ -150,7 +151,8 @@ Library efl
     elm_flipselector_wrap.c,
     elm_panel_wrap.c,
     elm_map_wrap.c,
-    elm_thumb_wrap.c
+    elm_thumb_wrap.c,
+    elm_diskselector_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
