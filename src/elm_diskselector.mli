@@ -8,3 +8,7 @@ val side_text_max_length_get : Evas.obj -> int
 
 val side_text_max_length_set : Evas.obj -> int -> unit
 
+val display_item_num_set : Evas.obj -> int -> unit
+
+val display_item_num_get : Evas.obj -> int
+

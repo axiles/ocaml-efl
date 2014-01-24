@@ -12,3 +12,9 @@ external side_text_max_length_get : Evas.obj -> int =
 external side_text_max_length_set : Evas.obj -> int -> unit =
   "ml_elm_diskselector_side_text_max_length_set"
 
+external display_item_num_set : Evas.obj -> int -> unit =
+  "ml_elm_diskselector_display_item_num_set"
+
+external display_item_num_get : Evas.obj -> int =
+  "ml_elm_diskselector_display_item_num_get"
+
