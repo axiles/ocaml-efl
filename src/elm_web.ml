@@ -6,6 +6,9 @@ type dialog_alert = Evas.obj -> string -> Evas.obj option
 
 type dialog_confirm = Evas.obj -> string -> Evas.obj option * bool
 
+type dialog_prompt =
+  Evas.obj -> string -> string -> Evas.obj option * string option * bool
+
 external add : Evas.obj -> Evas.obj = "ml_elm_web_add"
 
 external useragent_set : Evas.obj -> string -> unit = "ml_elm_web_useragent_set"
@@ -22,4 +25,7 @@ external dialog_alert_hook_set : Evas.obj -> dialog_alert -> unit =
 
 external dialog_confirm_hook_set : Evas.obj -> dialog_confirm -> unit =
   "ml_elm_web_dialog_confirm_hook_set"
+
+external dialog_prompt_hook_set : Evas.obj -> dialog_prompt -> unit =
+  "ml_elm_web_dialog_prompt_hook_set"
 
