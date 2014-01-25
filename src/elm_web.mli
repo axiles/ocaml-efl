@@ -4,6 +4,8 @@ type window_open = Evas.obj -> bool -> window_features -> Evas.obj option
 
 type dialog_alert = Evas.obj -> string -> Evas.obj option
 
+type dialog_confirm = Evas.obj -> string -> Evas.obj option * bool
+
 val add : Evas.obj -> Evas.obj
 
 val useragent_set : Evas.obj -> string -> unit
@@ -15,4 +17,6 @@ val webkit_view_get : Evas.obj -> Evas.obj
 val window_create_hook_set : Evas.obj -> window_open -> unit
 
 val dialog_alert_hook_set : Evas.obj -> dialog_alert -> unit
+
+val dialog_confirm_hook_set : Evas.obj -> dialog_confirm -> unit
 

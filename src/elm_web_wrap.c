@@ -29,6 +29,22 @@ Evas_Object* ml_Elm_Web_Dialog_Alert(
         CAMLreturnT(Evas_Object*, r);
 }
 
+Evas_Object* ml_Elm_Web_Dialog_Confirm(
+        void* data, Evas_Object* obj, const char* message, Eina_Bool* ret)
+{
+        CAMLparam0();
+        CAMLlocal3(v_message, v_r, v_r_obj);
+        value* v_fun = (value*) data;
+        v_message = copy_string(message);
+        v_r = caml_callback2(*v_fun, (value) obj, v_message);
+        v_r_obj = Field(v_r, 0);
+        Evas_Object* r_obj;
+        if(v_r_obj == Val_int(0)) r_obj = NULL;
+        else r_obj = (Evas_Object*) Field(v_r_obj, 0);
+        *ret = Bool_val(Field(v_r, 1));
+        CAMLreturnT(Evas_Object*, r_obj);
+}
+
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
 {
         Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
@@ -72,4 +88,13 @@ PREFIX value ml_elm_web_dialog_alert_hook_set(value v_obj, value v_fun)
         return Val_unit;
 }
 
+PREFIX value ml_elm_web_dialog_confirm_hook_set(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_web_dialog_confirm_hook_set((Evas_Object*) v_obj,
+                ml_Elm_Web_Dialog_Confirm, data);
+        return Val_unit;
+}
 
