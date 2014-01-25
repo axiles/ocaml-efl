@@ -40,3 +40,9 @@ external first_item_get : Evas.obj -> Elm_object.item option =
 external last_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_diskselector_last_item_get"
 
+external item_prev_get : Elm_object.item -> Elm_object.item option =
+  "ml_elm_diskselector_item_prev_get"
+
+external item_next_get : Elm_object.item -> Elm_object.item option =
+  "ml_elm_diskselector_item_next_get"
+

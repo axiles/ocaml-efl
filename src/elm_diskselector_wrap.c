@@ -130,3 +130,23 @@ PREFIX value ml_elm_diskselector_last_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_diskselector_item_prev_get(value v_it)
+{
+        Elm_Object_Item* prev = elm_diskselector_item_prev_get(
+                (Elm_Object_Item*) v_it);
+        if(prev == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) prev);
+        return v;
+}
+
+PREFIX value ml_elm_diskselector_item_next_get(value v_it)
+{
+        Elm_Object_Item* next = elm_diskselector_item_next_get(
+                (Elm_Object_Item*) v_it);
+        if(next == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) next);
+        return v;
+}
+
