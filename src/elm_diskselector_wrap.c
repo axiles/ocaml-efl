@@ -103,3 +103,10 @@ PREFIX value ml_elm_diskselector_selected_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_diskselector_item_selected_set(value v_it, value v_flag)
+{
+        elm_diskselector_item_selected_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+

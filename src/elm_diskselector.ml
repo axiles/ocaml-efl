@@ -31,3 +31,6 @@ external item_append :
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_diskselector_selected_item_get"
 
+external item_selected_set : Elm_object.item -> bool -> unit =
+  "ml_elm_diskselector_item_selected_set"
+
