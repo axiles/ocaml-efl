@@ -18,3 +18,8 @@ external display_item_num_set : Evas.obj -> int -> unit =
 external display_item_num_get : Evas.obj -> int =
   "ml_elm_diskselector_display_item_num_get"
 
+external clear : Evas.obj -> unit = "ml_elm_diskselector_clear"
+
+external items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_diskselector_items_get"
+

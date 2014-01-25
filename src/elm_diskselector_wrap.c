@@ -49,3 +49,15 @@ PREFIX value ml_elm_diskselector_display_item_num_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_diskselector_clear(value v_obj)
+{
+        elm_diskselector_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_diskselector_items_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Object_Item(elm_diskselector_items_get(
+                (Evas_Object*) v_obj));
+}
+

@@ -12,3 +12,7 @@ val display_item_num_set : Evas.obj -> int -> unit
 
 val display_item_num_get : Evas.obj -> int
 
+val clear : Evas.obj -> unit
+
+val items_get : Evas.obj -> Elm_object.item list
+
