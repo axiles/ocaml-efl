@@ -110,6 +110,12 @@ PREFIX value ml_elm_diskselector_item_selected_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_diskselector_item_selected_get(value v_it)
+{
+        return Val_bool(elm_diskselector_item_selected_get(
+                (Elm_Object_Item*) v_it));
+}
+
 PREFIX value ml_elm_diskselector_first_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_diskselector_first_item_get(
