@@ -15,6 +15,20 @@ Evas_Object* ml_Elm_Web_Window_Open(
         CAMLreturnT(Evas_Object*, r);
 }
 
+Evas_Object* ml_Elm_Web_Dialog_Alert(
+        void* data,  Evas_Object* obj, const char* message)
+{
+        CAMLparam0();
+        CAMLlocal2(v_message, v_r);
+        value* v_fun = (value*) data;
+        v_message = copy_string(message);
+        v_r = caml_callback2(*v_fun, (value) obj, v_message);
+        Evas_Object* r;
+        if(v_r == Val_int(0)) r = NULL;
+        else r = (Evas_Object*) Field(v_r, 0);
+        CAMLreturnT(Evas_Object*, r);
+}
+
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
 {
         Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
@@ -47,4 +61,15 @@ PREFIX value ml_elm_web_window_create_hook_set(value v_obj, value v_fun)
                 ml_Elm_Web_Window_Open, data);
         return Val_unit;
 }
+
+PREFIX value ml_elm_web_dialog_alert_hook_set(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_web_dialog_alert_hook_set((Evas_Object*) v_obj,
+                ml_Elm_Web_Dialog_Alert, data);
+        return Val_unit;
+}
+
 
