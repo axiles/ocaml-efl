@@ -23,3 +23,8 @@ external clear : Evas.obj -> unit = "ml_elm_diskselector_clear"
 external items_get : Evas.obj -> Elm_object.item list =
   "ml_elm_diskselector_items_get"
 
+external item_append :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
+      Elm_object.item =
+      "ml_elm_diskselector_item_append"
+

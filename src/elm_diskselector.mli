@@ -16,3 +16,7 @@ val clear : Evas.obj -> unit
 
 val items_get : Evas.obj -> Elm_object.item list
 
+val item_append :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
+    Elm_object.item
+
