@@ -28,3 +28,6 @@ external item_append :
       Elm_object.item =
       "ml_elm_diskselector_item_append"
 
+external selected_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_diskselector_selected_item_get"
+

@@ -20,3 +20,5 @@ val item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
     Elm_object.item
 
+val selected_item_get : Evas.obj -> Elm_object.item option
+
