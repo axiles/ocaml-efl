@@ -526,3 +526,9 @@ Executable map_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: map_example_01.ml
+Executable diskselector_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: diskselector_example_01.ml
