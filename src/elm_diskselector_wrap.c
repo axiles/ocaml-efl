@@ -110,3 +110,23 @@ PREFIX value ml_elm_diskselector_item_selected_set(value v_it, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_diskselector_first_item_get(value v_obj)
+{
+        Elm_Object_Item *it = elm_diskselector_first_item_get(
+                (Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
+}
+
+PREFIX value ml_elm_diskselector_last_item_get(value v_obj)
+{
+        Elm_Object_Item *it = elm_diskselector_last_item_get(
+                (Evas_Object*) v_obj);
+        if(it == NULL) return Val_int(0);
+        value v = caml_alloc(1, 0);
+        Store_field(v, 0, (value) it);
+        return v;
+}
+
