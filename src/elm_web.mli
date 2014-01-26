@@ -54,3 +54,5 @@ val popup_selected_set : Evas.obj -> int -> unit
 
 val popup_destroy : Evas.obj -> bool
 
+val text_search : Evas.obj -> string -> cs:bool -> fwd:bool -> wrp:bool -> bool
+

@@ -272,3 +272,11 @@ PREFIX value ml_elm_web_popup_destroy(value v_obj)
         return Val_bool(elm_web_popup_destroy((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_text_search(
+        value v_obj, value v_s, value v_cs, value v_fwd, value v_wrp)
+{
+        return Val_bool(elm_web_text_search((Evas_Object*) v_obj,
+                String_val(v_s), Bool_val(v_cs), Bool_val(v_fwd),
+                Bool_val(v_wrp)));
+}
+

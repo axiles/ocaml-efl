@@ -65,3 +65,8 @@ external popup_selected_set : Evas.obj -> int -> unit =
 
 external popup_destroy : Evas.obj -> bool = "ml_elm_web_popup_destroy"
 
+external text_search :
+  Evas.obj -> string -> cs:bool -> fwd:bool -> wrp:bool -> bool =
+    "ml_elm_web_text_search"
+
+
