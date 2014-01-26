@@ -42,3 +42,5 @@ val url_set : Evas.obj -> string -> bool
 
 val url_get : Evas.obj -> string option
 
+val title_get : Evas.obj -> string option
+

@@ -50,3 +50,5 @@ external url_set : Evas.obj -> string -> bool = "ml_elm_web_url_set"
 
 external url_get : Evas.obj -> string option = "ml_elm_web_url_get"
 
+external title_get : Evas.obj -> string option = "ml_elm_web_title_get"
+
