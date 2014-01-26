@@ -121,3 +121,9 @@ external zoom_mode_set : Evas.obj -> zoom_mode -> unit =
 
 external zoom_mode_get : Evas.obj -> zoom_mode = "ml_elm_web_zoom_mode_get"
 
+external region_show : Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_elm_web_region_show"
+
+external region_bring_in : Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_elm_web_region_bring_in"
+

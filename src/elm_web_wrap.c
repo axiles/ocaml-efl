@@ -416,3 +416,19 @@ PREFIX value ml_elm_web_zoom_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_region_show(
+        value v_obj, value v_x, value v_y, value v_w, value v_h)
+{
+        elm_web_region_show((Evas_Object*) v_obj, Int_val(v_x), Int_val(v_y),
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_web_region_bring_in(
+        value v_obj, value v_x, value v_y, value v_w, value v_h)
+{
+        elm_web_region_bring_in((Evas_Object*) v_obj, Int_val(v_x),
+                Int_val(v_y), Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+

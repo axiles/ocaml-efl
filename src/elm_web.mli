@@ -98,3 +98,7 @@ val zoom_mode_set : Evas.obj -> zoom_mode -> unit
 
 val zoom_mode_get : Evas.obj -> zoom_mode
 
+val region_show : Evas.obj -> int -> int -> int -> int -> unit
+
+val region_bring_in : Evas.obj -> int -> int -> int -> int -> unit
+
