@@ -58,3 +58,5 @@ external bg_color_set : Evas.obj -> int -> int -> int -> int -> unit =
 external bg_color_get : Evas.obj -> int * int * int * int =
   "ml_elm_web_bg_color_get"
 
+external selection_get : Evas.obj -> string option = "ml_elm_web_selection_get"
+

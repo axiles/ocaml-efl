@@ -248,3 +248,16 @@ PREFIX value ml_elm_web_bg_color_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_web_selection_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_s);
+        const char* s = elm_web_selection_get((Evas_Object*) v_obj);
+        if(s == NULL) v_s = Val_int(0);
+        else {
+                v_s = caml_alloc(1, 0);
+                Store_field(v_s, 0, copy_string(s));
+        }
+        CAMLreturn(v_s);
+}
+

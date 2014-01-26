@@ -48,3 +48,5 @@ val bg_color_set : Evas.obj -> int -> int -> int -> int -> unit
 
 val bg_color_get : Evas.obj -> int * int * int * int
 
+val selection_get : Evas.obj -> string option
+
