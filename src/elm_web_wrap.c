@@ -185,3 +185,14 @@ PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
         return Val_unit;
 }
 
+PREFIX value ml_elm_web_tab_propagate_get(value v_obj)
+{
+        return Val_bool(elm_web_tab_propagate_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_tab_propagate_set(value v_obj, value v_flag)
+{
+        elm_web_tab_propagate_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+

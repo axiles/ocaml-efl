@@ -41,3 +41,8 @@ external dialog_file_selector_hook_set :
 external console_message_hook_set : Evas.obj -> console_message -> unit =
   "ml_elm_web_console_message_hook_set"
 
+external tab_propagate_get : Evas.obj -> bool = "ml_elm_web_tab_propagate_get"
+
+external tab_propagate_set : Evas.obj -> bool -> unit =
+  "ml_elm_web_tab_propagate_set"
+

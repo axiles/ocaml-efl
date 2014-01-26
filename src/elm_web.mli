@@ -34,3 +34,7 @@ val dialog_file_selector_hook_set : Evas.obj -> dialog_file_selector -> unit
 
 val console_message_hook_set : Evas.obj -> console_message -> unit
 
+val tab_propagate_get : Evas.obj -> bool
+
+val tab_propagate_set : Evas.obj -> bool -> unit
+
