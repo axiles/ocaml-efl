@@ -86,3 +86,5 @@ val navigate_possible_get : Evas.obj -> int -> bool
 
 val history_enabled_get : Evas.obj -> bool
 
+val history_enabled_set : Evas.obj -> bool -> unit
+

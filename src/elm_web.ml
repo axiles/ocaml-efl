@@ -107,3 +107,6 @@ external navigate_possible_get : Evas.obj -> int -> bool =
 external history_enabled_get : Evas.obj -> bool =
   "ml_elm_web_history_enabled_get"
 
+external history_enabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_web_history_enabled_set"
+
