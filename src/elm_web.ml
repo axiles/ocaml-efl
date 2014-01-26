@@ -110,3 +110,7 @@ external history_enabled_get : Evas.obj -> bool =
 external history_enabled_set : Evas.obj -> bool -> unit =
   "ml_elm_web_history_enabled_set"
 
+external zoom_set : Evas.obj -> float -> unit = "ml_elm_web_zoom_set"
+
+external zoom_get : Evas.obj -> float = "ml_elm_web_zoom_get"
+

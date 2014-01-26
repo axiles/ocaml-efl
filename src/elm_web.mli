@@ -88,3 +88,7 @@ val history_enabled_get : Evas.obj -> bool
 
 val history_enabled_set : Evas.obj -> bool -> unit
 
+val zoom_set : Evas.obj -> float -> unit
+
+val zoom_get : Evas.obj -> float
+
