@@ -82,4 +82,5 @@ external text_matches_highlight_set : Evas.obj -> bool -> bool =
 external text_matches_highlight_get : Evas.obj -> bool =
   "ml_elm_web_text_matches_highlight_get"
 
+external load_progress_get : Evas.obj -> float = "ml_elm_web_load_progress_get"
 

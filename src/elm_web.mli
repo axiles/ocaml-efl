@@ -64,3 +64,5 @@ val text_matches_highlight_set : Evas.obj -> bool -> bool
 
 val text_matches_highlight_get : Evas.obj -> bool
 
+val load_progress_get : Evas.obj -> float
+

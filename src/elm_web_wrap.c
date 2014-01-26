@@ -305,3 +305,8 @@ PREFIX value ml_elm_web_text_matches_highlight_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_load_progress_get(value v_obj)
+{
+        return copy_double(elm_web_load_progress_get((Evas_Object*) v_obj));
+}
+
