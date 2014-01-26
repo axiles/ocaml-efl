@@ -52,3 +52,9 @@ external url_get : Evas.obj -> string option = "ml_elm_web_url_get"
 
 external title_get : Evas.obj -> string option = "ml_elm_web_title_get"
 
+external bg_color_set : Evas.obj -> int -> int -> int -> int -> unit =
+  "ml_elm_web_bg_color_set"
+
+external bg_color_get : Evas.obj -> int * int * int * int =
+  "ml_elm_web_bg_color_get"
+

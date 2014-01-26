@@ -228,3 +228,23 @@ PREFIX value ml_elm_web_title_get(value v_obj)
         CAMLreturn(v_s);
 }
 
+PREFIX value ml_elm_web_bg_color_set(
+        value v_obj, value v_r, value v_g, value v_b, value v_a)
+{
+        elm_web_bg_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
+                Int_val(v_b), Int_val(v_a));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_web_bg_color_get(value v_obj)
+{
+        int r, g, b, a;
+        elm_web_bg_color_get((Evas_Object*) v_obj, &r, &g, &b, &a);
+        value v_r = caml_alloc(4, 0);
+        Store_field(v_r, 0, Val_int(r));
+        Store_field(v_r, 1, Val_int(g));
+        Store_field(v_r, 2, Val_int(b));
+        Store_field(v_r, 3, Val_int(a));
+        return v_r;
+}
+
