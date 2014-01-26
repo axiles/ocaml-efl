@@ -71,6 +71,7 @@ let () =
   g "focus_forward";
   g "focus_home";
   g "foot";
+  g "fullscreen";
   g "go";
   g "grid";
   g "group";
@@ -99,12 +100,14 @@ let () =
   g "line";
   g "linear";
   g "list";
+  g "locationbar";
   g "login";
   g "loop";
   g "manual";
   g "markup";
   g "markup_utf8";
   g "menu";
+  g "menubar";
   g "middle";
   g "mixed";
   g "momentum";
@@ -166,6 +169,7 @@ let () =
   g "route";
   g "scale";
   g "scroll";
+  g "scrollbars";
   g "search";
   g "send";
   g "sentence";
@@ -179,6 +183,7 @@ let () =
   g "standard";
   g "start";
   g "state";
+  g "statusbar";
   g "stop";
   g "stretch";
   g "terminal";

@@ -127,6 +127,22 @@ PREFIX inline value Val_Elm_Web_Zoom_Mode(Elm_Web_Zoom_Mode m)
         return Val_manual;
 }
 
+PREFIX inline Elm_Web_Window_Feature_Flag Elm_Web_Window_Feature_Flag_val(
+                value v)
+{
+        switch(v) {
+                case Val_toolbar: return ELM_WEB_WINDOW_FEATURE_TOOLBAR;
+                case Val_statusbar: return ELM_WEB_WINDOW_FEATURE_STATUSBAR;
+                case Val_scrollbars: return ELM_WEB_WINDOW_FEATURE_SCROLLBARS;
+                case Val_menubar: return ELM_WEB_WINDOW_FEATURE_MENUBAR;
+                case Val_locationbar: return ELM_WEB_WINDOW_FEATURE_LOCATIONBAR;
+                case Val_fullscreen: return ELM_WEB_WINDOW_FEATURE_FULLSCREEN;
+                default: break;
+        }
+        caml_failwith("Elm_Web_Window_Feature_Flag_val");
+        return ELM_WEB_WINDOW_FEATURE_TOOLBAR;
+}
+
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
 {
         Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
@@ -442,6 +458,13 @@ PREFIX value ml_elm_web_inwin_mode_set(
 PREFIX value ml_elm_web_inwin_mode_get(value v_obj)
 {
         return Val_bool(elm_web_inwin_mode_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_window_features_property_get(value v_wf, value v_flag)
+{
+        return Val_bool(elm_web_window_features_property_get(
+                (Elm_Web_Window_Features*) v_wf,
+                Elm_Web_Window_Feature_Flag_val(v_flag)));
 }
 
 PREFIX value ml_elm_web_window_features_region_get(value v_wf)
