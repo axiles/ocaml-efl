@@ -67,6 +67,24 @@ Evas_Object* ml_Elm_Web_Dialog_Prompt(
         CAMLreturnT(Evas_Object*, r_obj);
 }
 
+Evas_Object* ml_Elm_Web_Dialog_File_Selector(
+        void* data, Evas_Object* obj, Eina_Bool allows_multiple,
+        Eina_List *accept_types, Eina_List** selected, Eina_Bool* ret)
+{
+        CAMLparam0();
+        CAMLlocal3(v_accept_types, v_r, v_r_obj);
+        value* v_fun = (value*) data;
+        v_accept_types = copy_Eina_List_string(accept_types);
+        v_r = caml_callback3(*v_fun, (value) obj, Val_bool(allows_multiple),
+                v_accept_types);
+        v_r_obj = Field(v_r, 0);
+        Evas_Object* r_obj;
+        if(v_r_obj == Val_int(0)) r_obj = NULL;
+        *selected = Eina_List_string_malloc_val(Field(v_r, 1));
+        *ret = Bool_val(Field(v_r, 2));
+        CAMLreturnT(Evas_Object*, r_obj);
+}
+
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
 {
         Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
@@ -127,6 +145,16 @@ PREFIX value ml_elm_web_dialog_prompt_hook_set(value v_obj, value v_fun)
         caml_register_global_root(data);
         elm_web_dialog_prompt_hook_set((Evas_Object*) v_obj,
                 ml_Elm_Web_Dialog_Prompt, data);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_web_dialog_file_selector_hook_set(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_web_dialog_file_selector_hook_set((Evas_Object*) v_obj,
+                ml_Elm_Web_Dialog_File_Selector, data);
         return Val_unit;
 }
 
