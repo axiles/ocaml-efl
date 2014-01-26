@@ -38,3 +38,7 @@ val tab_propagate_get : Evas.obj -> bool
 
 val tab_propagate_set : Evas.obj -> bool -> unit
 
+val url_set : Evas.obj -> string -> bool
+
+val url_get : Evas.obj -> string option
+

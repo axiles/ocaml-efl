@@ -46,3 +46,7 @@ external tab_propagate_get : Evas.obj -> bool = "ml_elm_web_tab_propagate_get"
 external tab_propagate_set : Evas.obj -> bool -> unit =
   "ml_elm_web_tab_propagate_set"
 
+external url_set : Evas.obj -> string -> bool = "ml_elm_web_url_set"
+
+external url_get : Evas.obj -> string option = "ml_elm_web_url_get"
+
