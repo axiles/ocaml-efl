@@ -50,3 +50,7 @@ val bg_color_get : Evas.obj -> int * int * int * int
 
 val selection_get : Evas.obj -> string option
 
+val popup_selected_set : Evas.obj -> int -> unit
+
+val popup_destroy : Evas.obj -> bool
+

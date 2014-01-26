@@ -261,3 +261,14 @@ PREFIX value ml_elm_web_selection_get(value v_obj)
         CAMLreturn(v_s);
 }
 
+PREFIX value ml_elm_web_popup_selected_set(value v_obj, value v_x)
+{
+        elm_web_popup_selected_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_web_popup_destroy(value v_obj)
+{
+        return Val_bool(elm_web_popup_destroy((Evas_Object*) v_obj));
+}
+

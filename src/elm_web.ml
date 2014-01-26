@@ -60,3 +60,8 @@ external bg_color_get : Evas.obj -> int * int * int * int =
 
 external selection_get : Evas.obj -> string option = "ml_elm_web_selection_get"
 
+external popup_selected_set : Evas.obj -> int -> unit =
+  "ml_elm_web_popup_selected_set"
+
+external popup_destroy : Evas.obj -> bool = "ml_elm_web_popup_destroy"
+
