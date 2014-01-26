@@ -131,3 +131,6 @@ external inwin_mode_set : Evas.obj -> bool -> unit = "ml_elm_web_inwin_mode_set"
 
 external inwin_mode_get : Evas.obj -> bool = "ml_elm_web_inwin_mode_get"
 
+external window_features_region_get : window_features -> int * int * int * int =
+  "ml_elm_web_window_features_region_get"
+

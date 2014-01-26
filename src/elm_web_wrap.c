@@ -444,3 +444,16 @@ PREFIX value ml_elm_web_inwin_mode_get(value v_obj)
         return Val_bool(elm_web_inwin_mode_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_window_features_region_get(value v_wf)
+{
+        Evas_Coord x, y, w, h;
+        elm_web_window_features_region_get((Elm_Web_Window_Features*) v_wf, &x,
+                &y, &w, &h);
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        Store_field(v, 2, Val_int(w));
+        Store_field(v, 3, Val_int(h));
+        return v;
+}
+

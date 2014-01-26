@@ -106,3 +106,5 @@ val inwin_mode_set : Evas.obj -> bool -> unit
 
 val inwin_mode_get : Evas.obj -> bool
 
+val window_features_region_get : window_features -> int * int * int * int
+
