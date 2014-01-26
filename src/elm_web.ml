@@ -76,5 +76,10 @@ external text_matches_mark :
 external text_matches_unmark_all : Evas.obj -> bool =
   "ml_elm_web_text_matches_unmark_all"
 
+external text_matches_highlight_set : Evas.obj -> bool -> bool =
+  "ml_elm_web_text_matches_highlight_set"
+
+external text_matches_highlight_get : Evas.obj -> bool =
+  "ml_elm_web_text_matches_highlight_get"
 
 

@@ -60,3 +60,7 @@ val text_matches_mark : Evas.obj -> string -> cs:bool -> hl:bool -> int -> int
 
 val text_matches_unmark_all : Evas.obj -> bool
 
+val text_matches_highlight_set : Evas.obj -> bool -> bool
+
+val text_matches_highlight_get : Evas.obj -> bool
+

@@ -293,3 +293,15 @@ PREFIX value ml_elm_web_text_matches_unmark_all(value v_obj)
         return Val_bool(elm_web_text_matches_unmark_all((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_text_matches_highlight_set(value v_obj, value v_flag)
+{
+        return Val_bool(elm_web_text_matches_highlight_set((Evas_Object*) v_obj,
+                Bool_val(v_flag)));
+}
+
+PREFIX value ml_elm_web_text_matches_highlight_get(value v_obj)
+{
+        return Val_bool(elm_web_text_matches_highlight_get(
+                (Evas_Object*) v_obj));
+}
+
