@@ -280,3 +280,16 @@ PREFIX value ml_elm_web_text_search(
                 Bool_val(v_wrp)));
 }
 
+PREFIX value ml_elm_web_text_matches_mark(
+        value v_obj, value v_s, value v_cs, value v_hl, value v_limit)
+{
+        return Val_int(elm_web_text_matches_mark((Evas_Object*) v_obj,
+                String_val(v_s), Bool_val(v_cs), Bool_val(v_hl),
+                Int_val(v_limit)));
+}
+
+PREFIX value ml_elm_web_text_matches_unmark_all(value v_obj)
+{
+        return Val_bool(elm_web_text_matches_unmark_all((Evas_Object*) v_obj));
+}
+

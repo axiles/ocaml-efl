@@ -69,4 +69,12 @@ external text_search :
   Evas.obj -> string -> cs:bool -> fwd:bool -> wrp:bool -> bool =
     "ml_elm_web_text_search"
 
+external text_matches_mark :
+  Evas.obj -> string -> cs:bool -> hl:bool -> int -> int =
+    "ml_elm_web_text_matches_mark"
+
+external text_matches_unmark_all : Evas.obj -> bool =
+  "ml_elm_web_text_matches_unmark_all"
+
+
 
