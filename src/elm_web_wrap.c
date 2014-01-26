@@ -335,6 +335,11 @@ PREFIX value ml_elm_web_forward(value v_obj)
         return Val_bool(elm_web_forward((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_navigate(value v_obj, value v_n)
+{
+        return Val_bool(elm_web_navigate((Evas_Object*) v_obj, Int_val(v_n)));
+}
+
 PREFIX value ml_elm_web_back_possible_get(value v_obj)
 {
         return Val_bool(elm_web_back_possible_get((Evas_Object*) v_obj));
@@ -343,6 +348,12 @@ PREFIX value ml_elm_web_back_possible_get(value v_obj)
 PREFIX value ml_elm_web_forward_possible_get(value v_obj)
 {
         return Val_bool(elm_web_forward_possible_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_navigate_possible_get(value v_obj, value v_n)
+{
+        return Val_bool(elm_web_navigate_possible_get(
+                (Evas_Object*) v_obj, Int_val(v_n)));
 }
 
 PREFIX value ml_elm_web_history_enabled_get(value v_obj)

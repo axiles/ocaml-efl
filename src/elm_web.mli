@@ -76,9 +76,13 @@ val back : Evas.obj -> bool
 
 val forward : Evas.obj -> bool
 
+val navigate : Evas.obj -> int -> bool
+
 val back_possible_get : Evas.obj -> bool
 
 val forward_possible_get : Evas.obj -> bool
+
+val navigate_possible_get : Evas.obj -> int -> bool
 
 val history_enabled_get : Evas.obj -> bool
 

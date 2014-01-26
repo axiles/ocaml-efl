@@ -94,10 +94,15 @@ external back : Evas.obj -> bool = "ml_elm_web_back"
 
 external forward : Evas.obj -> bool = "ml_elm_web_forward"
 
+external navigate : Evas.obj -> int -> bool = "ml_elm_web_navigate"
+
 external back_possible_get : Evas.obj -> bool = "ml_elm_web_back_possible_get"
 
 external forward_possible_get : Evas.obj -> bool =
   "ml_elm_web_forward_possible_get"
+
+external navigate_possible_get : Evas.obj -> int -> bool =
+  "ml_elm_web_navigate_possible_get"
 
 external history_enabled_get : Evas.obj -> bool =
   "ml_elm_web_history_enabled_get"
