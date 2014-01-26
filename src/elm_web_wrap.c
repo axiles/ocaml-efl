@@ -432,3 +432,15 @@ PREFIX value ml_elm_web_region_bring_in(
         return Val_unit;
 }
 
+PREFIX value ml_elm_web_inwin_mode_set(
+        value v_obj, value v_flag)
+{
+        elm_web_inwin_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_web_inwin_mode_get(value v_obj)
+{
+        return Val_bool(elm_web_inwin_mode_get((Evas_Object*) v_obj));
+}
+

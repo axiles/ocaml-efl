@@ -127,3 +127,7 @@ external region_show : Evas.obj -> int -> int -> int -> int -> unit =
 external region_bring_in : Evas.obj -> int -> int -> int -> int -> unit =
   "ml_elm_web_region_bring_in"
 
+external inwin_mode_set : Evas.obj -> bool -> unit = "ml_elm_web_inwin_mode_set"
+
+external inwin_mode_get : Evas.obj -> bool = "ml_elm_web_inwin_mode_get"
+

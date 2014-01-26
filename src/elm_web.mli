@@ -102,3 +102,7 @@ val region_show : Evas.obj -> int -> int -> int -> int -> unit
 
 val region_bring_in : Evas.obj -> int -> int -> int -> int -> unit
 
+val inwin_mode_set : Evas.obj -> bool -> unit
+
+val inwin_mode_get : Evas.obj -> bool
+
