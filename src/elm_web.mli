@@ -14,6 +14,8 @@ type dialog_file_selector =
 
 type console_message = Evas.obj -> string -> int -> string -> unit
 
+type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
+
 val add : Evas.obj -> Evas.obj
 
 val useragent_set : Evas.obj -> string -> unit
@@ -91,4 +93,8 @@ val history_enabled_set : Evas.obj -> bool -> unit
 val zoom_set : Evas.obj -> float -> unit
 
 val zoom_get : Evas.obj -> float
+
+val zoom_mode_set : Evas.obj -> zoom_mode -> unit
+
+val zoom_mode_get : Evas.obj -> zoom_mode
 

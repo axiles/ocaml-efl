@@ -14,6 +14,8 @@ type dialog_file_selector =
 
 type console_message = Evas.obj -> string -> int -> string -> unit
 
+type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_web_add"
 
 external useragent_set : Evas.obj -> string -> unit = "ml_elm_web_useragent_set"
@@ -113,4 +115,9 @@ external history_enabled_set : Evas.obj -> bool -> unit =
 external zoom_set : Evas.obj -> float -> unit = "ml_elm_web_zoom_set"
 
 external zoom_get : Evas.obj -> float = "ml_elm_web_zoom_get"
+
+external zoom_mode_set : Evas.obj -> zoom_mode -> unit =
+  "ml_elm_web_zoom_mode_set"
+
+external zoom_mode_get : Evas.obj -> zoom_mode = "ml_elm_web_zoom_mode_get"
 
