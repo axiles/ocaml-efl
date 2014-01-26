@@ -12,6 +12,8 @@ type dialog_prompt =
 type dialog_file_selector =
   Evas.obj -> bool -> string list -> Evas.obj * string list * bool
 
+type console_message = Evas.obj -> string -> int -> string -> unit
+
 val add : Evas.obj -> Evas.obj
 
 val useragent_set : Evas.obj -> string -> unit
@@ -29,4 +31,6 @@ val dialog_confirm_hook_set : Evas.obj -> dialog_confirm -> unit
 val dialog_prompt_hook_set : Evas.obj -> dialog_prompt -> unit
 
 val dialog_file_selector_hook_set : Evas.obj -> dialog_file_selector -> unit
+
+val console_message_hook_set : Evas.obj -> console_message -> unit
 

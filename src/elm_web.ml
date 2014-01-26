@@ -12,6 +12,8 @@ type dialog_prompt =
 type dialog_file_selector =
   Evas.obj -> bool -> string list -> Evas.obj * string list * bool
 
+type console_message = Evas.obj -> string -> int -> string -> unit
+
 external add : Evas.obj -> Evas.obj = "ml_elm_web_add"
 
 external useragent_set : Evas.obj -> string -> unit = "ml_elm_web_useragent_set"
@@ -35,4 +37,7 @@ external dialog_prompt_hook_set : Evas.obj -> dialog_prompt -> unit =
 external dialog_file_selector_hook_set :
   Evas.obj -> dialog_file_selector -> unit =
     "ml_elm_web_dialog_file_selector_hook_set"
+
+external console_message_hook_set : Evas.obj -> console_message -> unit =
+  "ml_elm_web_console_message_hook_set"
 

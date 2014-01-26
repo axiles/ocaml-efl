@@ -85,6 +85,23 @@ Evas_Object* ml_Elm_Web_Dialog_File_Selector(
         CAMLreturnT(Evas_Object*, r_obj);
 }
 
+void ml_Elm_Web_Console_Message(
+        void* data, Evas_Object* obj, const char* message,
+        unsigned int line_number, const char* source_id)
+{
+        CAMLparam0();
+        CAMLlocal2(v_message, v_source_id);
+        value* v_fun = (value*) data;
+        if(message == NULL) v_message = copy_string("");
+        else v_message = copy_string(message);
+        if(source_id == NULL) v_source_id = copy_string("");
+        else v_source_id = copy_string(source_id);
+        value args[] = {(value) obj, v_message, Val_int(line_number),
+                v_source_id};
+        caml_callbackN(*v_fun, 4, args);
+        CAMLreturn0;
+}
+
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
 {
         Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
@@ -155,6 +172,16 @@ PREFIX value ml_elm_web_dialog_file_selector_hook_set(value v_obj, value v_fun)
         caml_register_global_root(data);
         elm_web_dialog_file_selector_hook_set((Evas_Object*) v_obj,
                 ml_Elm_Web_Dialog_File_Selector, data);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v_fun;
+        caml_register_global_root(data);
+        elm_web_console_message_hook_set((Evas_Object*) v_obj,
+                ml_Elm_Web_Console_Message, data);
         return Val_unit;
 }
 
