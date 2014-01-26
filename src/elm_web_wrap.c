@@ -310,3 +310,43 @@ PREFIX value ml_elm_web_load_progress_get(value v_obj)
         return copy_double(elm_web_load_progress_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_web_stop(value v_obj)
+{
+        return Val_bool(elm_web_stop((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_reload(value v_obj)
+{
+        return Val_bool(elm_web_reload((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_reload_full(value v_obj)
+{
+        return Val_bool(elm_web_reload_full((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_back(value v_obj)
+{
+        return Val_bool(elm_web_back((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_forward(value v_obj)
+{
+        return Val_bool(elm_web_forward((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_back_possible_get(value v_obj)
+{
+        return Val_bool(elm_web_back_possible_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_forward_possible_get(value v_obj)
+{
+        return Val_bool(elm_web_forward_possible_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_web_history_enabled_get(value v_obj)
+{
+        return Val_bool(elm_web_history_enabled_get((Evas_Object*) v_obj));
+}
+

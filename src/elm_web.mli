@@ -66,3 +66,19 @@ val text_matches_highlight_get : Evas.obj -> bool
 
 val load_progress_get : Evas.obj -> float
 
+val stop : Evas.obj -> bool
+
+val reload : Evas.obj -> bool
+
+val reload_full : Evas.obj -> bool
+
+val back : Evas.obj -> bool
+
+val forward : Evas.obj -> bool
+
+val back_possible_get : Evas.obj -> bool
+
+val forward_possible_get : Evas.obj -> bool
+
+val history_enabled_get : Evas.obj -> bool
+

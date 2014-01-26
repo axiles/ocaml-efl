@@ -84,3 +84,21 @@ external text_matches_highlight_get : Evas.obj -> bool =
 
 external load_progress_get : Evas.obj -> float = "ml_elm_web_load_progress_get"
 
+external stop : Evas.obj -> bool = "ml_elm_web_stop"
+
+external reload : Evas.obj -> bool = "ml_elm_web_reload"
+
+external reload_full : Evas.obj -> bool = "ml_elm_web_reload_full"
+
+external back : Evas.obj -> bool = "ml_elm_web_back"
+
+external forward : Evas.obj -> bool = "ml_elm_web_forward"
+
+external back_possible_get : Evas.obj -> bool = "ml_elm_web_back_possible_get"
+
+external forward_possible_get : Evas.obj -> bool =
+  "ml_elm_web_forward_possible_get"
+
+external history_enabled_get : Evas.obj -> bool =
+  "ml_elm_web_history_enabled_get"
+
