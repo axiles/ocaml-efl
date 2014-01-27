@@ -83,6 +83,10 @@ val shrink_mode_set : Evas.obj -> shrink_mode -> unit
 
 val shrink_mode_get : Evas.obj -> shrink_mode
 
+val transverse_expanded_set : Evas.obj -> bool -> unit
+
+val transverse_expanded_get : Evas.obj -> bool
+
 val homogeneous_set : Evas.obj -> bool -> unit
 
 val homogeneous_get : Evas.obj -> bool

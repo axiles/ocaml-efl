@@ -396,6 +396,19 @@ PREFIX value ml_elm_toolbar_shrink_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_toolbar_transverse_expanded_set(value v_obj, value v_flag)
+{
+        elm_toolbar_transverse_expanded_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_toolbar_transverse_expanded_get(value v_obj)
+{
+        return Val_bool(elm_toolbar_transverse_expanded_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_toolbar_homogeneous_set(value v_obj, value v_flag)
 {
         elm_toolbar_homogeneous_set((Evas_Object*) v_obj, Bool_val(v_flag));
