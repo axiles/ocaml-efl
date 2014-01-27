@@ -11,3 +11,6 @@ external item_level_set : Evas.obj -> int -> unit =
 
 external item_level_get : Evas.obj -> int = "ml_elm_index_item_level_get"
 
+external item_selected_set : Elm_object.item -> bool -> unit =
+  "ml_elm_index_item_selected_set"
+

@@ -29,3 +29,10 @@ PREFIX value ml_elm_index_item_level_get(value v_obj)
         return Val_int(elm_index_item_level_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_index_item_selected_set(value v_it, value v_flag)
+{
+        elm_index_item_selected_set((Elm_Object_Item*) v_it,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
