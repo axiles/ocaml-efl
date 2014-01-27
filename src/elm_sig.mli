@@ -127,7 +127,11 @@ val scroll_anim_start : u
 val scroll_anim_stop : u
 val scroll_drag_start : u
 val scroll_drag_stop : u
+val scroll_down : u
+val scroll_left : u
 val scroll_page_changed : u
+val scroll_right : u
+val scroll_up : u
 val scrollbars_visible_get : bool r
 val scrollbars_visible_set : bool v
 val selected : (string option) v
