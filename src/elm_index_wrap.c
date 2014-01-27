@@ -134,3 +134,16 @@ PREFIX value  ml_elm_index_horizontal_get(value v_obj)
         return Val_bool(elm_index_horizontal_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_index_delay_change_time_set(value v_obj, value v_x)
+{
+        elm_index_delay_change_time_set((Evas_Object*) v_obj,
+                Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_index_delay_change_time_get(value v_obj)
+{
+        return copy_double(elm_index_delay_change_time_get(
+                (Evas_Object*) v_obj));
+}
+

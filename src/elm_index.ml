@@ -49,3 +49,9 @@ external horizontal_set : Evas.obj -> bool -> unit =
 
 external horizontal_get : Evas.obj -> bool = "ml_elm_index_horizontal_get"
 
+external delay_change_time_set : Evas.obj -> float -> unit =
+  "ml_elm_index_delay_change_time_set"
+
+external delay_change_time_get : Evas.obj -> float =
+  "ml_elm_index_delay_change_time_get"
+
