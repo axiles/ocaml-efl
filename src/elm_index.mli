@@ -40,3 +40,7 @@ val delay_change_time_set : Evas.obj -> float -> unit
 
 val delay_change_time_get : Evas.obj -> float
 
+val omit_enabled_set : Evas.obj -> bool -> unit
+
+val omit_enabled_get : Evas.obj -> bool
+

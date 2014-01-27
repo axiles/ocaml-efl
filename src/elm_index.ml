@@ -55,3 +55,8 @@ external delay_change_time_set : Evas.obj -> float -> unit =
 external delay_change_time_get : Evas.obj -> float =
   "ml_elm_index_delay_change_time_get"
 
+external omit_enabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_index_omit_enabled_set"
+
+external omit_enabled_get : Evas.obj -> bool = "ml_elm_index_omit_enabled_get"
+
