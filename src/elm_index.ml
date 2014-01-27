@@ -23,3 +23,11 @@ external item_append : Evas.obj -> string -> Evas.smart_cb -> Elm_object.item =
 external item_prepend : Evas.obj -> string -> Evas.smart_cb -> Elm_object.item =
   "ml_elm_index_item_prepend"
 
+external item_insert_after :
+  Evas.obj -> Elm_object.item -> string -> Evas.smart_cb -> Elm_object.item =
+    "ml_elm_index_item_insert_after"
+
+external item_insert_before :
+  Evas.obj -> Elm_object.item -> string -> Evas.smart_cb -> Elm_object.item =
+    "ml_elm_index_item_insert_before"
+
