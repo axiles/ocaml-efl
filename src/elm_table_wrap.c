@@ -80,3 +80,13 @@ PREFIX value ml_elm_table_pack_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_table_child_get(value v_obj, value v_col, value v_row)
+{
+        Evas_Object* child = elm_table_child_get((Evas_Object*) v_obj,
+                Int_val(v_col), Int_val(v_row));
+        if(child == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) child);
+        return v_r;
+}
+

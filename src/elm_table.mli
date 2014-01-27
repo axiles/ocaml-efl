@@ -20,3 +20,5 @@ val pack_set : Evas.obj -> int -> int -> int -> int -> unit
 
 val pack_get : Evas.obj -> int * int * int * int
 
+val child_get : Evas.obj -> int -> int -> Evas.obj option
+

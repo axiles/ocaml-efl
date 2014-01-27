@@ -22,3 +22,6 @@ external pack_set : Evas.obj -> int -> int -> int -> int -> unit =
 
 external pack_get : Evas.obj -> int * int * int * int = "ml_elm_table_pack_get"
 
+external child_get : Evas.obj -> int -> int -> Evas.obj option =
+  "ml_elm_table_child_get"
+
