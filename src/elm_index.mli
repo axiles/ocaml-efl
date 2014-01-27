@@ -12,3 +12,7 @@ val item_selected_set : Elm_object.item -> bool -> unit
 
 val selected_item_get : Evas.obj -> int -> Elm_object.item option
 
+val item_append : Evas.obj -> string -> Evas.smart_cb -> Elm_object.item
+
+val item_prepend : Evas.obj -> string -> Evas.smart_cb -> Elm_object.item
+

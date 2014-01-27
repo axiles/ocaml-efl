@@ -46,3 +46,25 @@ PREFIX value ml_elm_index_selected_item_get(value v_obj, value v_level)
         return v;
 }
 
+PREFIX value ml_elm_index_item_append(value v_obj, value v_letter, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(data));
+        *data = v_fun;
+        caml_register_global_root(data);
+        Elm_Object_Item* it = elm_index_item_append((Evas_Object*) v_obj,
+                String_val(v_letter), ml_Evas_Smart_Cb, data);
+        if(it == NULL) caml_failwith("elm_index_item_append");
+        return (value) it;
+}
+
+PREFIX value ml_elm_index_item_prepend(value v_obj, value v_letter, value v_fun)
+{
+        value* data = caml_stat_alloc(sizeof(data));
+        *data = v_fun;
+        caml_register_global_root(data);
+        Elm_Object_Item* it = elm_index_item_prepend((Evas_Object*) v_obj,
+                String_val(v_letter), ml_Evas_Smart_Cb, data);
+        if(it == NULL) caml_failwith("elm_index_item_prepend");
+        return (value) it;
+}
+

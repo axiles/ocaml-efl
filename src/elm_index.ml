@@ -17,3 +17,9 @@ external item_selected_set : Elm_object.item -> bool -> unit =
 external selected_item_get : Evas.obj -> int -> Elm_object.item option =
   "ml_elm_index_selected_item_get"
 
+external item_append : Evas.obj -> string -> Evas.smart_cb -> Elm_object.item =
+  "ml_elm_index_item_append"
+
+external item_prepend : Evas.obj -> string -> Evas.smart_cb -> Elm_object.item =
+  "ml_elm_index_item_prepend"
+
