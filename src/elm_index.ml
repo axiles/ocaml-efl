@@ -14,3 +14,6 @@ external item_level_get : Evas.obj -> int = "ml_elm_index_item_level_get"
 external item_selected_set : Elm_object.item -> bool -> unit =
   "ml_elm_index_item_selected_set"
 
+external selected_item_get : Evas.obj -> int -> Elm_object.item option =
+  "ml_elm_index_selected_item_get"
+
