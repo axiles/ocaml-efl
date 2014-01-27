@@ -180,3 +180,8 @@ external select_mode_set : Evas.obj -> Elm_object.select_mode -> unit =
 external select_mode_get : Evas.obj -> Elm_object.select_mode =
   "ml_elm_toolbar_select_mode_get"
 
+external reorder_mode_set : Evas.obj -> bool -> unit =
+  "ml_elm_toolbar_reorder_mode_set"
+
+external reorder_mode_get : Evas.obj -> bool = "ml_elm_toolbar_reorder_mode_get"
+

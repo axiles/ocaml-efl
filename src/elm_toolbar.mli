@@ -133,3 +133,7 @@ val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
 
 val select_mode_get : Evas.obj -> Elm_object.select_mode
 
+val reorder_mode_set : Evas.obj -> bool -> unit
+
+val reorder_mode_get : Evas.obj -> bool
+
