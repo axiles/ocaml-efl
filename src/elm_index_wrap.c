@@ -106,3 +106,8 @@ PREFIX value ml_elm_index_level_go(value v_obj, value v_level)
         return Val_unit;
 }
 
+PREFIX value ml_elm_index_item_letter_get(value v_it)
+{
+        return copy_string(elm_index_item_letter_get((Elm_Object_Item*) v_it));
+}
+

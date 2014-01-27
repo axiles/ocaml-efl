@@ -26,3 +26,5 @@ val item_clear : Evas.obj -> unit
 
 val level_go : Evas.obj -> int -> unit
 
+val item_letter_get : Elm_object.item -> string
+

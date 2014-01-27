@@ -35,3 +35,6 @@ external item_clear : Evas.obj -> unit = "ml_elm_index_item_clear"
 
 external level_go : Evas.obj -> int -> unit = "ml_elm_index_level_go"
 
+external item_letter_get : Elm_object.item -> string =
+  "ml_elm_index_item_letter_get"
+
