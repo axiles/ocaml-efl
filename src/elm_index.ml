@@ -44,3 +44,8 @@ external indicator_disabled_set : Evas.obj -> bool -> unit =
 external indicator_disabled_get : Evas.obj -> bool =
   "ml_elm_index_indicator_disabled_get"
 
+external horizontal_set : Evas.obj -> bool -> unit =
+  "ml_elm_index_horizontal_set"
+
+external horizontal_get : Evas.obj -> bool = "ml_elm_index_horizontal_get"
+

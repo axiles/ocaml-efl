@@ -32,3 +32,7 @@ val indicator_disabled_set : Evas.obj -> bool -> unit
 
 val indicator_disabled_get : Evas.obj -> bool
 
+val horizontal_set : Evas.obj -> bool -> unit
+
+val horizontal_get : Evas.obj -> bool
+
