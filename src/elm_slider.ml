@@ -102,3 +102,7 @@ external indicator_show_set : Evas.obj -> bool -> unit =
 external indicator_show_get : Evas.obj -> bool =
   "ml_elm_slider_indicator_show_get"
 
+external step_set : Evas.obj -> float -> unit = "ml_elm_slider_step_set"
+
+external step_get : Evas.obj -> float = "ml_elm_slider_step_get"
+

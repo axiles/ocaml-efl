@@ -104,3 +104,14 @@ PREFIX value ml_elm_slider_indicator_show_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slider_step_set(value v_obj, value v_x)
+{
+        elm_slider_step_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slider_step_get(value v_obj)
+{
+        return copy_double(elm_slider_step_get((Evas_Object*) v_obj));
+}
+

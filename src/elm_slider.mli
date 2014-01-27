@@ -35,3 +35,7 @@ val indicator_show_set : Evas.obj -> bool -> unit
 
 val indicator_show_get : Evas.obj -> bool
 
+val step_set : Evas.obj -> float -> unit
+
+val step_get : Evas.obj -> float
+
