@@ -111,3 +111,14 @@ PREFIX value ml_elm_index_item_letter_get(value v_it)
         return copy_string(elm_index_item_letter_get((Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_index_indicator_disabled_set(value v_obj, value v_flag)
+{
+        elm_index_indicator_disabled_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value  ml_elm_index_indicator_disabled_get(value v_obj)
+{
+        return Val_bool(elm_index_indicator_disabled_get((Evas_Object*) v_obj));
+}
+

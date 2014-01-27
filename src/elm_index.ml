@@ -38,3 +38,9 @@ external level_go : Evas.obj -> int -> unit = "ml_elm_index_level_go"
 external item_letter_get : Elm_object.item -> string =
   "ml_elm_index_item_letter_get"
 
+external indicator_disabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_index_indicator_disabled_set"
+
+external indicator_disabled_get : Evas.obj -> bool =
+  "ml_elm_index_indicator_disabled_get"
+

@@ -28,3 +28,7 @@ val level_go : Evas.obj -> int -> unit
 
 val item_letter_get : Elm_object.item -> string
 
+val indicator_disabled_set : Evas.obj -> bool -> unit
+
+val indicator_disabled_get : Evas.obj -> bool
+
