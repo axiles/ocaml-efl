@@ -534,3 +534,9 @@ Executable diskselector_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: diskselector_example_01.ml
+Executable web_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: web_example_01.ml
