@@ -20,6 +20,7 @@ val animate_begin : u
 val animate_done : u
 val block_clicked : u
 val changed : u
+val changed__item : Elm_object.item v
 val changed_user : u
 val clicked : u
 val clicked_double : u
@@ -32,6 +33,7 @@ val contract_request : Elm_object.item v
 val cursor_changed : u
 val cursor_changed_manual : u
 val delay_changed : u
+val delay_changed__item : Elm_object.item v
 val delete_request : u
 val directory_open : string v
 val dismissed : u
@@ -72,6 +74,8 @@ val inputmethod_changed : bool v
 val ioerr : u
 val js_windowobject_clear : u
 val language_changed : u
+val level_down : u
+val level_up : u
 val link_hover_in : (string * string) v
 val link_hover_out : u
 val load_document_finished : Evas.obj v
