@@ -24,6 +24,30 @@ type window_feature_flag = [
   | `locationbar
   | `fullscreen]
 
+type frame_load_error = {
+  code : int;
+  is_cancellation : bool;
+  domain : string;
+  description : string;
+  failing_url : string;
+  frame : Evas.obj;
+}
+
+type menu_item_type = [`separator | `group | `option]
+
+type menu_item = {text : string; ty : menu_item_type}
+
+type menu = {
+  items : menu_item list;
+  x : int;
+  y : int;
+  width : int;
+  height : int;
+  handled : bool;
+}
+
+type download = {url : string}
+
 external add : Evas.obj -> Evas.obj = "ml_elm_web_add"
 
 external useragent_set : Evas.obj -> string -> unit = "ml_elm_web_useragent_set"
@@ -145,4 +169,11 @@ external window_features_property_get :
 
 external window_features_region_get : window_features -> int * int * int * int =
   "ml_elm_web_window_features_region_get"
+
+external frame_load_error_of_ptr : Evas.ptr -> frame_load_error =
+  "ml_Elm_Web_Frame_Load_Error_of_ptr"
+
+external menu_of_ptr : Evas.ptr -> menu = "ml_Elm_Web_Menu_of_ptr"
+
+external download_of_ptr : Evas.ptr -> download = "ml_Elm_Web_Download_of_ptr"
 

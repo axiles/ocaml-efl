@@ -24,6 +24,30 @@ type window_feature_flag = [
   | `locationbar
   | `fullscreen]
 
+type frame_load_error = {
+  code : int;
+  is_cancellation : bool;
+  domain : string;
+  description : string;
+  failing_url : string;
+  frame : Evas.obj;
+}
+
+type menu_item_type = [`separator | `group | `option]
+
+type menu_item = {text : string; ty : menu_item_type}
+
+type menu = {
+  items : menu_item list;
+  x : int;
+  y : int;
+  width : int;
+  height : int;
+  handled : bool;
+}
+
+type download = {url : string}
+
 val add : Evas.obj -> Evas.obj
 
 val useragent_set : Evas.obj -> string -> unit
@@ -118,4 +142,10 @@ val window_features_property_get :
   window_features -> window_feature_flag -> bool
 
 val window_features_region_get : window_features -> int * int * int * int
+
+val frame_load_error_of_ptr : Evas.ptr -> frame_load_error
+
+val menu_of_ptr : Evas.ptr -> menu
+
+val download_of_ptr : Evas.ptr -> download
 

@@ -138,6 +138,7 @@ let () =
   g "on";
   g "opacity_unknown";
   g "opaque";
+  g "option";
   g "orient_none";
   g "orient_original";
   g "other";
@@ -173,6 +174,7 @@ let () =
   g "search";
   g "send";
   g "sentence";
+  g "separator";
   g "shortest";
   g "show";
   g "signin";

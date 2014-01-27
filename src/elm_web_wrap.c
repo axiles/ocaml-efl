@@ -143,6 +143,59 @@ PREFIX inline Elm_Web_Window_Feature_Flag Elm_Web_Window_Feature_Flag_val(
         return ELM_WEB_WINDOW_FEATURE_TOOLBAR;
 }
 
+PREFIX inline Elm_Web_Menu_Item_Type Elm_Web_Menu_Item_Type_val(value v)
+{
+        switch(v) {
+                case Val_separator: return ELM_WEB_MENU_SEPARATOR;
+                case Val_group: return ELM_WEB_MENU_GROUP;
+                case Val_option: return ELM_WEB_MENU_OPTION;
+                default: break;
+        }
+        caml_failwith("Elm_Web_Menu_Item_Type_val");
+        return ELM_WEB_MENU_SEPARATOR;
+}
+
+PREFIX inline value Val_Elm_Web_Menu_Item_Type(Elm_Web_Menu_Item_Type t)
+{
+        switch(t) {
+                case ELM_WEB_MENU_SEPARATOR: return Val_separator;
+                case ELM_WEB_MENU_GROUP: return Val_group;
+                case ELM_WEB_MENU_OPTION: return Val_option;
+        }
+        caml_failwith("Val_Elm_Web_Menu_Item_Type");
+        return Val_separator;
+}
+
+PREFIX inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
+{
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        v_r = caml_alloc(2, 0);
+        const char* text;
+        if(mit->text == NULL) text = "";
+        else text = mit->text;
+        Store_field(v_r, 0, copy_string(text));
+        Store_field(v_r, 1, Val_Elm_Web_Menu_Item_Type(mit->type));
+        CAMLreturn(v_r);
+}
+
+PREFIX inline value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal3(v, v1, v_i);
+        Eina_List* it;
+        Elm_Web_Menu_Item* i;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, i) {
+                v1 = v;
+                v_i = copy_Elm_Web_Menu_Item(i);
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, v_i);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
 {
         Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
@@ -478,5 +531,57 @@ PREFIX value ml_elm_web_window_features_region_get(value v_wf)
         Store_field(v, 2, Val_int(w));
         Store_field(v, 3, Val_int(h));
         return v;
+}
+
+PREFIX value ml_Elm_Web_Frame_Load_Error_of_ptr(value v_ptr)
+{
+        CAMLparam1(v_ptr);
+        CAMLlocal1(v_r);
+        Elm_Web_Frame_Load_Error* fle = (Elm_Web_Frame_Load_Error*) v_ptr;
+        v_r = caml_alloc(6, 0);
+        Store_field(v_r, 0, Val_int(fle->code));
+        Store_field(v_r, 1, Val_bool(fle->is_cancellation));
+        const char* domain;
+        if(fle->domain == NULL) domain = "";
+        else domain = fle->domain;
+        Store_field(v_r, 2, copy_string(domain));
+        const char* description;
+        if(fle->description == NULL) description = "";
+        else description = fle->description;
+        Store_field(v_r, 3, copy_string(description));
+        const char* failing_url;
+        if(fle->failing_url == NULL) failing_url = "";
+        else failing_url = fle->failing_url;
+        Store_field(v_r, 4, copy_string(failing_url));
+        Store_field(v_r, 5, (value) fle->frame);
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_Elm_Web_Menu_of_ptr(value v_ptr)
+{
+        CAMLparam1(v_ptr);
+        CAMLlocal1(v_r);
+        Elm_Web_Menu* m = (Elm_Web_Menu*) v_ptr;
+        v_r = caml_alloc(6, 0);
+        Store_field(v_r, 0, copy_Eina_List_Elm_Web_Menu_Item(m->items));
+        Store_field(v_r, 1, Val_int(m->x));
+        Store_field(v_r, 2, Val_int(m->y));
+        Store_field(v_r, 3, Val_int(m->width));
+        Store_field(v_r, 4, Val_int(m->height));
+        Store_field(v_r, 5, Val_bool(m->handled));
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_Elm_Web_Download_of_ptr(value v_ptr)
+{
+        CAMLparam1(v_ptr);
+        CAMLlocal1(v_r);
+        Elm_Web_Download* d = (Elm_Web_Download*) v_ptr;
+        v_r = caml_alloc(1, 0);
+        const char* url;
+        if(d->url == NULL) url = "";
+        else url = d->url;
+        Store_field(v_r, 0, copy_string(url));
+        CAMLreturn(v_r);
 }
 
