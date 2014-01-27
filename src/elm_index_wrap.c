@@ -18,3 +18,14 @@ PREFIX value  ml_elm_index_autohide_disabled_get(value v_obj)
         return Val_bool(elm_index_autohide_disabled_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_index_item_level_set(value v_obj, value v_x)
+{
+        elm_index_item_level_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_index_item_level_get(value v_obj)
+{
+        return Val_int(elm_index_item_level_get((Evas_Object*) v_obj));
+}
+
