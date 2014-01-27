@@ -64,11 +64,16 @@ module Event_type = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
   type 'a v = (obj -> 'a -> unit) t
   type u = (obj -> unit) t
+  type 'a r = (obj -> 'a) t
   let create name value_of_ptr =
     let make_cb f obj ptr = f obj (value_of_ptr ptr) in
     {name; make_cb}
   let create_unit name =
     let make_cb f obj ptr = f obj in
+    {name; make_cb}
+  let create_ref name store_ptr =
+    let make_cb f obj ptr =
+      let x = f obj in store_ptr ptr x in
     {name; make_cb}
   let get_name et = et.name
   let get_cb et f = et.make_cb f
@@ -87,4 +92,15 @@ external pointer_canvas_xy_get : t -> int * int =
 
 external smart_objects_calculate : t -> unit =
   "ml_evas_smart_objects_calculate"
+
+external bool_of_ptr : ptr -> bool = "ml_bool_of_ptr"
+
+external string_string_of_ptr : ptr -> string * string =
+  "ml_string_string_of_ptr"
+
+external store_ptr_bool : ptr -> bool -> unit = "ml_store_ptr_bool"
+
+external obj_of_ptr : ptr -> obj = "ml_obj_of_ptr"
+
+external float_of_ptr : ptr -> float = "ml_float_of_ptr"
 

@@ -63,9 +63,11 @@ type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 module Event_type : sig
   type 'a t
   type 'a v = (obj -> 'a -> unit) t
+  type 'a r = (obj -> 'a) t
   type u = (obj -> unit) t
   val create : string -> (ptr -> 'a) -> 'a v
   val create_unit : string -> u
+  val create_ref : string -> (ptr -> 'a -> unit) -> 'a r
   val get_name : 'a t -> string
   val get_cb : 'a t -> 'a -> smart_cb
 end 
@@ -81,4 +83,14 @@ val string_opt_of_ptr : ptr -> string option
 val pointer_canvas_xy_get : t -> int * int
 
 val smart_objects_calculate : t -> unit
+
+val bool_of_ptr : ptr -> bool
+
+val string_string_of_ptr : ptr -> string * string
+
+val store_ptr_bool : ptr -> bool -> unit
+
+val obj_of_ptr : ptr -> obj
+
+val float_of_ptr : ptr -> float
 

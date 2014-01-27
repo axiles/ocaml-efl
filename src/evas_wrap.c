@@ -373,3 +373,39 @@ PREFIX value ml_evas_smart_objects_calculate(value v_e)
         return Val_unit;
 }
 
+PREFIX value ml_bool_of_ptr(value v_ptr)
+{
+        Eina_Bool x = (Eina_Bool) v_ptr;
+        return Val_bool(x);
+}
+
+PREFIX value ml_string_string_of_ptr(value v_ptr)
+{
+        CAMLparam1(v_ptr);
+        CAMLlocal1(v_r);
+        char** t = (char**) v_ptr;
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_string(t[0]));
+        Store_field(v_r, 1, copy_string(t[1]));
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_store_ptr_bool(value v_ptr, value v_x)
+{
+        Eina_Bool* ptr = (Eina_Bool*) v_ptr;
+        *ptr = Bool_val(v_x);
+        return Val_unit;
+}
+
+PREFIX value ml_obj_of_ptr(value v_ptr)
+{
+        Evas_Object* obj = (Evas_Object*) v_ptr;
+        return (value) obj;
+}
+
+PREFIX value ml_float_of_ptr(value v_ptr)
+{
+        double* x = (double*) x;
+        return copy_double(*x);
+}
+
