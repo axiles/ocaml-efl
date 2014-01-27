@@ -140,6 +140,8 @@ val selection_cut : u
 val selection_paste : u
 val selection_start : u
 val smart_changed : u
+val spinner_drag_start : u
+val spinner_drag_stop : u
 val slide_end : u
 val slider_drag_start : u
 val slider_drag_stop : u
