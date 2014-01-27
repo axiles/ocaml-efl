@@ -31,3 +31,7 @@ external item_insert_before :
   Evas.obj -> Elm_object.item -> string -> Evas.smart_cb -> Elm_object.item =
     "ml_elm_index_item_insert_before"
 
+external item_clear : Evas.obj -> unit = "ml_elm_index_item_clear"
+
+external level_go : Evas.obj -> int -> unit = "ml_elm_index_level_go"
+

@@ -22,3 +22,7 @@ val item_insert_after :
 val item_insert_before :
   Evas.obj -> Elm_object.item -> string -> Evas.smart_cb -> Elm_object.item
 
+val item_clear : Evas.obj -> unit
+
+val level_go : Evas.obj -> int -> unit
+

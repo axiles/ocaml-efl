@@ -94,3 +94,15 @@ PREFIX value ml_elm_index_item_insert_before(
         return (value) it;
 }
 
+PREFIX value ml_elm_index_item_clear(value v_obj)
+{
+        elm_index_item_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_index_level_go(value v_obj, value v_level)
+{
+        elm_index_level_go((Evas_Object*) v_obj, Int_val(v_level));
+        return Val_unit;
+}
+
