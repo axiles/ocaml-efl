@@ -102,6 +102,7 @@ The following widgets and containers are almost fully implemented:
 * maps
 * diskselectors
 * web pages (if EwebKit is installed)
+* indexes
 
 It is already possible to write some small GUI applications with these widgets.
 However, ocaml-efl is still in alpha stage and some API may break.
