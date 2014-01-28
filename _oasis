@@ -82,7 +82,8 @@ Library efl
     Elm_thumb,
     Elm_diskselector,
     Elm_web,
-    Elm_index
+    Elm_index,
+    Elm_mapbuf
   CSources:
     include.h,
     eina_wrap.c,
@@ -156,7 +157,8 @@ Library efl
     elm_thumb_wrap.c,
     elm_diskselector_wrap.c,
     elm_web_wrap.c,
-    elm_index_wrap.c
+    elm_index_wrap.c,
+    elm_mapbuf_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
