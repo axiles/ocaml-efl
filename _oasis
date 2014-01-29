@@ -556,3 +556,9 @@ Executable mapbuf_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: mapbuf_example.ml
+Executable segment_control_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: segment_control_example.ml
