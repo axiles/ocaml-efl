@@ -38,3 +38,9 @@ PREFIX value ml_elm_photo_thumb_set_null(
         return Val_unit;
 }
 
+PREFIX value ml_elm_photo_size_set(value v_obj, value v_x)
+{
+        elm_photo_size_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+

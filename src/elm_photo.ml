@@ -10,3 +10,5 @@ external thumb_set : Evas.obj -> string -> ?g:string -> unit -> unit =
 external thumb_set_none : Evas.obj -> ?g:string -> unit -> unit =
   "ml_elm_photo_thumb_set_null"
 
+external size_set : Evas.obj -> int -> unit = "ml_elm_photo_size_set"
+
