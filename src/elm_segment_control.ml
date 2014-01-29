@@ -29,3 +29,9 @@ external item_index_get : Elm_object.item -> int =
 external item_object_get : Elm_object.item -> Evas.obj =
   "ml_elm_segment_control_item_object_get"
 
+external item_selected_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_segment_control_item_selected_get"
+
+external item_selected_set : Elm_object.item -> bool -> unit =
+  "ml_elm_segment_control_item_selected_set"
+

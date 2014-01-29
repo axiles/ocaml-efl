@@ -80,3 +80,16 @@ PREFIX value ml_elm_segment_control_item_object_get(value v_it)
                 (Elm_Object_Item*) v_it);
 }
 
+PREFIX value ml_elm_segment_control_item_selected_get(value v_obj)
+{
+        return copy_Elm_Object_Item_opt(elm_segment_control_item_selected_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_segment_control_item_selected_set(value v_it, value v_flag)
+{
+        elm_segment_control_item_selected_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+

@@ -20,3 +20,7 @@ val item_index_get : Elm_object.item -> int
 
 val item_object_get : Elm_object.item -> Evas.obj
 
+val item_selected_get : Evas.obj -> Elm_object.item option
+
+val item_selected_set : Elm_object.item -> bool -> unit
+
