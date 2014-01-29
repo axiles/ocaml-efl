@@ -98,3 +98,16 @@ PREFIX inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
         return v_r;
 }
 
+PREFIX inline value copy_string_opt(const char* s)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        if(s == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_string(s));
+        }
+        CAMLreturn(v);
+}
+
+

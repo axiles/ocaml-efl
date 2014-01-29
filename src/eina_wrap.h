@@ -17,4 +17,6 @@ PREFIX inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list);
 
 PREFIX inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it);
 
+PREFIX inline value copy_string_opt(const char* s);
+
 #endif
