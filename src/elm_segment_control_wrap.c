@@ -74,3 +74,9 @@ PREFIX value ml_elm_segment_control_item_index_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_segment_control_item_object_get(value v_it)
+{
+        return (value) elm_segment_control_item_object_get(
+                (Elm_Object_Item*) v_it);
+}
+

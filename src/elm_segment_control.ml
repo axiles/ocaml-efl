@@ -26,3 +26,6 @@ external item_icon_get : Evas.obj -> int -> Evas.obj option =
 external item_index_get : Elm_object.item -> int =
   "ml_elm_segment_control_item_index_get"
 
+external item_object_get : Elm_object.item -> Evas.obj =
+  "ml_elm_segment_control_item_object_get"
+

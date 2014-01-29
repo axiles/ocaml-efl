@@ -18,3 +18,5 @@ val item_icon_get : Evas.obj -> int -> Evas.obj option
 
 val item_index_get : Elm_object.item -> int
 
+val item_object_get : Elm_object.item -> Evas.obj
+
