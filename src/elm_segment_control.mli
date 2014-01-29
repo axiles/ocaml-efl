@@ -6,3 +6,5 @@ val item_add :
 val item_insert_at :
   Evas.obj -> ?icon:Evas.obj -> ?label:string -> int -> Elm_object.item
 
+val item_del_at : Evas.obj -> int -> unit
+

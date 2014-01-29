@@ -38,3 +38,9 @@ PREFIX value ml_elm_segment_control_item_insert_at(
         return (value) it;
 }
 
+PREFIX value ml_elm_segment_control_item_del_at(value v_obj, value v_i)
+{
+        elm_segment_control_item_del_at((Evas_Object*) v_obj, Int_val(v_i));
+        return Val_unit;
+}
+
