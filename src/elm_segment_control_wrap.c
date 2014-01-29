@@ -23,3 +23,18 @@ PREFIX value ml_elm_segment_control_item_add(
         return (value) it;
 }
 
+PREFIX value ml_elm_segment_control_item_insert_at(
+        value v_obj, value v_icon, value v_label, value v_index)
+{
+        Evas_Object* icon;
+        if(v_icon == Val_int(0)) icon = NULL;
+        else icon = (Evas_Object*) Field(v_icon, 0);
+        const char* label;
+        if(v_label == Val_int(0)) label = NULL;
+        else label = String_val(Field(v_label, 0));
+        Elm_Object_Item* it = elm_segment_control_item_insert_at(
+                (Evas_Object*) v_obj, icon, label, Int_val(v_index));
+        if(it == NULL) caml_failwith("elm_segment_control_item_insert_at");
+        return (value) it;
+}
+
