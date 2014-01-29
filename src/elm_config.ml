@@ -68,6 +68,12 @@ external access_get : unit -> bool = "ml_elm_config_access_get"
 
 external access_set : bool -> unit = "ml_elm_config_access_set"
 
+external selection_unfocused_clear_get : unit -> bool =
+  "ml_elm_config_selection_unfocused_clear_get"
+
+external selection_unfocused_clear_set : bool -> unit =
+  "ml_elm_config_selection_unfocused_clear_set"
+
 external mirrored_get : unit -> bool = "ml_elm_config_mirrored_get"
 
 external mirrored_set : bool -> unit = "ml_elm_config_mirrored_set"
