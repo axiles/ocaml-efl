@@ -62,3 +62,9 @@ PREFIX value ml_elm_segment_control_item_label_get(value v_obj, value v_i)
                 (Evas_Object*) v_obj, Int_val(v_i)));
 }
 
+PREFIX value ml_elm_segment_control_item_icon_get(value v_obj, value v_i)
+{
+        return copy_Evas_Object_opt(elm_segment_control_item_icon_get(
+                (Evas_Object*) v_obj, Int_val(v_i)));
+}
+

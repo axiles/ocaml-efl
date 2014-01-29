@@ -110,4 +110,12 @@ PREFIX inline value copy_string_opt(const char* s)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj)
+{
+        if(obj == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) obj);
+        return v_r;
+}
+
 

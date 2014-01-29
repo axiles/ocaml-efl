@@ -14,3 +14,5 @@ val item_get : Evas.obj -> int -> Elm_object.item option
 
 val item_label_get : Evas.obj -> int -> string option
 
+val item_icon_get : Evas.obj -> int -> Evas.obj option
+

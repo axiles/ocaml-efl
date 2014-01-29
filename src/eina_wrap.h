@@ -19,4 +19,6 @@ PREFIX inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it);
 
 PREFIX inline value copy_string_opt(const char* s);
 
+PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj);
+
 #endif
