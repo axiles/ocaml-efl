@@ -99,7 +99,7 @@ The following widgets and containers are almost fully implemented:
 * panels
 * tooltips
 * thumbnails
-* maps
+* maps and routes
 * diskselectors
 * web pages (if EwebKit is installed)
 * indexes

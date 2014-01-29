@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: c86685e9c5022f5cd8ed14bb53b8f594)
+# DO NOT EDIT (digest: 10c89e8ae24fda23a31ad910cb40b8a4)
 eina_wrap.o
 evas_wrap.o
 ecore_wrap.o
@@ -63,4 +63,5 @@ elm_web_wrap.o
 elm_index_wrap.o
 elm_mapbuf_wrap.o
 elm_photo_wrap.o
+elm_route_wrap.o
 # OASIS_STOP
