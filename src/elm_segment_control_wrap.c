@@ -68,3 +68,9 @@ PREFIX value ml_elm_segment_control_item_icon_get(value v_obj, value v_i)
                 (Evas_Object*) v_obj, Int_val(v_i)));
 }
 
+PREFIX value ml_elm_segment_control_item_index_get(value v_it)
+{
+        return Val_int(elm_segment_control_item_index_get(
+                (Elm_Object_Item*) v_it));
+}
+

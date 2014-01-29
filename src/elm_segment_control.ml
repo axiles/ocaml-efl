@@ -23,3 +23,6 @@ external item_label_get : Evas.obj -> int -> string option =
 external item_icon_get : Evas.obj -> int -> Evas.obj option =
   "ml_elm_segment_control_item_icon_get"
 
+external item_index_get : Elm_object.item -> int =
+  "ml_elm_segment_control_item_index_get"
+
