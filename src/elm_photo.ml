@@ -12,3 +12,13 @@ external thumb_set_none : Evas.obj -> ?g:string -> unit -> unit =
 
 external size_set : Evas.obj -> int -> unit = "ml_elm_photo_size_set"
 
+external fill_inside_set : Evas.obj -> bool -> unit =
+  "ml_elm_photo_fill_inside_set"
+
+external editable_set : Evas.obj -> bool -> unit = "ml_elm_photo_editable_set"
+
+external aspect_fixed_set : Evas.obj -> bool -> unit =
+  "ml_elm_photo_aspect_fixed_set"
+
+external aspect_fixed_get : Evas.obj -> bool = "ml_elm_photo_aspect_fixed_get"
+
