@@ -8,3 +8,7 @@ val item_insert_at :
 
 val item_del_at : Evas.obj -> int -> unit
 
+val item_count_get : Evas.obj -> int
+
+val item_get : Evas.obj -> int -> Elm_object.item option
+

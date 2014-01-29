@@ -11,3 +11,9 @@ external item_insert_at :
 external item_del_at : Evas.obj -> int -> unit =
   "ml_elm_segment_control_item_del_at"
 
+external item_count_get : Evas.obj -> int =
+  "ml_elm_segment_control_item_count_get"
+
+external item_get : Evas.obj -> int -> Elm_object.item option =
+  "ml_elm_segment_control_item_get"
+

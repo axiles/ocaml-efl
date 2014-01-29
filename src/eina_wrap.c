@@ -90,3 +90,11 @@ PREFIX inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
+{
+        if(it == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) it);
+        return v_r;
+}
+

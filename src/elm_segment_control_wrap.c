@@ -44,3 +44,15 @@ PREFIX value ml_elm_segment_control_item_del_at(value v_obj, value v_i)
         return Val_unit;
 }
 
+PREFIX value ml_elm_segment_control_item_count_get(value v_obj)
+{
+        return Val_int(elm_segment_control_item_count_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_segment_control_item_get(value v_obj, value v_i)
+{
+        return copy_Elm_Object_Item_opt(elm_segment_control_item_get(
+                (Evas_Object*) v_obj, Int_val(v_i)));
+}
+
