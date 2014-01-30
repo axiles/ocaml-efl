@@ -42,3 +42,6 @@ external item_current_get : Evas.obj -> Elm_object.item option =
 external item_object_get : Elm_object.item -> Evas.obj option =
   "ml_elm_slideshow_item_object_get"
 
+external item_nth_get : Evas.obj -> int -> Elm_object.item option =
+  "ml_elm_slideshow_item_nth_get"
+
