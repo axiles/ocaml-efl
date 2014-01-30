@@ -27,3 +27,5 @@ val loop_set : Evas.obj -> bool -> unit
 
 val loop_get : Evas.obj -> bool
 
+val clear : Evas.obj -> unit
+

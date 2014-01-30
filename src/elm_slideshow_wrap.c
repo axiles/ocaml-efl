@@ -109,3 +109,9 @@ PREFIX value ml_elm_slideshow_loop_get(value v_obj)
         return Val_bool(elm_slideshow_loop_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slideshow_clear(value v_obj)
+{
+        elm_slideshow_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
