@@ -43,3 +43,11 @@ val layout_get : Evas.obj -> string
 
 val layouts_get : Evas.obj -> string list
 
+val cache_before_set : Evas.obj -> int -> unit
+
+val cache_before_get : Evas.obj -> int
+
+val cache_after_set : Evas.obj -> int -> unit
+
+val cache_after_get : Evas.obj -> int
+

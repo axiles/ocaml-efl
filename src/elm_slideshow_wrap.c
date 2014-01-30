@@ -156,3 +156,25 @@ PREFIX value ml_elm_slideshow_layouts_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slideshow_cache_before_set(value v_obj, value v_x)
+{
+        elm_slideshow_cache_before_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slideshow_cache_before_get(value v_obj)
+{
+        return Val_int(elm_slideshow_cache_before_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_slideshow_cache_after_set(value v_obj, value v_x)
+{
+        elm_slideshow_cache_after_set((Evas_Object*) v_obj, Int_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slideshow_cache_after_get(value v_obj)
+{
+        return Val_int(elm_slideshow_cache_after_get((Evas_Object*) v_obj));
+}
+

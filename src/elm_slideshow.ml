@@ -53,3 +53,14 @@ external layout_get : Evas.obj -> string = "ml_elm_slideshow_layout_get"
 external layouts_get : Evas.obj -> string list =
   "ml_elm_slideshow_layouts_get"
 
+external cache_before_set : Evas.obj -> int -> unit =
+  "ml_elm_slideshow_cache_before_set"
+
+external cache_before_get : Evas.obj -> int =
+  "ml_elm_slideshow_cache_before_get"
+
+external cache_after_set : Evas.obj -> int -> unit =
+  "ml_elm_slideshow_cache_after_set"
+
+external cache_after_get : Evas.obj -> int = "ml_elm_slideshow_cache_after_get"
+
