@@ -36,3 +36,6 @@ external clear : Evas.obj -> unit = "ml_elm_slideshow_clear"
 external items_get : Evas.obj -> Elm_object.item list =
   "ml_elm_slideshow_items_get"
 
+external item_current_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_slideshow_item_current_get"
+

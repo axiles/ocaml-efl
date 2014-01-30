@@ -121,3 +121,9 @@ PREFIX value ml_elm_slideshow_items_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slideshow_item_current_get(value v_obj)
+{
+        return copy_Elm_Object_Item_opt(elm_slideshow_item_current_get(
+                (Evas_Object*) v_obj));
+}
+

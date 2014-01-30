@@ -31,3 +31,5 @@ val clear : Evas.obj -> unit
 
 val items_get : Evas.obj -> Elm_object.item list
 
+val item_current_get : Evas.obj -> Elm_object.item option
+
