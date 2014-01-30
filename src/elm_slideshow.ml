@@ -27,3 +27,7 @@ external timeout_set : Evas.obj -> float -> unit =
 
 external timeout_get : Evas.obj -> float = "ml_elm_slideshow_timeout_get"
 
+external loop_set : Evas.obj -> bool -> unit = "ml_elm_slideshow_loop_set"
+
+external loop_get : Evas.obj -> bool = "ml_elm_slideshow_loop_get"
+

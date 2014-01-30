@@ -23,3 +23,7 @@ val timeout_set : Evas.obj -> float -> unit
 
 val timeout_get : Evas.obj -> float
 
+val loop_set : Evas.obj -> bool -> unit
+
+val loop_get : Evas.obj -> bool
+
