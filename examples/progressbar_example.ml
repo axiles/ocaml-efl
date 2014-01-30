@@ -24,8 +24,6 @@ let on_changed =
       let buf = sprintf "ETA: %.0fs" !eta in
       Elm_object.text_set label buf)
 
-let on_done _ = Elm.exit ()
-
 let add_pb win bx =
   let pb = Elm_progressbar.add win in
   Evas_object.size_hint_set pb [`expand; `hfill];
@@ -142,6 +140,10 @@ let stop_cb list_pb _ _ =
   List.iter (fun pb -> Elm_progressbar.pulse pb false) list_pb;
   run := false
 
+let on_done list_pb _ =
+  if !run then stop_cb list_pb () ()
+  else Elm.exit ()
+
 let add_bt win bt_bx label cb =
   let bt = Elm_button.add win in
   Elm_object.text_set bt label;
@@ -155,7 +157,6 @@ let () =
   Elm_app.info_set "elementary" ~checkfile:"images/logo_small.jpg" ();
   let win = Elm_win.add "progressbar" `basic in
   Elm_win.title_set win "Progress bar example";
-  Evas_object_smart.callback_add win delete_request on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
@@ -190,9 +191,11 @@ let () =
   Evas_object.show bt_bx;
 
   let list_bt = [("Start", start_cb); ("Stop", stop_cb)] in
-  List.iter
-    (fun (label, cb) -> add_bt win bt_bx label (cb [pb2; pb6; pb8]
-    [pb1; pb3; pb4; pb5; pb7])) list_bt;
+  let list_pb = [pb2; pb6; pb8] in
+
+  List.iter (fun (label, cb) -> add_bt win bt_bx label (cb  list_pb
+      [pb1; pb3; pb4; pb5; pb7])) list_bt;
+  Evas_object_smart.callback_add win delete_request (on_done list_pb);
 
   Evas_object.show win;
 
