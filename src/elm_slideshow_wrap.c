@@ -70,3 +70,20 @@ PREFIX value ml_elm_slideshow_previous(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_slideshow_transitions_get(value v_obj)
+{
+        return copy_Eina_List_string(elm_slideshow_transitions_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_slideshow_transition_set(value v_obj, value v_s)
+{
+        elm_slideshow_transition_set((Evas_Object*) v_obj, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slideshow_transition_get(value v_obj)
+{
+        return copy_string(elm_slideshow_transition_get((Evas_Object*) v_obj));
+}
+

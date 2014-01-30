@@ -13,3 +13,9 @@ val next : Evas.obj -> unit
 
 val previous : Evas.obj -> unit
 
+val transitions_get : Evas.obj -> string list
+
+val transition_set : Evas.obj -> string -> unit
+
+val transition_get : Evas.obj -> string
+
