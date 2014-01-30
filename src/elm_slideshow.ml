@@ -64,3 +64,5 @@ external cache_after_set : Evas.obj -> int -> unit =
 
 external cache_after_get : Evas.obj -> int = "ml_elm_slideshow_cache_after_get"
 
+external count_get : Evas.obj -> int = "ml_elm_slideshow_count_get"
+

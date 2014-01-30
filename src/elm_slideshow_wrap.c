@@ -178,3 +178,8 @@ PREFIX value ml_elm_slideshow_cache_after_get(value v_obj)
         return Val_int(elm_slideshow_cache_after_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slideshow_count_get(value v_obj)
+{
+        return Val_int(elm_slideshow_count_get((Evas_Object*) v_obj));
+}
+

@@ -51,3 +51,5 @@ val cache_after_set : Evas.obj -> int -> unit
 
 val cache_after_get : Evas.obj -> int
 
+val count_get : Evas.obj -> int
+
