@@ -86,7 +86,8 @@ Library efl
     Elm_mapbuf,
     Elm_photo,
     Elm_route,
-    Elm_segment_control
+    Elm_segment_control,
+    Elm_slideshow
   CSources:
     include.h,
     eina_wrap.c,
@@ -164,7 +165,8 @@ Library efl
     elm_mapbuf_wrap.c,
     elm_photo_wrap.c,
     elm_route_wrap.c,
-    elm_segment_control_wrap.c
+    elm_segment_control_wrap.c,
+    elm_slideshow_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
