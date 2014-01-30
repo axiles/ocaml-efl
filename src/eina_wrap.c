@@ -118,4 +118,9 @@ PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj)
         return v_r;
 }
 
+PREFIX inline Evas_Object* Evas_Object_opt_val(value v)
+{
+        if(v == Val_int(0)) return NULL;
+        else return (Evas_Object*) Field(v, 0);
+}
 

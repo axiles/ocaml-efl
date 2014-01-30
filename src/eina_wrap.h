@@ -21,4 +21,6 @@ PREFIX inline value copy_string_opt(const char* s);
 
 PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj);
 
+PREFIX inline Evas_Object* Evas_Object_opt_val(value v);
+
 #endif
