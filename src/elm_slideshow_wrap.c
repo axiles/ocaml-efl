@@ -58,3 +58,15 @@ PREFIX value ml_elm_slideshow_item_show(value v_it)
         return Val_unit;
 }
 
+PREFIX value ml_elm_slideshow_next(value v_obj)
+{
+        elm_slideshow_next((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slideshow_previous(value v_obj)
+{
+        elm_slideshow_previous((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

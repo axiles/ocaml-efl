@@ -10,3 +10,7 @@ external item_add : Evas.obj -> item_class -> Elm_object.item =
 
 external item_show : Elm_object.item -> unit = "ml_elm_slideshow_item_show"
 
+external next : Evas.obj -> unit = "ml_elm_slideshow_next"
+
+external previous : Evas.obj -> unit = "ml_elm_slideshow_previous"
+
