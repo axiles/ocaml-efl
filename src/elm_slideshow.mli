@@ -7,3 +7,5 @@ val add : Evas.obj -> Evas.obj
 
 val item_add : Evas.obj -> item_class -> Elm_object.item
 
+val item_show : Elm_object.item -> unit
+

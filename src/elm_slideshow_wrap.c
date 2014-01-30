@@ -52,3 +52,9 @@ PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
         return (value) it;
 }
 
+PREFIX value ml_elm_slideshow_item_show(value v_it)
+{
+        elm_slideshow_item_show((Elm_Object_Item*) v_it);
+        return Val_unit;
+}
+
