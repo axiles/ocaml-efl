@@ -19,3 +19,7 @@ val transition_set : Evas.obj -> string -> unit
 
 val transition_get : Evas.obj -> string
 
+val timeout_set : Evas.obj -> float -> unit
+
+val timeout_get : Evas.obj -> float
+

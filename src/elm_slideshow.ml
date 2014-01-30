@@ -22,3 +22,8 @@ external transition_set : Evas.obj -> string -> unit =
 
 external transition_get : Evas.obj -> string = "ml_elm_slideshow_transition_get"
 
+external timeout_set : Evas.obj -> float -> unit =
+  "ml_elm_slideshow_timeout_set"
+
+external timeout_get : Evas.obj -> float = "ml_elm_slideshow_timeout_get"
+

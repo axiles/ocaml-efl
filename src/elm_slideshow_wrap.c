@@ -87,3 +87,14 @@ PREFIX value ml_elm_slideshow_transition_get(value v_obj)
         return copy_string(elm_slideshow_transition_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_slideshow_timeout_set(value v_obj, value v_x)
+{
+        elm_slideshow_timeout_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slideshow_timeout_get(value v_obj)
+{
+        return copy_double(elm_slideshow_timeout_get((Evas_Object*) v_obj));
+}
+
