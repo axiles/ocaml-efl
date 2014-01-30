@@ -33,3 +33,5 @@ val items_get : Evas.obj -> Elm_object.item list
 
 val item_current_get : Evas.obj -> Elm_object.item option
 
+val item_object_get : Elm_object.item -> Evas.obj option
+
