@@ -166,6 +166,7 @@ val title_changed : string v
 val toolbars_visible_get : bool r
 val toolbars_visible_set : bool v
 val tooltip_text_set : string v
+val transition_end : Elm_object.item v
 val transition_finished : u
 val tree_effect_finished : u
 val underflowed : u
