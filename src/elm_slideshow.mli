@@ -5,3 +5,5 @@ type item_class = {
 
 val add : Evas.obj -> Evas.obj
 
+val item_add : Evas.obj -> item_class -> Elm_object.item
+
