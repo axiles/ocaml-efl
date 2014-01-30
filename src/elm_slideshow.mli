@@ -29,3 +29,5 @@ val loop_get : Evas.obj -> bool
 
 val clear : Evas.obj -> unit
 
+val items_get : Evas.obj -> Elm_object.item list
+

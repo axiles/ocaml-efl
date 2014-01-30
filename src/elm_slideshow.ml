@@ -33,3 +33,6 @@ external loop_get : Evas.obj -> bool = "ml_elm_slideshow_loop_get"
 
 external clear : Evas.obj -> unit = "ml_elm_slideshow_clear"
 
+external items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_slideshow_items_get"
+
