@@ -139,3 +139,20 @@ PREFIX value ml_elm_slideshow_item_nth_get(value v_obj, value v_i)
                 (Evas_Object*) v_obj, Int_val(v_i)));
 }
 
+PREFIX value ml_elm_slideshow_layout_set(value v_obj, value v_s)
+{
+        elm_slideshow_layout_set((Evas_Object*) v_obj, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_slideshow_layout_get(value v_obj)
+{
+        return copy_string(elm_slideshow_layout_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_slideshow_layouts_get(value v_obj)
+{
+        return copy_Eina_List_string(elm_slideshow_layouts_get(
+                (Evas_Object*) v_obj));
+}
+

@@ -45,3 +45,11 @@ external item_object_get : Elm_object.item -> Evas.obj option =
 external item_nth_get : Evas.obj -> int -> Elm_object.item option =
   "ml_elm_slideshow_item_nth_get"
 
+external layout_set : Evas.obj -> string -> unit =
+  "ml_elm_slideshow_layout_set"
+
+external layout_get : Evas.obj -> string = "ml_elm_slideshow_layout_get"
+
+external layouts_get : Evas.obj -> string list =
+  "ml_elm_slideshow_layouts_get"
+

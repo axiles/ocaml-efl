@@ -37,3 +37,9 @@ val item_object_get : Elm_object.item -> Evas.obj option
 
 val item_nth_get : Evas.obj -> int -> Elm_object.item option
 
+val layout_set : Evas.obj -> string -> unit
+
+val layout_get : Evas.obj -> string
+
+val layouts_get : Evas.obj -> string list
+
