@@ -68,6 +68,8 @@ val highlighted : u
 val highlighted__item : Elm_object.item v
 val icon_received : u
 val iconified : u
+val image_deleted : u
+val image_resized : u
 val index_update : u
 val indicator_prop_changed : u
 val inputmethod_changed : bool v
