@@ -46,6 +46,10 @@ val tween_mode_set : t -> tween_mode -> unit
 
 val tween_mode_get : t -> tween_mode
 
+val tween_mode_factor_set : t -> float -> float -> unit
+
+val tween_mode_factor_get : t -> float * float
+
 val duration_set : t -> float -> unit
 
 val duration_get : t -> float

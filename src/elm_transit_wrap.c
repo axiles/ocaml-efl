@@ -219,6 +219,26 @@ PREFIX value ml_elm_transit_tween_mode_get(value v_tr)
                 (Elm_Transit*) v_tr));
 }
 
+PREFIX value ml_elm_transit_tween_mode_factor_set(
+        value v_tr, value v_v1, value v_v2)
+{
+        elm_transit_tween_mode_factor_set((Elm_Transit*) v_tr, Double_val(v_v1),
+                Double_val(v_v2));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_transit_tween_mode_factor_get(value v_tr)
+{
+        CAMLparam1(v_tr);
+        CAMLlocal1(v_r);
+        double v1, v2;
+        elm_transit_tween_mode_factor_get((Elm_Transit*) v_tr, &v1, &v2);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(v1));
+        Store_field(v_r, 1, copy_double(v2));
+        CAMLreturn(v_r);
+}
+
 PREFIX value ml_elm_transit_duration_set(value v_tr, value v_x)
 {
         elm_transit_duration_set((Elm_Transit*) v_tr, Double_val(v_x));
