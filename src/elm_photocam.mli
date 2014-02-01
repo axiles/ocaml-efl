@@ -28,3 +28,7 @@ val paused_get : Evas.obj -> bool
 
 val internal_image_get : Evas.obj -> Evas.obj option
 
+val gesture_enabled_set : Evas.obj -> bool -> unit
+
+val gesture_enabled_get : Evas.obj -> bool
+

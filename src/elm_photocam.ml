@@ -35,3 +35,9 @@ external paused_get : Evas.obj -> bool = "ml_elm_photocam_paused_get"
 external internal_image_get : Evas.obj -> Evas.obj option =
   "ml_elm_photocam_internal_image_get"
 
+external gesture_enabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_photocam_gesture_enabled_set"
+
+external gesture_enabled_get : Evas.obj -> bool =
+  "ml_elm_photocam_gesture_enabled_get"
+
