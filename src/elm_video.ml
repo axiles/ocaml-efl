@@ -34,3 +34,9 @@ external play_position_set : Evas.obj -> float -> unit =
 
 external play_length_get : Evas.obj -> float = "ml_elm_video_play_length_get"
 
+external remember_position_set : Evas.obj -> bool -> unit =
+  "ml_elm_video_remember_position_set"
+
+external remember_position_get : Evas.obj -> bool =
+  "ml_elm_video_remember_position_get"
+

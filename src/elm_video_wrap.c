@@ -91,3 +91,14 @@ PREFIX value ml_elm_video_play_length_get(value v_obj)
         return copy_double(elm_video_play_length_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_video_remember_position_set(value v_obj, value v_flag)
+{
+        elm_video_remember_position_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_video_remember_position_get(value v_obj)
+{
+        return Val_bool(elm_video_remember_position_get((Evas_Object*) v_obj));
+}
+
