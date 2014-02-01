@@ -120,3 +120,9 @@ PREFIX value ml_elm_photocam_paused_get(value v_obj)
         return Val_bool(elm_photocam_paused_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_photocam_internal_image_get(value v_obj)
+{
+        return copy_Evas_Object_opt(elm_photocam_internal_image_get(
+                (Evas_Object*) v_obj));
+}
+

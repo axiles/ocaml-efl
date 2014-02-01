@@ -26,3 +26,5 @@ val paused_set : Evas.obj -> bool -> unit
 
 val paused_get : Evas.obj -> bool
 
+val internal_image_get : Evas.obj -> Evas.obj option
+
