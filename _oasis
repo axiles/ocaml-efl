@@ -88,7 +88,8 @@ Library efl
     Elm_route,
     Elm_segment_control,
     Elm_slideshow,
-    Elm_photocam
+    Elm_photocam,
+    Elm_video
   CSources:
     include.h,
     eina_wrap.c,
@@ -168,7 +169,8 @@ Library efl
     elm_route_wrap.c,
     elm_segment_control_wrap.c,
     elm_slideshow_wrap.c,
-    elm_photocam_wrap.c
+    elm_photocam_wrap.c,
+    elm_video_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
