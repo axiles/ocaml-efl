@@ -38,6 +38,8 @@ val delete_request : u
 val directory_open : string v
 val dismissed : u
 val _done : (string option) v
+val download_error : Elm_photocam.error v
+val download_progress : Elm_photocam.progress v
 val download_request : Elm_web.download v
 val drag : u
 val drag_start_down : u
@@ -80,6 +82,8 @@ val level_down : u
 val level_up : u
 val link_hover_in : (string * string) v
 val link_hover_out : u
+val load : u
+val load_detail : u
 val load_document_finished : Evas.obj v
 val load_error : u
 val load_error__frame : Elm_web.frame_load_error v
@@ -89,6 +93,7 @@ val load_progress : float v
 val load_provisional : u
 val load_started : u
 val loaded : u
+val loaded_detail : u
 val longpressed : u
 val maximized : u
 val menubar_visible_get : bool r

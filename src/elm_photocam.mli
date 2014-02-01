@@ -1,5 +1,9 @@
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `auto_fit_in | `last]
 
+type progress = {now : float; total : float}
+
+type error = {status : int; open_error : bool}
+
 val add : Evas.obj -> Evas.obj
 
 val file_set : Evas.obj -> string -> Evas.load_error
@@ -31,4 +35,8 @@ val internal_image_get : Evas.obj -> Evas.obj option
 val gesture_enabled_set : Evas.obj -> bool -> unit
 
 val gesture_enabled_get : Evas.obj -> bool
+
+val progress_of_ptr : Evas.ptr -> progress
+
+val error_of_ptr : Evas.ptr -> error
 

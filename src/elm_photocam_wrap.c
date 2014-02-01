@@ -138,3 +138,24 @@ PREFIX value ml_elm_photocam_gesture_enabled_get(value v_obj)
         return Val_bool(elm_photocam_gesture_enabled_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_Elm_Photocam_Progress_of_ptr(value v_ptr)
+{
+        CAMLparam1(v_ptr);
+        CAMLlocal1(v_r);
+        Elm_Photocam_Progress* p = (Elm_Photocam_Progress*) v_ptr;
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(p->now));
+        Store_field(v_r, 1, copy_double(p->total));
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_Elm_Photocam_Error_of_ptr(value v_ptr)
+{
+        Elm_Photocam_Error* e = (Elm_Photocam_Error*) v_ptr;
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, Val_int(e->status));
+        Store_field(v_r, 1, Val_bool(e->open_error));
+        return v_r;
+}
+
+
