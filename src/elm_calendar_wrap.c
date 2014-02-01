@@ -88,6 +88,39 @@ PREFIX inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
         CAMLreturn(v);
 }
 
+PREFIX inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
+{
+        switch(v) {
+                case Val_sunday: return ELM_DAY_SUNDAY;
+                case Val_monday: return ELM_DAY_MONDAY;
+                case Val_tuesday: return ELM_DAY_TUESDAY;
+                case Val_wednesday: return ELM_DAY_WEDNESDAY;
+                case Val_thursday: return ELM_DAY_THURSDAY;
+                case Val_friday: return ELM_DAY_FRIDAY;
+                case Val_saturday: return ELM_DAY_SATURDAY;
+                case Val_last: return ELM_DAY_LAST;
+                default: break;
+        }
+        caml_failwith("Elm_Calendar_Weekday_val");
+        return ELM_DAY_SUNDAY;
+}
+
+PREFIX inline value Val_Elm_Calendar_Weekday(Elm_Calendar_Weekday d)
+{
+        switch(d) {
+                case ELM_DAY_SUNDAY: return Val_sunday;
+                case ELM_DAY_MONDAY: return Val_monday;
+                case ELM_DAY_TUESDAY: return Val_tuesday;
+                case ELM_DAY_WEDNESDAY: return Val_wednesday;
+                case ELM_DAY_THURSDAY: return Val_thursday;
+                case ELM_DAY_FRIDAY: return Val_friday;
+                case ELM_DAY_SATURDAY: return Val_saturday;
+                case ELM_DAY_LAST: return Val_last;
+        }
+        caml_failwith("Val_Elm_Calendar_Weekday");
+        return Val_monday;
+}
+
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
@@ -217,5 +250,18 @@ PREFIX value ml_elm_calendar_interval_set(value v_obj, value v_x)
 PREFIX value ml_elm_calendar_interval_get(value v_obj)
 {
         return copy_double(elm_calendar_interval_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_calendar_first_day_of_week_set(value v_obj, value v_d)
+{
+        elm_calendar_first_day_of_week_set((Evas_Object*) v_obj,
+                Elm_Calendar_Weekday_val(v_d));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_first_day_of_week_get(value v_obj)
+{
+        return Val_Elm_Calendar_Weekday(elm_calendar_first_day_of_week_get(
+                (Evas_Object*) v_obj));
 }
 

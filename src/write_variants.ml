@@ -76,6 +76,7 @@ let () =
   g "focus_forward";
   g "focus_home";
   g "foot";
+  g "friday";
   g "fullscreen";
   g "generic";
   g "go";
@@ -118,6 +119,7 @@ let () =
   g "middle";
   g "mixed";
   g "momentum";
+  g "monday";
   g "month";
   g "monthly";
   g "motocar";
@@ -179,6 +181,7 @@ let () =
   g "rotate_yz_center_axis";
   g "rotate_y_center_axis";
   g "route";
+  g "saturday";
   g "scale";
   g "scroll";
   g "scrollbars";
@@ -199,10 +202,12 @@ let () =
   g "statusbar";
   g "stop";
   g "stretch";
+  g "sunday";
   g "terminal";
   g "text";
   g "theme";
   g "theme_fdo";
+  g "thursday";
   g "tile";
   g "toolbar";
   g "tooltip";
@@ -212,6 +217,7 @@ let () =
   g "translucent";
   g "transparent";
   g "tree";
+  g "tuesday";
   g "undefined";
   g "unique";
   g "unknown";
@@ -221,6 +227,7 @@ let () =
   g "utility";
   g "vertical";
   g "weekly";
+  g "wednesday";
   g "windows_del";
   g "word";
   g "x";

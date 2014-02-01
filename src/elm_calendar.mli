@@ -5,6 +5,16 @@ type mark_repeat_type = [
 
 type mark
 
+type weekday = [
+  | `sunday
+  | `monday
+  | `tuesday
+  | `wednessday
+  | `thursday
+  | `friday
+  | `saturday
+  | `last]
+
 val add : Evas.obj -> Evas.obj
 
 val weekdays_names_get : Evas.obj -> string array
@@ -36,4 +46,8 @@ val marks_draw : Evas.obj -> unit
 val interval_set : Evas.obj -> float -> unit
 
 val interval_get : Evas.obj -> float
+
+val first_day_of_week_set : Evas.obj -> weekday -> unit
+
+val first_day_of_week_get : Evas.obj -> weekday
 

@@ -5,6 +5,16 @@ type mark_repeat_type = [
 
 type mark
 
+type weekday = [
+  | `sunday
+  | `monday
+  | `tuesday
+  | `wednessday
+  | `thursday
+  | `friday
+  | `saturday
+  | `last]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_calendar_add"
 
 external weekdays_names_get : Evas.obj -> string array =
@@ -46,4 +56,10 @@ external interval_set : Evas.obj -> float -> unit =
   "ml_elm_calendar_interval_set"
 
 external interval_get : Evas.obj -> float = "ml_elm_calendar_interval_get"
+
+external first_day_of_week_set : Evas.obj -> weekday -> unit =
+  "ml_elm_calendar_first_day_of_week_set"
+
+external first_day_of_week_get : Evas.obj -> weekday =
+  "ml_elm_calendar_first_day_of_week_get"
 
