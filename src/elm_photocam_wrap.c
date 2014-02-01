@@ -20,3 +20,14 @@ PREFIX value ml_elm_photocam_file_get(value v_obj)
         return copy_string(file);
 }
 
+PREFIX value ml_elm_photocam_zoom_set(value v_obj, value v_x)
+{
+        elm_photocam_zoom_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_photocam_zoom_get(value v_obj)
+{
+        return copy_double(elm_photocam_zoom_get((Evas_Object*) v_obj));
+}
+

@@ -5,3 +5,7 @@ external file_set : Evas.obj -> string -> Evas.load_error =
 
 external file_get : Evas.obj -> string = "ml_elm_photocam_file_get"
 
+external zoom_set : Evas.obj -> float -> unit = "ml_elm_photocam_zoom_set"
+
+external zoom_get : Evas.obj -> float = "ml_elm_photocam_zoom_get"
+
