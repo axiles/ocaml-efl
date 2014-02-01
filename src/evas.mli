@@ -72,6 +72,16 @@ module Event_type : sig
   val get_cb : 'a t -> 'a -> smart_cb
 end 
 
+type load_error = [
+  | `none
+  | `generic
+  | `does_not_exist
+  | `permission_denied
+  | `resource_allocation_failed
+  | `corrupt_file
+  | `unknown_format
+]
+
 val hint_expand : float
 
 val hint_fill : float

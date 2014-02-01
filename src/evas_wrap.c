@@ -409,3 +409,39 @@ PREFIX value ml_float_of_ptr(value v_ptr)
         return copy_double(*x);
 }
 
+PREFIX inline Evas_Load_Error Evas_Load_Error_val(value v)
+{
+        switch(v) {
+                case Val_none: return EVAS_LOAD_ERROR_NONE;
+                case Val_generic: return EVAS_LOAD_ERROR_GENERIC;
+                case Val_does_not_exist: return EVAS_LOAD_ERROR_DOES_NOT_EXIST;
+                case Val_permission_denied:
+                        return EVAS_LOAD_ERROR_PERMISSION_DENIED;
+                case Val_resource_allocation_failed:
+                        return EVAS_LOAD_ERROR_RESOURCE_ALLOCATION_FAILED;
+                case Val_corrupt_file: return EVAS_LOAD_ERROR_CORRUPT_FILE;
+                case Val_unknown_format: return EVAS_LOAD_ERROR_UNKNOWN_FORMAT;
+                default: break;
+        }
+        caml_failwith("Evas_Load_Error_val");
+        return EVAS_LOAD_ERROR_NONE;
+}
+
+PREFIX inline value Val_Evas_Load_Error(Evas_Load_Error e)
+{
+        switch(e) {
+                case EVAS_LOAD_ERROR_NONE: return Val_none;
+                case EVAS_LOAD_ERROR_GENERIC: return Val_generic;
+                case EVAS_LOAD_ERROR_DOES_NOT_EXIST:
+                        return Val_does_not_exist;
+                case EVAS_LOAD_ERROR_PERMISSION_DENIED:
+                        return Val_permission_denied;
+                case EVAS_LOAD_ERROR_RESOURCE_ALLOCATION_FAILED:
+                        return Val_resource_allocation_failed;
+                case EVAS_LOAD_ERROR_CORRUPT_FILE: return Val_corrupt_file;
+                case EVAS_LOAD_ERROR_UNKNOWN_FORMAT: return Val_unknown_format;
+        }
+        caml_failwith("Val_Evas_Load_Error");
+        return Val_none;
+}
+

@@ -60,6 +60,16 @@ type event_info = [
 
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 
+type load_error = [
+  | `none
+  | `generic
+  | `does_not_exist
+  | `permission_denied
+  | `resource_allocation_failed
+  | `corrupt_file
+  | `unknown_format
+]
+
 module Event_type = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
   type 'a v = (obj -> 'a -> unit) t

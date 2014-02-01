@@ -13,5 +13,8 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
 PREFIX inline value copy_Evas_Event_Info(
         Evas_Callback_Type type, void* event_info);
 
+PREFIX inline Evas_Load_Error Evas_Load_Error_val(value v);
+PREFIX inline value Val_Evas_Load_Error(Evas_Load_Error e);
+
 #endif
 

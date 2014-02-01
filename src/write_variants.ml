@@ -37,6 +37,7 @@ let () =
   g "compress";
   g "config";
   g "content";
+  g "corrupt_file";
   g "crop";
   g "cube";
   g "cube_down";
@@ -51,6 +52,7 @@ let () =
   g "display_only";
   g "dnd";
   g "dock";
+  g "does_not_exist";
   f "Val_done" "_done";
   g "down";
   g "dropdown_menu";
@@ -72,6 +74,7 @@ let () =
   g "focus_home";
   g "foot";
   g "fullscreen";
+  g "generic";
   g "go";
   g "grid";
   g "group";
@@ -148,6 +151,7 @@ let () =
   g "page_right";
   g "page_up";
   g "password";
+  g "permission_denied";
   g "phone_number";
   g "phonenumber";
   g "pin";
@@ -156,6 +160,7 @@ let () =
   g "polygon";
   g "popup_menu";
   g "previous";
+  g "resource_allocation_failed";
   g "right";
   g "rotate";
   g "rotate_180";
@@ -203,6 +208,7 @@ let () =
   g "tree";
   g "undefined";
   g "unknown";
+  g "unknown_format";
   g "up";
   g "url";
   g "utility";
