@@ -22,3 +22,7 @@ val image_region_show : Evas.obj -> int -> int -> int -> int -> unit
 
 val image_region_bring_in : Evas.obj -> int -> int -> int -> int -> unit
 
+val paused_set : Evas.obj -> bool -> unit
+
+val paused_get : Evas.obj -> bool
+

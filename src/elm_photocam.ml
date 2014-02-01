@@ -28,3 +28,7 @@ external image_region_show : Evas.obj -> int -> int -> int -> int -> unit =
 external image_region_bring_in : Evas.obj -> int -> int -> int -> int -> unit =
   "ml_elm_photocam_image_region_bring_in"
 
+external paused_set : Evas.obj -> bool -> unit = "ml_elm_photocam_paused_set"
+
+external paused_get : Evas.obj -> bool = "ml_elm_photocam_paused_get"
+
