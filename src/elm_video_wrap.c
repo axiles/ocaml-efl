@@ -14,3 +14,9 @@ PREFIX value ml_elm_video_add(value v_parent)
         return (value) video;
 }
 
+PREFIX value ml_elm_video_file_set(value v_obj, value v_file)
+{
+        return Val_bool(elm_video_file_set((Evas_Object*) v_obj,
+                String_val(v_file)));
+}
+
