@@ -566,3 +566,9 @@ Executable segment_control_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: segment_control_example.ml
+Executable photocam_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: photocam_example_01.ml
