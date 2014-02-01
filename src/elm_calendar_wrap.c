@@ -33,3 +33,21 @@ PREFIX value ml_elm_calendar_weekdays_names_set(value v_obj, value v_a)
         return Val_unit;
 }
 
+PREFIX value ml_elm_calendar_min_max_year_set(
+        value v_obj, value v_min, value v_max)
+{
+        elm_calendar_min_max_year_set((Evas_Object*) v_obj, Int_val(v_min),
+                Int_val(v_max));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_min_max_year_get(value v_obj)
+{
+        int min, max;
+        elm_calendar_min_max_year_get((Evas_Object*) v_obj, &min, &max);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(min));
+        Store_field(v_r, 1, Val_int(max));
+        return v_r;
+}
+
