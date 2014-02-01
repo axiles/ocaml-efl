@@ -55,6 +55,23 @@ PREFIX inline value copy_tm(struct tm t)
         return v;
 }
 
+PREFIX inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
+        value v)
+{
+        switch(v) {
+                case Val_unique: return ELM_CALENDAR_UNIQUE;
+                case Val_daily: return ELM_CALENDAR_DAILY;
+                case Val_weekly: return ELM_CALENDAR_WEEKLY;
+                case Val_monthly: return ELM_CALENDAR_MONTHLY;
+                case Val_annually: return ELM_CALENDAR_ANNUALLY;
+                case Val_last_day_of_month:
+                        return ELM_CALENDAR_LAST_DAY_OF_MONTH;
+                default: break;
+        }
+        caml_failwith("Elm_Calendar_Mark_Repeat_Type_val");
+        return ELM_CALENDAR_UNIQUE;
+}
+
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
@@ -138,5 +155,28 @@ PREFIX value ml_elm_calendar_selected_time_get(value v_obj)
                 Store_field(v_t, 0, copy_tm(t));
         } else v_t = Val_int(0);
         CAMLreturn(v_t);
+}
+
+PREFIX value ml_elm_calendar_mark_add(
+        value v_obj, value v_m_type, value v_m_time, value v_repeat)
+{
+        struct tm m_time = Tm_val(v_m_time);
+        Elm_Calendar_Mark* m = elm_calendar_mark_add(
+                (Evas_Object*) v_obj, String_val(v_m_type), &m_time,
+                Elm_Calendar_Mark_Repeat_Type_val(v_repeat));
+        if(m == NULL) caml_failwith("elm_calendar_mark_add");
+        return (value) m;
+}
+
+PREFIX value ml_elm_calendar_mark_del(value v_m)
+{
+        elm_calendar_mark_del((Elm_Calendar_Mark*) v_m);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_marks_clear(value v_obj)
+{
+        elm_calendar_marks_clear((Evas_Object*) v_obj);
+        return Val_unit;
 }
 

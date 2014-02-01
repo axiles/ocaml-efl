@@ -1,5 +1,10 @@
 type select_mode = [`default | `always | `none | `ondemand]
 
+type mark_repeat_type = [
+  `unique | `daily | `weekly | `monthly | `annually | `last_day_of_month]
+
+type mark
+
 external add : Evas.obj -> Evas.obj = "ml_elm_calendar_add"
 
 external weekdays_names_get : Evas.obj -> string array =
@@ -25,4 +30,11 @@ external selected_time_set : Evas.obj -> Unix.tm -> unit =
 
 external selected_time_get : Evas.obj -> Unix.tm option =
   "ml_elm_calendar_selected_time_get"
+
+external mark_add : Evas.obj -> string -> Unix.tm -> mark_repeat_type -> mark =
+  "ml_elm_calendar_mark_add"
+
+external mark_del : mark -> unit = "ml_elm_calendar_mark_del"
+
+external marks_clear : Evas.obj -> unit = "ml_elm_calendar_marks_clear"
 

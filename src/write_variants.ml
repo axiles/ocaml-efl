@@ -14,6 +14,7 @@ let () =
   g "alpha";
   g "alphabet";
   g "always";
+  g "annually";
   g "auto";
   g "auto_fill";
   g "auto_fit";
@@ -45,6 +46,7 @@ let () =
   g "cube_left";
   g "cube_right";
   g "cube_up";
+  g "daily";
   g "datetime";
   g "decelerate";
   g "default";
@@ -98,6 +100,7 @@ let () =
   g "keypad";
   g "large";
   g "last";
+  g "last_day_of_month";
   g "last_window_closed";
   g "left";
   g "limit";
@@ -116,6 +119,7 @@ let () =
   g "mixed";
   g "momentum";
   g "month";
+  g "monthly";
   g "motocar";
   g "mouse_down";
   g "mouse_up";
@@ -209,12 +213,14 @@ let () =
   g "transparent";
   g "tree";
   g "undefined";
+  g "unique";
   g "unknown";
   g "unknown_format";
   g "up";
   g "url";
   g "utility";
   g "vertical";
+  g "weekly";
   g "windows_del";
   g "word";
   g "x";
