@@ -17,6 +17,7 @@ let () =
   g "auto";
   g "auto_fill";
   g "auto_fit";
+  g "auto_fit_in";
   g "automatic";
   g "basic";
   g "bicycle";
