@@ -102,3 +102,10 @@ PREFIX value ml_elm_video_remember_position_get(value v_obj)
         return Val_bool(elm_video_remember_position_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_video_title_get(value v_obj)
+{
+        const char* s = elm_video_title_get((Evas_Object*) v_obj);
+        if(s == NULL) caml_failwith("elm_video_title_get");
+        return copy_string(s);
+}
+

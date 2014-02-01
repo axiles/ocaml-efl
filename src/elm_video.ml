@@ -40,3 +40,5 @@ external remember_position_set : Evas.obj -> bool -> unit =
 external remember_position_get : Evas.obj -> bool =
   "ml_elm_video_remember_position_get"
 
+external title_get : Evas.obj -> string = "ml_elm_video_title_get"
+

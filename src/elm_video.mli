@@ -34,3 +34,5 @@ val remember_position_set : Evas.obj -> bool -> unit
 
 val remember_position_get : Evas.obj -> bool
 
+val title_get : Evas.obj -> string
+
