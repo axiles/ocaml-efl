@@ -208,3 +208,7 @@ type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
 
 type 'a tooltip_item_content_cb = Evas.obj -> Evas.obj -> 'a -> Evas.obj option
 
+(* Video *)
+
+external player_add : Evas.obj -> Evas.obj = "ml_elm_player_add"
+

@@ -205,3 +205,7 @@ type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
 
 type 'a tooltip_item_content_cb = Evas.obj -> Evas.obj -> 'a -> Evas.obj option
 
+(** {2 Video} *)
+
+val player_add : Evas.obj -> Evas.obj
+
