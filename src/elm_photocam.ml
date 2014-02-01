@@ -16,3 +16,6 @@ external zoom_mode_set : Evas.obj -> zoom_mode -> unit =
 
 external zoom_mode_get : Evas.obj -> zoom_mode = "ml_elm_photocam_zoom_mode_get"
 
+external image_size_get : Evas.obj -> int * int =
+  "ml_elm_photocam_image_size_get"
+
