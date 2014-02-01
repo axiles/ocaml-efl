@@ -16,3 +16,9 @@ val zoom_mode_get : Evas.obj -> zoom_mode
 
 val image_size_get : Evas.obj -> int * int
 
+val image_region_get : Evas.obj -> int * int * int * int
+
+val image_region_show : Evas.obj -> int -> int -> int -> int -> unit
+
+val image_region_bring_in : Evas.obj -> int -> int -> int -> int -> unit
+

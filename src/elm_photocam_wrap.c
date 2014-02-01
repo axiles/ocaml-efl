@@ -73,11 +73,39 @@ PREFIX value ml_elm_photocam_zoom_mode_get(value v_obj)
 
 PREFIX value ml_elm_photocam_image_size_get(value v_obj)
 {
-        Evas_Coord w, h;
+        int w, h;
         elm_photocam_image_size_get((Evas_Object*) v_obj, &w, &h);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(w));
         Store_field(v_r, 1, Val_int(h));
         return v_r;
+}
+
+PREFIX value ml_elm_photocam_image_region_get(value v_obj)
+{
+        int x, y, w, h;
+        elm_photocam_image_region_get((Evas_Object*) v_obj, &x, &y, &w, &h);
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        Store_field(v, 2, Val_int(w));
+        Store_field(v, 3, Val_int(h));
+        return v;
+}
+
+PREFIX value ml_elm_photocam_image_region_show(
+        value v_obj, value v_x, value v_y, value v_w, value v_h)
+{
+        elm_photocam_image_region_show((Evas_Object*) v_obj, Int_val(v_x),
+                Int_val(v_y), Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_photocam_image_region_bring_in(
+        value v_obj, value v_x, value v_y, value v_w, value v_h)
+{
+        elm_photocam_image_region_bring_in((Evas_Object*) v_obj, Int_val(v_x),
+                Int_val(v_y), Int_val(v_w), Int_val(v_h));
+        return Val_unit;
 }
 
