@@ -108,6 +108,7 @@ The following widgets and containers are almost fully implemented:
 * segment controls
 * slideshows
 * photocams
+* videos
 
 It is already possible to write some small GUI applications with these widgets.
 However, ocaml-efl is still in alpha stage and some API may break.

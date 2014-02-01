@@ -58,6 +58,7 @@ val expanded : Elm_object.item v
 val expand_request : Elm_object.item v
 val file_chosen : (string option) v
 val focused : u
+val forward_clicked : u
 val frame_created : Evas.obj v
 val fullscreen : u
 val generate_error : u
@@ -74,6 +75,7 @@ val image_deleted : u
 val image_resized : u
 val index_update : u
 val indicator_prop_changed : u
+val info_clicked : u
 val inputmethod_changed : bool v
 val ioerr : u
 val js_windowobject_clear : u
@@ -110,9 +112,13 @@ val multi_pinch_out : u
 val name_load : u
 val name_loaded : u
 val name_loaded_fail : u
+val next_clicked : u
 val normal : u
 val overflowed : u
 val overlay_clicked : u
+val pause_clicked : u
+val play_clicked : u
+val prev_clicked : u
 val popup_created : Elm_web.menu v
 val popup_willdelete : Elm_web.menu v
 val pos_changed : (string option) v
@@ -125,6 +131,7 @@ val ready : u
 val realized : Elm_object.item v
 val repeated : u
 val released : Elm_object.item v
+val rewind_clicked : u
 val rotation_changed : u
 val route_load : u
 val route_loaded : u
@@ -160,6 +167,7 @@ val statusbar_text_set : string v
 val statusbar_visible_get : bool r
 val statusbar_visible_set : bool v
 val stick : u
+val stop_clicked : u
 val swipe : u
 val text_set_done : u
 val theme_changed : u
