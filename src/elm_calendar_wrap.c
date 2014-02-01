@@ -1,5 +1,30 @@
 #include "include.h"
 
+PREFIX inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
+{
+        switch(v_m) {
+                case Val_default: return ELM_CALENDAR_SELECT_MODE_DEFAULT;
+                case Val_always: return ELM_CALENDAR_SELECT_MODE_ALWAYS;
+                case Val_none: return ELM_CALENDAR_SELECT_MODE_NONE;
+                case Val_ondemand: return ELM_CALENDAR_SELECT_MODE_ONDEMAND;
+		default: break;
+        }
+        caml_failwith("Elm_Calendar_Select_Mode_val");
+        return ELM_CALENDAR_SELECT_MODE_DEFAULT;
+}
+
+PREFIX inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
+{
+        switch(m) {
+                case ELM_CALENDAR_SELECT_MODE_DEFAULT: return Val_default;
+                case ELM_CALENDAR_SELECT_MODE_ALWAYS: return Val_always;
+                case ELM_CALENDAR_SELECT_MODE_NONE: return Val_none;
+                case ELM_CALENDAR_SELECT_MODE_ONDEMAND: return Val_ondemand;
+        }
+        caml_failwith("Val_Elm_Calendar_Select_Mode");
+        return Val_default;
+}
+
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
@@ -49,5 +74,18 @@ PREFIX value ml_elm_calendar_min_max_year_get(value v_obj)
         Store_field(v_r, 0, Val_int(min));
         Store_field(v_r, 1, Val_int(max));
         return v_r;
+}
+
+PREFIX value ml_elm_calendar_select_mode_set(value v_obj, value v_mode)
+{
+        elm_calendar_select_mode_set((Evas_Object*) v_obj,
+                Elm_Calendar_Select_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_select_mode_get(value v_obj)
+{
+        return Val_Elm_Calendar_Select_Mode(elm_calendar_select_mode_get(
+                (Evas_Object*) v_obj));
 }
 

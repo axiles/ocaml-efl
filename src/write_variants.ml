@@ -140,6 +140,7 @@ let () =
   g "numeric";
   g "off";
   g "on";
+  g "ondemand";
   g "opacity_unknown";
   g "opaque";
   g "option";
