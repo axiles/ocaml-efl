@@ -42,3 +42,8 @@ external marks_get : Evas.obj -> mark list = "ml_elm_calendar_marks_get"
 
 external marks_draw : Evas.obj -> unit = "ml_elm_calendar_marks_draw"
 
+external interval_set : Evas.obj -> float -> unit =
+  "ml_elm_calendar_interval_set"
+
+external interval_get : Evas.obj -> float = "ml_elm_calendar_interval_get"
+

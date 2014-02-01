@@ -208,3 +208,14 @@ PREFIX value ml_elm_calendar_marks_draw(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_calendar_interval_set(value v_obj, value v_x)
+{
+        elm_calendar_interval_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_interval_get(value v_obj)
+{
+        return copy_double(elm_calendar_interval_get((Evas_Object*) v_obj));
+}
+

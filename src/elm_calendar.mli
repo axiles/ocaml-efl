@@ -33,3 +33,7 @@ val marks_get : Evas.obj -> mark list
 
 val marks_draw : Evas.obj -> unit
 
+val interval_set : Evas.obj -> float -> unit
+
+val interval_get : Evas.obj -> float
+
