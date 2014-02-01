@@ -25,6 +25,36 @@ PREFIX inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
         return Val_default;
 }
 
+PREFIX inline struct tm Tm_val(value v)
+{
+        struct tm t;
+        t.tm_sec = Int_val(Field(v, 0));
+        t.tm_min = Int_val(Field(v, 1));
+        t.tm_hour = Int_val(Field(v, 2));
+        t.tm_mday = Int_val(Field(v, 3));
+        t.tm_mon = Int_val(Field(v, 4));
+        t.tm_year = Int_val(Field(v, 5));
+        t.tm_wday = Int_val(Field(v, 6));
+        t.tm_yday = Int_val(Field(v, 7));
+        t.tm_isdst = Bool_val(Field(v, 8));
+        return t;
+}
+
+PREFIX inline value copy_tm(struct tm t)
+{
+        value v = caml_alloc(9, 0);
+        Store_field(v, 0, Val_int(t.tm_sec));
+        Store_field(v, 1, Val_int(t.tm_min));
+        Store_field(v, 2, Val_int(t.tm_hour));
+        Store_field(v, 3, Val_int(t.tm_mday));
+        Store_field(v, 4, Val_int(t.tm_mon));
+        Store_field(v, 5, Val_int(t.tm_year));
+        Store_field(v, 6, Val_int(t.tm_wday));
+        Store_field(v, 7, Val_int(t.tm_yday));
+        Store_field(v, 8, Val_bool(t.tm_isdst));
+        return v;
+}
+
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
@@ -87,5 +117,26 @@ PREFIX value ml_elm_calendar_select_mode_get(value v_obj)
 {
         return Val_Elm_Calendar_Select_Mode(elm_calendar_select_mode_get(
                 (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_calendar_selected_time_set(value v_obj, value v_t)
+{
+        struct tm t = Tm_val(v_t);
+        elm_calendar_selected_time_set((Evas_Object*) v_obj, &t);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_selected_time_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_t);
+        struct tm t;
+        Eina_Bool flag = elm_calendar_selected_time_get((Evas_Object*) v_obj,
+                &t);
+        if(flag) {
+                v_t = caml_alloc(1, 0);
+                Store_field(v_t, 0, copy_tm(t));
+        } else v_t = Val_int(0);
+        CAMLreturn(v_t);
 }
 

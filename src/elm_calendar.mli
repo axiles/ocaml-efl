@@ -14,3 +14,7 @@ val select_mode_set : Evas.obj -> select_mode -> unit
 
 val select_mode_get : Evas.obj -> select_mode
 
+val selected_time_set : Evas.obj -> Unix.tm -> unit
+
+val selected_time_get : Evas.obj -> Unix.tm option
+

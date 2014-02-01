@@ -20,3 +20,9 @@ external select_mode_set : Evas.obj -> select_mode -> unit =
 external select_mode_get : Evas.obj -> select_mode =
   "ml_elm_calendar_select_mode_get"
 
+external selected_time_set : Evas.obj -> Unix.tm -> unit =
+  "ml_elm_calendar_selected_time_set"
+
+external selected_time_get : Evas.obj -> Unix.tm option =
+  "ml_elm_calendar_selected_time_get"
+
