@@ -64,3 +64,30 @@ PREFIX value ml_elm_video_audio_mute_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_video_audio_level_get(value v_obj)
+{
+        return copy_double(elm_video_audio_level_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_video_audio_level_set(value v_obj, value v_x)
+{
+        elm_video_audio_level_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_video_play_position_get(value v_obj)
+{
+        return copy_double(elm_video_play_position_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_video_play_position_set(value v_obj, value v_x)
+{
+        elm_video_play_position_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_video_play_length_get(value v_obj)
+{
+        return copy_double(elm_video_play_length_get((Evas_Object*) v_obj));
+}
+

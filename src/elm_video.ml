@@ -21,3 +21,16 @@ external audio_mute_get : Evas.obj -> bool = "ml_elm_video_audio_mute_get"
 external audio_mute_set : Evas.obj -> bool -> unit =
   "ml_elm_video_audio_mute_set"
 
+external audio_level_get : Evas.obj -> float = "ml_elm_video_audio_level_get"
+
+external audio_level_set : Evas.obj -> float -> unit =
+  "ml_elm_video_audio_level_get"
+
+external play_position_get : Evas.obj -> float =
+  "ml_elm_video_play_position_get"
+
+external play_position_set : Evas.obj -> float -> unit =
+  "ml_elm_video_play_position_get"
+
+external play_length_get : Evas.obj -> float = "ml_elm_video_play_length_get"
+
