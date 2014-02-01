@@ -38,3 +38,7 @@ external mark_del : mark -> unit = "ml_elm_calendar_mark_del"
 
 external marks_clear : Evas.obj -> unit = "ml_elm_calendar_marks_clear"
 
+external marks_get : Evas.obj -> mark list = "ml_elm_calendar_marks_get"
+
+external marks_draw : Evas.obj -> unit = "ml_elm_calendar_marks_draw"
+

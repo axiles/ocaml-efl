@@ -72,6 +72,22 @@ PREFIX inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
         return ELM_CALENDAR_UNIQUE;
 }
 
+PREFIX inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal2(v, v1);
+        Eina_List* it;
+        Elm_Calendar_Mark* mark;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, mark) {
+                v1 = v;
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, (value) mark);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
@@ -177,6 +193,18 @@ PREFIX value ml_elm_calendar_mark_del(value v_m)
 PREFIX value ml_elm_calendar_marks_clear(value v_obj)
 {
         elm_calendar_marks_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_marks_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Calendar_Mark(elm_calendar_marks_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_calendar_marks_draw(value v_obj)
+{
+        elm_calendar_marks_draw((Evas_Object*) v_obj);
         return Val_unit;
 }
 

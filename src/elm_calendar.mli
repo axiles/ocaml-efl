@@ -29,3 +29,7 @@ val mark_del : mark -> unit
 
 val marks_clear : Evas.obj -> unit
 
+val marks_get : Evas.obj -> mark list
+
+val marks_draw : Evas.obj -> unit
+
