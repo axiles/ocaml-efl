@@ -45,6 +45,9 @@ external selectable_set : Evas.obj -> selectable list -> unit =
 external selectable_get : Evas.obj -> selectable_ =
   "ml_elm_calendar_selectable_get"
 
+external displayed_time_get : Evas.obj -> Unix.tm option =
+  "ml_elm_calendar_displayed_time_get"
+
 external selected_time_set : Evas.obj -> Unix.tm -> unit =
   "ml_elm_calendar_selected_time_set"
 

@@ -35,6 +35,7 @@ val cursor_changed_manual : u
 val delay_changed : u
 val delay_changed__item : Elm_object.item v
 val delete_request : u
+val display_changed : u
 val directory_open : string v
 val dismissed : u
 val _done : (string option) v

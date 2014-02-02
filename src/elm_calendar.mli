@@ -41,6 +41,8 @@ val selectable_set : Evas.obj -> selectable list -> unit
 
 val selectable_get : Evas.obj -> selectable_
 
+val displayed_time_get : Evas.obj -> Unix.tm option
+
 val mark_add : Evas.obj -> string -> Unix.tm -> mark_repeat_type -> mark
 
 val mark_del : mark -> unit
