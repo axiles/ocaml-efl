@@ -105,3 +105,15 @@ PREFIX value ml_elm_colorselector_palette_clear(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_colorselector_palette_name_set(value v_obj, value v_s)
+{
+        elm_colorselector_palette_name_set((Evas_Object*) v_obj,
+                String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_colorselector_palette_name_get(value v_obj)
+{
+        return copy_string(elm_colorselector_palette_name_get((Evas_Object*) v_obj));
+}
+
