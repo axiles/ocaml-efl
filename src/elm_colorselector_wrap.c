@@ -68,3 +68,24 @@ PREFIX value ml_elm_colorselector_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_colorselector_palette_item_color_set(
+        value v_it, value v_r, value v_g, value v_b, value v_a)
+{
+        elm_colorselector_palette_item_color_set((Elm_Object_Item*) v_it,
+                Int_val(v_r), Int_val(v_g), Int_val(v_b), Int_val(v_a));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_colorselector_palette_item_color_get(value v_it)
+{
+        int r, g, b, a;
+        elm_colorselector_palette_item_color_get((Elm_Object_Item*) v_it, &r,
+                &g, &b, &a);
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        Store_field(v, 3, Val_int(a));
+        return v;
+}
+

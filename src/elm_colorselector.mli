@@ -10,3 +10,7 @@ val mode_set : Evas.obj -> mode -> unit
 
 val mode_get : Evas.obj -> mode
 
+val palette_item_color_get : Elm_object.item -> int * int * int * int
+
+val palette_item_color_set : Elm_object.item -> int -> int -> int -> int -> unit
+

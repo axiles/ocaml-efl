@@ -12,3 +12,10 @@ external mode_set : Evas.obj -> mode -> unit = "ml_elm_colorselector_mode_set"
 
 external mode_get : Evas.obj -> mode = "ml_elm_colorselector_mode_get"
 
+external palette_item_color_get : Elm_object.item -> int * int * int * int =
+  "ml_elm_colorselector_palette_item_color_get"
+
+external palette_item_color_set :
+  Elm_object.item -> int -> int -> int -> int -> unit =
+    "ml_elm_colorselector_palette_item_color_set"
+
