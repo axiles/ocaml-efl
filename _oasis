@@ -576,3 +576,9 @@ Executable photocam_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: photocam_example_01.ml
+Executable calendar_example_01
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: calendar_example_01.ml
