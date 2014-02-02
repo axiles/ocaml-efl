@@ -90,7 +90,8 @@ Library efl
     Elm_slideshow,
     Elm_photocam,
     Elm_video,
-    Elm_calendar
+    Elm_calendar,
+    Elm_colorselector
   CSources:
     include.h,
     eina_wrap.c,
@@ -172,7 +173,8 @@ Library efl
     elm_slideshow_wrap.c,
     elm_photocam_wrap.c,
     elm_video_wrap.c,
-    elm_calendar_wrap.c
+    elm_calendar_wrap.c,
+    elm_colorselector_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api
