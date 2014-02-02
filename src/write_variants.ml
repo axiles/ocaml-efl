@@ -36,6 +36,7 @@ let () =
   f "Val_class" "_class";
   g "close";
   g "combo";
+  g "components";
   g "compress";
   g "config";
   g "content";
@@ -159,10 +160,12 @@ let () =
   g "page_left";
   g "page_right";
   g "page_up";
+  g "palette";
   g "password";
   g "permission_denied";
   g "phone_number";
   g "phonenumber";
+  g "picker";
   g "pin";
   g "plain_utf8";
   g "plaintext";
