@@ -15,6 +15,10 @@ type weekday = [
   | `saturday
   | `last]
 
+type selectable = [`year | `month | `day]
+
+type selectable_ = {year : bool; month : bool; day : bool}
+
 external add : Evas.obj -> Evas.obj = "ml_elm_calendar_add"
 
 external weekdays_names_get : Evas.obj -> string array =
@@ -34,6 +38,12 @@ external select_mode_set : Evas.obj -> select_mode -> unit =
 
 external select_mode_get : Evas.obj -> select_mode =
   "ml_elm_calendar_select_mode_get"
+
+external selectable_set : Evas.obj -> selectable list -> unit =
+  "ml_elm_calendar_selectable_set"
+
+external selectable_get : Evas.obj -> selectable_ =
+  "ml_elm_calendar_selectable_get"
 
 external selected_time_set : Evas.obj -> Unix.tm -> unit =
   "ml_elm_calendar_selected_time_set"

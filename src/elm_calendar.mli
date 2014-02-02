@@ -15,6 +15,10 @@ type weekday = [
   | `saturday
   | `last]
 
+type selectable = [`year | `month | `day]
+
+type selectable_ = {year : bool; month : bool; day : bool}
+
 val add : Evas.obj -> Evas.obj
 
 val weekdays_names_get : Evas.obj -> string array
@@ -32,6 +36,10 @@ val select_mode_get : Evas.obj -> select_mode
 val selected_time_set : Evas.obj -> Unix.tm -> unit
 
 val selected_time_get : Evas.obj -> Unix.tm option
+
+val selectable_set : Evas.obj -> selectable list -> unit
+
+val selectable_get : Evas.obj -> selectable_
 
 val mark_add : Evas.obj -> string -> Unix.tm -> mark_repeat_type -> mark
 

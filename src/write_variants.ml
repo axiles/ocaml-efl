@@ -48,6 +48,7 @@ let () =
   g "cube_up";
   g "daily";
   g "datetime";
+  g "day";
   g "decelerate";
   g "default";
   g "desktop";
@@ -232,5 +233,6 @@ let () =
   g "word";
   g "x";
   g "y";
+  g "year";
   g "zoom";
   flush stdout

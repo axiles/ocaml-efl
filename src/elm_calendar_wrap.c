@@ -121,6 +121,38 @@ PREFIX inline value Val_Elm_Calendar_Weekday(Elm_Calendar_Weekday d)
         return Val_monday;
 }
 
+PREFIX inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val(value v)
+{
+        switch(v) {
+                case Val_year: return ELM_CALENDAR_SELECTABLE_YEAR;
+                case Val_month: return ELM_CALENDAR_SELECTABLE_MONTH;
+                case Val_day: return ELM_CALENDAR_SELECTABLE_DAY;
+                default: break;
+        }
+        caml_failwith("Elm_Calendar_Selectable_val");
+        return ELM_CALENDAR_SELECTABLE_YEAR;
+}
+
+PREFIX inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
+{
+        value v_tmp = v;
+        Elm_Calendar_Selectable s = ELM_CALENDAR_SELECTABLE_NONE;
+        while(v_tmp != Val_int(0)) {
+                s = s | Elm_Calendar_Selectable_val(Field(v_tmp, 0));
+                v_tmp = Field(v_tmp, 1);
+        }
+        return s;
+}
+
+PREFIX inline value copy_Elm_Calendar_Selectable(Elm_Calendar_Selectable s)
+{
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_bool(s & ELM_CALENDAR_SELECTABLE_YEAR));
+        Store_field(v, 1, Val_bool(s & ELM_CALENDAR_SELECTABLE_MONTH));
+        Store_field(v, 2, Val_bool(s & ELM_CALENDAR_SELECTABLE_DAY));
+        return v;
+}
+
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
@@ -182,6 +214,19 @@ PREFIX value ml_elm_calendar_select_mode_set(value v_obj, value v_mode)
 PREFIX value ml_elm_calendar_select_mode_get(value v_obj)
 {
         return Val_Elm_Calendar_Select_Mode(elm_calendar_select_mode_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_calendar_selectable_set(value v_obj, value v_s)
+{
+        elm_calendar_selectable_set((Evas_Object*) v_obj,
+                Elm_Calendar_Selectable_val_list(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_selectable_get(value v_obj)
+{
+        return copy_Elm_Calendar_Selectable(elm_calendar_selectable_get(
                 (Evas_Object*) v_obj));
 }
 
