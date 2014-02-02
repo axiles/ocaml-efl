@@ -19,3 +19,9 @@ external palette_item_color_set :
   Elm_object.item -> int -> int -> int -> int -> unit =
     "ml_elm_colorselector_palette_item_color_set"
 
+external palette_color_add :
+  Evas.obj -> int -> int -> int -> int -> Elm_object.item =
+    "ml_elm_colorselector_palette_color_add"
+
+external palette_clear : Evas.obj -> unit = "ml_elm_colorselector_palette_clear"
+

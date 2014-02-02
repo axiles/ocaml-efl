@@ -89,3 +89,19 @@ PREFIX value ml_elm_colorselector_palette_item_color_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_colorselector_palette_color_add(
+        value v_obj, value v_r, value v_g, value v_b, value v_a)
+{
+        Elm_Object_Item* it = elm_colorselector_palette_color_add(
+                (Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g), Int_val(v_b),
+                Int_val(v_a));
+        if(it == NULL) caml_failwith("elm_colorselector_palette_color_add");
+        return (value) it;
+}
+
+PREFIX value ml_elm_colorselector_palette_clear(value v_obj)
+{
+        elm_colorselector_palette_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

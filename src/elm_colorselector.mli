@@ -14,3 +14,7 @@ val palette_item_color_get : Elm_object.item -> int * int * int * int
 
 val palette_item_color_set : Elm_object.item -> int -> int -> int -> int -> unit
 
+val palette_color_add : Evas.obj -> int -> int -> int -> int -> Elm_object.item
+
+val palette_clear : Evas.obj -> unit
+
