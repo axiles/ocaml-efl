@@ -28,8 +28,8 @@ val clicked_double__item : Elm_object.item v
 val clicked_triple : u
 val clipboard_state_off : u
 val clipboard_state_on : u
-val color_item_selected : u
-val color_item_longpressed : u
+val color_item_selected : Elm_object.item v
+val color_item_longpressed : Elm_object.item v
 val contracted : Elm_object.item v
 val contract_request : Elm_object.item v
 val cursor_changed : u

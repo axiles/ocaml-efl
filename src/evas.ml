@@ -114,3 +114,6 @@ external obj_of_ptr : ptr -> obj = "ml_obj_of_ptr"
 
 external float_of_ptr : ptr -> float = "ml_float_of_ptr"
 
+external color_argb_premul : int -> int -> int -> int -> int * int * int =
+  "ml_evas_color_argb_premul"
+

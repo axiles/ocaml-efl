@@ -104,3 +104,5 @@ val obj_of_ptr : ptr -> obj
 
 val float_of_ptr : ptr -> float
 
+val color_argb_premul : int -> int -> int -> int -> int * int * int
+
