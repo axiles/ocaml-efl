@@ -90,6 +90,8 @@ let () =
   g "hide";
   g "horizontal";
   g "host";
+  g "hour_decimal";
+  g "hour_unit";
   g "ignore_aspect";
   f "Val_in" "_in";
   g "inlined_image";
@@ -119,6 +121,8 @@ let () =
   g "menu";
   g "menubar";
   g "middle";
+  g "min_decimal";
+  g "min_unit";
   g "mixed";
   g "momentum";
   g "monday";
@@ -186,6 +190,8 @@ let () =
   g "rotate_y_center_axis";
   g "route";
   g "saturday";
+  g "sec_decimal";
+  g "sec_unit";
   g "scale";
   g "scroll";
   g "scrollbars";
