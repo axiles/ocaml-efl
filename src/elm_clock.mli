@@ -41,3 +41,7 @@ val show_seconds_set : Evas.obj -> bool -> unit
 
 val show_seconds_get : Evas.obj -> bool
 
+val first_interval_set : Evas.obj -> float -> unit
+
+val first_interval_get : Evas.obj -> float
+

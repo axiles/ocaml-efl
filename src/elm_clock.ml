@@ -47,3 +47,9 @@ external show_seconds_set : Evas.obj -> bool -> unit =
 external show_seconds_get : Evas.obj -> bool =
   "ml_elm_clock_show_seconds_get"
 
+external first_interval_set : Evas.obj -> float -> unit =
+  "ml_elm_clock_first_interval_set"
+
+external first_interval_get : Evas.obj -> float =
+  "ml_elm_clock_first_interval_get"
+
