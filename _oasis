@@ -590,3 +590,9 @@ Executable colorselector_example_01
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: colorselector_example_01.ml
+Executable clock_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: clock_example.ml
