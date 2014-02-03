@@ -7,3 +7,21 @@ PREFIX value ml_elm_clock_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_clock_time_set(value v_obj, value v_h, value v_m, value v_s)
+{
+        elm_clock_time_set((Evas_Object*) v_obj, Int_val(v_h), Int_val(v_m),
+                Int_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_clock_time_get(value v_obj)
+{
+        int h, m, s;
+        elm_clock_time_get((Evas_Object*) v_obj, &h, &m, &s);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(h));
+        Store_field(v, 1, Val_int(m));
+        Store_field(v, 2, Val_int(s));
+        return v;
+}
+
