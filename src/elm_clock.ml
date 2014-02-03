@@ -35,3 +35,15 @@ external edit_mode_set : Evas.obj -> edit_mode list -> unit =
 
 external edit_mode_get : Evas.obj -> edit_mode_ = "ml_elm_clock_edit_mode_get"
 
+external show_am_pm_set : Evas.obj -> bool -> unit =
+  "ml_elm_clock_show_am_pm_set"
+
+external show_am_pm_get : Evas.obj -> bool =
+  "ml_elm_clock_show_am_pm_get"
+
+external show_seconds_set : Evas.obj -> bool -> unit =
+  "ml_elm_clock_show_seconds_set"
+
+external show_seconds_get : Evas.obj -> bool =
+  "ml_elm_clock_show_seconds_get"
+

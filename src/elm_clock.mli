@@ -33,3 +33,11 @@ val edit_mode_set : Evas.obj -> edit_mode list -> unit
 
 val edit_mode_get : Evas.obj -> edit_mode_
 
+val show_am_pm_set : Evas.obj -> bool -> unit
+
+val show_am_pm_get : Evas.obj -> bool
+
+val show_seconds_set : Evas.obj -> bool -> unit
+
+val show_seconds_get : Evas.obj -> bool
+
