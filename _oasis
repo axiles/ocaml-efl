@@ -598,3 +598,9 @@ Executable clock_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: clock_example.ml
+Executable datetime_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: datetime_example.ml
