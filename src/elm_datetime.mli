@@ -22,3 +22,7 @@ val value_get : Evas.obj -> Unix.tm option
 
 val value_set : Evas.obj -> Unix.tm -> bool
 
+val field_visible_get : Evas.obj -> field_type -> bool
+
+val field_visible_set : Evas.obj -> field_type -> bool -> unit
+

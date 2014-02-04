@@ -28,3 +28,9 @@ external value_get : Evas.obj -> Unix.tm option = "ml_elm_datetime_value_get"
 
 external value_set : Evas.obj -> Unix.tm -> bool = "ml_elm_datetime_value_set"
 
+external field_visible_get : Evas.obj -> field_type -> bool =
+  "ml_elm_datetime_field_visible_get"
+
+external field_visible_set : Evas.obj -> field_type -> bool -> unit =
+  "ml_elm_datetime_field_visible_set"
+
