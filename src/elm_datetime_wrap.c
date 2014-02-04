@@ -7,3 +7,14 @@ PREFIX value ml_elm_datetime_add(value v_parent)
         return (value) datetime;
 }
 
+PREFIX value ml_elm_datetime_format_set(value v_obj, value v_s)
+{
+        elm_datetime_format_set((Evas_Object*) v_obj, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_datetime_format_get(value v_obj)
+{
+        return copy_string(elm_datetime_format_get((Evas_Object*) v_obj));
+}
+
