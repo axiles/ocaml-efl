@@ -14,6 +14,7 @@ let () =
   g "alpha";
   g "alphabet";
   g "always";
+  g "ampm";
   g "annually";
   g "auto";
   g "auto_fill";
@@ -48,6 +49,7 @@ let () =
   g "cube_right";
   g "cube_up";
   g "daily";
+  g "date";
   g "datetime";
   g "day";
   g "decelerate";
@@ -90,6 +92,7 @@ let () =
   g "hide";
   g "horizontal";
   g "host";
+  g "hour";
   g "hour_decimal";
   g "hour_unit";
   g "ignore_aspect";
@@ -123,6 +126,7 @@ let () =
   g "middle";
   g "min_decimal";
   g "min_unit";
+  g "minute";
   g "mixed";
   g "momentum";
   g "monday";
