@@ -22,15 +22,53 @@ PREFIX value ml_elm_datetime_add(value v_parent)
         return (value) datetime;
 }
 
+PREFIX value ml_elm_datetime_format_get(value v_obj)
+{
+        return copy_string(elm_datetime_format_get((Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_datetime_format_set(value v_obj, value v_s)
 {
         elm_datetime_format_set((Evas_Object*) v_obj, String_val(v_s));
         return Val_unit;
 }
 
-PREFIX value ml_elm_datetime_format_get(value v_obj)
+PREFIX value ml_elm_datetime_value_max_get(value v_obj)
 {
-        return copy_string(elm_datetime_format_get((Evas_Object*) v_obj));
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_t);
+        struct tm t;
+        Eina_Bool flag = elm_datetime_value_max_get((Evas_Object*) v_obj, &t);
+        if(flag) {
+                v_t = caml_alloc(1, 0);
+                Store_field(v_t, 0, copy_tm(t));
+        } else v_t = Val_int(0);
+        CAMLreturn(v_t);
+}
+
+PREFIX value ml_elm_datetime_value_max_set(value v_obj, value v_t)
+{
+        struct tm t = Tm_val(v_t);
+        return Val_bool(elm_datetime_value_max_set((Evas_Object*) v_obj, &t));
+}
+
+PREFIX value ml_elm_datetime_value_min_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_t);
+        struct tm t;
+        Eina_Bool flag = elm_datetime_value_min_get((Evas_Object*) v_obj, &t);
+        if(flag) {
+                v_t = caml_alloc(1, 0);
+                Store_field(v_t, 0, copy_tm(t));
+        } else v_t = Val_int(0);
+        CAMLreturn(v_t);
+}
+
+PREFIX value ml_elm_datetime_value_min_set(value v_obj, value v_t)
+{
+        struct tm t = Tm_val(v_t);
+        return Val_bool(elm_datetime_value_min_set((Evas_Object*) v_obj, &t));
 }
 
 PREFIX value ml_elm_datetime_field_limit_get(value v_obj, value v_t)
@@ -51,5 +89,24 @@ PREFIX value ml_elm_datetime_field_limit_set(
                 Elm_Datetime_Field_Type_val(v_t), Int_val(v_min),
                 Int_val(v_max));
         return Val_unit;
+}
+
+PREFIX value ml_elm_datetime_value_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_t);
+        struct tm t;
+        Eina_Bool flag = elm_datetime_value_get((Evas_Object*) v_obj, &t);
+        if(flag) {
+                v_t = caml_alloc(1, 0);
+                Store_field(v_t, 0, copy_tm(t));
+        } else v_t = Val_int(0);
+        CAMLreturn(v_t);
+}
+
+PREFIX value ml_elm_datetime_value_set(value v_obj, value v_t)
+{
+        struct tm t = Tm_val(v_t);
+        return Val_bool(elm_datetime_value_set((Evas_Object*) v_obj, &t));
 }
 

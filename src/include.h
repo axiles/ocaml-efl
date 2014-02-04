@@ -22,6 +22,11 @@
 
 #define PREFIX CAMLprim EAPI
 
+/* General functions */
+
+PREFIX inline struct tm Tm_val(value v);
+PREFIX inline value copy_tm(struct tm t);
+
 /* Local headers */
 
 #include "variants.h"
