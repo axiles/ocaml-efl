@@ -14,3 +14,7 @@ val weekend_start_set : Evas.obj -> day -> unit
 
 val weekend_start_get : Evas.obj -> day
 
+val weekend_length_set : Evas.obj -> int -> unit
+
+val weekend_length_get : Evas.obj -> int
+
