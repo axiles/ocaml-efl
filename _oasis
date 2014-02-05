@@ -606,3 +606,9 @@ Executable datetime_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: datetime_example.ml
+Executable dayselector_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: dayselector_example.ml
