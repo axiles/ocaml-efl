@@ -89,6 +89,8 @@ module Event_type = struct
   let get_cb et f = et.make_cb f
 end 
 
+type gl_api
+
 let hint_expand = 1.
 
 let hint_fill = -1.

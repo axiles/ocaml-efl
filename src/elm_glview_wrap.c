@@ -23,3 +23,8 @@ PREFIX value ml_elm_glview_size_get(value v_obj)
         return v_r;
 }
 
+PREFIX value ml_elm_glview_gl_api_get(value v_obj)
+{
+        return (value) elm_glview_gl_api_get((Evas_Object*) v_obj);
+}
+

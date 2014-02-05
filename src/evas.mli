@@ -82,6 +82,8 @@ type load_error = [
   | `unknown_format
 ]
 
+type gl_api
+
 val hint_expand : float
 
 val hint_fill : float
