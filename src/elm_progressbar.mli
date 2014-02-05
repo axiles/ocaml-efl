@@ -1,4 +1,4 @@
-(** elm_progressbar_* *)
+(** Progress bar *)
 
 (** The following function will not be interfaced:
 

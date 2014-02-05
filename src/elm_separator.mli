@@ -1,4 +1,4 @@
-(** elm_separator_* *)
+(** Separator *)
 
 val add : Evas.obj -> Evas.obj
 

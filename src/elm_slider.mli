@@ -1,4 +1,4 @@
-(** elm_slider_* *)
+(** Slider *)
 
 val add : Evas.obj -> Evas.obj
 

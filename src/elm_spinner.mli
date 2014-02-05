@@ -1,4 +1,4 @@
-(** elm_spinner_* *)
+(** Spinner *)
 
 val add : Evas.obj -> Evas.obj
 

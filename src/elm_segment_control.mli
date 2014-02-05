@@ -1,3 +1,5 @@
+(** SegmentControl *)
+
 val add : Evas.obj -> Evas.obj
 
 val item_add :

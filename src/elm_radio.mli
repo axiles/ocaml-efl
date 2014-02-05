@@ -1,4 +1,4 @@
-(** elm_radio_* *)
+(** Radio *)
 
 (** The following function will not be interfaced:
 
