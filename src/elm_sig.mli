@@ -58,8 +58,9 @@ val edge_right : u
 val edge_top : u
 val editorclient_contents_changed : u
 val editorclient_selection_changed : u
-val expanded : Elm_object.item v
 val expand_request : Elm_object.item v
+val expand_state_changed : u
+val expanded : Elm_object.item v
 val file_chosen : (string option) v
 val focused : u
 val forward_clicked : u
@@ -82,6 +83,10 @@ val indicator_prop_changed : u
 val info_clicked : u
 val inputmethod_changed : bool v
 val ioerr : u
+val item_added : u
+val item_clicked : u
+val item_deleted : u
+val item_selected : u
 val js_windowobject_clear : u
 val language_changed : u
 val level_down : u
