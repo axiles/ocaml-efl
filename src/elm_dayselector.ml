@@ -1,2 +1,10 @@
+type day = [`sun | `mon | `tue | `wed | `thu | `fri | `sat | `max]
+
 external add : Evas.obj -> Evas.obj = "ml_elm_dayselector_add"
+
+external day_selected_set : Evas.obj -> day -> bool -> unit =
+  "ml_elm_dayselector_day_selected_set"
+
+external day_selected_get : Evas.obj -> day -> bool =
+  "ml_elm_dayselector_day_selected_get"
 
