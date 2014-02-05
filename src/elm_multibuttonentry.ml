@@ -17,3 +17,13 @@ external item_append :
   Evas.obj -> ?label:string -> ?func:Evas.smart_cb -> unit -> Elm_object.item =
     "ml_elm_multibuttonentry_item_append"
 
+external item_insert_before :
+  Evas.obj -> Elm_object.item -> ?label:string -> ?func:Evas.smart_cb -> unit ->
+    Elm_object.item =
+      "ml_elm_multibuttonentry_item_insert_before"
+
+external item_insert_after :
+  Evas.obj -> Elm_object.item -> ?label:string -> ?func:Evas.smart_cb -> unit ->
+    Elm_object.item =
+      "ml_elm_multibuttonentry_item_insert_after"
+
