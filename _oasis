@@ -93,7 +93,8 @@ Library efl
     Elm_calendar,
     Elm_colorselector,
     Elm_datetime,
-    Elm_dayselector
+    Elm_dayselector,
+    Elm_glview
   CSources:
     include.h,
     eina_wrap.c,
@@ -178,7 +179,8 @@ Library efl
     elm_calendar_wrap.c,
     elm_colorselector_wrap.c,
     elm_datetime_wrap.c,
-    elm_dayselector_wrap.c
+    elm_dayselector_wrap.c,
+    elm_glview_wrap.c
 Document efl_doc
   Type: ocamlbuild (0.3)
   InstallDir: $htmldir/api

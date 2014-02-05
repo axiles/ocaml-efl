@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 3f1f0d4e29528a4a6830c8f7d709ee73)
+# DO NOT EDIT (digest: 17ce157ba1e377d6233675ef9ac933db)
 eina_wrap.o
 evas_wrap.o
 ecore_wrap.o
@@ -72,4 +72,5 @@ elm_calendar_wrap.o
 elm_colorselector_wrap.o
 elm_datetime_wrap.o
 elm_dayselector_wrap.o
+elm_glview_wrap.o
 # OASIS_STOP
