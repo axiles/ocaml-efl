@@ -52,6 +52,8 @@ let contracted = create_item "contracted"
 let contract_request = create_item "contract,request"
 let cursor_changed = create_unit "cursor,changed"
 let cursor_changed_manual = create_unit "cursor,changed,manual"
+let dayselector_changed =
+  create "dayselector,changed" Elm_dayselector.day_of_ptr
 let delay_changed = create_unit "delay,changed"
 let delay_changed__item = create_item "delay,changed"
 let delete_request = create_unit "delete,request"

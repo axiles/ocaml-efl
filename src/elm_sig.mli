@@ -34,6 +34,7 @@ val contracted : Elm_object.item v
 val contract_request : Elm_object.item v
 val cursor_changed : u
 val cursor_changed_manual : u
+val dayselector_changed : Elm_dayselector.day v
 val delay_changed : u
 val delay_changed__item : Elm_object.item v
 val delete_request : u

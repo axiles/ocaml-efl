@@ -111,3 +111,9 @@ PREFIX value ml_elm_dayselector_weekdays_names_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_Elm_Dayselector_Day_of_ptr(value v_ptr)
+{
+        Elm_Dayselector_Day d = (Elm_Dayselector_Day) v_ptr;
+        return Val_Elm_Dayselector_Day(d);
+}
+

@@ -22,3 +22,5 @@ val weekdays_names_set : Evas.obj -> string array -> unit
 
 val weekdays_names_get : Evas.obj -> string list
 
+val day_of_ptr : Evas.ptr -> day
+

@@ -31,3 +31,5 @@ external weekdays_names_set : Evas.obj -> string array -> unit =
 external weekdays_names_get : Evas.obj -> string list =
   "ml_elm_dayselector_weekdays_names_get"
 
+external day_of_ptr : Evas.ptr -> day = "ml_Elm_Dayselector_Day_of_ptr"
+
