@@ -28,3 +28,5 @@ val resize_func_set : Evas.obj -> func_cb -> unit
 
 val render_func_set : Evas.obj -> func_cb -> unit
 
+val changed_set : Evas.obj -> unit
+

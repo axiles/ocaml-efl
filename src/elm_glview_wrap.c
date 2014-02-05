@@ -126,3 +126,9 @@ PREFIX value ml_elm_glview_render_policy_set(value v_obj, value v_p)
                 Elm_GLView_Render_Policy_val(v_p)));
 }
 
+PREFIX value ml_elm_glview_changed_set(value v_obj)
+{
+        elm_glview_changed_set((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

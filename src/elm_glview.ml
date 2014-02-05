@@ -64,3 +64,5 @@ let () = Callback.register "Elm_GLView_Func_Cb_render" render_func
 
 let render_func_set obj f = Hashtbl.replace ht_render obj f
 
+external changed_set : Evas.obj -> unit = "ml_elm_glview_changed_set"
+
