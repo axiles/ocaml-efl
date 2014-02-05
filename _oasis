@@ -74,6 +74,7 @@ Library efl
     Elm_panes,
     Elm_photo,
     Elm_photocam,
+    Elm_plug,
 
     Elm_scroller,
     Elm_win,
@@ -162,6 +163,7 @@ Library efl
     elm_panes_wrap.c,
     elm_photo_wrap.c,
     elm_photocam_wrap.c,
+    elm_plug_wrap.c,
 
     elm_scroller_wrap.c,
     elm_scroller_wrap.h,
