@@ -1,4 +1,4 @@
-(** elm_panel_* Elm_Panel_* *)
+(** Panel *)
 
 type orient = [`top | `bottom | `left | `right]
 

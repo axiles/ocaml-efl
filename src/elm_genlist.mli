@@ -1,4 +1,4 @@
-(** elm_genlist_* Elm_Genlist_* *)
+(** Genlist *)
 
 type item_class = Elm_gen.item_class = {
   item_style : string;

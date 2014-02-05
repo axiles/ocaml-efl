@@ -1,4 +1,4 @@
-(** elm_label_* *)
+(** Label *)
 
 val add : Evas.obj -> Evas.obj
 

@@ -1,4 +1,4 @@
-(** elm_flip_* *)
+(** Flip *)
 
 type mode = [
   | `rotate_y_center_axis

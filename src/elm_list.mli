@@ -1,4 +1,4 @@
-(** elm_list_* Elm_List_* *)
+(** List *)
 
 (** The following function is not interfaced:
 

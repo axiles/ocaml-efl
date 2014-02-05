@@ -1,4 +1,4 @@
-(** elm_entry_* Elm_Entry_*
+(** Entry
 
 Functions not interfaced yet:
 

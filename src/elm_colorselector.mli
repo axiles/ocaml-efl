@@ -1,3 +1,5 @@
+(** Colorselector *)
+
 type mode = [`palette | `components | `both | `picker | `all]
 
 val add : Evas.obj -> Evas.obj

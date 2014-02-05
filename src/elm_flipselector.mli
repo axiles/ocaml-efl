@@ -1,3 +1,5 @@
+(** Flip Selector *)
+
 val add : Evas.obj -> Evas.obj
 
 val flip_next : Evas.obj -> unit

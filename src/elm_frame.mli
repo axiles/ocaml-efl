@@ -1,4 +1,4 @@
-(** elm_frame_* *)
+(** Frame *)
 
 val add : Evas.obj -> Evas.obj
 

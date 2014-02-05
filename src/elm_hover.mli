@@ -1,4 +1,4 @@
-(** elm_hover_* *)
+(** Hover *)
 
 type axis = [`none | `horizontal | `vertical | `both]
 

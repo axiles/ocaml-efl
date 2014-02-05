@@ -1,3 +1,5 @@
+(** Photocam *)
+
 type zoom_mode = [`manual | `auto_fit | `auto_fill | `auto_fit_in | `last]
 
 type progress = {now : float; total : float}

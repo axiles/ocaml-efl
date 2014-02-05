@@ -1,4 +1,4 @@
-(** elm_font_* Elm_Font_* *)
+(** Elementary Fonts *)
 
 type overlay = {
   text_class : string;

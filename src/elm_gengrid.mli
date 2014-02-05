@@ -1,3 +1,5 @@
+(** Gengrid (Generic Grid) *)
+
 type item_class = Elm_gen.item_class = {
   item_style : string;
   func_text_get : Evas.obj -> string -> string;

@@ -1,4 +1,4 @@
-(** elm_panes_* *)
+(** Panes *)
 
 val add : Evas.obj -> Evas.obj
 

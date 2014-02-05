@@ -1,4 +1,4 @@
-(** elm_gesture_layer_* *)
+(** Gesture Layer *)
 
 val line_min_length_set : Evas.obj -> int -> unit
 

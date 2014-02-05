@@ -1,4 +1,4 @@
-(** elm_conformant_ *)
+(** Conformant *)
 
 val add : Evas.obj -> Evas.obj
 

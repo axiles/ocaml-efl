@@ -1,4 +1,4 @@
-(** elm_notify_* Elm_Notify_* *)
+(** Notify *)
 
 val add : Evas.obj -> Evas.obj
 

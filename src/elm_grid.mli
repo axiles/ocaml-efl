@@ -1,4 +1,4 @@
-(** elm_grid_* *)
+(** Grid *)
 
 val add : Evas.obj -> Evas.obj
 

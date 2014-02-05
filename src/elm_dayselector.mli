@@ -1,3 +1,5 @@
+(** Dayselector *)
+
 type day = [`sun | `mon | `tue | `wed | `thu | `fri | `sat | `max]
 
 val add : Evas.obj -> Evas.obj

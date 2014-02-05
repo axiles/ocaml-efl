@@ -1,4 +1,4 @@
-(** elm_menu_* *)
+(** Menu *)
 
 val add : Evas.obj -> Evas.obj
 

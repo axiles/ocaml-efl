@@ -1,3 +1,5 @@
+(** Index *)
+
 val add : Evas.obj -> Evas.obj
 
 val autohide_disabled_set : Evas.obj -> bool -> unit

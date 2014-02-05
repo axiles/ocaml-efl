@@ -1,3 +1,5 @@
+(** Map *)
+
 type overlay_type = [
   | `none
   | `default

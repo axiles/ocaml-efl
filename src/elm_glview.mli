@@ -1,3 +1,5 @@
+(** GLView *)
+
 type mode = [`none | `alpha | `depth | `stencil | `direct]
 
 type resize_policy = [`recreate | `scale]

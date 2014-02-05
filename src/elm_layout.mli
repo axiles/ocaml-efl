@@ -1,4 +1,4 @@
-(** elm_layout_* *)
+(** Layout *)
 
 val add : Evas.obj -> Evas.obj
 

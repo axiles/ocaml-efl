@@ -1,3 +1,5 @@
+(** Diskselector *)
+
 val add : Evas.obj -> Evas.obj
 
 val round_enabled_set : Evas.obj -> bool -> unit

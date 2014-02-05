@@ -1,4 +1,4 @@
-(** elm_image_* Elm_Image_* *)
+(** Image *)
 
 (** The following function is not implemented yet:
 

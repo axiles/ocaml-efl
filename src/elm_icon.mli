@@ -1,4 +1,4 @@
-(** elm_icon_* Elm_Icon_* *)
+(** Icon *)
 
 type ty = [`none | `file | `standard]
 
