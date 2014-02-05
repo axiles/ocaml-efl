@@ -22,3 +22,5 @@ val item_insert_after :
   Evas.obj -> Elm_object.item -> ?label:string -> ?func:Evas.smart_cb -> unit ->
     Elm_object.item
 
+val items_get : Evas.obj -> Elm_object.item list
+

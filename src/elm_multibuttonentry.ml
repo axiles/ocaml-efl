@@ -27,3 +27,6 @@ external item_insert_after :
     Elm_object.item =
       "ml_elm_multibuttonentry_item_insert_after"
 
+external items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_multibuttonentry_items_get"
+

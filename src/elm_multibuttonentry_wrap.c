@@ -144,3 +144,9 @@ PREFIX value ml_elm_multibuttonentry_item_insert_after(
         return (value) item;
 }
 
+PREFIX value ml_elm_multibuttonentry_items_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Object_Item(elm_multibuttonentry_items_get(
+                (Evas_Object*) v_obj));
+}
+
