@@ -47,11 +47,43 @@ PREFIX inline Elm_GLView_Render_Policy Elm_GLView_Render_Policy_val(value v)
         return ELM_GLVIEW_RENDER_POLICY_ON_DEMAND;
 }
 
+void ml_Elm_GLView_Func_Cb_init(Evas_Object* obj)
+{
+        static value* v_fun = NULL;
+        if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_init");
+        caml_callback(*v_fun, (value) obj);
+}
+
+void ml_Elm_GLView_Func_Cb_del(Evas_Object* obj)
+{
+        static value* v_fun = NULL;
+        if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_del");
+        caml_callback(*v_fun, (value) obj);
+}
+
+void ml_Elm_GLView_Func_Cb_resize(Evas_Object* obj)
+{
+        static value* v_fun = NULL;
+        if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_resize");
+        caml_callback(*v_fun, (value) obj);
+}
+
+void ml_Elm_GLView_Func_Cb_render(Evas_Object* obj)
+{
+        static value* v_fun = NULL;
+        if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_render");
+        caml_callback(*v_fun, (value) obj);
+}
+
 PREFIX value ml_elm_glview_add(value v_parent)
 {
-        Evas_Object* glview = elm_glview_add((Evas_Object*) v_parent);
-        if(glview == NULL) caml_failwith("elm_glview_add");
-        return (value) glview;
+        Evas_Object* obj = elm_glview_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_glview_add");
+        elm_glview_init_func_set(obj , ml_Elm_GLView_Func_Cb_init);
+        elm_glview_del_func_set(obj , ml_Elm_GLView_Func_Cb_del);
+        elm_glview_resize_func_set(obj , ml_Elm_GLView_Func_Cb_resize);
+        elm_glview_render_func_set(obj , ml_Elm_GLView_Func_Cb_render);
+        return (value) obj;
 }
 
 PREFIX value ml_elm_glview_size_set(value v_obj, value v_w, value v_h)
