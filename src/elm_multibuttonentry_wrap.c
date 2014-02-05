@@ -7,3 +7,9 @@ PREFIX value ml_elm_multibuttonentry_add(value v_parent)
         return (value) obj;
 }
 
+PREFIX value ml_elm_multibuttonentry_entry_get(value v_obj)
+{
+        return copy_Evas_Object_opt(elm_multibuttonentry_entry_get(
+                (Evas_Object*) v_obj));
+}
+
