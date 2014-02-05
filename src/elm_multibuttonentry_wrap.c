@@ -219,3 +219,16 @@ PREFIX value ml_elm_multibuttonentry_item_next_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_multibuttonentry_editable_set(value v_obj, value v_flag)
+{
+        elm_multibuttonentry_editable_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_multibuttonentry_editable_get(value v_obj)
+{
+        return Val_bool(elm_multibuttonentry_editable_get(
+                (Evas_Object*) v_obj));
+}
+

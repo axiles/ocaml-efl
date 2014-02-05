@@ -53,3 +53,9 @@ external item_prev_get : Elm_object.item -> Elm_object.item option =
 external item_next_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_multibuttonentry_item_next_get"
 
+external editable_set : Evas.obj -> bool -> unit =
+  "ml_elm_multibuttonentry_editable_set"
+
+external editable_get : Evas.obj -> bool =
+  "ml_elm_multibuttonentry_editable_get"
+

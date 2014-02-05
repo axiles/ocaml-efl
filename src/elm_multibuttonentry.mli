@@ -40,3 +40,7 @@ val item_prev_get : Elm_object.item -> Elm_object.item option
 
 val item_next_get : Elm_object.item -> Elm_object.item option
 
+val editable_set : Evas.obj -> bool -> unit
+
+val editable_get : Evas.obj -> bool
+
