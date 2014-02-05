@@ -33,6 +33,7 @@ Library efl
     Elm_fileselector_button,
     Elm_fileselector_entry,
     Elm_hoversel,
+    Elm_multibuttonentry,
 
     Elm_scroller,
     Elm_win,
@@ -118,6 +119,7 @@ Library efl
     elm_fileselector_button_wrap.c,
     elm_fileselector_entry_wrap.c,
     elm_hoversel_wrap.c,
+    elm_multibuttonentry.c,
 
     elm_scroller_wrap.c,
     elm_scroller_wrap.h,
