@@ -193,3 +193,9 @@ PREFIX value ml_elm_multibuttonentry_item_selected_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_multibuttonentry_clear(value v_obj)
+{
+        elm_multibuttonentry_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

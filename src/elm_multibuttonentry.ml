@@ -45,3 +45,5 @@ external item_selected_set : Elm_object.item -> bool -> unit =
 external item_selected_get : Elm_object.item -> bool =
   "ml_elm_multibuttonentry_item_selected_get"
 
+external clear : Evas.obj -> unit = "ml_elm_multibuttonentry_clear"
+
