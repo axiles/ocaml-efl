@@ -36,3 +36,7 @@ val item_selected_get : Elm_object.item -> bool
 
 val clear : Evas.obj -> unit
 
+val item_prev_get : Elm_object.item -> Elm_object.item option
+
+val item_next_get : Elm_object.item -> Elm_object.item option
+
