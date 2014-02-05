@@ -36,6 +36,17 @@ PREFIX inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
         return ELM_GLVIEW_RESIZE_POLICY_RECREATE;
 }
 
+PREFIX inline Elm_GLView_Render_Policy Elm_GLView_Render_Policy_val(value v)
+{
+        switch(v) {
+                case Val_on_demand: return ELM_GLVIEW_RENDER_POLICY_ON_DEMAND;
+                case Val_always: return ELM_GLVIEW_RENDER_POLICY_ALWAYS;
+                default: break;
+        }
+        caml_failwith("Elm_GLView_Render_Policy_val");
+        return ELM_GLVIEW_RENDER_POLICY_ON_DEMAND;
+}
+
 PREFIX value ml_elm_glview_add(value v_parent)
 {
         Evas_Object* glview = elm_glview_add((Evas_Object*) v_parent);
@@ -73,8 +84,13 @@ PREFIX value ml_elm_glview_mode_set(value v_obj, value v_m)
 
 PREFIX value ml_elm_glview_resize_policy_set(value v_obj, value v_p)
 {
-        elm_glview_resize_policy_set((Evas_Object*) v_obj,
-                Elm_GLView_Resize_Policy_val(v_p));
-        return Val_unit;
+        return Val_bool(elm_glview_resize_policy_set((Evas_Object*) v_obj,
+                Elm_GLView_Resize_Policy_val(v_p)));
+}
+
+PREFIX value ml_elm_glview_render_policy_set(value v_obj, value v_p)
+{
+        return Val_bool(elm_glview_render_policy_set((Evas_Object*) v_obj,
+                Elm_GLView_Render_Policy_val(v_p)));
 }
 
