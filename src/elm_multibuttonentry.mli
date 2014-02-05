@@ -8,3 +8,9 @@ val expanded_get : Evas.obj -> bool
 
 val expanded_set : Evas.obj -> bool -> unit
 
+val item_prepend :
+  Evas.obj -> ?label:string -> ?func:Evas.smart_cb -> unit -> Elm_object.item
+
+val item_append :
+  Evas.obj -> ?label:string -> ?func:Evas.smart_cb -> unit -> Elm_object.item
+
