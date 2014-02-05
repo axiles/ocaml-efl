@@ -54,3 +54,29 @@ PREFIX value ml_elm_dayselector_day_selected_get(value v_obj, value v_day)
                 (Evas_Object*) v_obj, Elm_Dayselector_Day_val(v_day)));
 }
 
+PREFIX value ml_elm_dayselector_week_start_set(value v_obj, value v_day)
+{
+        elm_dayselector_week_start_set((Evas_Object*) v_obj,
+                Elm_Dayselector_Day_val(v_day));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_dayselector_week_start_get(value v_obj)
+{
+        return Val_Elm_Dayselector_Day(elm_dayselector_week_start_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_dayselector_weekend_start_set(value v_obj, value v_day)
+{
+        elm_dayselector_weekend_start_set((Evas_Object*) v_obj,
+                Elm_Dayselector_Day_val(v_day));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_dayselector_weekend_start_get(value v_obj)
+{
+        return Val_Elm_Dayselector_Day(elm_dayselector_weekend_start_get(
+                (Evas_Object*) v_obj));
+}
+
