@@ -14,3 +14,10 @@ PREFIX value ml_elm_plug_connect(
                 String_val(v_name), Int_val(v_num), Bool_val(v_sys)));
 }
 
+PREFIX value ml_elm_plug_image_object_get(value v_obj)
+{
+        Evas_Object* img = elm_plug_image_object_get((Evas_Object*) v_obj);
+        if(img == NULL) caml_failwith("elm_plug_image_object_get");
+        return (value) img;
+}
+
