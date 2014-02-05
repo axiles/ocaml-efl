@@ -54,8 +54,10 @@ let () =
   g "day";
   g "decelerate";
   g "default";
+  g "depth";
   g "desktop";
   g "dialog_basic";
+  g "direct";
   g "display_only";
   g "dnd";
   g "dock";
@@ -218,6 +220,7 @@ let () =
   g "start";
   g "state";
   g "statusbar";
+  g "stencil";
   g "stop";
   g "stretch";
   g "sun";
