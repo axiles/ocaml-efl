@@ -1,3 +1,5 @@
+(** Clock *)
+
 type edit_mode = [
   | `default
   | `hour_decimal

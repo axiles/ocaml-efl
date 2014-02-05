@@ -1,4 +1,4 @@
-(** elm_config_* *)
+(** Elementary Configuration *)
 
 (** {2 Cache} *)
 

@@ -1,4 +1,4 @@
-(** elm_bg_* Elm_Bg_* *)
+(** Background *)
 
 type opt = [`center | `scale | `stretch | `tile | `last]
 

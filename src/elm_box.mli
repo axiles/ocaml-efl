@@ -1,4 +1,4 @@
-(** elm_box_* *)
+(** Box *)
 
 type transition
 

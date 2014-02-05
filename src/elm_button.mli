@@ -1,4 +1,4 @@
-(** elm_button_* *)
+(** Button *)
 
 val add : Evas.obj -> Evas.obj
 

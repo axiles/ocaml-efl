@@ -1,4 +1,4 @@
-(** elm_object_* Elm_Object_* *)
+(** Elementary Object Manipulation *)
 
 (** {2 Cursors} *)
 

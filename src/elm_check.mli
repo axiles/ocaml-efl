@@ -1,4 +1,4 @@
-(** elm_check_* *)
+(** Check *)
 
 (** The following function will not be interfaced
 

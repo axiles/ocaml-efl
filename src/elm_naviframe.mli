@@ -1,4 +1,4 @@
-(** elm_naviframe_* *)
+(** Naviframe *)
 
 type item_pop_cb = Elm_object.item -> bool
 

@@ -1,3 +1,5 @@
+(** Calendar *)
+
 type select_mode = [`default | `always | `none | `ondemand]
 
 type mark_repeat_type = [
