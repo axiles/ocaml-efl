@@ -25,3 +25,9 @@ external weekend_length_set : Evas.obj -> int -> unit =
 external weekend_length_get : Evas.obj -> int =
   "ml_elm_dayselector_weekend_length_get"
 
+external weekdays_names_set : Evas.obj -> string array -> unit =
+  "ml_elm_dayselector_weekdays_names_set"
+
+external weekdays_names_get : Evas.obj -> string list =
+  "ml_elm_dayselector_weekdays_names_get"
+

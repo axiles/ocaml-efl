@@ -92,3 +92,22 @@ PREFIX value ml_elm_dayselector_weekend_length_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_dayselector_weekdays_names_set(value v_obj, value v_a)
+{
+        const char* a[7];
+        if(Wosize_val(v_a) != 7)
+                caml_failwith("elm_dayselector_weekdays_names_set");
+        int i;
+        for(i = 0; i < 7; i++) {
+                a[i]= String_val(Field(v_a, i));
+        }
+        elm_dayselector_weekdays_names_set((Evas_Object*) v_obj, a);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_dayselector_weekdays_names_get(value v_obj)
+{
+        return copy_Eina_List_string(elm_dayselector_weekdays_names_get(
+                (Evas_Object*) v_obj));
+}
+

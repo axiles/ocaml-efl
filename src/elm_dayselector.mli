@@ -18,3 +18,7 @@ val weekend_length_set : Evas.obj -> int -> unit
 
 val weekend_length_get : Evas.obj -> int
 
+val weekdays_names_set : Evas.obj -> string array -> unit
+
+val weekdays_names_get : Evas.obj -> string list
+
