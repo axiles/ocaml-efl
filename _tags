@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: f5c4c167aefaf9322a2d4b797fba7267)
+# DO NOT EDIT (digest: b78b8a7332666c5a8c82e09b87b359d1)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -25,6 +25,11 @@
 "src/elm.cmx": for-pack(Efl)
 "src/elm_object.cmx": for-pack(Efl)
 "src/elm_layout.cmx": for-pack(Efl)
+"src/elm_ctxpopup.cmx": for-pack(Efl)
+"src/elm_fileselector.cmx": for-pack(Efl)
+"src/elm_fileselector_button.cmx": for-pack(Efl)
+"src/elm_fileselector_entry.cmx": for-pack(Efl)
+"src/elm_hoversel.cmx": for-pack(Efl)
 "src/elm_scroller.cmx": for-pack(Efl)
 "src/elm_win.cmx": for-pack(Efl)
 "src/elm_bg.cmx": for-pack(Efl)
@@ -49,7 +54,6 @@
 "src/elm_spinner.cmx": for-pack(Efl)
 "src/elm_clock.cmx": for-pack(Efl)
 "src/elm_hover.cmx": for-pack(Efl)
-"src/elm_fileselector.cmx": for-pack(Efl)
 "src/elm_list.cmx": for-pack(Efl)
 "src/elm_menu.cmx": for-pack(Efl)
 "src/elm_progressbar.cmx": for-pack(Efl)
@@ -66,12 +70,8 @@
 "src/elm_panes.cmx": for-pack(Efl)
 "src/elm_transit.cmx": for-pack(Efl)
 "src/elm_table.cmx": for-pack(Efl)
-"src/elm_fileselector_button.cmx": for-pack(Efl)
-"src/elm_fileselector_entry.cmx": for-pack(Efl)
-"src/elm_hoversel.cmx": for-pack(Efl)
 "src/elm_popup.cmx": for-pack(Efl)
 "src/elm_sig.cmx": for-pack(Efl)
-"src/elm_ctxpopup.cmx": for-pack(Efl)
 "src/elm_flip.cmx": for-pack(Efl)
 "src/elm_flipselector.cmx": for-pack(Efl)
 "src/elm_panel.cmx": for-pack(Efl)

@@ -1,4 +1,4 @@
-(** elm_ctxpopup_* Elm_Ctxpopup_* *)
+(** Ctxpopup *)
 
 type direction = [
   | `down

@@ -1,4 +1,4 @@
-(** elm_hoversel_* *)
+(** Hoversel *)
 
 val add : Evas.obj -> Evas.obj
 

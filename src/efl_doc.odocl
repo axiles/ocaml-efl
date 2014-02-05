@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 0f8dc535272a5b3d8d7305430018836b)
+# DO NOT EDIT (digest: 00d9fced1884a63627841503ece2894c)
 Ecore
 Ecore_timer
 Evas
@@ -10,6 +10,11 @@ Edje
 Elm
 Elm_object
 Elm_layout
+Elm_ctxpopup
+Elm_fileselector
+Elm_fileselector_button
+Elm_fileselector_entry
+Elm_hoversel
 Elm_scroller
 Elm_win
 Elm_bg
@@ -34,7 +39,6 @@ Elm_notify
 Elm_spinner
 Elm_clock
 Elm_hover
-Elm_fileselector
 Elm_list
 Elm_menu
 Elm_progressbar
@@ -51,12 +55,8 @@ Elm_gesture_layer
 Elm_panes
 Elm_transit
 Elm_table
-Elm_fileselector_button
-Elm_fileselector_entry
-Elm_hoversel
 Elm_popup
 Elm_sig
-Elm_ctxpopup
 Elm_flip
 Elm_flipselector
 Elm_panel

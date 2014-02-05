@@ -1,4 +1,4 @@
-(** elm_fileselector_entry_* *)
+(** File Selector Entry *)
 
 val add : Evas.obj -> Evas.obj
 

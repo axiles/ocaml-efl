@@ -1,4 +1,4 @@
-(** elm_fileselector_* Elm_Fileselector_* *)
+(** File Selector *)
 
 type mode = [`list | `grid | `last]
 
