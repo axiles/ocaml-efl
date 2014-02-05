@@ -1,3 +1,5 @@
+(** Transit *)
+
 type t = Elm.transit
 
 type tween_mode = [

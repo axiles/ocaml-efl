@@ -1,3 +1,5 @@
+(** Web *)
+
 type window_features
 
 type window_open = Evas.obj -> bool -> window_features -> Evas.obj option

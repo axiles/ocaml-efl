@@ -1,3 +1,5 @@
+(** Theme *)
+
 type t = Elm.theme
 
 val _new : unit -> t

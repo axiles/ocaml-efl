@@ -1,4 +1,4 @@
-(** elm_toolbar_* Elm_Toolbar_* *)
+(** Toolbar *)
 
 type item_state
 

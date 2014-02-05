@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 0c8ea4bc23083c07516b3d08e1c05fef)
+# DO NOT EDIT (digest: 8102af7516140499da82155186e79ecf)
 eina_wrap.o
 evas_wrap.o
 ecore_wrap.o
@@ -8,6 +8,7 @@ edje_wrap.o
 elm_wrap.o
 elm_config_wrap.o
 elm_object_wrap.o
+elm_gen_wrap.o
 elm_layout_wrap.o
 elm_ctxpopup_wrap.o
 elm_fileselector_wrap.o
@@ -17,6 +18,7 @@ elm_hoversel_wrap.o
 elm_multibuttonentry_wrap.o
 elm_naviframe_wrap.o
 elm_popup_wrap.o
+elm_app_wrap.o
 elm_bg_wrap.o
 elm_box_wrap.o
 elm_bubble_wrap.o
@@ -63,16 +65,14 @@ elm_separator_wrap.o
 elm_slider_wrap.o
 elm_slideshow_wrap.o
 elm_spinner_wrap.o
-elm_win_wrap.o
-elm_app_wrap.o
-elm_inwin_wrap.o
-elm_gen_wrap.o
-elm_actionslider_wrap.o
-elm_toolbar_wrap.o
-elm_theme_wrap.o
-elm_transit_wrap.o
 elm_table_wrap.o
+elm_theme_wrap.o
 elm_thumb_wrap.o
+elm_toolbar_wrap.o
+elm_transit_wrap.o
 elm_web_wrap.o
+elm_win_wrap.o
+elm_inwin_wrap.o
+elm_actionslider_wrap.o
 elm_video_wrap.o
 # OASIS_STOP

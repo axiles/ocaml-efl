@@ -1,4 +1,4 @@
-(** elm_thumb_* *)
+(** Thumbnail *)
 
 type animation_setting = [`start | `loop | `stop | `last]
 

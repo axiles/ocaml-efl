@@ -1,4 +1,4 @@
-(** elm_win_* Elm_Win_* *)
+(** Win *)
 
 (** The following function is not interfaced:
 

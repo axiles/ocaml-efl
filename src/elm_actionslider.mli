@@ -1,4 +1,4 @@
-(** elm_actionslider_* *)
+(** Actionslider *)
 
 val add : Evas.obj -> Evas.obj
 

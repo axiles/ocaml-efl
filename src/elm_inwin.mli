@@ -1,4 +1,4 @@
-(** elm_win_inwin_* *)
+(** Inwin *)
 
 val add : Evas.obj -> Evas.obj
 

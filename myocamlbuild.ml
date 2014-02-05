@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: df3a85a434104756ffaff78e26ec0ef6) *)
+(* DO NOT EDIT (digest: 31861ef88e6b2bb1746b7e82eaea8a35) *)
 module OASISGettext = struct
 # 21 "/home/axiles/src/oasis-0.3.0/src/oasis/OASISGettext.ml"
 
@@ -491,10 +491,10 @@ let package_default =
                "src/edje_wrap.h";
                "src/elm_wrap.h";
                "src/elm_object_wrap.h";
+               "src/elm_gen_wrap.h";
                "src/elm_icon_wrap.h";
-               "src/elm_scroller_wrap.h";
                "src/elm_list_wrap.h";
-               "src/elm_gen_wrap.h"
+               "src/elm_scroller_wrap.h"
             ])
        ];
      flags =
