@@ -25,6 +25,17 @@ PREFIX inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
         return m;
 }
 
+PREFIX inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
+{
+        switch(v) {
+                case Val_recreate: return ELM_GLVIEW_RESIZE_POLICY_RECREATE;
+                case Val_scale: return ELM_GLVIEW_RESIZE_POLICY_SCALE;
+                default: break;
+        }
+        caml_failwith("Elm_GLView_Resize_Policy_val");
+        return ELM_GLVIEW_RESIZE_POLICY_RECREATE;
+}
+
 PREFIX value ml_elm_glview_add(value v_parent)
 {
         Evas_Object* glview = elm_glview_add((Evas_Object*) v_parent);
@@ -57,6 +68,13 @@ PREFIX value ml_elm_glview_mode_set(value v_obj, value v_m)
 {
         elm_glview_mode_set((Evas_Object*) v_obj,
                 Elm_GLView_Mode_val_list(v_m));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_glview_resize_policy_set(value v_obj, value v_p)
+{
+        elm_glview_resize_policy_set((Evas_Object*) v_obj,
+                Elm_GLView_Resize_Policy_val(v_p));
         return Val_unit;
 }
 

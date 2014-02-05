@@ -185,6 +185,7 @@ let () =
   g "polygon";
   g "popup_menu";
   g "previous";
+  g "recreate";
   g "resource_allocation_failed";
   g "right";
   g "rotate";
