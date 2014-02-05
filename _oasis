@@ -614,3 +614,9 @@ Executable dayselector_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: dayselector_example.ml
+Executable myglview_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl, lablgl
+  MainIs: myglview_example.ml

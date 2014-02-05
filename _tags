@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: f0081a27577e17010614d56e7af6101c)
+# DO NOT EDIT (digest: f5c4c167aefaf9322a2d4b797fba7267)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -246,7 +246,11 @@
 "examples/datetime_example.byte": use_efl
 # Executable dayselector_example
 "examples/dayselector_example.byte": use_efl
+# Executable myglview_example
+"examples/myglview_example.byte": use_efl
+"examples/myglview_example.byte": pkg_lablgl
 <examples/*.ml{,i}>: use_efl
+<examples/*.ml{,i}>: pkg_lablgl
 # OASIS_STOP
 <src/eina_*>: efl
 <src/evas_*>: efl
