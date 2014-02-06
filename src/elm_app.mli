@@ -1,4 +1,4 @@
-(** elm_app_* *)
+(** App *)
 
 val info_set : string -> ?checkfile:string -> unit -> unit
 

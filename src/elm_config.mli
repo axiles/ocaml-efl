@@ -40,7 +40,7 @@ val reload : unit -> unit
 
 val all_flush : unit -> unit
 
-(** {2 Elementary Engine *)
+(** {2 Elementary Engine} *)
 
 val engine_get : unit -> string
 

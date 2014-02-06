@@ -1,4 +1,4 @@
-(** elm_* Elm_* *)
+(** Elementary *)
 
 (** {2 Cache} *)
 
@@ -8,7 +8,7 @@ val cache_all_flush : unit -> unit
 
 val coords_finger_size_adjust : int -> int -> int * int
 
-(** {2 Focus *)
+(** {2 Focus} *)
 
 type focus_direction = [
   `previous |
@@ -191,7 +191,7 @@ type input_panel_return_key_type = [
 
 type cnp_mode = [`markup | `no_image | `plaintext]
 
-(** {2 Window *)
+(** {2 Window} *)
 
 type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
 

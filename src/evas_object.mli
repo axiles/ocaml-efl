@@ -1,3 +1,5 @@
+(** Evas Object *)
+
 type box_data
 
 type box_layout = Evas.obj -> box_data -> unit

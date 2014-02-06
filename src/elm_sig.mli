@@ -1,3 +1,5 @@
+(** Signals *)
+
 type u = Evas.Event_type.u
   
 type 'a v = 'a Evas.Event_type.v

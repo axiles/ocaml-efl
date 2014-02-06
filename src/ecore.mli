@@ -1,3 +1,5 @@
+(** Ecore *)
+
 exception Not_X
 
 exception Not_Wayland
