@@ -55,71 +55,17 @@ exception. More information is available in the COPYING file.
 CURRENT STATE OF THE INTERFACE
 ==============================
 
-Currently, only a small portion of the EFL has been interfaced. Our primary
-efforts are in interfacing Elementary (the high-level widget part of the EFL).
-The following widgets and containers are almost fully implemented:
+Currently the interfaceing of Elementary (the high-level widget part of the
+EFL) is more or less complete. However, lots of functions have not been tested.
 
-* windows
-* buttons
-* text entries
-* boxes
-* check boxes
-* radio buttons
-* separators
-* images
-* icons
-* backgrounds
-* notifications
-* layouts
-* inwins
-* file selectors
-* simple lists
-* menus
-* naviframes
-* scrollers
-* simple grids
-* generic lists
-* action sliders
-* bubbles
-* progressbars
-* frames
-* sliders
-* conformants
-* panes
-* tables
-* file selector buttons
-* file selector entries
-* hoversels
-* hovers
-* spinners
-* popups
-* contextual popups
-* flips
-* flip selectors
-* panels
-* tooltips
-* thumbnails
-* maps and routes
-* diskselectors
-* web pages (if EwebKit is installed)
-* indexes
-* mapbufs
-* photos
-* segment controls
-* slideshows
-* photocams
-* videos
-* calendars
-* color selectors
-* clocks
-* datetimes
-* day selectors
-* GLViews
-* Multibuttonentries
-* plugs
+Only a small portion of the rest of the EFL (ecore, evas, edje, ...) has been
+interfaced : only the minimum necessary to develop an Elementary application
+has been done.
 
-It is already possible to write some small GUI applications with these widgets.
-However, ocaml-efl is still in alpha stage and some API may break.
+The next priority is interfacing Evas (canvas library).
+
+It is already possible to write some GUI applications. However, ocaml-efl is
+still in alpha stage and some API may break.
 
 The last version can be obtained here: https://github.com/axiles/ocaml-efl
 
@@ -148,4 +94,7 @@ If you want to compile to native code, just replace 'main.byte' by
 
 Findlib homepage: http://projects.camlcity.org/projects/findlib.html
 Ocamlbuild homepage: http://brion.inria.fr/gallium/index.php/Ocamlbuild
+
+Lots of examples are available in the directory "example". In particular,
+you might want to look at getting_started_01.ml and getting_started_02.ml.
 
