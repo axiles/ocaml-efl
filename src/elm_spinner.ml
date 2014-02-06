@@ -39,7 +39,7 @@ external add_aux : Evas.obj -> Evas.obj = "ml_elm_spinner_add"
 
 let add parent =
   let pb = add_aux parent in
-  Evas_object_smart.callback_add_unsafe pb "changed" changed_cb;
+  Evas_object_smart.callback_add_ pb "changed" changed_cb;
   changed_cb pb ();
   pb
 
