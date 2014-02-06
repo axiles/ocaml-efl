@@ -48,7 +48,7 @@ Elm_Toolbar_Item_Scrollto_Type_val(value v)
 PREFIX inline Elm_Toolbar_Item_Scrollto_Type
 Elm_Toolbar_Item_Scrollto_Type_val_list(value v)
 {
-        Elm_Toolbar_Item_Scrollto_Type r;
+        Elm_Toolbar_Item_Scrollto_Type r = ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
         value v_tmp = v;
         while(v_tmp != Val_int(0)) {
                 r = r | Elm_Toolbar_Item_Scrollto_Type_val(Field(v_tmp, 0));
