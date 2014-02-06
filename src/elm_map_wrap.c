@@ -62,7 +62,7 @@ PREFIX inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
 PREFIX inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
 {
         Eina_List* list = NULL;
-        value v;
+        value v = v_list;
         while(v != Val_int(0)) {
                 list = eina_list_append(list, (Elm_Map_Overlay*) Field(v, 0));
                 v = Field(v, 1);

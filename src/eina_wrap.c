@@ -28,7 +28,7 @@ PREFIX inline value copy_Eina_List_string(const Eina_List* list)
 PREFIX inline Eina_List* Eina_List_string_val(value v_list)
 {
         Eina_List* list = NULL;
-        value v;
+        value v = v_list;
         while(v != Val_int(0)) {
                 list = eina_list_append(list, String_val(Field(v, 0)));
                 v = Field(v, 1);
@@ -39,7 +39,7 @@ PREFIX inline Eina_List* Eina_List_string_val(value v_list)
 PREFIX inline Eina_List* Eina_List_string_malloc_val(value v_list)
 {
         Eina_List* list = NULL;
-        value v;
+        value v = v_list;
         while(v != Val_int(0)) {
                 list = eina_list_append(list, strdup(String_val(Field(v, 0))));
                 v = Field(v, 1);
@@ -66,7 +66,7 @@ PREFIX inline value copy_Eina_List_Evas_Object(const Eina_List* list)
 PREFIX inline Eina_List* Eina_List_Evas_Object_val(value v_list)
 {
         Eina_List* list = NULL;
-        value v;
+        value v = v_list;
         while(v != Val_int(0)) {
                 list = eina_list_append(list, (Evas_Object*) Field(v, 0));
                 v = Field(v, 1);

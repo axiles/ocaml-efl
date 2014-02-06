@@ -356,7 +356,7 @@ PREFIX value ml_elm_win_available_profiles_get(value v_obj)
                 &size))
                 size = 0;
         v_profiles = caml_alloc(size, 0);
-        int i;
+        unsigned int i;
         for(i = 0; i < size; i++) {
                 Store_field(v_profiles, i, copy_string(profiles[i]));
         }
