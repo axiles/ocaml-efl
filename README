@@ -55,7 +55,7 @@ exception. More information is available in the COPYING file.
 CURRENT STATE OF THE INTERFACE
 ==============================
 
-Currently the interfaceing of Elementary (the high-level widget part of the
+Currently the interfacing of Elementary (the high-level widget part of the
 EFL) is more or less complete. However, lots of functions have not been tested.
 
 Only a small portion of the rest of the EFL (ecore, evas, edje, ...) has been
