@@ -6,11 +6,9 @@ let add_button window box list text =
   Elm_object.text_set btn (sprintf "Print %s" text);
   let thread_cb () =
     for i = 0 to 10 do
-      (*Ecore_thread.main_loop_begin ();*)
-      Ecore.main_loop_thread_safe_call_sync (fun () ->
+      Ecore.call (fun () ->
         let (_ : Elm_object.item) = Elm_list.item_append list ~label:text () in
         Elm_list.go list);
-      (*Ecore_thread.main_loop_end ();*)
       Thread.delay 0.5;
     done in
   let clicked_cb obj =

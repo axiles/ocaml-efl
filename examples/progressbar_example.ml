@@ -122,10 +122,8 @@ let progressbar_example_value_set list =
 let timer_fun list =
   let rec loop () =
     Thread.delay 0.1;
-    (*Ecore_thread.main_loop_begin ();*)
-    Ecore.main_loop_thread_safe_call_sync (fun () ->
+    Ecore.call (fun () ->
       progressbar_example_value_set list);
-    (*Ecore_thread.main_loop_end ();*)
     if !run then loop () in
   loop ()
 

@@ -18,3 +18,10 @@ val x_window_focus : x_window -> unit
 
 val main_loop_thread_safe_call_sync : cb -> unit
 
+(** Same thing as Ecore.main_loop_thread_safe_call_sync except that:
+- It is shorter to write
+- It can return a result
+- If an exception is raised by f () then it can be caught by the thread that
+called Ecore.call f *)
+val call : (unit -> 'a) -> 'a
+
