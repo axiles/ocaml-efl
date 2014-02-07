@@ -338,6 +338,7 @@ Executable inwin_example
 Executable fileselector_example
   Path: examples
   Install$: flag(install_examples)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: fileselector_example.ml
 Executable list_example_01
@@ -481,11 +482,13 @@ Executable table_example_02
 Executable fileselector_button_example
   Path: examples
   Install$: flag(install_examples)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: fileselector_button_example.ml
 Executable fileselector_entry_example
   Path: examples
   Install$: flag(install_examples)
+  Build$: flag(examples)
   BuildDepends: efl
   MainIs: fileselector_entry_example.ml
 Executable hoversel_example_01
