@@ -13,10 +13,6 @@ XStdFilesAUTHORSFilename: AUTHORS
 Library efl
   Path: src
   Pack: true
-  CCLib:
-    -lelementary -lm -leina -lpthread -leet -levas -lecore -lecore_evas
-    -lecore_file -lecore_input -ledje -leo -lethumb_client -lemotion
-    -lecore_imf -lecore_con -leio -leldbus -lefreet -lefreet_mime -lefreet_trash
   Modules:
     Ecore,
     Ecore_timer,

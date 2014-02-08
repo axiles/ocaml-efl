@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 31861ef88e6b2bb1746b7e82eaea8a35) *)
+(* DO NOT EDIT (digest: 5ad1cf003184e60e6ab2d76345af66f2) *)
 module OASISGettext = struct
 # 21 "/home/axiles/src/oasis-0.3.0/src/oasis/OASISGettext.ml"
 
@@ -497,93 +497,14 @@ let package_default =
                "src/elm_scroller_wrap.h"
             ])
        ];
-     flags =
-       [
-          (["oasis_library_efl_cclib"; "link"],
-            [
-               (OASISExpr.EBool true,
-                 S
-                   [
-                      A "-cclib";
-                      A "-lelementary";
-                      A "-cclib";
-                      A "-lm";
-                      A "-cclib";
-                      A "-leina";
-                      A "-cclib";
-                      A "-lpthread";
-                      A "-cclib";
-                      A "-leet";
-                      A "-cclib";
-                      A "-levas";
-                      A "-cclib";
-                      A "-lecore";
-                      A "-cclib";
-                      A "-lecore_evas";
-                      A "-cclib";
-                      A "-lecore_file";
-                      A "-cclib";
-                      A "-lecore_input";
-                      A "-cclib";
-                      A "-ledje";
-                      A "-cclib";
-                      A "-leo";
-                      A "-cclib";
-                      A "-lethumb_client";
-                      A "-cclib";
-                      A "-lemotion";
-                      A "-cclib";
-                      A "-lecore_imf";
-                      A "-cclib";
-                      A "-lecore_con";
-                      A "-cclib";
-                      A "-leio";
-                      A "-cclib";
-                      A "-leldbus";
-                      A "-cclib";
-                      A "-lefreet";
-                      A "-cclib";
-                      A "-lefreet_mime";
-                      A "-cclib";
-                      A "-lefreet_trash"
-                   ])
-            ]);
-          (["oasis_library_efl_cclib"; "ocamlmklib"; "c"],
-            [
-               (OASISExpr.EBool true,
-                 S
-                   [
-                      A "-lelementary";
-                      A "-lm";
-                      A "-leina";
-                      A "-lpthread";
-                      A "-leet";
-                      A "-levas";
-                      A "-lecore";
-                      A "-lecore_evas";
-                      A "-lecore_file";
-                      A "-lecore_input";
-                      A "-ledje";
-                      A "-leo";
-                      A "-lethumb_client";
-                      A "-lemotion";
-                      A "-lecore_imf";
-                      A "-lecore_con";
-                      A "-leio";
-                      A "-leldbus";
-                      A "-lefreet";
-                      A "-lefreet_mime";
-                      A "-lefreet_trash"
-                   ])
-            ])
-       ];
+     flags = [];
      includes = [("examples", ["src"])];
      }
   ;;
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 587 "myocamlbuild.ml"
+# 508 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 open Ocamlbuild_plugin
@@ -616,14 +537,11 @@ let () = dispatch & fun h ->
     (* Get the values of the env variables *)
     let env = BaseEnvLight.load () in 
     let elementary_cflags = BaseEnvLight.var_get "elementary_cflags" env in
-    let elementary_libs = BaseEnvLight.var_get "elementary_libs_only_L" env in
+    let elementary_libs = BaseEnvLight.var_get "elementary_libs" env in
 
-    (* Insert the flags about the EFL *)
+    (* Insert flags and linking information about the EFL *)
     flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
-    flag ["link"; "byte"] & S [P "dllefl_stubs.so"; A "-dllib";
-      A "-lefl_stubs"];
-    flag ["link"; "native"] &
-      S [Sh (sprintf "-cclib \"%s\"" elementary_libs)];
+    flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));
     flag ["ocamlmklib"] (Sh elementary_libs);
 
     (* Removed a harmless warning in generating the documentation *)
