@@ -221,61 +221,50 @@ PREFIX value ml_elm_web_webkit_view_get(value v_obj)
 
 PREFIX value ml_elm_web_window_create_hook_set(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_web_window_create_hook_set((Evas_Object*) v_obj,
-                ml_Elm_Web_Window_Open, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_web_window_create_hook_set(obj, ml_Elm_Web_Window_Open, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_web_dialog_alert_hook_set(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_web_dialog_alert_hook_set((Evas_Object*) v_obj,
-                ml_Elm_Web_Dialog_Alert, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_web_dialog_alert_hook_set(obj, ml_Elm_Web_Dialog_Alert, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_web_dialog_confirm_hook_set(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_web_dialog_confirm_hook_set((Evas_Object*) v_obj,
-                ml_Elm_Web_Dialog_Confirm, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_web_dialog_confirm_hook_set(obj, ml_Elm_Web_Dialog_Confirm, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_web_dialog_prompt_hook_set(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_web_dialog_prompt_hook_set((Evas_Object*) v_obj,
-                ml_Elm_Web_Dialog_Prompt, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_web_dialog_prompt_hook_set(obj, ml_Elm_Web_Dialog_Prompt, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_web_dialog_file_selector_hook_set(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_web_dialog_file_selector_hook_set((Evas_Object*) v_obj,
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_web_dialog_file_selector_hook_set(obj,
                 ml_Elm_Web_Dialog_File_Selector, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_web_console_message_hook_set((Evas_Object*) v_obj,
-                ml_Elm_Web_Console_Message, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_web_console_message_hook_set(obj, ml_Elm_Web_Console_Message, data);
         return Val_unit;
 }
 
