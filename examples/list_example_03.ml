@@ -25,7 +25,7 @@ let incr_cb (f_add : 'a) with_icon with_sel with_content li _ =
       let cb _ _ =
         match content with
         | Some s -> printf "Selected label: %s with content %s\n%!" label s
-        | None -> printf "Selected label: %s" label in
+        | None -> printf "Selected label: %s\n%!" label in
       Some cb
     else None in      
   try
