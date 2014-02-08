@@ -27,6 +27,8 @@
 PREFIX inline struct tm Tm_val(value v);
 PREFIX inline value copy_tm(struct tm t);
 
+PREFIX inline value* ml_register_value(value v);
+
 /* Local headers */
 
 #include "variants.h"

@@ -16,5 +16,13 @@ PREFIX inline value copy_Evas_Event_Info(
 PREFIX inline Evas_Load_Error Evas_Load_Error_val(value v);
 PREFIX inline value Val_Evas_Load_Error(Evas_Load_Error e);
 
+/* Register a value that will be removed when the object is deleted.
+ * The content of the returned pointer must not be directly assigned
+ * (it has been registered by caml_register_generational_global_root() */
+PREFIX inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v);
+
+PREFIX void ml_Evas_Smart_Cb_on_del(
+        void* data, Evas_Object* obj, void* event_info);
+
 #endif
 

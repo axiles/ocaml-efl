@@ -131,7 +131,7 @@ PREFIX value ml_elm_box_layout_set(value v_obj, value v_cb, value v_free_data)
         Store_field(v, 1, v_free_data);
         value* data = caml_stat_alloc(sizeof(value));
         *data = v;
-        caml_register_global_root(data);
+        caml_register_generational_global_root(data);
         elm_box_layout_set((Evas_Object*) v_obj, ml_Evas_Object_Box_Layout_0,
                 data, ml_Ecore_Cb_1_free);
         CAMLreturn(Val_unit);
@@ -160,13 +160,13 @@ PREFIX value ml_elm_box_transition_new_native(
         Store_field(v2, 1, v_end_layout_free);
         value* data1 = caml_stat_alloc(sizeof(value));
         *data1 = v1;
-        caml_register_global_root(data1);
+        caml_register_generational_global_root(data1);
         value* data2 = caml_stat_alloc(sizeof(value));
         *data2 = v2;
-        caml_register_global_root(data2);
+        caml_register_generational_global_root(data2);
         value* data3 = caml_stat_alloc(sizeof(value));
         *data3 = v_transition_end_cb;
-        caml_register_global_root(data3);
+        caml_register_generational_global_root(data3);
         Elm_Box_Transition* t = elm_box_transition_new(Double_val(v_duration),
                 ml_Evas_Object_Box_Layout_0, data1, ml_Ecore_Cb_1_free,
                 ml_Evas_Object_Box_Layout_0, data2, ml_Ecore_Cb_1_free,

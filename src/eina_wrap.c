@@ -124,3 +124,11 @@ PREFIX inline Evas_Object* Evas_Object_opt_val(value v)
         else return (Evas_Object*) Field(v, 0);
 }
 
+PREFIX inline value* ml_register_value(value v)
+{
+        value* data = caml_stat_alloc(sizeof(value));
+        *data = v;
+        caml_register_generational_global_root(data);
+        return data;
+}
+

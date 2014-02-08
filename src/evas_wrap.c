@@ -21,12 +21,10 @@ PREFIX value ml_evas_object_smart_callback_add(
         value v_obj, value v_event, value v_func)
 {
         CAMLparam3(v_obj, v_event, v_func);
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_func;
-        caml_register_global_root(data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         const char* event = String_val(v_event);
-        evas_object_smart_callback_add((Evas_Object*) v_obj, event,
-	ml_Evas_Smart_Cb, data);
+        evas_object_smart_callback_add(obj, event, ml_Evas_Smart_Cb, data);
         CAMLreturn(Val_unit);
 }
 
@@ -212,24 +210,20 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_up(
 PREFIX value ml_evas_object_event_callback_add_mouse_down(
         value v_obj, value v_func)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_func;
-        caml_register_global_root(data);
-        evas_object_event_callback_add((Evas_Object*) v_obj,
-                EVAS_CALLBACK_MOUSE_DOWN, ml_Evas_Object_Event_Cb_mouse_down,
-                data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_DOWN,
+                ml_Evas_Object_Event_Cb_mouse_down, data);
         return Val_unit;
 }
 
 PREFIX value ml_evas_object_event_callback_add_mouse_up(
         value v_obj, value v_func)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_func;
-        caml_register_global_root(data);
-        evas_object_event_callback_add((Evas_Object*) v_obj,
-                EVAS_CALLBACK_MOUSE_UP, ml_Evas_Object_Event_Cb_mouse_up,
-                data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_UP,
+                ml_Evas_Object_Event_Cb_mouse_up, data);
         return Val_unit;
 }
 
@@ -458,5 +452,29 @@ PREFIX value ml_evas_color_argb_premul(
         Store_field(v, 1, Val_int(g));
         Store_field(v, 2, Val_int(b));
         return v;
+}
+
+void ml_Evas_Object_Event_Cb_on_del(
+        void* data, Evas* e, Evas_Object* obj, void* event_info)
+{
+        value* v_fun = (value*) data;
+        caml_remove_generational_global_root(v_fun);
+        free(v_fun);
+}
+
+PREFIX inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v)
+{
+        value* data = ml_register_value(v);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_FREE,
+                ml_Evas_Object_Event_Cb_on_del, data);
+        return data;
+}
+
+PREFIX void ml_Evas_Smart_Cb_on_del(
+        void* data, Evas_Object* v_obj, void* event_info)
+{
+        value* v_data = (value*) data;
+        caml_remove_generational_global_root(v_data);
+        free(v_data);
 }
 
