@@ -527,12 +527,11 @@ PREFIX value ml_elm_entry_context_menu_item_add(
         value v_obj, value v_label, value v_icon_file, value v_icon_type,
         value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_entry_context_menu_item_add((Evas_Object*) v_obj,
-                String_val(v_label), String_val(v_icon_file),
-                Elm_Icon_Type_val(v_icon_type), ml_Evas_Smart_Cb, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_entry_context_menu_item_add(obj, String_val(v_label),
+                String_val(v_icon_file), Elm_Icon_Type_val(v_icon_type),
+                ml_Evas_Smart_Cb, data);
         return Val_unit;
 }
 
@@ -551,41 +550,35 @@ PREFIX value ml_elm_entry_context_menu_disabled_get(value v_obj)
 
 PREFIX value ml_elm_entry_item_provider_append(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_entry_item_provider_append((Evas_Object*) v_obj,
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_entry_item_provider_append(obj,
                 ml_Elm_Entry_Item_Provider_Cb, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_entry_item_provider_prepend(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;;
-        caml_register_global_root(data);
-        elm_entry_item_provider_prepend((Evas_Object*) v_obj,
-                ml_Elm_Entry_Item_Provider_Cb, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_entry_item_provider_prepend(obj, ml_Elm_Entry_Item_Provider_Cb,
+                data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_entry_markup_filter_append(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_entry_markup_filter_append((Evas_Object*) v_obj,
-                ml_Elm_Entry_Filter_Cb, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_entry_markup_filter_append(obj, ml_Elm_Entry_Filter_Cb, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_entry_markup_filter_prepend(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_entry_markup_filter_prepend((Evas_Object*) v_obj,
-                ml_Elm_Entry_Filter_Cb, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_entry_markup_filter_prepend(obj, ml_Elm_Entry_Filter_Cb, data);
         return Val_unit;
 }
 
