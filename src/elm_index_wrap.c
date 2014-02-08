@@ -48,49 +48,57 @@ PREFIX value ml_elm_index_selected_item_get(value v_obj, value v_level)
 
 PREFIX value ml_elm_index_item_append(value v_obj, value v_letter, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(data));
-        *data = v_fun;
-        caml_register_global_root(data);
+        value* data = ml_register_value(v_fun);
         Elm_Object_Item* it = elm_index_item_append((Evas_Object*) v_obj,
                 String_val(v_letter), ml_Evas_Smart_Cb, data);
-        if(it == NULL) caml_failwith("elm_index_item_append");
+        if(it == NULL) {
+                ml_remove_value(data);
+                caml_failwith("elm_index_item_append");
+        }
+        elm_object_item_del_cb_set(it, ml_Evas_Smart_Cb_on_del);
         return (value) it;
 }
 
 PREFIX value ml_elm_index_item_prepend(value v_obj, value v_letter, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(data));
-        *data = v_fun;
-        caml_register_global_root(data);
+        value* data = ml_register_value(v_fun);
         Elm_Object_Item* it = elm_index_item_prepend((Evas_Object*) v_obj,
                 String_val(v_letter), ml_Evas_Smart_Cb, data);
-        if(it == NULL) caml_failwith("elm_index_item_prepend");
+        if(it == NULL) {
+                ml_remove_value(data);
+                caml_failwith("elm_index_item_prepend");
+        }
+        elm_object_item_del_cb_set(it, ml_Evas_Smart_Cb_on_del);
         return (value) it;
 }
 
 PREFIX value ml_elm_index_item_insert_after(
         value v_obj, value v_after, value v_letter, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(data));
-        *data = v_fun;
-        caml_register_global_root(data);
+        value* data = ml_register_value(v_fun);
         Elm_Object_Item* it = elm_index_item_insert_after((Evas_Object*) v_obj,
                 (Elm_Object_Item*) v_after, String_val(v_letter),
                 ml_Evas_Smart_Cb, data);
-        if(it == NULL) caml_failwith("elm_index_item_insert_after");
+        if(it == NULL) {
+                ml_remove_value(data);
+                caml_failwith("elm_index_item_prepend");
+        }
+        elm_object_item_del_cb_set(it, ml_Evas_Smart_Cb_on_del);
         return (value) it;
 }
 
 PREFIX value ml_elm_index_item_insert_before(
         value v_obj, value v_before, value v_letter, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(data));
-        *data = v_fun;
-        caml_register_global_root(data);
+        value* data = ml_register_value(v_fun);
         Elm_Object_Item* it = elm_index_item_insert_before((Evas_Object*) v_obj,
                 (Elm_Object_Item*) v_before, String_val(v_letter),
                 ml_Evas_Smart_Cb, data);
-        if(it == NULL) caml_failwith("elm_index_item_insert_before");
+        if(it == NULL) {
+                ml_remove_value(data);
+                caml_failwith("elm_index_item_prepend");
+        }
+        elm_object_item_del_cb_set(it, ml_Evas_Smart_Cb_on_del);
         return (value) it;
 }
 

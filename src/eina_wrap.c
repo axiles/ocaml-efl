@@ -132,3 +132,9 @@ PREFIX inline value* ml_register_value(value v)
         return data;
 }
 
+PREFIX inline void ml_remove_value(value* data)
+{
+        caml_remove_generational_global_root(data);
+        free(data);
+}
+

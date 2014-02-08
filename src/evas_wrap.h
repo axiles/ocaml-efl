@@ -24,6 +24,8 @@ PREFIX inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v);
 
 PREFIX void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* obj, void* event_info);
+PREFIX void ml_Evas_Smart_Cb_on_del_data(
+        void* data, Evas_Object* obj, void* event_info);
 
 #endif
 

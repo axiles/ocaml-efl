@@ -274,22 +274,19 @@ PREFIX value ml_elm_gesture_layer_tap_finger_size_get(value v_obj)
 PREFIX value ml_elm_gesture_layer_cb_set(
         value v_obj, value v_type, value v_state, value v_cb)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_cb;
-        caml_register_global_root(data);
-        elm_gesture_layer_cb_set((Evas_Object*) v_obj,
-                Elm_Gesture_Type_val(v_type), Elm_Gesture_State_val(v_state),
-                ml_Elm_Gesture_Event_Cb, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_cb);
+        elm_gesture_layer_cb_set(obj, Elm_Gesture_Type_val(v_type),
+                Elm_Gesture_State_val(v_state), ml_Elm_Gesture_Event_Cb, data);
         return Val_unit;
 }
 
 PREFIX value ml_elm_gesture_layer_tap_longpress_cb_add(
         value v_obj, value v_state, value v_cb)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_cb;
-        caml_register_global_root(data);
-        elm_gesture_layer_tap_longpress_cb_add((Evas_Object*) v_obj,
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_cb);
+        elm_gesture_layer_tap_longpress_cb_add(obj,
                 Elm_Gesture_State_val(v_state), ml_Elm_Gesture_Event_Cb, data);
         return Val_unit;
 }

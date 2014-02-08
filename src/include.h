@@ -28,6 +28,7 @@ PREFIX inline struct tm Tm_val(value v);
 PREFIX inline value copy_tm(struct tm t);
 
 PREFIX inline value* ml_register_value(value v);
+PREFIX inline void ml_remove_value(value* data);
 
 /* Local headers */
 
