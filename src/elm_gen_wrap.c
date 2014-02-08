@@ -36,11 +36,12 @@ PREFIX Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
         CAMLreturnT(Eina_Bool, Eina_Bool_val(v));
 }
 
-PREFIX void ml_Elm_Gen_Item_Del_Cb(void* data, Evas_Object* obj)
+PREFIX void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj)
 {
       
         value* v_class = (value*) data;
         caml_callback(Field(*v_class, 4), (value) obj);
-      
+        caml_remove_generational_global_root(v_class);
+        free(v_class);
 }
 

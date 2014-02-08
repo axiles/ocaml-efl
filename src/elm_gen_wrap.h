@@ -10,7 +10,7 @@ PREFIX Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
 PREFIX Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
         void* data, Evas_Object* obj, const char* part);
 
-PREFIX void ml_Elm_Gen_Item_Del_Cb(void* data, Evas_Object* obj);
+PREFIX void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj);
 
 #endif
 

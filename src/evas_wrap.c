@@ -8,12 +8,15 @@ PREFIX void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
       
 }
 
-PREFIX void ml_Evas_Smart_Cb_1(void *data, Evas_Object *obj, void *event_info)
+PREFIX void ml_Evas_Smart_Cb_1_free(
+        void *data, Evas_Object *obj, void *event_info)
 {
       
         value* v_data = (value*) data;
         value v_fun = Field(*v_data, 1);
         caml_callback2(v_fun, (value) obj, (value) event_info);
+        caml_remove_generational_global_root(v_data);
+        free(v_data);
       
 }
 
