@@ -46,10 +46,13 @@ end
 
 external add_aux : Evas.obj -> Evas.obj = "ml_elm_progressbar_add"
 
+let free_cb e obj () = Hashtbl.remove ht obj
+
 let add parent =
   let pb = add_aux parent in
   Evas_object_smart.callback_add pb E.changed changed_cb;
   changed_cb pb;
+  Evas_object.event_callback_add_free pb free_cb;
   pb
 
 external pulse_set : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse_set"
