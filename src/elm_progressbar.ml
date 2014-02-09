@@ -22,7 +22,25 @@ let fstring_of_string s =
   aux 0 0;
   s1
 
-let ht = Hashtbl.create 255
+module FU : sig
+  type t
+  val create : unit -> t
+  val replace : t -> Evas.obj -> (float -> string) -> unit
+  val remove : t -> Evas.obj -> unit
+  val find : t -> Evas.obj -> (float -> string) option
+end = struct
+  module M = Map.Make (struct
+    type t = Evas.obj
+    let compare : Evas.obj -> Evas.obj -> int = compare
+  end)
+  type t = (float -> string) M.t ref
+  let create () = ref M.empty
+  let replace fu obj f = fu := M.add obj f !fu
+  let remove fu obj = fu := M.remove obj !fu
+  let find fu obj = try Some (M.find obj !fu) with Not_found -> None
+end
+
+let fu = FU.create ()
 
 external value_set : Evas.obj -> float -> unit = "ml_elm_progressbar_value_set"
  
@@ -34,7 +52,9 @@ external unit_format_set_aux : Evas.obj -> string -> unit =
 let default_format x = sprintf "%d %%" (int_of_float (x *. 100.))
 
 let changed_cb obj =
-  let format_fun = try Hashtbl.find ht obj with Not_found -> default_format in
+  let format_fun = match FU.find fu obj with
+  | Some f -> f
+  | None -> default_format in
   let x = value_get obj in
   unit_format_set_aux obj (fstring_of_string (format_fun x))
 
@@ -46,7 +66,7 @@ end
 
 external add_aux : Evas.obj -> Evas.obj = "ml_elm_progressbar_add"
 
-let free_cb e obj () = Hashtbl.remove ht obj
+let free_cb e obj () = FU.remove fu obj
 
 let add parent =
   let pb = add_aux parent in
@@ -67,7 +87,7 @@ external span_size_set : Evas.obj -> int -> unit =
 external span_size_get : Evas.obj -> int = "ml_elm_progressbar_span_size_get"
 
 let unit_format_function_set obj func =
-  Hashtbl.replace ht obj func;
+  FU.replace fu obj func;
   changed_cb obj
 
 let unit_format_set obj fmt =
