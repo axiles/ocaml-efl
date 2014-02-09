@@ -58,6 +58,11 @@ val event_callback_add_mouse_down :
 val event_callback_add_mouse_up :
   Evas.obj -> Evas.event_mouse_up event_cb -> unit
 
+val event_callback_add_key_down :
+  Evas.obj -> Evas.event_key_down event_cb -> unit
+
+val event_callback_add_free : Evas.obj -> unit event_cb -> unit
+
 val visible_get : Evas.obj -> bool
 
 val size_hint_aspect_set : Evas.obj -> Evas.aspect_control -> int -> int -> unit

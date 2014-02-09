@@ -82,6 +82,7 @@ let () =
   g "focus_forward";
   g "focus_home";
   g "foot";
+  g "free";
   g "fri";
   g "friday";
   g "fullscreen";

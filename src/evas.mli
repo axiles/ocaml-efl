@@ -57,6 +57,7 @@ type event_info = [
   | `mouse_down of event_mouse_down
   | `mouse_up of event_mouse_up
   | `key_down of event_key_down
+  | `free
   | `other
 ]
 
