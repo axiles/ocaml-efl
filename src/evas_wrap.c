@@ -15,9 +15,7 @@ PREFIX void ml_Evas_Smart_Cb_1_free(
         value* v_data = (value*) data;
         value v_fun = Field(*v_data, 1);
         caml_callback2(v_fun, (value) obj, (value) event_info);
-        caml_remove_generational_global_root(v_data);
-        free(v_data);
-      
+        ml_remove_value(v_data); 
 }
 
 PREFIX value ml_evas_object_smart_callback_add(
@@ -461,8 +459,7 @@ void ml_Evas_Object_Event_Cb_on_del(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         value* v_fun = (value*) data;
-        caml_remove_generational_global_root(v_fun);
-        free(v_fun);
+        ml_remove_value(v_fun);
 }
 
 PREFIX inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v)
@@ -477,7 +474,12 @@ PREFIX void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* v_obj, void* event_info)
 {
         value* v_data = (value*) data;
-        caml_remove_generational_global_root(v_data);
-        free(v_data);
+        ml_remove_value(v_data);
+}
+
+PREFIX inline void ml_Evas_Object_gc_value(Evas_Object* obj, value* data)
+{
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_FREE,
+                ml_Evas_Object_Event_Cb_on_del, data);
 }
 

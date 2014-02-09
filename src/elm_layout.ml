@@ -14,10 +14,6 @@ external signal_callback_add :
   Evas.obj -> string -> string -> Edje.signal_cb -> unit =
   "ml_elm_layout_signal_callback_add"
 
-external signal_callback_del :
-  Evas.obj -> string -> string -> Edje.signal_cb -> unit =
-  "ml_elm_layout_signal_callback_del"
-
 external box_append : Evas.obj -> string -> Evas.obj -> bool =
   "ml_elm_layout_box_append"
 

@@ -38,10 +38,7 @@ PREFIX value ml_elm_flipselector_item_append(
         Elm_Object_Item* item = elm_flipselector_item_append(
                 (Evas_Object*) v_obj, label, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_flipselector_item_append");
         }
         if(data != NULL)
@@ -67,10 +64,7 @@ PREFIX value ml_elm_flipselector_item_prepend(
         Elm_Object_Item* item = elm_flipselector_item_prepend(
                 (Evas_Object*) v_obj, label, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_flipselector_item_prepend");
         }
         if(data != NULL)

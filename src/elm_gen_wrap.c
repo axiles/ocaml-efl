@@ -41,7 +41,6 @@ PREFIX void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj)
       
         value* v_class = (value*) data;
         caml_callback(Field(*v_class, 4), (value) obj);
-        caml_remove_generational_global_root(v_class);
-        free(v_class);
+        ml_remove_value(v_class);
 }
 

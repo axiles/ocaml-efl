@@ -110,10 +110,7 @@ PREFIX value ml_elm_list_item_append_native(
         Elm_Object_Item* item = elm_list_item_append((Evas_Object*) v_obj,
                 label, icon, end, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_list_item_append");
         }
         if(data != NULL)
@@ -152,10 +149,7 @@ PREFIX value ml_elm_list_item_prepend_native(
         Elm_Object_Item* item = elm_list_item_prepend((Evas_Object*) v_obj,
                 label, icon, end, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_list_item_prepend");
         }
         if(data != NULL)
@@ -195,10 +189,7 @@ PREFIX value ml_elm_list_item_insert_before_native(
                 (Evas_Object*) v_obj, (Elm_Object_Item*) v_before, label, icon,
                 end, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_list_item_insert_before");
         }
         if(data != NULL)
@@ -237,10 +228,7 @@ PREFIX value ml_elm_list_item_insert_after_native(
         Elm_Object_Item* item = elm_list_item_insert_after((Evas_Object*) v_obj,
                 (Elm_Object_Item*) v_after, label, icon, end, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_list_item_insert_after");
         }
         if(data != NULL)

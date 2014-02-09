@@ -82,10 +82,7 @@ PREFIX value ml_elm_diskselector_item_append(
         Elm_Object_Item* item = elm_diskselector_item_append(
                 (Evas_Object*) v_obj, label, icon, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_generational_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_diskselector_item_append");
         }
         if(data != NULL)

@@ -101,8 +101,6 @@ val signal_emit : Evas.obj -> string -> string -> unit
 
 val signal_callback_add : Evas.obj -> string -> string -> Edje.signal_cb -> unit
 
-val signal_callback_del : Evas.obj -> string -> string -> Edje.signal_cb -> unit
-
 val event_callback_add : Evas.obj -> Elm.event_cb -> unit
 
 val orientation_mode_disabled_set : Evas.obj -> bool -> unit

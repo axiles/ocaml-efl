@@ -104,19 +104,16 @@ PREFIX value ml_elm_toolbar_item_append(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = (value*) caml_stat_alloc(sizeof(value));
-                *data = Field(v_func, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_toolbar_item_append((Evas_Object*) v_obj,
                 icon, label, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_toolbar_item_append");
         }
+        if(data != NULL)
+                ml_Elm_Object_Item_gc_value(item, data);
         return (value) item;
 }
 
@@ -136,19 +133,16 @@ PREFIX value ml_elm_toolbar_item_prepend(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = (value*) caml_stat_alloc(sizeof(value));
-                *data = Field(v_func, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_toolbar_item_prepend((Evas_Object*) v_obj,
                 icon, label, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_toolbar_item_prepend");
         }
+        if(data != NULL)
+                ml_Elm_Object_Item_gc_value(item, data);
         return (value) item;
 }
 
@@ -169,20 +163,17 @@ PREFIX value ml_elm_toolbar_item_insert_before_native(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = (value*) caml_stat_alloc(sizeof(value));
-                *data = Field(v_func, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_toolbar_item_insert_before(
                 (Evas_Object*) v_obj, (Elm_Object_Item*) v_before, icon, label,
                 func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_toolbar_item_insert_before");
         }
+        if(data != NULL)
+                ml_Elm_Object_Item_gc_value(item, data);
         return (value) item;
 }
 
@@ -209,20 +200,17 @@ PREFIX value ml_elm_toolbar_item_insert_after_native(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = (value*) caml_stat_alloc(sizeof(value));
-                *data = Field(v_func, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_toolbar_item_insert_after(
                 (Evas_Object*) v_obj, (Elm_Object_Item*) v_after, icon, label,
                 func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_toolbar_item_insert_after");
         }
+        if(data != NULL)
+                ml_Elm_Object_Item_gc_value(item, data);
         return (value) item;
 }
 
@@ -461,6 +449,7 @@ PREFIX value ml_elm_toolbar_item_menu_get(value v_it)
 PREFIX value ml_elm_toolbar_item_state_add(
         value v_it, value v_icon, value v_label, value v_func, value v_unit)
 {
+        Elm_Object_Item* it = (Elm_Object_Item*) v_it;
         const char* icon;
         if(v_icon == Val_int(0)) icon = NULL;
         else icon = String_val(Field(v_icon, 0));
@@ -474,13 +463,16 @@ PREFIX value ml_elm_toolbar_item_state_add(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = caml_stat_alloc(sizeof(value));
-                *data = Field(v_func, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_func, 0));
         }
-        Elm_Toolbar_Item_State* state = elm_toolbar_item_state_add(
-                (Elm_Object_Item*) v_it, icon, label, func, data);
-        if(state == NULL) caml_failwith("elm_toolbar_item_state_add");
+        Elm_Toolbar_Item_State* state = elm_toolbar_item_state_add(it, icon,
+                label, func, data);
+        if(state == NULL) {
+                if(data != NULL) ml_remove_value(data);
+                caml_failwith("elm_toolbar_item_state_add");
+        }
+        if(data != NULL)
+                ml_Elm_Object_Item_gc_value(it, data);
         return (value) state;
 }
 

@@ -28,8 +28,7 @@ PREFIX void ml_Ecore_Cb_1_free(void* data)
         value* v_data = (value*) data;
         v_fun = Field(*v_data, 1);
         caml_callback(v_fun, Val_unit);
-        caml_remove_generational_global_root(v_data);
-        free(v_data);
+        ml_remove_value(v_data);
         CAMLreturn0;
 }
 
@@ -40,8 +39,7 @@ PREFIX void ml_Ecore_Cb_free(void* data)
         value* v_data = (value*) data;
         v_fun = *v_data;
         caml_callback(v_fun, Val_unit);
-        caml_remove_generational_global_root(v_data);
-        free(v_data);
+        ml_remove_value(v_data);
         CAMLreturn0;
 }
 
@@ -50,10 +48,7 @@ PREFIX Eina_Bool ml_Ecore_Task_Cb_free_on_last(void* data)
       
         value* v_fun = (value*) data;
         Eina_Bool b = Eina_Bool_val(caml_callback(*v_fun, Val_unit));
-        if(!b) {
-                caml_remove_generational_global_root(v_fun);
-                free(v_fun);
-        }      
+        if(!b) ml_remove_value(v_fun);
         return b;
 }
 
@@ -75,8 +70,7 @@ PREFIX value ml_ecore_timer_add(value v_x, value v_fun)
         Ecore_Timer* timer = ecore_timer_add(Double_val(v_x),
                 ml_Ecore_Task_Cb_free_on_last, data);
         if(timer == NULL) {
-                caml_remove_generational_global_root(data);
-                free(data);
+                ml_remove_value(data);
                 caml_failwith("ecore_timer_add");
         }
         return (value) v_fun;

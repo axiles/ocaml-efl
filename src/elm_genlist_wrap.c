@@ -136,13 +136,11 @@ PREFIX value ml_elm_genlist_item_append(
         elm_genlist_item_class_free(itc);
 
         if(item == NULL) {
-                caml_remove_generational_global_root((value*) data);
-                caml_remove_generational_global_root(func_data);
-                free(data);
-                free(func_data);
+                ml_remove_value(data);
+                ml_remove_value(func_data);
                 caml_failwith("elm_genlist_item_append");
         }
-        //elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
+        ml_Elm_Object_Item_gc_value(item, func_data);
         return (value) item;
 }
 
@@ -165,13 +163,11 @@ PREFIX value ml_elm_genlist_item_prepend(
         elm_genlist_item_class_free(itc);
 
         if(item == NULL) {
-                caml_remove_generational_global_root((value*) data);
-                caml_remove_generational_global_root(func_data);
-                free(data);
-                free(func_data);
+                ml_remove_value(data);
+                ml_remove_value(func_data);
                 caml_failwith("elm_genlist_item_prepend");
         }
-        //elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
+        ml_Elm_Object_Item_gc_value(item, func_data);
         return (value) item;
 }
 
@@ -196,13 +192,11 @@ PREFIX value ml_elm_genlist_item_insert_before_native(
         elm_genlist_item_class_free(itc);
 
         if(item == NULL) {
-                caml_remove_generational_global_root((value*) data);
-                caml_remove_generational_global_root(func_data);
-                free(data);
-                free(func_data);
+                ml_remove_value(data);
+                ml_remove_value(func_data);
                 caml_failwith("elm_genlist_item_insert_before");
         }
-        //elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
+        ml_Elm_Object_Item_gc_value(item, func_data);
         return (value) item;
 }
 
@@ -233,13 +227,11 @@ PREFIX value ml_elm_genlist_item_insert_after_native(
         elm_genlist_item_class_free(itc);
 
         if(item == NULL) {
-                caml_remove_generational_global_root((value*) data);
-                caml_remove_generational_global_root(func_data);
-                free(data);
-                free(func_data);
+                ml_remove_value(data);
+                ml_remove_value(func_data);
                 caml_failwith("elm_genlist_item_insert_after");
         }
-        //elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
+        ml_Elm_Object_Item_gc_value(item, func_data);
         return (value) item;
 }
 

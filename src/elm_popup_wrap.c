@@ -60,19 +60,16 @@ PREFIX value ml_elm_popup_item_append(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = (value*) caml_stat_alloc(sizeof(value));
-                *data = Field(v_func, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_popup_item_append((Evas_Object*) v_obj,
                 label, icon, func, data);
         if(item == NULL) {
-                if(data != NULL) {
-                        caml_remove_global_root(data);
-                        free(data);
-                }
+                if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_popup_item_append");
         }
+        if(data != NULL)
+                elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
         return (value) item;
 }
 

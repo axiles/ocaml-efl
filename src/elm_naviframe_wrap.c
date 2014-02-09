@@ -182,10 +182,9 @@ PREFIX value ml_elm_naviframe_item_title_visible_get(value v_it)
 PREFIX value ml_elm_naviframe_item_pop_cb_set(value v_it, value v_fun)
 {
         CAMLparam2(v_it, v_fun);
-        value* data = caml_stat_alloc(sizeof(value));
-        caml_register_global_root(data);
-        elm_naviframe_item_pop_cb_set((Elm_Object_Item*) v_it,
-                ml_Elm_Naviframe_Item_Pop_Cb, data);
+        Elm_Object_Item* it = (Elm_Object_Item*) v_it;
+        value* data = ml_Elm_Object_Item_register_value(it, v_fun);
+        elm_naviframe_item_pop_cb_set(it, ml_Elm_Naviframe_Item_Pop_Cb, data);
         CAMLreturn(Val_unit);
 }
 

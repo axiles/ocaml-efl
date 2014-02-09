@@ -18,17 +18,14 @@ void ml_SlideshowItemDelFunc_1_free(void* data, Evas_Object* obj)
         value* v_itc = (value*) data;
         v_fun = Field(*v_itc, 1);
         caml_callback(v_fun, (value) obj);
-        caml_remove_global_root(v_itc);
-        free(v_itc);
+        ml_remove_value(v_itc);
         CAMLreturn0;
 }
 
 PREFIX inline void ml_Elm_Slideshow_Item_Class(
         Elm_Slideshow_Item_Class* itc, void** data, value v_itc)
 {
-        value* v_data = caml_stat_alloc(sizeof(value));
-        *v_data = v_itc;
-        caml_register_global_root(v_data);
+        value* v_data = ml_register_value(v_itc);
         itc->func.get = ml_SlideshowItemGetFunc_0;
         itc->func.del = ml_SlideshowItemDelFunc_1_free;
         *data = v_data;

@@ -663,6 +663,7 @@ PREFIX value ml_elm_map_name_add_native(
         value v_obj, value v_addr, value v_lon, value v_lat, value v_cb,
         value v_unit)
 {
+        Evas_Object* obj = (Evas_Object*) v_obj;
         const char* addr;
         if(v_addr == Val_int(0)) addr = NULL;
         else addr = String_val(Field(v_addr, 0));
@@ -679,13 +680,14 @@ PREFIX value ml_elm_map_name_add_native(
                 data = NULL;
         } else {
                 cb = ml_Elm_Map_Name_Cb;
-                data = caml_stat_alloc(sizeof(value));
-                *data = Field(v_cb, 0);
-                caml_register_global_root(data);
+                data = ml_register_value(Field(v_cb, 0));
         }
-        Elm_Map_Name* name = elm_map_name_add((Evas_Object*) v_obj, addr, lon,
-                lat, cb, data);
-        if(name == NULL) caml_failwith("elm_map_name_add");
+        Elm_Map_Name* name = elm_map_name_add(obj, addr, lon, lat, cb, data);
+        if(name == NULL) {
+                if(data != NULL) ml_remove_value(data);
+                caml_failwith("elm_map_name_add");
+        }
+        if(data != NULL) ml_Evas_Object_gc_value(obj, data);
         return (value) name;
 }
 

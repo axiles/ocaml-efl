@@ -15,16 +15,14 @@ PREFIX void ml_Elm_Transit_Effect_End_Cb_free_only(
         Elm_Transit_Effect* effect, Elm_Transit* tr)
 {
         value* v_fun = (value*) effect;
-        caml_remove_global_root(v_fun);
-        free(v_fun);
+        ml_remove_value(v_fun);
 }
 
 PREFIX void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
 {
         value* v_fun = (value*) data;
         caml_callback(*v_fun, (value) tr);
-        caml_remove_global_root(v_fun);
-        free(v_fun);
+        ml_remove_value(v_fun);
 }
 
 PREFIX inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
@@ -176,9 +174,7 @@ PREFIX value ml_elm_transit_event_enabled_get(value v_tr)
 
 PREFIX value ml_elm_transit_del_cb_set(value v_tr, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
+        value* data = ml_register_value(v_fun);
         elm_transit_del_cb_set((Elm_Transit*) v_tr, ml_Elm_Transit_Del_Cb,
                 data);
         return Val_unit;

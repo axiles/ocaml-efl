@@ -261,8 +261,7 @@ PREFIX void ml_Elm_Object_Item_Signal_Cb(
 PREFIX void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
 {
         value* v_fun = (value*) data;
-        caml_remove_global_root(v_fun);
-        free(v_fun);
+        ml_remove_value(v_fun);
 }
 
 PREFIX value ml_elm_object_domain_translatable_part_text_set(
@@ -428,12 +427,10 @@ PREFIX value ml_elm_object_signal_callback_add(
         value v_obj, value v_emission, value v_source, value v_fun)
 {
         CAMLparam4(v_obj, v_emission, v_source, v_fun);
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_object_signal_callback_add((Evas_Object*) v_obj,
-                String_val(v_emission), String_val(v_source),
-                ml_Edje_Signal_Cb, data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_object_signal_callback_add(obj, String_val(v_emission),
+                String_val(v_source), ml_Edje_Signal_Cb, data);
         CAMLreturn(Val_unit);
 }
 
@@ -442,48 +439,11 @@ typedef struct _value_ptr_list {
         struct _value_ptr_list* tl;
 } value_ptr_list;
 
-PREFIX value ml_elm_object_signal_callback_del(
-        value v_obj, value v_emission, value v_source, value v_fun)
-{
-        CAMLparam4(v_obj, v_emission, v_source, v_fun);
-        value_ptr_list* list = NULL;
-        value_ptr_list* list1;
-        value* data;
-        Evas_Object* obj = (Evas_Object*) v_obj;
-        const char* emission = String_val(v_emission);
-        const char* source = String_val(v_source);
-        while(1) {
-                data = (value*) elm_object_signal_callback_del(obj, emission,
-                        source, ml_Edje_Signal_Cb);
-                if(*data == v_fun) {
-                        caml_remove_global_root(data);
-                        free(data);
-                        break;
-                } else {
-                        list1 = list;
-                        list = (value_ptr_list*)
-                                caml_stat_alloc(sizeof(value_ptr_list));
-                        list->hd = data;
-                        list->tl = list1;
-                }
-        }
-        while(list != NULL) {
-                elm_object_signal_callback_add(obj, emission, source,
-                        ml_Edje_Signal_Cb, list->hd);
-                list1 = list->tl;
-                free(list);
-                list = list1;
-        }
-        CAMLreturn(Val_unit);
-}
-
 PREFIX value ml_elm_object_event_callback_add(value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_object_event_callback_add((Evas_Object*) v_obj, ml_Elm_Event_Cb,
-                data);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_object_event_callback_add(obj, ml_Elm_Event_Cb, data);
         return Val_unit;
 }
 
@@ -678,12 +638,10 @@ PREFIX value ml_elm_object_item_signal_emit(
 PREFIX value ml_elm_object_item_signal_callback_add(
         value v_it, value v_emission, value v_source, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_object_item_signal_callback_add((Elm_Object_Item*) v_it,
-                String_val(v_emission), String_val(v_source),
-                ml_Elm_Object_Item_Signal_Cb, data);
+        Elm_Object_Item* it = (Elm_Object_Item*) v_it;
+        value* data = ml_Elm_Object_Item_register_value(it, v_fun);
+        elm_object_item_signal_callback_add(it, String_val(v_emission),
+                String_val(v_source), ml_Elm_Object_Item_Signal_Cb, data);
         return Val_unit;
 }
 
@@ -703,10 +661,9 @@ PREFIX value ml_elm_object_item_tooltip_text_set(value v_it, value v_text)
 PREFIX value ml_elm_object_item_tooltip_content_cb_set(
         value v_item, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_object_item_tooltip_content_cb_set((Elm_Object_Item*) v_item,
+        Elm_Object_Item* it = (Elm_Object_Item*) v_item;
+        value* data = ml_Elm_Object_Item_register_value(it, v_fun);
+        elm_object_item_tooltip_content_cb_set(it,
                 ml_Elm_Tooltip_Item_Content_Cb, data, ml_Evas_Smart_Cb_del);
         return Val_unit;
 }
@@ -785,6 +742,22 @@ PREFIX value ml_elm_object_item_untrack(value v_it)
 PREFIX value ml_elm_object_item_track_get(value v_it)
 {
         return Val_int(elm_object_item_track_get((Elm_Object_Item*) v_it));
+}
+
+PREFIX inline void ml_Elm_Object_Item_gc_value(
+        const Elm_Object_Item* it, value* data)
+{
+        Evas_Object* obj = elm_object_item_widget_get(it);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_FREE,
+                ml_Evas_Object_Event_Cb_on_del, data);
+}
+
+PREFIX inline value* ml_Elm_Object_Item_register_value(
+        Elm_Object_Item* it, value v)
+{
+        value* data = ml_register_value(v);
+        ml_Elm_Object_Item_gc_value(it, data);
+        return data;
 }
 
 /* Scrollhints */
@@ -1001,13 +974,12 @@ PREFIX value ml_elm_object_tooltip_text_set(value v_obj, value v_text)
 }
 
 PREFIX value ml_elm_object_tooltip_content_cb_set(
-        value v_objem, value v_fun)
+        value v_obj, value v_fun)
 {
-        value* data = caml_stat_alloc(sizeof(value));
-        *data = v_fun;
-        caml_register_global_root(data);
-        elm_object_tooltip_content_cb_set((Evas_Object*) v_objem,
-                ml_Elm_Tooltip_Content_Cb, data, ml_Evas_Smart_Cb_del);
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_object_tooltip_content_cb_set(obj, ml_Elm_Tooltip_Content_Cb, data,
+                ml_Evas_Smart_Cb_del);
         return Val_unit;
 }
 
