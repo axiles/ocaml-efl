@@ -143,6 +143,12 @@ external item_menu_set : Elm_object.item -> bool -> unit =
 external item_menu_get : Elm_object.item -> Evas.obj option =
   "ml_elm_toolbar_item_menu_get"
 
+let item_menu_set_get it =
+  item_menu_set it true;
+  match item_menu_get it with
+  | None -> failwith "Elm_toolbar.item_menu_set_get"
+  | Some menu -> menu
+
 external item_state_add :
   Elm_object.item -> ?icon:string -> ?label:string -> ?func:Evas.smart_cb ->
     unit -> item_state =

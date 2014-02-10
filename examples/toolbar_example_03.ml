@@ -32,11 +32,7 @@ let () =
 
   let tb_it =
     Elm_toolbar.item_append tb ~icon:"mail-send" ~label:"Send Mail" () in
-  Elm_toolbar.item_menu_set tb_it true;
-
-  let menu = match Elm_toolbar.item_menu_get tb_it with
-  | Some m -> m
-  | None -> assert false in
+  let menu = Elm_toolbar.item_menu_set_get tb_it in
   let add icon label =
     ignore (Elm_menu.item_add menu ~icon ~label () : Elm_object.item) in
   add "emptytrash" "Empty Trash";
