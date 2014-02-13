@@ -52,6 +52,12 @@ val rectangle_add : Evas.t -> Evas.obj
 
 val size_hint_min_set : Evas.obj -> int -> int -> unit
 
+val event_callback_add_mouse_in :
+  Evas.obj -> Evas.event_mouse_in event_cb -> unit
+
+val event_callback_add_mouse_out :
+  Evas.obj -> Evas.event_mouse_out event_cb -> unit
+
 val event_callback_add_mouse_down :
   Evas.obj -> Evas.event_mouse_down event_cb -> unit
 

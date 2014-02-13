@@ -80,6 +80,14 @@ external rectangle_add : Evas.t -> Evas.obj = "ml_evas_object_rectangle_add"
 external size_hint_min_set : Evas.obj -> int -> int -> unit =
   "ml_evas_object_size_hint_min_set"
 
+external event_callback_add_mouse_in :
+  Evas.obj -> Evas.event_mouse_in event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_in"
+
+external event_callback_add_mouse_out :
+  Evas.obj -> Evas.event_mouse_out event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_out"
+
 external event_callback_add_mouse_down :
   Evas.obj -> Evas.event_mouse_down event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_down"

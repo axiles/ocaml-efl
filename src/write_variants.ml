@@ -63,6 +63,7 @@ let () =
   g "dock";
   g "does_not_exist";
   f "Val_done" "_done";
+  g "double_click";
   g "down";
   g "dropdown_menu";
   g "eet";
@@ -140,6 +141,8 @@ let () =
   g "monthly";
   g "motocar";
   g "mouse_down";
+  g "mouse_in";
+  g "mouse_out";
   g "mouse_up";
   g "move";
   g "n_double_taps";
@@ -163,6 +166,8 @@ let () =
   g "off";
   g "on";
   g "on_demand";
+  g "on_hold";
+  g "on_scroll";
   g "ondemand";
   g "opacity_unknown";
   g "opaque";
@@ -243,6 +248,7 @@ let () =
   g "translucent";
   g "transparent";
   g "tree";
+  g "triple_click";
   g "tue";
   g "tuesday";
   g "undefined";

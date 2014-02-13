@@ -1,5 +1,43 @@
 #include "include.h"
 
+PREFIX value copy_Evas_Point(Evas_Point p)
+{
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(p.x));
+        Store_field(v, 1, Val_int(p.y));
+        return v;
+}
+
+PREFIX value copy_Evas_Coord_Point(Evas_Coord_Point p)
+{
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(p.x));
+        Store_field(v, 1, Val_int(p.y));
+        return v;
+}
+
+PREFIX value Val_Evas_Event_Flags(Evas_Event_Flags f)
+{
+        switch(f) {
+                case EVAS_EVENT_FLAG_NONE: return Val_none;
+                case EVAS_EVENT_FLAG_ON_HOLD: return Val_on_hold;
+                case EVAS_EVENT_FLAG_ON_SCROLL: return Val_on_scroll;
+        }
+        caml_failwith("Val_Evas_Event_Flag");
+        return Val_none;
+}
+
+PREFIX value Val_Evas_Button_Flags(Evas_Button_Flags f)
+{
+        switch(f) {
+                case EVAS_BUTTON_NONE: return Val_none;
+                case EVAS_BUTTON_DOUBLE_CLICK: return Val_double_click;
+                case EVAS_BUTTON_TRIPLE_CLICK: return Val_triple_click;
+        }
+        caml_failwith("Val_Evas_Button_Flag");
+        return Val_none;
+}
+
 PREFIX void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
 {
       
@@ -143,6 +181,38 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
         CAMLreturn(v);
 }
 
+PREFIX value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(8, 0);
+        Store_field(v, 0, Val_int(e->buttons));
+        Store_field(v, 1, copy_Evas_Point(e->output));
+        Store_field(v, 2, copy_Evas_Coord_Point(e->canvas));
+        Store_field(v, 3, (value) e->modifiers);
+        Store_field(v, 4, Val_int(e->timestamp));
+        Store_field(v, 5, Val_Evas_Event_Flags(e->event_flags));
+        Store_field(v, 6, (value) e->dev);
+        Store_field(v, 7, (value) e->event_src);
+        CAMLreturn(v);
+}
+
+PREFIX value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(8, 0);
+        Store_field(v, 0, Val_int(e->buttons));
+        Store_field(v, 1, copy_Evas_Point(e->output));
+        Store_field(v, 2, copy_Evas_Coord_Point(e->canvas));
+        Store_field(v, 3, (value) e->modifiers);
+        Store_field(v, 4, Val_int(e->timestamp));
+        Store_field(v, 5, Val_Evas_Event_Flags(e->event_flags));
+        Store_field(v, 6, (value) e->dev);
+        Store_field(v, 7, (value) e->event_src);
+        CAMLreturn(v);
+}
+
 PREFIX inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
 {
         value v = caml_alloc(8, 0);
@@ -198,6 +268,30 @@ PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
         return EVAS_ASPECT_CONTROL_NONE;
 }
 
+PREFIX void ml_Evas_Object_Event_Cb_mouse_in(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Mouse_In((Evas_Event_Mouse_In*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
+}
+
+PREFIX void ml_Evas_Object_Event_Cb_mouse_out(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Mouse_Out((Evas_Event_Mouse_Out*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
+}
+
 PREFIX void ml_Evas_Object_Event_Cb_mouse_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
@@ -244,6 +338,26 @@ PREFIX void ml_Evas_Object_Event_Cb_free(
         caml_callback3(v_fun, (value) e, (value) obj, Val_unit);
         ml_remove_value(d);
 	CAMLreturn0;
+}
+
+PREFIX value ml_evas_object_event_callback_add_mouse_in(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_IN,
+                ml_Evas_Object_Event_Cb_mouse_in, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_mouse_out(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_OUT,
+                ml_Evas_Object_Event_Cb_mouse_out, data);
+        return Val_unit;
 }
 
 PREFIX value ml_evas_object_event_callback_add_mouse_down(
@@ -382,6 +496,18 @@ PREFIX inline value copy_Evas_Event_Info(
         CAMLparam0();
         CAMLlocal1(v);
         switch(t) {
+                case EVAS_CALLBACK_MOUSE_IN:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_mouse_in);
+                        Store_field(v, 1, copy_Evas_Event_Mouse_In(
+                                (Evas_Event_Mouse_In*) event_info));
+                        break;
+                case EVAS_CALLBACK_MOUSE_OUT:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_mouse_out);
+                        Store_field(v, 1, copy_Evas_Event_Mouse_Out(
+                                (Evas_Event_Mouse_Out*) event_info));
+                        break;
                 case EVAS_CALLBACK_MOUSE_DOWN:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_down);

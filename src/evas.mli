@@ -10,6 +10,54 @@ type smart_cb = obj -> ptr -> unit
 
 type modifier
 
+module Point : sig
+  type t = {x : int; y : int}
+end
+
+type point = Point.t
+
+module Coord_point : sig
+  type t = Point.t = {x : int; y : int}
+end
+
+type coord_point = Coord_point.t
+
+type event_flags = [`none | `double_click | `triple_click]
+
+type button_flags = [`none | `on_hold | `on_scroll]
+
+type device
+
+module Event_Mouse_In : sig
+  type t = {
+    buttons : int;
+    output : point;
+    canvas : coord_point;
+    modifiers : modifier;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+    event_src : obj;
+  }
+end
+
+type event_mouse_in = Event_Mouse_In.t
+
+module Event_Mouse_Out : sig
+  type t = {
+    buttons : int;
+    output : point;
+    canvas : coord_point;
+    modifiers : modifier;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+    event_src : obj;
+  }
+end
+
+type event_mouse_out = Event_Mouse_Out.t
+
 module Event_mouse_down : sig
   type t = {
     button : int;
@@ -54,6 +102,8 @@ end
 type event_key_down = Event_key_down.t
 
 type event_info = [
+  | `mouse_in of event_mouse_in
+  | `mouse_out of event_mouse_out
   | `mouse_down of event_mouse_down
   | `mouse_up of event_mouse_up
   | `key_down of event_key_down
