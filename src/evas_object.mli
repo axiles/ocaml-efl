@@ -64,6 +64,9 @@ val event_callback_add_mouse_down :
 val event_callback_add_mouse_up :
   Evas.obj -> Evas.event_mouse_up event_cb -> unit
 
+val event_callback_add_mouse_move :
+  Evas.obj -> Evas.event_mouse_move event_cb -> unit
+
 val event_callback_add_key_down :
   Evas.obj -> Evas.event_key_down event_cb -> unit
 

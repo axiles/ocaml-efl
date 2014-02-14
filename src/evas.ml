@@ -20,6 +20,12 @@ end
 
 type coord_point = Coord_point.t
 
+module Position = struct
+  type t = {output : point; canvas : point}
+end
+
+type position = Position.t
+
 type event_flags = [`none | `double_click | `triple_click]
 
 type button_flags = [`none | `on_hold | `on_scroll]
@@ -86,6 +92,21 @@ end
 
 type event_mouse_up = Event_mouse_up.t
 
+module Event_mouse_move = struct
+  type t = {
+    buttons : int;
+    cur : position;
+    prev : position;
+    modifiers : modifier;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+    event_src : obj;
+  }
+end
+
+type event_mouse_move = Event_mouse_move.t
+
 module Event_key_down = struct
   type t = {
     keyname : string;
@@ -104,6 +125,7 @@ type event_info = [
   | `mouse_out of event_mouse_out
   | `mouse_down of event_mouse_down
   | `mouse_up of event_mouse_up
+  | `mouse_move of event_mouse_move
   | `key_down of event_key_down
   | `free
   | `other

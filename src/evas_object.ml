@@ -96,6 +96,10 @@ external event_callback_add_mouse_up :
   Evas.obj -> Evas.event_mouse_up event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_up"
 
+external event_callback_add_mouse_move :
+  Evas.obj -> Evas.event_mouse_move event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_move"
+
 external event_callback_add_key_down :
   Evas.obj -> Evas.event_key_down event_cb -> unit =
     "ml_evas_object_event_callback_add_key_down"

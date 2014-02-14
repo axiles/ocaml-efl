@@ -142,6 +142,7 @@ let () =
   g "motocar";
   g "mouse_down";
   g "mouse_in";
+  g "mouse_move";
   g "mouse_out";
   g "mouse_up";
   g "move";
