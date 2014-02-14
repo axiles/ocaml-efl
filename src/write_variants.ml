@@ -145,6 +145,7 @@ let () =
   g "mouse_move";
   g "mouse_out";
   g "mouse_up";
+  g "mouse_wheel";
   g "move";
   g "n_double_taps";
   g "n_flicks";

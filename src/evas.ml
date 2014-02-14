@@ -107,6 +107,20 @@ end
 
 type event_mouse_move = Event_mouse_move.t
 
+module Event_mouse_wheel = struct
+  type t = {
+    direction : int;
+    output : point;
+    canvas : coord_point;
+    modifiers : modifier;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+  }
+end
+
+type event_mouse_wheel = Event_mouse_wheel.t
+
 module Event_key_down = struct
   type t = {
     keyname : string;
@@ -126,6 +140,7 @@ type event_info = [
   | `mouse_down of event_mouse_down
   | `mouse_up of event_mouse_up
   | `mouse_move of event_mouse_move
+  | `mouse_wheel of event_mouse_wheel
   | `key_down of event_key_down
   | `free
   | `other

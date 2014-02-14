@@ -266,6 +266,21 @@ PREFIX inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(7, 0);
+        Store_field(v, 0, Val_int(ev->direction));
+        Store_field(v, 1, copy_Evas_Point(ev->output));
+        Store_field(v, 2, copy_Evas_Coord_Point(ev->canvas));
+        Store_field(v, 3, (value) ev->modifiers);
+        Store_field(v, 4, Val_int(ev->timestamp));
+        Store_field(v, 5, Val_Evas_Event_Flags(ev->event_flags));
+        Store_field(v, 6, (value) ev->dev);
+        CAMLreturn(v);
+}
+
 PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
 {
         CAMLparam0();
@@ -353,6 +368,19 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_move(
 	CAMLreturn0;
 }
 
+PREFIX void ml_Evas_Object_Event_Cb_mouse_wheel(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Mouse_Wheel(
+                (Evas_Event_Mouse_Wheel*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
+}
+
 PREFIX void ml_Evas_Object_Event_Cb_key_down(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
@@ -424,6 +452,16 @@ PREFIX value ml_evas_object_event_callback_add_mouse_move(
         value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_MOVE,
                 ml_Evas_Object_Event_Cb_mouse_move, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_mouse_wheel(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_WHEEL,
+                ml_Evas_Object_Event_Cb_mouse_wheel, data);
         return Val_unit;
 }
 
@@ -572,6 +610,12 @@ PREFIX inline value copy_Evas_Event_Info(
                         Store_field(v, 0, Val_mouse_move);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Move(
                                 (Evas_Event_Mouse_Move*) event_info));
+                        break;
+                case EVAS_CALLBACK_MOUSE_WHEEL:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_mouse_wheel);
+                        Store_field(v, 1, copy_Evas_Event_Mouse_Wheel(
+                                (Evas_Event_Mouse_Wheel*) event_info));
                         break;
                 case EVAS_CALLBACK_KEY_DOWN:
                         v = caml_alloc(2, 0);
