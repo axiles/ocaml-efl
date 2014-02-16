@@ -116,6 +116,9 @@ external event_callback_add_multi_move :
   Evas.obj -> Evas.event_multi_move event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_move"
 
+external event_callback_add_free : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_free"
+
 external event_callback_add_key_down :
   Evas.obj -> Evas.event_key_down event_cb -> unit =
     "ml_evas_object_event_callback_add_key_down"
@@ -124,12 +127,44 @@ external event_callback_add_key_up :
   Evas.obj -> Evas.event_key_up event_cb -> unit =
     "ml_evas_object_event_callback_add_key_up"
 
-external event_callback_add_free : Evas.obj -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_free"
+external event_callback_add_focus_in : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_focus_in"
+
+external event_callback_add_focus_out : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_focus_out"
+
+external event_callback_add_show : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_show"
+
+external event_callback_add_hide : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_hide"
+
+external event_callback_add_move : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_move"
+
+external event_callback_add_resize : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_resize"
+
+external event_callback_add_restack : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_restack"
+
+external event_callback_add_del : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_del"
 
 external event_callback_add_hold :
   Evas.obj -> Evas.event_hold event_cb -> unit =
     "ml_evas_object_event_callback_add_hold"
+
+external event_callback_add_changed_size_hints :
+  Evas.obj -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_add_changed_size_hints"
+
+external event_callback_add_image_preloaded :
+  Evas.obj -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_add_image_preloaded"
+
+external event_callback_add_image_unloaded : Evas.obj -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_image_unloaded"
 
 external visible_get : Evas.obj -> bool = "ml_evas_object_visible_get"
 

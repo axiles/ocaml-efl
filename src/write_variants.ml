@@ -31,7 +31,12 @@ let () =
   g "bottom_left";
   g "bottom_right";
   g "bubble";
+  g "canvas_focus_in";
+  g "canvas_focus_out";
+  g "canvas_object_focus_in";
+  g "canvas_object_focus_out";
   g "center";
+  g "changed_size_hints";
   g "char";
   g "circle";
   f "Val_class" "_class";
@@ -54,8 +59,10 @@ let () =
   g "day";
   g "decelerate";
   g "default";
+  g "del";
   g "depth";
   g "desktop";
+  g "device_changed";
   g "dialog_basic";
   g "direct";
   g "display_only";
@@ -82,6 +89,8 @@ let () =
   g "focus_back";
   g "focus_forward";
   g "focus_home";
+  g "focus_in";
+  g "focus_out";
   g "foot";
   g "free";
   g "fri";
@@ -102,6 +111,9 @@ let () =
   g "hour_decimal";
   g "hour_unit";
   g "ignore_aspect";
+  g "image_preloaded";
+  g "image_resize";
+  g "image_unloaded";
   f "Val_in" "_in";
   g "inlined_image";
   g "invalid";
@@ -198,9 +210,16 @@ let () =
   g "plaintext";
   g "polygon";
   g "popup_menu";
+  g "preloaded";
   g "previous";
   g "recreate";
+  g "render_flush_post";
+  g "render_flush_pre";
+  g "render_post";
+  g "render_pre";
+  g "resize";
   g "resource_allocation_failed";
+  g "restack";
   g "right";
   g "rotate";
   g "rotate_180";
@@ -262,6 +281,7 @@ let () =
   g "unique";
   g "unknown";
   g "unknown_format";
+  g "unloaded";
   g "up";
   g "url";
   g "utility";

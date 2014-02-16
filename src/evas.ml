@@ -242,11 +242,32 @@ type event_info = [
   | `multi_down of event_multi_down
   | `multi_up of event_multi_up
   | `multi_move of event_multi_move
+  | `free
   | `key_down of event_key_down
   | `key_up of event_key_up
-  | `free
+  | `focus_in
+  | `focus_out
+  | `show
+  | `hide
+  | `move
+  | `resize
+  | `restack
+  | `del
   | `hold of event_hold
-  | `other
+  | `changed_size_hints
+  | `image_preloaded
+  | `canvas_focus_in
+  | `canvas_focus_out
+  | `render_flush_pre
+  | `render_flush_post
+  | `canvas_object_focus_in
+  | `canvas_object_focus_out
+  | `image_unloaded
+  | `render_pre
+  | `render_post
+  | `image_resize
+  | `device_changed
+  | `last
 ]
 
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
