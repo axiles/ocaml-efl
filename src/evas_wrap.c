@@ -397,6 +397,16 @@ PREFIX inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
+{
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(ev->hold));
+        Store_field(v, 1, Val_int(ev->timestamp));
+        Store_field(v, 2, Val_Evas_Event_Flags(ev->event_flags));
+        Store_field(v, 3, (value) ev->dev);
+        return v;
+}
+
 PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
 {
         switch(v) {
@@ -558,6 +568,18 @@ PREFIX void ml_Evas_Object_Event_Cb_free(
 	CAMLreturn0;
 }
 
+PREFIX void ml_Evas_Object_Event_Cb_hold(
+        void* data, Evas* e, Evas_Object* obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Hold((Evas_Event_Hold*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+        CAMLreturn0;
+}
+
 PREFIX value ml_evas_object_event_callback_add_mouse_in(
         value v_obj, value v_func)
 {
@@ -674,6 +696,16 @@ PREFIX value ml_evas_object_event_callback_add_free(value v_obj, value v_func)
         value* data = ml_register_value(v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_FREE,
                 ml_Evas_Object_Event_Cb_free, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_hold(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_HOLD,
+                ml_Evas_Object_Event_Cb_hold, data);
         return Val_unit;
 }
 
@@ -842,6 +874,12 @@ PREFIX inline value copy_Evas_Event_Info(
                         break;
                 case EVAS_CALLBACK_FREE:
                         v = Val_free;
+                        break;
+                case EVAS_CALLBACK_HOLD:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_hold);
+                        Store_field(v, 1, copy_Evas_Event_Hold(
+                                (Evas_Event_Hold*) event_info));
                         break;
                 default: v = Val_other;
         }

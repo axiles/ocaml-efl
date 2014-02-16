@@ -95,6 +95,7 @@ let () =
   g "hex";
   g "hidden_always";
   g "hide";
+  g "hold";
   g "horizontal";
   g "host";
   g "hour";

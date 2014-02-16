@@ -221,6 +221,17 @@ end
 
 type event_key_up = Event_key_up.t
 
+module Event_hold = struct
+  type t = {
+    hold : int;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+  }
+end
+
+type event_hold = Event_hold.t
+
 type event_info = [
   | `mouse_in of event_mouse_in
   | `mouse_out of event_mouse_out
@@ -234,6 +245,7 @@ type event_info = [
   | `key_down of event_key_down
   | `key_up of event_key_up
   | `free
+  | `hold of event_hold
   | `other
 ]
 

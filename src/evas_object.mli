@@ -87,6 +87,9 @@ val event_callback_add_key_up :
 
 val event_callback_add_free : Evas.obj -> unit event_cb -> unit
 
+val event_callback_add_hold :
+  Evas.obj -> Evas.event_hold event_cb -> unit
+
 val visible_get : Evas.obj -> bool
 
 val size_hint_aspect_set : Evas.obj -> Evas.aspect_control -> int -> int -> unit
