@@ -248,29 +248,31 @@ PREFIX value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
 
 PREFIX inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
 {
-        value v = caml_alloc(8, 0);
+        value v = caml_alloc(7, 0);
         Store_field(v, 0, Val_int(ev->button));
-        Store_field(v, 1, Val_int(ev->output.x));
-        Store_field(v, 2, Val_int(ev->output.y));
-        Store_field(v, 3, Val_int(ev->canvas.x));
-        Store_field(v, 4, Val_int(ev->canvas.y));
-        Store_field(v, 5, (value) ev->modifiers);
-        Store_field(v, 6, Val_bool(ev->flags & EVAS_BUTTON_DOUBLE_CLICK));
-        Store_field(v, 7, Val_bool(ev->flags & EVAS_BUTTON_TRIPLE_CLICK));
+        Store_field(v, 1, copy_Evas_Point(ev->output));
+        Store_field(v, 2, copy_Evas_Coord_Point(ev->canvas));
+        Store_field(v, 3, (value) ev->modifiers);
+        Store_field(v, 4, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 5, Val_int(ev->timestamp));
+        Store_field(v, 6, Val_Evas_Event_Flags(ev->flags));
+        Store_field(v, 7, (value) ev->dev);
+        Store_field(v, 8, (value) ev->event_src);
         return v;
 }
 
 PREFIX inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
 {
-        value v = caml_alloc(8, 0);
+        value v = caml_alloc(7, 0);
         Store_field(v, 0, Val_int(ev->button));
-        Store_field(v, 1, Val_int(ev->output.x));
-        Store_field(v, 2, Val_int(ev->output.y));
-        Store_field(v, 3, Val_int(ev->canvas.x));
-        Store_field(v, 4, Val_int(ev->canvas.y));
-        Store_field(v, 5, (value) ev->modifiers);
-        Store_field(v, 6, Val_bool(ev->flags & EVAS_BUTTON_DOUBLE_CLICK));
-        Store_field(v, 7, Val_bool(ev->flags & EVAS_BUTTON_TRIPLE_CLICK));
+        Store_field(v, 1, copy_Evas_Point(ev->output));
+        Store_field(v, 2, copy_Evas_Coord_Point(ev->canvas));
+        Store_field(v, 3, (value) ev->modifiers);
+        Store_field(v, 4, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 5, Val_int(ev->timestamp));
+        Store_field(v, 6, Val_Evas_Event_Flags(ev->flags));
+        Store_field(v, 7, (value) ev->dev);
+        Store_field(v, 8, (value) ev->event_src);
         return v;
 }
 

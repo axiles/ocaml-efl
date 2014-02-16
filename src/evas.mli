@@ -79,13 +79,14 @@ type event_mouse_out = Event_Mouse_Out.t
 module Event_mouse_down : sig
   type t = {
     button : int;
-    output_x : int;
-    output_y : int;
-    canvas_x : int;
-    canvas_y : int;
+    output : point;
+    canvas : coord_point;
     modifiers : modifier;
-    flags_double_click : bool;
-    flags_triple_click : bool;
+    flags : button_flags;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+    event_src : obj;
   }
 end
 
@@ -94,13 +95,14 @@ type event_mouse_down = Event_mouse_down.t
 module Event_mouse_up : sig
   type t = {
     button : int;
-    output_x : int;
-    output_y : int;
-    canvas_x : int;
-    canvas_y : int;
+    output : point;
+    canvas : coord_point;
     modifiers : modifier;
-    flags_double_click : bool;
-    flags_triple_click : bool;
+    flags : button_flags;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+    event_src : obj;
   }
 end
 
