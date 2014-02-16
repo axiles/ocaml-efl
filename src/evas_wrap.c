@@ -39,6 +39,16 @@ PREFIX inline value copy_Evas_Coord_Precision_Point(
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_Evas_Point(p.output));
+        Store_field(v, 1, copy_Evas_Coord_Precision_Point(p.canvas));
+        CAMLreturn(v);
+}
+
 PREFIX inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
 {
         switch(f) {
@@ -336,6 +346,25 @@ PREFIX inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(11, 0);
+        Store_field(v, 0, Val_int(ev->device));
+        Store_field(v, 1, copy_double(ev->radius));
+        Store_field(v, 2, copy_double(ev->radius_x));
+        Store_field(v, 3, copy_double(ev->radius_y));
+        Store_field(v, 4, copy_double(ev->pressure));
+        Store_field(v, 5, copy_double(ev->angle));
+        Store_field(v, 6, copy_Evas_Precision_Position(ev->cur));
+        Store_field(v, 7, (value) ev->modifiers);
+        Store_field(v, 8, Val_int(ev->timestamp));
+        Store_field(v, 9, Val_Evas_Event_Flags(ev->event_flags));
+        Store_field(v, 10, (value) ev->dev);
+        CAMLreturn(v);
+}
+
 PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
 {
         CAMLparam0();
@@ -462,6 +491,19 @@ PREFIX void ml_Evas_Object_Event_Cb_multi_up(
 	CAMLreturn0;
 }
 
+PREFIX void ml_Evas_Object_Event_Cb_multi_move(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Multi_Move(
+                (Evas_Event_Multi_Move*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
+}
+
 PREFIX void ml_Evas_Object_Event_Cb_key_down(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
@@ -563,6 +605,16 @@ PREFIX value ml_evas_object_event_callback_add_multi_up(
         value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_MULTI_UP,
                 ml_Evas_Object_Event_Cb_multi_up, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_multi_move(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MULTI_MOVE,
+                ml_Evas_Object_Event_Cb_multi_move, data);
         return Val_unit;
 }
 
@@ -729,6 +781,12 @@ PREFIX inline value copy_Evas_Event_Info(
                         Store_field(v, 0, Val_multi_up);
                         Store_field(v, 1, copy_Evas_Event_Multi_Up(
                                 (Evas_Event_Multi_Up*) event_info));
+                        break;
+                case EVAS_CALLBACK_MULTI_MOVE:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_multi_move);
+                        Store_field(v, 1, copy_Evas_Event_Multi_Move(
+                                (Evas_Event_Multi_Move*) event_info));
                         break;
                 case EVAS_CALLBACK_KEY_DOWN:
                         v = caml_alloc(2, 0);

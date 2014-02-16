@@ -76,6 +76,9 @@ val event_callback_add_multi_down :
 val event_callback_add_multi_up :
   Evas.obj -> Evas.event_multi_up event_cb -> unit
 
+val event_callback_add_multi_move :
+  Evas.obj -> Evas.event_multi_move event_cb -> unit
+
 val event_callback_add_key_down :
   Evas.obj -> Evas.event_key_down event_cb -> unit
 

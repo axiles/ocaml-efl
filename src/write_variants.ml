@@ -148,6 +148,7 @@ let () =
   g "mouse_wheel";
   g "move";
   g "multi_down";
+  g "multi_move";
   g "multi_up";
   g "n_double_taps";
   g "n_flicks";
