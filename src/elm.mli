@@ -26,7 +26,7 @@ type policy_exit = [`none | `windows_del]
 
 type policy_throttle = [`config | `hidden_always | `never]
 
-type event_cb = Evas.obj -> Evas.obj -> Evas.event_info -> bool
+type event_cb = Evas.obj -> Evas.obj -> Evas_event.t -> bool
 
 val init : unit -> unit
 

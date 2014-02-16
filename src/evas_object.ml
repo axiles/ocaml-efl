@@ -81,50 +81,50 @@ external size_hint_min_set : Evas.obj -> int -> int -> unit =
   "ml_evas_object_size_hint_min_set"
 
 external event_callback_add_mouse_in :
-  Evas.obj -> Evas.event_mouse_in event_cb -> unit =
+  Evas.obj -> Evas_event.mouse_in event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_in"
 
 external event_callback_add_mouse_out :
-  Evas.obj -> Evas.event_mouse_out event_cb -> unit =
+  Evas.obj -> Evas_event.mouse_out event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_out"
 
 external event_callback_add_mouse_down :
-  Evas.obj -> Evas.event_mouse_down event_cb -> unit =
+  Evas.obj -> Evas_event.mouse_down event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_down"
 
 external event_callback_add_mouse_up :
-  Evas.obj -> Evas.event_mouse_up event_cb -> unit =
+  Evas.obj -> Evas_event.mouse_up event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_up"
 
 external event_callback_add_mouse_move :
-  Evas.obj -> Evas.event_mouse_move event_cb -> unit =
+  Evas.obj -> Evas_event.mouse_move event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_move"
 
 external event_callback_add_mouse_wheel :
-  Evas.obj -> Evas.event_mouse_wheel event_cb -> unit =
+  Evas.obj -> Evas_event.mouse_wheel event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_wheel"
 
 external event_callback_add_multi_down :
-  Evas.obj -> Evas.event_multi_down event_cb -> unit =
+  Evas.obj -> Evas_event.multi_down event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_down"
 
 external event_callback_add_multi_up :
-  Evas.obj -> Evas.event_multi_up event_cb -> unit =
+  Evas.obj -> Evas_event.multi_up event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_up"
 
 external event_callback_add_multi_move :
-  Evas.obj -> Evas.event_multi_move event_cb -> unit =
+  Evas.obj -> Evas_event.multi_move event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_move"
 
 external event_callback_add_free : Evas.obj -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_free"
 
 external event_callback_add_key_down :
-  Evas.obj -> Evas.event_key_down event_cb -> unit =
+  Evas.obj -> Evas_event.key_down event_cb -> unit =
     "ml_evas_object_event_callback_add_key_down"
 
 external event_callback_add_key_up :
-  Evas.obj -> Evas.event_key_up event_cb -> unit =
+  Evas.obj -> Evas_event.key_up event_cb -> unit =
     "ml_evas_object_event_callback_add_key_up"
 
 external event_callback_add_focus_in : Evas.obj -> unit event_cb -> unit =
@@ -152,7 +152,7 @@ external event_callback_add_del : Evas.obj -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_del"
 
 external event_callback_add_hold :
-  Evas.obj -> Evas.event_hold event_cb -> unit =
+  Evas.obj -> Evas_event.hold event_cb -> unit =
     "ml_evas_object_event_callback_add_hold"
 
 external event_callback_add_changed_size_hints :

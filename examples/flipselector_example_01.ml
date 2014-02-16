@@ -26,10 +26,10 @@ let underflow_cb obj = print_endline "Underflow!"
 
 let overflow_cb obj = print_endline "Overflow!"
 
-let on_keydown fp obj src (info : Evas.event_info) =
+let on_keydown fp obj src (info : Evas_event.t) =
   (match info with
   | `key_down i ->
-    (match i.Evas.Event_key_down.keyname with
+    (match i.Evas_event.Key_down.keyname with
     | "h" -> printf "%s%!" commands
     | "n" ->
       Elm_flipselector.flip_next fp;

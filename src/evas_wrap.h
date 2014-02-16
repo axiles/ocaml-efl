@@ -29,5 +29,18 @@ PREFIX void ml_Evas_Smart_Cb_on_del(
 PREFIX void ml_Evas_Smart_Cb_on_del_data(
         void* data, Evas_Object* obj, void* event_info);
 
+PREFIX inline value copy_Evas_Point(Evas_Point p);
+
+PREFIX inline value copy_Evas_Coord_Point(Evas_Coord_Point p);
+
+PREFIX inline value copy_Evas_Position(Evas_Position p);
+
+PREFIX inline value copy_Evas_Coord_Precision_Point(
+        Evas_Coord_Precision_Point p);
+
+PREFIX inline value copy_Evas_Precision_Position(Evas_Precision_Position p);
+
+PREFIX inline value Val_Evas_Button_Flags(Evas_Button_Flags f);
+
 #endif
 

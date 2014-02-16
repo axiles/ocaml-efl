@@ -53,39 +53,39 @@ val rectangle_add : Evas.t -> Evas.obj
 val size_hint_min_set : Evas.obj -> int -> int -> unit
 
 val event_callback_add_mouse_in :
-  Evas.obj -> Evas.event_mouse_in event_cb -> unit
+  Evas.obj -> Evas_event.mouse_in event_cb -> unit
 
 val event_callback_add_mouse_out :
-  Evas.obj -> Evas.event_mouse_out event_cb -> unit
+  Evas.obj -> Evas_event.mouse_out event_cb -> unit
 
 val event_callback_add_mouse_down :
-  Evas.obj -> Evas.event_mouse_down event_cb -> unit
+  Evas.obj -> Evas_event.mouse_down event_cb -> unit
 
 val event_callback_add_mouse_up :
-  Evas.obj -> Evas.event_mouse_up event_cb -> unit
+  Evas.obj -> Evas_event.mouse_up event_cb -> unit
 
 val event_callback_add_mouse_move :
-  Evas.obj -> Evas.event_mouse_move event_cb -> unit
+  Evas.obj -> Evas_event.mouse_move event_cb -> unit
 
 val event_callback_add_mouse_wheel :
-  Evas.obj -> Evas.event_mouse_wheel event_cb -> unit
+  Evas.obj -> Evas_event.mouse_wheel event_cb -> unit
 
 val event_callback_add_multi_down :
-  Evas.obj -> Evas.event_multi_down event_cb -> unit
+  Evas.obj -> Evas_event.multi_down event_cb -> unit
 
 val event_callback_add_multi_up :
-  Evas.obj -> Evas.event_multi_up event_cb -> unit
+  Evas.obj -> Evas_event.multi_up event_cb -> unit
 
 val event_callback_add_multi_move :
-  Evas.obj -> Evas.event_multi_move event_cb -> unit
+  Evas.obj -> Evas_event.multi_move event_cb -> unit
 
 val event_callback_add_free : Evas.obj -> unit event_cb -> unit
 
 val event_callback_add_key_down :
-  Evas.obj -> Evas.event_key_down event_cb -> unit
+  Evas.obj -> Evas_event.key_down event_cb -> unit
 
 val event_callback_add_key_up :
-  Evas.obj -> Evas.event_key_up event_cb -> unit
+  Evas.obj -> Evas_event.key_up event_cb -> unit
 
 val event_callback_add_focus_in : Evas.obj -> unit event_cb -> unit
 
@@ -104,7 +104,7 @@ val event_callback_add_restack : Evas.obj -> unit event_cb -> unit
 val event_callback_add_del : Evas.obj -> unit event_cb -> unit
 
 val event_callback_add_hold :
-  Evas.obj -> Evas.event_hold event_cb -> unit
+  Evas.obj -> Evas_event.hold event_cb -> unit
 
 val event_callback_add_changed_size_hints : Evas.obj -> unit event_cb -> unit
 
