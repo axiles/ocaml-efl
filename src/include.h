@@ -36,6 +36,7 @@ PREFIX inline void ml_remove_value(value* data);
 #include "eina_wrap.h"
 #include "evas_wrap.h"
 #include "evas_event_wrap.h"
+#include "evas_object_wrap.h"
 #include "ethumb_wrap.h"
 #include "ecore_wrap.h"
 #include "edje_wrap.h"
