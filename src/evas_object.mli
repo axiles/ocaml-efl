@@ -82,6 +82,9 @@ val event_callback_add_multi_move :
 val event_callback_add_key_down :
   Evas.obj -> Evas.event_key_down event_cb -> unit
 
+val event_callback_add_key_up :
+  Evas.obj -> Evas.event_key_up event_cb -> unit
+
 val event_callback_add_free : Evas.obj -> unit event_cb -> unit
 
 val visible_get : Evas.obj -> bool

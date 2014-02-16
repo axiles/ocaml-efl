@@ -369,13 +369,31 @@ PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
 {
         CAMLparam0();
         CAMLlocal1(v);
-        v = caml_alloc(6, 0);
+        v = caml_alloc(8, 0);
         Store_field(v, 0, copy_string(info->keyname));
         Store_field(v, 1, (value) info->modifiers);
         Store_field(v, 2, copy_string(info->key));
         Store_field(v, 3, copy_string(info->string));
         Store_field(v, 4, copy_string(info->compose));
         Store_field(v, 5, Val_int(info->timestamp));
+        Store_field(v, 6, Val_Evas_Event_Flags(info->event_flags));
+        Store_field(v, 7, (value) info->dev);
+        CAMLreturn(v);
+}
+
+PREFIX inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(8, 0);
+        Store_field(v, 0, copy_string(info->keyname));
+        Store_field(v, 1, (value) info->modifiers);
+        Store_field(v, 2, copy_string(info->key));
+        Store_field(v, 3, copy_string(info->string));
+        Store_field(v, 4, copy_string(info->compose));
+        Store_field(v, 5, Val_int(info->timestamp));
+        Store_field(v, 6, Val_Evas_Event_Flags(info->event_flags));
+        Store_field(v, 7, (value) info->dev);
         CAMLreturn(v);
 }
 
@@ -516,6 +534,18 @@ PREFIX void ml_Evas_Object_Event_Cb_key_down(
         CAMLreturn0;
 }
 
+PREFIX void ml_Evas_Object_Event_Cb_key_up(
+        void* data, Evas* e, Evas_Object* obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Key_Up((Evas_Event_Key_Up*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+        CAMLreturn0;
+}
+
 PREFIX void ml_Evas_Object_Event_Cb_free(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
@@ -625,6 +655,16 @@ PREFIX value ml_evas_object_event_callback_add_key_down(
         value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_KEY_DOWN,
                 ml_Evas_Object_Event_Cb_key_down, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_key_up(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_KEY_UP,
+                ml_Evas_Object_Event_Cb_key_up, data);
         return Val_unit;
 }
 
@@ -793,6 +833,12 @@ PREFIX inline value copy_Evas_Event_Info(
                         Store_field(v, 0, Val_key_down);
                         Store_field(v, 1, copy_Evas_Event_Key_Down(
                                 (Evas_Event_Key_Down*) event_info));
+                        break;
+                case EVAS_CALLBACK_KEY_UP:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_key_up);
+                        Store_field(v, 1, copy_Evas_Event_Key_Up(
+                                (Evas_Event_Key_Up*) event_info));
                         break;
                 case EVAS_CALLBACK_FREE:
                         v = Val_free;

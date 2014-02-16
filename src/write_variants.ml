@@ -110,6 +110,7 @@ let () =
   g "jpeg";
   g "keep_aspect";
   g "key_down";
+  g "key_up";
   g "keypad";
   g "large";
   g "last";

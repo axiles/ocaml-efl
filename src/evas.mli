@@ -198,13 +198,30 @@ module Event_key_down : sig
     keyname : string;
     modifiers : modifier;
     key : string;
-    str : string;
+    string : string;
     compose : string;
     timestamp : int;
+    event_flags : event_flags;
+    dev : device;
   }
 end
 
 type event_key_down = Event_key_down.t
+
+module Event_key_up : sig
+  type t = {
+    keyname : string;
+    modifiers : modifier;
+    key : string;
+    string : string;
+    compose : string;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+  }
+end
+
+type event_key_up = Event_key_up.t
 
 type event_info = [
   | `mouse_in of event_mouse_in
@@ -217,6 +234,7 @@ type event_info = [
   | `multi_up of event_multi_up
   | `multi_move of event_multi_move
   | `key_down of event_key_down
+  | `key_up of event_key_up
   | `free
   | `other
 ]
