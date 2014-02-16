@@ -26,6 +26,19 @@ PREFIX inline value copy_Evas_Position(Evas_Position p)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Coord_Precision_Point(
+        Evas_Coord_Precision_Point p)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(p.x));
+        Store_field(v, 1, Val_int(p.y));
+        Store_field(v, 2, copy_double(p.xsub));
+        Store_field(v, 3, copy_double(p.ysub));
+        CAMLreturn(v);
+}
+
 PREFIX inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
 {
         switch(f) {
@@ -281,6 +294,48 @@ PREFIX inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
         CAMLreturn(v);
 }
 
+PREFIX inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(13, 0);
+        Store_field(v, 0, Val_int(ev->device));
+        Store_field(v, 1, copy_double(ev->radius));
+        Store_field(v, 2, copy_double(ev->radius_x));
+        Store_field(v, 3, copy_double(ev->radius_y));
+        Store_field(v, 4, copy_double(ev->pressure));
+        Store_field(v, 5, copy_double(ev->angle));
+        Store_field(v, 6, copy_Evas_Point(ev->output));
+        Store_field(v, 7, copy_Evas_Coord_Precision_Point(ev->canvas));
+        Store_field(v, 8, (value) ev->modifiers);
+        Store_field(v, 9, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 10, Val_int(ev->timestamp));
+        Store_field(v, 11, Val_Evas_Event_Flags(ev->event_flags));
+        Store_field(v, 12, (value) ev->dev);
+        CAMLreturn(v);
+}
+
+PREFIX inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(13, 0);
+        Store_field(v, 0, Val_int(ev->device));
+        Store_field(v, 1, copy_double(ev->radius));
+        Store_field(v, 2, copy_double(ev->radius_x));
+        Store_field(v, 3, copy_double(ev->radius_y));
+        Store_field(v, 4, copy_double(ev->pressure));
+        Store_field(v, 5, copy_double(ev->angle));
+        Store_field(v, 6, copy_Evas_Point(ev->output));
+        Store_field(v, 7, copy_Evas_Coord_Precision_Point(ev->canvas));
+        Store_field(v, 8, (value) ev->modifiers);
+        Store_field(v, 9, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 10, Val_int(ev->timestamp));
+        Store_field(v, 11, Val_Evas_Event_Flags(ev->event_flags));
+        Store_field(v, 12, (value) ev->dev);
+        CAMLreturn(v);
+}
+
 PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
 {
         CAMLparam0();
@@ -381,6 +436,32 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_wheel(
 	CAMLreturn0;
 }
 
+PREFIX void ml_Evas_Object_Event_Cb_multi_down(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Multi_Down(
+                (Evas_Event_Multi_Down*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
+}
+
+PREFIX void ml_Evas_Object_Event_Cb_multi_up(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_ev);
+        value* d = (value*) data;
+        v_fun = *d;
+        v_ev = copy_Evas_Event_Multi_Up(
+                (Evas_Event_Multi_Up*) event_info);
+        caml_callback3(v_fun, (value) e, (value) obj, v_ev);
+	CAMLreturn0;
+}
+
 PREFIX void ml_Evas_Object_Event_Cb_key_down(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
@@ -462,6 +543,26 @@ PREFIX value ml_evas_object_event_callback_add_mouse_wheel(
         value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_MOUSE_WHEEL,
                 ml_Evas_Object_Event_Cb_mouse_wheel, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_multi_down(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MULTI_DOWN,
+                ml_Evas_Object_Event_Cb_multi_down, data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_event_callback_add_multi_up(
+        value v_obj, value v_func)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_func);
+        evas_object_event_callback_add(obj, EVAS_CALLBACK_MULTI_UP,
+                ml_Evas_Object_Event_Cb_multi_up, data);
         return Val_unit;
 }
 
@@ -616,6 +717,18 @@ PREFIX inline value copy_Evas_Event_Info(
                         Store_field(v, 0, Val_mouse_wheel);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Wheel(
                                 (Evas_Event_Mouse_Wheel*) event_info));
+                        break;
+                case EVAS_CALLBACK_MULTI_DOWN:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_multi_down);
+                        Store_field(v, 1, copy_Evas_Event_Multi_Down(
+                                (Evas_Event_Multi_Down*) event_info));
+                        break;
+                case EVAS_CALLBACK_MULTI_UP:
+                        v = caml_alloc(2, 0);
+                        Store_field(v, 0, Val_multi_up);
+                        Store_field(v, 1, copy_Evas_Event_Multi_Up(
+                                (Evas_Event_Multi_Up*) event_info));
                         break;
                 case EVAS_CALLBACK_KEY_DOWN:
                         v = caml_alloc(2, 0);

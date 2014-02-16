@@ -34,6 +34,12 @@ type button_flags = [`none | `on_hold | `on_scroll]
 
 type device
 
+module Coord_precision_point : sig
+  type t = {x : int; y : int; xsub : float; ysub : float}
+end
+
+type coord_precision_point = Coord_precision_point.t
+
 module Event_Mouse_In : sig
   type t = {
     buttons : int;
@@ -123,6 +129,46 @@ end
 
 type event_mouse_wheel = Event_mouse_wheel.t
 
+module Event_multi_down : sig
+  type t = {
+    device : int;
+    radius : float;
+    radius_x : float;
+    radius_y : float;
+    pressure : float;
+    angle : float;
+    output : point;
+    canvas : coord_precision_point;
+    modifiers : modifier;
+    flags : button_flags;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+  }
+end
+
+type event_multi_down = Event_multi_down.t
+
+module Event_multi_up : sig
+  type t = {
+    device : int;
+    radius : float;
+    radius_x : float;
+    radius_y : float;
+    pressure : float;
+    angle : float;
+    output : point;
+    canvas : coord_precision_point;
+    modifiers : modifier;
+    flags : button_flags;
+    timestamp : int;
+    event_flags : event_flags;
+    dev : device;
+  }
+end
+
+type event_multi_up = Event_multi_up.t
+
 module Event_key_down : sig
   type t = {
     keyname : string;
@@ -143,6 +189,8 @@ type event_info = [
   | `mouse_up of event_mouse_up
   | `mouse_move of event_mouse_move
   | `mouse_wheel of event_mouse_wheel
+  | `multi_down of event_multi_down
+  | `multi_up of event_multi_up
   | `key_down of event_key_down
   | `free
   | `other

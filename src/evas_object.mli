@@ -70,6 +70,12 @@ val event_callback_add_mouse_move :
 val event_callback_add_mouse_wheel :
   Evas.obj -> Evas.event_mouse_wheel event_cb -> unit
 
+val event_callback_add_multi_down :
+  Evas.obj -> Evas.event_multi_down event_cb -> unit
+
+val event_callback_add_multi_up :
+  Evas.obj -> Evas.event_multi_up event_cb -> unit
+
 val event_callback_add_key_down :
   Evas.obj -> Evas.event_key_down event_cb -> unit
 
