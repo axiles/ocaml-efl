@@ -1,14 +1,14 @@
-type u = Evas.Event_type.u
+type u = Evas.Signal.u
 
-type 'a v = 'a Evas.Event_type.v
+type 'a v = 'a Evas.Signal.v
 
-type 'a r = 'a Evas.Event_type.r
+type 'a r = 'a Evas.Signal.r
 
-let create_unit = Evas.Event_type.create_unit
+let create_unit = Evas.Signal.create_unit
   
-let create = Evas.Event_type.create
+let create = Evas.Signal.create
 
-let create_ref = Evas.Event_type.create_ref
+let create_ref = Evas.Signal.create_ref
 
 let create_string x = create x Evas.string_of_ptr
 

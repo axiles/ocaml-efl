@@ -53,8 +53,8 @@ external indicator_format_set_aux : Evas.obj -> string -> unit =
 let default_format x = ""
 
 module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
+  type u = Evas.Signal.u
+  let f = Evas.Signal.create_unit
   let changed = f "changed"
   let slider_drag_start = f "slider,drag,start"
   let slider_drag_stop = f "slider,drag,stop"

@@ -1,10 +1,10 @@
 (** Signals *)
 
-type u = Evas.Event_type.u
+type u = Evas.Signal.u
   
-type 'a v = 'a Evas.Event_type.v
+type 'a v = 'a Evas.Signal.v
 
-type 'a r = 'a Evas.Event_type.r
+type 'a r = 'a Evas.Signal.r
 
 val create_unit : string -> u
 

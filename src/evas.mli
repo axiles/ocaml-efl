@@ -46,7 +46,7 @@ type precision_position = Precision_position.t
 
 type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
 
-module Event_type : sig
+module Signal : sig
   type 'a t
   type 'a v = (obj -> 'a -> unit) t
   type 'a r = (obj -> 'a) t

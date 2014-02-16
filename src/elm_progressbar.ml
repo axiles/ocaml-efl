@@ -59,8 +59,8 @@ let changed_cb obj =
   unit_format_set_aux obj (fstring_of_string (format_fun x))
 
 module E = struct
-  type u = Evas.Event_type.u
-  let f = Evas.Event_type.create_unit
+  type u = Evas.Signal.u
+  let f = Evas.Signal.create_unit
   let changed = f "changed"
 end
 

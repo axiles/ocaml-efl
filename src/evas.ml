@@ -54,7 +54,7 @@ type load_error = [
   | `unknown_format
 ]
 
-module Event_type = struct
+module Signal = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
   type 'a v = (obj -> 'a -> unit) t
   type u = (obj -> unit) t
