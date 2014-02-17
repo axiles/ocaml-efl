@@ -221,3 +221,15 @@ PREFIX void ml_Evas_Smart_Cb_on_del(
         ml_remove_value(v_data);
 }
 
+/* Top Level Functions */
+
+PREFIX value ml_evas_init(value v_unit)
+{
+        return Val_int(evas_init());
+}
+
+PREFIX value ml_evas_shutdown(value v_unit)
+{
+        return Val_int(evas_shutdown());
+}
+

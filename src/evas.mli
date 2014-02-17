@@ -94,3 +94,9 @@ val float_of_ptr : ptr -> float
 
 val color_argb_premul : int -> int -> int -> int -> int * int * int
 
+(** {2 Top Level Functions} *)
+
+val init : unit -> int
+
+val shutdown : unit -> int
+

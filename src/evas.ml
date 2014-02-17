@@ -103,3 +103,9 @@ external float_of_ptr : ptr -> float = "ml_float_of_ptr"
 external color_argb_premul : int -> int -> int -> int -> int * int * int =
   "ml_evas_color_argb_premul"
 
+(* Top Level Functions *)
+
+external init : unit -> int = "ml_evas_init"
+
+external shutdown : unit -> int = "ml_evas_shutdown"
+
