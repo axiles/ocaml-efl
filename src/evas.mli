@@ -134,3 +134,11 @@ val output_size_set : t -> int -> int -> unit
 
 val output_size_get : t -> int * int
 
+val output_viewport_set : t -> int -> int -> int -> int -> unit
+
+val output_viewport_get : t -> int * int * int * int
+
+val output_framespace_set : t -> int -> int -> int -> int -> unit
+
+val output_framespace_get : t -> int * int * int * int
+

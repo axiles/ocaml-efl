@@ -325,3 +325,43 @@ PREFIX value ml_evas_output_size_get(value v_e)
         return v_r;
 }
 
+PREFIX value ml_evas_output_viewport_set(
+        value v_e, value v_x, value v_y, value v_w, value v_h)
+{
+        evas_output_viewport_set((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_output_viewport_get(value v_e)
+{
+        Evas_Coord x, y, w, h;
+        evas_output_viewport_get((Evas*) v_e, &x, &y, &w, &h);
+        value v_r = caml_alloc(4, 0);
+        Store_field(v_r, 0, Val_int(x));
+        Store_field(v_r, 1, Val_int(y));
+        Store_field(v_r, 2, Val_int(w));
+        Store_field(v_r, 3, Val_int(h));
+        return v_r;
+}
+
+PREFIX value ml_evas_output_framespace_set(
+        value v_e, value v_x, value v_y, value v_w, value v_h)
+{
+        evas_output_framespace_set((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_output_framespace_get(value v_e)
+{
+        Evas_Coord x, y, w, h;
+        evas_output_framespace_get((Evas*) v_e, &x, &y, &w, &h);
+        value v_r = caml_alloc(4, 0);
+        Store_field(v_r, 0, Val_int(x));
+        Store_field(v_r, 1, Val_int(y));
+        Store_field(v_r, 2, Val_int(w));
+        Store_field(v_r, 3, Val_int(h));
+        return v_r;
+}
+

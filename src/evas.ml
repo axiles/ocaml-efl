@@ -148,3 +148,15 @@ external output_size_set : t -> int -> int -> unit = "ml_evas_output_size_set"
 
 external output_size_get : t -> int * int = "ml_evas_output_size_get"
 
+external output_viewport_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_output_viewport_set"
+
+external output_viewport_get : t -> int * int * int * int =
+  "ml_evas_output_viewport_get"
+
+external output_framespace_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_output_framespace_set"
+
+external output_framespace_get : t -> int * int * int * int =
+  "ml_evas_output_framespace_get"
+
