@@ -114,3 +114,7 @@ val render_method_lookup : string -> int
 
 val render_method_list : unit -> string list
 
+val output_method_set : t -> int -> unit
+
+val output_method_get : t -> int
+

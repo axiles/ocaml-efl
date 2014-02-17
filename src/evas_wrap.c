@@ -274,3 +274,14 @@ PREFIX value ml_evas_render_method_list(value v_unit)
         return v_list;
 }
 
+PREFIX value ml_evas_output_method_set(value v_e, value v_m)
+{
+        evas_output_method_set((Evas*) v_e, Int_val(v_m));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_output_method_get(value v_e)
+{
+        return Val_int(evas_output_method_get((Evas*) v_e));
+}
+

@@ -124,3 +124,7 @@ external render_method_lookup : string -> int = "ml_evas_render_method_lookup"
 
 external render_method_list : unit -> string list = "ml_evas_render_method_list"
 
+external output_method_set : t -> int -> unit = "ml_evas_output_method_set"
+
+external output_method_get : t -> int = "ml_evas_output_method_get"
+
