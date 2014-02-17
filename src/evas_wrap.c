@@ -285,3 +285,25 @@ PREFIX value ml_evas_output_method_get(value v_e)
         return Val_int(evas_output_method_get((Evas*) v_e));
 }
 
+/* Coordinate Mapping Functions */
+
+PREFIX value ml_evas_coord_screen_x_to_world(value v_e, value v_x)
+{
+        return Val_int(evas_coord_screen_x_to_world((Evas*) v_e, Int_val(v_x)));
+}
+
+PREFIX value ml_evas_coord_screen_y_to_world(value v_e, value v_x)
+{
+        return Val_int(evas_coord_screen_y_to_world((Evas*) v_e, Int_val(v_x)));
+}
+
+PREFIX value ml_evas_coord_world_x_to_screen(value v_e, value v_x)
+{
+        return Val_int(evas_coord_world_x_to_screen((Evas*) v_e, Int_val(v_x)));
+}
+
+PREFIX value ml_evas_coord_world_y_to_screen(value v_e, value v_x)
+{
+        return Val_int(evas_coord_world_y_to_screen((Evas*) v_e, Int_val(v_x)));
+}
+

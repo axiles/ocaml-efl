@@ -128,3 +128,17 @@ external output_method_set : t -> int -> unit = "ml_evas_output_method_set"
 
 external output_method_get : t -> int = "ml_evas_output_method_get"
 
+(* Coordinate Mapping Functions *)
+
+external coord_screen_x_to_world : t -> int -> int =
+  "ml_evas_coord_screen_x_to_world"
+
+external coord_screen_y_to_world : t -> int -> int =
+  "ml_evas_coord_screen_y_to_world"
+
+external coord_world_x_to_screen : t -> int -> int =
+  "ml_evas_coord_world_x_to_screen"
+
+external coord_world_y_to_screen : t -> int -> int =
+  "ml_evas_coord_world_y_to_screen"
+

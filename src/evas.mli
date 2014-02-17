@@ -118,3 +118,13 @@ val output_method_set : t -> int -> unit
 
 val output_method_get : t -> int
 
+(** {2 Coordinate Mapping Functions} *)
+
+val coord_screen_x_to_world : t -> int -> int
+
+val coord_screen_y_to_world : t -> int -> int
+
+val coord_world_x_to_screen : t -> int -> int
+
+val coord_world_y_to_screen : t -> int -> int
+
