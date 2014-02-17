@@ -105,7 +105,11 @@ external color_argb_premul : int -> int -> int -> int -> int * int * int =
 
 (* Top Level Functions *)
 
+type alloc_error = [`none | `fatal | `recovered]
+
 external init : unit -> int = "ml_evas_init"
 
 external shutdown : unit -> int = "ml_evas_shutdown"
+
+external alloc_error : unit -> alloc_error = "ml_evas_alloc_error"
 

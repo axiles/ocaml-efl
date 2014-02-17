@@ -96,7 +96,11 @@ val color_argb_premul : int -> int -> int -> int -> int * int * int
 
 (** {2 Top Level Functions} *)
 
+type alloc_error = [`none | `fatal | `recovered]
+
 val init : unit -> int
 
 val shutdown : unit -> int
+
+val alloc_error : unit -> alloc_error
 

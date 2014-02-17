@@ -78,6 +78,7 @@ let () =
   f "Val_end" "_end";
   g "expand";
   g "fastest";
+  g "fatal";
   g "fdo";
   g "fdo_theme";
   g "file";
@@ -212,6 +213,7 @@ let () =
   g "popup_menu";
   g "preloaded";
   g "previous";
+  g "recovered";
   g "recreate";
   g "render_flush_post";
   g "render_flush_pre";

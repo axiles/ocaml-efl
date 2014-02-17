@@ -223,6 +223,17 @@ PREFIX void ml_Evas_Smart_Cb_on_del(
 
 /* Top Level Functions */
 
+PREFIX inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
+{
+        switch(e) {
+                case EVAS_ALLOC_ERROR_NONE: return Val_none;
+                case EVAS_ALLOC_ERROR_FATAL: return Val_fatal;
+                case EVAS_ALLOC_ERROR_RECOVERED: return Val_recovered;
+        }
+        caml_failwith("Val_Evas_Alloc_Error");
+        return Val_none;
+}
+
 PREFIX value ml_evas_init(value v_unit)
 {
         return Val_int(evas_init());
@@ -231,5 +242,10 @@ PREFIX value ml_evas_init(value v_unit)
 PREFIX value ml_evas_shutdown(value v_unit)
 {
         return Val_int(evas_shutdown());
+}
+
+PREFIX value ml_evas_alloc_error(value v_unit)
+{
+        return Val_Evas_Alloc_Error(evas_alloc_error());
 }
 
