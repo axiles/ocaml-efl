@@ -142,3 +142,9 @@ external coord_world_x_to_screen : t -> int -> int =
 external coord_world_y_to_screen : t -> int -> int =
   "ml_evas_coord_world_y_to_screen"
 
+(* Output and viewport Resizing Functions *)
+
+external output_size_set : t -> int -> int -> unit = "ml_evas_output_size_set"
+
+external output_size_get : t -> int * int = "ml_evas_output_size_get"
+

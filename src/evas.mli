@@ -128,3 +128,9 @@ val coord_world_x_to_screen : t -> int -> int
 
 val coord_world_y_to_screen : t -> int -> int
 
+(** Output and Viewport Resizing Functions *)
+
+val output_size_set : t -> int -> int -> unit
+
+val output_size_get : t -> int * int
+

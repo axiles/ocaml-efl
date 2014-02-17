@@ -307,3 +307,21 @@ PREFIX value ml_evas_coord_world_y_to_screen(value v_e, value v_x)
         return Val_int(evas_coord_world_y_to_screen((Evas*) v_e, Int_val(v_x)));
 }
 
+/* Output Viewport Resizing Functions */
+
+PREFIX value ml_evas_output_size_set(value v_e, value v_w, value v_h)
+{
+        evas_output_size_set((Evas*) v_e, Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_output_size_get(value v_e)
+{
+        int w, h;
+        evas_output_size_get((Evas*) v_e, &w, &h);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(w));
+        Store_field(v_r, 1, Val_int(h));
+        return v_r;
+}
+
