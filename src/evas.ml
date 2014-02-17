@@ -118,3 +118,9 @@ external async_events_fd_get : unit -> int = "ml_evas_async_events_fd_get"
 external async_events_process : unit -> int =
   "ml_evas_async_events_process"
 
+(* Render Engine Functions *)
+
+external render_method_lookup : string -> int = "ml_evas_render_method_lookup"
+
+external render_method_list : unit -> string list = "ml_evas_render_method_list"
+

@@ -108,3 +108,9 @@ val async_events_fd_get : unit -> int
 
 val async_events_process : unit -> int
 
+(** {2 Render Engine Functions} *)
+
+val render_method_lookup : string -> int
+
+val render_method_list : unit -> string list
+

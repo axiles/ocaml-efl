@@ -259,3 +259,18 @@ PREFIX value ml_evas_async_events_process(value v_unit)
         return Val_int(evas_async_events_process());
 }
 
+/* Render Engine Functions */
+
+PREFIX value ml_evas_render_method_lookup(value v_name)
+{
+        return Val_int(evas_render_method_lookup(String_val(v_name)));
+}
+
+PREFIX value ml_evas_render_method_list(value v_unit)
+{
+        Eina_List* list = evas_render_method_list();
+        value v_list = copy_Eina_List_string(list);
+        evas_render_method_list_free(list);
+        return v_list;
+}
+
