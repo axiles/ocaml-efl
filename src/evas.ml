@@ -113,3 +113,8 @@ external shutdown : unit -> int = "ml_evas_shutdown"
 
 external alloc_error : unit -> alloc_error = "ml_evas_alloc_error"
 
+external async_events_fd_get : unit -> int = "ml_evas_async_events_fd_get"
+
+external async_events_process : unit -> int =
+  "ml_evas_async_events_process"
+

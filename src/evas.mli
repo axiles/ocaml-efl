@@ -104,3 +104,7 @@ val shutdown : unit -> int
 
 val alloc_error : unit -> alloc_error
 
+val async_events_fd_get : unit -> int
+
+val async_events_process : unit -> int
+

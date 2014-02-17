@@ -249,3 +249,13 @@ PREFIX value ml_evas_alloc_error(value v_unit)
         return Val_Evas_Alloc_Error(evas_alloc_error());
 }
 
+PREFIX value ml_evas_async_events_fd_get(value v_unit)
+{
+        return Val_int(evas_async_events_fd_get());
+}
+
+PREFIX value ml_evas_async_events_process(value v_unit)
+{
+        return Val_int(evas_async_events_process());
+}
+
