@@ -365,3 +365,17 @@ PREFIX value ml_evas_output_framespace_get(value v_e)
         return v_r;
 }
 
+/* Image Functions */
+
+PREFIX value ml_evas_image_cache_flush(value v_e)
+{
+        evas_image_cache_flush((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_image_cache_reload(value v_e)
+{
+        evas_image_cache_reload((Evas*) v_e);
+        return Val_unit;
+}
+

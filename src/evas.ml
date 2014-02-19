@@ -160,3 +160,9 @@ external output_framespace_set : t -> int -> int -> int -> int -> unit =
 external output_framespace_get : t -> int * int * int * int =
   "ml_evas_output_framespace_get"
 
+(* Image Functions *)
+
+external image_cache_flush : t -> unit = "ml_evas_image_cache_flush"
+
+external image_cache_reload : t -> unit = "ml_evas_image_cache_reload"
+

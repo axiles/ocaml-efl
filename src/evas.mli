@@ -128,7 +128,7 @@ val coord_world_x_to_screen : t -> int -> int
 
 val coord_world_y_to_screen : t -> int -> int
 
-(** Output and Viewport Resizing Functions *)
+(** {2 Output and Viewport Resizing Functions} *)
 
 val output_size_set : t -> int -> int -> unit
 
@@ -141,4 +141,10 @@ val output_viewport_get : t -> int * int * int * int
 val output_framespace_set : t -> int -> int -> int -> int -> unit
 
 val output_framespace_get : t -> int * int * int * int
+
+(** {2 Image Functions} *)
+
+val image_cache_flush : t -> unit
+
+val image_cache_reload : t -> unit
 
