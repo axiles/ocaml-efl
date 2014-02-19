@@ -379,3 +379,14 @@ PREFIX value ml_evas_image_cache_reload(value v_e)
         return Val_unit;
 }
 
+PREFIX value ml_evas_image_cache_set(value v_e, value v_size)
+{
+        evas_image_cache_set((Evas*) v_e, Int_val(v_size));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_image_cache_get(value v_e)
+{
+        return Val_int(evas_image_cache_get((Evas*) v_e));
+}
+

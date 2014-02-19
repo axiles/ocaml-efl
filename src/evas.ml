@@ -166,3 +166,7 @@ external image_cache_flush : t -> unit = "ml_evas_image_cache_flush"
 
 external image_cache_reload : t -> unit = "ml_evas_image_cache_reload"
 
+external image_cache_set : t -> int -> unit = "ml_evas_image_cache_set"
+
+external image_cache_get : t -> int = "ml_evas_image_cache_get"
+

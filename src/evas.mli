@@ -148,3 +148,7 @@ val image_cache_flush : t -> unit
 
 val image_cache_reload : t -> unit
 
+val image_cache_set : t -> int -> unit
+
+val image_cache_get : t -> int
+
