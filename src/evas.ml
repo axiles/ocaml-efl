@@ -170,3 +170,6 @@ external image_cache_set : t -> int -> unit = "ml_evas_image_cache_set"
 
 external image_cache_get : t -> int = "ml_evas_image_cache_get"
 
+external image_max_size_get : t -> (int * int) option =
+  "ml_evas_image_max_size_get"
+

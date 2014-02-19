@@ -390,3 +390,19 @@ PREFIX value ml_evas_image_cache_get(value v_e)
         return Val_int(evas_image_cache_get((Evas*) v_e));
 }
 
+PREFIX value ml_evas_image_max_size_get(value v_e)
+{
+        CAMLparam1(v_e);
+        CAMLlocal2(v_r, v_size);
+        int maxw, maxh;
+        Eina_Bool r = evas_image_max_size_get((Evas*) v_e, &maxw, &maxh);
+        if(r) {
+                v_size = caml_alloc(2, 0);
+                Store_field(v_size, 0, Val_int(maxw));
+                Store_field(v_size, 1, Val_int(maxh));
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, v_size);
+        } else v_r = Val_int(0);
+        CAMLreturn(v_r);
+}
+

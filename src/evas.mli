@@ -152,3 +152,5 @@ val image_cache_set : t -> int -> unit
 
 val image_cache_get : t -> int
 
+val image_max_size_get : t -> (int * int) option
+
