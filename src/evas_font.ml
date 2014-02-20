@@ -16,3 +16,11 @@ external cache_get : Evas.t -> int = "ml_evas_font_cache_get"
 
 external available_list : Evas.t -> string list = "ml_evas_font_available_list"
 
+external path_clear : Evas.t -> unit = "ml_evas_font_path_clear"
+
+external path_append : Evas.t -> string -> unit = "ml_evas_font_path_append"
+
+external path_prepend : Evas.t -> string -> unit = "ml_evas_font_path_prepend"
+
+external path_list : Evas.t -> string list = "ml_evas_font_path_list"
+

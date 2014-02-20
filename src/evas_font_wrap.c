@@ -65,3 +65,26 @@ PREFIX value ml_evas_font_available_list(value v_e)
         return v_list;
 }
 
+PREFIX value ml_evas_font_path_clear(value v_e)
+{
+        evas_font_path_clear((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_font_path_append(value v_e, value v_path)
+{
+        evas_font_path_append((Evas*) v_e, String_val(v_path));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_font_path_prepend(value v_e, value v_path)
+{
+        evas_font_path_prepend((Evas*) v_e, String_val(v_path));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_font_path_list(value v_e)
+{
+        return copy_Eina_List_string(evas_font_path_list((Evas*) v_e));
+}
+

@@ -14,3 +14,11 @@ val cache_get : Evas.t -> int
 
 val available_list : Evas.t -> string list
 
+val path_clear : Evas.t -> unit
+
+val path_append : Evas.t -> string -> unit
+
+val path_prepend : Evas.t -> string -> unit
+
+val path_list : Evas.t -> string list
+
