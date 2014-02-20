@@ -12,3 +12,5 @@ val cache_set : Evas.t -> int -> unit
 
 val cache_get : Evas.t -> int
 
+val available_list : Evas.t -> string list
+

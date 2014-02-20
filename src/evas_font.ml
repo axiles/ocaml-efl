@@ -14,3 +14,5 @@ external cache_set : Evas.t -> int -> unit = "ml_evas_font_cache_set"
 
 external cache_get : Evas.t -> int = "ml_evas_font_cache_get"
 
+external available_list : Evas.t -> string list = "ml_evas_font_available_list"
+

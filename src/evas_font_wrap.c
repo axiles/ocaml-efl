@@ -57,3 +57,11 @@ PREFIX value ml_evas_font_cache_get(value v_e)
         return Val_int(evas_font_cache_get((Evas*) v_e));
 }
 
+PREFIX value ml_evas_font_available_list(value v_e)
+{
+        Eina_List* list = evas_font_available_list((Evas*) v_e);
+        value v_list = copy_Eina_List_string(list);
+        evas_font_available_list_free((Evas*) v_e, list);
+        return v_list;
+}
+
