@@ -1,8 +1,9 @@
 # OASIS_START
-# DO NOT EDIT (digest: bb038cf6eae348072a5a5541d66a2f9d)
+# DO NOT EDIT (digest: e220eddf0a301e85fc464b03f5eb490d)
 eina_wrap.o
 evas_wrap.o
 evas_event_wrap.o
+evas_font_wrap.o
 evas_object_wrap.o
 ecore_wrap.o
 ethumb_wrap.o

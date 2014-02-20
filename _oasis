@@ -104,6 +104,7 @@ Library efl
     evas_wrap.h,
     evas_event_wrap.h,
     evas_event_wrap.c,
+    evas_font_wrap.c,
     evas_object_wrap.h,
     evas_object_wrap.c,
     ecore_wrap.c,

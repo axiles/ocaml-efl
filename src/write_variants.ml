@@ -31,6 +31,7 @@ let () =
   g "bottom_left";
   g "bottom_right";
   g "bubble";
+  g "bytecode";
   g "canvas_focus_in";
   g "canvas_focus_out";
   g "canvas_object_focus_in";
