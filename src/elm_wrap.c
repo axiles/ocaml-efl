@@ -175,6 +175,7 @@ PREFIX value ml_elm_init_with_counter(value v_argv)
 PREFIX value ml_elm_shutdown(value v_unit)
 {
         elm_shutdown();
+        ml_Evas_remove_values();
         return Val_unit;
 }
 

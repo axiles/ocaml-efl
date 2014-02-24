@@ -1,5 +1,7 @@
 type flags = [`none | `double_click | `triple_click]
 
+type 'a cb = Evas.t -> 'a -> unit
+
 module Mouse_in : sig
   type t = {
     buttons : int;
@@ -218,8 +220,8 @@ type t = [
   | `canvas_focus_out
   | `render_flush_pre
   | `render_flush_post
-  | `canvas_object_focus_in
-  | `canvas_object_focus_out
+  | `canvas_object_focus_in of Evas.obj
+  | `canvas_object_focus_out of Evas.obj
   | `image_unloaded
   | `render_pre
   | `render_post
@@ -227,4 +229,16 @@ type t = [
   | `device_changed
   | `last
 ]
+
+val callback_add_render_flush_pre : Evas.t -> unit cb -> unit
+
+val callback_add_render_flush_post : Evas.t -> unit cb -> unit
+
+val callback_add_canvas_focus_in : Evas.t -> unit cb -> unit
+
+val callback_add_canvas_focus_out : Evas.t -> unit cb -> unit
+
+val callback_add_canvas_object_focus_in : Evas.t -> Evas.obj cb -> unit
+
+val callback_add_canvas_object_focus_out : Evas.t -> Evas.obj cb -> unit
 

@@ -32,5 +32,8 @@ PREFIX inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev);
 PREFIX inline value copy_Evas_Event_Info(
         Evas_Callback_Type t, void* event_info);
 
+PREFIX inline value* ml_Evas_register_value(value v);
+PREFIX inline void ml_Evas_remove_values();
+
 #endif
 

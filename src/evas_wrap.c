@@ -241,7 +241,9 @@ PREFIX value ml_evas_init(value v_unit)
 
 PREFIX value ml_evas_shutdown(value v_unit)
 {
-        return Val_int(evas_shutdown());
+        int r = evas_shutdown();
+        ml_Evas_remove_values();
+        return Val_int(r);
 }
 
 PREFIX value ml_evas_alloc_error(value v_unit)
