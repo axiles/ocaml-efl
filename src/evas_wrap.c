@@ -367,6 +367,19 @@ PREFIX value ml_evas_output_framespace_get(value v_e)
         return v_r;
 }
 
+PREFIX inline Evas_Callback_Priority Evas_Callback_Priority_val(value v)
+{
+        switch(v) {
+                case Val_after: return EVAS_CALLBACK_PRIORITY_AFTER;
+                case Val_before: return EVAS_CALLBACK_PRIORITY_BEFORE;
+                case Val_default: return EVAS_CALLBACK_PRIORITY_DEFAULT;
+                default: break;
+        }
+        caml_failwith("Evas_Callback_Priority_val");
+        return EVAS_CALLBACK_PRIORITY_AFTER;
+}
+
+
 /* Image Functions */
 
 PREFIX value ml_evas_image_cache_flush(value v_e)

@@ -242,3 +242,21 @@ val callback_add_canvas_object_focus_in : Evas.t -> Evas.obj cb -> unit
 
 val callback_add_canvas_object_focus_out : Evas.t -> Evas.obj cb -> unit
 
+val callback_priority_add_render_flush_pre :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit
+
+val callback_priority_add_render_flush_post :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit
+
+val callback_priority_add_canvas_focus_in :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit
+
+val callback_priority_add_canvas_focus_out :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit
+
+val callback_priority_add_canvas_object_focus_in :
+  Evas.t -> Evas.callback_priority -> Evas.obj cb -> unit
+
+val callback_priority_add_canvas_object_focus_out :
+  Evas.t -> Evas.callback_priority -> Evas.obj cb -> unit
+

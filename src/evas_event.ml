@@ -258,3 +258,27 @@ external callback_add_canvas_object_focus_in : Evas.t -> Evas.obj cb -> unit =
 external callback_add_canvas_object_focus_out : Evas.t -> Evas.obj cb -> unit =
   "ml_evas_event_callback_add_canvas_object_focus_out"
 
+external callback_priority_add_render_flush_pre :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit =
+    "ml_evas_event_callback_priority_add_render_flush_pre"
+
+external callback_priority_add_render_flush_post :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit =
+    "ml_evas_event_callback_priority_add_render_flush_post"
+
+external callback_priority_add_canvas_focus_in :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit =
+    "ml_evas_event_callback_priority_add_canvas_focus_in"
+
+external callback_priority_add_canvas_focus_out :
+  Evas.t -> Evas.callback_priority -> unit cb -> unit =
+    "ml_evas_event_callback_priority_add_canvas_focus_out"
+
+external callback_priority_add_canvas_object_focus_in :
+  Evas.t -> Evas.callback_priority -> Evas.obj cb -> unit =
+    "ml_evas_event_callback_priority_add_canvas_object_focus_in"
+
+external callback_priority_add_canvas_object_focus_out :
+  Evas.t -> Evas.callback_priority -> Evas.obj cb -> unit =
+    "ml_evas_event_callback_priority_add_canvas_object_focus_out"
+

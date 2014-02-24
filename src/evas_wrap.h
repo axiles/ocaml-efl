@@ -29,5 +29,7 @@ PREFIX inline value Val_Evas_Button_Flags(Evas_Button_Flags f);
 
 PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v);
 
+PREFIX inline Evas_Callback_Priority Evas_Callback_Priority_val(value v);
+
 #endif
 

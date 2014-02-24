@@ -9,6 +9,7 @@ let g x = f (sprintf "Val_%s" x) x
 let () =
   g "abort";
   g "accelerate";
+  g "after";
   g "all";
   g "allcharacter";
   g "alpha";
@@ -22,6 +23,7 @@ let () =
   g "auto_fit_in";
   g "automatic";
   g "basic";
+  g "before";
   g "bicycle";
   g "block_horizontal";
   g "block_vertical";

@@ -10,6 +10,8 @@ type smart_cb = obj -> ptr -> unit
 
 type modifier
 
+type callback_priority = [`after | `before | `default]
+
 module Point : sig
   type t = {x : int; y : int}
 end
