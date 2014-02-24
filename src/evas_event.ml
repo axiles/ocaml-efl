@@ -10,8 +10,6 @@ type precision_position = Evas.precision_position
 
 type flags = [`none | `double_click | `triple_click]
 
-type 'a cb = Evas.t -> 'a -> unit
-
 module Mouse_in = struct
   type t = {
     buttons : int;
@@ -240,6 +238,12 @@ type t = [
   | `last
 ]
 
+(* Canvas Events *)
+
+type 'a cb = Evas.t -> 'a -> unit
+
+type post_cb = Evas.t -> unit
+
 external callback_add_render_flush_pre : Evas.t -> unit cb -> unit =
   "ml_evas_event_callback_add_render_flush_pre"
 
@@ -281,4 +285,7 @@ external callback_priority_add_canvas_object_focus_in :
 external callback_priority_add_canvas_object_focus_out :
   Evas.t -> Evas.callback_priority -> Evas.obj cb -> unit =
     "ml_evas_event_callback_priority_add_canvas_object_focus_out"
+
+external post_callback_push : Evas.t -> post_cb -> unit =
+  "ml_evas_post_event_callback_push"
 

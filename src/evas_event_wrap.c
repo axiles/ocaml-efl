@@ -355,6 +355,8 @@ PREFIX inline value copy_Evas_Event_Info(
         CAMLreturn(v);
 }
 
+/* Canvas Events */
+
 void ml_Evas_Event_Cb_unit(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
@@ -363,31 +365,21 @@ void ml_Evas_Event_Cb_unit(void* data, Evas* e, void* event_info)
         CAMLreturn0;
 }
 
+Eina_Bool ml_Evas_Object_Post_Event_Cb(void* data, Evas* e)
+{
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        value* v_fun = (value*) data;
+        v_r = caml_callback(*v_fun, (value) e);
+        CAMLreturnT(Eina_Bool, Bool_val(v_r));
+}
+
 void ml_Evas_Event_Cb_value(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
         value* v_fun = (value*) data;
         caml_callback2(*v_fun, (value) e, (value) event_info);
         CAMLreturn0;
-}
-
-static Eina_List* ml_evas_values_list = NULL;
-
-PREFIX inline value* ml_Evas_register_value(value v)
-{
-        value* data = ml_register_value(v);
-        ml_evas_values_list = eina_list_append(ml_evas_values_list, data);
-        return data;
-}
-
-PREFIX inline void ml_Evas_remove_values()
-{
-        Eina_List* tmp;
-        value* data;
-        EINA_LIST_FOREACH(ml_evas_values_list, tmp, data)
-                ml_remove_value(data);
-        eina_list_free(ml_evas_values_list);
-        ml_evas_values_list = NULL;
 }
 
 PREFIX value ml_evas_event_callback_add_render_flush_pre(value v_e, value v_cb)
@@ -500,6 +492,14 @@ PREFIX value ml_evas_event_callback_priority_add_canvas_object_focus_out(
         evas_event_callback_priority_add((Evas*) v_e,
                 Evas_Callback_Priority_val(v_p),
                 EVAS_CALLBACK_CANVAS_OBJECT_FOCUS_OUT, ml_Evas_Event_Cb_value,
+                data);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_post_event_callback_push(value v_e, value v_cb)
+{
+        value* data = ml_Evas_register_value(v_cb);
+        evas_post_event_callback_push((Evas*) v_e, ml_Evas_Object_Post_Event_Cb,
                 data);
         return Val_unit;
 }

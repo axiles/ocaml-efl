@@ -1,7 +1,5 @@
 type flags = [`none | `double_click | `triple_click]
 
-type 'a cb = Evas.t -> 'a -> unit
-
 module Mouse_in : sig
   type t = {
     buttons : int;
@@ -230,6 +228,12 @@ type t = [
   | `last
 ]
 
+(** {2 Canvas Events} *)
+
+type 'a cb = Evas.t -> 'a -> unit
+
+type post_cb = Evas.t -> unit
+
 val callback_add_render_flush_pre : Evas.t -> unit cb -> unit
 
 val callback_add_render_flush_post : Evas.t -> unit cb -> unit
@@ -259,4 +263,7 @@ val callback_priority_add_canvas_object_focus_in :
 
 val callback_priority_add_canvas_object_focus_out :
   Evas.t -> Evas.callback_priority -> Evas.obj cb -> unit
+
+(** evas_post_event_callback_push *)
+val post_callback_push : Evas.t -> post_cb -> unit
 

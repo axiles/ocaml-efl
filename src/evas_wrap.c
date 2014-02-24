@@ -261,6 +261,25 @@ PREFIX value ml_evas_async_events_process(value v_unit)
         return Val_int(evas_async_events_process());
 }
 
+static Eina_List* ml_evas_values_list = NULL;
+
+PREFIX inline value* ml_Evas_register_value(value v)
+{
+        value* data = ml_register_value(v);
+        ml_evas_values_list = eina_list_append(ml_evas_values_list, data);
+        return data;
+}
+
+PREFIX inline void ml_Evas_remove_values()
+{
+        Eina_List* tmp;
+        value* data;
+        EINA_LIST_FOREACH(ml_evas_values_list, tmp, data)
+                ml_remove_value(data);
+        eina_list_free(ml_evas_values_list);
+        ml_evas_values_list = NULL;
+}
+
 /* Render Engine Functions */
 
 PREFIX value ml_evas_render_method_lookup(value v_name)

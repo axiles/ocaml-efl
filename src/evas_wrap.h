@@ -31,5 +31,8 @@ PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v);
 
 PREFIX inline Evas_Callback_Priority Evas_Callback_Priority_val(value v);
 
+PREFIX inline value* ml_Evas_register_value(value v);
+PREFIX inline void ml_Evas_remove_values();
+
 #endif
 
