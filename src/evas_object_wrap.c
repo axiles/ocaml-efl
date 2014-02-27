@@ -646,3 +646,14 @@ PREFIX value ml_evas_object_evas_get(value v_obj)
         return (value) evas_object_evas_get((Evas_Object*) v_obj);
 }
 
+PREFIX value ml_evas_object_clip_get(value v_obj)
+{
+        return copy_Evas_Object_opt(evas_object_clip_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_clip_unset(value v_obj)
+{
+        evas_object_clip_unset((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

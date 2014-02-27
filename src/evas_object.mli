@@ -137,3 +137,7 @@ val color_get : Evas.obj -> int * int * int * int
 
 val evas_get : t -> Evas.t
 
+val clip_get : t -> t option
+
+val clip_unset : t -> unit
+

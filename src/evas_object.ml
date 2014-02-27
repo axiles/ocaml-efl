@@ -207,3 +207,7 @@ external color_get : Evas.obj -> int * int * int * int =
 
 external evas_get : t -> Evas.t = "ml_evas_object_evas_get"
 
+external clip_get : t -> t option = "ml_evas_object_clip_get"
+
+external clip_unset : t -> unit = "ml_evas_object_clip_unset"
+
