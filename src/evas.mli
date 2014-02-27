@@ -162,3 +162,9 @@ val new_ : unit -> t
 
 val free : t -> unit
 
+val focus_in : t -> unit
+
+val focus_out : t -> unit
+
+val focus_state_get : t -> bool
+

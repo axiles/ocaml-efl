@@ -181,3 +181,9 @@ external new_ : unit -> t = "ml_evas_new"
 
 external free : t -> unit = "ml_evas_free"
 
+external focus_in : t -> unit = "ml_evas_focus_in"
+
+external focus_out : t -> unit = "ml_evas_focus_out"
+
+external focus_state_get : t -> bool = "ml_evas_focus_state_get"
+

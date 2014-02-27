@@ -455,3 +455,20 @@ PREFIX value ml_evas_free(value v_e)
         return Val_unit;
 }
 
+PREFIX value ml_evas_focus_in(value v_e)
+{
+        evas_focus_in((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_focus_out(value v_e)
+{
+        evas_focus_out((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_focus_state_get(value v_e)
+{
+        return Val_bool(evas_focus_state_get((Evas*) v_e));
+}
+
