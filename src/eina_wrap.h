@@ -23,4 +23,6 @@ PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj);
 
 PREFIX inline Evas_Object* Evas_Object_opt_val(value v);
 
+PREFIX inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list);
+
 #endif

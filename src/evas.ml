@@ -199,3 +199,8 @@ external obscured_rectangle_add : t -> int -> int -> int -> int -> unit =
 
 external obscured_clear : t -> unit = "ml_evas_obscured_clear"
 
+external render_async : t -> bool = "ml_evas_render_async"
+
+external render_updates : t -> (int * int * int * int) list =
+  "ml_evas_render_updates"
+

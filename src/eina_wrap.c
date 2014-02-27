@@ -138,3 +138,30 @@ PREFIX inline void ml_remove_value(value* data)
         free(data);
 }
 
+PREFIX inline value copy_Eina_Rectangle(Eina_Rectangle* rect)
+{
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, rect->x);
+        Store_field(v, 1, rect->y);
+        Store_field(v, 2, rect->w);
+        Store_field(v, 3, rect->h);
+        return v;
+}
+
+PREFIX inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal3(v, v1, v_s);
+        Eina_List* it;
+        Eina_Rectangle* s;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, s) {
+                v1 = v;
+                v_s = copy_Eina_Rectangle(s);
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, v_s);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+

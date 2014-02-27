@@ -178,3 +178,7 @@ val obscured_rectangle_add : t -> int -> int -> int -> int -> unit
 
 val obscured_clear : t -> unit
 
+val render_async : t -> bool
+
+val render_updates : t -> (int * int * int * int) list
+

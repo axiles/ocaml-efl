@@ -506,3 +506,13 @@ PREFIX value ml_evas_obscured_clear(value v_e)
         return Val_unit;
 }
 
+PREFIX value ml_evas_render_async(value v_e)
+{
+        return Val_bool(evas_render_async((Evas*) v_e));
+}
+
+PREFIX value ml_evas_render_updates(value v_e)
+{
+        return copy_Eina_List_Eina_Rectangle(evas_render_updates((Evas*) v_e));
+}
+
