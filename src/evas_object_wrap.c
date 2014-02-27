@@ -657,3 +657,14 @@ PREFIX value ml_evas_object_clip_unset(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_clipees_get(value v_obj)
+{
+        return copy_Eina_List_Evas_Object(evas_object_clipees_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_clipees_has(value v_obj)
+{
+        return Val_bool(evas_object_clipees_has((Evas_Object*) v_obj));
+}
+

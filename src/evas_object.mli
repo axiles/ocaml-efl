@@ -141,3 +141,7 @@ val clip_get : t -> t option
 
 val clip_unset : t -> unit
 
+val clipees_get : t -> t list
+
+val clipees_has : t -> bool
+

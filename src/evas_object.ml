@@ -211,3 +211,7 @@ external clip_get : t -> t option = "ml_evas_object_clip_get"
 
 external clip_unset : t -> unit = "ml_evas_object_clip_unset"
 
+external clipees_get : t -> t list = "ml_evas_object_clipees_get"
+
+external clipees_has : t -> bool = "ml_evas_object_clipees_has"
+
