@@ -679,3 +679,14 @@ PREFIX value ml_evas_object_focus_get(value v_obj)
         return Val_bool(evas_object_focus_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_layer_set(value v_obj, value v_l)
+{
+        evas_object_layer_set((Evas_Object*) v_obj, Int_val(v_l));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_layer_get(value v_obj)
+{
+        return Val_int(evas_object_layer_get((Evas_Object*) v_obj));
+}
+

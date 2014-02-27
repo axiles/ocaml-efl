@@ -219,3 +219,7 @@ external focus_set : t -> bool -> unit = "ml_evas_object_focus_set"
 
 external focus_get : t -> bool = "ml_evas_object_focus_get"
 
+external layer_set : t -> int -> unit = "ml_evas_object_layer_set"
+
+external layer_get : t -> int = "ml_evas_object_layer_get"
+

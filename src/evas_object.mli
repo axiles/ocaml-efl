@@ -149,3 +149,7 @@ val focus_set : t -> bool -> unit
 
 val focus_get : t -> bool
 
+val layer_set : t -> int -> unit
+
+val layer_get : t -> int
+
