@@ -440,3 +440,18 @@ PREFIX value ml_evas_image_max_size_get(value v_e)
         CAMLreturn(v_r);
 }
 
+/* General Canvas Functions */
+
+PREFIX value ml_evas_new(value v_unit)
+{
+        Evas* e = evas_new();
+        if(e == NULL) caml_failwith("evas_new");
+        return (value) e;
+}
+
+PREFIX value ml_evas_free(value v_e)
+{
+        evas_free((Evas*) v_e);
+        return Val_unit;
+}
+

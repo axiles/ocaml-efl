@@ -156,3 +156,9 @@ val image_cache_get : t -> int
 
 val image_max_size_get : t -> (int * int) option
 
+(** General Canvas Functions *)
+
+val new_ : unit -> t
+
+val free : t -> unit
+
