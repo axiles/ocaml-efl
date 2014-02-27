@@ -2,16 +2,16 @@ type t = Evas.obj
 
 type box_data
 
-type box_layout = Evas.obj -> box_data -> unit
+type box_layout = t -> box_data -> unit
 
-type 'a event_cb = Evas.t -> Evas.obj -> 'a -> unit
+type 'a event_cb = Evas.t -> t -> 'a -> unit
 
-external show : Evas.obj -> unit = "ml_evas_object_show"
+external show : t -> unit = "ml_evas_object_show"
 
-external size_hint_weight_set : Evas.obj -> float -> float -> unit =
+external size_hint_weight_set : t -> float -> float -> unit =
   "ml_evas_object_size_hint_weight_set"
 
-external size_hint_align_set : Evas.obj -> float -> float -> unit =
+external size_hint_align_set : t -> float -> float -> unit =
   "ml_evas_object_size_hint_align_set"
 
 type size_hint = [
@@ -59,143 +59,136 @@ let size_hint_set obj list =
   size_hint_weight_set obj hw vw;
   size_hint_align_set obj ha va
 
-external resize : Evas.obj -> int -> int -> unit =
-  "ml_evas_object_resize"
+external resize : t -> int -> int -> unit = "ml_evas_object_resize"
 
-external move : Evas.obj -> int -> int -> unit =
-  "ml_evas_object_move"
+external move : t -> int -> int -> unit = "ml_evas_object_move"
 
-external size_hint_align_get : Evas.obj -> float * float =
+external size_hint_align_get : t -> float * float =
   "ml_evas_object_size_hint_align_get"
 
-external hide : Evas.obj -> unit = "ml_evas_object_hide"
+external hide : t -> unit = "ml_evas_object_hide"
 
-external color_set : Evas.obj -> int -> int -> int -> int -> unit =
+external color_set : t -> int -> int -> int -> int -> unit =
   "ml_evas_object_color_set"
 
-external del : Evas.obj -> unit = "ml_evas_object_del"
+external del : t -> unit = "ml_evas_object_del"
 
-external evas_get : Evas.obj -> Evas.t = "ml_evas_object_evas_get"
+external evas_get : t -> Evas.t = "ml_evas_object_evas_get"
 
-external rectangle_add : Evas.t -> Evas.obj = "ml_evas_object_rectangle_add"
+external rectangle_add : Evas.t -> t = "ml_evas_object_rectangle_add"
 
-external size_hint_min_set : Evas.obj -> int -> int -> unit =
+external size_hint_min_set : t -> int -> int -> unit =
   "ml_evas_object_size_hint_min_set"
 
 external event_callback_add_mouse_in :
-  Evas.obj -> Evas_event.mouse_in event_cb -> unit =
+  t -> Evas_event.mouse_in event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_in"
 
 external event_callback_add_mouse_out :
-  Evas.obj -> Evas_event.mouse_out event_cb -> unit =
+  t -> Evas_event.mouse_out event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_out"
 
 external event_callback_add_mouse_down :
-  Evas.obj -> Evas_event.mouse_down event_cb -> unit =
+  t -> Evas_event.mouse_down event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_down"
 
 external event_callback_add_mouse_up :
-  Evas.obj -> Evas_event.mouse_up event_cb -> unit =
+  t -> Evas_event.mouse_up event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_up"
 
 external event_callback_add_mouse_move :
-  Evas.obj -> Evas_event.mouse_move event_cb -> unit =
+  t -> Evas_event.mouse_move event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_move"
 
 external event_callback_add_mouse_wheel :
-  Evas.obj -> Evas_event.mouse_wheel event_cb -> unit =
+  t -> Evas_event.mouse_wheel event_cb -> unit =
     "ml_evas_object_event_callback_add_mouse_wheel"
 
 external event_callback_add_multi_down :
-  Evas.obj -> Evas_event.multi_down event_cb -> unit =
+  t -> Evas_event.multi_down event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_down"
 
 external event_callback_add_multi_up :
-  Evas.obj -> Evas_event.multi_up event_cb -> unit =
+  t -> Evas_event.multi_up event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_up"
 
 external event_callback_add_multi_move :
-  Evas.obj -> Evas_event.multi_move event_cb -> unit =
+  t -> Evas_event.multi_move event_cb -> unit =
     "ml_evas_object_event_callback_add_multi_move"
 
-external event_callback_add_free : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_free : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_free"
 
 external event_callback_add_key_down :
-  Evas.obj -> Evas_event.key_down event_cb -> unit =
+  t -> Evas_event.key_down event_cb -> unit =
     "ml_evas_object_event_callback_add_key_down"
 
-external event_callback_add_key_up :
-  Evas.obj -> Evas_event.key_up event_cb -> unit =
-    "ml_evas_object_event_callback_add_key_up"
+external event_callback_add_key_up : t -> Evas_event.key_up event_cb -> unit =
+  "ml_evas_object_event_callback_add_key_up"
 
-external event_callback_add_focus_in : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_focus_in : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_focus_in"
 
-external event_callback_add_focus_out : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_focus_out : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_focus_out"
 
-external event_callback_add_show : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_show : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_show"
 
-external event_callback_add_hide : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_hide : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_hide"
 
-external event_callback_add_move : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_move : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_move"
 
-external event_callback_add_resize : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_resize : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_resize"
 
-external event_callback_add_restack : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_restack : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_restack"
 
-external event_callback_add_del : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_del : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_del"
 
-external event_callback_add_hold :
-  Evas.obj -> Evas_event.hold event_cb -> unit =
-    "ml_evas_object_event_callback_add_hold"
+external event_callback_add_hold : t -> Evas_event.hold event_cb -> unit =
+  "ml_evas_object_event_callback_add_hold"
 
-external event_callback_add_changed_size_hints :
-  Evas.obj -> unit event_cb -> unit =
-    "ml_evas_object_event_callback_add_changed_size_hints"
+external event_callback_add_changed_size_hints : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_changed_size_hints"
 
-external event_callback_add_image_preloaded :
-  Evas.obj -> unit event_cb -> unit =
-    "ml_evas_object_event_callback_add_image_preloaded"
+external event_callback_add_image_preloaded : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_image_preloaded"
 
-external event_callback_add_image_unloaded : Evas.obj -> unit event_cb -> unit =
+external event_callback_add_image_unloaded : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_image_unloaded"
 
-external visible_get : Evas.obj -> bool = "ml_evas_object_visible_get"
+external visible_get : t -> bool = "ml_evas_object_visible_get"
 
-external size_hint_aspect_set :
-  Evas.obj -> Evas.aspect_control -> int -> int -> unit =
-    "ml_evas_object_size_hint_aspect_set"
+external size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit =
+  "ml_evas_object_size_hint_aspect_set"
 
-external geometry_get : Evas.obj -> int * int * int * int =
+external geometry_get : t -> int * int * int * int =
   "ml_evas_object_geometry_get"
 
-external box_layout_flow_horizontal : Evas.obj -> box_data -> unit =
+external box_layout_flow_horizontal : t -> box_data -> unit =
   "ml_evas_object_box_layout_flow_horizontal"
 
-external box_layout_horizontal : Evas.obj -> box_data -> unit =
+external box_layout_horizontal : t -> box_data -> unit =
   "ml_evas_object_box_layout_horizontal"
 
-external box_layout_vertical : Evas.obj -> box_data -> unit =
+external box_layout_vertical : t -> box_data -> unit =
   "ml_evas_object_box_layout_vertical"
 
-external box_layout_stack : Evas.obj -> box_data -> unit =
+external box_layout_stack : t -> box_data -> unit =
   "ml_evas_object_box_layout_stack"
 
-external box_layout_homogeneous_vertical : Evas.obj -> box_data -> unit =
+external box_layout_homogeneous_vertical : t -> box_data -> unit =
   "ml_evas_object_box_layout_homogeneous_vertical"
 
-external box_layout_homogeneous_horizontal : Evas.obj -> box_data -> unit =
+external box_layout_homogeneous_horizontal : t -> box_data -> unit =
   "ml_evas_object_box_layout_homogeneous_horizontal"
 
-external box_layout_flow_vertical : Evas.obj -> box_data -> unit =
+external box_layout_flow_vertical : t -> box_data -> unit =
   "ml_evas_object_box_layout_flow_vertical"
 
 (* Basic Object Manipulation *)
