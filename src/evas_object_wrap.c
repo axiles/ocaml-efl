@@ -601,3 +601,11 @@ PREFIX inline void ml_Evas_Object_gc_value(Evas_Object* obj, value* data)
                 ml_Evas_Object_Event_Cb_on_del, data);
 }
 
+/* Basic Object Manipulation */
+
+PREFIX value ml_evas_object_clip_set(value v_obj, value v_clip)
+{
+        evas_object_clip_set((Evas_Object*) v_obj, (Evas_Object*) v_clip);
+        return Val_unit;
+}
+

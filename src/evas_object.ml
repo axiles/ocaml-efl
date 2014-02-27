@@ -1,3 +1,5 @@
+type t = Evas.obj
+
 type box_data
 
 type box_layout = Evas.obj -> box_data -> unit
@@ -195,4 +197,8 @@ external box_layout_homogeneous_horizontal : Evas.obj -> box_data -> unit =
 
 external box_layout_flow_vertical : Evas.obj -> box_data -> unit =
   "ml_evas_object_box_layout_flow_vertical"
+
+(* Basic Object Manipulation *)
+
+external clip_set : t -> t -> unit = "ml_evas_object_clip_set"
 

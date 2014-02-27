@@ -1,5 +1,7 @@
 (** Evas Object *)
 
+type t = Evas.obj
+
 type box_data
 
 type box_layout = Evas.obj -> box_data -> unit
@@ -131,4 +133,8 @@ val box_layout_homogeneous_vertical : Evas.obj -> box_data -> unit
 val box_layout_homogeneous_horizontal : Evas.obj -> box_data -> unit
 
 val box_layout_flow_vertical : Evas.obj -> box_data -> unit
+
+(* {2 Basic Object Manipulation} *)
+
+val clip_set : t -> t -> unit
 
