@@ -187,3 +187,7 @@ external focus_out : t -> unit = "ml_evas_focus_out"
 
 external focus_state_get : t -> bool = "ml_evas_focus_state_get"
 
+external nochange_push : t -> unit = "ml_evas_nochange_push"
+
+external nochange_pop : t -> unit = "ml_evas_nochange_pop"
+

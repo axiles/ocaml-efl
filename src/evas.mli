@@ -168,3 +168,7 @@ val focus_out : t -> unit
 
 val focus_state_get : t -> bool
 
+val nochange_push : t -> unit
+
+val nochange_pop : t -> unit
+

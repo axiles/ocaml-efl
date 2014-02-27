@@ -472,3 +472,15 @@ PREFIX value ml_evas_focus_state_get(value v_e)
         return Val_bool(evas_focus_state_get((Evas*) v_e));
 }
 
+PREFIX value ml_evas_nochange_push(value v_e)
+{
+        evas_nochange_push((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_nochange_pop(value v_e)
+{
+        evas_nochange_pop((Evas*) v_e);
+        return Val_unit;
+}
+
