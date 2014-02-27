@@ -36,17 +36,11 @@ type size_hint = [
 
 val size_hint_set : t -> size_hint list -> unit
 
-val resize : t -> int -> int -> unit
-
-val move : t -> int -> int -> unit
-
 val size_hint_align_get : t -> float * float
 
 val hide : t -> unit
 
 val color_set : t -> int -> int -> int -> int -> unit
-
-val del : t -> unit
 
 val evas_get : t -> Evas.t
 
@@ -107,8 +101,6 @@ val visible_get : t -> bool
 
 val size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit
 
-val geometry_get : t -> int * int * int * int
-
 val box_layout_flow_horizontal : t -> box_data -> unit
 
 val box_layout_horizontal : t -> box_data -> unit
@@ -126,4 +118,18 @@ val box_layout_flow_vertical : t -> box_data -> unit
 (* {2 Basic Object Manipulation} *)
 
 val clip_set : t -> t -> unit
+
+val ref : t -> unit
+
+val unref : t -> unit
+
+val ref_get : t -> int
+
+val del : t -> unit
+
+val move : t -> int -> int -> unit
+
+val resize : t -> int -> int -> unit
+
+val geometry_get : t -> int * int * int * int
 

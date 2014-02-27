@@ -59,10 +59,6 @@ let size_hint_set obj list =
   size_hint_weight_set obj hw vw;
   size_hint_align_set obj ha va
 
-external resize : t -> int -> int -> unit = "ml_evas_object_resize"
-
-external move : t -> int -> int -> unit = "ml_evas_object_move"
-
 external size_hint_align_get : t -> float * float =
   "ml_evas_object_size_hint_align_get"
 
@@ -70,8 +66,6 @@ external hide : t -> unit = "ml_evas_object_hide"
 
 external color_set : t -> int -> int -> int -> int -> unit =
   "ml_evas_object_color_set"
-
-external del : t -> unit = "ml_evas_object_del"
 
 external evas_get : t -> Evas.t = "ml_evas_object_evas_get"
 
@@ -167,9 +161,6 @@ external visible_get : t -> bool = "ml_evas_object_visible_get"
 external size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit =
   "ml_evas_object_size_hint_aspect_set"
 
-external geometry_get : t -> int * int * int * int =
-  "ml_evas_object_geometry_get"
-
 external box_layout_flow_horizontal : t -> box_data -> unit =
   "ml_evas_object_box_layout_flow_horizontal"
 
@@ -194,4 +185,19 @@ external box_layout_flow_vertical : t -> box_data -> unit =
 (* Basic Object Manipulation *)
 
 external clip_set : t -> t -> unit = "ml_evas_object_clip_set"
+
+external ref : t -> unit = "ml_evas_object_ref"
+
+external unref : t -> unit = "ml_evas_object_unref"
+
+external ref_get : t -> int = "ml_evas_object_ref_get"
+
+external del : t -> unit = "ml_evas_object_del"
+
+external move : t -> int -> int -> unit = "ml_evas_object_move"
+
+external resize : t -> int -> int -> unit = "ml_evas_object_resize"
+
+external geometry_get : t -> int * int * int * int =
+  "ml_evas_object_geometry_get"
 

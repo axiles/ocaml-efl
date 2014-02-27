@@ -71,12 +71,6 @@ PREFIX value ml_evas_object_color_set(
         return Val_unit;
 }
 
-PREFIX value ml_evas_object_del(value v_obj)
-{
-        evas_object_del((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
 PREFIX value ml_evas_object_evas_get(value v_obj)
 {
         return (value) evas_object_evas_get((Evas_Object*) v_obj);
@@ -606,6 +600,29 @@ PREFIX inline void ml_Evas_Object_gc_value(Evas_Object* obj, value* data)
 PREFIX value ml_evas_object_clip_set(value v_obj, value v_clip)
 {
         evas_object_clip_set((Evas_Object*) v_obj, (Evas_Object*) v_clip);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_ref(value v_obj)
+{
+        evas_object_ref((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_unref(value v_obj)
+{
+        evas_object_unref((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_ref_get(value v_obj)
+{
+        return Val_int(evas_object_ref_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_del(value v_obj)
+{
+        evas_object_del((Evas_Object*) v_obj);
         return Val_unit;
 }
 
