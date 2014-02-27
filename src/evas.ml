@@ -204,3 +204,11 @@ external render_async : t -> bool = "ml_evas_render_async"
 external render_updates : t -> (int * int * int * int) list =
   "ml_evas_render_updates"
 
+external render : t -> unit = "ml_evas_render"
+
+external norender : t -> unit = "ml_evas_norender"
+
+external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
+
+external render_dump : t -> unit = "ml_evas_render_dump"
+

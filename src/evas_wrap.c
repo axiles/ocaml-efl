@@ -516,3 +516,27 @@ PREFIX value ml_evas_render_updates(value v_e)
         return copy_Eina_List_Eina_Rectangle(evas_render_updates((Evas*) v_e));
 }
 
+PREFIX value ml_evas_render(value v_e)
+{
+        evas_render((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_norender(value v_e)
+{
+        evas_norender((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_render_idle_flush(value v_e)
+{
+        evas_render_idle_flush((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_render_dump(value v_e)
+{
+        evas_render_dump((Evas*) v_e);
+        return Val_unit;
+}
+

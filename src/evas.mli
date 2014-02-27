@@ -182,3 +182,11 @@ val render_async : t -> bool
 
 val render_updates : t -> (int * int * int * int) list
 
+val render : t -> unit
+
+val norender : t -> unit
+
+val render_idle_flush : t -> unit
+
+val render_dump : t -> unit
+
