@@ -39,11 +39,6 @@ PREFIX value ml_evas_object_size_hint_align_get(value v_obj)
         CAMLreturn(v);
 }
 
-PREFIX value ml_evas_object_evas_get(value v_obj)
-{
-        return (value) evas_object_evas_get((Evas_Object*) v_obj);
-}
-
 PREFIX value ml_evas_object_rectangle_add(value v_e)
 {
         return (value) evas_object_rectangle_add((Evas*) v_e);
@@ -632,5 +627,22 @@ PREFIX value ml_evas_object_color_set(
         evas_object_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
                 Int_val(v_b), Int_val(v_a));
         return Val_unit;
+}
+
+PREFIX value ml_evas_object_color_get(value v_obj)
+{
+        int r, g, b, a;
+        evas_object_color_get((Evas_Object*) v_obj, &r, &g, &b, &a);
+        value v_r = caml_alloc(4, 0);
+        Store_field(v_r, 0, Val_int(r));
+        Store_field(v_r, 1, Val_int(g));
+        Store_field(v_r, 2, Val_int(b));
+        Store_field(v_r, 3, Val_int(a));
+        return v_r;
+}
+
+PREFIX value ml_evas_object_evas_get(value v_obj)
+{
+        return (value) evas_object_evas_get((Evas_Object*) v_obj);
 }
 

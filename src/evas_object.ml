@@ -60,8 +60,6 @@ let size_hint_set obj list =
 external size_hint_align_get : t -> float * float =
   "ml_evas_object_size_hint_align_get"
 
-external evas_get : t -> Evas.t = "ml_evas_object_evas_get"
-
 external rectangle_add : Evas.t -> t = "ml_evas_object_rectangle_add"
 
 external size_hint_min_set : t -> int -> int -> unit =
@@ -203,4 +201,9 @@ external visible_get : t -> bool = "ml_evas_object_visible_get"
 
 external color_set : t -> int -> int -> int -> int -> unit =
   "ml_evas_object_color_set"
+
+external color_get : Evas.obj -> int * int * int * int =
+  "ml_evas_object_color_get"
+
+external evas_get : t -> Evas.t = "ml_evas_object_evas_get"
 

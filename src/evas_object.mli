@@ -36,8 +36,6 @@ val size_hint_set : t -> size_hint list -> unit
 
 val size_hint_align_get : t -> float * float
 
-val evas_get : t -> Evas.t
-
 val rectangle_add : Evas.t -> t
 
 val size_hint_min_set : t -> int -> int -> unit
@@ -134,4 +132,8 @@ val hide : t -> unit
 val visible_get : t -> bool
 
 val color_set : t -> int -> int -> int -> int -> unit
+
+val color_get : Evas.obj -> int * int * int * int
+
+val evas_get : t -> Evas.t
 
