@@ -191,3 +191,11 @@ external nochange_push : t -> unit = "ml_evas_nochange_push"
 
 external nochange_pop : t -> unit = "ml_evas_nochange_pop"
 
+external damage_rectangle_add : t -> int -> int -> int -> int -> unit =
+  "ml_evas_damage_rectangle_add"
+
+external obscured_rectangle_add : t -> int -> int -> int -> int -> unit =
+  "ml_evas_obscured_rectangle_add"
+
+external obscured_clear : t -> unit = "ml_evas_obscured_clear"
+

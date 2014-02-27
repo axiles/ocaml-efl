@@ -484,3 +484,25 @@ PREFIX value ml_evas_nochange_pop(value v_e)
         return Val_unit;
 }
 
+PREFIX value ml_evas_damage_rectangle_add(
+        value v_e, value v_x, value v_y, value v_w, value v_h)
+{
+        evas_damage_rectangle_add((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_obscured_rectangle_add(
+        value v_e, value v_x, value v_y, value v_w, value v_h)
+{
+        evas_obscured_rectangle_add((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_obscured_clear(value v_e)
+{
+        evas_obscured_clear((Evas*) v_e);
+        return Val_unit;
+}
+

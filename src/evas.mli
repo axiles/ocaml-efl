@@ -172,3 +172,9 @@ val nochange_push : t -> unit
 
 val nochange_pop : t -> unit
 
+val damage_rectangle_add : t -> int -> int -> int -> int -> unit
+
+val obscured_rectangle_add : t -> int -> int -> int -> int -> unit
+
+val obscured_clear : t -> unit
+
