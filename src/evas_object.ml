@@ -6,8 +6,6 @@ type box_layout = t -> box_data -> unit
 
 type 'a event_cb = Evas.t -> t -> 'a -> unit
 
-external show : t -> unit = "ml_evas_object_show"
-
 external size_hint_weight_set : t -> float -> float -> unit =
   "ml_evas_object_size_hint_weight_set"
 
@@ -61,11 +59,6 @@ let size_hint_set obj list =
 
 external size_hint_align_get : t -> float * float =
   "ml_evas_object_size_hint_align_get"
-
-external hide : t -> unit = "ml_evas_object_hide"
-
-external color_set : t -> int -> int -> int -> int -> unit =
-  "ml_evas_object_color_set"
 
 external evas_get : t -> Evas.t = "ml_evas_object_evas_get"
 
@@ -156,8 +149,6 @@ external event_callback_add_image_preloaded : t -> unit event_cb -> unit =
 external event_callback_add_image_unloaded : t -> unit event_cb -> unit =
   "ml_evas_object_event_callback_add_image_unloaded"
 
-external visible_get : t -> bool = "ml_evas_object_visible_get"
-
 external size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit =
   "ml_evas_object_size_hint_aspect_set"
 
@@ -200,4 +191,16 @@ external resize : t -> int -> int -> unit = "ml_evas_object_resize"
 
 external geometry_get : t -> int * int * int * int =
   "ml_evas_object_geometry_get"
+
+external geometry_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_object_geometry_set"
+
+external show : t -> unit = "ml_evas_object_show"
+
+external hide : t -> unit = "ml_evas_object_hide"
+
+external visible_get : t -> bool = "ml_evas_object_visible_get"
+
+external color_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_object_color_set"
 
