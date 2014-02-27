@@ -215,3 +215,7 @@ external clipees_get : t -> t list = "ml_evas_object_clipees_get"
 
 external clipees_has : t -> bool = "ml_evas_object_clipees_has"
 
+external focus_set : t -> bool -> unit = "ml_evas_object_focus_set"
+
+external focus_get : t -> bool = "ml_evas_object_focus_get"
+

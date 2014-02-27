@@ -145,3 +145,7 @@ val clipees_get : t -> t list
 
 val clipees_has : t -> bool
 
+val focus_set : t -> bool -> unit
+
+val focus_get : t -> bool
+
