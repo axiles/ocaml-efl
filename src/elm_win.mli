@@ -179,6 +179,8 @@ val rotation_with_resize_set : Evas.obj -> int -> unit
 
 val rotation_get : Evas.obj -> int
 
+val wm_rotation_supported_get : Evas.obj -> bool
+
 val sticky_set : Evas.obj -> bool -> unit
 
 val sticky_get : Evas.obj -> bool

@@ -183,6 +183,9 @@ external rotation_with_resize_set : Evas.obj -> int -> unit =
 
 external rotation_get : Evas.obj -> int = "ml_elm_win_rotation_get"
 
+external wm_rotation_supported_get : Evas.obj -> bool =
+  "ml_elm_win_wm_rotation_supported_get"
+
 external sticky_set : Evas.obj -> bool -> unit = "ml_elm_win_sticky_set"
 
 external sticky_get : Evas.obj -> bool = "ml_elm_win_sticky_get"
