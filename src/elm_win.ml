@@ -165,6 +165,14 @@ external layer_set : Evas.obj -> int -> unit = "ml_elm_win_layer_set"
 
 external layer_get : Evas.obj -> int = "ml_elm_win_layer_get"
 
+external norender_push : Evas.obj -> unit = "ml_elm_win_norender_push"
+
+external norender_pop : Evas.obj -> unit = "ml_elm_win_norender_pop"
+
+external norender_get : Evas.obj -> int = "ml_elm_win_norender_get"
+
+external render : Evas.obj -> unit = "ml_elm_win_render"
+
 external rotation_set : Evas.obj -> int -> unit = "ml_elm_win_rotation_set"
 
 external rotation_with_resize_set : Evas.obj -> int -> unit =
