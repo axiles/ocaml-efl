@@ -301,6 +301,12 @@ PREFIX value ml_elm_win_fullscreen_get(value v_obj)
         return Val_Eina_Bool(elm_win_fullscreen_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_main_menu_get(value v_obj)
+{
+        return copy_Evas_Object_opt(elm_win_main_menu_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_win_maximized_set(value v_obj, value v_flag)
 {
         elm_win_maximized_set((Evas_Object*) v_obj, Eina_Bool_val(v_flag));

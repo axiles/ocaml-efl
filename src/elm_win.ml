@@ -108,6 +108,9 @@ external fullscreen_set : Evas.obj -> bool -> unit = "ml_elm_win_fullscreen_set"
 
 external fullscreen_get : Evas.obj -> bool = "ml_elm_win_fullscreen_get"
 
+external main_menu_get : Evas.obj -> Evas.obj option =
+  "ml_elm_win_main_menu_get"
+
 external maximized_set : Evas.obj -> bool -> unit = "ml_elm_win_maximized_set"
 
 external maximized_get : Evas.obj -> bool = "ml_elm_win_maximized_get"
