@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_GLView_Mode Elm_GLView_Mode_val(value v)
+inline Elm_GLView_Mode Elm_GLView_Mode_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_GLVIEW_NONE;
@@ -14,7 +14,7 @@ PREFIX inline Elm_GLView_Mode Elm_GLView_Mode_val(value v)
         return ELM_GLVIEW_NONE;
 }
 
-PREFIX inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
+inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
 {
         value v_tmp = v;
         Elm_GLView_Mode m = ELM_GLVIEW_NONE;
@@ -25,7 +25,7 @@ PREFIX inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
         return m;
 }
 
-PREFIX inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
+inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
 {
         switch(v) {
                 case Val_recreate: return ELM_GLVIEW_RESIZE_POLICY_RECREATE;
@@ -36,7 +36,7 @@ PREFIX inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
         return ELM_GLVIEW_RESIZE_POLICY_RECREATE;
 }
 
-PREFIX inline Elm_GLView_Render_Policy Elm_GLView_Render_Policy_val(value v)
+inline Elm_GLView_Render_Policy Elm_GLView_Render_Policy_val(value v)
 {
         switch(v) {
                 case Val_on_demand: return ELM_GLVIEW_RENDER_POLICY_ON_DEMAND;

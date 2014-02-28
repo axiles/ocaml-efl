@@ -18,7 +18,7 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         *data = v_data;
 }
 
-PREFIX inline Elm_Gengrid_Item_Scrollto_Type
+inline Elm_Gengrid_Item_Scrollto_Type
 Elm_Gengrid_Item_Scrollto_Type_val(value v)
 {
         switch(v) {

@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Popup_Orient Elm_Popup_Orient_val(value v)
+inline Elm_Popup_Orient Elm_Popup_Orient_val(value v)
 {
         switch(v) {
                 case Val_top: return ELM_POPUP_ORIENT_TOP;
@@ -19,7 +19,7 @@ PREFIX inline Elm_Popup_Orient Elm_Popup_Orient_val(value v)
         return ELM_POPUP_ORIENT_TOP;
 }
 
-PREFIX inline value Val_Elm_Popup_Orient(Elm_Popup_Orient o)
+inline value Val_Elm_Popup_Orient(Elm_Popup_Orient o)
 {
         switch(o) {
                 case ELM_POPUP_ORIENT_TOP: return Val_top;

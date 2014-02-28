@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Thumb_Animation_Setting Elm_Thumb_Animation_Setting_val(
+inline Elm_Thumb_Animation_Setting Elm_Thumb_Animation_Setting_val(
         value v)
 {
         switch(v) {
@@ -14,7 +14,7 @@ PREFIX inline Elm_Thumb_Animation_Setting Elm_Thumb_Animation_Setting_val(
         return ELM_THUMB_ANIMATION_START;
 }
 
-PREFIX inline value Val_Elm_Thumb_Animation_Setting(
+inline value Val_Elm_Thumb_Animation_Setting(
         Elm_Thumb_Animation_Setting s)
 {
         switch(s) {

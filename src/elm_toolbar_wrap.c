@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Toolbar_Shrink_Mode Elm_Toolbar_Shrink_Mode_val(value v)
+inline Elm_Toolbar_Shrink_Mode Elm_Toolbar_Shrink_Mode_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_TOOLBAR_SHRINK_NONE;
@@ -15,7 +15,7 @@ PREFIX inline Elm_Toolbar_Shrink_Mode Elm_Toolbar_Shrink_Mode_val(value v)
         return ELM_TOOLBAR_SHRINK_NONE;
 }
 
-PREFIX inline value Val_Elm_Toolbar_Shrink_Mode(Elm_Toolbar_Shrink_Mode m)
+inline value Val_Elm_Toolbar_Shrink_Mode(Elm_Toolbar_Shrink_Mode m)
 {
        switch(m) {
                case ELM_TOOLBAR_SHRINK_NONE: return Val_none;
@@ -30,7 +30,7 @@ PREFIX inline value Val_Elm_Toolbar_Shrink_Mode(Elm_Toolbar_Shrink_Mode m)
        return Val_none;
 }
 
-PREFIX inline Elm_Toolbar_Item_Scrollto_Type
+inline Elm_Toolbar_Item_Scrollto_Type
 Elm_Toolbar_Item_Scrollto_Type_val(value v)
 {
         switch(v) {
@@ -45,7 +45,7 @@ Elm_Toolbar_Item_Scrollto_Type_val(value v)
         return ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
 }
 
-PREFIX inline Elm_Toolbar_Item_Scrollto_Type
+inline Elm_Toolbar_Item_Scrollto_Type
 Elm_Toolbar_Item_Scrollto_Type_val_list(value v)
 {
         Elm_Toolbar_Item_Scrollto_Type r = ELM_TOOLBAR_ITEM_SCROLLTO_NONE;

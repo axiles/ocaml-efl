@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Flip_Mode Elm_Flip_Mode_val(value v)
+inline Elm_Flip_Mode Elm_Flip_Mode_val(value v)
 {
         switch(v) {
                 case Val_rotate_y_center_axis:
@@ -25,7 +25,7 @@ PREFIX inline Elm_Flip_Mode Elm_Flip_Mode_val(value v)
         return ELM_FLIP_ROTATE_Y_CENTER_AXIS;
 }
 
-PREFIX inline Elm_Flip_Interaction Elm_Flip_Interaction_val(value v)
+inline Elm_Flip_Interaction Elm_Flip_Interaction_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_FLIP_INTERACTION_NONE;
@@ -38,7 +38,7 @@ PREFIX inline Elm_Flip_Interaction Elm_Flip_Interaction_val(value v)
         return ELM_FLIP_INTERACTION_NONE;
 }
 
-PREFIX inline value Val_Elm_Flip_Interaction(Elm_Flip_Interaction i)
+inline value Val_Elm_Flip_Interaction(Elm_Flip_Interaction i)
 {
         switch(i) {
                 case ELM_FLIP_INTERACTION_NONE: return Val_none;
@@ -49,7 +49,7 @@ PREFIX inline value Val_Elm_Flip_Interaction(Elm_Flip_Interaction i)
         return Val_none;
 }
 
-PREFIX inline Elm_Flip_Direction Elm_Flip_Direction_val(value v)
+inline Elm_Flip_Direction Elm_Flip_Direction_val(value v)
 {
         switch(v) {
                 case Val_up: return ELM_FLIP_DIRECTION_UP;
@@ -62,7 +62,7 @@ PREFIX inline Elm_Flip_Direction Elm_Flip_Direction_val(value v)
         return ELM_FLIP_DIRECTION_UP;
 }
 
-PREFIX inline value Val_Elm_Flip_Direction(Elm_Flip_Direction d)
+inline value Val_Elm_Flip_Direction(Elm_Flip_Direction d)
 {
         switch(d) {
                 case ELM_FLIP_DIRECTION_UP: return Val_up;

@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline value copy_Elm_Font_Properties(Elm_Font_Properties* p)
+inline value copy_Elm_Font_Properties(Elm_Font_Properties* p)
 {
         CAMLparam0();
         CAMLlocal1(v);

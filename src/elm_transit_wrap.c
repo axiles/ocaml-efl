@@ -25,7 +25,7 @@ PREFIX void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
         ml_remove_value(v_fun);
 }
 
-PREFIX inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
+inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
 {
         switch(v) {
                 case Val_linear: return ELM_TRANSIT_TWEEN_MODE_LINEAR;
@@ -38,7 +38,7 @@ PREFIX inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
         return ELM_TRANSIT_TWEEN_MODE_LINEAR;
 }
 
-PREFIX inline value Val_Elm_Transit_Tween_Mode(Elm_Transit_Tween_Mode m)
+inline value Val_Elm_Transit_Tween_Mode(Elm_Transit_Tween_Mode m)
 {
         switch(m) {
                 case ELM_TRANSIT_TWEEN_MODE_LINEAR: return Val_linear;
@@ -51,7 +51,7 @@ PREFIX inline value Val_Elm_Transit_Tween_Mode(Elm_Transit_Tween_Mode m)
         return Val_linear;
 }
 
-PREFIX inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
+inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -67,7 +67,7 @@ PREFIX inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
+inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
         value v)
 {
         switch(v) {
@@ -79,7 +79,7 @@ PREFIX inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
         return ELM_TRANSIT_EFFECT_FLIP_AXIS_X;
 }
 
-PREFIX inline Elm_Transit_Effect_Wipe_Type Elm_Transit_Effect_Wipe_Type_val(
+inline Elm_Transit_Effect_Wipe_Type Elm_Transit_Effect_Wipe_Type_val(
         value v)
 {
         switch(v) {
@@ -91,7 +91,7 @@ PREFIX inline Elm_Transit_Effect_Wipe_Type Elm_Transit_Effect_Wipe_Type_val(
         return ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE;
 }
 
-PREFIX inline Elm_Transit_Effect_Wipe_Dir Elm_Transit_Effect_Wipe_Dir_val(
+inline Elm_Transit_Effect_Wipe_Dir Elm_Transit_Effect_Wipe_Dir_val(
         value v)
 {
         switch(v) {

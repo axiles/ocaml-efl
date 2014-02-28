@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Bg_Option Elm_Bg_Option_val(value v_o)
+inline Elm_Bg_Option Elm_Bg_Option_val(value v_o)
 {
         switch(v_o) {
                 case Val_center: return ELM_BG_OPTION_CENTER;
@@ -13,7 +13,7 @@ PREFIX inline Elm_Bg_Option Elm_Bg_Option_val(value v_o)
         return ELM_BG_OPTION_CENTER;
 }
 
-PREFIX inline value Val_Elm_Bg_Option(Elm_Bg_Option o)
+inline value Val_Elm_Bg_Option(Elm_Bg_Option o)
 {
         switch(o) {
                 case ELM_BG_OPTION_CENTER: return Val_center;

@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline value copy_Evas_Point(Evas_Point p)
+inline value copy_Evas_Point(Evas_Point p)
 {
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(p.x));
@@ -8,7 +8,7 @@ PREFIX inline value copy_Evas_Point(Evas_Point p)
         return v;
 }
 
-PREFIX inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
+inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
 {
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(p.x));
@@ -16,7 +16,7 @@ PREFIX inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
         return v;
 }
 
-PREFIX inline value copy_Evas_Position(Evas_Position p)
+inline value copy_Evas_Position(Evas_Position p)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -26,7 +26,7 @@ PREFIX inline value copy_Evas_Position(Evas_Position p)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Coord_Precision_Point(
+inline value copy_Evas_Coord_Precision_Point(
         Evas_Coord_Precision_Point p)
 {
         CAMLparam0();
@@ -39,7 +39,7 @@ PREFIX inline value copy_Evas_Coord_Precision_Point(
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
+inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -49,7 +49,7 @@ PREFIX inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
         CAMLreturn(v);
 }
 
-PREFIX inline value Val_Evas_Button_Flags(Evas_Button_Flags f)
+inline value Val_Evas_Button_Flags(Evas_Button_Flags f)
 {
         switch(f) {
                 case EVAS_BUTTON_NONE: return Val_none;
@@ -98,7 +98,7 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
         CAMLreturn(v);
 }
 
-PREFIX inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
+inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
 {
         switch(v) {
                 case Val_none: return EVAS_ASPECT_CONTROL_NONE;
@@ -163,7 +163,7 @@ PREFIX value ml_float_of_ptr(value v_ptr)
         return copy_double(*x);
 }
 
-PREFIX inline Evas_Load_Error Evas_Load_Error_val(value v)
+inline Evas_Load_Error Evas_Load_Error_val(value v)
 {
         switch(v) {
                 case Val_none: return EVAS_LOAD_ERROR_NONE;
@@ -181,7 +181,7 @@ PREFIX inline Evas_Load_Error Evas_Load_Error_val(value v)
         return EVAS_LOAD_ERROR_NONE;
 }
 
-PREFIX inline value Val_Evas_Load_Error(Evas_Load_Error e)
+inline value Val_Evas_Load_Error(Evas_Load_Error e)
 {
         switch(e) {
                 case EVAS_LOAD_ERROR_NONE: return Val_none;
@@ -223,7 +223,7 @@ PREFIX void ml_Evas_Smart_Cb_on_del(
 
 /* Top Level Functions */
 
-PREFIX inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
+inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
 {
         switch(e) {
                 case EVAS_ALLOC_ERROR_NONE: return Val_none;
@@ -263,14 +263,14 @@ PREFIX value ml_evas_async_events_process(value v_unit)
 
 static Eina_List* ml_evas_values_list = NULL;
 
-PREFIX inline value* ml_Evas_register_value(value v)
+inline value* ml_Evas_register_value(value v)
 {
         value* data = ml_register_value(v);
         ml_evas_values_list = eina_list_append(ml_evas_values_list, data);
         return data;
 }
 
-PREFIX inline void ml_Evas_remove_values()
+inline void ml_Evas_remove_values()
 {
         Eina_List* tmp;
         value* data;
@@ -386,7 +386,7 @@ PREFIX value ml_evas_output_framespace_get(value v_e)
         return v_r;
 }
 
-PREFIX inline Evas_Callback_Priority Evas_Callback_Priority_val(value v)
+inline Evas_Callback_Priority Evas_Callback_Priority_val(value v)
 {
         switch(v) {
                 case Val_after: return EVAS_CALLBACK_PRIORITY_AFTER;

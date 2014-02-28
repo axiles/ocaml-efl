@@ -102,7 +102,7 @@ void ml_Elm_Web_Console_Message(
         CAMLreturn0;
 }
 
-PREFIX inline Elm_Web_Zoom_Mode Elm_Web_Zoom_Mode_val(value v)
+inline Elm_Web_Zoom_Mode Elm_Web_Zoom_Mode_val(value v)
 {
         switch(v) {
                 case Val_manual: return ELM_WEB_ZOOM_MODE_MANUAL;
@@ -115,7 +115,7 @@ PREFIX inline Elm_Web_Zoom_Mode Elm_Web_Zoom_Mode_val(value v)
         return ELM_WEB_ZOOM_MODE_MANUAL;
 }
 
-PREFIX inline value Val_Elm_Web_Zoom_Mode(Elm_Web_Zoom_Mode m)
+inline value Val_Elm_Web_Zoom_Mode(Elm_Web_Zoom_Mode m)
 {
         switch(m) {
                 case ELM_WEB_ZOOM_MODE_MANUAL: return Val_manual;
@@ -127,7 +127,7 @@ PREFIX inline value Val_Elm_Web_Zoom_Mode(Elm_Web_Zoom_Mode m)
         return Val_manual;
 }
 
-PREFIX inline Elm_Web_Window_Feature_Flag Elm_Web_Window_Feature_Flag_val(
+inline Elm_Web_Window_Feature_Flag Elm_Web_Window_Feature_Flag_val(
                 value v)
 {
         switch(v) {
@@ -143,7 +143,7 @@ PREFIX inline Elm_Web_Window_Feature_Flag Elm_Web_Window_Feature_Flag_val(
         return ELM_WEB_WINDOW_FEATURE_TOOLBAR;
 }
 
-PREFIX inline Elm_Web_Menu_Item_Type Elm_Web_Menu_Item_Type_val(value v)
+inline Elm_Web_Menu_Item_Type Elm_Web_Menu_Item_Type_val(value v)
 {
         switch(v) {
                 case Val_separator: return ELM_WEB_MENU_SEPARATOR;
@@ -155,7 +155,7 @@ PREFIX inline Elm_Web_Menu_Item_Type Elm_Web_Menu_Item_Type_val(value v)
         return ELM_WEB_MENU_SEPARATOR;
 }
 
-PREFIX inline value Val_Elm_Web_Menu_Item_Type(Elm_Web_Menu_Item_Type t)
+inline value Val_Elm_Web_Menu_Item_Type(Elm_Web_Menu_Item_Type t)
 {
         switch(t) {
                 case ELM_WEB_MENU_SEPARATOR: return Val_separator;
@@ -166,7 +166,7 @@ PREFIX inline value Val_Elm_Web_Menu_Item_Type(Elm_Web_Menu_Item_Type t)
         return Val_separator;
 }
 
-PREFIX inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
+inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
 {
         CAMLparam0();
         CAMLlocal1(v_r);
@@ -179,7 +179,7 @@ PREFIX inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
         CAMLreturn(v_r);
 }
 
-PREFIX inline value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
+inline value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_i);

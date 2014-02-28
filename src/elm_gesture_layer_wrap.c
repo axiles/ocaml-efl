@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Gesture_Type Elm_Gesture_Type_val(value v)
+inline Elm_Gesture_Type Elm_Gesture_Type_val(value v)
 {
         switch(v) {
                 case Val_n_taps: return ELM_GESTURE_N_TAPS;
@@ -18,7 +18,7 @@ PREFIX inline Elm_Gesture_Type Elm_Gesture_Type_val(value v)
         return ELM_GESTURE_N_TAPS;
 }
 
-PREFIX inline Elm_Gesture_State Elm_Gesture_State_val(value v)
+inline Elm_Gesture_State Elm_Gesture_State_val(value v)
 {
         switch(v) {
                 case Val_undefined: return ELM_GESTURE_STATE_UNDEFINED;

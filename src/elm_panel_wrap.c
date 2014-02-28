@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Panel_Orient Elm_Panel_Orient_val(value v)
+inline Elm_Panel_Orient Elm_Panel_Orient_val(value v)
 {
         switch(v) {
                 case Val_top: return ELM_PANEL_ORIENT_TOP;
@@ -13,7 +13,7 @@ PREFIX inline Elm_Panel_Orient Elm_Panel_Orient_val(value v)
         return ELM_PANEL_ORIENT_TOP;
 }
 
-PREFIX inline value Val_Elm_Panel_Orient(Elm_Panel_Orient o)
+inline value Val_Elm_Panel_Orient(Elm_Panel_Orient o)
 {
         switch(o) {
                 case ELM_PANEL_ORIENT_TOP: return Val_top;

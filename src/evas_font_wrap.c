@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Evas_Font_Hinting_Flags Evas_Font_Hinting_Flags_val(value v)
+inline Evas_Font_Hinting_Flags Evas_Font_Hinting_Flags_val(value v)
 {
         switch(v) {
                 case Val_none: return EVAS_FONT_HINTING_NONE;
@@ -12,7 +12,7 @@ PREFIX inline Evas_Font_Hinting_Flags Evas_Font_Hinting_Flags_val(value v)
         return EVAS_FONT_HINTING_NONE;
 }
 
-PREFIX inline value Val_Evas_Font_Hinting_Flags(Evas_Font_Hinting_Flags f)
+inline value Val_Evas_Font_Hinting_Flags(Evas_Font_Hinting_Flags f)
 {
         switch(f) {
                 case EVAS_FONT_HINTING_NONE: return Val_none;

@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Photocam_Zoom_Mode Elm_Photocam_Zoom_Mode_val(value v)
+inline Elm_Photocam_Zoom_Mode Elm_Photocam_Zoom_Mode_val(value v)
 {
         switch(v) {
                 case Val_manual: return ELM_PHOTOCAM_ZOOM_MODE_MANUAL;
@@ -14,7 +14,7 @@ PREFIX inline Elm_Photocam_Zoom_Mode Elm_Photocam_Zoom_Mode_val(value v)
         return ELM_PHOTOCAM_ZOOM_MODE_MANUAL;
 }
 
-PREFIX inline value Val_Elm_Photocam_Zoom_Mode(Elm_Photocam_Zoom_Mode m)
+inline value Val_Elm_Photocam_Zoom_Mode(Elm_Photocam_Zoom_Mode m)
 {
         switch(m) {
                 case ELM_PHOTOCAM_ZOOM_MODE_MANUAL: return Val_manual;

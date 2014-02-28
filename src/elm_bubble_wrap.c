@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Bubble_Pos Elm_Bubble_Pos_val(value v)
+inline Elm_Bubble_Pos Elm_Bubble_Pos_val(value v)
 {
         switch(v) {
                 case Val_invalid: return ELM_BUBBLE_POS_INVALID;
@@ -14,7 +14,7 @@ PREFIX inline Elm_Bubble_Pos Elm_Bubble_Pos_val(value v)
         return ELM_BUBBLE_POS_INVALID;
 }
 
-PREFIX inline value Val_Elm_Bubble_Pos(Elm_Bubble_Pos p)
+inline value Val_Elm_Bubble_Pos(Elm_Bubble_Pos p)
 {
         switch(p) {
                 case ELM_BUBBLE_POS_INVALID: return Val_invalid;

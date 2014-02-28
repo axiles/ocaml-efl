@@ -1,14 +1,14 @@
 #include "include.h"
 
-PREFIX inline Eina_Bool Eina_Bool_val(value v) {
+inline Eina_Bool Eina_Bool_val(value v) {
         return (Eina_Bool) Int_val(v);
 }
 
-PREFIX inline value Val_Eina_Bool(Eina_Bool b) {
+inline value Val_Eina_Bool(Eina_Bool b) {
         return Val_int (b);
 }
 
-PREFIX inline value copy_Eina_List_string(const Eina_List* list)
+inline value copy_Eina_List_string(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);
@@ -25,7 +25,7 @@ PREFIX inline value copy_Eina_List_string(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline Eina_List* Eina_List_string_val(value v_list)
+inline Eina_List* Eina_List_string_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -36,7 +36,7 @@ PREFIX inline Eina_List* Eina_List_string_val(value v_list)
         return list;
 }
 
-PREFIX inline Eina_List* Eina_List_string_malloc_val(value v_list)
+inline Eina_List* Eina_List_string_malloc_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -47,7 +47,7 @@ PREFIX inline Eina_List* Eina_List_string_malloc_val(value v_list)
         return list;
 }
 
-PREFIX inline value copy_Eina_List_Evas_Object(const Eina_List* list)
+inline value copy_Eina_List_Evas_Object(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -63,7 +63,7 @@ PREFIX inline value copy_Eina_List_Evas_Object(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline Eina_List* Eina_List_Evas_Object_val(value v_list)
+inline Eina_List* Eina_List_Evas_Object_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -74,7 +74,7 @@ PREFIX inline Eina_List* Eina_List_Evas_Object_val(value v_list)
         return list;
 }
 
-PREFIX inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
+inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -90,7 +90,7 @@ PREFIX inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
+inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
 {
         if(it == NULL) return Val_int(0);
         value v_r = caml_alloc(1, 0);
@@ -98,7 +98,7 @@ PREFIX inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
         return v_r;
 }
 
-PREFIX inline value copy_string_opt(const char* s)
+inline value copy_string_opt(const char* s)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -110,7 +110,7 @@ PREFIX inline value copy_string_opt(const char* s)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj)
+inline value copy_Evas_Object_opt(const Evas_Object* obj)
 {
         if(obj == NULL) return Val_int(0);
         value v_r = caml_alloc(1, 0);
@@ -118,13 +118,13 @@ PREFIX inline value copy_Evas_Object_opt(const Evas_Object* obj)
         return v_r;
 }
 
-PREFIX inline Evas_Object* Evas_Object_opt_val(value v)
+inline Evas_Object* Evas_Object_opt_val(value v)
 {
         if(v == Val_int(0)) return NULL;
         else return (Evas_Object*) Field(v, 0);
 }
 
-PREFIX inline value* ml_register_value(value v)
+inline value* ml_register_value(value v)
 {
         value* data = caml_stat_alloc(sizeof(value));
         *data = v;
@@ -132,13 +132,13 @@ PREFIX inline value* ml_register_value(value v)
         return data;
 }
 
-PREFIX inline void ml_remove_value(value* data)
+inline void ml_remove_value(value* data)
 {
         caml_remove_generational_global_root(data);
         free(data);
 }
 
-PREFIX inline value copy_Eina_Rectangle(Eina_Rectangle* rect)
+inline value copy_Eina_Rectangle(Eina_Rectangle* rect)
 {
         value v = caml_alloc(4, 0);
         Store_field(v, 0, rect->x);
@@ -148,7 +148,7 @@ PREFIX inline value copy_Eina_Rectangle(Eina_Rectangle* rect)
         return v;
 }
 
-PREFIX inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
+inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);

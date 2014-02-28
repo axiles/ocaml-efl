@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
+inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
 {
         switch(v) {
                 case Val_auto: return ELM_SCROLLER_POLICY_AUTO;
@@ -12,7 +12,7 @@ PREFIX inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
         return ELM_SCROLLER_POLICY_AUTO;
 }
 
-PREFIX inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
+inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
 {
         switch(p) {
                 case ELM_SCROLLER_POLICY_AUTO: return Val_auto;
@@ -24,7 +24,7 @@ PREFIX inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
         return Val_auto;
 }
 
-PREFIX inline Elm_Scroller_Single_Direction
+inline Elm_Scroller_Single_Direction
 Elm_Scroller_Single_Direction_val(value v)
 {
         switch(v) {
@@ -38,7 +38,7 @@ Elm_Scroller_Single_Direction_val(value v)
         return ELM_SCROLLER_SINGLE_DIRECTION_NONE;
 }
 
-PREFIX inline value Val_Elm_Scroller_Single_Direction(
+inline value Val_Elm_Scroller_Single_Direction(
         Elm_Scroller_Single_Direction sd)
 {
         switch(sd) {
@@ -52,7 +52,7 @@ PREFIX inline value Val_Elm_Scroller_Single_Direction(
         return Val_none;
 }
 
-PREFIX inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val(
+inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val(
         value v)
 {
         switch(v) {
@@ -70,7 +70,7 @@ PREFIX inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val(
         return ELM_SCROLLER_MOVEMENT_NO_BLOCK;
 }
 
-PREFIX inline value Val_Elm_Scroller_Movement_Block(
+inline value Val_Elm_Scroller_Movement_Block(
         Elm_Scroller_Movement_Block mb)
 {
         if(mb == ELM_SCROLLER_MOVEMENT_NO_BLOCK) return Val_no_block;

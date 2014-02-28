@@ -1,6 +1,6 @@
 #include "ethumb_wrap.h"
 
-PREFIX inline Ethumb_Thumb_Aspect Ethumb_Thumb_Aspect_val(value v)
+inline Ethumb_Thumb_Aspect Ethumb_Thumb_Aspect_val(value v)
 {
         switch(v) {
                 case Val_keep_aspect: return ETHUMB_THUMB_KEEP_ASPECT;
@@ -12,7 +12,7 @@ PREFIX inline Ethumb_Thumb_Aspect Ethumb_Thumb_Aspect_val(value v)
         return ETHUMB_THUMB_KEEP_ASPECT;
 }
 
-PREFIX inline value Val_Ethumb_Thumb_Aspect(Ethumb_Thumb_Aspect a)
+inline value Val_Ethumb_Thumb_Aspect(Ethumb_Thumb_Aspect a)
 {
         switch(a) {
                 case ETHUMB_THUMB_KEEP_ASPECT: return Val_keep_aspect;
@@ -23,7 +23,7 @@ PREFIX inline value Val_Ethumb_Thumb_Aspect(Ethumb_Thumb_Aspect a)
         return Val_keep_aspect;
 }
 
-PREFIX inline Ethumb_Thumb_FDO_Size Ethumb_Thumb_FDO_Size_val(value v)
+inline Ethumb_Thumb_FDO_Size Ethumb_Thumb_FDO_Size_val(value v)
 {
         switch(v) {
                 case Val_normal: return ETHUMB_THUMB_NORMAL;
@@ -34,7 +34,7 @@ PREFIX inline Ethumb_Thumb_FDO_Size Ethumb_Thumb_FDO_Size_val(value v)
         return ETHUMB_THUMB_NORMAL;
 }
 
-PREFIX inline value Val_Ethumb_Thumb_FDO_Size(Ethumb_Thumb_FDO_Size s)
+inline value Val_Ethumb_Thumb_FDO_Size(Ethumb_Thumb_FDO_Size s)
 {
         switch(s) {
                 case ETHUMB_THUMB_NORMAL: return Val_normal;
@@ -44,7 +44,7 @@ PREFIX inline value Val_Ethumb_Thumb_FDO_Size(Ethumb_Thumb_FDO_Size s)
         return Val_normal;
 }
 
-PREFIX inline Ethumb_Thumb_Format Ethumb_Thumb_Format_val(value v)
+inline Ethumb_Thumb_Format Ethumb_Thumb_Format_val(value v)
 {
         switch(v) {
                 case Val_fdo : return ETHUMB_THUMB_FDO;
@@ -56,7 +56,7 @@ PREFIX inline Ethumb_Thumb_Format Ethumb_Thumb_Format_val(value v)
         return ETHUMB_THUMB_FDO;
 }
 
-PREFIX inline value Val_Ethumb_Thumb_Format(Ethumb_Thumb_Format f)
+inline value Val_Ethumb_Thumb_Format(Ethumb_Thumb_Format f)
 {
         switch(f) {
                 case ETHUMB_THUMB_FDO: return Val_fdo;
@@ -67,7 +67,7 @@ PREFIX inline value Val_Ethumb_Thumb_Format(Ethumb_Thumb_Format f)
         return Val_fdo;
 }
 
-PREFIX inline Ethumb_Thumb_Orientation Ethumb_Thumb_Orientation_val(value v)
+inline Ethumb_Thumb_Orientation Ethumb_Thumb_Orientation_val(value v)
 {
         switch(v) {
                 case Val_orient_none: return ETHUMB_THUMB_ORIENT_NONE;
@@ -85,7 +85,7 @@ PREFIX inline Ethumb_Thumb_Orientation Ethumb_Thumb_Orientation_val(value v)
         return ETHUMB_THUMB_ORIENT_NONE;
 }
 
-PREFIX inline value Val_Ethumb_Thumb_Orientation(Ethumb_Thumb_Orientation o)
+inline value Val_Ethumb_Thumb_Orientation(Ethumb_Thumb_Orientation o)
 {
         switch(o) {
                 case ETHUMB_THUMB_ORIENT_NONE: return Val_orient_none;

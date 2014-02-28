@@ -175,7 +175,7 @@ PREFIX value ml_elm_object_tree_focus_allow_get(value v_obj)
 
 /* General */
 
-PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
+inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
 {
         switch(v_m) {
                 case Val_default: return ELM_OBJECT_SELECT_MODE_DEFAULT;
@@ -189,7 +189,7 @@ PREFIX inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)
         return ELM_OBJECT_SELECT_MODE_DEFAULT;
 }
 
-PREFIX inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
+inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
 {
         switch(m) {
                 case ELM_OBJECT_SELECT_MODE_DEFAULT: return Val_default;
@@ -744,7 +744,7 @@ PREFIX value ml_elm_object_item_track_get(value v_it)
         return Val_int(elm_object_item_track_get((Elm_Object_Item*) v_it));
 }
 
-PREFIX inline void ml_Elm_Object_Item_gc_value(
+inline void ml_Elm_Object_Item_gc_value(
         const Elm_Object_Item* it, value* data)
 {
         Evas_Object* obj = elm_object_item_widget_get(it);
@@ -752,7 +752,7 @@ PREFIX inline void ml_Elm_Object_Item_gc_value(
                 ml_Evas_Object_Event_Cb_on_del, data);
 }
 
-PREFIX inline value* ml_Elm_Object_Item_register_value(
+inline value* ml_Elm_Object_Item_register_value(
         Elm_Object_Item* it, value v)
 {
         value* data = ml_register_value(v);

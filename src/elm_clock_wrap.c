@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val(value v)
+inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val(value v)
 {
         switch(v) {
                 case Val_default: return ELM_CLOCK_EDIT_DEFAULT;
@@ -16,7 +16,7 @@ PREFIX inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val(value v)
         return ELM_CLOCK_EDIT_DEFAULT;
 }
 
-PREFIX inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val_list(value v)
+inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val_list(value v)
 {
         value v_tmp = v;
         Elm_Clock_Edit_Mode m = ELM_CLOCK_EDIT_DEFAULT;
@@ -27,7 +27,7 @@ PREFIX inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val_list(value v)
         return m;
 }
 
-PREFIX inline value copy_Elm_Clock_Edit_Mode(Elm_Clock_Edit_Mode m)
+inline value copy_Elm_Clock_Edit_Mode(Elm_Clock_Edit_Mode m)
 {
         value v = caml_alloc(8, 0);
         Store_field(v, 0, Val_bool((m == ELM_CLOCK_EDIT_DEFAULT)));

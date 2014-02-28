@@ -18,7 +18,7 @@ PREFIX void ml_Elm_Genlist_Item_Class(
         *data = v_data;
 }
 
-PREFIX inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
+inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_GENLIST_ITEM_NONE;
@@ -29,7 +29,7 @@ PREFIX inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
         return ELM_GENLIST_ITEM_NONE;
 }
 
-PREFIX inline value Val_Elm_Genlist_Item_Type(Elm_Genlist_Item_Type t)
+inline value Val_Elm_Genlist_Item_Type(Elm_Genlist_Item_Type t)
 {
         switch(t) {
                 case ELM_GENLIST_ITEM_NONE: return Val_none;
@@ -41,7 +41,7 @@ PREFIX inline value Val_Elm_Genlist_Item_Type(Elm_Genlist_Item_Type t)
         return Val_none;
 }
 
-PREFIX inline Elm_Genlist_Item_Field_Type Elm_Genlist_Item_Field_Type_val(
+inline Elm_Genlist_Item_Field_Type Elm_Genlist_Item_Field_Type_val(
         value v)
 {
         switch(v) {
@@ -54,7 +54,7 @@ PREFIX inline Elm_Genlist_Item_Field_Type Elm_Genlist_Item_Field_Type_val(
         return ELM_GENLIST_ITEM_FIELD_ALL;
 }
 
-PREFIX inline Elm_Genlist_Item_Scrollto_Type
+inline Elm_Genlist_Item_Scrollto_Type
 Elm_Genlist_Item_Scrollto_Type_val(value v)
 {
         switch(v) {

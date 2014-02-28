@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Image_Orient Elm_Image_Orient_val(value v_o)
+inline Elm_Image_Orient Elm_Image_Orient_val(value v_o)
 {
         switch(v_o) {
                 case Val_orient_none: return ELM_IMAGE_ORIENT_NONE;
@@ -16,7 +16,7 @@ PREFIX inline Elm_Image_Orient Elm_Image_Orient_val(value v_o)
         return ELM_IMAGE_ORIENT_NONE;
 }
 
-PREFIX inline value Val_Elm_Image_Orient(value o)
+inline value Val_Elm_Image_Orient(value o)
 {
         switch(o) {
                 case ELM_IMAGE_ORIENT_NONE: return Val_orient_none;

@@ -527,7 +527,7 @@ void ml_Evas_Object_Event_Cb_on_del(
         ml_remove_value(v_fun);
 }
 
-PREFIX inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v)
+inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v)
 {
         value* data = ml_register_value(v);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_FREE,
@@ -535,7 +535,7 @@ PREFIX inline value* ml_Evas_Object_register_value(Evas_Object* obj, value v)
         return data;
 }
 
-PREFIX inline void ml_Evas_Object_gc_value(Evas_Object* obj, value* data)
+inline void ml_Evas_Object_gc_value(Evas_Object* obj, value* data)
 {
         evas_object_event_callback_add(obj, EVAS_CALLBACK_FREE,
                 ml_Evas_Object_Event_Cb_on_del, data);

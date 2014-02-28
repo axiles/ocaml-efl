@@ -193,7 +193,7 @@ PREFIX value ml_elm_config_glayer_double_tap_timeout_set(value v_x)
 
 /* Elementary Fonts */
 
-PREFIX inline value copy_Elm_Text_Class(Elm_Text_Class* c)
+inline value copy_Elm_Text_Class(Elm_Text_Class* c)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -202,7 +202,7 @@ PREFIX inline value copy_Elm_Text_Class(Elm_Text_Class* c)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
+inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);
@@ -219,7 +219,7 @@ PREFIX inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
+inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -229,7 +229,7 @@ PREFIX inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list)
+inline value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);

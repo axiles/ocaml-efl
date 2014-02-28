@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Hover_Axis Elm_Hover_Axis_val(value v)
+inline Elm_Hover_Axis Elm_Hover_Axis_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_HOVER_AXIS_NONE;

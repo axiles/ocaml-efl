@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
+inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
 {
         switch(v) {
                 case Val_down: return ELM_CTXPOPUP_DIRECTION_DOWN;
@@ -14,7 +14,7 @@ PREFIX inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
         return ELM_CTXPOPUP_DIRECTION_DOWN;
 }
 
-PREFIX inline value Val_Elm_Ctxpopup_Direction(Elm_Ctxpopup_Direction d)
+inline value Val_Elm_Ctxpopup_Direction(Elm_Ctxpopup_Direction d)
 {
         switch(d) {
                 case ELM_CTXPOPUP_DIRECTION_DOWN: return Val_down;

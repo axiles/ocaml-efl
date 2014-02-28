@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_List_Mode Elm_List_Mode_val(value v_m)
+inline Elm_List_Mode Elm_List_Mode_val(value v_m)
 {
         switch(v_m) {
                 case Val_compress: return ELM_LIST_COMPRESS;
@@ -13,7 +13,7 @@ PREFIX inline Elm_List_Mode Elm_List_Mode_val(value v_m)
         return ELM_LIST_COMPRESS;
 }
 
-PREFIX inline value Val_Elm_List_Mode(Elm_List_Mode m)
+inline value Val_Elm_List_Mode(Elm_List_Mode m)
 {
         switch(m) {
                 case ELM_LIST_COMPRESS: return Val_compress;

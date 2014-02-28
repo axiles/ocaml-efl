@@ -3,7 +3,7 @@
 
 #include "include.h"
 
-PREFIX inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v);
-PREFIX inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p);
+inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v);
+inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p);
 
 #endif

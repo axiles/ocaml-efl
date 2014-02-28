@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
+inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
 {
         switch(v_ty) {
                 case Val_basic: return ELM_WIN_BASIC;
@@ -24,7 +24,7 @@ PREFIX inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
         return ELM_WIN_BASIC;
 }
 
-PREFIX inline Elm_Win_Keyboard_Mode Elm_Win_Keyboard_Mode_val(value v_mode)
+inline Elm_Win_Keyboard_Mode Elm_Win_Keyboard_Mode_val(value v_mode)
 {
         switch(v_mode) {
                 case Val_unknown: return ELM_WIN_KEYBOARD_UNKNOWN;
@@ -48,7 +48,7 @@ PREFIX inline Elm_Win_Keyboard_Mode Elm_Win_Keyboard_Mode_val(value v_mode)
         return ELM_WIN_KEYBOARD_UNKNOWN;
 }
 
-PREFIX inline value Val_Elm_Win_Keyboard_Mode(Elm_Win_Keyboard_Mode mode)
+inline value Val_Elm_Win_Keyboard_Mode(Elm_Win_Keyboard_Mode mode)
 {
         switch(mode) {
                 case ELM_WIN_KEYBOARD_UNKNOWN: return Val_unknown;
@@ -72,7 +72,7 @@ PREFIX inline value Val_Elm_Win_Keyboard_Mode(Elm_Win_Keyboard_Mode mode)
         return Val_unknown;
 }
 
-PREFIX inline Elm_Win_Indicator_Mode Elm_Win_Indicator_Mode_val(value v_mode)
+inline Elm_Win_Indicator_Mode Elm_Win_Indicator_Mode_val(value v_mode)
 {
         switch(v_mode) {
                 case Val_unknown: return ELM_WIN_INDICATOR_UNKNOWN;
@@ -83,7 +83,7 @@ PREFIX inline Elm_Win_Indicator_Mode Elm_Win_Indicator_Mode_val(value v_mode)
         return ELM_WIN_INDICATOR_UNKNOWN;
 }
 
-PREFIX inline value Val_Elm_Win_Indicator_Mode(Elm_Win_Indicator_Mode mode)
+inline value Val_Elm_Win_Indicator_Mode(Elm_Win_Indicator_Mode mode)
 {
         switch(mode) {
                 case ELM_WIN_INDICATOR_UNKNOWN: return Val_unknown;
@@ -94,7 +94,7 @@ PREFIX inline value Val_Elm_Win_Indicator_Mode(Elm_Win_Indicator_Mode mode)
         return Val_unknown;
 }
 
-PREFIX inline Elm_Win_Indicator_Opacity_Mode
+inline Elm_Win_Indicator_Opacity_Mode
 Elm_Win_Indicator_Opacity_Mode_val(value v_mode)
 {
         switch(v_mode) {
@@ -108,7 +108,7 @@ Elm_Win_Indicator_Opacity_Mode_val(value v_mode)
         return ELM_WIN_INDICATOR_OPACITY_UNKNOWN;
 }
 
-PREFIX inline value
+inline value
 Val_Elm_Win_Indicator_Opacity_Mode(Elm_Win_Indicator_Opacity_Mode mode)
 {
         switch(mode) {
@@ -121,7 +121,7 @@ Val_Elm_Win_Indicator_Opacity_Mode(Elm_Win_Indicator_Opacity_Mode mode)
         caml_failwith("Val_Elm_Win_Indicator_Opacity_Mode");
 }
 
-PREFIX inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
+inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
 {
         switch(v_c) {
                 case Val_focus_back: return ELM_ILLUME_COMMAND_FOCUS_BACK;

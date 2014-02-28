@@ -1,6 +1,6 @@
 #include "elm_icon_wrap.h"
 
-PREFIX inline Elm_Icon_Type Elm_Icon_Type_val(value v)
+inline Elm_Icon_Type Elm_Icon_Type_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_ICON_NONE;
@@ -11,7 +11,7 @@ PREFIX inline Elm_Icon_Type Elm_Icon_Type_val(value v)
         return ELM_ICON_NONE;
 }
 
-PREFIX inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
+inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
 {
         switch(ty) {
                 case ELM_ICON_NONE: return Val_none;
@@ -22,7 +22,7 @@ PREFIX inline value Val_Elm_Icon_Type(Elm_Icon_Type ty)
         return Val_none;
 }
 
-PREFIX inline Elm_Icon_Lookup_Order Elm_Icon_Lookup_Order_val(value v_o)
+inline Elm_Icon_Lookup_Order Elm_Icon_Lookup_Order_val(value v_o)
 {
         switch(v_o) {
                 case Val_fdo_theme: return ELM_ICON_LOOKUP_FDO_THEME;
@@ -34,7 +34,7 @@ PREFIX inline Elm_Icon_Lookup_Order Elm_Icon_Lookup_Order_val(value v_o)
         return ELM_ICON_LOOKUP_FDO_THEME;
 }
 
-PREFIX inline value Val_Elm_Icon_Lookup_Order(Elm_Icon_Lookup_Order o)
+inline value Val_Elm_Icon_Lookup_Order(Elm_Icon_Lookup_Order o)
 {
         switch(o) {
                 case ELM_ICON_LOOKUP_FDO_THEME: return Val_fdo_theme;

@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Colorselector_Mode Elm_Colorselector_Mode_val(value v)
+inline Elm_Colorselector_Mode Elm_Colorselector_Mode_val(value v)
 {
         switch(v) {
                 case Val_palette: return ELM_COLORSELECTOR_PALETTE;
@@ -14,7 +14,7 @@ PREFIX inline Elm_Colorselector_Mode Elm_Colorselector_Mode_val(value v)
         return ELM_COLORSELECTOR_PALETTE;
 }
 
-PREFIX inline value Val_Elm_Colorselector_Mode(Elm_Colorselector_Mode m)
+inline value Val_Elm_Colorselector_Mode(Elm_Colorselector_Mode m)
 {
         switch(m) {
                 case ELM_COLORSELECTOR_PALETTE: return Val_palette;

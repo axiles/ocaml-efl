@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
+inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
 {
         switch(v_m) {
                 case Val_default: return ELM_CALENDAR_SELECT_MODE_DEFAULT;
@@ -13,7 +13,7 @@ PREFIX inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
         return ELM_CALENDAR_SELECT_MODE_DEFAULT;
 }
 
-PREFIX inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
+inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
 {
         switch(m) {
                 case ELM_CALENDAR_SELECT_MODE_DEFAULT: return Val_default;
@@ -25,7 +25,7 @@ PREFIX inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
         return Val_default;
 }
 
-PREFIX inline struct tm Tm_val(value v)
+inline struct tm Tm_val(value v)
 {
         struct tm t;
         t.tm_sec = Int_val(Field(v, 0));
@@ -40,7 +40,7 @@ PREFIX inline struct tm Tm_val(value v)
         return t;
 }
 
-PREFIX inline value copy_tm(struct tm t)
+inline value copy_tm(struct tm t)
 {
         value v = caml_alloc(9, 0);
         Store_field(v, 0, Val_int(t.tm_sec));
@@ -55,7 +55,7 @@ PREFIX inline value copy_tm(struct tm t)
         return v;
 }
 
-PREFIX inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
+inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
         value v)
 {
         switch(v) {
@@ -72,7 +72,7 @@ PREFIX inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
         return ELM_CALENDAR_UNIQUE;
 }
 
-PREFIX inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
+inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -88,7 +88,7 @@ PREFIX inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
+inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
 {
         switch(v) {
                 case Val_sunday: return ELM_DAY_SUNDAY;
@@ -105,7 +105,7 @@ PREFIX inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
         return ELM_DAY_SUNDAY;
 }
 
-PREFIX inline value Val_Elm_Calendar_Weekday(Elm_Calendar_Weekday d)
+inline value Val_Elm_Calendar_Weekday(Elm_Calendar_Weekday d)
 {
         switch(d) {
                 case ELM_DAY_SUNDAY: return Val_sunday;
@@ -121,7 +121,7 @@ PREFIX inline value Val_Elm_Calendar_Weekday(Elm_Calendar_Weekday d)
         return Val_monday;
 }
 
-PREFIX inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val(value v)
+inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val(value v)
 {
         switch(v) {
                 case Val_year: return ELM_CALENDAR_SELECTABLE_YEAR;
@@ -133,7 +133,7 @@ PREFIX inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val(value v)
         return ELM_CALENDAR_SELECTABLE_YEAR;
 }
 
-PREFIX inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
+inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
 {
         value v_tmp = v;
         Elm_Calendar_Selectable s = ELM_CALENDAR_SELECTABLE_NONE;
@@ -144,7 +144,7 @@ PREFIX inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
         return s;
 }
 
-PREFIX inline value copy_Elm_Calendar_Selectable(Elm_Calendar_Selectable s)
+inline value copy_Elm_Calendar_Selectable(Elm_Calendar_Selectable s)
 {
         value v = caml_alloc(3, 0);
         Store_field(v, 0, Val_bool(s & ELM_CALENDAR_SELECTABLE_YEAR));

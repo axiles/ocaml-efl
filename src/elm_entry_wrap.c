@@ -28,7 +28,7 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
       
 }
 
-PREFIX inline Elm_Entry_Filter_Limit_Size
+inline Elm_Entry_Filter_Limit_Size
         Elm_Entry_Filter_Limit_Size_val(value v)
 {
         Elm_Entry_Filter_Limit_Size ls;
@@ -37,7 +37,7 @@ PREFIX inline Elm_Entry_Filter_Limit_Size
         return ls;
 }
 
-PREFIX inline value
+inline value
         copy_Elm_Entry_Filter_Limit_Size(Elm_Entry_Filter_Limit_Size ls)
 {
         value v = caml_alloc(2, 0);
@@ -47,7 +47,7 @@ PREFIX inline value
 }
 
 /* WARNING: You must not use the GC when using the result */
-PREFIX inline Elm_Entry_Filter_Accept_Set
+inline Elm_Entry_Filter_Accept_Set
         Elm_Entry_Filter_Accept_Set_val(value v)
 {
         Elm_Entry_Filter_Accept_Set as;
@@ -56,7 +56,7 @@ PREFIX inline Elm_Entry_Filter_Accept_Set
         return as;
 }
 
-PREFIX inline value
+inline value
         copy_Elm_Entry_Filter_Accept_Set(Elm_Entry_Filter_Accept_Set as)
 {
         CAMLparam0();
@@ -69,7 +69,7 @@ PREFIX inline value
         CAMLreturn(v);
 }
 
-PREFIX inline Elm_Text_Format Elm_Text_Format_val(value v)
+inline Elm_Text_Format Elm_Text_Format_val(value v)
 {
         switch(v) {
                 case Val_plain_utf8: return ELM_TEXT_FORMAT_PLAIN_UTF8;
@@ -80,7 +80,7 @@ PREFIX inline Elm_Text_Format Elm_Text_Format_val(value v)
         return ELM_TEXT_FORMAT_PLAIN_UTF8;
 }
 
-PREFIX inline value Val_Elm_Text_Format(Elm_Text_Format f)
+inline value Val_Elm_Text_Format(Elm_Text_Format f)
 {
         switch(f) {
                 case ELM_TEXT_FORMAT_PLAIN_UTF8: return Val_plain_utf8;
@@ -91,7 +91,7 @@ PREFIX inline value Val_Elm_Text_Format(Elm_Text_Format f)
         return Val_plain_utf8;
 }
 
-PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v)
+inline Elm_Wrap_Type Elm_Wrap_Type_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_WRAP_NONE;
@@ -104,7 +104,7 @@ PREFIX inline Elm_Wrap_Type Elm_Wrap_Type_val(value v)
         return ELM_WRAP_NONE;
 }
 
-PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t) {
+inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t) {
         switch(t) {
                 case ELM_WRAP_NONE: return Val_none;
                 case ELM_WRAP_CHAR: return Val_char;
@@ -116,7 +116,7 @@ PREFIX inline value Val_Elm_Wrap_Type(Elm_Wrap_Type t) {
         return Val_none;
 }
 
-PREFIX inline Elm_Input_Panel_Layout Elm_Input_Panel_Layout_val(value v)
+inline Elm_Input_Panel_Layout Elm_Input_Panel_Layout_val(value v)
 {
         switch(v) {
                 case Val_normal: return ELM_INPUT_PANEL_LAYOUT_NORMAL;
@@ -137,7 +137,7 @@ PREFIX inline Elm_Input_Panel_Layout Elm_Input_Panel_Layout_val(value v)
         return ELM_INPUT_PANEL_LAYOUT_NORMAL;
 }
 
-PREFIX inline value Val_Elm_Input_Panel_Layout(Elm_Input_Panel_Layout l)
+inline value Val_Elm_Input_Panel_Layout(Elm_Input_Panel_Layout l)
 {
         switch(l) {
                 case ELM_INPUT_PANEL_LAYOUT_NORMAL: return Val_normal;
@@ -158,7 +158,7 @@ PREFIX inline value Val_Elm_Input_Panel_Layout(Elm_Input_Panel_Layout l)
         return Val_normal;
 }
 
-PREFIX inline Elm_Input_Panel_Lang Elm_Input_Panel_Lang_val(value v)
+inline Elm_Input_Panel_Lang Elm_Input_Panel_Lang_val(value v)
 {
         switch(v) {
                 case Val_automatic: return ELM_INPUT_PANEL_LANG_AUTOMATIC;
@@ -168,7 +168,7 @@ PREFIX inline Elm_Input_Panel_Lang Elm_Input_Panel_Lang_val(value v)
         return ELM_INPUT_PANEL_LANG_AUTOMATIC;
 }
 
-PREFIX inline value Val_Elm_Input_Panel_Lang(Elm_Input_Panel_Lang l)
+inline value Val_Elm_Input_Panel_Lang(Elm_Input_Panel_Lang l)
 {
         switch(l) {
                 case ELM_INPUT_PANEL_LANG_AUTOMATIC: return Val_automatic;
@@ -178,7 +178,7 @@ PREFIX inline value Val_Elm_Input_Panel_Lang(Elm_Input_Panel_Lang l)
         return Val_automatic;
 }
 
-PREFIX inline Elm_Autocapital_Type Elm_Autocapital_Type_val(value v)
+inline Elm_Autocapital_Type Elm_Autocapital_Type_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_AUTOCAPITAL_TYPE_NONE;
@@ -190,7 +190,7 @@ PREFIX inline Elm_Autocapital_Type Elm_Autocapital_Type_val(value v)
         return ELM_AUTOCAPITAL_TYPE_NONE;
 }
 
-PREFIX inline value Val_Elm_Autocapital_Type(Elm_Autocapital_Type t)
+inline value Val_Elm_Autocapital_Type(Elm_Autocapital_Type t)
 {
         switch(t) {
                 case ELM_AUTOCAPITAL_TYPE_NONE: return Val_none;
@@ -202,7 +202,7 @@ PREFIX inline value Val_Elm_Autocapital_Type(Elm_Autocapital_Type t)
         return Val_none;
 }
                
-PREFIX inline Elm_Input_Panel_Return_Key_Type
+inline Elm_Input_Panel_Return_Key_Type
         Elm_Input_Panel_Return_Key_Type_val(value v)
 {
         switch(v) {
@@ -221,7 +221,7 @@ PREFIX inline Elm_Input_Panel_Return_Key_Type
         return ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT;
 }
 
-PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
+inline value Val_Elm_Input_Panel_Return_Key_Type(
         Elm_Input_Panel_Return_Key_Type t)
 {
         switch(t) {
@@ -240,7 +240,7 @@ PREFIX inline value Val_Elm_Input_Panel_Return_Key_Type(
         return Val_default;
 }
 
-PREFIX inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v)
+inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v)
 {
         switch(v) {
                 case Val_markup: return ELM_CNP_MODE_MARKUP;
@@ -251,7 +251,7 @@ PREFIX inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v)
         return ELM_CNP_MODE_MARKUP;
 }
 
-PREFIX inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m)
+inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m)
 {
         switch(m) {
                 case ELM_CNP_MODE_MARKUP: return Val_markup;

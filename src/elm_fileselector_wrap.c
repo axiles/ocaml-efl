@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Fileselector_Mode Elm_Fileselector_Mode_val(value v_mode)
+inline Elm_Fileselector_Mode Elm_Fileselector_Mode_val(value v_mode)
 {
         switch(v_mode) {
                 case Val_list: return ELM_FILESELECTOR_LIST;
@@ -11,7 +11,7 @@ PREFIX inline Elm_Fileselector_Mode Elm_Fileselector_Mode_val(value v_mode)
         return ELM_FILESELECTOR_LIST;
 }
 
-PREFIX inline value Val_Elm_Fileselector_Mode(Elm_Fileselector_Mode mode)
+inline value Val_Elm_Fileselector_Mode(Elm_Fileselector_Mode mode)
 {
         switch(mode) {
                 case ELM_FILESELECTOR_LIST: return Val_list;

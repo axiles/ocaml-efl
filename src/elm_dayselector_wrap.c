@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Dayselector_Day Elm_Dayselector_Day_val(value v)
+inline Elm_Dayselector_Day Elm_Dayselector_Day_val(value v)
 {
         switch(v) {
                 case Val_sun: return ELM_DAYSELECTOR_SUN;
@@ -17,7 +17,7 @@ PREFIX inline Elm_Dayselector_Day Elm_Dayselector_Day_val(value v)
         return ELM_DAYSELECTOR_SUN;
 }
 
-PREFIX inline value Val_Elm_Dayselector_Day(Elm_Dayselector_Day d)
+inline value Val_Elm_Dayselector_Day(Elm_Dayselector_Day d)
 {
         switch(d) {
                 case ELM_DAYSELECTOR_SUN: return Val_sun;

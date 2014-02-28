@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline Elm_Datetime_Field_Type Elm_Datetime_Field_Type_val(value v)
+inline Elm_Datetime_Field_Type Elm_Datetime_Field_Type_val(value v)
 {
         switch(v) {
                 case Val_year: return ELM_DATETIME_YEAR;

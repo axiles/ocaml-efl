@@ -3,7 +3,7 @@
 
 #include "include.h"
 
-PREFIX inline Elm_List_Mode Elm_List_Mode_val(value v);
-PREFIX inline value Val_Elm_List_Mode(Elm_List_Mode m);
+inline Elm_List_Mode Elm_List_Mode_val(value v);
+inline value Val_Elm_List_Mode(Elm_List_Mode m);
 
 #endif

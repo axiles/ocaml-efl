@@ -1,6 +1,6 @@
 #include "evas_event_wrap.h"
 
-PREFIX inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
+inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
 {
         switch(f) {
                 case EVAS_EVENT_FLAG_NONE: return Val_none;
@@ -11,7 +11,7 @@ PREFIX inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
         return Val_none;
 }
 
-PREFIX inline value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
+inline value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -27,7 +27,7 @@ PREFIX inline value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
+inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -43,7 +43,7 @@ PREFIX inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
+inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
 {
         value v = caml_alloc(9, 0);
         Store_field(v, 0, Val_int(ev->button));
@@ -58,7 +58,7 @@ PREFIX inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
         return v;
 }
 
-PREFIX inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
+inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
 {
         value v = caml_alloc(9, 0);
         Store_field(v, 0, Val_int(ev->button));
@@ -73,7 +73,7 @@ PREFIX inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
         return v;
 }
 
-PREFIX inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
+inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -88,7 +88,7 @@ PREFIX inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
+inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -103,7 +103,7 @@ PREFIX inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
+inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -124,7 +124,7 @@ PREFIX inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
+inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -145,7 +145,7 @@ PREFIX inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
+inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -164,7 +164,7 @@ PREFIX inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
+inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -180,7 +180,7 @@ PREFIX inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
+inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -196,7 +196,7 @@ PREFIX inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
         CAMLreturn(v);
 }
 
-PREFIX inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
+inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
 {
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(ev->hold));
@@ -206,7 +206,7 @@ PREFIX inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
         return v;
 }
 
-PREFIX inline value copy_Evas_Event_Info(
+inline value copy_Evas_Event_Info(
         Evas_Callback_Type t, void* event_info)
 {
         CAMLparam0();

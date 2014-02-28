@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
+inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
 {
         switch(t) {
                 case ELM_MAP_OVERLAY_TYPE_NONE: return Val_none;
@@ -18,7 +18,7 @@ PREFIX inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
         return Val_none;
 }
 
-PREFIX inline Elm_Map_Zoom_Mode Elm_Map_Zoom_Mode_val(value v)
+inline Elm_Map_Zoom_Mode Elm_Map_Zoom_Mode_val(value v)
 {
         switch(v) {
                 case Val_manual: return ELM_MAP_ZOOM_MODE_MANUAL;
@@ -31,7 +31,7 @@ PREFIX inline Elm_Map_Zoom_Mode Elm_Map_Zoom_Mode_val(value v)
         return ELM_MAP_ZOOM_MODE_MANUAL;
 }
 
-PREFIX inline value Val_Elm_Map_Zoom_Mode(Elm_Map_Zoom_Mode m)
+inline value Val_Elm_Map_Zoom_Mode(Elm_Map_Zoom_Mode m)
 {
         switch(m) {
                 case ELM_MAP_ZOOM_MODE_MANUAL: return Val_manual;
@@ -43,7 +43,7 @@ PREFIX inline value Val_Elm_Map_Zoom_Mode(Elm_Map_Zoom_Mode m)
         return Val_manual;
 }
 
-PREFIX inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
+inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -59,7 +59,7 @@ PREFIX inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
+inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -77,7 +77,7 @@ void ml_Elm_Map_Overlay_Get_Cb(
         caml_callback2(*v_fun, (value) map, (value) overlay);
 }
 
-PREFIX inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
+inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
 {
         switch(v) {
                 case Val_tile: return ELM_MAP_SOURCE_TYPE_TILE;
@@ -89,7 +89,7 @@ PREFIX inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
         return ELM_MAP_SOURCE_TYPE_TILE;
 }
 
-PREFIX inline Elm_Map_Route_Type Elm_Map_Route_Type_val(value v)
+inline Elm_Map_Route_Type Elm_Map_Route_Type_val(value v)
 {
         switch(v) {
                 case Val_motocar: return ELM_MAP_ROUTE_TYPE_MOTOCAR;
@@ -101,7 +101,7 @@ PREFIX inline Elm_Map_Route_Type Elm_Map_Route_Type_val(value v)
         return ELM_MAP_ROUTE_TYPE_MOTOCAR;
 }
 
-PREFIX inline Elm_Map_Route_Method Elm_Map_Route_Method_val(value v)
+inline Elm_Map_Route_Method Elm_Map_Route_Method_val(value v)
 {
         switch(v) {
                 case Val_fastest: return ELM_MAP_ROUTE_METHOD_FASTEST;

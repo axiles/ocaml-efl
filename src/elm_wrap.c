@@ -23,7 +23,7 @@ PREFIX value ml_elm_coords_finger_size_adjust(value v_times_w, value v_times_h)
 
 /* Focus */
 
-PREFIX inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
+inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
 {
         switch(v) {
                 case Val_previous: return ELM_FOCUS_PREVIOUS;
@@ -38,7 +38,7 @@ PREFIX inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
         return ELM_FOCUS_PREVIOUS;
 }
 
-PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
+inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
 {
         switch(d) {
                 case ELM_FOCUS_PREVIOUS: return Val_previous;
@@ -55,7 +55,7 @@ PREFIX inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
 
 /* General */
 
-PREFIX inline int Elm_Policy_Quit_val(value v)
+inline int Elm_Policy_Quit_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_POLICY_QUIT_NONE;
@@ -66,7 +66,7 @@ PREFIX inline int Elm_Policy_Quit_val(value v)
         return ELM_POLICY_QUIT_NONE;
 }
 
-PREFIX inline value Val_Elm_Policy_Quit(int pv)
+inline value Val_Elm_Policy_Quit(int pv)
 {
         switch(pv) {
                 case ELM_POLICY_QUIT_NONE: return Val_none;
@@ -78,7 +78,7 @@ PREFIX inline value Val_Elm_Policy_Quit(int pv)
         return Val_none;
 }
 
-PREFIX inline int Elm_Policy_Exit_val(value v)
+inline int Elm_Policy_Exit_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_POLICY_EXIT_NONE;
@@ -89,7 +89,7 @@ PREFIX inline int Elm_Policy_Exit_val(value v)
         return ELM_POLICY_EXIT_NONE;
 }
 
-PREFIX inline value Val_Elm_Policy_Exit(int pv)
+inline value Val_Elm_Policy_Exit(int pv)
 {
         switch(pv) {
                 case ELM_POLICY_EXIT_NONE: return Val_none;
@@ -100,7 +100,7 @@ PREFIX inline value Val_Elm_Policy_Exit(int pv)
         return Val_none;
 }
 
-PREFIX inline int Elm_Policy_Throttle_val(value v)
+inline int Elm_Policy_Throttle_val(value v)
 {
         switch(v) {
                 case Val_config: return ELM_POLICY_THROTTLE_CONFIG;
@@ -113,7 +113,7 @@ PREFIX inline int Elm_Policy_Throttle_val(value v)
         return ELM_POLICY_THROTTLE_CONFIG;
 }
 
-PREFIX inline value Val_Elm_Policy_Throttle(int pv)
+inline value Val_Elm_Policy_Throttle(int pv)
 {
         switch(pv) {
                 case ELM_POLICY_THROTTLE_CONFIG: return Val_config;
