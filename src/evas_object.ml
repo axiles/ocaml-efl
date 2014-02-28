@@ -233,3 +233,7 @@ external raise : t -> unit = "ml_evas_object_raise"
 
 external lower : t -> unit = "ml_evas_object_lower"
 
+external stack_above : t -> t -> unit = "ml_evas_object_stack_above"
+
+external stack_below : t -> t -> unit = "ml_evas_object_stack_below"
+

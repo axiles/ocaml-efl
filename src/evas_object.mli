@@ -163,3 +163,7 @@ val raise : t -> unit
 
 val lower : t -> unit
 
+val stack_above : t -> t -> unit
+
+val stack_below : t -> t -> unit
+
