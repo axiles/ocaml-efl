@@ -690,3 +690,19 @@ PREFIX value ml_evas_object_layer_get(value v_obj)
         return Val_int(evas_object_layer_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_name_set(value v_obj, value v_s)
+{
+        evas_object_name_set((Evas_Object*) v_obj, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_name_get(value v_obj)
+{
+        return copy_string(evas_object_name_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_type_get(value v_obj)
+{
+        return copy_string(evas_object_type_get((Evas_Object*) v_obj));
+}
+

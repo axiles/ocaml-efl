@@ -223,3 +223,9 @@ external layer_set : t -> int -> unit = "ml_evas_object_layer_set"
 
 external layer_get : t -> int = "ml_evas_object_layer_get"
 
+external name_set : t -> string -> unit = "ml_evas_object_name_set"
+
+external name_get : t -> string = "ml_evas_object_name_get"
+
+external type_get : t -> string = "ml_evas_object_type_get"
+

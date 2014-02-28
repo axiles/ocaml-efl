@@ -153,3 +153,9 @@ val layer_set : t -> int -> unit
 
 val layer_get : t -> int
 
+val name_set : t -> string -> unit
+
+val name_get : t -> string
+
+val type_get : t -> string
+
