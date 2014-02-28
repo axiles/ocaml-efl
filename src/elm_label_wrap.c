@@ -64,6 +64,18 @@ PREFIX value ml_elm_label_slide_duration_get(value v_label)
                 (Evas_Object*) v_label));
 }
 
+PREFIX value ml_elm_label_slide_speed_set(value v_label, value v_d)
+{
+        elm_label_slide_speed_set((Evas_Object*) v_label, Double_val(v_d));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_label_slide_speed_get(value v_label)
+{
+        return copy_double(elm_label_slide_speed_get(
+                (Evas_Object*) v_label));
+}
+
 PREFIX value ml_elm_label_slide_go(value v_obj)
 {
         elm_label_slide_go((Evas_Object*) v_obj);

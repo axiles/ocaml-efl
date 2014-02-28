@@ -22,5 +22,9 @@ val slide_duration_set : Evas.obj -> float -> unit
 
 val slide_duration_get : Evas.obj -> float
 
+val slide_speed_set : Evas.obj -> float -> unit
+
+val slide_speed_get : Evas.obj -> float
+
 val slide_go : Evas.obj -> unit
 
