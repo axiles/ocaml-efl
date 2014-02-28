@@ -502,6 +502,29 @@ PREFIX value ml_elm_win_layer_get(value v_obj)
         return Val_int(elm_win_layer_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_win_norender_push(value v_obj)
+{
+        elm_win_norender_push((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_win_norender_pop(value v_obj)
+{
+        elm_win_norender_pop((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_win_norender_get(value v_obj)
+{
+        return Val_int(elm_win_norender_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_win_render(value v_obj)
+{
+        elm_win_render((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
 PREFIX value ml_elm_win_rotation_set(value v_obj, value v_rot)
 {
         elm_win_rotation_set((Evas_Object*) v_obj, Int_val(v_rot));

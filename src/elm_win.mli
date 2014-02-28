@@ -165,6 +165,14 @@ val layer_set : Evas.obj -> int -> unit
 
 val layer_get : Evas.obj -> int
 
+val norender_push : Evas.obj -> unit
+
+val norender_pop : Evas.obj -> unit
+
+val norender_get : Evas.obj -> int
+
+val render : Evas.obj -> unit
+
 val rotation_set : Evas.obj -> int -> unit
 
 val rotation_with_resize_set : Evas.obj -> int -> unit
