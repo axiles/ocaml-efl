@@ -706,3 +706,15 @@ PREFIX value ml_evas_object_type_get(value v_obj)
         return copy_string(evas_object_type_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_raise(value v_obj)
+{
+        evas_object_raise((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_lower(value v_obj)
+{
+        evas_object_lower((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

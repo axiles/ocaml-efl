@@ -229,3 +229,7 @@ external name_get : t -> string = "ml_evas_object_name_get"
 
 external type_get : t -> string = "ml_evas_object_type_get"
 
+external raise : t -> unit = "ml_evas_object_raise"
+
+external lower : t -> unit = "ml_evas_object_lower"
+

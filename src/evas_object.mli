@@ -159,3 +159,7 @@ val name_get : t -> string
 
 val type_get : t -> string
 
+val raise : t -> unit
+
+val lower : t -> unit
+
