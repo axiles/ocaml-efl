@@ -7,6 +7,7 @@ elm_win_trap_set
 *)
 
 type ty = [
+  | `unknown
   | `basic
   | `dialog_basic
   | `desktop
@@ -56,6 +57,8 @@ type indicator_opacity_mode = [
 type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
+
+val type_get : Evas.obj -> ty
 
 val util_standard_add : string -> string -> Evas.obj
 

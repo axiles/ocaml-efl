@@ -1,4 +1,5 @@
 type ty = [
+  | `unknown
   | `basic
   | `dialog_basic
   | `desktop
@@ -49,6 +50,8 @@ type illume_command = Elm.illume_command
 
 external add : ?p:Evas.obj -> string -> ty -> Evas.obj =
   "ml_elm_win_add"
+
+external type_get : Evas.obj -> ty = "ml_elm_win_type_get"
 
 external util_standard_add : string -> string -> Evas.obj =
   "ml_elm_win_util_standard_add"

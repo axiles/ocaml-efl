@@ -19,9 +19,35 @@ inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
                 case Val_dnd: return ELM_WIN_DND;
                 case Val_inlined_image: return ELM_WIN_INLINED_IMAGE;
                 case Val_socket_image: return ELM_WIN_SOCKET_IMAGE;
+                default: return Val_unknown;
         }
         caml_failwith("Elm_Win_Type_val");
         return ELM_WIN_BASIC;
+}
+
+inline value Val_Elm_Win_Type(Elm_Win_Type ty)
+{
+        switch(ty) {
+                case ELM_WIN_UNKNOWN: return Val_unknown;
+                case ELM_WIN_BASIC: return Val_basic;
+                case ELM_WIN_DIALOG_BASIC: return Val_dialog_basic;
+                case ELM_WIN_DESKTOP: return Val_desktop;
+                case ELM_WIN_DOCK: return Val_dock;
+                case ELM_WIN_TOOLBAR: return Val_toolbar;
+                case ELM_WIN_MENU: return Val_menu;
+                case ELM_WIN_UTILITY: return Val_utility;
+                case ELM_WIN_SPLASH: return Val_splash;
+                case ELM_WIN_DROPDOWN_MENU: return Val_dropdown_menu;
+                case ELM_WIN_POPUP_MENU: return Val_popup_menu;
+                case ELM_WIN_TOOLTIP: return Val_tooltip;
+                case ELM_WIN_NOTIFICATION: return Val_notification;
+                case ELM_WIN_COMBO: return Val_combo;
+                case ELM_WIN_DND: return Val_dnd;
+                case ELM_WIN_INLINED_IMAGE: return Val_inlined_image;
+                case ELM_WIN_SOCKET_IMAGE: return Val_socket_image;
+        }
+        caml_failwith("Val_Elm_Win_Type");
+        return Val_basic;
 }
 
 inline Elm_Win_Keyboard_Mode Elm_Win_Keyboard_Mode_val(value v_mode)
@@ -142,6 +168,11 @@ PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
                 Elm_Win_Type_val(v_ty));
         if(win == NULL) caml_failwith("elm_win_add");
         return (value) win;
+}
+
+PREFIX value ml_elm_win_type_get(value v_obj)
+{
+        return Val_Elm_Win_Type(elm_win_type_get((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_win_util_standard_add(value v_name, value v_title)
