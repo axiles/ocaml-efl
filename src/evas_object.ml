@@ -237,3 +237,7 @@ external stack_above : t -> t -> unit = "ml_evas_object_stack_above"
 
 external stack_below : t -> t -> unit = "ml_evas_object_stack_below"
 
+external above_get : t -> t option = "ml_evas_object_above_get"
+
+external below_get : t -> t option = "ml_evas_object_below_get"
+

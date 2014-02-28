@@ -730,3 +730,15 @@ PREFIX value ml_evas_object_stack_below(value v_obj, value v_below)
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_above_get(value v_obj)
+{
+        return copy_Evas_Object_opt(evas_object_above_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_below_get(value v_obj)
+{
+        return copy_Evas_Object_opt(evas_object_below_get(
+                (Evas_Object*) v_obj));
+}
+

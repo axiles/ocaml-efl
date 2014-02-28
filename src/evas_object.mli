@@ -167,3 +167,7 @@ val stack_above : t -> t -> unit
 
 val stack_below : t -> t -> unit
 
+val above_get : t -> t option
+
+val below_get : t -> t option
+
