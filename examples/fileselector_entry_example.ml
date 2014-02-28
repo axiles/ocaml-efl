@@ -14,19 +14,19 @@ let inwin_mode_toggle fs_entry obj =
   printf "Inwin mode set to: %s\n%!" (if old_val then "false" else "true")
 
 let current_sel_toggle fs_entry obj =
-  let old_val = Elm_fileselector_entry.is_save_get fs_entry in
-  Elm_fileselector_entry.is_save_set fs_entry (not old_val);
+  let old_val = Elm_fileselector.is_save_get fs_entry in
+  Elm_fileselector.is_save_set fs_entry (not old_val);
   printf "%s text entry with selected item's name\n%!"
     (if old_val then "Disabling" else "Enabling")
 
 let folder_only_toggle fs_entry obj =
-  let old_val = Elm_fileselector_entry.folder_only_get fs_entry in
-  Elm_fileselector_entry.folder_only_set fs_entry (not old_val);
+  let old_val = Elm_fileselector.folder_only_get fs_entry in
+  Elm_fileselector.folder_only_set fs_entry (not old_val);
   printf "Folder only mode set to: %s\n%!" (if old_val then "false" else "true")
 
 let expandable_toggle fs_entry obj =
-  let old_val = Elm_fileselector_entry.expandable_get fs_entry in
-  Elm_fileselector_entry.expandable_set fs_entry (not old_val);
+  let old_val = Elm_fileselector.expandable_get fs_entry in
+  Elm_fileselector.expandable_set fs_entry (not old_val);
   printf "Expandable folders mode set to: %s\n%!"
     (if old_val then "false" else "true")
 
@@ -49,7 +49,7 @@ let () =
 
   let fs_entry = Elm_fileselector_entry.add win in
   Evas_object.size_hint_set fs_entry [`hfill; `valign 0.];
-  Elm_fileselector_entry.path_set fs_entry "/tmp";
+  Elm_fileselector.path_set fs_entry "/tmp";
   Elm_object.text_set fs_entry "Select a file";
   Elm_object.part_content_set fs_entry ~p:"button icon" ic;
 
@@ -72,7 +72,7 @@ let () =
 
   let ck = Elm_check.add win in
   Elm_object.text_set ck "editable selection";
-  Elm_check.state_set ck (Elm_fileselector_entry.is_save_get fs_entry);
+  Elm_check.state_set ck (Elm_fileselector.is_save_get fs_entry);
   add_cb ck current_sel_toggle;
   Elm_box.pack_end hbox ck;
   Evas_object.show ck;
@@ -86,14 +86,14 @@ let () =
 
   let ck = Elm_check.add win in
   Elm_object.text_set ck "folders only";
-  Elm_check.state_set ck (Elm_fileselector_entry.folder_only_get fs_entry);
+  Elm_check.state_set ck (Elm_fileselector.folder_only_get fs_entry);
   add_cb ck folder_only_toggle;
   Elm_box.pack_end hbox ck;
   Evas_object.show ck;
 
   let ck = Elm_check.add win in
   Elm_object.text_set ck "expandable";
-  Elm_check.state_set ck (Elm_fileselector_entry.expandable_get fs_entry);
+  Elm_check.state_set ck (Elm_fileselector.expandable_get fs_entry);
   add_cb ck expandable_toggle;
   Elm_box.pack_end hbox ck;
   Evas_object.show ck;

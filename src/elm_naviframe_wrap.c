@@ -166,16 +166,17 @@ PREFIX value ml_elm_naviframe_item_style_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
-PREFIX value ml_elm_naviframe_item_title_visible_set(value v_it, value v_flag)
+PREFIX value ml_elm_naviframe_item_title_enabled_set(
+        value v_it, value v_visible, value v_trans)
 {
-        elm_naviframe_item_title_visible_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
+        elm_naviframe_item_title_enabled_set((Elm_Object_Item*) v_it,
+                Bool_val(v_visible), Bool_val(v_trans));
         return Val_unit;
 }
 
-PREFIX value ml_elm_naviframe_item_title_visible_get(value v_it)
+PREFIX value ml_elm_naviframe_item_title_enabled_get(value v_it)
 {
-        return Val_Eina_Bool(elm_naviframe_item_title_visible_get(
+        return Val_Eina_Bool(elm_naviframe_item_title_enabled_get(
                 (Elm_Object_Item*) v_it));
 }
 

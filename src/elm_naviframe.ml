@@ -50,11 +50,11 @@ external item_style_set : Elm_object.item -> string option -> unit =
 external item_style_get : Elm_object.item -> string =
   "ml_elm_naviframe_item_style_get"
 
-external item_title_visible_set : Elm_object.item -> bool -> unit =
-  "ml_elm_naviframe_item_title_visible_set"
+external item_title_enabled_set : Elm_object.item -> bool -> bool -> unit =
+  "ml_elm_naviframe_item_title_enabled_set"
 
-external item_title_visible_get : Elm_object.item -> bool =
-  "ml_elm_naviframe_item_title_visible_get"
+external item_title_enabled_get : Elm_object.item -> bool =
+  "ml_elm_naviframe_item_title_enabled_get"
 
 external item_pop_cb_set : Elm_object.item -> item_pop_cb -> unit =
   "ml_elm_naviframe_item_pop_cb_set"
@@ -79,6 +79,6 @@ external item_simple_promote : Evas.obj -> Evas.obj -> unit =
 
 let item_simple_push obj content =
   let it = item_push obj content () in
-  item_title_visible_set it false;
+  item_title_enabled_set it false false;
   it
 

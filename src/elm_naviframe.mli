@@ -36,9 +36,9 @@ val item_style_set : Elm_object.item -> string option -> unit
 
 val item_style_get : Elm_object.item -> string
 
-val item_title_visible_set : Elm_object.item -> bool -> unit
+val item_title_enabled_set : Elm_object.item -> bool -> bool -> unit
 
-val item_title_visible_get : Elm_object.item -> bool
+val item_title_enabled_get : Elm_object.item -> bool
 
 val item_pop_cb_set : Elm_object.item -> item_pop_cb -> unit
 
