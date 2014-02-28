@@ -98,7 +98,7 @@ PREFIX value ml_Elm_Gesture_Rotate_Info_of_ptr(value v_ptr)
         CAMLreturn(v_info);
 }
 
-PREFIX Evas_Event_Flags ml_Elm_Gesture_Event_Cb(void* data, void* event_info)
+Evas_Event_Flags ml_Elm_Gesture_Event_Cb(void* data, void* event_info)
 {
         value* v_fun = (value*) data;
         caml_callback(*v_fun, (value) event_info);

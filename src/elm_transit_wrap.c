@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX void ml_Elm_Transit_Effect_Transition_Cb(
+void ml_Elm_Transit_Effect_Transition_Cb(
         Elm_Transit_Effect* effect, Elm_Transit* tr, double progress)
 {
         CAMLparam0();
@@ -11,14 +11,14 @@ PREFIX void ml_Elm_Transit_Effect_Transition_Cb(
         CAMLreturn0;
 }
 
-PREFIX void ml_Elm_Transit_Effect_End_Cb_free_only(
+void ml_Elm_Transit_Effect_End_Cb_free_only(
         Elm_Transit_Effect* effect, Elm_Transit* tr)
 {
         value* v_fun = (value*) effect;
         ml_remove_value(v_fun);
 }
 
-PREFIX void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
+void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
 {
         value* v_fun = (value*) data;
         caml_callback(*v_fun, (value) tr);

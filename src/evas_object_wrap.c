@@ -62,7 +62,7 @@ PREFIX value ml_evas_object_size_hint_min_set(value v_obj, value v_w, value v_h)
         return Val_unit;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_mouse_in(
+void ml_Evas_Object_Event_Cb_mouse_in(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -74,7 +74,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_in(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_mouse_out(
+void ml_Evas_Object_Event_Cb_mouse_out(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -86,7 +86,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_out(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_mouse_down(
+void ml_Evas_Object_Event_Cb_mouse_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -98,7 +98,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_down(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_mouse_up(
+void ml_Evas_Object_Event_Cb_mouse_up(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -110,7 +110,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_up(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_mouse_move(
+void ml_Evas_Object_Event_Cb_mouse_move(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -122,7 +122,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_move(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_mouse_wheel(
+void ml_Evas_Object_Event_Cb_mouse_wheel(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -135,7 +135,7 @@ PREFIX void ml_Evas_Object_Event_Cb_mouse_wheel(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_multi_down(
+void ml_Evas_Object_Event_Cb_multi_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -148,7 +148,7 @@ PREFIX void ml_Evas_Object_Event_Cb_multi_down(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_multi_up(
+void ml_Evas_Object_Event_Cb_multi_up(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -161,7 +161,7 @@ PREFIX void ml_Evas_Object_Event_Cb_multi_up(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_multi_move(
+void ml_Evas_Object_Event_Cb_multi_move(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -174,7 +174,7 @@ PREFIX void ml_Evas_Object_Event_Cb_multi_move(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_unit(
+void ml_Evas_Object_Event_Cb_unit(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
@@ -186,7 +186,7 @@ PREFIX void ml_Evas_Object_Event_Cb_unit(
 	CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_key_down(
+void ml_Evas_Object_Event_Cb_key_down(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         CAMLparam0();
@@ -198,7 +198,7 @@ PREFIX void ml_Evas_Object_Event_Cb_key_down(
         CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_key_up(
+void ml_Evas_Object_Event_Cb_key_up(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         CAMLparam0();
@@ -210,7 +210,7 @@ PREFIX void ml_Evas_Object_Event_Cb_key_up(
         CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Object_Event_Cb_hold(
+void ml_Evas_Object_Event_Cb_hold(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         CAMLparam0();

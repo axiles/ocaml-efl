@@ -60,7 +60,7 @@ inline value Val_Evas_Button_Flags(Evas_Button_Flags f)
         return Val_none;
 }
 
-PREFIX void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
+void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
 {
       
         value *v_fun = (value*) data;
@@ -68,7 +68,7 @@ PREFIX void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
       
 }
 
-PREFIX void ml_Evas_Smart_Cb_1_free(
+void ml_Evas_Smart_Cb_1_free(
         void *data, Evas_Object *obj, void *event_info)
 {
       
@@ -214,7 +214,7 @@ PREFIX value ml_evas_color_argb_premul(
         return v;
 }
 
-PREFIX void ml_Evas_Smart_Cb_on_del(
+void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* v_obj, void* event_info)
 {
         value* v_data = (value*) data;

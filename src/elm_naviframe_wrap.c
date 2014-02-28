@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX Eina_Bool ml_Elm_Naviframe_Item_Pop_Cb(void* data, Elm_Object_Item* it)
+Eina_Bool ml_Elm_Naviframe_Item_Pop_Cb(void* data, Elm_Object_Item* it)
 {
       
         value* v_fun = (value*) data;

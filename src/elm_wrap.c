@@ -126,7 +126,7 @@ inline value Val_Elm_Policy_Throttle(int pv)
         return Val_config;
 }
 
-PREFIX Eina_Bool ml_Elm_Event_Cb(
+Eina_Bool ml_Elm_Event_Cb(
         void* data, Evas_Object* obj, Evas_Object* src, Evas_Callback_Type type,
         void* event_info)
 {

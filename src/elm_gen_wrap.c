@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX char* ml_Elm_Gen_Item_Text_Get_Cb(
+char* ml_Elm_Gen_Item_Text_Get_Cb(
         void* data, Evas_Object* obj, const char* part)
 {
         CAMLparam0();
@@ -13,7 +13,7 @@ PREFIX char* ml_Elm_Gen_Item_Text_Get_Cb(
         CAMLreturnT(char*, r);
 }
 
-PREFIX Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
+Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
         void* data, Evas_Object* obj, const char* part)
 {
         CAMLparam0();
@@ -25,7 +25,7 @@ PREFIX Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
         else CAMLreturnT(Evas_Object*, (Evas_Object*) Field(v, 0));
 }
 
-PREFIX Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
+Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
         void* data, Evas_Object* obj, const char* part)
 {
         CAMLparam0();
@@ -36,7 +36,7 @@ PREFIX Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
         CAMLreturnT(Eina_Bool, Eina_Bool_val(v));
 }
 
-PREFIX void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj)
+void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj)
 {
       
         value* v_class = (value*) data;

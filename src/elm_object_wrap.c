@@ -203,7 +203,7 @@ inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m)
         return Val_default;
 }
 
-PREFIX Evas_Object* ml_Elm_Tooltip_Content_Cb(
+Evas_Object* ml_Elm_Tooltip_Content_Cb(
         void* data, Evas_Object* obj, Evas_Object* v_tooltip)
 {
         CAMLparam0();
@@ -216,7 +216,7 @@ PREFIX Evas_Object* ml_Elm_Tooltip_Content_Cb(
         CAMLreturnT(Evas_Object*, content);
 }
 
-PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(
+Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(
         void* data, Evas_Object* obj, Evas_Object* tooltip, void* item)
 {
         CAMLparam0();
@@ -231,7 +231,7 @@ PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(
         CAMLreturnT(Evas_Object*, content);
 }
 
-PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
+Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
         void* data, Evas_Object* obj, Evas_Object* v_tooltip, void* item)
 {
         CAMLparam0();
@@ -245,7 +245,7 @@ PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
         CAMLreturnT(Evas_Object*, content);
 }
 
-PREFIX void ml_Elm_Object_Item_Signal_Cb(
+void ml_Elm_Object_Item_Signal_Cb(
         void* data, Elm_Object_Item* it, const char* emission,
         const char* source)
 {
@@ -258,7 +258,7 @@ PREFIX void ml_Elm_Object_Item_Signal_Cb(
         CAMLreturn0;
 }
 
-PREFIX void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
+void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
 {
         value* v_fun = (value*) data;
         ml_remove_value(v_fun);

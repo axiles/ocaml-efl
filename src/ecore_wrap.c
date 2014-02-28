@@ -14,14 +14,14 @@ PREFIX void raise_not_Wayland()
         caml_raise_constant(*e);
 }
 
-PREFIX void* ml_Ecore_Cb(void* data)
+void* ml_Ecore_Cb(void* data)
 {
         value* v_fun = (value*) data;
         caml_callback(*v_fun, Val_unit);
         return data;
 }
 
-PREFIX void ml_Ecore_Cb_1_free(void* data)
+void ml_Ecore_Cb_1_free(void* data)
 {
         CAMLparam0();
         CAMLlocal1(v_fun);
@@ -32,7 +32,7 @@ PREFIX void ml_Ecore_Cb_1_free(void* data)
         CAMLreturn0;
 }
 
-PREFIX void ml_Ecore_Cb_free(void* data)
+void ml_Ecore_Cb_free(void* data)
 {
         CAMLparam0();
         CAMLlocal1(v_fun);
@@ -43,7 +43,7 @@ PREFIX void ml_Ecore_Cb_free(void* data)
         CAMLreturn0;
 }
 
-PREFIX Eina_Bool ml_Ecore_Task_Cb_free_on_last(void* data)
+Eina_Bool ml_Ecore_Task_Cb_free_on_last(void* data)
 {
       
         value* v_fun = (value*) data;
