@@ -17,6 +17,11 @@ external item_append :
       Elm_object.item =
       "ml_elm_popup_item_append"
 
+external align_set : Evas.obj -> float -> float -> unit =
+  "ml_elm_popup_align_set"
+
+external align_get : Evas.obj -> float * float = "ml_elm_popup_align_get"
+
 external content_text_wrap_type_set : Evas.obj -> Elm.wrap_type -> unit =
   "ml_elm_popup_content_text_wrap_type_set"
 

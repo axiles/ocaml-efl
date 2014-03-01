@@ -18,6 +18,10 @@ val item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
     Elm_object.item
 
+val align_set : Evas.obj -> float -> float -> unit
+
+val align_get : Evas.obj -> float * float
+
 val content_text_wrap_type_set : Evas.obj -> Elm.wrap_type -> unit
 
 val content_text_wrap_type_get : Evas.obj -> Elm.wrap_type

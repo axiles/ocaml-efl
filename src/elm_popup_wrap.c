@@ -73,6 +73,25 @@ PREFIX value ml_elm_popup_item_append(
         return (value) item;
 }
 
+PREFIX value ml_elm_popup_align_set(value v_obj, value v_h, value v_v)
+{
+        elm_popup_align_set((Evas_Object*) v_obj, Double_val(v_h),
+                Double_val(v_v));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_popup_align_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double w, h;
+        elm_popup_align_get((Evas_Object*) v_obj, &w, &h);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(w));
+        Store_field(v_r, 1, copy_double(h));
+        CAMLreturn(v_r);
+}
+
 PREFIX value ml_elm_popup_content_text_wrap_type_set(value v_obj, value v_wrap)
 {
         elm_popup_content_text_wrap_type_set((Evas_Object*) v_obj,
