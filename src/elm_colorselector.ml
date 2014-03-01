@@ -31,6 +31,12 @@ external palette_color_add :
 
 external palette_clear : Evas.obj -> unit = "ml_elm_colorselector_palette_clear"
 
+external palette_items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_colorselector_palette_items_get"
+
+external palette_selected_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_colorselector_palette_selected_item_get"
+
 external palette_name_set : Evas.obj -> string -> unit =
   "ml_elm_colorselector_palette_name_set"
 

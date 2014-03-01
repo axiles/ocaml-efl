@@ -119,6 +119,19 @@ PREFIX value ml_elm_colorselector_palette_clear(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_colorselector_palette_items_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Object_Item(
+                elm_colorselector_palette_items_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_colorselector_palette_selected_item_get(value v_obj)
+{
+        return copy_Elm_Object_Item_opt(
+                elm_colorselector_palette_selected_item_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_colorselector_palette_name_set(value v_obj, value v_s)
 {
         elm_colorselector_palette_name_set((Evas_Object*) v_obj,

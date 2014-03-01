@@ -24,6 +24,10 @@ val palette_color_add : Evas.obj -> int -> int -> int -> int -> Elm_object.item
 
 val palette_clear : Evas.obj -> unit
 
+val palette_items_get : Evas.obj -> Elm_object.item list
+
+val palette_selected_item_get : Evas.obj -> Elm_object.item option
+
 val palette_name_set : Evas.obj -> string -> unit
 
 val palette_name_get : Evas.obj -> string
