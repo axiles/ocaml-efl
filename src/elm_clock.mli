@@ -47,3 +47,7 @@ val first_interval_set : Evas.obj -> float -> unit
 
 val first_interval_get : Evas.obj -> float
 
+val pause_set : Evas.obj -> bool -> unit
+
+val pause_get : Evas.obj -> bool
+

@@ -123,3 +123,14 @@ PREFIX value ml_elm_clock_first_interval_get(value v_obj)
         return copy_double(elm_clock_first_interval_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_clock_pause_set(value v_obj, value v_flag)
+{
+        elm_clock_pause_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_clock_pause_get(value v_obj)
+{
+        return Val_bool(elm_clock_pause_get((Evas_Object*) v_obj));
+}
+

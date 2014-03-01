@@ -53,3 +53,7 @@ external first_interval_set : Evas.obj -> float -> unit =
 external first_interval_get : Evas.obj -> float =
   "ml_elm_clock_first_interval_get"
 
+external pause_set : Evas.obj -> bool -> unit = "ml_elm_clock_pause_set"
+
+external pause_get : Evas.obj -> bool = "ml_elm_clock_pause_get"
+
