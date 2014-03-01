@@ -170,6 +170,12 @@ external at_xy_item_get :
 external item_parent_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_genlist_item_parent_get"
 
+external item_subitems_count : Elm_object.item -> int =
+  "ml_elm_genlist_item_subitems_count"
+
+external item_subitems_get : Elm_object.item -> Elm_object.item list =
+  "ml_elm_genlist_item_subitems_get"
+
 external item_subitems_clear : Elm_object.item -> unit =
   "ml_elm_genlist_item_subitems_clear"
 
