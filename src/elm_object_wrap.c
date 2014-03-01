@@ -756,6 +756,17 @@ PREFIX value ml_elm_object_item_track_get(value v_it)
         return Val_int(elm_object_item_track_get((Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_object_item_style_set(value v_it, value v_s)
+{
+        elm_object_item_style_set((Elm_Object_Item*) v_it, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_style_get(value v_it)
+{
+        return copy_string(elm_object_item_style_get((Elm_Object_Item*) v_it));
+}
+
 inline void ml_Elm_Object_Item_gc_value(
         const Elm_Object_Item* it, value* data)
 {

@@ -187,6 +187,10 @@ val item_untrack : item -> unit
 
 val item_track_get : item -> int
 
+val item_style_set : item -> string -> unit
+
+val item_style_get : item -> string
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit

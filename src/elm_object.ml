@@ -256,6 +256,11 @@ external item_untrack : item -> unit = "ml_elm_object_item_untrack"
 
 external item_track_get : item -> int = "ml_elm_object_item_track_get"
 
+external item_style_set : item -> string -> unit =
+  "ml_elm_object_item_style_set"
+
+external item_style_get : item -> string = "ml_elm_object_item_style_get"
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"
