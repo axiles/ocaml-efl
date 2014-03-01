@@ -54,6 +54,10 @@ val hidden_visible_set : Evas.obj -> bool -> unit
 
 val hidden_visible_get : Evas.obj -> bool
 
+val thumbnail_size_set : Evas.obj -> int -> int -> unit
+
+val thumbnail_size_get : Evas.obj -> int * int
+
 val sort_method_get : Evas.obj -> sort
 
 val sort_method_set : Evas.obj -> sort -> unit

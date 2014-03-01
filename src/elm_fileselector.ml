@@ -64,6 +64,12 @@ external hidden_visible_set : Evas.obj -> bool -> unit =
 external hidden_visible_get : Evas.obj -> bool =
   "ml_elm_fileselector_hidden_visible_get"
 
+external thumbnail_size_set : Evas.obj -> int -> int -> unit =
+  "ml_elm_fileselector_thumbnail_size_set"
+
+external thumbnail_size_get : Evas.obj -> int * int =
+  "ml_elm_fileselector_thumbnail_size_get"
+
 external sort_method_get : Evas.obj -> sort =
   "ml_elm_fileselector_sort_method_get"
 
