@@ -2,6 +2,18 @@
 
 type mode = [`list | `grid | `last]
 
+type sort = [
+  | `filename_asc
+  | `filename_desc
+  | `type_asc
+  | `type_desc
+  | `size_asc
+  | `size_desc
+  | `modified_asc
+  | `modified_desc
+  | `last
+]
+
 type filter_func = string -> bool -> bool
 
 val add : Evas.obj -> Evas.obj
@@ -41,6 +53,10 @@ val filters_clear : Evas.obj -> unit
 val hidden_visible_set : Evas.obj -> bool -> unit
 
 val hidden_visible_get : Evas.obj -> bool
+
+val sort_method_get : Evas.obj -> sort
+
+val sort_method_set : Evas.obj -> sort -> unit
 
 val mode_set : Evas.obj -> mode -> unit
 

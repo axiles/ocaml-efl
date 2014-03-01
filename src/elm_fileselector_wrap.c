@@ -22,6 +22,48 @@ inline value Val_Elm_Fileselector_Mode(Elm_Fileselector_Mode mode)
         return Val_list;
 }
 
+inline Elm_Fileselector_Sort Elm_Fileselector_Sort_val(value v)
+{
+        switch(v) {
+                case Val_filename_asc:
+                        return ELM_FILESELECTOR_SORT_BY_FILENAME_ASC;
+                case Val_filename_desc:
+                        return ELM_FILESELECTOR_SORT_BY_FILENAME_DESC;
+                case Val_type_asc: return ELM_FILESELECTOR_SORT_BY_TYPE_ASC;
+                case Val_type_desc: return ELM_FILESELECTOR_SORT_BY_TYPE_DESC;
+                case Val_size_asc: return ELM_FILESELECTOR_SORT_BY_SIZE_ASC;
+                case Val_size_desc: return ELM_FILESELECTOR_SORT_BY_SIZE_DESC;
+                case Val_modified_asc:
+                        return ELM_FILESELECTOR_SORT_BY_MODIFIED_ASC;
+                case Val_modified_desc:
+                        return ELM_FILESELECTOR_SORT_BY_MODIFIED_DESC;
+                case Val_last: return ELM_FILESELECTOR_SORT_LAST;
+        }
+        caml_failwith("Elm_Fileselector_Sort_val");
+        return ELM_FILESELECTOR_SORT_BY_FILENAME_ASC;
+}
+
+inline value Val_Elm_Fileselector_Sort(Elm_Fileselector_Sort s)
+{
+        switch(s) {
+                case ELM_FILESELECTOR_SORT_BY_FILENAME_ASC:
+                        return Val_filename_asc;
+                case ELM_FILESELECTOR_SORT_BY_FILENAME_DESC:
+                        return Val_filename_desc;
+                case ELM_FILESELECTOR_SORT_BY_TYPE_ASC: return Val_type_asc;
+                case ELM_FILESELECTOR_SORT_BY_TYPE_DESC: return Val_type_desc;
+                case ELM_FILESELECTOR_SORT_BY_SIZE_ASC: return Val_size_asc;
+                case ELM_FILESELECTOR_SORT_BY_SIZE_DESC: return Val_size_desc;
+                case ELM_FILESELECTOR_SORT_BY_MODIFIED_ASC:
+                        return Val_modified_asc;
+                case ELM_FILESELECTOR_SORT_BY_MODIFIED_DESC:
+                        return Val_modified_desc;
+                case ELM_FILESELECTOR_SORT_LAST: return Val_last;
+        }
+        caml_failwith("Val_Elm_Fileselector_Sort");
+        return Val_filename_asc;
+}
+
 Eina_Bool ml_Elm_Fileselector_Filter_Func(
         const char* path, Eina_Bool dir, void* data)
 {
@@ -151,6 +193,19 @@ PREFIX value ml_elm_fileselector_hidden_visible_get(value v_obj)
 {
         return Val_bool(elm_fileselector_hidden_visible_get(
                 (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_sort_method_get(value v_obj)
+{
+        return Val_Elm_Fileselector_Sort(elm_fileselector_sort_method_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_sort_method_set(value v_obj, value v_sort)
+{
+        elm_fileselector_sort_method_set((Evas_Object*) v_obj,
+                Elm_Fileselector_Sort_val(v_sort));
+        return Val_unit;
 }
 
 PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)

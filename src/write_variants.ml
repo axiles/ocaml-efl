@@ -85,6 +85,8 @@ let () =
   g "fdo";
   g "fdo_theme";
   g "file";
+  g "filename_asc";
+  g "filename_desc";
   g "first";
   g "flip_horizontal";
   g "flip_transpose";
@@ -152,6 +154,8 @@ let () =
   g "min_unit";
   g "minute";
   g "mixed";
+  g "modified_asc";
+  g "modified_desc";
   g "momentum";
   g "mon";
   g "monday";
@@ -252,6 +256,8 @@ let () =
   g "show";
   g "signin";
   g "sinusoidal";
+  g "size_asc";
+  g "size_desc";
   g "socket_image";
   g "soft";
   g "splash";
@@ -282,6 +288,8 @@ let () =
   g "triple_click";
   g "tue";
   g "tuesday";
+  g "type_asc";
+  g "type_desc";
   g "undefined";
   g "unique";
   g "unknown";

@@ -1,5 +1,17 @@
 type mode = [`list | `grid | `last]
 
+type sort = [
+  | `filename_asc
+  | `filename_desc
+  | `type_asc
+  | `type_desc
+  | `size_asc
+  | `size_desc
+  | `modified_asc
+  | `modified_desc
+  | `last
+]
+
 type filter_func = string -> bool -> bool
 
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"
@@ -51,6 +63,12 @@ external hidden_visible_set : Evas.obj -> bool -> unit =
 
 external hidden_visible_get : Evas.obj -> bool =
   "ml_elm_fileselector_hidden_visible_get"
+
+external sort_method_get : Evas.obj -> sort =
+  "ml_elm_fileselector_sort_method_get"
+
+external sort_method_set : Evas.obj -> sort -> unit =
+  "ml_elm_fileselector_sort_method_set"
 
 external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 
