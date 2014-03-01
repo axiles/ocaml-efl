@@ -37,3 +37,9 @@ external direction_get : Evas.obj -> direction = "ml_elm_ctxpopup_direction_get"
 
 external dismiss : Evas.obj -> unit = "ml_elm_ctxpopup_dismiss"
 
+external auto_hide_disabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_ctxpopup_auto_hide_disabled_set"
+
+external auto_hide_disabled_get : Evas.obj -> bool =
+  "ml_elm_ctxpopup_auto_hide_disabled_get"
+

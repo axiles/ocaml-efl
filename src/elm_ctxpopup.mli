@@ -33,3 +33,7 @@ val direction_get : Evas.obj -> direction
 
 val dismiss : Evas.obj -> unit
 
+val auto_hide_disabled_set : Evas.obj -> bool -> unit
+
+val auto_hide_disabled_get : Evas.obj -> bool
+
