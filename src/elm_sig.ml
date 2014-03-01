@@ -27,6 +27,7 @@ let create_obj x = create x Evas.obj_of_ptr
 let create_float x = create x Evas.float_of_ptr
 
 let aborted = create_unit "aborted"
+let access_changed = create_unit "access,changed"
 let activated = create_unit "activated"
 let activated__item = create_item "activated"
 let anchor_clicked = create_entry_anchor_info "anchor,clicked"

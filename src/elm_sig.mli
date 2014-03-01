@@ -11,6 +11,7 @@ val create_unit : string -> u
 val create_string_opt : string -> (string option) v
 
 val aborted : u
+val access_changed : u
 val activated : u
 val activated__item : Elm_object.item v
 val anchor_clicked : Elm_entry.anchor_info v
