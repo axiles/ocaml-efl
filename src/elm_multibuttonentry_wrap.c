@@ -1,5 +1,14 @@
 #include "include.h"
 
+char* ml_Elm_Multibuttonentry_Format_Cb(int count, void* data)
+{
+        CAMLparam0();
+        CAMLlocal1(v_s);
+        value* v_fun = (value*) data;
+        v_s = caml_callback(*v_fun, Val_int(count));
+        CAMLreturnT(char*, strdup(String_val(v_s)));
+}
+
 PREFIX value ml_elm_multibuttonentry_add(value v_parent)
 {
         Evas_Object* obj = elm_multibuttonentry_add((Evas_Object*) v_parent);
@@ -218,5 +227,15 @@ PREFIX value ml_elm_multibuttonentry_editable_get(value v_obj)
 {
         return Val_bool(elm_multibuttonentry_editable_get(
                 (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_multibuttonentry_format_function_set(
+        value v_obj, value v_fun)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        elm_multibuttonentry_format_function_set(obj,
+                ml_Elm_Multibuttonentry_Format_Cb, data);
+        return Val_unit;
 }
 

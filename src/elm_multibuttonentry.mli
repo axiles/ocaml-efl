@@ -1,5 +1,7 @@
 (** Multibuttonentry *)
 
+type format_cb = int -> string
+
 val add : Evas.obj -> Evas.obj
 
 val entry_get : Evas.obj -> Evas.obj option
@@ -43,4 +45,6 @@ val item_next_get : Elm_object.item -> Elm_object.item option
 val editable_set : Evas.obj -> bool -> unit
 
 val editable_get : Evas.obj -> bool
+
+val format_function_set : Evas.obj -> format_cb -> unit
 

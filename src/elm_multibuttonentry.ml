@@ -1,3 +1,5 @@
+type format_cb = int -> string
+
 external add : Evas.obj -> Evas.obj = "ml_elm_multibuttonentry_add"
 
 external entry_get : Evas.obj -> Evas.obj option =
@@ -58,4 +60,7 @@ external editable_set : Evas.obj -> bool -> unit =
 
 external editable_get : Evas.obj -> bool =
   "ml_elm_multibuttonentry_editable_get"
+
+external format_function_set : Evas.obj -> format_cb -> unit =
+  "ml_elm_multibuttonentry_format_function_set"
 
