@@ -89,6 +89,20 @@ PREFIX value ml_elm_colorselector_palette_item_color_get(value v_it)
         return v;
 }
 
+PREFIX value ml_elm_colorselector_palette_item_selected_get(value v_it)
+{
+        return Val_bool(elm_colorselector_palette_item_selected_get(
+                (Elm_Object_Item*) v_it));
+}
+
+PREFIX value ml_elm_colorselector_palette_item_selected_set(
+        value v_it, value v_flag)
+{
+        elm_colorselector_palette_item_selected_set((Elm_Object_Item*) v_it,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_colorselector_palette_color_add(
         value v_obj, value v_r, value v_g, value v_b, value v_a)
 {
