@@ -173,6 +173,18 @@ PREFIX value ml_elm_object_tree_focus_allow_get(value v_obj)
         return Val_bool(elm_object_tree_focus_allow_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_focus_highlight_style_set(value v_obj, value v_s)
+{
+        return Val_bool(elm_object_focus_highlight_style_set(
+                (Evas_Object*) v_obj, String_val(v_s)));
+}
+
+PREFIX value ml_elm_object_focus_highlight_style_get(value v_obj)
+{
+        return copy_string(elm_object_focus_highlight_style_get(
+                (Evas_Object*) v_obj));
+}
+
 /* General */
 
 inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

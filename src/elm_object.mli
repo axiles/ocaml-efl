@@ -55,6 +55,10 @@ val tree_focus_allow_get : Evas.obj -> bool
 
 val tree_focus_allow_set : Evas.obj -> bool -> unit
 
+val focus_highlight_style_set : Evas.obj -> string -> bool
+
+val focus_highlight_style_get : Evas.obj -> string
+
 (** {2 General} *)
 
 type item
