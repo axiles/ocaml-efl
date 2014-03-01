@@ -884,6 +884,20 @@ PREFIX value ml_elm_entry_input_panel_layout_variation_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_entry_input_panel_show_on_demand_set(
+        value v_obj, value v_flag)
+{
+        elm_entry_input_panel_show_on_demand_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_entry_input_panel_show_on_demand_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_entry_input_panel_show_on_demand_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
 {
         CAMLparam0();

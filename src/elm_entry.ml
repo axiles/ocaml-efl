@@ -290,6 +290,12 @@ external input_panel_layout_variation_set : Evas.obj -> int -> unit =
 external input_panel_layout_variation_get : Evas.obj -> int =
   "ml_elm_entry_input_panel_layout_variation_get"
 
+external input_panel_show_on_demand_set : Evas.obj -> bool -> unit =
+  "ml_elm_entry_input_panel_show_on_demand_set"
+
+external input_panel_show_on_demand_get : Evas.obj -> bool =
+  "ml_elm_entry_input_panel_show_on_demand_get"
+
 external anchor_info_of_ptr : Evas.ptr -> anchor_info =
   "ml_elm_entry_anchor_info_of_ptr"
 

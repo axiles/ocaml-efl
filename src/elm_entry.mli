@@ -240,6 +240,10 @@ val input_panel_layout_variation_set : Evas.obj -> int -> unit
 
 val input_panel_layout_variation_get : Evas.obj -> int
 
+val input_panel_show_on_demand_set : Evas.obj -> bool -> unit
+
+val input_panel_show_on_demand_get : Evas.obj -> bool
+
 val anchor_info_of_ptr : Evas.ptr -> anchor_info
 
 val anchor_info_of_ptr : Evas.ptr -> anchor_info
