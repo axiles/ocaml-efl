@@ -1,5 +1,7 @@
 type mode = [`list | `grid | `last]
 
+type filter_func = string -> bool -> bool
+
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"
 
 external is_save_set : Evas.obj -> bool -> unit =
@@ -37,6 +39,10 @@ external selected_get : Evas.obj -> string = "ml_elm_fileselector_selected_get"
 external mime_types_filter_append :
   Evas.obj -> string -> ?filter_name:string -> unit -> bool =
     "ml_elm_fileselector_mime_types_filter_append"
+
+external custom_filter_append :
+  Evas.obj -> filter_func -> ?filter_name:string -> unit -> bool =
+    "ml_elm_fileselector_custom_filter_append"
 
 external filters_clear : Evas.obj -> unit = "ml_elm_fileselector_filters_clear"
 

@@ -22,6 +22,17 @@ inline value Val_Elm_Fileselector_Mode(Elm_Fileselector_Mode mode)
         return Val_list;
 }
 
+Eina_Bool ml_Elm_Fileselector_Filter_Func(
+        const char* path, Eina_Bool dir, void* data)
+{
+        CAMLparam0();
+        CAMLlocal2(v_s, v_r);
+        value* v_fun = (value*) data;
+        v_s = copy_string(path);
+        v_r = caml_callback2(*v_fun, v_s, Val_bool(dir));
+        CAMLreturnT(Eina_Bool, Bool_val(v_r));
+}
+
 PREFIX value ml_elm_fileselector_add(value v_parent)
 {
         Evas_Object* obj = elm_fileselector_add((Evas_Object*) v_parent);
@@ -112,6 +123,15 @@ PREFIX value ml_elm_fileselector_mime_types_filter_append(
         else filter_name = String_val(Field(v_filter_name, 0));
         return Val_bool(elm_fileselector_mime_types_filter_append(
                 (Evas_Object*) v_obj, String_val(v_mime_types), filter_name));
+}
+
+PREFIX value ml_elm_fileselector_custom_filter_append(
+        value v_obj, value v_fun, value v_name, value v_unit)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        return Val_bool(elm_fileselector_custom_filter_append(obj,
+                ml_Elm_Fileselector_Filter_Func, data, String_opt_val(v_name)));
 }
 
 PREFIX value ml_elm_fileselector_filters_clear(value v_obj)

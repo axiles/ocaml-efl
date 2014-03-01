@@ -2,6 +2,8 @@
 
 type mode = [`list | `grid | `last]
 
+type filter_func = string -> bool -> bool
+
 val add : Evas.obj -> Evas.obj
 
 val is_save_set : Evas.obj -> bool -> unit
@@ -30,6 +32,9 @@ val selected_get : Evas.obj -> string
 
 val mime_types_filter_append :
   Evas.obj -> string -> ?filter_name:string -> unit -> bool
+
+val custom_filter_append :
+  Evas.obj -> filter_func -> ?filter_name:string -> unit -> bool
 
 val filters_clear : Evas.obj -> unit
 
