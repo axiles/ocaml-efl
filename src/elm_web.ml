@@ -82,6 +82,10 @@ external tab_propagate_set : Evas.obj -> bool -> unit =
 
 external url_set : Evas.obj -> string -> bool = "ml_elm_web_url_set"
 
+external html_string_load :
+  Evas.obj -> string -> ?base:string -> ?unreachable:string -> unit -> bool =
+    "ml_elm_web_html_string_load"
+
 external url_get : Evas.obj -> string option = "ml_elm_web_url_get"
 
 external title_get : Evas.obj -> string option = "ml_elm_web_title_get"

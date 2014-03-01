@@ -124,6 +124,12 @@ inline Evas_Object* Evas_Object_opt_val(value v)
         else return (Evas_Object*) Field(v, 0);
 }
 
+inline const char* String_opt_val(value v)
+{
+        if(v == Val_int(0)) return NULL;
+        else return String_val(Field(v, 0));
+}
+
 inline value* ml_register_value(value v)
 {
         value* data = caml_stat_alloc(sizeof(value));

@@ -285,6 +285,15 @@ PREFIX value ml_elm_web_url_set(value v_obj, value v_s)
         return Val_unit;
 }
 
+PREFIX value ml_elm_web_html_string_load(
+        value v_obj, value v_html, value v_base, value v_unreachable,
+        value v_unit)
+{
+        return Val_bool(elm_web_html_string_load((Evas_Object*) v_obj,
+                String_val(v_html), String_opt_val(v_base),
+                String_opt_val(v_unreachable)));
+}
+
 PREFIX value ml_elm_web_url_get(value v_obj)
 {
         CAMLparam1(v_obj);

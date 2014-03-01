@@ -76,6 +76,9 @@ val tab_propagate_set : Evas.obj -> bool -> unit
 
 val url_set : Evas.obj -> string -> bool
 
+val html_string_load :
+  Evas.obj -> string -> ?base:string -> ?unreachable:string -> unit -> bool
+
 val url_get : Evas.obj -> string option
 
 val title_get : Evas.obj -> string option
