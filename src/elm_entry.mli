@@ -101,6 +101,8 @@ val select_none : Evas.obj -> unit
 
 val select_all : Evas.obj -> unit
 
+val select_region_set : Evas.obj -> int -> int -> unit
+
 val cursor_next : Evas.obj -> bool
 
 val cursor_prev : Evas.obj -> bool

@@ -399,6 +399,14 @@ PREFIX value ml_elm_entry_select_all(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_entry_select_region_set(
+        value v_obj, value v_start, value v_end)
+{
+        elm_entry_select_region_set((Evas_Object*) v_obj, Int_val(v_start),
+                Int_val(v_end));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_entry_cursor_next(value v_obj)
 {
         return Val_Eina_Bool(elm_entry_cursor_next((Evas_Object*) v_obj));
