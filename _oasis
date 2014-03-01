@@ -201,6 +201,9 @@ Document efl_doc
 Flag examples
   Description: Compile examples
   Default: false
+Flag extra_examples
+  Description: Compile extra examples (third-party libs required)
+  Default: false
 Flag install_examples
   Description: Install examples
   Default: false
@@ -628,7 +631,7 @@ Executable dayselector_example
   MainIs: dayselector_example.ml
 Executable myglview_example
   Path: examples
-  Install$: flag(install_examples)
-  Build$: flag(examples)
+  Install$: flag(install_examples) 
+  Build$: flag(extra_examples)
   BuildDepends: efl, lablgl
   MainIs: myglview_example.ml
