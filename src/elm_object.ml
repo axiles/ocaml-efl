@@ -339,6 +339,15 @@ external widget_type_get : Evas.obj -> string option =
 
 (* Tooltips *)
 
+external tooltip_move_freeze_push : Evas.obj -> unit =
+  "ml_elm_object_tooltip_move_freeze_push"
+
+external tooltip_move_freeze_pop : Evas.obj -> unit =
+  "ml_elm_object_tooltip_move_freeze_pop"
+
+external tooltip_move_freeze_get : Evas.obj -> int =
+  "ml_elm_object_tooltip_move_freeze_get"
+
 external tooltip_show : Evas.obj -> unit = "ml_elm_object_tooltip_show"
 
 external tooltip_hide : Evas.obj -> unit = "ml_elm_object_tooltip_hide"

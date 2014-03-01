@@ -257,6 +257,12 @@ val widget_type_get : Evas.obj -> string option
 
 (** {2 Tooltips} *)
 
+val tooltip_move_freeze_push : Evas.obj -> unit
+
+val tooltip_move_freeze_pop : Evas.obj -> unit
+
+val tooltip_move_freeze_get : Evas.obj -> int
+
 val tooltip_show : Evas.obj -> unit
 
 val tooltip_hide : Evas.obj -> unit

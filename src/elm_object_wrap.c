@@ -966,6 +966,24 @@ PREFIX value ml_elm_object_widget_type_get(value v_obj)
 
 /* Tooltips */
 
+PREFIX value ml_elm_object_tooltip_move_freeze_push(value v_obj)
+{
+        elm_object_tooltip_move_freeze_push((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_move_freeze_pop(value v_obj)
+{
+        elm_object_tooltip_move_freeze_pop((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_move_freeze_get(value v_obj)
+{
+        return Val_int(elm_object_tooltip_move_freeze_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_object_tooltip_show(value v_obj)
 {
         elm_object_tooltip_show((Evas_Object*) v_obj);
