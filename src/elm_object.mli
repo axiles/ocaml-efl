@@ -275,3 +275,7 @@ val tooltip_window_mode_set : Evas.obj -> bool -> bool
 
 val tooltip_window_mode_get : Evas.obj -> bool
 
+val tooltip_orient_set : Evas.obj -> Elm.tooltip_orient -> unit
+
+val tooltip_orient_get : Evas.obj -> Elm.tooltip_orient
+

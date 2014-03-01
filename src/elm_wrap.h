@@ -8,6 +8,11 @@
 inline Elm_Focus_Direction Elm_Focus_Direction_val(value v);
 inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d);
 
+/* Tooltips */
+
+inline Elm_Tooltip_Orient Elm_Tooltip_Orient_val(value v);
+inline value Val_Elm_Tooltip_Orient(Elm_Tooltip_Orient o);
+
 /* Other */
 
 inline Eina_Bool ml_Elm_Event_Cb(

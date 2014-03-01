@@ -364,3 +364,9 @@ external tooltip_window_mode_set : Evas.obj -> bool -> bool =
 external tooltip_window_mode_get : Evas.obj -> bool =
   "ml_elm_object_tooltip_window_mode_get"
 
+external tooltip_orient_set : Evas.obj -> Elm.tooltip_orient -> unit =
+  "ml_elm_object_tooltip_orient_set"
+
+external tooltip_orient_get : Evas.obj -> Elm.tooltip_orient =
+  "ml_elm_object_tooltip_orient_get"
+

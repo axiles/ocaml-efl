@@ -201,6 +201,20 @@ type transit
 
 (** {2 Tooltips} *)
 
+type tooltip_orient = [
+  | `none
+  | `top_left
+  | `top
+  | `top_right
+  | `left
+  | `center
+  | `right
+  | `bottom_left
+  | `bottom
+  | `bottom_right
+  | `last
+]
+
 type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
 
 type 'a tooltip_item_content_cb = Evas.obj -> Evas.obj -> 'a -> Evas.obj option

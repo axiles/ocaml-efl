@@ -1026,3 +1026,16 @@ PREFIX value ml_elm_object_tooltip_window_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_tooltip_orient_set(value v_obj, value v_or)
+{
+        elm_object_tooltip_orient_set((Evas_Object*) v_obj,
+                Elm_Tooltip_Orient_val(v_or));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_tooltip_orient_get(value v_obj)
+{
+        return Val_Elm_Tooltip_Orient(elm_object_tooltip_orient_get(
+                (Evas_Object*) v_obj));
+}
+
