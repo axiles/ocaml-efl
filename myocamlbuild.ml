@@ -533,7 +533,8 @@ let write_intro () =
   rule "write_intro" ~prod:intro ~deps action;
   flag_and_dep ["doc"; "extension:html"] (S [A "-intro"; P intro]);
   flag_and_dep ["doc"; "extension:html"] (P ("src" / "start.txt"));
-  flag ["doc"; "extension:html"] (Sh "-t \"OCaml Efl Documentation\"")
+  flag ["doc"; "extension:html"] (Sh "-t \"OCaml Efl Documentation\"");
+  flag ["doc"; "extension:html"] (A "-colorize-code")
 
 let () = dispatch & fun h ->
   dispatch_default h;
