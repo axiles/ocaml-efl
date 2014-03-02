@@ -1,6 +1,14 @@
 open Printf
 
-external get_hash_value : string -> string = "ml_get_hash_value"
+let get_hash_value s =
+  let open Int32 in
+  let val_int x = logor (shift_left x 1) 1l in
+  let int_val x = shift_right x 1 in
+  let accu = ref (val_int 0l) in
+  let aux c =
+    accu := val_int (add (mul 223l (int_val !accu)) (of_int (int_of_char c))) in
+  String.iter aux s;
+  to_string !accu
 
 let f x y = printf "#define %s %s\n" x (get_hash_value y)
 

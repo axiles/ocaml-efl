@@ -517,14 +517,10 @@ let ( & ) f x  = f x
 (* The file variants.h is generated: this function adds the rules of builing *)
 let write_variants () =
   let action env builder =
-    Cmd (S [!Options.ocamlc; A "-custom"; A "-o"; P ("src" / "write_variants");
-      P ("src" / "hash.c"); P ("src" / "write_variants.ml")]) in
-  rule "write_variants" ~prod:("src" / "write_variants")
-    ~deps:["src" / "hash.c"; "src" / "write_variants.ml"]  action;
-  let action2 env builder =
-    Cmd (S [P ("src" / "write_variants"); Sh ">"; P ("src" / "variants.h")]) in
+    Cmd (S [P "ocaml"; P ("src" / "write_variants.ml"); Sh ">";
+      P ("src" / "variants.h")]) in
   rule "write_variants2" ~prod:("src" / "variants.h")
-    ~dep:("src" / "write_variants") action2;
+    ~dep:("src" / "write_variants.ml") action;
   dep ["c"; "compile"; "efl"] ["src" / "variants.h"]
 
 let () = dispatch & fun h ->
