@@ -523,6 +523,18 @@ let write_variants () =
     ~dep:("src" / "write_variants.ml") action;
   dep ["c"; "compile"; "efl"] ["src" / "variants.h"]
 
+(* Add a rule to generate src/intro.txt *)
+let write_intro () =
+  let intro = "src" / "intro.txt" in
+  let lib = "src" / "efl_doc.odocl" in
+  let action env builder =
+          Cmd (S [P "ocaml"; P ("src" / "write_intro.ml"); P lib; P intro]) in
+  let deps = ["src" / "write_intro.ml"; lib] in
+  rule "write_intro" ~prod:intro ~deps action;
+  flag_and_dep ["doc"; "extension:html"] (S [A "-intro"; P intro]);
+  flag_and_dep ["doc"; "extension:html"] (P ("src" / "start.txt"));
+  flag ["doc"; "extension:html"] (Sh "-t \"OCaml Efl Documentation\"")
+
 let () = dispatch & fun h ->
   dispatch_default h;
   match h with
@@ -531,6 +543,7 @@ let () = dispatch & fun h ->
     Options.make_links := false;
 
     write_variants ();
+    write_intro ();
 
     (* Get the values of the env variables *)
     let env = BaseEnvLight.load () in 
