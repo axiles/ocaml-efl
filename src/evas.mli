@@ -94,8 +94,6 @@ val obj_of_ptr : ptr -> obj
 
 val float_of_ptr : ptr -> float
 
-val color_argb_premul : int -> int -> int -> int -> int * int * int
-
 (** {2 Top Level Functions} *)
 
 type alloc_error = [`none | `fatal | `recovered]
@@ -197,4 +195,8 @@ val load_error_str : load_error -> string
 val color_hsv_to_rgb : float -> float -> float -> int * int * int
 
 val color_rgb_to_hsv : int -> int -> int -> float * float * float
+
+val color_argb_premul : int -> int -> int -> int -> int * int * int
+
+val color_argb_unpremul : int -> int -> int -> int -> int * int * int
 

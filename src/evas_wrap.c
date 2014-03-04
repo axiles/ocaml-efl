@@ -199,21 +199,6 @@ inline value Val_Evas_Load_Error(Evas_Load_Error e)
         return Val_none;
 }
 
-PREFIX value ml_evas_color_argb_premul(
-        value v_a, value v_r, value v_g, value v_b)
-{
-        int r, g, b;
-        r = Int_val(v_r);
-        g = Int_val(v_g);
-        b = Int_val(v_b);
-        evas_color_argb_premul(Int_val(v_a), &r, &g, &b);
-        value v = caml_alloc(3, 0);
-        Store_field(v, 0, Val_int(r));
-        Store_field(v, 1, Val_int(g));
-        Store_field(v, 2, Val_int(b));
-        return v;
-}
-
 void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* v_obj, void* event_info)
 {
@@ -574,4 +559,33 @@ PREFIX value ml_evas_color_rgb_to_hsv(value v_r, value v_g, value v_b)
 }
 
 
+PREFIX value ml_evas_color_argb_premul(
+        value v_a, value v_r, value v_g, value v_b)
+{
+        int r, g, b;
+        r = Int_val(v_r);
+        g = Int_val(v_g);
+        b = Int_val(v_b);
+        evas_color_argb_premul(Int_val(v_a), &r, &g, &b);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        return v;
+}
+
+PREFIX value ml_evas_color_argb_unpremul(
+        value v_a, value v_r, value v_g, value v_b)
+{
+        int r, g, b;
+        r = Int_val(v_r);
+        g = Int_val(v_g);
+        b = Int_val(v_b);
+        evas_color_argb_unpremul(Int_val(v_a), &r, &g, &b);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        return v;
+}
 

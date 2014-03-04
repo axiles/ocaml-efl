@@ -102,9 +102,6 @@ external obj_of_ptr : ptr -> obj = "ml_obj_of_ptr"
 
 external float_of_ptr : ptr -> float = "ml_float_of_ptr"
 
-external color_argb_premul : int -> int -> int -> int -> int * int * int =
-  "ml_evas_color_argb_premul"
-
 (* Top Level Functions *)
 
 type alloc_error = [`none | `fatal | `recovered]
@@ -221,4 +218,10 @@ external color_hsv_to_rgb : float -> float -> float -> int * int * int =
 
 external color_rgb_to_hsv : int -> int -> int -> float * float * float =
   "ml_evas_color_rgb_to_hsv"
+
+external color_argb_premul : int -> int -> int -> int -> int * int * int =
+  "ml_evas_color_argb_premul"
+
+external color_argb_unpremul : int -> int -> int -> int -> int * int * int =
+  "ml_evas_color_argb_unpremul"
 
