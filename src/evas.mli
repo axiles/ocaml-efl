@@ -156,7 +156,7 @@ val image_cache_get : t -> int
 
 val image_max_size_get : t -> (int * int) option
 
-(** General Canvas Functions *)
+(** {2 General Canvas Functions} *)
 
 val new_ : unit -> t
 
@@ -189,4 +189,8 @@ val norender : t -> unit
 val render_idle_flush : t -> unit
 
 val render_dump : t -> unit
+
+(** {2 General Utilites} *)
+
+val load_error_str : load_error -> string
 

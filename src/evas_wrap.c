@@ -540,3 +540,10 @@ PREFIX value ml_evas_render_dump(value v_e)
         return Val_unit;
 }
 
+/* General Utilities */
+
+PREFIX value ml_evas_load_error_str(value v_err)
+{
+        return copy_string(evas_load_error_str(Evas_Load_Error_val(v_err)));
+}
+

@@ -212,3 +212,7 @@ external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
 
+(* General Utilities *)
+
+external load_error_str : load_error -> string = "ml_evas_load_error_str"
+
