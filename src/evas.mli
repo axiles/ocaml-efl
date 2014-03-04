@@ -194,3 +194,7 @@ val render_dump : t -> unit
 
 val load_error_str : load_error -> string
 
+val color_hsv_to_rgb : float -> float -> float -> int * int * int
+
+val color_rgb_to_hsv : int -> int -> int -> float * float * float
+

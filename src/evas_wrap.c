@@ -547,3 +547,31 @@ PREFIX value ml_evas_load_error_str(value v_err)
         return copy_string(evas_load_error_str(Evas_Load_Error_val(v_err)));
 }
 
+PREFIX value ml_evas_color_hsv_to_rgb(value v_h, value v_s, value v_v)
+{
+        int r, g, b;
+        evas_color_hsv_to_rgb(Double_val(v_h), Double_val(v_s),
+                Double_val(v_v), &r, &g, &b);
+        value v_res = caml_alloc(3, 0);
+        Store_field(v_res, 0, Val_int(r));
+        Store_field(v_res, 1, Val_int(g));
+        Store_field(v_res, 2, Val_int(b));
+        return v_res;
+}
+
+PREFIX value ml_evas_color_rgb_to_hsv(value v_r, value v_g, value v_b)
+{
+        CAMLparam3(v_r, v_g, v_b);
+        CAMLlocal1(v_res);
+        float h, s, v;
+        evas_color_rgb_to_hsv(Int_val(v_r), Int_val(v_g), Int_val(v_b), &h, &s,
+                &v);
+        v_res = caml_alloc(3, 0);
+        Store_field(v_res, 0, copy_double(h));
+        Store_field(v_res, 1, copy_double(s));
+        Store_field(v_res, 2, copy_double(v));
+        CAMLreturn(v_res);
+}
+
+
+

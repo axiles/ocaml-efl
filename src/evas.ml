@@ -216,3 +216,9 @@ external render_dump : t -> unit = "ml_evas_render_dump"
 
 external load_error_str : load_error -> string = "ml_evas_load_error_str"
 
+external color_hsv_to_rgb : float -> float -> float -> int * int * int =
+  "ml_evas_color_hsv_to_rgb"
+
+external color_rgb_to_hsv : int -> int -> int -> float * float * float =
+  "ml_evas_color_rgb_to_hsv"
+
