@@ -204,3 +204,9 @@ val data_argb_premul : int array -> unit
 
 val data_argb_unpremul : int array -> unit
 
+val string_char_next_get : string -> int -> int * Int32.t
+
+val string_char_prev_get : string -> int -> int * Int32.t
+
+val string_char_len_get : string -> int
+

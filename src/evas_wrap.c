@@ -611,3 +611,34 @@ PREFIX value ml_evas_data_argb_unpremul(value v_a)
         return Val_unit;
 }
 
+PREFIX value ml_evas_string_char_next_get(value v_s, value v_pos)
+{
+        CAMLparam2(v_s, v_pos);
+        CAMLlocal1(v);
+        int decoded;
+        int next = evas_string_char_next_get(String_val(v_s), Int_val(v_pos),
+                &decoded);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(next));
+        Store_field(v, 1, copy_int32(decoded));
+        CAMLreturn(v);
+}
+
+PREFIX value ml_evas_string_char_prev_get(value v_s, value v_pos)
+{
+        CAMLparam2(v_s, v_pos);
+        CAMLlocal1(v);
+        int decoded;
+        int prev = evas_string_char_prev_get(String_val(v_s), Int_val(v_pos),
+                &decoded);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(prev));
+        Store_field(v, 1, copy_int32(decoded));
+        CAMLreturn(v);
+}
+
+PREFIX value ml_evas_string_char_len_get(value v_s)
+{
+        return Val_int(evas_string_char_len_get(String_val(v_s)));
+}
+

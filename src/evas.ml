@@ -229,3 +229,11 @@ external data_argb_premul : int array -> unit = "ml_evas_data_argb_premul"
 
 external data_argb_unpremul : int array -> unit = "ml_evas_data_argb_unpremul"
 
+external string_char_next_get : string -> int -> int * Int32.t =
+  "ml_evas_string_char_next_get"
+
+external string_char_prev_get : string -> int -> int * Int32.t =
+  "ml_evas_string_char_prev_get"
+
+external string_char_len_get : string -> int = "ml_evas_string_char_len_get"
+
