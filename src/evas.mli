@@ -200,3 +200,7 @@ val color_argb_premul : int -> int -> int -> int -> int * int * int
 
 val color_argb_unpremul : int -> int -> int -> int -> int * int * int
 
+val data_argb_premul : int array -> unit
+
+val data_argb_unpremul : int array -> unit
+

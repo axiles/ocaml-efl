@@ -225,3 +225,7 @@ external color_argb_premul : int -> int -> int -> int -> int * int * int =
 external color_argb_unpremul : int -> int -> int -> int -> int * int * int =
   "ml_evas_color_argb_unpremul"
 
+external data_argb_premul : int array -> unit = "ml_evas_data_argb_premul"
+
+external data_argb_unpremul : int array -> unit = "ml_evas_data_argb_unpremul"
+
