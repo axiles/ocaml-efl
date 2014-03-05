@@ -190,9 +190,20 @@ val render_dump : t -> unit
 
 (** {2 Shared Image Cache Server} *)
 
+type cserve_stats = {
+  saved_memory : int;
+  wasted_memory : int;
+  save_memory_peak : int;
+  wasted_memory_peak : int;
+  saved_time_image_header_load : float;
+  saved_time_image_data_load : float;
+}
+
 val cserve_want_get : unit -> bool
 
 val cserve_connected_get : unit -> bool
+
+val cserve_stats_get : unit -> cserve_stats option
 
 (** {2 General Utilites} *)
 

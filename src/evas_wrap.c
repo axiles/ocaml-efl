@@ -527,6 +527,20 @@ PREFIX value ml_evas_render_dump(value v_e)
 
 /* Shared Image Cache Server */
 
+inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(6, 0);
+        Store_field(v, 0, Val_int(s.saved_memory));
+        Store_field(v, 1, Val_int(s.wasted_memory));
+        Store_field(v, 2, Val_int(s.saved_memory_peak));
+        Store_field(v, 3, Val_int(s.wasted_memory_peak));
+        Store_field(v, 4, copy_double(s.saved_time_image_header_load));
+        Store_field(v, 5, copy_double(s.saved_time_image_data_load));
+        CAMLreturn(v);
+}
+
 PREFIX value ml_evas_cserve_want_get(value v_unit)
 {
         return Val_bool(evas_cserve_want_get());
@@ -535,6 +549,19 @@ PREFIX value ml_evas_cserve_want_get(value v_unit)
 PREFIX value ml_evas_cserve_connected_get(value v_unit)
 {
         return Val_bool(evas_cserve_connected_get());
+}
+
+PREFIX value ml_evas_cserve_stats_get(value v_unit)
+{
+        CAMLparam1(v_unit);
+        CAMLlocal1(v_r);
+        Evas_Cserve_Stats s;
+        Eina_Bool r = evas_cserve_stats_get(&s);
+        if(r) {
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, copy_Evas_Cserve_Stats(s));
+        } else v_r = Val_int(0);
+        CAMLreturn(v_r);
 }
 
 /* General Utilities */

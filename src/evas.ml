@@ -211,9 +211,21 @@ external render_dump : t -> unit = "ml_evas_render_dump"
 
 (* Shared Image Cache Server *)
 
+type cserve_stats = {
+  saved_memory : int;
+  wasted_memory : int;
+  save_memory_peak : int;
+  wasted_memory_peak : int;
+  saved_time_image_header_load : float;
+  saved_time_image_data_load : float;
+}
+
 external cserve_want_get : unit -> bool = "ml_evas_cserve_want_get"
 
 external cserve_connected_get : unit -> bool = "ml_evas_cserve_connected_get"
+
+external cserve_stats_get : unit -> cserve_stats option =
+  "ml_evas_cserve_stats_get"
 
 (* General Utilities *)
 
