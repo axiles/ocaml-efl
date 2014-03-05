@@ -209,6 +209,12 @@ external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
 
+(* Shared Image Cache Server *)
+
+external cserve_want_get : unit -> bool = "ml_evas_cserve_want_get"
+
+external cserve_connected_get : unit -> bool = "ml_evas_cserve_connected_get"
+
 (* General Utilities *)
 
 external load_error_str : load_error -> string = "ml_evas_load_error_str"

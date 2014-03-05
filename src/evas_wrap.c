@@ -525,6 +525,18 @@ PREFIX value ml_evas_render_dump(value v_e)
         return Val_unit;
 }
 
+/* Shared Image Cache Server */
+
+PREFIX value ml_evas_cserve_want_get(value v_unit)
+{
+        return Val_bool(evas_cserve_want_get());
+}
+
+PREFIX value ml_evas_cserve_connected_get(value v_unit)
+{
+        return Val_bool(evas_cserve_connected_get());
+}
+
 /* General Utilities */
 
 PREFIX value ml_evas_load_error_str(value v_err)

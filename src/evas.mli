@@ -188,6 +188,12 @@ val render_idle_flush : t -> unit
 
 val render_dump : t -> unit
 
+(** {2 Shared Image Cache Server} *)
+
+val cserve_want_get : unit -> bool
+
+val cserve_connected_get : unit -> bool
+
 (** {2 General Utilites} *)
 
 val load_error_str : load_error -> string
