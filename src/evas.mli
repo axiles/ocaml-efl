@@ -199,11 +199,21 @@ type cserve_stats = {
   saved_time_image_data_load : float;
 }
 
+type cserve_config = {
+  cache_max_usage : int;
+  cache_item_timeout : int;
+  cache_item_timeout_check : int;
+}
+
 val cserve_want_get : unit -> bool
 
 val cserve_connected_get : unit -> bool
 
 val cserve_stats_get : unit -> cserve_stats option
+
+val cserve_config_get : unit -> cserve_config option
+
+val cserve_config_set : cserve_config -> bool
 
 (** {2 General Utilites} *)
 

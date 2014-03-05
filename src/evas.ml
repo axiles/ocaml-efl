@@ -220,12 +220,23 @@ type cserve_stats = {
   saved_time_image_data_load : float;
 }
 
+type cserve_config = {
+  cache_max_usage : int;
+  cache_item_timeout : int;
+  cache_item_timeout_check : int;
+}
+
 external cserve_want_get : unit -> bool = "ml_evas_cserve_want_get"
 
 external cserve_connected_get : unit -> bool = "ml_evas_cserve_connected_get"
 
 external cserve_stats_get : unit -> cserve_stats option =
   "ml_evas_cserve_stats_get"
+
+external cserve_config_get : unit -> cserve_config option =
+  "ml_evas_cserve_config_get"
+
+external cserve_config_set : cserve_config -> bool = "ml_evas_cserve_config_set"
 
 (* General Utilities *)
 

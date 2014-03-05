@@ -541,6 +541,24 @@ inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
         CAMLreturn(v);
 }
 
+inline Evas_Cserve_Config Evas_Cserve_Config_val(value v)
+{
+        Evas_Cserve_Config c;
+        c.cache_max_usage = Int_val(Field(v, 0));
+        c.cache_item_timeout = Int_val(Field(v, 1));
+        c.cache_item_timeout_check = Int_val(Field(v, 2));
+        return c;
+}
+
+inline value copy_Evas_Cserve_Config(Evas_Cserve_Config c)
+{
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(c.cache_max_usage));
+        Store_field(v, 1, Val_int(c.cache_item_timeout));
+        Store_field(v, 2, Val_int(c.cache_item_timeout_check));
+        return v;
+}
+
 PREFIX value ml_evas_cserve_want_get(value v_unit)
 {
         return Val_bool(evas_cserve_want_get());
@@ -562,6 +580,25 @@ PREFIX value ml_evas_cserve_stats_get(value v_unit)
                 Store_field(v_r, 0, copy_Evas_Cserve_Stats(s));
         } else v_r = Val_int(0);
         CAMLreturn(v_r);
+}
+
+PREFIX value ml_evas_cserve_config_get(value v_unit)
+{
+        CAMLparam1(v_unit);
+        CAMLlocal1(v_r);
+        Evas_Cserve_Config s;
+        Eina_Bool r = evas_cserve_config_get(&s);
+        if(r) {
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, copy_Evas_Cserve_Config(s));
+        } else v_r = Val_int(0);
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_evas_cserve_config_set(value v_c)
+{
+        Evas_Cserve_Config c = Evas_Cserve_Config_val(v_c);
+        return Val_bool(evas_cserve_config_set(&c));
 }
 
 /* General Utilities */
