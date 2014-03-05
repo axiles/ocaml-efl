@@ -1010,3 +1010,48 @@ PREFIX value ml_evas_object_event_callback_priority_add_image_unloaded(
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_pass_events_set(value v_obj, value v_flag)
+{
+        evas_object_pass_events_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_pass_events_get(value v_obj)
+{
+        return Val_bool(evas_object_pass_events_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_repeat_events_set(value v_obj, value v_flag)
+{
+        evas_object_repeat_events_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_repeat_events_get(value v_obj)
+{
+        return Val_bool(evas_object_repeat_events_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_propagate_events_set(value v_obj, value v_flag)
+{
+        evas_object_propagate_events_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_propagate_events_get(value v_obj)
+{
+        return Val_bool(evas_object_propagate_events_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_freeze_events_set(value v_obj, value v_flag)
+{
+        evas_object_freeze_events_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_freeze_events_get(value v_obj)
+{
+        return Val_bool(evas_object_freeze_events_get((Evas_Object*) v_obj));
+}
+
