@@ -215,6 +215,8 @@ val cserve_config_get : unit -> cserve_config option
 
 val cserve_config_set : cserve_config -> bool
 
+val cserve_disconnected : unit -> unit
+
 (** {2 General Utilites} *)
 
 val load_error_str : load_error -> string

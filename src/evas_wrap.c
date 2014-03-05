@@ -601,6 +601,12 @@ PREFIX value ml_evas_cserve_config_set(value v_c)
         return Val_bool(evas_cserve_config_set(&c));
 }
 
+PREFIX value ml_evas_cserve_disconnected(value v_unit)
+{
+        evas_cserve_disconnect();
+        return Val_unit;
+}
+
 /* General Utilities */
 
 PREFIX value ml_evas_load_error_str(value v_err)

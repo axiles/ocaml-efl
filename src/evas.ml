@@ -238,6 +238,8 @@ external cserve_config_get : unit -> cserve_config option =
 
 external cserve_config_set : cserve_config -> bool = "ml_evas_cserve_config_set"
 
+external cserve_disconnected : unit -> unit = "ml_evas_cserve_disconnected"
+
 (* General Utilities *)
 
 external load_error_str : load_error -> string = "ml_evas_load_error_str"
