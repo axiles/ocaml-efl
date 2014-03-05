@@ -40,55 +40,6 @@ val rectangle_add : Evas.t -> t
 
 val size_hint_min_set : t -> int -> int -> unit
 
-val event_callback_add_mouse_in : t -> Evas_event.mouse_in event_cb -> unit
-
-val event_callback_add_mouse_out : t -> Evas_event.mouse_out event_cb -> unit
-
-val event_callback_add_mouse_down : t -> Evas_event.mouse_down event_cb -> unit
-
-val event_callback_add_mouse_up : t -> Evas_event.mouse_up event_cb -> unit
-
-val event_callback_add_mouse_move : t -> Evas_event.mouse_move event_cb -> unit
-
-val event_callback_add_mouse_wheel :
-  t -> Evas_event.mouse_wheel event_cb -> unit
-
-val event_callback_add_multi_down : t -> Evas_event.multi_down event_cb -> unit
-
-val event_callback_add_multi_up : t -> Evas_event.multi_up event_cb -> unit
-
-val event_callback_add_multi_move : t -> Evas_event.multi_move event_cb -> unit
-
-val event_callback_add_free : t -> unit event_cb -> unit
-
-val event_callback_add_key_down : t -> Evas_event.key_down event_cb -> unit
-
-val event_callback_add_key_up : t -> Evas_event.key_up event_cb -> unit
-
-val event_callback_add_focus_in : t -> unit event_cb -> unit
-
-val event_callback_add_focus_out : t -> unit event_cb -> unit
-
-val event_callback_add_show : t -> unit event_cb -> unit
-
-val event_callback_add_hide : t -> unit event_cb -> unit
-
-val event_callback_add_move : t -> unit event_cb -> unit
-
-val event_callback_add_resize : t -> unit event_cb -> unit
-
-val event_callback_add_restack : t -> unit event_cb -> unit
-
-val event_callback_add_del : t -> unit event_cb -> unit
-
-val event_callback_add_hold : t -> Evas_event.hold event_cb -> unit
-
-val event_callback_add_changed_size_hints : t -> unit event_cb -> unit
-
-val event_callback_add_image_preloaded : t -> unit event_cb -> unit
-
-val event_callback_add_image_unloaded : t -> unit event_cb -> unit
-
 val size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit
 
 val box_layout_flow_horizontal : t -> box_data -> unit
@@ -170,4 +121,127 @@ val stack_below : t -> t -> unit
 val above_get : t -> t option
 
 val below_get : t -> t option
+
+(* {2 Object Events} *)
+
+val event_callback_add_mouse_in : t -> Evas_event.mouse_in event_cb -> unit
+
+val event_callback_add_mouse_out : t -> Evas_event.mouse_out event_cb -> unit
+
+val event_callback_add_mouse_down : t -> Evas_event.mouse_down event_cb -> unit
+
+val event_callback_add_mouse_up : t -> Evas_event.mouse_up event_cb -> unit
+
+val event_callback_add_mouse_move : t -> Evas_event.mouse_move event_cb -> unit
+
+val event_callback_add_mouse_wheel :
+  t -> Evas_event.mouse_wheel event_cb -> unit
+
+val event_callback_add_multi_down : t -> Evas_event.multi_down event_cb -> unit
+
+val event_callback_add_multi_up : t -> Evas_event.multi_up event_cb -> unit
+
+val event_callback_add_multi_move : t -> Evas_event.multi_move event_cb -> unit
+
+val event_callback_add_free : t -> unit event_cb -> unit
+
+val event_callback_add_key_down : t -> Evas_event.key_down event_cb -> unit
+
+val event_callback_add_key_up : t -> Evas_event.key_up event_cb -> unit
+
+val event_callback_add_focus_in : t -> unit event_cb -> unit
+
+val event_callback_add_focus_out : t -> unit event_cb -> unit
+
+val event_callback_add_show : t -> unit event_cb -> unit
+
+val event_callback_add_hide : t -> unit event_cb -> unit
+
+val event_callback_add_move : t -> unit event_cb -> unit
+
+val event_callback_add_resize : t -> unit event_cb -> unit
+
+val event_callback_add_restack : t -> unit event_cb -> unit
+
+val event_callback_add_del : t -> unit event_cb -> unit
+
+val event_callback_add_hold : t -> Evas_event.hold event_cb -> unit
+
+val event_callback_add_changed_size_hints : t -> unit event_cb -> unit
+
+val event_callback_add_image_preloaded : t -> unit event_cb -> unit
+
+val event_callback_add_image_unloaded : t -> unit event_cb -> unit
+
+val event_callback_priority_add_mouse_in :
+  t -> Evas.callback_priority -> Evas_event.mouse_in event_cb -> unit
+
+val event_callback_priority_add_mouse_out :
+  t -> Evas.callback_priority -> Evas_event.mouse_out event_cb -> unit
+
+val event_callback_priority_add_mouse_down :
+  t -> Evas.callback_priority -> Evas_event.mouse_down event_cb -> unit
+
+val event_callback_priority_add_mouse_up :
+  t -> Evas.callback_priority -> Evas_event.mouse_up event_cb -> unit
+
+val event_callback_priority_add_mouse_move :
+  t -> Evas.callback_priority -> Evas_event.mouse_move event_cb -> unit
+
+val event_callback_priority_add_mouse_wheel :
+  t -> Evas.callback_priority -> Evas_event.mouse_wheel event_cb -> unit
+
+val event_callback_priority_add_multi_down :
+  t -> Evas.callback_priority -> Evas_event.multi_down event_cb -> unit
+
+val event_callback_priority_add_multi_up :
+  t -> Evas.callback_priority -> Evas_event.multi_up event_cb -> unit
+
+val event_callback_priority_add_multi_move :
+  t -> Evas.callback_priority -> Evas_event.multi_move event_cb -> unit
+
+val event_callback_priority_add_free :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_key_down :
+  t -> Evas.callback_priority -> Evas_event.key_down event_cb -> unit
+
+val event_callback_priority_add_key_up :
+  t -> Evas.callback_priority -> Evas_event.key_up event_cb -> unit
+
+val event_callback_priority_add_focus_in :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_focus_out :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_show :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_hide :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_move :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_resize :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_restack :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_del :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_hold :
+  t -> Evas.callback_priority -> Evas_event.hold event_cb -> unit
+
+val event_callback_priority_add_changed_size_hints :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_image_preloaded :
+  t -> Evas.callback_priority -> unit event_cb -> unit
+
+val event_callback_priority_add_image_unloaded :
+  t -> Evas.callback_priority -> unit event_cb -> unit
 

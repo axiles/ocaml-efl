@@ -65,88 +65,6 @@ external rectangle_add : Evas.t -> t = "ml_evas_object_rectangle_add"
 external size_hint_min_set : t -> int -> int -> unit =
   "ml_evas_object_size_hint_min_set"
 
-external event_callback_add_mouse_in :
-  t -> Evas_event.mouse_in event_cb -> unit =
-    "ml_evas_object_event_callback_add_mouse_in"
-
-external event_callback_add_mouse_out :
-  t -> Evas_event.mouse_out event_cb -> unit =
-    "ml_evas_object_event_callback_add_mouse_out"
-
-external event_callback_add_mouse_down :
-  t -> Evas_event.mouse_down event_cb -> unit =
-    "ml_evas_object_event_callback_add_mouse_down"
-
-external event_callback_add_mouse_up :
-  t -> Evas_event.mouse_up event_cb -> unit =
-    "ml_evas_object_event_callback_add_mouse_up"
-
-external event_callback_add_mouse_move :
-  t -> Evas_event.mouse_move event_cb -> unit =
-    "ml_evas_object_event_callback_add_mouse_move"
-
-external event_callback_add_mouse_wheel :
-  t -> Evas_event.mouse_wheel event_cb -> unit =
-    "ml_evas_object_event_callback_add_mouse_wheel"
-
-external event_callback_add_multi_down :
-  t -> Evas_event.multi_down event_cb -> unit =
-    "ml_evas_object_event_callback_add_multi_down"
-
-external event_callback_add_multi_up :
-  t -> Evas_event.multi_up event_cb -> unit =
-    "ml_evas_object_event_callback_add_multi_up"
-
-external event_callback_add_multi_move :
-  t -> Evas_event.multi_move event_cb -> unit =
-    "ml_evas_object_event_callback_add_multi_move"
-
-external event_callback_add_free : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_free"
-
-external event_callback_add_key_down :
-  t -> Evas_event.key_down event_cb -> unit =
-    "ml_evas_object_event_callback_add_key_down"
-
-external event_callback_add_key_up : t -> Evas_event.key_up event_cb -> unit =
-  "ml_evas_object_event_callback_add_key_up"
-
-external event_callback_add_focus_in : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_focus_in"
-
-external event_callback_add_focus_out : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_focus_out"
-
-external event_callback_add_show : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_show"
-
-external event_callback_add_hide : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_hide"
-
-external event_callback_add_move : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_move"
-
-external event_callback_add_resize : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_resize"
-
-external event_callback_add_restack : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_restack"
-
-external event_callback_add_del : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_del"
-
-external event_callback_add_hold : t -> Evas_event.hold event_cb -> unit =
-  "ml_evas_object_event_callback_add_hold"
-
-external event_callback_add_changed_size_hints : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_changed_size_hints"
-
-external event_callback_add_image_preloaded : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_image_preloaded"
-
-external event_callback_add_image_unloaded : t -> unit event_cb -> unit =
-  "ml_evas_object_event_callback_add_image_unloaded"
-
 external size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit =
   "ml_evas_object_size_hint_aspect_set"
 
@@ -240,4 +158,184 @@ external stack_below : t -> t -> unit = "ml_evas_object_stack_below"
 external above_get : t -> t option = "ml_evas_object_above_get"
 
 external below_get : t -> t option = "ml_evas_object_below_get"
+
+(* Object Events *)
+
+external event_callback_add_mouse_in :
+  t -> Evas_event.mouse_in event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_in"
+
+external event_callback_add_mouse_out :
+  t -> Evas_event.mouse_out event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_out"
+
+external event_callback_add_mouse_down :
+  t -> Evas_event.mouse_down event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_down"
+
+external event_callback_add_mouse_up :
+  t -> Evas_event.mouse_up event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_up"
+
+external event_callback_add_mouse_move :
+  t -> Evas_event.mouse_move event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_move"
+
+external event_callback_add_mouse_wheel :
+  t -> Evas_event.mouse_wheel event_cb -> unit =
+    "ml_evas_object_event_callback_add_mouse_wheel"
+
+external event_callback_add_multi_down :
+  t -> Evas_event.multi_down event_cb -> unit =
+    "ml_evas_object_event_callback_add_multi_down"
+
+external event_callback_add_multi_up :
+  t -> Evas_event.multi_up event_cb -> unit =
+    "ml_evas_object_event_callback_add_multi_up"
+
+external event_callback_add_multi_move :
+  t -> Evas_event.multi_move event_cb -> unit =
+    "ml_evas_object_event_callback_add_multi_move"
+
+external event_callback_add_free : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_free"
+
+external event_callback_add_key_down :
+  t -> Evas_event.key_down event_cb -> unit =
+    "ml_evas_object_event_callback_add_key_down"
+
+external event_callback_add_key_up : t -> Evas_event.key_up event_cb -> unit =
+  "ml_evas_object_event_callback_add_key_up"
+
+external event_callback_add_focus_in : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_focus_in"
+
+external event_callback_add_focus_out : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_focus_out"
+
+external event_callback_add_show : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_show"
+
+external event_callback_add_hide : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_hide"
+
+external event_callback_add_move : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_move"
+
+external event_callback_add_resize : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_resize"
+
+external event_callback_add_restack : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_restack"
+
+external event_callback_add_del : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_del"
+
+external event_callback_add_hold : t -> Evas_event.hold event_cb -> unit =
+  "ml_evas_object_event_callback_add_hold"
+
+external event_callback_add_changed_size_hints : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_changed_size_hints"
+
+external event_callback_add_image_preloaded : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_image_preloaded"
+
+external event_callback_add_image_unloaded : t -> unit event_cb -> unit =
+  "ml_evas_object_event_callback_add_image_unloaded"
+
+external event_callback_priority_add_mouse_in :
+  t -> Evas.callback_priority -> Evas_event.mouse_in event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_mouse_in"
+
+external event_callback_priority_add_mouse_out :
+  t -> Evas.callback_priority -> Evas_event.mouse_out event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_mouse_out"
+
+external event_callback_priority_add_mouse_down :
+  t -> Evas.callback_priority -> Evas_event.mouse_down event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_mouse_down"
+
+external event_callback_priority_add_mouse_up :
+  t -> Evas.callback_priority -> Evas_event.mouse_up event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_mouse_up"
+
+external event_callback_priority_add_mouse_move :
+  t -> Evas.callback_priority -> Evas_event.mouse_move event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_mouse_move"
+
+external event_callback_priority_add_mouse_wheel :
+  t -> Evas.callback_priority -> Evas_event.mouse_wheel event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_mouse_wheel"
+
+external event_callback_priority_add_multi_down :
+  t -> Evas.callback_priority -> Evas_event.multi_down event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_multi_down"
+
+external event_callback_priority_add_multi_up :
+  t -> Evas.callback_priority -> Evas_event.multi_up event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_multi_up"
+
+external event_callback_priority_add_multi_move :
+  t -> Evas.callback_priority -> Evas_event.multi_move event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_multi_move"
+
+external event_callback_priority_add_free :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_free"
+
+external event_callback_priority_add_key_down :
+  t -> Evas.callback_priority -> Evas_event.key_down event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_key_down"
+
+external event_callback_priority_add_key_up :
+  t -> Evas.callback_priority -> Evas_event.key_up event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_key_up"
+
+external event_callback_priority_add_focus_in :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_focus_in"
+
+external event_callback_priority_add_focus_out :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_focus_out"
+
+external event_callback_priority_add_show :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_show"
+
+external event_callback_priority_add_hide :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_hide"
+
+external event_callback_priority_add_move :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_move"
+
+external event_callback_priority_add_resize :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_resize"
+
+external event_callback_priority_add_restack :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_restack"
+
+external event_callback_priority_add_del :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_del"
+
+external event_callback_priority_add_hold :
+  t -> Evas.callback_priority -> Evas_event.hold event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_hold"
+
+external event_callback_priority_add_changed_size_hints :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_changed_size_hints"
+
+external event_callback_priority_add_image_preloaded :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_image_preloaded"
+
+external event_callback_priority_add_image_unloaded :
+  t -> Evas.callback_priority -> unit event_cb -> unit =
+    "ml_evas_object_event_callback_priority_add_image_unloaded"
 
