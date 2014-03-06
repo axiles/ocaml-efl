@@ -40,3 +40,5 @@ external util_3d_perspective : t -> int -> int -> int -> int -> unit =
 
 external util_clockwise_get : t -> bool = "ml_evas_map_util_clockwise_get"
 
+external new_ : int -> t = "ml_evas_map_new"
+

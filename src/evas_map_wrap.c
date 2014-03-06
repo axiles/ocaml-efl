@@ -116,3 +116,10 @@ PREFIX value ml_evas_map_util_clockwise_get(value v_m)
         return Val_bool(evas_map_util_clockwise_get((Evas_Map*) v_m));
 }
 
+PREFIX value ml_evas_map_new(value v_n)
+{
+        Evas_Map* m = evas_map_new(Int_val(v_n));
+        if(m == NULL) caml_failwith("evas_map_new");
+        return (value) m;
+}
+

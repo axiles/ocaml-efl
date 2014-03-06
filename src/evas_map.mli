@@ -27,3 +27,5 @@ val util_3d_perspective : t -> int -> int -> int -> int -> unit
 
 val util_clockwise_get : t -> bool
 
+val new_ : int -> t
+
