@@ -109,6 +109,7 @@ Library efl
     evas_map_wrap.c,
     evas_object_wrap.h,
     evas_object_wrap.c,
+    evas_object_event_wrap.c,
     ecore_wrap.c,
     ecore_wrap.h,
     ethumb_wrap.h,
