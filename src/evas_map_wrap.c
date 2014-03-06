@@ -123,3 +123,25 @@ PREFIX value ml_evas_map_new(value v_n)
         return (value) m;
 }
 
+PREFIX value ml_evas_map_smooth_set(value v_m, value v_flag)
+{
+        evas_map_smooth_set((Evas_Map*) v_m, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_smooth_get(value v_m)
+{
+        return Val_bool(evas_map_smooth_get((Evas_Map*) v_m));
+}
+
+PREFIX value ml_evas_map_alpha_set(value v_m, value v_flag)
+{
+        evas_map_alpha_set((Evas_Map*) v_m, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_alpha_get(value v_m)
+{
+        return Val_bool(evas_map_alpha_get((Evas_Map*) v_m));
+}
+

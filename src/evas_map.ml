@@ -42,3 +42,11 @@ external util_clockwise_get : t -> bool = "ml_evas_map_util_clockwise_get"
 
 external new_ : int -> t = "ml_evas_map_new"
 
+external smooth_set : t -> bool -> unit = "ml_evas_map_smooth_set"
+
+external smooth_get : t -> bool = "ml_evas_map_smooth_get"
+
+external alpha_set : t -> bool -> unit = "ml_evas_map_alpha_set"
+
+external alpha_get : t -> bool = "ml_evas_map_alpha_get"
+

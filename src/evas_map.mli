@@ -29,3 +29,11 @@ val util_clockwise_get : t -> bool
 
 val new_ : int -> t
 
+val smooth_set : t -> bool -> unit
+
+val smooth_get : t -> bool
+
+val alpha_set : t -> bool -> unit
+
+val alpha_get : t -> bool
+
