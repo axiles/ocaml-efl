@@ -200,3 +200,29 @@ PREFIX value ml_evas_map_point_image_uv_get(value v_m, value v_i)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_evas_map_point_color_set_native(
+        value v_m, value v_i, value v_r, value v_g, value v_b, value v_a)
+{
+        evas_map_point_color_set((Evas_Map*) v_m, Int_val(v_i), Int_val(v_r),
+                Int_val(v_g), Int_val(v_b), Int_val(v_a));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_point_color_set_byte(value* argv, int argn)
+{
+        return ml_evas_map_point_color_set_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5]);
+}
+
+PREFIX value ml_evas_map_point_color_get(value v_m, value v_i)
+{
+        int r, g, b, a;
+        evas_map_point_color_get((Evas_Map*) v_m, Int_val(v_i), &r, &g, &b, &a);
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        Store_field(v, 3, Val_int(a));
+        return v;
+}
+

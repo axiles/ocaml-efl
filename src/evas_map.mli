@@ -51,3 +51,7 @@ val point_image_uv_set : t -> int -> float -> float -> unit
 
 val point_image_uv_get : t -> int -> float * float
 
+val point_color_set : t -> int -> int -> int -> int -> int -> unit
+
+val point_color_get : t -> int -> int * int * int * int
+

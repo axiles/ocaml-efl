@@ -68,3 +68,9 @@ external point_image_uv_set : t -> int -> float -> float -> unit =
 external point_image_uv_get : t -> int -> float * float =
   "ml_evas_map_point_image_uv_get"
 
+external point_color_set : t -> int -> int -> int -> int -> int -> unit =
+  "ml_evas_map_point_color_set_byte" "ml_evas_map_point_color_set_native"
+
+external point_color_get : t -> int -> int * int * int * int =
+  "ml_evas_map_point_color_get"
+
