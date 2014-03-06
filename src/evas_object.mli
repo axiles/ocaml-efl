@@ -245,19 +245,30 @@ val event_callback_priority_add_image_preloaded :
 val event_callback_priority_add_image_unloaded :
   t -> Evas.callback_priority -> unit event_cb -> unit
 
-val pass_events_set : Evas.obj -> bool -> unit
+val pass_events_set : t -> bool -> unit
 
-val pass_events_get : Evas.obj -> bool
+val pass_events_get : t -> bool
 
-val repeat_events_set : Evas.obj -> bool -> unit
+val repeat_events_set : t -> bool -> unit
 
-val repeat_events_get : Evas.obj -> bool
+val repeat_events_get : t -> bool
 
-val propagate_events_set : Evas.obj -> bool -> unit
+val propagate_events_set : t -> bool -> unit
 
-val propagate_events_get : Evas.obj -> bool
+val propagate_events_get : t -> bool
 
-val freeze_events_set : Evas.obj -> bool -> unit
+val freeze_events_set : t -> bool -> unit
 
-val freeze_events_get : Evas.obj -> bool
+val freeze_events_get : t -> bool
+
+(** {2 UV Mapping} *)
+
+val map_enable_set : t -> bool -> unit
+
+val map_enable_get : t -> bool
+
+val map_set : t -> Evas.map -> unit
+
+val map_get : t -> Evas.map
+
 

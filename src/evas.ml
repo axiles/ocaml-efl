@@ -77,6 +77,8 @@ end
 
 type gl_api
 
+type map
+
 let hint_expand = 1.
 
 let hint_fill = -1.
@@ -208,10 +210,6 @@ external norender : t -> unit = "ml_evas_norender"
 external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
-
-(* {2 UV Mapping} *)
-
-type map
 
 (* Shared Image Cache Server *)
 

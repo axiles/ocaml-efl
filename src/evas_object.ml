@@ -339,26 +339,37 @@ external event_callback_priority_add_image_unloaded :
   t -> Evas.callback_priority -> unit event_cb -> unit =
     "ml_evas_object_event_callback_priority_add_image_unloaded"
 
-external pass_events_set : Evas.obj -> bool -> unit =
+external pass_events_set : t -> bool -> unit =
   "ml_evas_object_pass_events_set"
 
-external pass_events_get : Evas.obj -> bool = "ml_evas_object_pass_events_get"
+external pass_events_get : t -> bool = "ml_evas_object_pass_events_get"
 
-external repeat_events_set : Evas.obj -> bool -> unit =
+external repeat_events_set : t -> bool -> unit =
   "ml_evas_object_repeat_events_set"
 
-external repeat_events_get : Evas.obj -> bool =
+external repeat_events_get : t -> bool =
   "ml_evas_object_repeat_events_get"
 
-external propagate_events_set : Evas.obj -> bool -> unit =
+external propagate_events_set : t -> bool -> unit =
   "ml_evas_object_propagate_events_set"
 
-external propagate_events_get : Evas.obj -> bool =
+external propagate_events_get : t -> bool =
   "ml_evas_object_propagate_events_get"
 
-external freeze_events_set : Evas.obj -> bool -> unit =
+external freeze_events_set : t -> bool -> unit =
   "ml_evas_object_freeze_events_set"
 
-external freeze_events_get : Evas.obj -> bool =
+external freeze_events_get : t -> bool =
   "ml_evas_object_freeze_events_get"
+
+(* UV Mapping *)
+
+external map_enable_set : t -> bool -> unit =
+  "ml_evas_object_map_enable_set"
+
+external map_enable_get : t -> bool = "ml_evas_object_map_enable_get"
+
+external map_set : t -> Evas.map -> unit = "ml_evas_object_map_set"
+
+external map_get : t -> Evas.map = "ml_evas_object_map_get"
 

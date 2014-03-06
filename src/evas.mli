@@ -72,6 +72,8 @@ type load_error = [
 
 type gl_api
 
+type map
+
 val hint_expand : float
 
 val hint_fill : float
@@ -187,10 +189,6 @@ val norender : t -> unit
 val render_idle_flush : t -> unit
 
 val render_dump : t -> unit
-
-(** {2 UV Mapping} *)
-
-type map
 
 (** {2 Shared Image Cache Server} *)
 

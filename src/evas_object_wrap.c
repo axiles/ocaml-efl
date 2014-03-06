@@ -1055,3 +1055,29 @@ PREFIX value ml_evas_object_freeze_events_get(value v_obj)
         return Val_bool(evas_object_freeze_events_get((Evas_Object*) v_obj));
 }
 
+/* UV Mapping */
+
+PREFIX value ml_evas_object_map_enable_set(value v_obj, value v_flag)
+{
+        evas_object_map_enable_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_map_enable_get(value v_obj)
+{
+        return Val_bool(evas_object_map_enable_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_map_set(value v_obj, value v_m)
+{
+        evas_object_map_set((Evas_Object*) v_obj, (Evas_Map*) v_m);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_map_get(value v_obj)
+{
+        const Evas_Map* m = evas_object_map_get((Evas_Object*) v_obj);
+        if(m == NULL) caml_failwith("evas_object_map_get");
+        return (value) m;
+}
+
