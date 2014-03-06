@@ -1147,3 +1147,21 @@ PREFIX value ml_evas_object_size_hint_display_mode_set(value v_obj, value v_m)
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_size_hint_request_get(value v_obj)
+{
+        Evas_Coord w, h;
+        evas_object_size_hint_request_get((Evas_Object*) v_obj, &w, &h);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
+        return v;
+}
+
+PREFIX value ml_evas_object_size_hint_request_set(
+        value v_obj, value v_w, value v_h)
+{
+        evas_object_size_hint_request_set((Evas_Object*) v_obj, Int_val(v_w),
+                Int_val(v_h));
+        return Val_unit;
+}
+

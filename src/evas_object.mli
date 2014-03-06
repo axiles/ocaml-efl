@@ -283,3 +283,7 @@ val size_hint_display_mode_get : t -> Evas.display_mode
 
 val size_hint_display_mode_set : t -> Evas.display_mode -> unit
 
+val size_hint_request_get : t -> int * int
+
+val size_hint_request_set : t -> int -> int -> unit
+

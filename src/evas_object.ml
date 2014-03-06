@@ -390,3 +390,9 @@ external size_hint_display_mode_get : t -> Evas.display_mode =
 external size_hint_display_mode_set : t -> Evas.display_mode -> unit =
   "ml_evas_object_size_hint_display_mode_set"
 
+external size_hint_request_get : t -> int * int =
+  "ml_evas_object_size_hint_request_get"
+
+external size_hint_request_set : t -> int -> int -> unit =
+  "ml_evas_object_size_hint_request_set"
+
