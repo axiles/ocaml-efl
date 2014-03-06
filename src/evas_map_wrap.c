@@ -111,3 +111,8 @@ PREFIX value ml_evas_map_util_3d_perspective(
         return Val_unit;
 }
 
+PREFIX value ml_evas_map_util_clockwise_get(value v_m)
+{
+        return Val_bool(evas_map_util_clockwise_get((Evas_Map*) v_m));
+}
+
