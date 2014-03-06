@@ -14,3 +14,9 @@ external util_points_populate_from_geometry :
 external util_points_color_set : t -> int -> int -> int -> int -> unit =
   "ml_evas_map_util_points_color_set"
 
+external util_rotate : t -> float -> int -> int -> unit =
+  "ml_evas_map_util_rotate"
+
+external util_zoom : t -> float -> float -> int -> int -> unit =
+  "ml_evas_map_util_zoom"
+

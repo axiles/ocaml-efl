@@ -40,3 +40,18 @@ PREFIX value ml_evas_map_util_points_color_set(
         return Val_unit;
 }
 
+PREFIX value ml_evas_map_util_rotate(value v_m, value v_d, value v_x, value v_y)
+{
+        evas_map_util_rotate((Evas_Map*) v_m, Double_val(v_d), Int_val(v_x),
+                Int_val(v_y));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_util_zoom(
+        value v_m, value v_zx, value v_zy, value v_x, value v_y)
+{
+        evas_map_util_zoom((Evas_Map*) v_m, Double_val(v_zx), Double_val(v_zy),
+                Int_val(v_x), Int_val(v_y));
+        return Val_unit;
+}
+

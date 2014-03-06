@@ -11,3 +11,7 @@ val util_points_populate_from_geometry :
 
 val util_points_color_set : t -> int -> int -> int -> int -> unit
 
+val util_rotate : t -> float -> int -> int -> unit
+
+val util_zoom : t -> float -> float -> int -> int -> unit
+
