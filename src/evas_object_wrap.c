@@ -55,13 +55,6 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
         CAMLreturn0;
 }
 
-PREFIX value ml_evas_object_size_hint_min_set(value v_obj, value v_w, value v_h)
-{
-        evas_object_size_hint_min_set((Evas_Object*) v_obj, Int_val(v_w),
-                Int_val(v_h));
-        return Val_unit;
-}
-
 PREFIX value ml_evas_object_size_hint_aspect_set(
         value v_obj, value v_aspect, value v_w, value v_h)
 {
@@ -1079,5 +1072,41 @@ PREFIX value ml_evas_object_map_get(value v_obj)
         const Evas_Map* m = evas_object_map_get((Evas_Object*) v_obj);
         if(m == NULL) caml_failwith("evas_object_map_get");
         return (value) m;
+}
+
+/* Size Hints */
+
+PREFIX value ml_evas_object_size_hint_min_get(value v_obj)
+{
+        Evas_Coord w, h;
+        evas_object_size_hint_min_get((Evas_Object*) v_obj, &w, &h);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
+        return v;
+}
+
+PREFIX value ml_evas_object_size_hint_min_set(value v_obj, value v_w, value v_h)
+{
+        evas_object_size_hint_min_set((Evas_Object*) v_obj, Int_val(v_w),
+                Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_size_hint_max_get(value v_obj)
+{
+        Evas_Coord w, h;
+        evas_object_size_hint_max_get((Evas_Object*) v_obj, &w, &h);
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
+        return v;
+}
+
+PREFIX value ml_evas_object_size_hint_max_set(value v_obj, value v_w, value v_h)
+{
+        evas_object_size_hint_max_set((Evas_Object*) v_obj, Int_val(v_w),
+                Int_val(v_h));
+        return Val_unit;
 }
 

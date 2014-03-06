@@ -62,9 +62,6 @@ external size_hint_align_get : t -> float * float =
 
 external rectangle_add : Evas.t -> t = "ml_evas_object_rectangle_add"
 
-external size_hint_min_set : t -> int -> int -> unit =
-  "ml_evas_object_size_hint_min_set"
-
 external size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit =
   "ml_evas_object_size_hint_aspect_set"
 
@@ -372,4 +369,18 @@ external map_enable_get : t -> bool = "ml_evas_object_map_enable_get"
 external map_set : t -> Evas.map -> unit = "ml_evas_object_map_set"
 
 external map_get : t -> Evas.map = "ml_evas_object_map_get"
+
+(* Size Hints *)
+
+external size_hint_min_get : t -> int * int =
+  "ml_evas_object_size_hint_min_get"
+
+external size_hint_min_set : t -> int -> int -> unit =
+  "ml_evas_object_size_hint_min_set"
+
+external size_hint_max_get : t -> int * int =
+  "ml_evas_object_size_hint_max_get"
+
+external size_hint_max_set : t -> int -> int -> unit =
+  "ml_evas_object_size_hint_max_set"
 

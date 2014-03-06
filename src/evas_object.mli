@@ -38,8 +38,6 @@ val size_hint_align_get : t -> float * float
 
 val rectangle_add : Evas.t -> t
 
-val size_hint_min_set : t -> int -> int -> unit
-
 val size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit
 
 val box_layout_flow_horizontal : t -> box_data -> unit
@@ -271,4 +269,13 @@ val map_set : t -> Evas.map -> unit
 
 val map_get : t -> Evas.map
 
+(* {2 Size Hints} *)
+
+val size_hint_min_get : t -> int * int
+
+val size_hint_min_set : t -> int -> int -> unit
+
+val size_hint_max_get : t -> int * int
+
+val size_hint_max_set : t -> int -> int -> unit
 
