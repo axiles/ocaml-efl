@@ -50,3 +50,9 @@ external alpha_set : t -> bool -> unit = "ml_evas_map_alpha_set"
 
 external alpha_get : t -> bool = "ml_evas_map_alpha_get"
 
+external dup : t -> t = "ml_evas_map_dup"
+
+external free : t -> unit = "ml_evas_map_free"
+
+external count_get : t -> int = "ml_evas_map_count_get"
+

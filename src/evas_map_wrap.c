@@ -145,3 +145,19 @@ PREFIX value ml_evas_map_alpha_get(value v_m)
         return Val_bool(evas_map_alpha_get((Evas_Map*) v_m));
 }
 
+PREFIX value ml_evas_map_dup(value v_m)
+{
+        return (value) evas_map_dup((Evas_Map*) v_m);
+}
+
+PREFIX value ml_evas_map_free(value v_m)
+{
+        evas_map_free((Evas_Map*) v_m);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_count_get(value v_m)
+{
+        return Val_int(evas_map_count_get((Evas_Map*) v_m));
+}
+

@@ -37,3 +37,9 @@ val alpha_set : t -> bool -> unit
 
 val alpha_get : t -> bool
 
+val dup : t -> t
+
+val free : t -> unit
+
+val count_get : t -> int
+
