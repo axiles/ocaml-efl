@@ -209,6 +209,10 @@ external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
 
+(* {2 UV Mapping} *)
+
+type map
+
 (* Shared Image Cache Server *)
 
 type cserve_stats = {
