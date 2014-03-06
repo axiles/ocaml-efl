@@ -111,6 +111,19 @@ inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
         return EVAS_ASPECT_CONTROL_NONE;
 }
 
+inline value Val_Evas_Aspect_Control(Evas_Aspect_Control ac)
+{
+        switch(ac) {
+                case EVAS_ASPECT_CONTROL_NONE: return Val_none;
+                case EVAS_ASPECT_CONTROL_NEITHER: return Val_neither;
+                case EVAS_ASPECT_CONTROL_HORIZONTAL: return Val_horizontal;
+                case EVAS_ASPECT_CONTROL_VERTICAL: return Val_vertical;
+                case EVAS_ASPECT_CONTROL_BOTH: return Val_both;
+        }
+        caml_failwith("Val_Evas_Aspect_Control");
+        return Val_none;
+}
+
 PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
 {
         Evas_Coord x, y;

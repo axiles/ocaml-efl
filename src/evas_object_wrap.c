@@ -11,34 +11,6 @@ PREFIX value ml_evas_object_smart_callback_add(
         CAMLreturn(Val_unit);
 }
 
-PREFIX value ml_evas_object_size_hint_weight_set(
-        value v_obj, value v_x, value v_y)
-{
-        evas_object_size_hint_weight_set((Evas_Object*) v_obj, Double_val(v_x),
-                Double_val(v_y));
-        return Val_unit;
-}
-
-PREFIX value ml_evas_object_size_hint_align_set(
-        value v_obj, value v_x, value v_y)
-{
-        evas_object_size_hint_align_set((Evas_Object*) v_obj, Double_val(v_x),
-                Double_val(v_y));
-        return Val_unit;
-}
-
-PREFIX value ml_evas_object_size_hint_align_get(value v_obj)
-{
-        CAMLparam0();
-        CAMLlocal1(v);
-        double x, y;
-        evas_object_size_hint_align_get((Evas_Object*) v_obj, &x, &y);
-        v = caml_alloc(2, 0);
-        Store_field(v, 0, copy_double(x));
-        Store_field(v, 1, copy_double(y));
-        CAMLreturn(v);
-}
-
 PREFIX value ml_evas_object_rectangle_add(value v_e)
 {
         return (value) evas_object_rectangle_add((Evas*) v_e);
@@ -53,14 +25,6 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
         v_fun = Field(*v_user_data, 0);
         caml_callback2(v_fun, (value) obj, (value) priv);
         CAMLreturn0;
-}
-
-PREFIX value ml_evas_object_size_hint_aspect_set(
-        value v_obj, value v_aspect, value v_w, value v_h)
-{
-        evas_object_size_hint_aspect_set((Evas_Object*) v_obj,
-                Evas_Aspect_Control_val(v_aspect), Int_val(v_w), Int_val(v_h));
-        return Val_unit;
 }
 
 PREFIX value ml_evas_object_box_layout_flow_horizontal(
@@ -1162,6 +1126,66 @@ PREFIX value ml_evas_object_size_hint_request_set(
 {
         evas_object_size_hint_request_set((Evas_Object*) v_obj, Int_val(v_w),
                 Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_size_hint_aspect_get(value v_obj)
+{
+        Evas_Aspect_Control ac;
+        Evas_Coord w, h;
+        evas_object_size_hint_aspect_get((Evas_Object*) v_obj, &ac, &w, &h);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_Evas_Aspect_Control(ac));
+        Store_field(v, 1, Val_int(w));
+        Store_field(v, 2, Val_int(h));
+        return v;
+}
+
+PREFIX value ml_evas_object_size_hint_aspect_set(
+        value v_obj, value v_aspect, value v_w, value v_h)
+{
+        evas_object_size_hint_aspect_set((Evas_Object*) v_obj,
+                Evas_Aspect_Control_val(v_aspect), Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_size_hint_align_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        double x, y;
+        evas_object_size_hint_align_get((Evas_Object*) v_obj, &x, &y);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_double(x));
+        Store_field(v, 1, copy_double(y));
+        CAMLreturn(v);
+}
+
+PREFIX value ml_evas_object_size_hint_align_set(
+        value v_obj, value v_x, value v_y)
+{
+        evas_object_size_hint_align_set((Evas_Object*) v_obj, Double_val(v_x),
+                Double_val(v_y));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_size_hint_weight_get(value v_obj)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        double x, y;
+        evas_object_size_hint_weight_get((Evas_Object*) v_obj, &x, &y);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_double(x));
+        Store_field(v, 1, copy_double(y));
+        CAMLreturn(v);
+}
+
+PREFIX value ml_evas_object_size_hint_weight_set(
+        value v_obj, value v_x, value v_y)
+{
+        evas_object_size_hint_weight_set((Evas_Object*) v_obj, Double_val(v_x),
+                Double_val(v_y));
         return Val_unit;
 }
 

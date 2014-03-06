@@ -8,37 +8,7 @@ type box_layout = t -> box_data -> unit
 
 type 'a event_cb = Evas.t -> t -> 'a -> unit
 
-val size_hint_weight_set : t -> float -> float -> unit
-
-val size_hint_align_set : t -> float -> float -> unit
-
-type size_hint = [
-  | `expand
-  | `hexpand
-  | `vexpand
-  | `fill
-  | `hfill
-  | `vfill
-  | `center
-  | `hcenter
-  | `vcenter
-  | `weight0
-  | `hweight0
-  | `vweight0
-  | `weight of float
-  | `hweight of float
-  | `vweight of float
-  | `align of float
-  | `halign of float
-  | `valign of float]
-
-val size_hint_set : t -> size_hint list -> unit
-
-val size_hint_align_get : t -> float * float
-
 val rectangle_add : Evas.t -> t
-
-val size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit
 
 val box_layout_flow_horizontal : t -> box_data -> unit
 
@@ -271,6 +241,26 @@ val map_get : t -> Evas.map
 
 (* {2 Size Hints} *)
 
+type size_hint = [
+  | `expand
+  | `hexpand
+  | `vexpand
+  | `fill
+  | `hfill
+  | `vfill
+  | `center
+  | `hcenter
+  | `vcenter
+  | `weight0
+  | `hweight0
+  | `vweight0
+  | `weight of float
+  | `hweight of float
+  | `vweight of float
+  | `align of float
+  | `halign of float
+  | `valign of float]
+
 val size_hint_min_get : t -> int * int
 
 val size_hint_min_set : t -> int -> int -> unit
@@ -286,4 +276,18 @@ val size_hint_display_mode_set : t -> Evas.display_mode -> unit
 val size_hint_request_get : t -> int * int
 
 val size_hint_request_set : t -> int -> int -> unit
+
+val size_hint_aspect_get : t -> Evas.aspect_control * int * int
+
+val size_hint_aspect_set : t -> Evas.aspect_control -> int -> int -> unit
+
+val size_hint_align_get : t -> float * float
+
+val size_hint_align_set : t -> float -> float -> unit
+
+val size_hint_weight_get : t -> float * float
+
+val size_hint_weight_set : t -> float -> float -> unit
+
+val size_hint_set : t -> size_hint list -> unit
 
