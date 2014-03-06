@@ -289,5 +289,9 @@ val size_hint_weight_get : t -> float * float
 
 val size_hint_weight_set : t -> float -> float -> unit
 
+val size_hint_padding_get : t -> int * int * int * int
+
+val size_hint_padding_set : t -> int -> int -> int -> int -> unit
+
 val size_hint_set : t -> size_hint list -> unit
 

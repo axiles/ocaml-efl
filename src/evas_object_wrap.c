@@ -1189,3 +1189,23 @@ PREFIX value ml_evas_object_size_hint_weight_set(
         return Val_unit;
 }
 
+PREFIX value ml_evas_object_size_hint_padding_get(value v_obj)
+{
+        Evas_Coord l, r, t, b;
+        evas_object_size_hint_padding_get((Evas_Object*) v_obj, &l, &r, &t, &b);
+        value v = caml_alloc(4, 0);
+        Store_field(v_obj, 0, Val_int(l));
+        Store_field(v_obj, 1, Val_int(r));
+        Store_field(v_obj, 2, Val_int(t));
+        Store_field(v_obj, 3, Val_int(b));
+        return v;
+}
+
+PREFIX value ml_evas_object_size_hint_padding_set(
+        value v_obj, value v_l, value v_r, value v_t, value v_b)
+{
+        evas_object_size_hint_padding_set((Evas_Object*) v_obj, Int_val(v_l),
+                Int_val(v_r), Int_val(v_t), Int_val(v_b));
+        return Val_unit;
+}
+

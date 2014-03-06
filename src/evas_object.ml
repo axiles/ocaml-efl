@@ -377,6 +377,12 @@ external size_hint_weight_get : t -> float * float =
 external size_hint_weight_set : t -> float -> float -> unit =
   "ml_evas_object_size_hint_weight_set"
 
+external size_hint_padding_get : t -> int * int * int * int =
+  "ml_evas_object_size_hint_padding_get"
+
+external size_hint_padding_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_object_size_hint_padding_set"
+
 let size_hint_set obj list =
   let aux (hw, vw, ha, va) hint =
     match (hint : size_hint) with
