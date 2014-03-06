@@ -43,3 +43,7 @@ val free : t -> unit
 
 val count_get : t -> int
 
+val point_coord_set : t -> int -> int -> int -> int -> unit
+
+val point_coord_get : t -> int -> int * int * int
+

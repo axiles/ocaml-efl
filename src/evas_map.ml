@@ -56,3 +56,9 @@ external free : t -> unit = "ml_evas_map_free"
 
 external count_get : t -> int = "ml_evas_map_count_get"
 
+external point_coord_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_map_point_coord_set"
+
+external point_coord_get : t -> int -> int * int * int =
+  "ml_evas_map_point_coord_get"
+

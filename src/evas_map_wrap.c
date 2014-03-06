@@ -161,3 +161,22 @@ PREFIX value ml_evas_map_count_get(value v_m)
         return Val_int(evas_map_count_get((Evas_Map*) v_m));
 }
 
+PREFIX value ml_evas_map_point_coord_set(
+        value v_m, value v_i, value v_x, value v_y, value v_z)
+{
+        evas_map_point_coord_set((Evas_Map*) v_m, Int_val(v_i), Int_val(v_x),
+                Int_val(v_y), Int_val(v_z));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_point_coord_get(value v_m, value v_i)
+{
+        Evas_Coord x, y, z;
+        evas_map_point_coord_get((Evas_Map*) v_m, Int_val(v_i), &x, &y, &z);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(x));
+        Store_field(v, 1, Val_int(y));
+        Store_field(v, 2, Val_int(z));
+        return v;
+}
+
