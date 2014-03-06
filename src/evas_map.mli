@@ -15,3 +15,8 @@ val util_rotate : t -> float -> int -> int -> unit
 
 val util_zoom : t -> float -> float -> int -> int -> unit
 
+val util_3d_rotate : t -> float -> float -> float -> int -> int -> int -> unit
+
+val util_quat_rotate :
+  t -> float -> float -> float -> float -> float -> float -> float -> unit
+

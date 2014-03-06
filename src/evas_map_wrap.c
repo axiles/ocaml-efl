@@ -55,3 +55,35 @@ PREFIX value ml_evas_map_util_zoom(
         return Val_unit;
 }
 
+PREFIX value ml_evas_map_util_3d_rotate_native(
+        value v_m, value v_dx, value v_dy, value v_dz, value v_cx, value v_cy,
+        value v_cz)
+{
+        evas_map_util_3d_rotate((Evas_Map*) v_m, Double_val(v_dx),
+                Double_val(v_dy), Double_val(v_dz), Int_val(v_cx),
+                Int_val(v_cy), Int_val(v_cz));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_util_3d_rotate_byte(value* argv, int argn)
+{
+        return ml_evas_map_util_3d_rotate_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6]);
+}
+
+PREFIX value ml_evas_map_util_quat_rotate_native(
+        value v_m, value v_qx, value v_qy, value v_qz, value v_qw, value v_cx,
+        value v_cy, value v_cz)
+{
+        evas_map_util_quat_rotate((Evas_Map*) v_m, Double_val(v_qx),
+                Double_val(v_qy), Double_val(v_qz), Double_val(v_qw),
+                Double_val(v_cx), Double_val(v_cy), Double_val(v_cz));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_util_quat_rotate_byte(value* argv, int argn)
+{
+        return ml_evas_map_util_quat_rotate_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6], argv[7]);
+}
+

@@ -20,3 +20,13 @@ external util_rotate : t -> float -> int -> int -> unit =
 external util_zoom : t -> float -> float -> int -> int -> unit =
   "ml_evas_map_util_zoom"
 
+external util_3d_rotate :
+  t -> float -> float -> float -> int -> int -> int -> unit =
+    "ml_evas_map_util_3d_rotate_byte"
+    "ml_evas_map_util_3d_rotate_native"
+
+external util_quat_rotate :
+  t -> float -> float -> float -> float -> float -> float -> float -> unit =
+    "ml_evas_map_util_quat_rotate_byte"
+    "ml_evas_map_util_quat_rotate_native"
+
