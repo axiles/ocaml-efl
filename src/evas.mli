@@ -74,6 +74,8 @@ type gl_api
 
 type map
 
+type display_mode = [`none | `compress | `expand | `dont_change]
+
 val hint_expand : float
 
 val hint_fill : float

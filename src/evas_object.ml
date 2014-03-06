@@ -384,3 +384,9 @@ external size_hint_max_get : t -> int * int =
 external size_hint_max_set : t -> int -> int -> unit =
   "ml_evas_object_size_hint_max_set"
 
+external size_hint_display_mode_get : t -> Evas.display_mode =
+  "ml_evas_object_size_hint_display_mode_get"
+
+external size_hint_display_mode_set : t -> Evas.display_mode -> unit =
+  "ml_evas_object_size_hint_display_mode_set"
+

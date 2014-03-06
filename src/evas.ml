@@ -79,6 +79,8 @@ type gl_api
 
 type map
 
+type display_mode = [`none | `compress | `expand | `dont_change]
+
 let hint_expand = 1.
 
 let hint_fill = -1.

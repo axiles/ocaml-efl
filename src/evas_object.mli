@@ -279,3 +279,7 @@ val size_hint_max_get : t -> int * int
 
 val size_hint_max_set : t -> int -> int -> unit
 
+val size_hint_display_mode_get : t -> Evas.display_mode
+
+val size_hint_display_mode_set : t -> Evas.display_mode -> unit
+

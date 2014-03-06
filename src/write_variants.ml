@@ -81,6 +81,7 @@ let () =
   g "dock";
   g "does_not_exist";
   f "Val_done" "_done";
+  g "dont_change";
   g "double_click";
   g "down";
   g "dropdown_menu";

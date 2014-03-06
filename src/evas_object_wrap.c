@@ -1076,6 +1076,30 @@ PREFIX value ml_evas_object_map_get(value v_obj)
 
 /* Size Hints */
 
+inline Evas_Display_Mode Evas_Display_Mode_val(value v)
+{
+        switch(v) {
+                case Val_none: return EVAS_DISPLAY_MODE_NONE;
+                case Val_compress: return EVAS_DISPLAY_MODE_COMPRESS;
+                case Val_expand: return EVAS_DISPLAY_MODE_EXPAND;
+                case Val_dont_change: return EVAS_DISPLAY_MODE_DONT_CHANGE;
+        }
+        caml_failwith("Evas_Display_Mode_val");
+        return EVAS_DISPLAY_MODE_NONE;
+}
+
+inline value Val_Evas_Display_Mode(Evas_Display_Mode m)
+{
+        switch(m) {
+                case EVAS_DISPLAY_MODE_NONE: return Val_none;
+                case EVAS_DISPLAY_MODE_COMPRESS: return Val_compress;
+                case EVAS_DISPLAY_MODE_EXPAND: return Val_expand;
+                case EVAS_DISPLAY_MODE_DONT_CHANGE: return Val_dont_change;
+        }
+        caml_failwith("Val_Evas_Display_Mode");
+        return Val_none;
+}
+
 PREFIX value ml_evas_object_size_hint_min_get(value v_obj)
 {
         Evas_Coord w, h;
@@ -1107,6 +1131,19 @@ PREFIX value ml_evas_object_size_hint_max_set(value v_obj, value v_w, value v_h)
 {
         evas_object_size_hint_max_set((Evas_Object*) v_obj, Int_val(v_w),
                 Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_size_hint_display_mode_get(value v_obj)
+{
+        return Val_Evas_Display_Mode(evas_object_size_hint_display_mode_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_size_hint_display_mode_set(value v_obj, value v_m)
+{
+        evas_object_size_hint_display_mode_set((Evas_Object*) v_obj,
+                Evas_Display_Mode_val(v_m));
         return Val_unit;
 }
 
