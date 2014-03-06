@@ -87,3 +87,27 @@ PREFIX value ml_evas_map_util_quat_rotate_byte(value* argv, int argn)
                 argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
+PREFIX value ml_evas_map_util_3d_lighting_native(
+        value v_m, value v_lx, value v_ly, value v_lz, value v_lr, value v_lg,
+        value v_lb, value v_ar, value v_ag, value v_ab)
+{
+        evas_map_util_3d_lighting((Evas_Map*) v_m, Int_val(v_lx), Int_val(v_ly),
+                Int_val(v_lz), Int_val(v_lr), Int_val(v_lg), Int_val(v_lb),
+                Int_val(v_ar), Int_val(v_ag), Int_val(v_ab));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_util_3d_lighting_byte(value* argv, int argn)
+{
+        return ml_evas_map_util_3d_lighting_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
+}
+
+PREFIX value ml_evas_map_util_3d_perspective(
+        value v_m, value v_px, value v_py, value v_z0, value v_foc)
+{
+        evas_map_util_3d_perspective((Evas_Map*) v_m, Int_val(v_px),
+                Int_val(v_py), Int_val(v_z0), Int_val(v_foc));
+        return Val_unit;
+}
+

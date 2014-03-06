@@ -30,3 +30,11 @@ external util_quat_rotate :
     "ml_evas_map_util_quat_rotate_byte"
     "ml_evas_map_util_quat_rotate_native"
 
+external util_3d_lighting :
+  t -> int -> int -> int -> int -> int -> int -> int -> int -> int -> unit =
+    "ml_evas_map_util_3d_lighting_byte"
+    "ml_evas_map_util_3d_lighting_native"
+
+external util_3d_perspective : t -> int -> int -> int -> int -> unit =
+  "ml_evas_map_util_3d_perspective"
+
