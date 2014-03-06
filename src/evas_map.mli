@@ -47,3 +47,7 @@ val point_coord_set : t -> int -> int -> int -> int -> unit
 
 val point_coord_get : t -> int -> int * int * int
 
+val point_image_uv_set : t -> int -> float -> float -> unit
+
+val point_image_uv_get : t -> int -> float * float
+

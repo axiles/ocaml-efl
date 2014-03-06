@@ -62,3 +62,9 @@ external point_coord_set : t -> int -> int -> int -> int -> unit =
 external point_coord_get : t -> int -> int * int * int =
   "ml_evas_map_point_coord_get"
 
+external point_image_uv_set : t -> int -> float -> float -> unit =
+  "ml_evas_map_point_image_uv_set"
+
+external point_image_uv_get : t -> int -> float * float =
+  "ml_evas_map_point_image_uv_get"
+

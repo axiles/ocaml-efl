@@ -180,3 +180,23 @@ PREFIX value ml_evas_map_point_coord_get(value v_m, value v_i)
         return v;
 }
 
+PREFIX value ml_evas_map_point_image_uv_set(
+        value v_m, value v_i, value v_u, value v_v)
+{
+        evas_map_point_image_uv_set((Evas_Map*) v_m, Int_val(v_i),
+                Double_val(v_u), Double_val(v_v));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_map_point_image_uv_get(value v_m, value v_i)
+{
+        CAMLparam2(v_m, v_i);
+        CAMLlocal1(v_r);
+        double u, v;
+        evas_map_point_image_uv_get((Evas_Map*) v_m, Int_val(v_i), &u, &v);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(u));
+        Store_field(v_r, 1, copy_double(v));
+        CAMLreturn(v_r);
+}
+
