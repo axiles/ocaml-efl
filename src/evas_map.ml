@@ -11,3 +11,6 @@ external util_points_populate_from_geometry :
     "ml_evas_map_util_points_populate_from_geometry_byte"
     "ml_evas_map_util_points_populate_from_geometry_native"
 
+external util_points_color_set : t -> int -> int -> int -> int -> unit =
+  "ml_evas_map_util_points_color_set"
+

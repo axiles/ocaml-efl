@@ -32,3 +32,11 @@ PREFIX value ml_evas_map_util_points_populate_from_geometry_byte(
                 argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
+PREFIX value ml_evas_map_util_points_color_set(
+        value v_m, value v_r, value v_g, value v_b, value v_a)
+{
+        evas_map_util_points_color_set((Evas_Map*) v_m, Int_val(v_r),
+                Int_val(v_g), Int_val(v_b), Int_val(v_a));
+        return Val_unit;
+}
+
