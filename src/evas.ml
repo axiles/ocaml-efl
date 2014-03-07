@@ -299,3 +299,15 @@ external string_char_prev_get : string -> int -> int * Int32.t =
 
 external string_char_len_get : string -> int = "ml_evas_string_char_len_get"
 
+(* Input Evas Feeding Functions *)
+
+external device_add : t -> device = "ml_evas_device_add"
+
+external device_del : device -> unit = "ml_evas_device_del"
+
+external device_push : t -> device -> unit = "ml_evas_device_push"
+
+external device_pop : t -> unit = "ml_evas_device_pop"
+
+external device_list : t -> device option -> device list = "ml_evas_device_list"
+

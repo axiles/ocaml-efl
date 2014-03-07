@@ -267,3 +267,15 @@ val string_char_prev_get : string -> int -> int * Int32.t
 
 val string_char_len_get : string -> int
 
+(** {2 Evas Feeding functions} *)
+
+val device_add : t -> device
+
+val device_del : device -> unit
+
+val device_push : t -> device -> unit
+
+val device_pop : t -> unit
+
+val device_list : t -> device option -> device list
+
