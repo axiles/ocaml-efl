@@ -668,3 +668,18 @@ PREFIX value ml_evas_object_top_at_pointer_get(value v_e)
                 (Evas*) v_e));
 }
 
+PREFIX value ml_evas_object_top_in_rectangle_get_native(
+        value v_e, value v_x, value v_y, value v_w, value v_h, value v_ip,
+        value v_ih)
+{
+        return copy_Evas_Object_opt(evas_object_top_in_rectangle_get(
+                (Evas*) v_e, Int_val(v_x), Int_val(v_y), Int_val(v_w),
+                Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
+}
+
+PREFIX value ml_evas_object_top_in_rectangle_get_byte(value* argv, int argn)
+{
+        return ml_evas_object_top_in_rectangle_get_native(argv[0], argv[1],
+                argv[2], argv[3], argv[4], argv[5], argv[6]);
+}
+

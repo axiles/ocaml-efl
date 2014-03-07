@@ -454,3 +454,8 @@ external top_at_xy_get : Evas.t -> int -> int -> bool -> bool -> t option =
 external top_at_pointer_get : Evas.t -> t option =
   "ml_evas_object_top_at_pointer_get"
 
+external top_in_rectangle_get :
+  Evas.t -> int -> int -> int -> int -> bool -> bool -> t option =
+    "ml_evas_object_top_in_rectangle_get_byte"
+    "ml_evas_object_top_in_rectangle_get_native"
+

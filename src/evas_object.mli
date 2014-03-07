@@ -333,3 +333,6 @@ val top_at_xy_get : Evas.t -> int -> int -> bool -> bool -> t option
 
 val top_at_pointer_get : Evas.t -> t option
 
+val top_in_rectangle_get :
+  Evas.t -> int -> int -> int -> int -> bool -> bool -> t option
+
