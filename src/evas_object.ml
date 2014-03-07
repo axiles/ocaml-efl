@@ -431,3 +431,13 @@ external render_op_set : t -> Evas.render_op -> unit =
 
 external render_op_get : t -> Evas.render_op = "ml_evas_object_render_op_get"
 
+external precise_is_inside_set : t -> bool -> unit =
+  "ml_evas_object_precise_is_inside_set"
+
+external precise_is_inside_get : t -> bool =
+  "ml_evas_object_precise_is_inside_get"
+
+external static_clip_set : t -> bool -> unit = "ml_evas_object_static_clip_set"
+
+external static_clip_get : t -> bool = "ml_evas_object_static_clip_get"
+

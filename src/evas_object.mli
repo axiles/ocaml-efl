@@ -315,3 +315,11 @@ val render_op_set : t -> Evas.render_op -> unit
 
 val render_op_get : t -> Evas.render_op
 
+val precise_is_inside_set : t -> bool -> unit
+
+val precise_is_inside_get : t -> bool
+
+val static_clip_set : t -> bool -> unit
+
+val static_clip_get : t -> bool
+

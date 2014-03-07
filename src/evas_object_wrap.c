@@ -616,3 +616,27 @@ PREFIX value ml_evas_object_render_op_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_precise_is_inside_set(value v_obj, value v_flag)
+{
+        evas_object_precise_is_inside_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_precise_is_inside_get(value v_obj)
+{
+        return Val_bool(evas_object_precise_is_inside_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_static_clip_set(value v_obj, value v_flag)
+{
+        evas_object_static_clip_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_static_clip_get(value v_obj)
+{
+        return Val_bool(evas_object_static_clip_get((Evas_Object*) v_obj));
+}
+
