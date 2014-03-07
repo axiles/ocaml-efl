@@ -232,6 +232,14 @@ external render_dump : t -> unit = "ml_evas_render_dump"
 
 external focus_get : t -> obj option = "ml_evas_focus_get"
 
+external objects_at_xy_get : t -> int -> int -> bool -> bool -> obj list =
+  "ml_evas_objects_at_xy_get"
+
+external objects_in_rectangle_get :
+  t -> int -> int -> int -> int -> bool -> bool -> obj list =
+    "ml_evas_objects_in_rectangle_get_byte"
+    "ml_evas_objects_in_rectangle_get_native"
+
 (* Shared Image Cache Server *)
 
 type cserve_stats = {

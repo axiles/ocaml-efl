@@ -211,6 +211,11 @@ val render_dump : t -> unit
 
 val focus_get : t -> obj option
 
+val objects_at_xy_get : t -> int -> int -> bool -> bool -> obj list
+
+val objects_in_rectangle_get :
+  t -> int -> int -> int -> int -> bool -> bool -> obj list
+
 (** {2 Shared Image Cache Server} *)
 
 type cserve_stats = {

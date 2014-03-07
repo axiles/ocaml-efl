@@ -545,6 +545,28 @@ PREFIX value ml_evas_focus_get(value v_e)
         return copy_Evas_Object_opt(evas_focus_get((Evas*) v_e));
 }
 
+PREFIX value ml_evas_objects_at_xy_get(
+        value v_e, value v_x, value v_y, value v_ip, value v_ih)
+{
+        return copy_Eina_List_Evas_Object(evas_objects_at_xy_get((Evas*) v_e,
+                Int_val(v_x), Int_val(v_y), Bool_val(v_ip), Bool_val(v_ih)));
+}
+
+PREFIX value ml_evas_objects_in_rectangle_get_native(
+        value v_e, value v_x, value v_y, value v_w, value v_h, value v_ip,
+        value v_ih)
+{
+        return copy_Eina_List_Evas_Object(evas_objects_in_rectangle_get(
+                (Evas*) v_e, Int_val(v_x), Int_val(v_y), Int_val(v_w),
+                Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
+}
+
+PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn)
+{
+        return ml_evas_objects_in_rectangle_get_native(argv[0], argv[1],
+                argv[2], argv[3], argv[4], argv[5], argv[6]);
+}
+
 /* Shared Image Cache Server */
 
 inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
