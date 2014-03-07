@@ -541,3 +541,14 @@ PREFIX value ml_evas_object_pointer_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_anti_alias_set(value v_obj, value v_flag)
+{
+        evas_object_anti_alias_set((Evas_Object*) v_obj, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_anti_alias_get(value v_obj)
+{
+        return Val_bool(evas_object_anti_alias_get((Evas_Object*) v_obj));
+}
+

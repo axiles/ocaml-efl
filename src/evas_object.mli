@@ -303,3 +303,7 @@ val pointer_mode_set : t -> pointer_mode -> unit
 
 val pointer_mode_get : t -> pointer_mode
 
+val anti_alias_set : t -> bool -> unit
+
+val anti_alias_get : t -> bool
+

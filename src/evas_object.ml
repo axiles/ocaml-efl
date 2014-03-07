@@ -418,3 +418,7 @@ external pointer_mode_set : t -> pointer_mode -> unit =
 external pointer_mode_get : t -> pointer_mode =
   "ml_evas_object_pointer_mode_get"
 
+external anti_alias_set : t -> bool -> unit = "ml_evas_object_anti_alias_set"
+
+external anti_alias_get : t -> bool = "ml_evas_object_anti_alias_get"
+
