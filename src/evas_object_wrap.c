@@ -640,3 +640,18 @@ PREFIX value ml_evas_object_static_clip_get(value v_obj)
         return Val_bool(evas_object_static_clip_get((Evas_Object*) v_obj));
 }
 
+/* Finding Objects */
+
+PREFIX value ml_evas_object_name_find(value v_e, value v_name)
+{
+        return copy_Evas_Object_opt(evas_object_name_find((Evas*) v_e,
+                String_val(v_name)));
+}
+
+PREFIX value ml_evas_object_name_child_find(
+        value v_obj, value v_name, value v_r)
+{
+        return copy_Evas_Object_opt(evas_object_name_child_find(
+                (Evas_Object*) v_obj, String_val(v_name), Int_val(v_r)));
+}
+

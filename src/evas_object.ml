@@ -441,3 +441,10 @@ external static_clip_set : t -> bool -> unit = "ml_evas_object_static_clip_set"
 
 external static_clip_get : t -> bool = "ml_evas_object_static_clip_get"
 
+(* Finding Objects *)
+
+external name_find : Evas.t -> string -> t option = "ml_evas_object_name_find"
+
+external name_child_find : t -> string -> int -> t option =
+  "ml_evas_object_name_child_find"
+

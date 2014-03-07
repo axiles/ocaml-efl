@@ -323,3 +323,9 @@ val static_clip_set : t -> bool -> unit
 
 val static_clip_get : t -> bool
 
+(** {2 Finding Objects} *)
+
+val name_find : Evas.t -> string -> t option
+
+val name_child_find : t -> string -> int -> t option
+
