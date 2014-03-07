@@ -289,3 +289,9 @@ external callback_priority_add_canvas_object_focus_out :
 external post_callback_push : Evas.t -> post_cb -> unit =
   "ml_evas_post_event_callback_push"
 
+(* Input Events Freezing/Feeding *)
+
+external freeze : Evas.t -> unit = "ml_evas_event_freeze"
+
+external thaw : Evas.t -> unit = "ml_evas_event_thaw"
+

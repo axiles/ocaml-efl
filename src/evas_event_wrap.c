@@ -504,3 +504,17 @@ PREFIX value ml_evas_post_event_callback_push(value v_e, value v_cb)
         return Val_unit;
 }
 
+/* Input Events Freezing/Feeding */
+
+PREFIX value ml_evas_event_freeze(value v_e)
+{
+        evas_event_freeze((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_event_thaw(value v_e)
+{
+        evas_event_thaw((Evas*) v_e);
+        return Val_unit;
+}
+

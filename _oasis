@@ -96,7 +96,8 @@ Library efl
     Elm_win_inwin,
     Elm_actionslider,
     Elm_video,
-    Elm_sig
+    Elm_sig,
+    Elm_toolbox
   CSources:
     include.h,
     eina_wrap.c,
