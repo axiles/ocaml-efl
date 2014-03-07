@@ -17,6 +17,8 @@ let g x = f (sprintf "Val_%s" x) x
 let () =
   g "abort";
   g "accelerate";
+  g "add";
+  g "add_rel";
   g "after";
   g "all";
   g "allcharacter";
@@ -29,10 +31,13 @@ let () =
   g "auto_fill";
   g "auto_fit";
   g "auto_fit_in";
+  g "autograb";
   g "automatic";
   g "basic";
   g "before";
   g "bicycle";
+  g "blend";
+  g "blend_rel";
   g "block_horizontal";
   g "block_vertical";
   g "block_vertical_horizontal";
@@ -57,6 +62,8 @@ let () =
   g "compress";
   g "config";
   g "content";
+  g "copy";
+  g "copy_rel";
   g "corrupt_file";
   g "crop";
   g "cube";
@@ -81,6 +88,7 @@ let () =
   g "dock";
   g "does_not_exist";
   f "Val_done" "_done";
+  g "dont_change";
   g "double_click";
   g "down";
   g "dropdown_menu";
@@ -154,6 +162,7 @@ let () =
   g "manual";
   g "markup";
   g "markup_utf8";
+  g "mask";
   g "max";
   g "menu";
   g "menubar";
@@ -177,6 +186,7 @@ let () =
   g "mouse_up";
   g "mouse_wheel";
   g "move";
+  g "mul";
   g "multi_down";
   g "multi_move";
   g "multi_up";
@@ -192,6 +202,8 @@ let () =
   g "next";
   g "no_block";
   g "no_image";
+  g "nograb";
+  g "nograb_no_repeat_updown";
   g "none";
   g "normal";
   g "notification";
@@ -276,6 +288,8 @@ let () =
   g "stencil";
   g "stop";
   g "stretch";
+  g "sub";
+  g "sub_rel";
   g "sun";
   g "sunday";
   g "terminal";
@@ -285,6 +299,8 @@ let () =
   g "thu";
   g "thursday";
   g "tile";
+  g "tint";
+  g "tint_rel";
   g "toolbar";
   g "tooltip";
   g "top";

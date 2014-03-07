@@ -77,6 +77,25 @@ end
 
 type gl_api
 
+type map
+
+type display_mode = [`none | `compress | `expand | `dont_change]
+
+type render_op = [
+  | `blend
+  | `blend_rel
+  | `copy
+  | `copy_rel
+  | `add
+  | `add_rel
+  | `sub
+  | `sub_rel
+  | `tint
+  | `tint_rel
+  | `mask
+  | `mul
+]
+
 let hint_expand = 1.
 
 let hint_fill = -1.
@@ -101,9 +120,6 @@ external store_ptr_bool : ptr -> bool -> unit = "ml_store_ptr_bool"
 external obj_of_ptr : ptr -> obj = "ml_obj_of_ptr"
 
 external float_of_ptr : ptr -> float = "ml_float_of_ptr"
-
-external color_argb_premul : int -> int -> int -> int -> int * int * int =
-  "ml_evas_color_argb_premul"
 
 (* Top Level Functions *)
 
@@ -211,4 +227,75 @@ external norender : t -> unit = "ml_evas_norender"
 external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
+
+(* Finding Objects *)
+
+external focus_get : t -> obj option = "ml_evas_focus_get"
+
+external objects_at_xy_get : t -> int -> int -> bool -> bool -> obj list =
+  "ml_evas_objects_at_xy_get"
+
+external objects_in_rectangle_get :
+  t -> int -> int -> int -> int -> bool -> bool -> obj list =
+    "ml_evas_objects_in_rectangle_get_byte"
+    "ml_evas_objects_in_rectangle_get_native"
+
+(* Shared Image Cache Server *)
+
+type cserve_stats = {
+  saved_memory : int;
+  wasted_memory : int;
+  save_memory_peak : int;
+  wasted_memory_peak : int;
+  saved_time_image_header_load : float;
+  saved_time_image_data_load : float;
+}
+
+type cserve_config = {
+  cache_max_usage : int;
+  cache_item_timeout : int;
+  cache_item_timeout_check : int;
+}
+
+external cserve_want_get : unit -> bool = "ml_evas_cserve_want_get"
+
+external cserve_connected_get : unit -> bool = "ml_evas_cserve_connected_get"
+
+external cserve_stats_get : unit -> cserve_stats option =
+  "ml_evas_cserve_stats_get"
+
+external cserve_config_get : unit -> cserve_config option =
+  "ml_evas_cserve_config_get"
+
+external cserve_config_set : cserve_config -> bool = "ml_evas_cserve_config_set"
+
+external cserve_disconnected : unit -> unit = "ml_evas_cserve_disconnected"
+
+(* General Utilities *)
+
+external load_error_str : load_error -> string = "ml_evas_load_error_str"
+
+external color_hsv_to_rgb : float -> float -> float -> int * int * int =
+  "ml_evas_color_hsv_to_rgb"
+
+external color_rgb_to_hsv : int -> int -> int -> float * float * float =
+  "ml_evas_color_rgb_to_hsv"
+
+external color_argb_premul : int -> int -> int -> int -> int * int * int =
+  "ml_evas_color_argb_premul"
+
+external color_argb_unpremul : int -> int -> int -> int -> int * int * int =
+  "ml_evas_color_argb_unpremul"
+
+external data_argb_premul : int array -> unit = "ml_evas_data_argb_premul"
+
+external data_argb_unpremul : int array -> unit = "ml_evas_data_argb_unpremul"
+
+external string_char_next_get : string -> int -> int * Int32.t =
+  "ml_evas_string_char_next_get"
+
+external string_char_prev_get : string -> int -> int * Int32.t =
+  "ml_evas_string_char_prev_get"
+
+external string_char_len_get : string -> int = "ml_evas_string_char_len_get"
 

@@ -1,10 +1,11 @@
 # OASIS_START
-# DO NOT EDIT (digest: b2bd38554c748b32fd4c7cbdbb99ec60)
+# DO NOT EDIT (digest: 74120cdb0f8f97ff67b34f7e2d117bd7)
 Ecore
 Ecore_timer
 Evas
 Evas_event
 Evas_font
+Evas_map
 Evas_object
 Evas_object_smart
 Ethumb

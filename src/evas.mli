@@ -72,6 +72,25 @@ type load_error = [
 
 type gl_api
 
+type map
+
+type display_mode = [`none | `compress | `expand | `dont_change]
+
+type render_op = [
+  | `blend
+  | `blend_rel
+  | `copy
+  | `copy_rel
+  | `add
+  | `add_rel
+  | `sub
+  | `sub_rel
+  | `tint
+  | `tint_rel
+  | `mask
+  | `mul
+]
+
 val hint_expand : float
 
 val hint_fill : float
@@ -93,8 +112,6 @@ val store_ptr_bool : ptr -> bool -> unit
 val obj_of_ptr : ptr -> obj
 
 val float_of_ptr : ptr -> float
-
-val color_argb_premul : int -> int -> int -> int -> int * int * int
 
 (** {2 Top Level Functions} *)
 
@@ -156,7 +173,7 @@ val image_cache_get : t -> int
 
 val image_max_size_get : t -> (int * int) option
 
-(** General Canvas Functions *)
+(** {2 General Canvas Functions} *)
 
 val new_ : unit -> t
 
@@ -189,4 +206,64 @@ val norender : t -> unit
 val render_idle_flush : t -> unit
 
 val render_dump : t -> unit
+
+(** {2 Finding Objects} *)
+
+val focus_get : t -> obj option
+
+val objects_at_xy_get : t -> int -> int -> bool -> bool -> obj list
+
+val objects_in_rectangle_get :
+  t -> int -> int -> int -> int -> bool -> bool -> obj list
+
+(** {2 Shared Image Cache Server} *)
+
+type cserve_stats = {
+  saved_memory : int;
+  wasted_memory : int;
+  save_memory_peak : int;
+  wasted_memory_peak : int;
+  saved_time_image_header_load : float;
+  saved_time_image_data_load : float;
+}
+
+type cserve_config = {
+  cache_max_usage : int;
+  cache_item_timeout : int;
+  cache_item_timeout_check : int;
+}
+
+val cserve_want_get : unit -> bool
+
+val cserve_connected_get : unit -> bool
+
+val cserve_stats_get : unit -> cserve_stats option
+
+val cserve_config_get : unit -> cserve_config option
+
+val cserve_config_set : cserve_config -> bool
+
+val cserve_disconnected : unit -> unit
+
+(** {2 General Utilites} *)
+
+val load_error_str : load_error -> string
+
+val color_hsv_to_rgb : float -> float -> float -> int * int * int
+
+val color_rgb_to_hsv : int -> int -> int -> float * float * float
+
+val color_argb_premul : int -> int -> int -> int -> int * int * int
+
+val color_argb_unpremul : int -> int -> int -> int -> int * int * int
+
+val data_argb_premul : int array -> unit
+
+val data_argb_unpremul : int array -> unit
+
+val string_char_next_get : string -> int -> int * Int32.t
+
+val string_char_prev_get : string -> int -> int * Int32.t
+
+val string_char_len_get : string -> int
 

@@ -111,6 +111,19 @@ inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
         return EVAS_ASPECT_CONTROL_NONE;
 }
 
+inline value Val_Evas_Aspect_Control(Evas_Aspect_Control ac)
+{
+        switch(ac) {
+                case EVAS_ASPECT_CONTROL_NONE: return Val_none;
+                case EVAS_ASPECT_CONTROL_NEITHER: return Val_neither;
+                case EVAS_ASPECT_CONTROL_HORIZONTAL: return Val_horizontal;
+                case EVAS_ASPECT_CONTROL_VERTICAL: return Val_vertical;
+                case EVAS_ASPECT_CONTROL_BOTH: return Val_both;
+        }
+        caml_failwith("Val_Evas_Aspect_Control");
+        return Val_none;
+}
+
 PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
 {
         Evas_Coord x, y;
@@ -197,21 +210,6 @@ inline value Val_Evas_Load_Error(Evas_Load_Error e)
         }
         caml_failwith("Val_Evas_Load_Error");
         return Val_none;
-}
-
-PREFIX value ml_evas_color_argb_premul(
-        value v_a, value v_r, value v_g, value v_b)
-{
-        int r, g, b;
-        r = Int_val(v_r);
-        g = Int_val(v_g);
-        b = Int_val(v_b);
-        evas_color_argb_premul(Int_val(v_a), &r, &g, &b);
-        value v = caml_alloc(3, 0);
-        Store_field(v, 0, Val_int(r));
-        Store_field(v, 1, Val_int(g));
-        Store_field(v, 2, Val_int(b));
-        return v;
 }
 
 void ml_Evas_Smart_Cb_on_del(
@@ -538,5 +536,233 @@ PREFIX value ml_evas_render_dump(value v_e)
 {
         evas_render_dump((Evas*) v_e);
         return Val_unit;
+}
+
+/* Finding Objects */
+
+PREFIX value ml_evas_focus_get(value v_e)
+{
+        return copy_Evas_Object_opt(evas_focus_get((Evas*) v_e));
+}
+
+PREFIX value ml_evas_objects_at_xy_get(
+        value v_e, value v_x, value v_y, value v_ip, value v_ih)
+{
+        return copy_Eina_List_Evas_Object(evas_objects_at_xy_get((Evas*) v_e,
+                Int_val(v_x), Int_val(v_y), Bool_val(v_ip), Bool_val(v_ih)));
+}
+
+PREFIX value ml_evas_objects_in_rectangle_get_native(
+        value v_e, value v_x, value v_y, value v_w, value v_h, value v_ip,
+        value v_ih)
+{
+        return copy_Eina_List_Evas_Object(evas_objects_in_rectangle_get(
+                (Evas*) v_e, Int_val(v_x), Int_val(v_y), Int_val(v_w),
+                Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
+}
+
+PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn)
+{
+        return ml_evas_objects_in_rectangle_get_native(argv[0], argv[1],
+                argv[2], argv[3], argv[4], argv[5], argv[6]);
+}
+
+/* Shared Image Cache Server */
+
+inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(6, 0);
+        Store_field(v, 0, Val_int(s.saved_memory));
+        Store_field(v, 1, Val_int(s.wasted_memory));
+        Store_field(v, 2, Val_int(s.saved_memory_peak));
+        Store_field(v, 3, Val_int(s.wasted_memory_peak));
+        Store_field(v, 4, copy_double(s.saved_time_image_header_load));
+        Store_field(v, 5, copy_double(s.saved_time_image_data_load));
+        CAMLreturn(v);
+}
+
+inline Evas_Cserve_Config Evas_Cserve_Config_val(value v)
+{
+        Evas_Cserve_Config c;
+        c.cache_max_usage = Int_val(Field(v, 0));
+        c.cache_item_timeout = Int_val(Field(v, 1));
+        c.cache_item_timeout_check = Int_val(Field(v, 2));
+        return c;
+}
+
+inline value copy_Evas_Cserve_Config(Evas_Cserve_Config c)
+{
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(c.cache_max_usage));
+        Store_field(v, 1, Val_int(c.cache_item_timeout));
+        Store_field(v, 2, Val_int(c.cache_item_timeout_check));
+        return v;
+}
+
+PREFIX value ml_evas_cserve_want_get(value v_unit)
+{
+        return Val_bool(evas_cserve_want_get());
+}
+
+PREFIX value ml_evas_cserve_connected_get(value v_unit)
+{
+        return Val_bool(evas_cserve_connected_get());
+}
+
+PREFIX value ml_evas_cserve_stats_get(value v_unit)
+{
+        CAMLparam1(v_unit);
+        CAMLlocal1(v_r);
+        Evas_Cserve_Stats s;
+        Eina_Bool r = evas_cserve_stats_get(&s);
+        if(r) {
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, copy_Evas_Cserve_Stats(s));
+        } else v_r = Val_int(0);
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_evas_cserve_config_get(value v_unit)
+{
+        CAMLparam1(v_unit);
+        CAMLlocal1(v_r);
+        Evas_Cserve_Config s;
+        Eina_Bool r = evas_cserve_config_get(&s);
+        if(r) {
+                v_r = caml_alloc(1, 0);
+                Store_field(v_r, 0, copy_Evas_Cserve_Config(s));
+        } else v_r = Val_int(0);
+        CAMLreturn(v_r);
+}
+
+PREFIX value ml_evas_cserve_config_set(value v_c)
+{
+        Evas_Cserve_Config c = Evas_Cserve_Config_val(v_c);
+        return Val_bool(evas_cserve_config_set(&c));
+}
+
+PREFIX value ml_evas_cserve_disconnected(value v_unit)
+{
+        evas_cserve_disconnect();
+        return Val_unit;
+}
+
+/* General Utilities */
+
+PREFIX value ml_evas_load_error_str(value v_err)
+{
+        return copy_string(evas_load_error_str(Evas_Load_Error_val(v_err)));
+}
+
+PREFIX value ml_evas_color_hsv_to_rgb(value v_h, value v_s, value v_v)
+{
+        int r, g, b;
+        evas_color_hsv_to_rgb(Double_val(v_h), Double_val(v_s),
+                Double_val(v_v), &r, &g, &b);
+        value v_res = caml_alloc(3, 0);
+        Store_field(v_res, 0, Val_int(r));
+        Store_field(v_res, 1, Val_int(g));
+        Store_field(v_res, 2, Val_int(b));
+        return v_res;
+}
+
+PREFIX value ml_evas_color_rgb_to_hsv(value v_r, value v_g, value v_b)
+{
+        CAMLparam3(v_r, v_g, v_b);
+        CAMLlocal1(v_res);
+        float h, s, v;
+        evas_color_rgb_to_hsv(Int_val(v_r), Int_val(v_g), Int_val(v_b), &h, &s,
+                &v);
+        v_res = caml_alloc(3, 0);
+        Store_field(v_res, 0, copy_double(h));
+        Store_field(v_res, 1, copy_double(s));
+        Store_field(v_res, 2, copy_double(v));
+        CAMLreturn(v_res);
+}
+
+
+PREFIX value ml_evas_color_argb_premul(
+        value v_a, value v_r, value v_g, value v_b)
+{
+        int r, g, b;
+        r = Int_val(v_r);
+        g = Int_val(v_g);
+        b = Int_val(v_b);
+        evas_color_argb_premul(Int_val(v_a), &r, &g, &b);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        return v;
+}
+
+PREFIX value ml_evas_color_argb_unpremul(
+        value v_a, value v_r, value v_g, value v_b)
+{
+        int r, g, b;
+        r = Int_val(v_r);
+        g = Int_val(v_g);
+        b = Int_val(v_b);
+        evas_color_argb_unpremul(Int_val(v_a), &r, &g, &b);
+        value v = caml_alloc(3, 0);
+        Store_field(v, 0, Val_int(r));
+        Store_field(v, 1, Val_int(g));
+        Store_field(v, 2, Val_int(b));
+        return v;
+}
+
+PREFIX value ml_evas_data_argb_premul(value v_a)
+{
+        unsigned int size = Wosize_val(v_a);
+        unsigned int a[size];
+        int i;
+        for(i = 0; i < size; i++) a[i] = Int_val(Field(v_a, i));
+        evas_data_argb_premul(a, size);
+        for(i = 0; i < size; i++) Store_field(v_a, i, Val_int(a[i]));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_data_argb_unpremul(value v_a)
+{
+        unsigned int size = Wosize_val(v_a);
+        unsigned int a[size];
+        int i;
+        for(i = 0; i < size; i++) a[i] = Int_val(Field(v_a, i));
+        evas_data_argb_unpremul(a, size);
+        for(i = 0; i < size; i++) Store_field(v_a, i, Val_int(a[i]));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_string_char_next_get(value v_s, value v_pos)
+{
+        CAMLparam2(v_s, v_pos);
+        CAMLlocal1(v);
+        int decoded;
+        int next = evas_string_char_next_get(String_val(v_s), Int_val(v_pos),
+                &decoded);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(next));
+        Store_field(v, 1, copy_int32(decoded));
+        CAMLreturn(v);
+}
+
+PREFIX value ml_evas_string_char_prev_get(value v_s, value v_pos)
+{
+        CAMLparam2(v_s, v_pos);
+        CAMLlocal1(v);
+        int decoded;
+        int prev = evas_string_char_prev_get(String_val(v_s), Int_val(v_pos),
+                &decoded);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(prev));
+        Store_field(v, 1, copy_int32(decoded));
+        CAMLreturn(v);
+}
+
+PREFIX value ml_evas_string_char_len_get(value v_s)
+{
+        return Val_int(evas_string_char_len_get(String_val(v_s)));
 }
 
