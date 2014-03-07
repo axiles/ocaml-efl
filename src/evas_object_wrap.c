@@ -552,3 +552,14 @@ PREFIX value ml_evas_object_anti_alias_get(value v_obj)
         return Val_bool(evas_object_anti_alias_get((Evas_Object*) v_obj));
 }
 
+PREFIX value ml_evas_object_scale_set(value v_obj, value v_x)
+{
+        evas_object_scale_set((Evas_Object*) v_obj, Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_scale_get(value v_obj)
+{
+        return copy_double(evas_object_scale_get((Evas_Object*) v_obj));
+}
+

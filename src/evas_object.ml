@@ -422,3 +422,7 @@ external anti_alias_set : t -> bool -> unit = "ml_evas_object_anti_alias_set"
 
 external anti_alias_get : t -> bool = "ml_evas_object_anti_alias_get"
 
+external scale_set : t -> float -> unit = "ml_evas_object_scale_set"
+
+external scale_get : t -> float = "ml_evas_object_scale_get"
+

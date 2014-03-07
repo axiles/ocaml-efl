@@ -307,3 +307,7 @@ val anti_alias_set : t -> bool -> unit
 
 val anti_alias_get : t -> bool
 
+val scale_set : Evas.obj -> float -> unit
+
+val scale_get : Evas.obj -> float
+
