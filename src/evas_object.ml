@@ -426,3 +426,8 @@ external scale_set : t -> float -> unit = "ml_evas_object_scale_set"
 
 external scale_get : t -> float = "ml_evas_object_scale_get"
 
+external render_op_set : t -> Evas.render_op -> unit =
+  "ml_evas_object_render_op_set"
+
+external render_op_get : t -> Evas.render_op = "ml_evas_object_render_op_get"
+

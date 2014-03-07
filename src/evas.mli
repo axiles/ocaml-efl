@@ -76,6 +76,21 @@ type map
 
 type display_mode = [`none | `compress | `expand | `dont_change]
 
+type render_op = [
+  | `blend
+  | `blend_rel
+  | `copy
+  | `copy_rel
+  | `add
+  | `add_rel
+  | `sub
+  | `sub_rel
+  | `tint
+  | `tint_rel
+  | `mask
+  | `mul
+]
+
 val hint_expand : float
 
 val hint_fill : float

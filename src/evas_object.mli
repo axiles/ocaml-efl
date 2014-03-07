@@ -52,7 +52,7 @@ val visible_get : t -> bool
 
 val color_set : t -> int -> int -> int -> int -> unit
 
-val color_get : Evas.obj -> int * int * int * int
+val color_get : t -> int * int * int * int
 
 val evas_get : t -> Evas.t
 
@@ -307,7 +307,11 @@ val anti_alias_set : t -> bool -> unit
 
 val anti_alias_get : t -> bool
 
-val scale_set : Evas.obj -> float -> unit
+val scale_set : t -> float -> unit
 
-val scale_get : Evas.obj -> float
+val scale_get : t -> float
+
+val render_op_set : t -> Evas.render_op -> unit
+
+val render_op_get : t -> Evas.render_op
 

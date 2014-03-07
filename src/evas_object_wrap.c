@@ -528,6 +528,46 @@ inline value Val_Evas_Object_Pointer_Mode(Evas_Object_Pointer_Mode m)
         return Val_autograb;
 }
 
+inline Evas_Render_Op Evas_Render_Op_val(value v)
+{
+        switch(v) {
+                case Val_blend: return EVAS_RENDER_BLEND;
+                case Val_blend_rel: return EVAS_RENDER_BLEND_REL;
+                case Val_copy: return EVAS_RENDER_COPY;
+                case Val_copy_rel: return EVAS_RENDER_COPY_REL;
+                case Val_add: return EVAS_RENDER_ADD;
+                case Val_add_rel: return EVAS_RENDER_ADD_REL;
+                case Val_sub: return EVAS_RENDER_SUB;
+                case Val_sub_rel: return EVAS_RENDER_SUB_REL;
+                case Val_tint: return EVAS_RENDER_TINT;
+                case Val_tint_rel: return EVAS_RENDER_TINT_REL;
+                case Val_mask: return EVAS_RENDER_MASK;
+                case Val_mul: return EVAS_RENDER_MUL;
+        }
+        caml_failwith("Evas_Render_Op_val");
+        return EVAS_RENDER_BLEND;
+}
+
+inline value Val_Evas_Render_Op(Evas_Render_Op op)
+{
+        switch(op) {
+                case EVAS_RENDER_BLEND: return Val_blend;
+                case EVAS_RENDER_BLEND_REL: return Val_blend_rel;
+                case EVAS_RENDER_COPY: return Val_copy;
+                case EVAS_RENDER_COPY_REL: return Val_copy_rel;
+                case EVAS_RENDER_ADD: return Val_add;
+                case EVAS_RENDER_ADD_REL: return Val_add_rel;
+                case EVAS_RENDER_SUB: return Val_sub;
+                case EVAS_RENDER_SUB_REL: return Val_sub_rel;
+                case EVAS_RENDER_TINT: return Val_tint;
+                case EVAS_RENDER_TINT_REL: return Val_tint_rel;
+                case EVAS_RENDER_MASK: return Val_mask;
+                case EVAS_RENDER_MUL: return Val_mul;
+        }
+        caml_failwith("Val_Evas_Render_Op");
+        return Val_blend;
+}
+
 PREFIX value ml_evas_object_pointer_mode_set(value v_obj, value v_m)
 {
         evas_object_pointer_mode_set((Evas_Object*) v_obj,
@@ -561,5 +601,18 @@ PREFIX value ml_evas_object_scale_set(value v_obj, value v_x)
 PREFIX value ml_evas_object_scale_get(value v_obj)
 {
         return copy_double(evas_object_scale_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_evas_object_render_op_set(value v_obj, value v_op)
+{
+        evas_object_render_op_set((Evas_Object*) v_obj,
+                Evas_Render_Op_val(v_op));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_render_op_get(value v_obj)
+{
+        return Val_Evas_Render_Op(evas_object_render_op_get(
+                (Evas_Object*) v_obj));
 }
 

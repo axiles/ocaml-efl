@@ -17,6 +17,8 @@ let g x = f (sprintf "Val_%s" x) x
 let () =
   g "abort";
   g "accelerate";
+  g "add";
+  g "add_rel";
   g "after";
   g "all";
   g "allcharacter";
@@ -34,6 +36,8 @@ let () =
   g "basic";
   g "before";
   g "bicycle";
+  g "blend";
+  g "blend_rel";
   g "block_horizontal";
   g "block_vertical";
   g "block_vertical_horizontal";
@@ -58,6 +62,8 @@ let () =
   g "compress";
   g "config";
   g "content";
+  g "copy";
+  g "copy_rel";
   g "corrupt_file";
   g "crop";
   g "cube";
@@ -154,6 +160,7 @@ let () =
   g "manual";
   g "markup";
   g "markup_utf8";
+  g "mask";
   g "max";
   g "menu";
   g "menubar";
@@ -175,6 +182,7 @@ let () =
   g "mouse_up";
   g "mouse_wheel";
   g "move";
+  g "mul";
   g "multi_down";
   g "multi_move";
   g "multi_up";
@@ -274,6 +282,8 @@ let () =
   g "stencil";
   g "stop";
   g "stretch";
+  g "sub";
+  g "sub_rel";
   g "sun";
   g "sunday";
   g "terminal";
@@ -283,6 +293,8 @@ let () =
   g "thu";
   g "thursday";
   g "tile";
+  g "tint";
+  g "tint_rel";
   g "toolbar";
   g "tooltip";
   g "top";
