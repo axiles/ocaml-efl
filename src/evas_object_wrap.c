@@ -502,3 +502,42 @@ PREFIX value ml_evas_object_size_hint_padding_set(
         return Val_unit;
 }
 
+/* Extra Object Manipulation */
+
+inline Evas_Object_Pointer_Mode Evas_Object_Pointer_Mode_val(value v)
+{
+        switch(v) {
+                case Val_autograb: return EVAS_OBJECT_POINTER_MODE_AUTOGRAB;
+                case Val_nograb: return EVAS_OBJECT_POINTER_MODE_NOGRAB;
+                case Val_nograb_no_repeat_updown:
+                        return EVAS_OBJECT_POINTER_MODE_NOGRAB_NO_REPEAT_UPDOWN;
+        }
+        caml_failwith("Evas_Object_Pointer_Mode_val");
+        return EVAS_OBJECT_POINTER_MODE_AUTOGRAB;
+}
+
+inline value Val_Evas_Object_Pointer_Mode(Evas_Object_Pointer_Mode m)
+{
+        switch(m) {
+                case EVAS_OBJECT_POINTER_MODE_AUTOGRAB: return Val_autograb;
+                case EVAS_OBJECT_POINTER_MODE_NOGRAB: return Val_nograb;
+                case EVAS_OBJECT_POINTER_MODE_NOGRAB_NO_REPEAT_UPDOWN:
+                        return Val_nograb_no_repeat_updown;
+        }
+        caml_failwith("Val_Evas_Object_Pointer_Mode");
+        return Val_autograb;
+}
+
+PREFIX value ml_evas_object_pointer_mode_set(value v_obj, value v_m)
+{
+        evas_object_pointer_mode_set((Evas_Object*) v_obj,
+                Evas_Object_Pointer_Mode_val(v_m));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_pointer_mode_get(value v_obj)
+{
+        return Val_Evas_Object_Pointer_Mode(evas_object_pointer_mode_get(
+                (Evas_Object*) v_obj));
+}
+

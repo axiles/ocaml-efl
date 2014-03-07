@@ -29,6 +29,7 @@ let () =
   g "auto_fill";
   g "auto_fit";
   g "auto_fit_in";
+  g "autograb";
   g "automatic";
   g "basic";
   g "before";
@@ -189,6 +190,8 @@ let () =
   g "next";
   g "no_block";
   g "no_image";
+  g "nograb";
+  g "nograb_no_repeat_updown";
   g "none";
   g "normal";
   g "notification";

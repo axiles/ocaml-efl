@@ -408,3 +408,13 @@ let size_hint_set obj list =
   size_hint_weight_set obj hw vw;
   size_hint_align_set obj ha va
 
+(* Extra Object Manipulation *)
+
+type pointer_mode = [`autograb | `nograb | `no_grab_no_repeat_updown]
+
+external pointer_mode_set : t -> pointer_mode -> unit =
+  "ml_evas_object_pointer_mode_set"
+
+external pointer_mode_get : t -> pointer_mode =
+  "ml_evas_object_pointer_mode_get"
+

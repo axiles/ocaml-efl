@@ -295,3 +295,11 @@ val size_hint_padding_set : t -> int -> int -> int -> int -> unit
 
 val size_hint_set : t -> size_hint list -> unit
 
+(** {2 Extra Object Manipulation} *)
+
+type pointer_mode = [`autograb | `nograb | `no_grab_no_repeat_updown]
+
+val pointer_mode_set : t -> pointer_mode -> unit
+
+val pointer_mode_get : t -> pointer_mode
+
