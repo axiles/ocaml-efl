@@ -329,3 +329,7 @@ val name_find : Evas.t -> string -> t option
 
 val name_child_find : t -> string -> int -> t option
 
+val top_at_xy_get : Evas.t -> int -> int -> bool -> bool -> t option
+
+val top_at_pointer_get : Evas.t -> t option
+

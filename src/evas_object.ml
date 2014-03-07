@@ -448,3 +448,9 @@ external name_find : Evas.t -> string -> t option = "ml_evas_object_name_find"
 external name_child_find : t -> string -> int -> t option =
   "ml_evas_object_name_child_find"
 
+external top_at_xy_get : Evas.t -> int -> int -> bool -> bool -> t option =
+  "ml_evas_object_top_at_xy_get"
+
+external top_at_pointer_get : Evas.t -> t option =
+  "ml_evas_object_top_at_pointer_get"
+

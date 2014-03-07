@@ -655,3 +655,16 @@ PREFIX value ml_evas_object_name_child_find(
                 (Evas_Object*) v_obj, String_val(v_name), Int_val(v_r)));
 }
 
+PREFIX value ml_evas_object_top_at_xy_get(
+        value v_e, value v_x, value v_y, value v_ip, value v_ih)
+{
+        return copy_Evas_Object_opt(evas_object_top_at_xy_get((Evas*) v_e,
+                Int_val(v_x), Int_val(v_y), Bool_val(v_ip), Bool_val(v_ih)));
+}
+
+PREFIX value ml_evas_object_top_at_pointer_get(value v_e)
+{
+        return copy_Evas_Object_opt(evas_object_top_at_pointer_get(
+                (Evas*) v_e));
+}
+
