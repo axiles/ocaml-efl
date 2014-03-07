@@ -538,6 +538,13 @@ PREFIX value ml_evas_render_dump(value v_e)
         return Val_unit;
 }
 
+/* Finding Objects */
+
+PREFIX value ml_evas_focus_get(value v_e)
+{
+        return copy_Evas_Object_opt(evas_focus_get((Evas*) v_e));
+}
+
 /* Shared Image Cache Server */
 
 inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)

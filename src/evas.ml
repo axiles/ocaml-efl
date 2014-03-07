@@ -228,6 +228,10 @@ external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
 
+(* Finding Objects *)
+
+external focus_get : t -> obj option = "ml_evas_focus_get"
+
 (* Shared Image Cache Server *)
 
 type cserve_stats = {
