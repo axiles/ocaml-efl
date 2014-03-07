@@ -336,3 +336,7 @@ val top_at_pointer_get : Evas.t -> t option
 val top_in_rectangle_get :
   Evas.t -> int -> int -> int -> int -> bool -> bool -> t option
 
+val bottom_get : Evas.t -> t option
+
+val top_get : Evas.t -> t option
+

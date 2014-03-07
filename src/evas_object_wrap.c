@@ -683,3 +683,13 @@ PREFIX value ml_evas_object_top_in_rectangle_get_byte(value* argv, int argn)
                 argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
+PREFIX value ml_evas_object_bottom_get(value v_e)
+{
+        return copy_Evas_Object_opt(evas_object_bottom_get((Evas*) v_e));
+}
+
+PREFIX value ml_evas_object_top_get(value v_e)
+{
+        return copy_Evas_Object_opt(evas_object_top_get((Evas*) v_e));
+}
+

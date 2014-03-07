@@ -459,3 +459,7 @@ external top_in_rectangle_get :
     "ml_evas_object_top_in_rectangle_get_byte"
     "ml_evas_object_top_in_rectangle_get_native"
 
+external bottom_get : Evas.t -> t option = "ml_evas_object_bottom_get"
+
+external top_get : Evas.t -> t option = "ml_evas_object_top_get"
+
