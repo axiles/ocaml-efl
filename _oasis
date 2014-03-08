@@ -639,3 +639,9 @@ Executable myglview_example
   Build$: flag(extra_examples)
   BuildDepends: efl, lablgl
   MainIs: myglview_example.ml
+Executable toolbox_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: toolbox_example.ml

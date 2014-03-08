@@ -5,7 +5,7 @@ let add_dialog ?p name =
   Elm_win.resize_object_add win bg;
   Evas_object.size_hint_set bg [`expand];
   Evas_object.show bg;
-  bg
+  win
 
 let iteri f list =
   let rec aux k x = f k x; k + 1 in
@@ -47,7 +47,7 @@ let question_box ~title ~buttons ?default ?icon ?parent question cb =
   Elm_box.horizontal_set hbox true;
   Evas_object.size_hint_set hbox [`hexpand; `hfill];
   Elm_box.pack_end box hbox;
-  Evas_object.show box;
+  Evas_object.show hbox;
 
   let add_bt i text_bt =
     let bt = Elm_button.add win in
@@ -60,5 +60,6 @@ let question_box ~title ~buttons ?default ?icon ?parent question cb =
     Evas_object_smart.callback_add bt Elm_sig.clicked (fun _ -> quit i) in
   iteri add_bt buttons;
 
+  (*Elm_win.center win true true;*)
   Evas_object.show win
 
