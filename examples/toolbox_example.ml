@@ -1,4 +1,5 @@
 open Efl
+open Printf
 
 let ( & ) f x = f x
 
@@ -23,6 +24,16 @@ let message_box_action () =
   Elm_toolbox.message_box ~title:"Info" "Hello World" & fun () ->
   print_endline "Message box closed"
 
+let input_action (f : 'a) () =
+  let (_ : 'a) = Elm_toolbox.input_string in
+  f ~title:"Entry" ~text:"Default text" "Please enter some text" & fun x ->
+  match x with
+  | None -> print_endline "No text have been entered"
+  | Some s -> printf "%s\n%!" s
+
+let input_string_action = input_action Elm_toolbox.input_string
+let input_text_action = input_action Elm_toolbox.input_text
+
 let () =
   Elm.init ();
   Elm.policy_quit_set `last_window_closed;
@@ -36,9 +47,11 @@ let () =
   Evas_object.show box;
 
   let tests = [("Question", question_box_action);
-    ("Message", message_box_action)] in
+    ("Message", message_box_action); ("Input String", input_string_action);
+    ("Input Text", input_text_action)] in
   List.iter (fun (name, action) -> add_test win box name action) tests;
 
+  Evas_object.resize win 300 400;
   Evas_object.show win;
   Elm.run ();
   Elm.shutdown ()

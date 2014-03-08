@@ -37,6 +37,22 @@ let add_icon win box icon =
      Elm_box.pack_end hbox i;
      Elm_box.pack_end hbox
 
+let add_hbox win box =
+  let hbox = Elm_box.add win in
+  Elm_box.horizontal_set hbox true;
+  Evas_object.size_hint_set hbox [`hexpand; `hfill];
+  Elm_box.pack_end box hbox;
+  Evas_object.show hbox;
+  hbox
+
+let add_bt win box text cb =
+  let bt = Elm_button.add win in
+  Elm_object.text_set bt text;
+  Elm_box.pack_end box bt;
+  Evas_object.show bt;
+  Evas_object_smart.callback_add bt Elm_sig.clicked cb;
+  bt
+
 let question_box ~title ~buttons ?default ?icon ?parent question cb =
   let win = add_dialog ?p:parent "question_box" in
   Elm_win.title_set win title;
@@ -53,21 +69,13 @@ let question_box ~title ~buttons ?default ?icon ?parent question cb =
 
   add_label win label_packing question;
 
-  let hbox = Elm_box.add win in
-  Elm_box.horizontal_set hbox true;
-  Evas_object.size_hint_set hbox [`hexpand; `hfill];
-  Elm_box.pack_end box hbox;
-  Evas_object.show hbox;
+  let hbox = add_hbox win box in
 
   let add_bt i text_bt =
-    let bt = Elm_button.add win in
-    Elm_object.text_set bt text_bt;
-    (match default with
+    let bt = add_bt win hbox text_bt (fun _ -> quit i) in
+    match default with
     | Some d -> if i = d then Evas_object.focus_set bt true
-    | None -> ());
-    Elm_box.pack_end hbox bt;
-    Evas_object.show bt;
-    Evas_object_smart.callback_add bt Elm_sig.clicked (fun _ -> quit i) in
+    | None -> () in
   iteri add_bt buttons;
 
   (*Elm_win.center win true true;*)
@@ -86,11 +94,42 @@ let message_box ~title ?icon ?(ok = "Ok") ?parent msg cb =
 
   add_label win label_packing msg;
 
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt ok;
-  Elm_box.pack_end box bt;
-  Evas_object.show bt;
-  Evas_object_smart.callback_add bt Elm_sig.clicked del_cb;
+  ignore (add_bt win box ok del_cb : Evas.obj);
 
   Evas_object.show win
+
+let input sl name ~title ?(ok = "Ok") ?(cancel = "Cancel") ?text ?parent msg
+    cb =
+  let win = add_dialog ?p:parent name in
+  Elm_win.title_set win title;
+  let quit x = Evas_object.del win; cb x in
+  let cancel_cb obj = quit None in
+  let ok_cb entry obj =
+    quit (Some (Elm_entry.markup_to_utf8 (Elm_entry.entry_get entry))) in
+  Evas_object_smart.callback_add win Elm_sig.delete_request cancel_cb;
+
+  let box = add_vbox win in
+
+  add_label win (Elm_box.pack_end box) msg;
+
+  let entry = Elm_entry.add win in
+  Evas_object.size_hint_set entry [`expand; `fill];
+  Elm_box.pack_end box entry;
+  (match text with Some t -> Elm_entry.entry_set entry t | None -> ());
+  Evas_object.show entry;
+  Elm_entry.single_line_set entry sl;
+  if sl then
+    Evas_object_smart.callback_add entry Elm_sig.activated (ok_cb entry);
+
+  let hbox = add_hbox win box in
+  ignore (add_bt win hbox ok (ok_cb entry));
+  ignore (add_bt win hbox cancel cancel_cb);
+
+  Evas_object.show win;
+  Elm_object.focus_set entry true;
+  Elm_entry.cursor_end_set entry
+
+let input_string = input true "input_string"
+
+let input_text = input false "input_text"
 
