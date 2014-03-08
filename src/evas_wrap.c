@@ -624,6 +624,19 @@ PREFIX value ml_evas_device_description_get(value v_dev)
                 (Evas_Device*) v_dev));
 }
 
+PREFIX value ml_evas_device_parent_set(value v_dev, value v_parent)
+{
+        evas_device_parent_set((Evas_Device*) v_dev,
+                Evas_Device_opt_val(v_parent));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_device_parent_get(value v_dev)
+{
+        return copy_Evas_Device_opt(evas_device_parent_get(
+                (Evas_Device*) v_dev));
+}
+
 /* Finding Objects */
 
 PREFIX value ml_evas_focus_get(value v_e)

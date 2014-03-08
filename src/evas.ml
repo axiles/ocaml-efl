@@ -250,6 +250,12 @@ external device_description_set : device -> string -> unit =
 external device_description_get : device -> string option =
   "ml_evas_device_description_get"
 
+external device_parent_set : device -> device option -> unit =
+  "ml_evas_device_parent_set"
+
+external device_parent_get : device -> device option =
+  "ml_evas_device_parent_get"
+
 (* Finding Objects *)
 
 external focus_get : t -> obj option = "ml_evas_focus_get"
