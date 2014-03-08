@@ -538,6 +538,92 @@ PREFIX value ml_evas_render_dump(value v_e)
         return Val_unit;
 }
 
+/* Input Events Feeding Functions */
+
+inline value copy_Eina_List_Evas_Device(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal2(v, v1);
+        Eina_List* it;
+        Evas_Device* dev;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, dev) {
+                v1 = v;
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, (value) dev);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
+inline value copy_Evas_Device_opt(const Evas_Device* dev)
+{
+        if(dev == NULL) return Val_int(0);
+        value v_r = caml_alloc(1, 0);
+        Store_field(v_r, 0, (value) dev);
+        return v_r;
+}
+
+inline Evas_Device* Evas_Device_opt_val(value v)
+{
+        if(v == Val_int(0)) return NULL;
+        else return (Evas_Device*) Field(v, 0);
+}
+
+PREFIX value ml_evas_device_add(value v_e)
+{
+        Evas_Device* dev = evas_device_add((Evas*) v_e);
+        if(dev == NULL) caml_failwith("evas_device_add");
+        return (value) dev;
+}
+
+PREFIX value ml_evas_device_del(value v_dev)
+{
+        evas_device_del((Evas_Device*) v_dev);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_device_push(value v_e, value v_dev)
+{
+        evas_device_push((Evas*) v_e, (Evas_Device*) v_dev);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_device_pop(value v_e)
+{
+        evas_device_pop((Evas*) v_e);
+        return Val_unit;
+}
+
+PREFIX value ml_evas_device_list(value v_e, value v_dev)
+{
+        return copy_Eina_List_Evas_Device(evas_device_list((Evas*) v_e,
+                Evas_Device_opt_val(v_dev)));
+}
+
+PREFIX value ml_evas_device_name_set(value v_dev, value v_s)
+{
+        evas_device_name_set((Evas_Device*) v_dev, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_device_name_get(value v_dev)
+{
+        return copy_string_opt(evas_device_name_get((Evas_Device*) v_dev));
+}
+
+PREFIX value ml_evas_device_description_set(value v_dev, value v_s)
+{
+        evas_device_description_set((Evas_Device*) v_dev, String_val(v_s));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_device_description_get(value v_dev)
+{
+        return copy_string_opt(evas_device_description_get(
+                (Evas_Device*) v_dev));
+}
+
 /* Finding Objects */
 
 PREFIX value ml_evas_focus_get(value v_e)
@@ -764,68 +850,5 @@ PREFIX value ml_evas_string_char_prev_get(value v_s, value v_pos)
 PREFIX value ml_evas_string_char_len_get(value v_s)
 {
         return Val_int(evas_string_char_len_get(String_val(v_s)));
-}
-
-/* Input Events Feeding Functions */
-
-inline value copy_Eina_List_Evas_Device(const Eina_List* list)
-{
-        CAMLparam0();
-        CAMLlocal2(v, v1);
-        Eina_List* it;
-        Evas_Device* dev;
-        v = Val_int(0);
-        EINA_LIST_REVERSE_FOREACH(list, it, dev) {
-                v1 = v;
-                v = caml_alloc(2, 0);
-                Store_field(v, 0, (value) dev);
-                Store_field(v, 1, v1);
-        }
-        CAMLreturn(v);
-}
-
-inline value copy_Evas_Device_opt(const Evas_Device* dev)
-{
-        if(dev == NULL) return Val_int(0);
-        value v_r = caml_alloc(1, 0);
-        Store_field(v_r, 0, (value) dev);
-        return v_r;
-}
-
-inline Evas_Device* Evas_Device_opt_val(value v)
-{
-        if(v == Val_int(0)) return NULL;
-        else return (Evas_Device*) Field(v, 0);
-}
-
-PREFIX value ml_evas_device_add(value v_e)
-{
-        Evas_Device* dev = evas_device_add((Evas*) v_e);
-        if(dev == NULL) caml_failwith("evas_device_add");
-        return (value) dev;
-}
-
-PREFIX value ml_evas_device_del(value v_dev)
-{
-        evas_device_del((Evas_Device*) v_dev);
-        return Val_unit;
-}
-
-PREFIX value ml_evas_device_push(value v_e, value v_dev)
-{
-        evas_device_push((Evas*) v_e, (Evas_Device*) v_dev);
-        return Val_unit;
-}
-
-PREFIX value ml_evas_device_pop(value v_e)
-{
-        evas_device_pop((Evas*) v_e);
-        return Val_unit;
-}
-
-PREFIX value ml_evas_device_list(value v_e, value v_dev)
-{
-        return copy_Eina_List_Evas_Device(evas_device_list((Evas*) v_e,
-                Evas_Device_opt_val(v_dev)));
 }
 
