@@ -22,7 +22,7 @@ let () =
 
   {2 API}
   
-  You can use Efl/Elementary official documentation available at the
+  You can use EFL/Elementary official documentation available at the
   {{:https://www.enlightenment.org} Enlightenment Website}
 
   {!indexlist}
