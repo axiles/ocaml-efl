@@ -267,3 +267,9 @@ val callback_priority_add_canvas_object_focus_out :
 (** evas_post_event_callback_push *)
 val post_callback_push : Evas.t -> post_cb -> unit
 
+(* Input Events Freezing/Feeding *)
+
+val freeze : Evas.t -> unit
+
+val thaw : Evas.t -> unit
+

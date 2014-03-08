@@ -228,6 +228,34 @@ external render_idle_flush : t -> unit = "ml_evas_render_idle_flush"
 
 external render_dump : t -> unit = "ml_evas_render_dump"
 
+(* Input Evas Feeding Functions *)
+
+external device_add : t -> device = "ml_evas_device_add"
+
+external device_del : device -> unit = "ml_evas_device_del"
+
+external device_push : t -> device -> unit = "ml_evas_device_push"
+
+external device_pop : t -> unit = "ml_evas_device_pop"
+
+external device_list : t -> device option -> device list = "ml_evas_device_list"
+
+external device_name_set : device -> string -> unit = "ml_evas_device_name_set"
+
+external device_name_get : device -> string option = "ml_evas_device_name_get"
+
+external device_description_set : device -> string -> unit =
+  "ml_evas_device_description_set"
+
+external device_description_get : device -> string option =
+  "ml_evas_device_description_get"
+
+external device_parent_set : device -> device option -> unit =
+  "ml_evas_device_parent_set"
+
+external device_parent_get : device -> device option =
+  "ml_evas_device_parent_get"
+
 (* Finding Objects *)
 
 external focus_get : t -> obj option = "ml_evas_focus_get"

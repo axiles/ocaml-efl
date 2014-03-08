@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: d8f4a95f78f1352402bb9edb83f17023)
+# DO NOT EDIT (digest: 6df6aaa946b60b130567b04f941576a6)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -97,6 +97,7 @@
 "src/elm_actionslider.cmx": for-pack(Efl)
 "src/elm_video.cmx": for-pack(Efl)
 "src/elm_sig.cmx": for-pack(Efl)
+"src/elm_toolbox.cmx": for-pack(Efl)
 <src/efl.{cma,cmxa}>: use_libefl_stubs
 # Executable test
 <examples/test.{native,byte}>: use_efl
@@ -249,8 +250,10 @@
 # Executable myglview_example
 "examples/myglview_example.byte": use_efl
 "examples/myglview_example.byte": pkg_lablgl
-<examples/*.ml{,i}>: use_efl
 <examples/*.ml{,i}>: pkg_lablgl
+# Executable toolbox_example
+"examples/toolbox_example.byte": use_efl
+<examples/*.ml{,i}>: use_efl
 # OASIS_STOP
 <src/eina_*>: efl
 <src/evas_*>: efl

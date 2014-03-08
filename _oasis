@@ -96,7 +96,8 @@ Library efl
     Elm_win_inwin,
     Elm_actionslider,
     Elm_video,
-    Elm_sig
+    Elm_sig,
+    Elm_toolbox
   CSources:
     include.h,
     eina_wrap.c,
@@ -638,3 +639,9 @@ Executable myglview_example
   Build$: flag(extra_examples)
   BuildDepends: efl, lablgl
   MainIs: myglview_example.ml
+Executable toolbox_example
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: toolbox_example.ml

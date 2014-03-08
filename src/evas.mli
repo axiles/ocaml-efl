@@ -207,6 +207,30 @@ val render_idle_flush : t -> unit
 
 val render_dump : t -> unit
 
+(** {2 Input Feeding functions} *)
+
+val device_add : t -> device
+
+val device_del : device -> unit
+
+val device_push : t -> device -> unit
+
+val device_pop : t -> unit
+
+val device_list : t -> device option -> device list
+
+val device_name_set : device -> string -> unit
+
+val device_name_get : device -> string option
+
+val device_description_set : device -> string -> unit
+
+val device_description_get : device -> string option
+
+val device_parent_set : device -> device option -> unit
+
+val device_parent_get : device -> device option
+
 (** {2 Finding Objects} *)
 
 val focus_get : t -> obj option
