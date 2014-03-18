@@ -23,6 +23,8 @@ type selectable_ = {year : bool; month : bool; day : bool}
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val weekdays_names_get : Evas.obj -> string array
 
 val weekdays_names_set : Evas.obj -> string array -> unit

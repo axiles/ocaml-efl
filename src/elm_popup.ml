@@ -12,6 +12,8 @@ type orient = [
 
 external add : Evas.obj -> Evas.obj = "ml_elm_popup_add"
 
+let addx = Elm_object.create_addx add
+
 external item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
       Elm_object.item =

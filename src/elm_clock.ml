@@ -21,6 +21,8 @@ type edit_mode_ = {
 
 external add : Evas.obj -> Evas.obj = "ml_elm_clock_add"
 
+let addx = Elm_object.create_addx add
+
 external time_set : Evas.obj -> int -> int -> int -> unit =
   "ml_elm_clock_time_set"
 

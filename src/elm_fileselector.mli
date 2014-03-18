@@ -4,6 +4,8 @@ type mode = [`list | `grid | `last]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val is_save_set : Evas.obj -> bool -> unit
 
 val is_save_get : Evas.obj -> bool

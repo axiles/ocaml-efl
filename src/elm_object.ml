@@ -250,6 +250,48 @@ external item_untrack : item -> unit = "ml_elm_object_item_untrack"
 
 external item_track_get : item -> int = "ml_elm_object_item_track_get"
 
+type t_addx =
+  ?size_hint:Evas_object.size_hint list ->
+  ?size:(int * int) ->
+  ?pos:(int * int) ->
+  ?win:Evas.obj ->
+  ?inwin:Evas.obj ->
+  ?box:Evas.obj ->
+  ?packing:(Evas.obj -> unit) ->
+  ?text:string ->
+  ?content:Evas.obj ->
+  ?part_text:(string * string) list ->
+  ?part_content:(string * Evas.obj) list ->
+  ?show:bool -> Evas.obj -> Evas.obj
+
+external elm_win_resize_object_add : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_resize_object_add"
+
+external elm_inwin_content_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_inwin_content_set"
+  
+external elm_box_pack_end : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_end"
+
+let create_addx add
+  ?(size_hint = [`expand; `fill])
+  ?size ?pos ?win ?inwin ?box ?packing ?text ?content
+  ?(part_text = []) ?(part_content = []) ?(show = true) parent =
+    let obj = add parent in
+    Evas_object.size_hint_set obj size_hint;
+    (match size with Some (w, h) -> Evas_object.resize obj w h | None -> ());
+    (match pos with Some(x, y) -> Evas_object.move obj x y | None -> ());
+    (match win with Some w -> elm_win_resize_object_add w obj
+    | None -> (match inwin with Some w -> elm_inwin_content_set w obj
+    | None -> (match box with Some b -> elm_box_pack_end b obj
+    | None -> (match packing with Some f -> f obj
+    | None -> ()))));
+    (match text with Some t -> text_set obj t| None -> ());
+    (match content with Some c -> content_set obj c | None -> ());
+    List.iter (fun (p, t) -> part_text_set obj ~p t) part_text;
+    List.iter (fun (p, c) -> part_content_set obj ~p c) part_content;
+    if show then Evas_object.show obj;
+    obj
+
 (* Scrollhints *)
 
 external scroll_hold_push : Evas.obj -> unit = "ml_elm_object_scroll_hold_push"

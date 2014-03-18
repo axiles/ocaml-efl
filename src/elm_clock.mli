@@ -23,6 +23,8 @@ type edit_mode_ = {
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val time_set : Evas.obj -> int -> int -> int -> unit
 
 val time_get : Evas.obj -> int * int * int

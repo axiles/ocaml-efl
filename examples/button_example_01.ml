@@ -12,30 +12,19 @@ let () =
   Evas_object.resize win 300 320;
   Evas_object.show win;
 
-  let bg = Elm_bg.add win in
-  Evas_object.size_hint_set bg [`expand];
-  Elm_win.resize_object_add win bg;
-  Evas_object.show bg;
+  ignore (Elm_bg.addx ~size_hint:[`expand] ~win win);
 
   let add_param_button box text =
-    let btn = Elm_button.add win in
-    Elm_object.text_set btn text;
-    Elm_box.pack_end box btn;
-    Evas_object.show btn;
-    btn in
+    Elm_button.addx ~size_hint:[] ~text ~box win in
   
   let add_param_line box name val_list =
-    let box2 = Elm_box.add win in
+    let box2 = Elm_box.addx ~size_hint:[`hexpand] ~box win in
     Elm_box.horizontal_set box2 true;
-    Evas_object.size_hint_set box2 [`hexpand];
-    Elm_box.pack_end box box2;
-    Evas_object.show box2;
     let get_text x = sprintf "%s: %.1f" name x in
-    List.map (fun x -> add_param_button box2 (get_text x)) val_list
-  in
+    List.map (fun x -> add_param_button box2 (get_text x)) val_list in
 
   let add_icon_button box icon_name cursor =
-    let btn = Elm_button.add win in
+    let btn = Elm_button.addx ~size_hint:[`expand] ~box win in
     (match cursor with
     | Some horizontal ->
       Elm_button.autorepeat_set btn true;
@@ -48,8 +37,6 @@ let () =
       Evas_object.size_hint_align_set btn ax ay
     | None ->
       Evas_object.size_hint_set btn [`expand]);
-    Elm_box.pack_end box btn;
-    Evas_object.show btn;
     let icon = Elm_icon.add win in
     let (_ : bool) = Elm_icon.standard_set icon icon_name in
     Elm_object.part_content_set btn ~p:"icon" icon;
@@ -58,21 +45,15 @@ let () =
   let add_cursor_button box icon_name horizontal =
     add_icon_button box icon_name (Some horizontal) in
 
-  let box = Elm_box.add win in
-  Evas_object.size_hint_set box [`expand];
-  Elm_win.resize_object_add win box;
-  Evas_object.show box;
+  let box = Elm_box.addx ~size_hint:[`expand] ~win win in
 
   let initial_param_list = add_param_line box "Initial" [0.; 1.; 5.] in
   let gap_param_list = add_param_line box "Gap" [0.1; 0.5; 1.] in
 
   let cursor_up = add_cursor_button box "arrow_up" true in
 
-  let box2 = Elm_box.add win in
+  let box2 = Elm_box.addx ~box win in
   Elm_box.horizontal_set box2 true;
-  Evas_object.size_hint_set box2 [`expand; `fill];
-  Elm_box.pack_end box box2;
-  Evas_object.show box2;
 
   let cursor_left = add_cursor_button box2 "arrow_left" false in
   let mid = add_icon_button box2 "close" None in

@@ -4,6 +4,8 @@ type mode = [`palette | `components | `both | `picker | `all]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val color_set :  Evas.obj -> int -> int -> int -> int -> unit
 
 val color_get :  Evas.obj -> int * int * int * int

@@ -183,6 +183,22 @@ val item_untrack : item -> unit
 
 val item_track_get : item -> int
 
+type t_addx =
+  ?size_hint:Evas_object.size_hint list ->
+  ?size:(int * int) ->
+  ?pos:(int * int) ->
+  ?win:Evas.obj ->
+  ?inwin:Evas.obj ->
+  ?box:Evas.obj ->
+  ?packing:(Evas.obj -> unit) ->
+  ?text:string ->
+  ?content:Evas.obj ->
+  ?part_text:(string * string) list ->
+  ?part_content:(string * Evas.obj) list ->
+  ?show:bool -> Evas.obj -> Evas.obj
+
+val create_addx : (Evas.obj -> Evas.obj) -> t_addx
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit
