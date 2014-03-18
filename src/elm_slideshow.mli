@@ -7,6 +7,8 @@ type item_class = {
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val item_add : Evas.obj -> item_class -> Elm_object.item
 
 val item_show : Elm_object.item -> unit

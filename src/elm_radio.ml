@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_radio_add"
 
+let addx = Elm_object.create_addx add
+
 external group_add : Evas.obj -> Evas.obj -> unit =
   "ml_elm_radio_group_add"
 

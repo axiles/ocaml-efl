@@ -6,6 +6,8 @@ type error = {status : int; open_error : bool}
 
 external add : Evas.obj -> Evas.obj = "ml_elm_photocam_add"
 
+let addx = Elm_object.create_addx add
+
 external file_set : Evas.obj -> string -> Evas.load_error =
   "ml_elm_photocam_file_set"
 

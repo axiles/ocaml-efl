@@ -2,6 +2,8 @@ type field_type = [`year | `month | `date | `hour | `minute | `ampm]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_datetime_add"
 
+let addx = Elm_object.create_addx add
+
 external format_get : Evas.obj -> string = "ml_elm_datetime_format_get"
 
 external format_set : Evas.obj -> string -> unit = "ml_elm_datetime_format_set"

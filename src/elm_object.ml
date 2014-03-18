@@ -257,9 +257,12 @@ type t_addx =
   ?win:Evas.obj ->
   ?inwin:Evas.obj ->
   ?box:Evas.obj ->
+  ?content_of:Evas.obj ->
   ?packing:(Evas.obj -> unit) ->
   ?text:string ->
   ?content:Evas.obj ->
+  ?style:string ->
+  ?color:(int * int * int * int) ->
   ?part_text:(string * string) list ->
   ?part_content:(string * Evas.obj) list ->
   ?show:bool -> Evas.obj -> Evas.obj
@@ -272,9 +275,11 @@ external elm_inwin_content_set : Evas.obj -> Evas.obj -> unit =
   
 external elm_box_pack_end : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_end"
 
+external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
+
 let create_addx add
   ?(size_hint = [`expand; `fill])
-  ?size ?pos ?win ?inwin ?box ?packing ?text ?content
+  ?size ?pos ?win ?inwin ?box ?content_of ?packing ?text ?content ?style ?color
   ?(part_text = []) ?(part_content = []) ?(show = true) parent =
     let obj = add parent in
     Evas_object.size_hint_set obj size_hint;
@@ -283,10 +288,15 @@ let create_addx add
     (match win with Some w -> elm_win_resize_object_add w obj
     | None -> (match inwin with Some w -> elm_inwin_content_set w obj
     | None -> (match box with Some b -> elm_box_pack_end b obj
+    | None -> (match content_of with Some x -> content_set x obj
     | None -> (match packing with Some f -> f obj
-    | None -> ()))));
+    | None -> ())))));
     (match text with Some t -> text_set obj t| None -> ());
     (match content with Some c -> content_set obj c | None -> ());
+    (match style with Some s -> ignore (style_set obj s) | None -> ());
+    (match color with
+    | Some (r, g, b, a) -> Evas_object.color_set obj r g b a
+    | None -> ());
     List.iter (fun (p, t) -> part_text_set obj ~p t) part_text;
     List.iter (fun (p, c) -> part_content_set obj ~p c) part_content;
     if show then Evas_object.show obj;
@@ -339,8 +349,6 @@ external scale_set : Evas.obj -> float -> unit = "ml_elm_object_scale_set"
 external scale_get : Evas.obj -> float = "ml_elm_object_scale_get"
 
 (* Styles *)
-
-external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
 
 external style_get : Evas.obj -> string = "ml_elm_object_style_get"
 

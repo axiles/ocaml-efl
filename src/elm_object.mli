@@ -190,9 +190,12 @@ type t_addx =
   ?win:Evas.obj ->
   ?inwin:Evas.obj ->
   ?box:Evas.obj ->
+  ?content_of:Evas.obj ->
   ?packing:(Evas.obj -> unit) ->
   ?text:string ->
   ?content:Evas.obj ->
+  ?style:string ->
+  ?color:(int * int * int * int) ->
   ?part_text:(string * string) list ->
   ?part_content:(string * Evas.obj) list ->
   ?show:bool -> Evas.obj -> Evas.obj

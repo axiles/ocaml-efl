@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_flipselector_add"
 
+let addx = Elm_object.create_addx add
+
 external flip_next : Evas.obj -> unit = "ml_elm_flipselector_flip_next"
 
 external flip_prev : Evas.obj -> unit = "ml_elm_flipselector_flip_prev"

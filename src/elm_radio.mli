@@ -10,6 +10,8 @@ Use a callback with the signal "changed" instead.
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val group_add : Evas.obj -> Evas.obj -> unit
 
 val state_value_set : Evas.obj -> int -> unit

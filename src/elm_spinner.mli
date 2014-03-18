@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val label_format_function_set : Evas.obj -> (float -> string) -> unit
 
 val label_format_set :

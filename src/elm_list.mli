@@ -10,6 +10,8 @@ type mode = [`compress | `scroll | `limit | `expand | `last]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val go : Evas.obj -> unit
 
 val multi_select_set : Evas.obj -> bool -> unit 

@@ -35,64 +35,37 @@ let () =
   Evas_object.resize win 300 320;
   Evas_object.show win;
 
-  let bigbox = Elm_box.add win in
-  Evas_object.size_hint_set bigbox [`expand];
-  Elm_win.resize_object_add win bigbox;
-  Evas_object.show bigbox;
+  let bigbox = Elm_box.addx ~size_hint:[`expand] ~win win in
 
-  let bx = Elm_box.add win in
+  let bx = Elm_box.addx ~box:bigbox ~size_hint:[] win in 
   Elm_box.horizontal_set bx true;
-  Elm_box.pack_end bigbox bx;
-  Evas_object.show bx;
 
-  let bt_add = Elm_button.add win in
-  Elm_object.text_set bt_add "Add";
-  Elm_box.pack_end bx bt_add;
-  Evas_object.show bt_add;
+  let bt_add = Elm_button.addx ~text:"Add" ~box:bx ~size_hint:[] win in
 
-  let bt_clear = Elm_button.add win in
-  Elm_object.text_set bt_clear "Clear";
-  Elm_box.pack_end bx bt_clear;
-  Evas_object.show bt_clear;
+  let bt_clear = Elm_button.addx ~text:"Clear" ~box:bx ~size_hint:[] win in
 
-  let bx = Elm_box.add win in
-  Evas_object.size_hint_set bx [`expand; `fill];
-  Elm_box.pack_end bigbox bx;
-  Evas_object.show bx;
+  let bx = Elm_box.addx ~box:bigbox win in
 
   let unpack_cb obj =
     Elm_box.unpack bx obj;
     Evas_object.move obj 0 50;
     Evas_object.color_set obj 128 64 0 128 in
 
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Button 1";
+  let bt = Elm_button.addx ~text:"Button 1" ~box:bx win in
   Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
-  Evas_object.size_hint_set bt [`expand; `fill];
-  Elm_box.pack_end bx bt;
-  Evas_object.show bt;
 
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Button 2";
+  let bt = Elm_button.addx ~text:"Button 2" ~size_hint:[`hexpand; `valign 1.]
+    ~box:bx win in
   Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
-  Evas_object.size_hint_set bt [`hexpand; `valign 1.];
-  Elm_box.pack_end bx bt;
-  Evas_object.show bt;
-
-  let bt = Elm_button.add win in
-  Elm_object.text_set bt "Button 3";
+  let bt = Elm_button.addx ~text:"Button 3" ~size_hint:[] ~box:bx win in
   Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
-  Elm_box.pack_end bx bt;
-  Evas_object.show bt;
 
   let add_cb _ =
-    let btn = Elm_button.add bx in
-    Elm_object.text_set btn "I do nothing";
+    let btn = Elm_button.addx ~text:"I do nothing" ~size_hint:[] bx in
     let children = Elm_box.children_get bx in
     (match children with
     | [] -> Elm_box.pack_end bx btn
-    | o :: _ -> Elm_box.pack_after bx btn o);
-    Evas_object.show btn in
+    | o :: _ -> Elm_box.pack_after bx btn o) in
   Evas_object_smart.callback_add bt_add Elm_sig.clicked add_cb;
 
   let clear_cb _ = Elm_box.clear bx in

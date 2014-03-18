@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val parent_set : Evas.obj -> Evas.obj -> unit
 
 val parent_get : Evas.obj -> Evas.obj

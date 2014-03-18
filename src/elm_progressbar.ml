@@ -75,6 +75,8 @@ let add parent =
   Evas_object.event_callback_add_free pb free_cb;
   pb
 
+let addx = Elm_object.create_addx add
+
 external pulse_set : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse_set"
 
 external pulse_get : Evas.obj -> bool = "ml_elm_progressbar_pulse_get"

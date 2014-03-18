@@ -4,6 +4,8 @@ type axis = [`none | `horizontal | `vertical | `both]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val target_set : Evas.obj -> Evas.obj -> unit
 
 val target_get : Evas.obj -> Evas.obj

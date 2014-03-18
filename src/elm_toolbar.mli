@@ -20,6 +20,8 @@ type item_scrollto_type = [
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val icon_size_set : Evas.obj -> int -> unit
 
 val icon_size_get : Evas.obj -> int

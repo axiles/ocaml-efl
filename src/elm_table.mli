@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val homogeneous_set : Evas.obj -> bool -> unit
 
 val homogeneous_get : Evas.obj -> bool

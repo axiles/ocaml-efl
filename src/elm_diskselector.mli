@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val round_enabled_set : Evas.obj -> bool -> unit
 
 val round_enabled_get : Evas.obj -> bool

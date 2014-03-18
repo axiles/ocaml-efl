@@ -10,6 +10,8 @@ type orient = [
 
 external add : Evas.obj -> Evas.obj = "ml_elm_image_add"
 
+let addx = Elm_object.create_addx add
+
 external file_set : Evas.obj -> string -> ?g:string -> unit -> bool =
   "ml_elm_image_file_set"
 

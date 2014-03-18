@@ -8,6 +8,8 @@ type func_cb = Evas.obj -> unit
 
 external add : Evas.obj -> Evas.obj = "ml_elm_glview_add"
 
+let addx = Elm_object.create_addx add
+
 external size_set : Evas.obj -> int -> int -> unit = "ml_elm_glview_size_set"
 
 external size_get : Evas.obj -> int * int = "ml_elm_glview_size_get"

@@ -52,6 +52,8 @@ type download = {url : string}
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val useragent_set : Evas.obj -> string -> unit
 
 val useragent_get : Evas.obj -> string

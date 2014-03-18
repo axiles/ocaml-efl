@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_index_add"
 
+let addx = Elm_object.create_addx add
+
 external autohide_disabled_set : Evas.obj -> bool -> unit =
   "ml_elm_index_autohide_disabled_set"
 
