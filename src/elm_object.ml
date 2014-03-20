@@ -265,6 +265,7 @@ type t_addx =
   ?color:(int * int * int * int) ->
   ?part_text:(string * string) list ->
   ?part_content:(string * Evas.obj) list ->
+  ?cb:Evas_object_smart.sig_with_cb list ->
   ?show:bool -> Evas.obj -> Evas.obj
 
 external elm_win_resize_object_add : Evas.obj -> Evas.obj -> unit =
@@ -280,7 +281,7 @@ external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
 let create_addx add
   ?(size_hint = [`expand; `fill])
   ?size ?pos ?win ?inwin ?box ?content_of ?packing ?text ?content ?style ?color
-  ?(part_text = []) ?(part_content = []) ?(show = true) parent =
+  ?(part_text = []) ?(part_content = []) ?(cb = []) ?(show = true) parent =
     let obj = add parent in
     Evas_object.size_hint_set obj size_hint;
     (match size with Some (w, h) -> Evas_object.resize obj w h | None -> ());
@@ -300,6 +301,7 @@ let create_addx add
     List.iter (fun (p, t) -> part_text_set obj ~p t) part_text;
     List.iter (fun (p, c) -> part_content_set obj ~p c) part_content;
     if show then Evas_object.show obj;
+    List.iter (fun s -> Evas_object_smart.connect s obj) cb;
     obj
 
 (* Scrollhints *)

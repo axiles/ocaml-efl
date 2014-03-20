@@ -57,13 +57,31 @@ type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
 
+(** An alternative to [Elm_win.add]. *)
 val addx :
   ?title:string ->
   ?parent:Evas.obj ->
   ?bg:bool ->
   ?autodel:bool ->
   ?size:(int * int) ->
-  ?ty:ty -> string -> Evas.obj
+  ?ty:ty ->
+  ?cb:Evas_object_smart.sig_with_cb list -> string -> Evas.obj
+
+(** Compared to [Elm_win.add], [Elm_win.addx] offers more optional arguments:
+- title: Used with [Elm_win.title_set], if set.
+- parent: Parent of the window, if set.
+- bg: Add a standard background, if set to [ true ].
+The default value is [ true ].
+- autodel: Used with [Elm_win.autodel_set]. Default value is [ false ].
+- size: Used with [Evas_object.resize], if set.
+- ty: Type of the window. Default value is [ `basic ].
+- cb: List of callbacks for the window. Example:
+{[
+let ( >< ) = Elm.connect
+let win = Elm_win.addx ~cb:[Elm_sig.delete_request >< on_done] name
+]}
+Therefore, the difference bewteen [Elm_win.add name] and [Elm_win.addx name] is
+that in the latter case there is a background to the window *)
 
 val util_standard_add : string -> string -> Evas.obj
 

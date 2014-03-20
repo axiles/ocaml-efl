@@ -293,11 +293,12 @@ external floating_mode_get : Evas.obj -> bool = "ml_elm_win_floating_mode_get"
 external window_id_get : Evas.obj -> Ecore.window = "ml_elm_win_window_id_get"
 
 let addx ?title ?parent ?(bg = true) ?(autodel = false) ?size ?(ty = `basic)
-  name =
+  ?(cb = []) name =
     let win = add ?p:parent name ty in
     (match title with Some t -> title_set win t | None -> ());
     autodel_set win autodel;
     if bg then ignore (Elm_bg.addx ~size_hint:[`expand] ~win win);
     (match size with Some (w, h) -> Evas_object.resize win w h | None -> ());
+    List.iter (fun s -> Evas_object_smart.connect s win) cb;
     win
 
