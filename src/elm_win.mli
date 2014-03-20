@@ -57,6 +57,14 @@ type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
 
+val addx :
+  ?title:string ->
+  ?parent:Evas.obj ->
+  ?bg:bool ->
+  ?autodel:bool ->
+  ?size:(int * int) ->
+  ?ty:ty -> string -> Evas.obj
+
 val util_standard_add : string -> string -> Evas.obj
 
 val resize_object_add : Evas.obj -> Evas.obj -> unit
