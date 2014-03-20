@@ -43,6 +43,8 @@ let add parent =
   changed_cb pb ();
   pb
 
+let addx = Elm_object.create_addx add
+
 external min_max_set : Evas.obj -> float -> float -> unit =
   "ml_elm_spinner_min_max_set"
 

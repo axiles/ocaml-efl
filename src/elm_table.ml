@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_table_add"
 
+let addx = Elm_object.create_addx add
+
 external homogeneous_set : Evas.obj -> bool -> unit =
   "ml_elm_table_homogeneous_set"
 

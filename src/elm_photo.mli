@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val file_set : Evas.obj -> string -> bool
 
 val file_set_none : Evas.obj -> bool

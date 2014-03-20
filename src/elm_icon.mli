@@ -6,6 +6,8 @@ type lookup_order = [`fdo_theme | `theme_fdo | `fdo | `theme]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val thumb_set : Evas.obj -> string -> string -> ?g:string -> unit -> unit
 
 val standard_set : Evas.obj -> string -> bool

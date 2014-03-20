@@ -5,6 +5,8 @@ type item_class = {
 
 external add : Evas.obj -> Evas.obj = "ml_elm_slideshow_add"
 
+let addx = Elm_object.create_addx add
+
 external item_add : Evas.obj -> item_class -> Elm_object.item =
   "ml_elm_slideshow_item_add"
 

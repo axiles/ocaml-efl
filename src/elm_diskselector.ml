@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_diskselector_add"
 
+let addx = Elm_object.create_addx add
+
 external round_enabled_set : Evas.obj -> bool -> unit =
   "ml_elm_diskselector_round_enabled_set"
 

@@ -2,6 +2,8 @@ type mode = [`compress | `scroll | `limit | `expand | `last]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_list_add"
 
+let addx = Elm_object.create_addx add
+
 external go : Evas.obj -> unit = "ml_elm_list_go"
 
 external multi_select_set : Evas.obj -> bool -> unit =

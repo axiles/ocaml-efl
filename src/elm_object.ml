@@ -256,10 +256,64 @@ external item_untrack : item -> unit = "ml_elm_object_item_untrack"
 
 external item_track_get : item -> int = "ml_elm_object_item_track_get"
 
-external item_style_set : item -> string -> unit =
-  "ml_elm_object_item_style_set"
-
+external item_style_set : item -> string -> unit =                               
+  "ml_elm_object_item_style_set"                                                 
+                                                                                           
 external item_style_get : item -> string = "ml_elm_object_item_style_get"
+
+type t_addx =
+  ?size_hint:Evas_object.size_hint list ->
+  ?size:(int * int) ->
+  ?pos:(int * int) ->
+  ?win:Evas.obj ->
+  ?inwin:Evas.obj ->
+  ?box:Evas.obj ->
+  ?content_of:Evas.obj ->
+  ?packing:(Evas.obj -> unit) ->
+  ?text:string ->
+  ?content:Evas.obj ->
+  ?style:string ->
+  ?color:(int * int * int * int) ->
+  ?part_text:(string * string) list ->
+  ?part_content:(string * Evas.obj) list ->
+  ?cb:Evas_object_smart.sig_with_cb list ->
+  ?show:bool -> Evas.obj -> Evas.obj
+
+external elm_win_resize_object_add : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_resize_object_add"
+
+external elm_inwin_content_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_inwin_content_set"
+  
+external elm_box_pack_end : Evas.obj -> Evas.obj -> unit = "ml_elm_box_pack_end"
+
+external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
+
+let create_addx add
+  ?(size_hint = [`expand; `fill])
+  ?size ?pos ?win ?inwin ?box ?content_of ?packing ?text ?content ?style ?color
+  ?(part_text = []) ?(part_content = []) ?(cb = []) ?(show = true) parent =
+    let obj = add parent in
+    Evas_object.size_hint_set obj size_hint;
+    (match size with Some (w, h) -> Evas_object.resize obj w h | None -> ());
+    (match pos with Some(x, y) -> Evas_object.move obj x y | None -> ());
+    (match win with Some w -> elm_win_resize_object_add w obj
+    | None -> (match inwin with Some w -> elm_inwin_content_set w obj
+    | None -> (match box with Some b -> elm_box_pack_end b obj
+    | None -> (match content_of with Some x -> content_set x obj
+    | None -> (match packing with Some f -> f obj
+    | None -> ())))));
+    (match text with Some t -> text_set obj t| None -> ());
+    (match content with Some c -> content_set obj c | None -> ());
+    (match style with Some s -> ignore (style_set obj s) | None -> ());
+    (match color with
+    | Some (r, g, b, a) -> Evas_object.color_set obj r g b a
+    | None -> ());
+    List.iter (fun (p, t) -> part_text_set obj ~p t) part_text;
+    List.iter (fun (p, c) -> part_content_set obj ~p c) part_content;
+    if show then Evas_object.show obj;
+    List.iter (fun s -> Evas_object_smart.connect s obj) cb;
+    obj
 
 (* Scrollhints *)
 
@@ -308,8 +362,6 @@ external scale_set : Evas.obj -> float -> unit = "ml_elm_object_scale_set"
 external scale_get : Evas.obj -> float = "ml_elm_object_scale_get"
 
 (* Styles *)
-
-external style_set : Evas.obj -> string -> bool = "ml_elm_object_style_set"
 
 external style_get : Evas.obj -> string = "ml_elm_object_style_get"
 

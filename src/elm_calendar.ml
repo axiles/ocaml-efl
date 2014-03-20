@@ -21,6 +21,8 @@ type selectable_ = {year : bool; month : bool; day : bool}
 
 external add : Evas.obj -> Evas.obj = "ml_elm_calendar_add"
 
+let addx = Elm_object.create_addx add
+
 external weekdays_names_get : Evas.obj -> string array =
   "ml_elm_calendar_weekdays_names_get"
 

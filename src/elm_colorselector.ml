@@ -2,6 +2,8 @@ type mode = [`palette | `components | `both | `picker | `all]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_colorselector_add"
 
+let addx = Elm_object.create_addx add
+
 external color_set : Evas.obj -> int -> int -> int -> int -> unit =
   "ml_elm_colorselector_color_set"
 

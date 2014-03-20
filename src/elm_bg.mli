@@ -4,6 +4,8 @@ type opt = [`center | `scale | `stretch | `tile | `last]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val file_set : Evas.obj -> string -> ?g:string -> unit -> unit
 
 val file_get : Evas.obj -> string * string option

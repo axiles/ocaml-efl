@@ -34,6 +34,8 @@ type name_cb = Evas.obj -> name -> unit
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val zoom_set : Evas.obj -> int -> unit
 
 val zoom_get : Evas.obj -> int

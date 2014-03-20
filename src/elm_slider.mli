@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val span_size_set : Evas.obj -> int -> unit
 
 val span_size_get : Evas.obj -> int

@@ -2,6 +2,8 @@ let player_add = Elm.player_add
 
 external add : Evas.obj -> Evas.obj = "ml_elm_video_add"
 
+let addx = Elm_object.create_addx add
+
 external file_set : Evas.obj -> string -> bool = "ml_elm_video_file_set"
 
 external emotion_get : Evas.obj -> Evas.obj = "ml_elm_video_emotion_get"

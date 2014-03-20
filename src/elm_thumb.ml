@@ -2,6 +2,8 @@ type animation_setting = [`start | `loop | `stop | `last]
 
 external add : Evas.obj -> Evas.obj = "ml_elm_thumb_add"
 
+let addx = Elm_object.create_addx add
+
 external reload : Evas.obj -> unit = "ml_elm_thumb_reload"
 
 external file_set : Evas.obj -> string -> string -> unit =

@@ -16,6 +16,8 @@ type filter_func = string -> bool -> bool
 
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"
 
+let addx = Elm_object.create_addx add
+
 external is_save_set : Evas.obj -> bool -> unit =
   "ml_elm_fileselector_is_save_set"
 

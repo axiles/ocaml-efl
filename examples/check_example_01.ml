@@ -7,35 +7,22 @@ let print obj =
 let () =
   Elm.init ();
 
-  let win = Elm_win.add "check" `basic in
-  Elm_win.title_set win "check";
+  let win = Elm_win.util_standard_add "check" "Check" in
   Elm_win.autodel_set win true;
   Elm.policy_quit_set `last_window_closed;
 
-  let bg = Elm_bg.add win in
-  Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
-  Elm_win.resize_object_add win bg;
-  Evas_object.show bg;
-
-  let cb = Elm_check.add win in
-  Elm_object.text_set cb "checkbox";
+  let cb = Elm_check.addx ~text:"checkbox" ~pos:(10, 10) ~size:(200, 30) win in
   Evas_object_smart.callback_add cb Elm_sig.changed print;
-  Evas_object.move cb 10 10;
-  Evas_object.resize cb 200 30;
-  Evas_object.show cb;
 
   let icon = Evas_object.rectangle_add (Evas_object.evas_get win) in
   Evas_object.color_set icon 0 255 0 255;
   Evas_object.resize icon 20 20;
   Evas_object.show icon;
 
-  let cb2 = Elm_check.add win in
-  Elm_object.text_set cb2 "another checkbox";
+  ignore (Elm_check.addx ~text:"another checkbox"
+    ~part_content:[("icon", icon)] ~pos:(10, 50) ~size:(200, 30) win);
+
   Elm_check.state_set cb true;
-  Elm_object.part_content_set cb2 ~p:"icon" icon;
-  Evas_object.move cb2 10 50;
-  Evas_object.resize cb2 200 30;
-  Evas_object.show cb2;
 
   Evas_object.resize win 200 100;
   Evas_object.show win;

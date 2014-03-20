@@ -16,6 +16,8 @@ type item_scrollto_type = [`none | `_in | `top | `middle]
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val clear : Evas.obj -> unit
 
 val multi_select_set : Evas.obj -> bool -> unit

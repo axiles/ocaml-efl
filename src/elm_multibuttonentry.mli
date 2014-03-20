@@ -4,6 +4,8 @@ type format_cb = int -> string
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val entry_get : Evas.obj -> Evas.obj option
 
 val expanded_get : Evas.obj -> bool

@@ -14,6 +14,8 @@ type orient = [
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
     Elm_object.item

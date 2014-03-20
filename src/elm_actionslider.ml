@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_actionslider_add"
 
+let addx = Elm_object.create_addx add
+
 external selected_label_get : Evas.obj -> string option =
   "ml_elm_actionslider_selected_label_get"
 

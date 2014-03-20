@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_frame_add"
 
+let addx = Elm_object.create_addx add
+
 external autocollapse_set : Evas.obj -> bool -> unit =
   "ml_elm_frame_autocollapse_set"
 

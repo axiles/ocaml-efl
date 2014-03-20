@@ -13,17 +13,11 @@ let () =
   Evas_object.resize win 240 60;
   Evas_object.show win;
 
-  let bg = Elm_bg.add win in
-  Evas_object.size_hint_weight_set bg Evas.hint_expand Evas.hint_expand;
-  Elm_win.resize_object_add win bg;
-  Evas_object.show bg;
+  ignore (Elm_bg.addx ~size_hint:[`expand] ~win win);
 
-  let btn = Elm_button.add win in
-  Elm_object.text_set btn "Good-Bye, World!";
+  let btn = Elm_button.addx ~text:"Good-Bye, World"
+    ~size:(120, 30) ~pos:(60, 15) win in
   Evas_object_smart.callback_add btn Elm_sig.clicked on_click;
-  Evas_object.resize btn 120 30;
-  Evas_object.move btn 60 15;
-  Evas_object.show btn;
 
   Elm.run ();
   Elm.shutdown ()

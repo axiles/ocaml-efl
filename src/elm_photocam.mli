@@ -8,6 +8,8 @@ type error = {status : int; open_error : bool}
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val file_set : Evas.obj -> string -> Evas.load_error
 
 val file_get : Evas.obj -> string

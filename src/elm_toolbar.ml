@@ -18,6 +18,8 @@ type item_scrollto_type = [
 
 external add : Evas.obj -> Evas.obj = "ml_elm_toolbar_add"
 
+let addx = Elm_object.create_addx add
+
 external icon_size_set : Evas.obj -> int -> unit =
   "ml_elm_toolbar_icon_size_set"
 

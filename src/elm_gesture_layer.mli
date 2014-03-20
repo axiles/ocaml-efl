@@ -71,3 +71,5 @@ val attach : Evas.obj -> Evas.obj -> bool
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+

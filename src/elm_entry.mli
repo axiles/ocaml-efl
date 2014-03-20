@@ -59,6 +59,8 @@ type cnp_mode = Elm.cnp_mode
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val text_style_user_push : Evas.obj -> string -> unit 
 
 val text_style_user_pop : Evas.obj -> unit

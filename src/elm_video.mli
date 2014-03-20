@@ -4,6 +4,8 @@ val player_add : Evas.obj -> Evas.obj
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val file_set : Evas.obj -> string -> bool
 
 val emotion_get : Evas.obj -> Evas.obj

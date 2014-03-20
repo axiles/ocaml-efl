@@ -2,6 +2,8 @@ type format_cb = int -> string
 
 external add : Evas.obj -> Evas.obj = "ml_elm_multibuttonentry_add"
 
+let addx = Elm_object.create_addx add
+
 external entry_get : Evas.obj -> Evas.obj option =
   "ml_elm_multibuttonentry_entry_get"
 

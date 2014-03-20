@@ -9,6 +9,8 @@ type direction = [
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val hover_parent_set : Evas.obj -> Evas.obj -> unit
 
 val hover_parent_get : Evas.obj -> Evas.obj

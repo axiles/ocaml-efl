@@ -87,6 +87,8 @@ let add parent =
   Evas_object.event_callback_add_free sl free_cb;
   sl
 
+let addx = Elm_object.create_addx add
+
 let units_format_function_set obj func =
   FU.replace fu obj func;
   changed_cb obj

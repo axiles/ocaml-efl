@@ -1,6 +1,8 @@
 external add : Evas.obj -> Evas.obj =
   "ml_elm_layout_add"
 
+let addx = Elm_object.create_addx add
+
 external file_set : Evas.obj -> string -> string -> bool =
   "ml_elm_layout_file_set"
 

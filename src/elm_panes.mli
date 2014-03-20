@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val fixed_set : Evas.obj -> bool -> unit
 
 val fixed_get : Evas.obj -> bool

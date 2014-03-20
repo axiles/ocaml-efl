@@ -191,6 +191,62 @@ val item_style_set : item -> string -> unit
 
 val item_style_get : item -> string
 
+type t_addx =
+  ?size_hint:Evas_object.size_hint list ->
+  ?size:(int * int) ->
+  ?pos:(int * int) ->
+  ?win:Evas.obj ->
+  ?inwin:Evas.obj ->
+  ?box:Evas.obj ->
+  ?content_of:Evas.obj ->
+  ?packing:(Evas.obj -> unit) ->
+  ?text:string ->
+  ?content:Evas.obj ->
+  ?style:string ->
+  ?color:(int * int * int * int) ->
+  ?part_text:(string * string) list ->
+  ?part_content:(string * Evas.obj) list ->
+  ?cb:Evas_object_smart.sig_with_cb list ->
+  ?show:bool -> Evas.obj -> Evas.obj
+
+(** Used to create addx functions (except for windows).
+For example [Elm_button.addx] is the same as
+[Elm_object.create_addx Elm_button.add]*)
+val create_addx : (Evas.obj -> Evas.obj) -> t_addx
+
+(** Compared to [Elm_button.add], [Elm_button.addx] offers some optional
+arguments and different default values:
+- size_hint: Used with [Evas_object.size_hint_set]. Default value is
+[ [`expand; `fill] ].
+If you use [ [] ], it will be the default size hints of Elementary.
+- size: Used with [Evas_object.resize] if set.
+- pos: Used with [Evas_object.move] if set.
+- win: Used with [Elm_win.resize_object_add] if set.
+- inwin: Used with [Elm_inwin.content_set] if set.
+- box: Used with [Elm_box.pack_end] if set.
+- content_of: Used with [Elm_object.content_set] as the container object if set.
+- packing: Custom packing function. If it is not set, the packing will be done
+depending of the arguments win, inwin box and content_of.
+- text: Used with [Elm_object.text_set] if set.
+- content: Used with [Elm_object.content_set] if set.
+- style: Used with [Elm_object.style_set] if set.
+- color: Used with [Evas_object.color_set] if set.
+- part_text: Used with [Elm_object.part_text_set]. Default value is [ [] ].
+- part_content: Used with [Elm_object.part_content_set]. Default value is
+[ [] ].
+- cb: List of callbacks. Default is [ [] ]. Example:
+{[
+let ( >< ) = Elm.connect
+let btn = Elm_button.addx ~text:"Hello" ~cb:[Elm_sig.clicked >< btn_cb] win
+]}
+- show: Use Evas_object.show if set to true. Default value is true.
+
+Therefore, the difference between [Elm_button.add win] and [Elm_button.addx win]
+is that in the latter case:
+- the button is visible
+- the button size hints are expand and fill.
+*)
+
 (** {2 Scrollhints} *)
 
 val scroll_hold_push : Evas.obj -> unit

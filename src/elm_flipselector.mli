@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val flip_next : Evas.obj -> unit
 
 val flip_prev : Evas.obj -> unit

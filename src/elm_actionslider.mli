@@ -2,6 +2,8 @@
 
 val add : Evas.obj -> Evas.obj
 
+val addx : Elm_object.t_addx
+
 val selected_label_get : Evas.obj -> string option
 
 val indicator_pos_set : Evas.obj -> bool -> bool -> bool -> unit

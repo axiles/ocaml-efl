@@ -1,5 +1,7 @@
 external add : Evas.obj -> Evas.obj = "ml_elm_button_add"
 
+let addx = Elm_object.create_addx add
+
 external autorepeat_gap_timeout_get : Evas.obj -> float =
   "ml_elm_button_autorepeat_gap_timeout_get"
 
