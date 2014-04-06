@@ -693,3 +693,32 @@ PREFIX value ml_evas_object_top_get(value v_e)
         return copy_Evas_Object_opt(evas_object_top_get((Evas*) v_e));
 }
 
+/* Line Object Functions */
+
+PREFIX value ml_evas_object_line_add(value v_e)
+{
+        Evas_Object* line = evas_object_line_add((Evas*) v_e);
+        if(line == NULL) caml_failwith("evas_object_line_add");
+        return (value) line;
+}
+
+PREFIX value ml_evas_object_line_xy_set(
+        value v_obj, value v_x1, value v_y1, value v_x2, value v_y2)
+{
+        evas_object_line_xy_set((Evas_Object*) v_obj, Int_val(v_x1),
+                Int_val(v_y1), Int_val(v_x2), Int_val(v_y2));
+        return Val_unit;
+}
+
+PREFIX value ml_evas_object_line_xy_get(value v_obj)
+{
+        Evas_Coord x1, y1, x2, y2;
+        evas_object_line_xy_get((Evas_Object*) v_obj, &x1, &y1, &x2, &y2);
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(x1));
+        Store_field(v, 1, Val_int(y1));
+        Store_field(v, 2, Val_int(x2));
+        Store_field(v, 3, Val_int(y2));
+        return v;
+}
+
