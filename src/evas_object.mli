@@ -344,7 +344,7 @@ val top_get : Evas.t -> t option
 
 val line_add : Evas.t -> Evas.obj
 
-val line_xy_set : Evas.t -> int -> int -> int -> int -> unit
+val line_xy_set : Evas.obj -> int -> int -> int -> int -> unit
 
-val line_xy_get : Evas.t -> int * int * int * int
+val line_xy_get : Evas.obj -> int * int * int * int
 
