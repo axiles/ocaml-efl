@@ -467,9 +467,9 @@ external top_get : Evas.t -> t option = "ml_evas_object_top_get"
 
 external line_add : Evas.t -> Evas.obj = "ml_evas_object_line_add"
 
-external line_xy_set : Evas.t -> int -> int -> int -> int -> unit =
+external line_xy_set : Evas.obj -> int -> int -> int -> int -> unit =
   "ml_evas_object_line_xy_set"
 
-external line_xy_get : Evas.t -> int * int * int * int =
+external line_xy_get : Evas.obj -> int * int * int * int =
   "ml_evas_object_line_xy_get"
 
