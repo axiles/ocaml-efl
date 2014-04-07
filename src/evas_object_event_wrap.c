@@ -120,6 +120,17 @@ void ml_Evas_Object_Event_Cb_unit(
         value* d = (value*) data;
         v_fun = *d;
         caml_callback3(v_fun, (value) e, (value) obj, Val_unit);
+	CAMLreturn0;
+}
+
+void ml_Evas_Object_Event_Cb_unit_free(
+        void* data, Evas* e, Evas_Object *obj, void* event_info)
+{
+        CAMLparam0();
+        CAMLlocal1(v_fun);
+        value* d = (value*) data;
+        v_fun = *d;
+        caml_callback3(v_fun, (value) e, (value) obj, Val_unit);
         ml_remove_value(d);
 	CAMLreturn0;
 }
@@ -283,7 +294,7 @@ PREFIX value ml_evas_object_event_callback_add_focus_in(
         value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_FOCUS_IN,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -293,7 +304,7 @@ PREFIX value ml_evas_object_event_callback_add_focus_out(
         value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_FOCUS_OUT,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -302,7 +313,7 @@ PREFIX value ml_evas_object_event_callback_add_focus_out(
 PREFIX value ml_evas_object_event_callback_add_show(value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_SHOW,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -311,7 +322,7 @@ PREFIX value ml_evas_object_event_callback_add_show(value v_obj, value v_func)
 PREFIX value ml_evas_object_event_callback_add_hide(value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_HIDE,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -320,7 +331,7 @@ PREFIX value ml_evas_object_event_callback_add_hide(value v_obj, value v_func)
 PREFIX value ml_evas_object_event_callback_add_move(value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_MOVE,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -329,7 +340,7 @@ PREFIX value ml_evas_object_event_callback_add_move(value v_obj, value v_func)
 PREFIX value ml_evas_object_event_callback_add_resize(value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_RESIZE,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -339,7 +350,7 @@ PREFIX value ml_evas_object_event_callback_add_restack(
         value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_RESTACK,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -348,7 +359,7 @@ PREFIX value ml_evas_object_event_callback_add_restack(
 PREFIX value ml_evas_object_event_callback_add_del(value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_DEL,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -368,7 +379,7 @@ PREFIX value ml_evas_object_event_callback_add_changed_size_hints(
         value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_CHANGED_SIZE_HINTS,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -378,7 +389,7 @@ PREFIX value ml_evas_object_event_callback_add_image_preloaded(
         value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_IMAGE_PRELOADED,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -388,7 +399,7 @@ PREFIX value ml_evas_object_event_callback_add_image_unloaded(
         value v_obj, value v_func)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
-        value* data = ml_register_value(v_func);
+        value* data = ml_Evas_Object_register_value(obj, v_func);
         evas_object_event_callback_add(obj, EVAS_CALLBACK_IMAGE_UNLOADED,
                 ml_Evas_Object_Event_Cb_unit, data);
         return Val_unit;
@@ -499,7 +510,7 @@ PREFIX value ml_evas_object_event_callback_priority_add_free(value v_obj, value 
         value* data = ml_register_value(v_func);
         evas_object_event_callback_priority_add(obj, EVAS_CALLBACK_FREE,
                 Evas_Callback_Priority_val(v_p),
-                ml_Evas_Object_Event_Cb_unit, data);
+                ml_Evas_Object_Event_Cb_unit_free, data);
         return Val_unit;
 }
 
