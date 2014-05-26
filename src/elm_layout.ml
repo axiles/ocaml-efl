@@ -79,6 +79,20 @@ external part_cursor_engine_only_set : Evas.obj -> string -> bool -> bool =
 external part_cursor_engine_only_get : Evas.obj -> string -> bool =
   "ml_elm_layout_part_cursor_engine_only_get"
 
+external content_set : Evas.obj -> string -> Evas.obj -> bool =
+  "ml_elm_layout_content_set"
+
+external content_get : Evas.obj -> string -> Evas.obj option =
+  "ml_elm_layout_content_get"
+
+external content_unset : Evas.obj -> string -> Evas.obj option =
+  "ml_elm_layout_content_unset"
+
+external text_set : Evas.obj -> string -> string -> bool =
+  "ml_elm_layout_text_set"
+
+external text_get : Evas.obj -> string -> string = "ml_elm_layout_text_get"
+
 external icon_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_icon_set"
 
 let icon_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.icon" ()

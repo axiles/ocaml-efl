@@ -53,6 +53,16 @@ val part_cursor_engine_only_set : Evas.obj -> string -> bool -> bool
 
 val part_cursor_engine_only_get : Evas.obj -> string -> bool
 
+val content_set : Evas.obj -> string -> Evas.obj -> bool
+
+val content_get : Evas.obj -> string -> Evas.obj option
+
+val content_unset : Evas.obj -> string -> Evas.obj option
+
+val text_set : Evas.obj -> string -> string -> bool
+
+val text_get : Evas.obj -> string -> string
+
 val icon_set : Evas.obj -> Evas.obj -> unit
 
 val icon_get : Evas.obj -> Evas.obj

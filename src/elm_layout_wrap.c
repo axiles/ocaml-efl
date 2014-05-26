@@ -217,6 +217,36 @@ PREFIX value ml_elm_layout_part_cursor_engine_only_get(
                 (Evas_Object*) v_obj, String_val(v_part_name)));
 }
 
+PREFIX value ml_elm_layout_content_set(value v_obj, value v_sw, value v_c)
+{
+        return Val_bool(elm_layout_content_set((Evas_Object*) v_obj,
+                String_val(v_sw), (Evas_Object*) v_c));
+}
+
+PREFIX value ml_elm_layout_content_get(value v_obj, value v_sw)
+{
+        return copy_Evas_Object_opt(elm_layout_content_get(
+                (Evas_Object*) v_obj, String_val(v_sw)));
+}
+
+PREFIX value ml_elm_layout_content_unset(value v_obj, value v_sw)
+{
+        return copy_Evas_Object_opt(elm_layout_content_unset(
+                (Evas_Object*) v_obj, String_val(v_sw)));
+}
+
+PREFIX value ml_elm_layout_text_set(value v_obj, value v_sw, value v_text)
+{
+        return Val_bool(elm_layout_text_set((Evas_Object*) v_obj,
+                String_val(v_sw), String_val(v_text)));
+}
+
+PREFIX value ml_elm_layout_text_get(value v_obj, value v_sw)
+{
+        return copy_string(elm_layout_text_get((Evas_Object*) v_obj,
+                String_val(v_sw)));
+}
+
 PREFIX value ml_elm_layout_icon_set(value v_ly, value v_obj)
 {
         elm_layout_icon_set((Evas_Object*) v_ly, (Evas_Object*) v_obj);
