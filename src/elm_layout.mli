@@ -37,6 +37,8 @@ val data_get : Evas.obj -> string -> string option
 
 val sizing_eval : Evas.obj -> unit
 
+val sizing_restricted_eval : Evas.obj -> bool -> bool -> unit
+
 val part_cursor_set : Evas.obj -> string -> string -> bool
 
 val part_cursor_get : Evas.obj -> string -> string
@@ -51,6 +53,20 @@ val part_cursor_engine_only_set : Evas.obj -> string -> bool -> bool
 
 val part_cursor_engine_only_get : Evas.obj -> string -> bool
 
+val edje_object_can_access_set : Evas.obj -> bool -> bool
+
+val edje_object_can_access_get : Evas.obj -> bool
+
+val content_set : Evas.obj -> string -> Evas.obj -> bool
+
+val content_get : Evas.obj -> string -> Evas.obj option
+
+val content_unset : Evas.obj -> string -> Evas.obj option
+
+val text_set : Evas.obj -> string -> string -> bool
+
+val text_get : Evas.obj -> string -> string
+
 val icon_set : Evas.obj -> Evas.obj -> unit
 
 val icon_get : Evas.obj -> Evas.obj
@@ -58,4 +74,8 @@ val icon_get : Evas.obj -> Evas.obj
 val end_set : Evas.obj -> Evas.obj -> unit
 
 val end_get : Evas.obj -> Evas.obj
+
+val freeze : Evas.obj -> int
+
+val thaw : Evas.obj -> int
 

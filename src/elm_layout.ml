@@ -55,6 +55,9 @@ external data_get : Evas.obj -> string -> string option =
 external sizing_eval : Evas.obj -> unit =
   "ml_elm_layout_sizing_eval"
 
+external sizing_restricted_eval : Evas.obj -> bool -> bool -> unit =
+  "ml_elm_layout_sizing_restricted_eval"
+
 external part_cursor_set : Evas.obj -> string -> string -> bool =
   "ml_elm_layout_part_cursor_set"
 
@@ -76,6 +79,26 @@ external part_cursor_engine_only_set : Evas.obj -> string -> bool -> bool =
 external part_cursor_engine_only_get : Evas.obj -> string -> bool =
   "ml_elm_layout_part_cursor_engine_only_get"
 
+external edje_object_can_access_set : Evas.obj -> bool -> bool =
+  "ml_elm_layout_edje_object_can_access_set"
+
+external edje_object_can_access_get : Evas.obj -> bool =
+  "ml_elm_layout_edje_object_can_access_get"
+
+external content_set : Evas.obj -> string -> Evas.obj -> bool =
+  "ml_elm_layout_content_set"
+
+external content_get : Evas.obj -> string -> Evas.obj option =
+  "ml_elm_layout_content_get"
+
+external content_unset : Evas.obj -> string -> Evas.obj option =
+  "ml_elm_layout_content_unset"
+
+external text_set : Evas.obj -> string -> string -> bool =
+  "ml_elm_layout_text_set"
+
+external text_get : Evas.obj -> string -> string = "ml_elm_layout_text_get"
+
 external icon_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_icon_set"
 
 let icon_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.icon" ()
@@ -83,4 +106,8 @@ let icon_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.icon" ()
 external end_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_end_set"
 
 let end_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.end" ()
+
+external freeze : Evas.obj -> int = "ml_elm_layout_freeze"
+
+external thaw : Evas.obj -> int = "ml_elm_layout_thaw"
 
