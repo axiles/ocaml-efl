@@ -75,3 +75,7 @@ val end_set : Evas.obj -> Evas.obj -> unit
 
 val end_get : Evas.obj -> Evas.obj
 
+val freeze : Evas.obj -> int
+
+val thaw : Evas.obj -> int
+

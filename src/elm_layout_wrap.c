@@ -271,3 +271,13 @@ PREFIX value ml_elm_layout_end_set(value v_ly, value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_layout_freeze(value v_obj)
+{
+        return Val_int(elm_layout_freeze((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_layout_thaw(value v_obj)
+{
+        return Val_int(elm_layout_thaw((Evas_Object*) v_obj));
+}
+
