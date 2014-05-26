@@ -1,5 +1,7 @@
 (** Elementary Object Manipulation *)
 
+type item
+
 (** {2 Cursors} *)
 
 val cursor_set : Evas.obj -> string -> unit
@@ -59,9 +61,13 @@ val focus_highlight_style_set : Evas.obj -> string -> bool
 
 val focus_highlight_style_get : Evas.obj -> string
 
-(** {2 General} *)
+val focused_item_get : Evas.obj -> item option
 
-type item
+val item_focus_set : item -> bool -> unit
+
+val item_focus_get : item -> bool
+
+(** {2 General} *)
 
 type select_mode = [`default | `always | `none | `display_only]
 

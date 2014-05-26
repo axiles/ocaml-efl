@@ -185,6 +185,23 @@ PREFIX value ml_elm_object_focus_highlight_style_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_object_focused_item_get(value v_obj)
+{
+        return copy_Elm_Object_Item_opt(elm_object_focused_item_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_object_item_focus_set(value v_it, value v_flag)
+{
+        elm_object_item_focus_set((Elm_Object_Item*) v_it, Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_object_item_focus_get(value v_it)
+{
+        return Val_bool(elm_object_item_focus_get((Elm_Object_Item*) v_it));
+}
+
 /* General */
 
 inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m)

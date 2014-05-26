@@ -1,3 +1,5 @@
+type item
+
 (* Cursors *)
 
 external cursor_set : Evas.obj -> string -> unit = "ml_elm_object_cursor_set"
@@ -79,9 +81,14 @@ external focus_highlight_style_set : Evas.obj -> string -> bool =
 external focus_highlight_style_get : Evas.obj -> string =
   "ml_elm_object_focus_highlight_style_get"
 
-(* General *)
+external focused_item_get : Evas.obj -> item option =
+  "ml_elm_object_focused_item_get"
 
-type item
+external item_focus_set : item -> bool -> unit = "ml_elm_object_item_focus_set"
+
+external item_focus_get : item -> bool = "ml_elm_object_item_focus_get"
+
+(* General *)
 
 type select_mode = [`default | `always | `none | `display_only]
 
