@@ -176,6 +176,7 @@ type input_panel_layout = [
   | `terminal
   | `password
   | `datetime
+  | `emoticon
 ]
 
 type autocapital_type = [`none | `word | `sentence | `allcharacter]

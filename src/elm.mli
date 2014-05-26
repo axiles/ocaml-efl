@@ -173,6 +173,7 @@ type input_panel_layout = [
   | `terminal
   | `password
   | `datetime
+  | `emoticon
 ]
 
 type input_panel_lang = [`automatic | `alphabet]

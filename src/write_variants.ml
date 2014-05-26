@@ -94,6 +94,7 @@ let () =
   g "dropdown_menu";
   g "eet";
   g "email";
+  g "emoticon";
   f "Val_end" "_end";
   g "expand";
   g "fastest";
