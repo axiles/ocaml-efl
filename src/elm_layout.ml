@@ -79,6 +79,12 @@ external part_cursor_engine_only_set : Evas.obj -> string -> bool -> bool =
 external part_cursor_engine_only_get : Evas.obj -> string -> bool =
   "ml_elm_layout_part_cursor_engine_only_get"
 
+external edje_object_can_access_set : Evas.obj -> bool -> bool =
+  "ml_elm_layout_edje_object_can_access_set"
+
+external edje_object_can_access_get : Evas.obj -> bool =
+  "ml_elm_layout_edje_object_can_access_get"
+
 external content_set : Evas.obj -> string -> Evas.obj -> bool =
   "ml_elm_layout_content_set"
 

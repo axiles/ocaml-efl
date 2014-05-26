@@ -53,6 +53,10 @@ val part_cursor_engine_only_set : Evas.obj -> string -> bool -> bool
 
 val part_cursor_engine_only_get : Evas.obj -> string -> bool
 
+val edje_object_can_access_set : Evas.obj -> bool -> bool
+
+val edje_object_can_access_get : Evas.obj -> bool
+
 val content_set : Evas.obj -> string -> Evas.obj -> bool
 
 val content_get : Evas.obj -> string -> Evas.obj option

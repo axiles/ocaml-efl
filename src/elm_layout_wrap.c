@@ -217,6 +217,18 @@ PREFIX value ml_elm_layout_part_cursor_engine_only_get(
                 (Evas_Object*) v_obj, String_val(v_part_name)));
 }
 
+PREFIX value ml_elm_layout_edje_object_can_access_set(value v_obj, value v_flag)
+{
+        return Val_bool(elm_layout_edje_object_can_access_set(
+                (Evas_Object*) v_obj, Bool_val(v_flag)));
+}
+
+PREFIX value ml_elm_layout_edje_object_can_access_get(value v_obj)
+{
+        return Val_bool(elm_layout_edje_object_can_access_get(
+                (Evas_Object*) v_obj));
+}
+
 PREFIX value ml_elm_layout_content_set(value v_obj, value v_sw, value v_c)
 {
         return Val_bool(elm_layout_content_set((Evas_Object*) v_obj,
