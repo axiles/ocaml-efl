@@ -37,6 +37,8 @@ val data_get : Evas.obj -> string -> string option
 
 val sizing_eval : Evas.obj -> unit
 
+val sizing_restricted_eval : Evas.obj -> bool -> bool -> unit
+
 val part_cursor_set : Evas.obj -> string -> string -> bool
 
 val part_cursor_get : Evas.obj -> string -> string

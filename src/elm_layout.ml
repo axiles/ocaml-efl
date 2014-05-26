@@ -55,6 +55,9 @@ external data_get : Evas.obj -> string -> string option =
 external sizing_eval : Evas.obj -> unit =
   "ml_elm_layout_sizing_eval"
 
+external sizing_restricted_eval : Evas.obj -> bool -> bool -> unit =
+  "ml_elm_layout_sizing_restricted_eval"
+
 external part_cursor_set : Evas.obj -> string -> string -> bool =
   "ml_elm_layout_part_cursor_set"
 

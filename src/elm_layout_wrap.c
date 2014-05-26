@@ -153,6 +153,14 @@ PREFIX value ml_elm_layout_sizing_eval(value v_obj)
         return Val_unit;
 }
 
+PREFIX value ml_elm_layout_sizing_restricted_eval(
+        value v_obj, value v_w, value v_h)
+{
+        elm_layout_sizing_restricted_eval((Evas_Object*) v_obj, Bool_val(v_w),
+                Bool_val(v_h));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_layout_part_cursor_set(
         value v_obj, value v_part_name, value v_cursor)
 {
