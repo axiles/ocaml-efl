@@ -111,6 +111,10 @@ val finger_size_set : int -> unit
 
 (** {2 Focus} *)
 
+val focus_autoscroll_mode_get : unit -> Elm.focus_autoscroll_mode
+
+val focus_autoscroll_mode_set : Elm.focus_autoscroll_mode -> unit
+
 val focus_highlight_enabled_get : unit -> bool
 
 val focus_highlight_enabled_set : bool -> unit

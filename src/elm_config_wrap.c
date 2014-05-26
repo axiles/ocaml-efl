@@ -325,6 +325,19 @@ PREFIX value ml_elm_config_finger_size_set(value v_size)
 
 /* Focus */
 
+PREFIX value ml_elm_config_focus_autoscroll_mode_get(value v_unit)
+{
+        return Val_Elm_Focus_Autoscroll_Mode(
+                elm_config_focus_autoscroll_mode_get());
+}
+
+PREFIX value ml_elm_config_focus_autoscroll_mode_set(value v_m)
+{
+        elm_config_focus_autoscroll_mode_set(
+                Elm_Focus_Autoscroll_Mode_val(v_m));
+        return Val_unit;
+}
+
 PREFIX value ml_elm_config_focus_highlight_enabled_get(value v_unit)
 {
         return Val_bool(elm_config_focus_highlight_enabled_get());

@@ -140,6 +140,12 @@ external finger_size_set : int -> unit = "ml_elm_config_finger_size_set"
 
 (* Focus *)
 
+external focus_autoscroll_mode_get : unit -> Elm.focus_autoscroll_mode =
+  "ml_elm_config_focus_autoscroll_mode_get"
+
+external focus_autoscroll_mode_set : Elm.focus_autoscroll_mode -> unit =
+  "ml_elm_config_focus_autoscroll_mode_set"
+
 external focus_highlight_enabled_get : unit -> bool =
   "ml_elm_config_focus_highlight_enabled_get"
 
