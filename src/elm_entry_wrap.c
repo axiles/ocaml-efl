@@ -132,6 +132,7 @@ inline Elm_Input_Panel_Layout Elm_Input_Panel_Layout_val(value v)
                 case Val_terminal: return ELM_INPUT_PANEL_LAYOUT_TERMINAL;
                 case Val_password: return ELM_INPUT_PANEL_LAYOUT_PASSWORD;
                 case Val_datetime: return ELM_INPUT_PANEL_LAYOUT_DATETIME;
+                case Val_emoticon: return ELM_INPUT_PANEL_LAYOUT_EMOTICON;
         }
         caml_failwith("Elm_Input_Panel_Layout_val");
         return ELM_INPUT_PANEL_LAYOUT_NORMAL;

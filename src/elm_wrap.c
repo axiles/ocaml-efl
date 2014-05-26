@@ -23,6 +23,29 @@ PREFIX value ml_elm_coords_finger_size_adjust(value v_times_w, value v_times_h)
 
 /* Focus */
 
+inline Elm_Focus_Autoscroll_Mode Elm_Focus_Autoscroll_Mode_val(value v)
+{
+        switch(v) {
+                case Val_show: return ELM_FOCUS_AUTOSCROLL_MODE_SHOW;
+                case Val_none: return ELM_FOCUS_AUTOSCROLL_MODE_NONE;
+                case Val_bring_in: return ELM_FOCUS_AUTOSCROLL_MODE_BRING_IN;
+                default: break;
+        }
+        caml_failwith("Elm_Focus_Autoscroll_Mode_val");
+        return ELM_FOCUS_AUTOSCROLL_MODE_SHOW;
+}
+
+inline value Val_Elm_Focus_Autoscroll_Mode(Elm_Focus_Autoscroll_Mode m)
+{
+        switch(m) {
+                case ELM_FOCUS_AUTOSCROLL_MODE_SHOW: return Val_show;
+                case ELM_FOCUS_AUTOSCROLL_MODE_NONE: return Val_none;
+                case ELM_FOCUS_AUTOSCROLL_MODE_BRING_IN: return Val_bring_in;
+        }
+        caml_failwith("Val_Elm_Focus_Autoscroll_Mode");
+        return Val_show;
+}
+
 inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
 {
         switch(v) {

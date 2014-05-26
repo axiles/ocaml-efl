@@ -9,6 +9,8 @@ external coords_finger_size_adjust : int -> int -> int * int =
 
 (* Focus *)
 
+type focus_autoscroll_mode = [`show | `none | `bring_in]
+
 type focus_direction = [
   `previous |
   `next |
