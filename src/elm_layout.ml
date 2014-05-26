@@ -99,6 +99,9 @@ external text_set : Evas.obj -> string -> string -> bool =
 
 external text_get : Evas.obj -> string -> string = "ml_elm_layout_text_get"
 
+external content_swallow_list_get : Evas.obj -> Evas.obj list =
+  "ml_elm_layout_content_swallow_list_get"
+
 external icon_set : Evas.obj -> Evas.obj -> unit = "ml_elm_layout_icon_set"
 
 let icon_get ly = Elm_object.part_content_get ly ~p:"elm.swallow.icon" ()

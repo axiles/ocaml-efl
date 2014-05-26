@@ -67,6 +67,8 @@ val text_set : Evas.obj -> string -> string -> bool
 
 val text_get : Evas.obj -> string -> string
 
+val content_swallow_list_get : Evas.obj -> Evas.obj list
+
 val icon_set : Evas.obj -> Evas.obj -> unit
 
 val icon_get : Evas.obj -> Evas.obj

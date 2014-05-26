@@ -259,6 +259,15 @@ PREFIX value ml_elm_layout_text_get(value v_obj, value v_sw)
                 String_val(v_sw)));
 }
 
+PREFIX value ml_elm_layout_content_swallow_list_get(value v_obj)
+{
+        Eina_List* list = elm_layout_content_swallow_list_get(
+                (Evas_Object*) v_obj);
+        value v_r = copy_Eina_List_Evas_Object(list);
+        eina_list_free(list);
+        return v_r;
+}
+
 PREFIX value ml_elm_layout_icon_set(value v_ly, value v_obj)
 {
         elm_layout_icon_set((Evas_Object*) v_ly, (Evas_Object*) v_obj);
