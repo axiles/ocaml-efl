@@ -1,5 +1,48 @@
 #include "include.h"
 
+inline Ecore_Pos_Map Ecore_Pos_Map_val(value v)
+{
+        switch(v) {
+                case Val_linear: return ECORE_POS_MAP_LINEAR;
+                case Val_accelerate: return ECORE_POS_MAP_ACCELERATE;
+                case Val_decelerate: return ECORE_POS_MAP_DECELERATE;
+                case Val_sinusoidal: return ECORE_POS_MAP_SINUSOIDAL;
+                case Val_accelerate_factor:
+                        return ECORE_POS_MAP_ACCELERATE_FACTOR;
+                case Val_decelerate_factor:
+                        return ECORE_POS_MAP_DECELERATE_FACTOR;
+                case Val_sinusoidal_factor:
+                        return ECORE_POS_MAP_SINUSOIDAL_FACTOR;
+                case Val_divisor_interp: return ECORE_POS_MAP_DIVISOR_INTERP;
+                case Val_bounce: return ECORE_POS_MAP_BOUNCE;
+                case Val_spring: return ECORE_POS_MAP_SPRING;
+                default: break;
+        }
+        caml_failwith("Ecore_Pos_Map_val");
+        return ECORE_POS_MAP_LINEAR;
+}
+
+inline value Val_Ecore_Pos_Map_val(Ecore_Pos_Map m)
+{
+        switch(m) {
+                case ECORE_POS_MAP_LINEAR: return Val_linear;
+                case ECORE_POS_MAP_ACCELERATE: return Val_accelerate;
+                case ECORE_POS_MAP_DECELERATE: return Val_decelerate;
+                case ECORE_POS_MAP_SINUSOIDAL: return Val_sinusoidal;
+                case ECORE_POS_MAP_ACCELERATE_FACTOR:
+                        return Val_accelerate_factor;
+                case ECORE_POS_MAP_DECELERATE_FACTOR:
+                        return Val_decelerate_factor;
+                case ECORE_POS_MAP_SINUSOIDAL_FACTOR:
+                        return Val_sinusoidal_factor;
+                case ECORE_POS_MAP_DIVISOR_INTERP: return Val_divisor_interp;
+                case ECORE_POS_MAP_BOUNCE: return Val_bounce;
+                case ECORE_POS_MAP_SPRING: return Val_spring;
+        }
+        caml_failwith("Val_Ecore_Pos_Map");
+        return Val_linear;
+}
+
 PREFIX void raise_not_X()
 {
         static value* e = NULL;
