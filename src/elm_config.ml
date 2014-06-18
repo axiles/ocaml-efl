@@ -164,6 +164,12 @@ external focus_highlight_animate_get : unit -> bool =
 external focus_highlight_animate_set : bool -> unit =
   "ml_elm_config_focus_highlight_animate_set"
 
+external focus_highlight_clip_disabled_get : unit -> bool =
+  "ml_elm_config_focus_highlight_clip_disabled_get"
+
+external focus_highlight_clip_disabled_set : bool -> unit =
+  "ml_elm_config_focus_highlight_clip_disabled_set"
+
 (* Password show last *)
 
 external password_show_last_get : unit -> bool =
