@@ -534,3 +534,16 @@ PREFIX value ml_elm_gengrid_item_select_mode_get(value v_it)
                 (Elm_Object_Item*) v_it));
 }
 
+PREFIX value ml_elm_gengrid_reorder_mode_start(value v_obj, value v_m)
+{
+        elm_gengrid_reorder_mode_start((Evas_Object*) v_obj,
+                Ecore_Pos_Map_val(v_m));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_gengrid_reorder_mode_stop(value v_obj)
+{
+        elm_gengrid_reorder_mode_stop((Evas_Object*) v_obj);
+        return Val_unit;
+}
+

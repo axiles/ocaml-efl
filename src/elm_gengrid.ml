@@ -190,3 +190,9 @@ external item_select_mode_set :
 external item_select_mode_get : Elm_object.item -> Elm_object.select_mode =
   "ml_elm_gengrid_item_select_mode_get"
 
+external reorder_mode_start : Evas.obj -> Ecore.pos_map -> unit =
+  "ml_elm_gengrid_reorder_mode_start"
+
+external reorder_mode_stop : Evas.obj -> unit =
+  "ml_elm_gengrid_reorder_mode_stop"
+

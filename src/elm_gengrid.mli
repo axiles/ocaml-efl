@@ -134,3 +134,7 @@ val item_select_mode_set : Elm_object.item -> Elm_object.select_mode -> unit
 
 val item_select_mode_get : Elm_object.item -> Elm_object.select_mode
 
+val reorder_mode_start : Evas.obj -> Ecore.pos_map -> unit
+
+val reorder_mode_stop : Evas.obj -> unit
+
