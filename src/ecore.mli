@@ -16,6 +16,19 @@ type x_window
 
 type wl_window
 
+type pos_map = [
+  | `linear
+  | `accelerate
+  | `decelerate
+  | `sinusoidal
+  | `accelerate_factor
+  | `decelerate_factor
+  | `sinusoidal_factor
+  | `divisor_interp
+  | `bounce
+  | `spring
+  | `cubic_bezier]
+
 val x_window_focus : x_window -> unit
 
 val main_loop_thread_safe_call_sync : cb -> unit
