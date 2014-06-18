@@ -80,6 +80,10 @@ val glayer_double_tap_timeout_get : unit -> float
 
 val glayer_double_tap_timeout_set : float -> unit
 
+val atspi_mode_get : unit -> bool
+
+val atspi_mode_set : bool -> unit
+
 (** {2 Elementary Fonts} *)
 
 type text_class = {

@@ -202,6 +202,17 @@ PREFIX value ml_elm_config_glayer_double_tap_timeout_set(value v_x)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_atspi_mode_get(value v_unit)
+{
+        return Val_bool(elm_config_atspi_mode_get());
+}
+
+PREFIX value ml_elm_config_atspi_mode_set(value v_flag)
+{
+        elm_config_atspi_mode_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Elementary Fonts */
 
 inline value copy_Elm_Text_Class(Elm_Text_Class* c)

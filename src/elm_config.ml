@@ -105,6 +105,10 @@ external glayer_double_tap_timeout_get : unit -> float =
 external glayer_double_tap_timeout_set : float -> unit =
   "ml_elm_config_glayer_double_tap_timeout_set"
 
+external atspi_mode_get : unit -> bool = "ml_elm_config_atspi_mode_get"
+
+external atspi_mode_set : bool -> unit = "ml_elm_config_atspi_mode_set"
+
 (* Elementary fonts *)
 
 type text_class = {
