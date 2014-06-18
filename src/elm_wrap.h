@@ -11,6 +11,9 @@ inline value Val_Elm_Focus_Autoscroll_Mode(Elm_Focus_Autoscroll_Mode m);
 inline Elm_Focus_Direction Elm_Focus_Direction_val(value v);
 inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d);
 
+inline Elm_Focus_Move_Policy Elm_Focus_Move_Policy_val(value v);
+inline value Val_Elm_Focus_Move_Policy(Elm_Focus_Move_Policy p);
+
 /* Tooltips */
 
 inline Elm_Tooltip_Orient Elm_Tooltip_Orient_val(value v);

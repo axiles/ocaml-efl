@@ -19,6 +19,8 @@ type focus_direction = [
   `right |
   `left]
 
+type focus_move_policy = [`click | `_in]
+
 (* General *)
 
 type policy_quit = [`none | `last_window_closed]

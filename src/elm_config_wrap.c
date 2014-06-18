@@ -382,6 +382,17 @@ PREFIX value ml_elm_config_focus_highlight_clip_disabled_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_focus_move_policy_get(value v_unit)
+{
+        return Val_Elm_Focus_Move_Policy(elm_config_focus_move_policy_get());
+}
+
+PREFIX value ml_elm_config_focus_move_policy_set(Elm_Focus_Move_Policy v_p)
+{
+        elm_config_focus_move_policy_set(Elm_Focus_Move_Policy_val(v_p));
+        return Val_unit;
+}
+
 /* Password show last */
 
 PREFIX value ml_elm_config_password_show_last_get(value v_unit)

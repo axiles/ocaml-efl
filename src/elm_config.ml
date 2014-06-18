@@ -170,6 +170,12 @@ external focus_highlight_clip_disabled_get : unit -> bool =
 external focus_highlight_clip_disabled_set : bool -> unit =
   "ml_elm_config_focus_highlight_clip_disabled_set"
 
+external focus_move_policy_get : unit -> Elm.focus_move_policy =
+  "ml_elm_config_focus_move_policy_get"
+
+external focus_move_policy_set : Elm.focus_move_policy -> unit =
+  "ml_elm_config_focus_move_policy_set"
+
 (* Password show last *)
 
 external password_show_last_get : unit -> bool =

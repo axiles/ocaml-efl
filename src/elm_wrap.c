@@ -76,6 +76,27 @@ inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
         return Val_previous;
 }
 
+inline Elm_Focus_Move_Policy Elm_Focus_Move_Policy_val(value v)
+{
+        switch(v) {
+                case Val_click: return ELM_FOCUS_MOVE_POLICY_CLICK;
+                case Val_in: return ELM_FOCUS_MOVE_POLICY_IN;
+                default: break;
+        }
+        caml_failwith("Elm_Focus_Move_Policy_val");
+        return ELM_FOCUS_MOVE_POLICY_CLICK;
+}
+
+inline value Val_Elm_Focus_Move_Policy(Elm_Focus_Move_Policy p)
+{
+        switch(p) {
+                case ELM_FOCUS_MOVE_POLICY_CLICK: return Val_click;
+                case ELM_FOCUS_MOVE_POLICY_IN: return Val_in;
+        }
+        caml_failwith("Val_Elm_Focus_Move_Policy");
+        return Val_click;
+}
+
 /* General */
 
 inline int Elm_Policy_Quit_val(value v)

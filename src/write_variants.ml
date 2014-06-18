@@ -57,6 +57,7 @@ let () =
   g "char";
   g "circle";
   f "Val_class" "_class";
+  g "click";
   g "close";
   g "combo";
   g "components";
