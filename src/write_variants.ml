@@ -17,6 +17,7 @@ let g x = f (sprintf "Val_%s" x) x
 let () =
   g "abort";
   g "accelerate";
+  g "accelerate_factor";
   g "add";
   g "add_rel";
   g "after";
@@ -45,6 +46,7 @@ let () =
   g "bottom";
   g "bottom_left";
   g "bottom_right";
+  g "bounce";
   g "bubble";
   g "bytecode";
   g "canvas_focus_in";
@@ -71,11 +73,13 @@ let () =
   g "cube_left";
   g "cube_right";
   g "cube_up";
+  g "cubic_bezier";
   g "daily";
   g "date";
   g "datetime";
   g "day";
   g "decelerate";
+  g "decelerate_factor";
   g "default";
   g "del";
   g "depth";
@@ -84,6 +88,7 @@ let () =
   g "dialog_basic";
   g "direct";
   g "display_only";
+  g "divisor_interp";
   g "dnd";
   g "dock";
   g "does_not_exist";
@@ -276,11 +281,13 @@ let () =
   g "show";
   g "signin";
   g "sinusoidal";
+  g "sinusoidal_factor";
   g "size_asc";
   g "size_desc";
   g "socket_image";
   g "soft";
   g "splash";
+  g "spring";
   g "standard";
   g "start";
   g "state";
