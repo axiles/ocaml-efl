@@ -350,6 +350,12 @@ external scroll_lock_x_get : Evas.obj -> bool =
 external scroll_lock_y_get : Evas.obj -> bool =
   "ml_elm_object_scroll_lock_y_get"
 
+external scroll_item_loop_enabled_set : Evas.obj -> bool -> unit =
+  "ml_elm_object_scroll_item_loop_enabled_set"
+
+external scroll_item_loop_enabled_get : Evas.obj -> bool =
+  "ml_elm_object_scroll_item_loop_enabled_get"
+
 (* Mirroring *)
 
 external mirrored_get : Evas.obj -> bool = "ml_elm_object_mirrored_get"

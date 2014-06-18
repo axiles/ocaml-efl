@@ -275,6 +275,14 @@ val scroll_lock_x_get : Evas.obj -> bool
 
 val scroll_lock_y_get : Evas.obj -> bool
 
+val scroll_lock_x_get : Evas.obj -> bool
+
+val scroll_lock_y_get : Evas.obj -> bool
+
+val scroll_item_loop_enabled_set : Evas.obj -> bool -> unit
+
+val scroll_item_loop_enabled_get : Evas.obj -> bool
+
 (** {2 Mirroring} *)
 
 val mirrored_get : Evas.obj -> bool
