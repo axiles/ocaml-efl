@@ -64,6 +64,12 @@ external preferred_engine_get : unit -> string =
 external preferred_engine_set : string -> unit =
   "ml_elm_config_preferred_engine_set"
 
+external accel_preference_get : unit -> string =
+  "ml_elm_config_accel_preference_get"
+
+external accel_preference_set : string -> unit =
+  "ml_elm_config_accel_preference_set"
+
 external access_get : unit -> bool = "ml_elm_config_access_get"
 
 external access_set : bool -> unit = "ml_elm_config_access_set"

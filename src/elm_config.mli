@@ -50,6 +50,10 @@ val preferred_engine_get : unit -> string
 
 val preferred_engine_set : string -> unit
 
+val accel_preference_get : unit -> string
+
+val accel_preference_set : string -> unit
+
 val access_get : unit -> bool
 
 val access_set : bool -> unit
