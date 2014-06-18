@@ -135,6 +135,10 @@ val focus_move_policy_get : unit -> Elm.focus_move_policy
 
 val focus_move_policy_set : Elm.focus_move_policy -> unit
 
+val item_select_on_focus_disabled_get : unit -> bool
+
+val item_select_on_focus_disabled_set : bool -> unit
+
 (** {2 Password show last} *)
 
 val password_show_last_get : unit -> bool

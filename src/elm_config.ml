@@ -176,6 +176,12 @@ external focus_move_policy_get : unit -> Elm.focus_move_policy =
 external focus_move_policy_set : Elm.focus_move_policy -> unit =
   "ml_elm_config_focus_move_policy_set"
 
+external item_select_on_focus_disabled_get : unit -> bool =
+  "ml_elm_config_item_select_on_focus_disabled_get"
+
+external item_select_on_focus_disabled_set : bool -> unit =
+  "ml_elm_config_item_select_on_focus_disabled_set"
+
 (* Password show last *)
 
 external password_show_last_get : unit -> bool =
