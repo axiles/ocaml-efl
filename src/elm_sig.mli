@@ -89,7 +89,9 @@ val ioerr : u
 val item_added : u
 val item_clicked : u
 val item_deleted : u
+val item_focused : u
 val item_selected : u
+val item_unfocused : u
 val js_windowobject_clear : u
 val language_changed : u
 val level_down : u
