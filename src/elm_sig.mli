@@ -90,6 +90,8 @@ val item_added : u
 val item_clicked : u
 val item_deleted : u
 val item_focused : u
+val item_reorder_anim_start : Elm_object.item v
+val item_reorder_anim_stop : Elm_object.item v
 val item_selected : u
 val item_unfocused : u
 val js_windowobject_clear : u
