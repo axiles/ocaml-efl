@@ -14,6 +14,14 @@ inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d);
 inline Elm_Focus_Move_Policy Elm_Focus_Move_Policy_val(value v);
 inline value Val_Elm_Focus_Move_Policy(Elm_Focus_Move_Policy p);
 
+/* Colors */
+
+inline value copy_Elm_Color_Class(Elm_Color_Class* c);
+inline value copy_Eina_List_Elm_Color_Class(const Eina_List* list);
+
+inline value copy_Elm_Color_Overlay(Elm_Color_Overlay* o);
+inline value copy_Eina_List_Elm_Color_Overlay(const Eina_List* list);
+
 /* Tooltips */
 
 inline Elm_Tooltip_Orient Elm_Tooltip_Orient_val(value v);

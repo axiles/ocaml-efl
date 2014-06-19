@@ -140,6 +140,34 @@ module Gesture_rotate_info = struct
   external of_ptr : Evas.ptr -> t = "ml_Elm_Gesture_Rotate_Info_of_ptr"
 end
 
+(* Colors *)
+
+module Color_class = struct
+  type t = {name : string; desc : string}
+end
+
+type color_class = Color_class.t
+
+module Color_overlay = struct
+  type t = {
+    color_class : string;
+    color_r : int;
+    color_g : int;
+    color_b : int;
+    color_a : int;
+    outline_r : int;
+    outline_g : int;
+    outline_b : int;
+    outline_a : int;
+    shadow_r : int;
+    shadow_g : int;
+    shadow_b : int;
+    shadow_a : int;
+  }
+end
+
+type color_overlay = Color_overlay.t
+
 (* Theme *)
 
 type theme

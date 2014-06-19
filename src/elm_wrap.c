@@ -276,6 +276,73 @@ PREFIX value ml_elm_language_set(value v_lang)
         return Val_unit;
 }
 
+/* Colors */
+
+PREFIX value copy_Elm_Color_Class(Elm_Color_Class* c)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_string(c->name));
+        Store_field(v, 1, copy_string(c->desc));
+        CAMLreturn(v);
+}
+
+inline value copy_Eina_List_Elm_Color_Class(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal3(v, v1, v_c);
+        Eina_List* it;
+        Elm_Color_Class* c;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, c) {
+                v1 = v;
+                v_c = copy_Elm_Color_Class(c);
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, v_c);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
+PREFIX value copy_Elm_Color_Overlay(Elm_Color_Overlay* o)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(2, 13);
+        Store_field(v, 0, copy_string(o->color_class));
+        Store_field(v, 1, Val_int(o->color.r));
+        Store_field(v, 2, Val_int(o->color.g));
+        Store_field(v, 3, Val_int(o->color.b));
+        Store_field(v, 4, Val_int(o->color.a));
+        Store_field(v, 5, Val_int(o->outline.r));
+        Store_field(v, 6, Val_int(o->outline.g));
+        Store_field(v, 7, Val_int(o->outline.b));
+        Store_field(v, 8, Val_int(o->outline.a));
+        Store_field(v, 9, Val_int(o->shadow.r));
+        Store_field(v, 10, Val_int(o->shadow.g));
+        Store_field(v, 11, Val_int(o->shadow.b));
+        Store_field(v, 12, Val_int(o->shadow.a));
+        CAMLreturn(v);
+}
+
+inline value copy_Eina_List_Elm_Color_Overlay(const Eina_List* list)
+{
+        CAMLparam0();
+        CAMLlocal3(v, v1, v_o);
+        Eina_List* it;
+        Elm_Color_Overlay* o;
+        v = Val_int(0);
+        EINA_LIST_REVERSE_FOREACH(list, it, o) {
+                v1 = v;
+                v_o = copy_Elm_Color_Overlay(o);
+                v = caml_alloc(2, 0);
+                Store_field(v, 0, v_o);
+                Store_field(v, 1, v1);
+        }
+        CAMLreturn(v);
+}
+
 /* Need */
 
 PREFIX value ml_elm_need_efreet(value v_unit)

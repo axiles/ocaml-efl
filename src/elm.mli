@@ -137,6 +137,34 @@ module Gesture_rotate_info : sig
   val of_ptr : Evas.ptr -> t
 end
 
+(** {2 Colors} *)
+
+module Color_class : sig
+  type t = {name : string; desc : string}
+end
+
+type color_class = Color_class.t
+
+module Color_overlay : sig
+  type t = {
+    color_class : string;
+    color_r : int;
+    color_g : int;
+    color_b : int;
+    color_a : int;
+    outline_r : int;
+    outline_g : int;
+    outline_b : int;
+    outline_a : int;
+    shadow_r : int;
+    shadow_g : int;
+    shadow_b : int;
+    shadow_a : int;
+  }
+end
+
+type color_overlay = Color_overlay.t
+
 (** {2 Theme} *)
 
 type theme
