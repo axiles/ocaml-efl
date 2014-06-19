@@ -143,6 +143,12 @@ val item_select_on_focus_disabled_get : unit -> bool
 
 val item_select_on_focus_disabled_set : bool -> unit
 
+(** {2 Colors} *)
+
+val color_classes_list_get : unit -> Elm.color_class list
+
+val color_overlay_list_get : unit -> Elm.color_overlay list
+
 (** {2 Password show last} *)
 
 val password_show_last_get : unit -> bool

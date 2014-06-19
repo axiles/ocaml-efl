@@ -415,6 +415,22 @@ PREFIX value ml_elm_config_item_select_on_focus_disabled_set(value v_flag)
         return Val_unit;
 }
 
+/* Colors */
+
+PREFIX value ml_elm_config_color_classes_list_get(value v_unit)
+{
+        Eina_List* list = elm_config_color_classes_list_get();
+        value v_list = copy_Eina_List_Elm_Color_Class(list);
+        elm_config_color_classes_list_free(list);
+        return v_list;
+}
+
+PREFIX value ml_elm_config_color_overlay_list_get(value v_unit)
+{
+        return copy_Eina_List_Elm_Color_Overlay(
+                elm_config_color_overlay_list_get());
+}
+
 /* Password show last */
 
 PREFIX value ml_elm_config_password_show_last_get(value v_unit)

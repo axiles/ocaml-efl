@@ -186,6 +186,14 @@ external item_select_on_focus_disabled_get : unit -> bool =
 external item_select_on_focus_disabled_set : bool -> unit =
   "ml_elm_config_item_select_on_focus_disabled_set"
 
+(* Colors *)
+
+external color_classes_list_get : unit -> Elm.color_class list =
+  "ml_elm_config_color_classes_list_get"
+
+external color_overlay_list_get : unit -> Elm.color_overlay list =
+  "ml_elm_config_color_overlay_list_get"
+
 (* Password show last *)
 
 external password_show_last_get : unit -> bool =
