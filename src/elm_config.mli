@@ -149,6 +149,14 @@ val color_classes_list_get : unit -> Elm.color_class list
 
 val color_overlay_list_get : unit -> Elm.color_overlay list
 
+val color_overlay_set :
+  string -> int -> int -> int -> int -> int -> int -> int -> int -> int ->
+    int -> int -> int -> unit
+
+val color_overlay_unset : string -> unit
+
+val color_overlay_apply : unit -> unit
+
 (** {2 Password show last} *)
 
 val password_show_last_get : unit -> bool

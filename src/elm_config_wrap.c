@@ -431,6 +431,38 @@ PREFIX value ml_elm_config_color_overlay_list_get(value v_unit)
                 elm_config_color_overlay_list_get());
 }
 
+PREFIX value ml_elm_config_color_overlay_set_native(
+        value v_color_class,
+        value v_r, value v_g, value v_b, value v_a,
+        value v_r2, value v_g2, value v_b2, value v_a2,
+        value v_r3, value v_g3, value v_b3, value v_a3)
+{
+        elm_config_color_overlay_set(String_val(v_color_class),
+                Int_val(v_r), Int_val(v_g), Int_val(v_b), Int_val(v_a),
+                Int_val(v_r2), Int_val(v_g2), Int_val(v_b2), Int_val(v_a2),
+                Int_val(v_r3), Int_val(v_g3), Int_val(v_b3), Int_val(v_a3));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_config_color_overlay_set_byte(value* argv, int argn)
+{
+        return ml_elm_config_color_overlay_set_native(argv[0], argv[1], argv[2],
+                argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9],
+                argv[10], argv[11], argv[12]);
+}
+
+PREFIX value ml_elm_config_color_overlay_unset(value v_color_class)
+{
+        elm_config_color_overlay_unset(String_val(v_color_class));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_config_color_overlay_apply(value v_unit)
+{
+        elm_config_color_overlay_apply();
+        return Val_unit;
+}
+
 /* Password show last */
 
 PREFIX value ml_elm_config_password_show_last_get(value v_unit)

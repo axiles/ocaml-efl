@@ -194,6 +194,18 @@ external color_classes_list_get : unit -> Elm.color_class list =
 external color_overlay_list_get : unit -> Elm.color_overlay list =
   "ml_elm_config_color_overlay_list_get"
 
+external color_overlay_set :
+  string -> int -> int -> int -> int -> int -> int -> int -> int -> int ->
+    int -> int -> int -> unit =
+      "ml_elm_config_color_overlay_set_byte"
+      "ml_elm_config_color_overlay_set_native"
+
+external color_overlay_unset : string -> unit =
+  "ml_elm_config_color_overlay_unset"
+
+external color_overlay_apply : unit -> unit =
+  "ml_elm_config_color_overlay_apply"
+
 (* Password show last *)
 
 external password_show_last_get : unit -> bool =
