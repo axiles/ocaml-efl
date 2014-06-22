@@ -42,7 +42,7 @@ PREFIX value ml_elm_flipselector_item_append(
                 caml_failwith("elm_flipselector_item_append");
         }
         if(data != NULL)
-                elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
+                ml_Elm_Object_Item_gc_value(item, data);
         return (value) item;
 }
 
@@ -68,7 +68,7 @@ PREFIX value ml_elm_flipselector_item_prepend(
                 caml_failwith("elm_flipselector_item_prepend");
         }
         if(data != NULL)
-                elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
+                ml_Elm_Object_Item_gc_value(item, data);
         return (value) item;
 }
 
