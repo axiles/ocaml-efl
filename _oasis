@@ -1,7 +1,7 @@
 OASISFormat: 0.3
 Plugins: META (0.3), StdFiles (0.3)
 Name: ocaml-efl
-Version: 1.10.0
+Version: 1.10.1
 OCamlVersion: >= 3.12
 Synopsis: An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 License: LGPL-2.1+ with Ocaml linking exception
