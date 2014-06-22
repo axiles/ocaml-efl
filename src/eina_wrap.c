@@ -165,3 +165,9 @@ inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
         CAMLreturn(v);
 }
 
+inline value safe_copy_string(const char* s)
+{
+        if(s == NULL) return copy_string("");
+        else return copy_string(s);
+}
+
