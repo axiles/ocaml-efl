@@ -78,7 +78,7 @@ PREFIX value ml_elm_ctxpopup_item_append(
                 data = NULL;
         } else {
                 func = ml_Evas_Smart_Cb;
-                data = ml_register_value(v_func);
+                data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_ctxpopup_item_append((Evas_Object*) v_obj,
                 label, icon, func, data);
