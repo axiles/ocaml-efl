@@ -30,6 +30,8 @@ inline value copy_tm(struct tm t);
 inline value* ml_register_value(value v);
 inline void ml_remove_value(value* data);
 
+inline value safe_copy_string(const char* s);
+
 /* Local headers */
 
 #include "variants.h"
