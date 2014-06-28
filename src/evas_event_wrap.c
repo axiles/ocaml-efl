@@ -54,7 +54,7 @@ inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
         Store_field(v, 3, (value) ev->modifiers);
         Store_field(v, 4, copy_Evas_Button_Flags(ev->flags));
         Store_field(v, 5, Val_int(ev->timestamp));
-        Store_field(v, 6, Val_Evas_Event_Flags(ev->flags));
+        Store_field(v, 6, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 7, (value) ev->dev);
         Store_field(v, 8, (value) ev->event_src);
         CAMLreturn(v);
@@ -71,7 +71,7 @@ inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
         Store_field(v, 3, (value) ev->modifiers);
         Store_field(v, 4, copy_Evas_Button_Flags(ev->flags));
         Store_field(v, 5, Val_int(ev->timestamp));
-        Store_field(v, 6, Val_Evas_Event_Flags(ev->flags));
+        Store_field(v, 6, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 7, (value) ev->dev);
         Store_field(v, 8, (value) ev->event_src);
         CAMLreturn(v);
