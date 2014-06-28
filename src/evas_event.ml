@@ -8,7 +8,7 @@ type position = Evas.position
 type coord_precision_point = Evas.coord_precision_point
 type precision_position = Evas.precision_position
 
-type flags = [`none | `double_click | `triple_click]
+type flags =  [`none | `on_hold | `on_scroll]
 
 module Mouse_in = struct
   type t = {
