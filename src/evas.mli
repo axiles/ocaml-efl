@@ -30,7 +30,7 @@ end
 
 type position = Position.t
 
-type button_flags = [`none | `on_hold | `on_scroll]
+type button_flags = [`none | `double_click | `triple_click]
 
 type device
 

@@ -1,4 +1,4 @@
-type flags = [`none | `double_click | `triple_click]
+type flags =  [`none | `on_hold | `on_scroll]
 
 module Mouse_in : sig
   type t = {
