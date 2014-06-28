@@ -28,7 +28,11 @@ end
 
 type position = Position.t
 
-type button_flags = [`none | `double_click | `triple_click]
+module Button_flags = struct
+  type t = {double_click : bool; triple_click : bool}
+end
+
+type button_flags = Button_flags.t
 
 type device
 

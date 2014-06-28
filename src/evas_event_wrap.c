@@ -45,32 +45,36 @@ inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
 
 inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
 {
-        value v = caml_alloc(9, 0);
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(9, 0);
         Store_field(v, 0, Val_int(ev->button));
         Store_field(v, 1, copy_Evas_Point(ev->output));
         Store_field(v, 2, copy_Evas_Coord_Point(ev->canvas));
         Store_field(v, 3, (value) ev->modifiers);
-        Store_field(v, 4, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 4, copy_Evas_Button_Flags(ev->flags));
         Store_field(v, 5, Val_int(ev->timestamp));
         Store_field(v, 6, Val_Evas_Event_Flags(ev->flags));
         Store_field(v, 7, (value) ev->dev);
         Store_field(v, 8, (value) ev->event_src);
-        return v;
+        CAMLreturn(v);
 }
 
 inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
 {
-        value v = caml_alloc(9, 0);
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(9, 0);
         Store_field(v, 0, Val_int(ev->button));
         Store_field(v, 1, copy_Evas_Point(ev->output));
         Store_field(v, 2, copy_Evas_Coord_Point(ev->canvas));
         Store_field(v, 3, (value) ev->modifiers);
-        Store_field(v, 4, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 4, copy_Evas_Button_Flags(ev->flags));
         Store_field(v, 5, Val_int(ev->timestamp));
         Store_field(v, 6, Val_Evas_Event_Flags(ev->flags));
         Store_field(v, 7, (value) ev->dev);
         Store_field(v, 8, (value) ev->event_src);
-        return v;
+        CAMLreturn(v);
 }
 
 inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
@@ -117,7 +121,7 @@ inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
         Store_field(v, 6, copy_Evas_Point(ev->output));
         Store_field(v, 7, copy_Evas_Coord_Precision_Point(ev->canvas));
         Store_field(v, 8, (value) ev->modifiers);
-        Store_field(v, 9, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 9, copy_Evas_Button_Flags(ev->flags));
         Store_field(v, 10, Val_int(ev->timestamp));
         Store_field(v, 11, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 12, (value) ev->dev);
@@ -138,7 +142,7 @@ inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
         Store_field(v, 6, copy_Evas_Point(ev->output));
         Store_field(v, 7, copy_Evas_Coord_Precision_Point(ev->canvas));
         Store_field(v, 8, (value) ev->modifiers);
-        Store_field(v, 9, Val_Evas_Button_Flags(ev->flags));
+        Store_field(v, 9, copy_Evas_Button_Flags(ev->flags));
         Store_field(v, 10, Val_int(ev->timestamp));
         Store_field(v, 11, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 12, (value) ev->dev);
