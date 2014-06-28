@@ -25,7 +25,7 @@ inline value copy_Evas_Coord_Precision_Point(
 
 inline value copy_Evas_Precision_Position(Evas_Precision_Position p);
 
-inline value Val_Evas_Button_Flags(Evas_Button_Flags f);
+inline value copy_Evas_Button_Flags(Evas_Button_Flags f);
 
 inline Evas_Aspect_Control Evas_Aspect_Control_val(value v);
 inline value Val_Evas_Aspect_Control(Evas_Aspect_Control ac);

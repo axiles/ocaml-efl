@@ -49,15 +49,12 @@ inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
         CAMLreturn(v);
 }
 
-inline value Val_Evas_Button_Flags(Evas_Button_Flags f)
+inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
 {
-        switch(f) {
-                case EVAS_BUTTON_NONE: return Val_none;
-                case EVAS_BUTTON_DOUBLE_CLICK: return Val_double_click;
-                case EVAS_BUTTON_TRIPLE_CLICK: return Val_triple_click;
-        }
-        caml_failwith("Val_Evas_Button_Flag");
-        return Val_none;
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_bool(f & EVAS_BUTTON_DOUBLE_CLICK));
+        Store_field(v, 1, Val_bool(f & EVAS_BUTTON_TRIPLE_CLICK));
+        return v;
 }
 
 void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
