@@ -9,10 +9,10 @@ val message_box :
     (unit -> unit) -> unit
 
 val input_string :
-  title:string -> ?ok:string -> ?cancel:string -> ?text:string ->
+  title:string -> ?ok:string -> ?cancel:string -> ?default_text:string ->
     ?parent:Evas.obj -> string -> (string option -> unit) -> unit
 
 val input_text :
-  title:string -> ?ok:string -> ?cancel:string -> ?text:string ->
+  title:string -> ?ok:string -> ?cancel:string -> ?default_text:string ->
     ?parent:Evas.obj -> string -> (string option -> unit) -> unit
 

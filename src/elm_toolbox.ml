@@ -40,6 +40,7 @@ let add_icon win box icon =
 let add_hbox win box =
   let hbox = Elm_box.add win in
   Elm_box.horizontal_set hbox true;
+  Elm_box.homogeneous_set hbox true;
   Evas_object.size_hint_set hbox [`hexpand; `hfill];
   Elm_box.pack_end box hbox;
   Evas_object.show hbox;
@@ -98,8 +99,8 @@ let message_box ~title ?icon ?(ok = "Ok") ?parent msg cb =
 
   Evas_object.show win
 
-let input sl name ~title ?(ok = "Ok") ?(cancel = "Cancel") ?text ?parent msg
-    cb =
+let input sl name ~title ?(ok = "Ok") ?(cancel = "Cancel") ?default_text ?parent
+    msg cb =
   let win = add_dialog ?p:parent name in
   Elm_win.title_set win title;
   let quit x = Evas_object.del win; cb x in
@@ -115,7 +116,7 @@ let input sl name ~title ?(ok = "Ok") ?(cancel = "Cancel") ?text ?parent msg
   let entry = Elm_entry.add win in
   Evas_object.size_hint_set entry [`expand; `fill];
   Elm_box.pack_end box entry;
-  (match text with Some t -> Elm_entry.entry_set entry t | None -> ());
+  (match default_text with Some t -> Elm_entry.entry_set entry t | None -> ());
   Evas_object.show entry;
   Elm_entry.single_line_set entry sl;
   if sl then

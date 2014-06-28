@@ -26,7 +26,8 @@ let message_box_action () =
 
 let input_action (f : 'a) () =
   let (_ : 'a) = Elm_toolbox.input_string in
-  f ~title:"Entry" ~text:"Default text" "Please enter some text" & fun x ->
+  f ~title:"Entry" ~default_text:"Default text" "Please enter some text"
+    & fun x ->
   match x with
   | None -> print_endline "No text have been entered"
   | Some s -> printf "%s\n%!" s
