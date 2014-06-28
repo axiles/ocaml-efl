@@ -40,6 +40,7 @@ let add_icon win box icon =
 let add_hbox win box =
   let hbox = Elm_box.add win in
   Elm_box.horizontal_set hbox true;
+  Elm_box.homogeneous_set hbox true;
   Evas_object.size_hint_set hbox [`hexpand; `hfill];
   Elm_box.pack_end box hbox;
   Evas_object.show hbox;
