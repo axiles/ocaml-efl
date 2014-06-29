@@ -93,8 +93,8 @@ PREFIX value ml_elm_scroller_add(value v_parent)
 PREFIX value ml_elm_scroller_content_min_limit(
         value v_obj, value v_w, value v_h)
 {
-        elm_scroller_content_min_limit((Evas_Object*) v_obj, Int_val(v_w),
-                Int_val(v_h));
+        elm_scroller_content_min_limit((Evas_Object*) v_obj, Bool_val(v_w),
+                Bool_val(v_h));
         return Val_unit;
 }
 

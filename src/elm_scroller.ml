@@ -10,7 +10,7 @@ type movement_block = [
 
 external add : Evas.obj -> Evas.obj = "ml_elm_scroller_add"
 
-external content_min_limit : Evas.obj -> int -> int -> unit =
+external content_min_limit : Evas.obj -> bool -> bool -> unit =
   "ml_elm_scroller_content_min_limit"
 
 external region_show : Evas.obj -> int -> int -> int -> int -> unit =
