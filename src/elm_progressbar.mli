@@ -24,6 +24,7 @@ val span_size_set : Evas.obj -> int -> unit
 
 val span_size_get : Evas.obj -> int
 
+(** Example: [Elm_progressbar.unit_format_set pb "%1.2f%%"] *)
 val unit_format_set : Evas.obj -> (float -> string, unit, string) format -> unit
 
 val unit_format_function_set : Evas.obj -> (float -> string) -> unit
