@@ -12,7 +12,7 @@ type movement_block = [
 
 val add : Evas.obj -> Evas.obj
 
-val content_min_limit : Evas.obj -> int -> int -> unit
+val content_min_limit : Evas.obj -> bool -> bool -> unit
 
 val region_show : Evas.obj -> int -> int -> int -> int -> unit
 
