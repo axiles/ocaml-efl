@@ -42,3 +42,5 @@ slideshow
 spinner
 thumb
 toolbar
+video
+player

@@ -1,0 +1,5 @@
+ELM_OBJ_VIDEO_CLASS
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"
