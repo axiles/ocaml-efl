@@ -1,0 +1,4 @@
+ELM_OBJ_PHOTO_CLASS
+"clicked"
+"drag,start"
+"drag,end"

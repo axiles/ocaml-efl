@@ -1,0 +1,3 @@
+ELM_OBJ_NOTIFY_CLASS
+"timeout"
+"block,clicked"

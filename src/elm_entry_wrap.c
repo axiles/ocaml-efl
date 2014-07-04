@@ -262,6 +262,20 @@ inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m)
         return Val_markup;
 }
 
+inline value copy_Elm_Entry_Anchor_Info(Elm_Entry_Anchor_Info* info)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(6, 0);
+        Store_field(v, 0, copy_string(info->name));
+        Store_field(v, 1, Val_int(info->button));
+        Store_field(v, 2, Val_int(info->x));
+        Store_field(v, 3, Val_int(info->y));
+        Store_field(v, 4, Val_int(info->w));
+        Store_field(v, 5, Val_int(info->h));
+        CAMLreturn(v);
+}
+
 PREFIX value ml_elm_entry_add(value v_parent)
 {
         Evas_Object* entry = elm_entry_add((Evas_Object*) v_parent);
@@ -900,17 +914,8 @@ PREFIX value ml_elm_entry_input_panel_show_on_demand_get(value v_obj)
 
 PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
 {
-        CAMLparam0();
-        CAMLlocal1(v);
         Elm_Entry_Anchor_Info* info = (Elm_Entry_Anchor_Info*) v_ptr;
-        v = caml_alloc(6, 0);
-        Store_field(v, 0, copy_string(info->name));
-        Store_field(v, 1, Val_int(info->button));
-        Store_field(v, 2, Val_int(info->x));
-        Store_field(v, 3, Val_int(info->y));
-        Store_field(v, 4, Val_int(info->w));
-        Store_field(v, 5, Val_int(info->h));
-        CAMLreturn(v);
+        return copy_Elm_Entry_Anchor_Info(info);
 }
 
 PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)

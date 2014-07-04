@@ -1,0 +1,11 @@
+ELM_OBJ_DISKSELECTOR_CLASS
+"selected"
+"clicked"
+"scroll,anim,start"
+"scroll,anim,stop"
+"scroll,drag,start"
+"scroll,drag,stop"
+"focused"
+"unfocused" 
+"theme,changed"
+"language,changed"

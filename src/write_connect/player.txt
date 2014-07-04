@@ -1,0 +1,11 @@
+ELM_OBJ_PLAYER_CLASS
+"forward,clicked"
+"info,clicked"
+"next,clicked"
+"pause,clicked"
+"play,clicked"
+"prev,clicked"
+"rewind,clicked"
+"stop,clicked"
+"theme,changed"
+"language,changed"

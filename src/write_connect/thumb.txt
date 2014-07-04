@@ -1,0 +1,8 @@
+ELM_OBJ_THUMB_CLASS
+"clicked"
+"clicked,double"
+"press"
+"generate,start"
+"generate,stop"
+"generate,error"
+"load,error"

@@ -1,0 +1,5 @@
+ELM_OBJ_ICON_CLASS
+"thumb,done"
+"thumb,error"
+"drop" string
+"clicked"

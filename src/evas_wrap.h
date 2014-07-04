@@ -35,5 +35,7 @@ inline Evas_Callback_Priority Evas_Callback_Priority_val(value v);
 inline value* ml_Evas_register_value(value v);
 inline void ml_Evas_remove_values();
 
+inline value copy_Evas_Coord_Size(Evas_Coord_Size* s);
+
 #endif
 

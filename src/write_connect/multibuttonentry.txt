@@ -1,0 +1,13 @@
+ELM_OBJ_MULTIBUTTONENTRY_CLASS
+"item,selected"
+"item,added"
+"item,deleted"
+"item,clicked"
+"clicked"
+"focused"
+"unfocused"
+"expanded"
+"contracted"
+"expand,state,changed"
+"theme,changed"
+"language,changed"

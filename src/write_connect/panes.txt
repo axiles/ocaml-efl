@@ -1,0 +1,7 @@
+ELM_OBJ_PANES_CLASS
+"press"
+"unpress"
+"clicked"
+"clicked,double"
+"theme,changed"
+"language,changed"

@@ -1,0 +1,8 @@
+ELM_OBJ_COLORSELECTOR_CLASS
+"changed"                                                    
+"color,item,selected" item                                              
+"color,item,longpressed" item                                                  
+"focused" 
+"unfocused"
+"theme,changed"
+"language,changed"

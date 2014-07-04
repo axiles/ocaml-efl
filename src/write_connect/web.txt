@@ -1,0 +1,37 @@
+ELM_OBJ_WEB_CLASS
+"download,request" download
+"editorclient,contents,changed"
+"editorclient,selection,changed"
+"frame,created" evas_obj
+"icon,received"
+"inputmethod,changed" bool
+"js,windowobject,clear"
+"link,hover,in" string_string                  
+"link,hover,out"
+"load,document,finished"
+"load,error" frame_load_error
+"load,finished" frame_load_error_opt
+"load,newwindow,show"
+"load,progress" float
+"load,provisional"
+"load,started"
+"menubar,visible,get" bool_ref
+"menubar,visible,set" bool
+"popup,created" web_menu
+"popup,willdelete" web_menu
+"ready"
+"scrollbars,visible,get" bool_ref
+"scrollbars,visible,set" bool
+"statusbar,text,set" string
+"statusbar,visible,get" bool_ref                                                 
+"statusbar,visible,set" bool
+"title,changed" string
+"toolbars,visible,get" bool_ref
+"toolbars,visible,set" bool
+"tooltip,text,set" string
+"url,changed" string
+"view,resized"
+"windows,close,request"
+"zoom,animated,end"
+"focused"
+"unfocused"                                                    

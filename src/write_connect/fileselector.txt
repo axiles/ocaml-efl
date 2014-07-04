@@ -1,0 +1,8 @@
+ELM_OBJ_FILESELECTOR_CLASS
+"activated" string
+"selected" string
+"selected,invalid"
+"directory,open" string
+"done" string_opt
+"theme,changed"
+"language,changed"

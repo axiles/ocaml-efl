@@ -1,0 +1,5 @@
+ELM_OBJ_ACTIONSLIDER_CLASS
+"selected" string_opt
+"pos_changed" string_opt
+"theme,changed"
+"language,changed"

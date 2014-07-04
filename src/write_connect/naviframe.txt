@@ -1,0 +1,7 @@
+ELM_OBJ_NAVIFRAME_CLASS
+"transition,finished"
+"title,clicked"
+"focused"
+"unfocused"     
+"theme,changed"
+"language,changed"

@@ -1,0 +1,35 @@
+ELM_OBJ_GENGRID_CLASS
+"activated" item
+"pressed" item
+"released" item
+"clicked,double" item
+"longpressed"
+"selected" item
+"unselected" item
+"realized" item
+"unrealized" item
+"changed"
+"scroll,anim,start"
+"scroll,anim,stop"
+"drag,start,up"
+"drag,start,down"
+"drag,start,left"
+"drag,start,right"
+"drag,stop"
+"drag"
+"scroll"
+"scroll,drag,start"
+"scroll,drag,stop"
+"scroll,page,changed"
+"edge,top"
+"edge,bottom"
+"edge,left"
+"edge,right"
+"moved" item
+"index,update"
+"highlighted" item
+"unhighlighted" item
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

@@ -1,0 +1,7 @@
+ELM_OBJ_CALENDAR_CLASS
+"changed"      
+"display,changed"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

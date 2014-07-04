@@ -862,3 +862,11 @@ PREFIX value ml_evas_string_char_len_get(value v_s)
         return Val_int(evas_string_char_len_get(String_val(v_s)));
 }
 
+PREFIX value copy_Evas_Coord_Size(Evas_Coord_Size* s)
+{
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(s->w));
+        Store_field(v, 1, Val_int(s->h));
+        return v;
+}
+

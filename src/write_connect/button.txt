@@ -1,0 +1,9 @@
+ELM_OBJ_BUTTON_CLASS
+"clicked"
+"repeated"
+"pressed"
+"unpressed"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"
