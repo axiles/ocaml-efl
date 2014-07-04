@@ -11,4 +11,5 @@ datetime
 dayselector
 diskselector
 entry
-fileselctor_button
+fileselector_button
+fileseletor_entry

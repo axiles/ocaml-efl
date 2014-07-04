@@ -1,0 +1,16 @@
+ELM_OBJ_FILESELECTOR_ENTRY
+"changed"
+"activated"
+"press"
+"longpressed"
+"clicked"
+"clicked,double"
+"focused"
+"unfocused"
+"selection,paste"
+"selection,copy"
+"selection,cut"
+"unpressed"                                                      
+"file,chosen" string_opt                                        
+"theme,changed"
+"language,changed"
