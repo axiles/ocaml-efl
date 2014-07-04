@@ -31,3 +31,4 @@ menu
 notify
 panel
 photo
+photocam
