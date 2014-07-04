@@ -38,6 +38,7 @@ panel
 panes
 photo
 photocam
+plug
 progressbar
 radio
 scroller

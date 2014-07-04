@@ -228,6 +228,7 @@ let create_env () =
       "Elm_web.frame_load_error option", "copy_Elm_Web_Frame_Load_Error_opt");
     ("float", "double*", "float", "copy_double_ptr");
     ("web_menu", "Elm_Web_Menu*", "Elm_web.menu", "copy_Elm_Web_Menu");
+    ("coord_size", "Evas_Coord_Size*", "int * int", "copy_Evas_Coord_Size");
   ] in
   let env2 = List.fold_left add_cast env1 [
     ("item", "Elm_Object_Item*", "Elm_object.item");
