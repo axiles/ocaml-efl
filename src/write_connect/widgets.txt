@@ -40,3 +40,4 @@ separator
 slider
 slideshow
 spinner
+thumb
