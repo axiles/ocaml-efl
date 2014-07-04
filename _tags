@@ -259,6 +259,7 @@
 <src/evas_*>: efl
 <src/edje_*>: efl
 <src/elm_*>: efl
+"src/elm_connect.cmx": for-pack(Efl)
 #<efl.{cma,cmxa}>: oasis_library_efl_cclib
 #"libefl_stubs.lib": oasis_library_efl_cclib
 #"dllefl_stubs.dll": oasis_library_efl_cclib

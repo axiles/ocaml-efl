@@ -1,0 +1,7 @@
+ELM_OBJ_BUTTON
+"clicked"
+"repeated"
+"pressed"
+"unpressed"
+"focused"
+"unfocused"

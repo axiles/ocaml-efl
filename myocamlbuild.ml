@@ -536,6 +536,32 @@ let write_intro () =
   flag ["doc"; "extension:html"] (Sh "-t \"OCaml EFL Documentation\"");
   flag ["doc"; "extension:html"] (A "-colorize-code")
 
+(* Add rules to generate src/elm_connect{.ml,.mli,_wrap.c}*)
+let write_connect () =
+  let widgets_filename = "src" / "write_connect" / "widgets.txt" in
+  let get_txt_dep () =
+    let ch = open_in widgets_filename in
+    let r = ref [] in
+    (try while true do
+      let s = input_line ch in
+      r := s :: !r
+    done with End_of_file -> ());
+    close_in ch;
+    let aux s = "src" / "write_connect" / (sprintf "%s.txt" s) in
+    List.rev_map aux !r in
+  let gen_prog = "src" / "write_connect" / "main.byte" in
+  let action env builder =
+    let deps = get_txt_dep () in
+    ignore (builder [deps]);
+    Cmd (P gen_prog) in
+  let prods = [
+    "src" / "elm_connect.mli";
+    "src" / "elm_connect.ml";
+    "src" / "elm_connect_wrap.c"
+  ] in
+  rule "write_connect" ~deps:[gen_prog; widgets_filename] ~prods action
+  (*flag ["file:src/elm_connect.cmx"] (Sh "-for-pack Efl")*)
+
 let () = dispatch & fun h ->
   dispatch_default h;
   match h with
@@ -545,6 +571,7 @@ let () = dispatch & fun h ->
 
     write_variants ();
     write_intro ();
+    write_connect ();
 
     (* Get the values of the env variables *)
     let env = BaseEnvLight.load () in 
