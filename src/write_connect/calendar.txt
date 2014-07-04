@@ -1,5 +1,6 @@
-ELM_OBJ_BUBBLE_CLASS
-"clicked"
+ELM_OBJ_CALENDAR_CLASS
+"changed"      
+"display,changed"
 "focused"
 "unfocused"
 "theme,changed"
