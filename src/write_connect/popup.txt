@@ -1,0 +1,7 @@
+ELM_OBJ_POPUP_CLASS
+"timeout"
+"block,clicked"
+"focused"
+"unfocused"                                        
+"theme,changed"
+"language,changed"

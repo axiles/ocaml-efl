@@ -32,3 +32,4 @@ notify
 panel
 photo
 photocam
+popup
