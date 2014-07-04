@@ -38,3 +38,4 @@ radio
 segment_control
 separator
 slider
+slideshow
