@@ -41,3 +41,4 @@ slider
 slideshow
 spinner
 thumb
+toolbar
