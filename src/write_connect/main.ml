@@ -200,6 +200,7 @@ let create_env () =
     ("string_opt", "const char*", "string option", "copy_string_opt");
     ("anchor", "Elm_Entry_Anchor_Info*", "Elm_entry.anchor_info",
       "copy_Elm_Entry_Anchor_Info");
+    ("string", "const char*", "string", "copy_string");
   ] in
   List.fold_left add_cast env1
     [("item", "Elm_Object_Item*", "Elm_object.item")]
