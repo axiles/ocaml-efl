@@ -185,6 +185,16 @@ void ml_Evas_Smart_Cb_connect_unit(
 
 "
 
+let create_env () =
+  let env = Env.empty in
+  let open Event_info in
+  let add env (name, c_name, ml_name, conv_name) =
+    let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
+    let ei = {c_name; ml_name; cb_name; conv = Some conv_name} in
+    Env.add env name ei in
+  List.fold_left add env
+    [("string_opt", "const char*", "string option", "copy_string_opt")]
+
 let () =
   let ( / ) = Filename.concat in
   let filename = "src" / "write_connect" / "widgets.txt" in
@@ -195,9 +205,9 @@ let () =
   let fmt_ml_sig = formatter_of_out_channel ch_ml_sig in
   let fmt_ml_impl = formatter_of_out_channel ch_ml_impl in
   let fmt_c_impl = formatter_of_out_channel ch_c_impl in
-  let env = Env.empty in
-  Env.print_c_impl fmt_c_impl env;
+  let env = create_env () in
   print_cb_unit fmt_c_impl;
+  Env.print_c_impl fmt_c_impl env;
   (try
     let widget_name = input_line ch in
     let w = Widget.create widget_name env in
