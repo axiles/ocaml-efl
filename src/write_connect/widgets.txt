@@ -25,3 +25,4 @@ image
 index
 inwin
 list
+label

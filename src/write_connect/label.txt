@@ -1,0 +1,4 @@
+ELM_OBJ_LABEL_CLASS
+"slide,end"
+"theme,changed"
+"language,changed"
