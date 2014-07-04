@@ -51,3 +51,4 @@ genlist
 conformant
 layout
 naviframe
+panes
