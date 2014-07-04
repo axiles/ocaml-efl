@@ -16,6 +16,8 @@
 
 /* EFL headers */
 
+#define EFL_BETA_API_SUPPORT 1
+#define EFL_EO_API_SUPPORT 1
 #include <Elementary.h>
 
 /* Prefix used on all functions */

@@ -1,4 +1,4 @@
-ELM_OBJ_PHOTOCAML_CLASS
+ELM_OBJ_PHOTOCAM_CLASS
 "clicked"          
 "press"          
 "longpressed"          

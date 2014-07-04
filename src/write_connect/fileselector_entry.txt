@@ -1,4 +1,4 @@
-ELM_OBJ_FILESELECTOR_ENTRY
+ELM_OBJ_FILESELECTOR_ENTRY_CLASS
 "changed"
 "activated"
 "press"

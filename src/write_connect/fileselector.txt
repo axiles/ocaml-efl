@@ -1,4 +1,4 @@
-ELM_FILESELECTOR_CLASS
+ELM_OBJ_FILESELECTOR_CLASS
 "activated" string
 "selected" string
 "selected,invalid"
