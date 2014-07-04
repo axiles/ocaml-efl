@@ -29,7 +29,7 @@ module Signal : sig
   val create : Expr.Signal.t -> Env.t -> t
   val print_ml_sig : formatter -> t -> unit
   val print_ml_impl : t -> formatter -> string -> unit
-  val print_c_impl : t -> formatter -> string -> unit
+  val print_c_impl : t -> string -> formatter -> string -> unit
 end = struct
   type ty = Unit | Arg of Event_info.t | Ref of Event_info.t
   type t = {name : string; ml_name : string; ty : ty}
@@ -67,10 +67,13 @@ end = struct
   let print_ml_impl s fmt widget_name =
     fprintf fmt "external %s : %a = \"%s\"" s.ml_name print_type s
       (get_external_name s widget_name)
-  let print_c_impl s fmt widget_name =
+  let print_c_impl s widget_name fmt eo_name =
     fprintf fmt "PREFIX value %s(value v_obj, value v_cb) {\n"
       (get_external_name s widget_name);
     fprintf fmt "        Evas_Object* obj = (Evas_Object*) v_obj;\n";
+    fprintf fmt "        if(!eo_isa(obj, %s)) \
+                           caml_failwith(\"Widget is not a %s\");\n"
+      eo_name widget_name;
     fprintf fmt
       "        value* data = ml_Evas_Object_register_value(obj, v_cb);\n";
     let cb_name = match s.ty with
@@ -129,7 +132,8 @@ end = struct
     List.iter f w.signals;
     fprintf fmt "end\n\n"
   let print_c_impl fmt w =
-    let f s = fprintf fmt "%a\n\n" (Signal.print_c_impl s) w.ml_name in
+    let f s =
+      fprintf fmt "%a\n\n" (Signal.print_c_impl s w.ml_name) w.eo_name in
     List.iter f w.signals
 end
 

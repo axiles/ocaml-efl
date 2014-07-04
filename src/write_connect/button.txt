@@ -1,4 +1,4 @@
-ELM_OBJ_BUTTON
+ELM_OBJ_BUTTON_CLASS
 "clicked"
 "repeated"
 "pressed"
