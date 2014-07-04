@@ -45,3 +45,4 @@ toolbar
 video
 player
 web
+win
