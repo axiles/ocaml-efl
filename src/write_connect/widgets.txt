@@ -22,3 +22,4 @@ hover
 hoversel
 icon
 image
+index
