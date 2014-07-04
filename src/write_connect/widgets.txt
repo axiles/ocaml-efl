@@ -27,3 +27,4 @@ inwin
 list
 label
 map
+menu
