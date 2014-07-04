@@ -1,4 +1,4 @@
-ELM_OBJ_SEGMENTCONTROL_CLASS
+ELM_OBJ_SEGMENT_CONTROL_CLASS
 "changed"
 "theme,changed"
 "language,changed"
