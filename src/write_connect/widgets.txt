@@ -35,3 +35,4 @@ photocam
 popup
 progressbar
 radio
+segmentcontrol
