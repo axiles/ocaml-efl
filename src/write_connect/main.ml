@@ -196,8 +196,11 @@ let create_env () =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
     let ei = {c_name; ml_name; cb_name; conv = None} in
     Env.add env name ei in
-  let env1 = List.fold_left add env
-    [("string_opt", "const char*", "string option", "copy_string_opt")] in
+  let env1 = List.fold_left add env [
+    ("string_opt", "const char*", "string option", "copy_string_opt");
+    ("anchor", "Elm_Entry_Anchor_Info*", "Elm_entry.anchor_info",
+      "copy_Elm_Entry_Anchor_Info");
+  ] in
   List.fold_left add_cast env1
     [("item", "Elm_Object_Item*", "Elm_object.item")]
 

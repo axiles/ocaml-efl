@@ -10,3 +10,4 @@ ctxpopup
 datetime
 dayselector
 diskselector
+entry

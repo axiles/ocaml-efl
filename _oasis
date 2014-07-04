@@ -147,6 +147,7 @@ Library efl
     elm_datetime_wrap.c,
     elm_dayselector_wrap.c,
     elm_diskselector_wrap.c,
+    elm_entry_wrap.h,
     elm_entry_wrap.c,
     elm_flip_wrap.c,
     elm_flipselector_wrap.c,
