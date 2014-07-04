@@ -1,3 +1,4 @@
 actionslider
 bg
+bubble
 button
