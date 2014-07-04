@@ -1,0 +1,8 @@
+ELM_OBJ_HOVER_CLASS
+"clicked" 
+"dismissed"
+"smart,changed" 
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"
