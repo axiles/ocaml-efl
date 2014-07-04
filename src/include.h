@@ -51,6 +51,7 @@ inline value safe_copy_string(const char* s);
 #include "elm_list_wrap.h"
 #include "elm_entry_wrap.h"
 #include "elm_icon_wrap.h"
+#include "elm_web_wrap.h"
 
 #endif
 

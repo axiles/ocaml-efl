@@ -44,3 +44,4 @@ thumb
 toolbar
 video
 player
+web

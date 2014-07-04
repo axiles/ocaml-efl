@@ -42,7 +42,8 @@ end = struct
     (match ei.conv with
     | None -> fprintf fmt "        %s r = (%s) v_r;\n" ei.c_name ei.c_name
     | Some x -> fprintf fmt "        %s r = %s(v_r);\n" ei.c_name x);
-    fprintf fmt "        *event_info = r;\n";
+    fprintf fmt "        %s* ei = (%s*) event_info;\n" ei.c_name ei.c_name;
+    fprintf fmt "        *ei = r;\n";
     fprintf fmt "        CAMLreturn0;\n";
     fprintf fmt "}\n\n"
   let print_c_impl fmt ei =
@@ -208,14 +209,31 @@ let create_env () =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
     let ei = {input = true; c_name; ml_name; cb_name; conv = None} in
     Env.add env name ei in
+  let add_ref env (name, c_name, ml_name, conv_name) =
+    let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
+    let ei = {input = false; c_name; ml_name; cb_name; conv = Some conv_name} in
+    Env.add env name ei in
   let env1 = List.fold_left add env [
     ("string_opt", "const char*", "string option", "copy_string_opt");
     ("anchor", "Elm_Entry_Anchor_Info*", "Elm_entry.anchor_info",
       "copy_Elm_Entry_Anchor_Info");
     ("string", "const char*", "string", "copy_string");
+    ("download", "Elm_Web_Download*", "Elm_web.download",
+      "copy_Elm_Web_Download");
+    ("bool", "Eina_Bool*", "bool", "Val_Eina_Bool_ptr");
+    ("string_string", "char**", "string * string", "copy_string_string");
+    ("frame_load_error", "Elm_Web_Frame_Load_Error*",
+      "Elm_web.frame_load_error", "copy_Elm_Web_Frame_Load_Error");
+    ("frame_load_error_opt", "Elm_Web_Frame_Load_Error*",
+      "Elm_web.frame_load_error option", "copy_Elm_Web_Frame_Load_Error_opt");
+    ("float", "double*", "float", "copy_double_ptr");
+    ("web_menu", "Elm_Web_Menu*", "Elm_web.menu", "copy_Elm_Web_Menu");
   ] in
-  List.fold_left add_cast env1
-    [("item", "Elm_Object_Item*", "Elm_object.item")]
+  let env2 = List.fold_left add_cast env1 [
+    ("item", "Elm_Object_Item*", "Elm_object.item");
+    ("evas_obj", "Evas_Object*", "Evas.obj");
+  ] in
+  List.fold_left add_ref env2 [("bool_ref", "Eina_Bool", "bool", "Bool_val")]
 
 let () =
   let ( / ) = Filename.concat in

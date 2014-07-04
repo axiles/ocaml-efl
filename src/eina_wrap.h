@@ -25,4 +25,8 @@ inline Evas_Object* Evas_Object_opt_val(value v);
 
 inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list);
 
+inline value Val_Eina_Bool_ptr(Eina_Bool* ptr);
+inline value copy_double_ptr(double* ptr);
+inline value copy_string_string(char** x);
+
 #endif

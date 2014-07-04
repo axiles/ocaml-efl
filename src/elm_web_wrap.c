@@ -1,5 +1,52 @@
 #include "include.h"
 
+inline value copy_Elm_Web_Download(Elm_Web_Download* d)
+{
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        v_r = caml_alloc(1, 0);
+        const char* url;
+        if(d->url == NULL) url = "";
+        else url = d->url;
+        Store_field(v_r, 0, copy_string(url));
+        CAMLreturn(v_r);
+}
+
+inline value copy_Elm_Web_Frame_Load_Error(Elm_Web_Frame_Load_Error* fle)
+{
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        v_r = caml_alloc(6, 0);
+        Store_field(v_r, 0, Val_int(fle->code));
+        Store_field(v_r, 1, Val_bool(fle->is_cancellation));
+        const char* domain;
+        if(fle->domain == NULL) domain = "";
+        else domain = fle->domain;
+        Store_field(v_r, 2, copy_string(domain));
+        const char* description;
+        if(fle->description == NULL) description = "";
+        else description = fle->description;
+        Store_field(v_r, 3, copy_string(description));
+        const char* failing_url;
+        if(fle->failing_url == NULL) failing_url = "";
+        else failing_url = fle->failing_url;
+        Store_field(v_r, 4, copy_string(failing_url));
+        Store_field(v_r, 5, (value) fle->frame);
+        CAMLreturn(v_r);
+}
+
+inline value copy_Elm_Web_Frame_Load_Error_opt(Elm_Web_Frame_Load_Error* fle)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        if(fle == NULL) v = Val_int(0);
+        else {
+                v = caml_alloc(1, 0);
+                Store_field(v, 0, copy_Elm_Web_Frame_Load_Error(fle));
+        }
+        CAMLreturn(v);
+}
+
 Evas_Object* ml_Elm_Web_Window_Open(
         void* data, Evas_Object* obj, Eina_Bool js,
         const Elm_Web_Window_Features* window_features)
@@ -194,6 +241,20 @@ inline value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
+}
+
+inline value copy_Elm_Web_Menu(Elm_Web_Menu* m)
+{
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        v_r = caml_alloc(6, 0);
+        Store_field(v_r, 0, copy_Eina_List_Elm_Web_Menu_Item(m->items));
+        Store_field(v_r, 1, Val_int(m->x));
+        Store_field(v_r, 2, Val_int(m->y));
+        Store_field(v_r, 3, Val_int(m->width));
+        Store_field(v_r, 4, Val_int(m->height));
+        Store_field(v_r, 5, Val_bool(m->handled));
+        CAMLreturn(v_r);
 }
 
 PREFIX value ml_elm_web_add(Evas_Object* v_parent)
@@ -524,53 +585,19 @@ PREFIX value ml_elm_web_window_features_region_get(value v_wf)
 
 PREFIX value ml_Elm_Web_Frame_Load_Error_of_ptr(value v_ptr)
 {
-        CAMLparam1(v_ptr);
-        CAMLlocal1(v_r);
         Elm_Web_Frame_Load_Error* fle = (Elm_Web_Frame_Load_Error*) v_ptr;
-        v_r = caml_alloc(6, 0);
-        Store_field(v_r, 0, Val_int(fle->code));
-        Store_field(v_r, 1, Val_bool(fle->is_cancellation));
-        const char* domain;
-        if(fle->domain == NULL) domain = "";
-        else domain = fle->domain;
-        Store_field(v_r, 2, copy_string(domain));
-        const char* description;
-        if(fle->description == NULL) description = "";
-        else description = fle->description;
-        Store_field(v_r, 3, copy_string(description));
-        const char* failing_url;
-        if(fle->failing_url == NULL) failing_url = "";
-        else failing_url = fle->failing_url;
-        Store_field(v_r, 4, copy_string(failing_url));
-        Store_field(v_r, 5, (value) fle->frame);
-        CAMLreturn(v_r);
+        return copy_Elm_Web_Frame_Load_Error(fle);
 }
 
 PREFIX value ml_Elm_Web_Menu_of_ptr(value v_ptr)
 {
-        CAMLparam1(v_ptr);
-        CAMLlocal1(v_r);
         Elm_Web_Menu* m = (Elm_Web_Menu*) v_ptr;
-        v_r = caml_alloc(6, 0);
-        Store_field(v_r, 0, copy_Eina_List_Elm_Web_Menu_Item(m->items));
-        Store_field(v_r, 1, Val_int(m->x));
-        Store_field(v_r, 2, Val_int(m->y));
-        Store_field(v_r, 3, Val_int(m->width));
-        Store_field(v_r, 4, Val_int(m->height));
-        Store_field(v_r, 5, Val_bool(m->handled));
-        CAMLreturn(v_r);
+        return copy_Elm_Web_Menu(m);
 }
 
 PREFIX value ml_Elm_Web_Download_of_ptr(value v_ptr)
 {
-        CAMLparam1(v_ptr);
-        CAMLlocal1(v_r);
         Elm_Web_Download* d = (Elm_Web_Download*) v_ptr;
-        v_r = caml_alloc(1, 0);
-        const char* url;
-        if(d->url == NULL) url = "";
-        else url = d->url;
-        Store_field(v_r, 0, copy_string(url));
-        CAMLreturn(v_r);
+        return copy_Elm_Web_Download(d);
 }
 

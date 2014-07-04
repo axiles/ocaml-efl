@@ -190,6 +190,7 @@ Library efl
     elm_thumb_wrap.c,
     elm_toolbar_wrap.c,
     elm_transit_wrap.c,
+    elm_web_wrap.h,
     elm_web_wrap.c,
     elm_win_wrap.c,
     elm_inwin_wrap.c,
