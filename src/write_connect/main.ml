@@ -6,6 +6,34 @@ module Event_info = struct
     cb_name : string;
     ml_name : string;
     conv : string option}
+  let print_c_impl fmt ei =
+    fprintf fmt "void %s(void* data, Evas_Object* obj, void* event_info)\n"
+      ei.cb_name;
+    fprintf fmt "{\n";
+    fprintf fmt "        CAMLparam0();\n";
+    fprintf fmt "        CAMLlocal1(v_ei);\n";
+    fprintf fmt "        value* v_fun = (value*) data;\n";
+    fprintf fmt "        %s ei = (%s) event_info;\n" ei.c_name ei.c_name;
+    (match ei.conv with
+    | None -> fprintf fmt "        v_ei = (%s) ei;\n" ei.c_name;
+    | Some x -> fprintf fmt "        v_ei = %s(ei);\n" x);
+    fprintf fmt "        caml_callback2(*v_fun, (value) obj, v_ei);\n";
+    fprintf fmt "        CAMLreturn0;\n";
+    fprintf fmt "}"
+  let princ_ref_c_impl fmt ei =
+    fprintf fmt "void %s(void* data, Evas_Object* obj, void* event_info)\n"
+      ei.cb_name;
+    fprintf fmt "{\n";
+    fprintf fmt "        CAMLparam0();\n";
+    fprintf fmt "        CAMLlocal1(v_r);\n";
+    fprintf fmt "        value* v_fun = (value*) data;\n";
+    fprintf fmt "        v_r = caml_callback(*v_fun, (value) obj);\n";
+    (match ei.conv with
+    | None -> fprintf fmt "        %s r = (%s) v_r;\n" ei.c_name ei.c_name
+    | Some x -> fprintf fmt "        %s r = %s(v_r);\n" ei.c_name x);
+    fprintf fmt "        *event_info = r;\n";
+    fprintf fmt "        CAMLreturn0;\n";
+    fprintf fmt "}\n\n"
 end
 
 module Env : sig
@@ -14,6 +42,7 @@ module Env : sig
   val add : t -> string -> Event_info.t -> t
   val of_list : (string * Event_info.t) list -> t
   val find : t -> string -> Event_info.t option
+  val print_c_impl : formatter -> t -> unit
 end = struct
   module MapString = Map.Make(struct type t = string let compare = compare end)
   type t = Event_info.t MapString.t
@@ -21,6 +50,9 @@ end = struct
   let add env name ei = MapString.add name ei env
   let of_list list = List.fold_left (fun accu (s, x) -> add accu s x) empty list
   let find env name = try Some (MapString.find name env) with Not_found -> None
+  let print_c_impl fmt env =
+    let aux name ei = Event_info.print_c_impl fmt ei in
+    MapString.iter aux env
 end
 
 module Signal : sig
@@ -71,9 +103,11 @@ end = struct
     fprintf fmt "PREFIX value %s(value v_obj, value v_cb) {\n"
       (get_external_name s widget_name);
     fprintf fmt "        Evas_Object* obj = (Evas_Object*) v_obj;\n";
+    fprintf fmt "#ifdef EFL_EO_API_SUPPORT\n";
     fprintf fmt "        if(!eo_isa(obj, %s)) \
                            caml_failwith(\"Widget is not a %s\");\n"
       eo_name widget_name;
+    fprintf fmt "#endif\n";
     fprintf fmt
       "        value* data = ml_Evas_Object_register_value(obj, v_cb);\n";
     let cb_name = match s.ty with
@@ -162,6 +196,7 @@ let () =
   let fmt_ml_impl = formatter_of_out_channel ch_ml_impl in
   let fmt_c_impl = formatter_of_out_channel ch_c_impl in
   let env = Env.empty in
+  Env.print_c_impl fmt_c_impl env;
   print_cb_unit fmt_c_impl;
   (try
     let widget_name = input_line ch in
