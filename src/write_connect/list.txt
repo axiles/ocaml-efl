@@ -1,0 +1,16 @@
+ELM_OBJ_LIST_CLASS
+"activated" item
+"clicked,double" item
+"selected"
+"unselected"
+"longpressed"
+"edge,top"
+"edge,bottom"
+"edge,left"
+"edge,right"
+"highlighted" item                                                              
+"unhighlighted" item
+"focused"
+"unfocused"                                    
+"theme,changed"
+"language,changed"

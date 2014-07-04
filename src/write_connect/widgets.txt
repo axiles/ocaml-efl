@@ -24,3 +24,4 @@ icon
 image
 index
 inwin
+list
