@@ -1,5 +1,5 @@
 module Signal = struct
-  type ty = Unit | Arg of string | Ref of string
+  type ty = string option
   type t = {name : string; ty : ty}
 end
 

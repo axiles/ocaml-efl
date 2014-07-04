@@ -11,9 +11,8 @@
 %%
 
 signal:
-| STRING {{Expr.Signal.name = $1; ty = Expr.Signal.Unit}}
-| STRING IDENT {{Expr.Signal.name = $1; ty = Expr.Signal.Arg $2}}
-| STRING IDENT REF {{Expr.Signal.name = $1; ty = Expr.Signal.Ref $2}}
+| STRING {{Expr.Signal.name = $1; ty = None}}
+| STRING IDENT {{Expr.Signal.name = $1; ty = Some $2}}
 
 signal_list:
 | signal {[$1]}

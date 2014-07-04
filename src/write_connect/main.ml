@@ -1,12 +1,23 @@
 open Format
 
-module Event_info = struct
+module Event_info : sig
   type t = {
+    input : bool;
     c_name : string;
     cb_name : string;
     ml_name : string;
-    conv : string option}
-  let print_c_impl fmt ei =
+    conv : string option;
+  }
+  val print_c_impl : formatter -> t -> unit
+end = struct
+  type t = {
+    input : bool;
+    c_name : string;
+    cb_name : string;
+    ml_name : string;
+    conv : string option;
+  }
+  let print_c_impl_in fmt ei =
     fprintf fmt "void %s(void* data, Evas_Object* obj, void* event_info)\n"
       ei.cb_name;
     fprintf fmt "{\n";
@@ -20,7 +31,7 @@ module Event_info = struct
     fprintf fmt "        caml_callback2(*v_fun, (value) obj, v_ei);\n";
     fprintf fmt "        CAMLreturn0;\n";
     fprintf fmt "}\n\n"
-  let princ_ref_c_impl fmt ei =
+  let print_c_impl_out fmt ei =
     fprintf fmt "void %s(void* data, Evas_Object* obj, void* event_info)\n"
       ei.cb_name;
     fprintf fmt "{\n";
@@ -34,6 +45,9 @@ module Event_info = struct
     fprintf fmt "        *event_info = r;\n";
     fprintf fmt "        CAMLreturn0;\n";
     fprintf fmt "}\n\n"
+  let print_c_impl fmt ei =
+    let f = if ei.input then print_c_impl_in else print_c_impl_out in
+    f fmt ei
 end
 
 module Env : sig
@@ -56,14 +70,14 @@ end = struct
 end
 
 module Signal : sig
-  type ty = Unit | Arg of Event_info.t | Ref of Event_info.t
+  type ty = Event_info.t option
   type t = private {name : string; ml_name : string; ty : ty}
   val create : Expr.Signal.t -> Env.t -> t
   val print_ml_sig : formatter -> t -> unit
   val print_ml_impl : t -> formatter -> string -> unit
   val print_c_impl : t -> string -> formatter -> string -> unit
 end = struct
-  type ty = Unit | Arg of Event_info.t | Ref of Event_info.t
+  type ty = Event_info.t option
   type t = {name : string; ml_name : string; ty : ty}
   let ml_name_of_name name =
     let ml_name = String.sub name 1 (String.length name - 2) in
@@ -77,21 +91,18 @@ end = struct
     let name = e.Expr.Signal.name in
     let ml_name = ml_name_of_name name in
     let ty = match e.Expr.Signal.ty with
-    | Expr.Signal.Unit -> Unit
-    | Expr.Signal.Arg ei_name ->
+    | None -> None
+    | Some ei_name ->
       (match Env.find env ei_name with
-      | Some x -> Arg x
-      | None -> failwith (sprintf "Unknown kind of event_info: %s" ei_name))
-    | Expr.Signal.Ref ei_name ->
-      (match Env.find env ei_name with
-      | Some x -> Ref x
+      | Some x -> Some x
       | None -> failwith (sprintf "Unknown kind of event_info: %s" ei_name)) in
     {name; ml_name; ty}
   let print_cb_type fmt s =
     match s.ty with
-    | Unit -> fprintf fmt "Evas.obj -> unit"
-    | Arg ei -> fprintf fmt "Evas.obj -> %s -> unit" ei.Event_info.ml_name
-    | Ref ei -> fprintf fmt "Evas.obj -> %s" ei.Event_info.ml_name
+    | None -> fprintf fmt "Evas.obj -> unit"
+    | Some ei when ei.Event_info.input ->
+       fprintf fmt "Evas.obj -> %s -> unit" ei.Event_info.ml_name
+    | Some ei -> fprintf fmt "Evas.obj -> %s" ei.Event_info.ml_name
   let print_type fmt s =
     fprintf fmt "Evas.obj -> (%a) -> unit" print_cb_type s
   let print_ml_sig fmt s =
@@ -113,8 +124,8 @@ end = struct
     fprintf fmt
       "        value* data = ml_Evas_Object_register_value(obj, v_cb);\n";
     let cb_name = match s.ty with
-    | Unit -> "ml_Evas_Smart_Cb_connect_unit"
-    | Arg ei | Ref ei -> ei.Event_info.cb_name in
+    | None -> "ml_Evas_Smart_Cb_connect_unit"
+    | Some ei -> ei.Event_info.cb_name in
     fprintf fmt
       "        evas_object_smart_callback_add(obj, %s, %s, data);\n"
       s.name cb_name;
@@ -157,7 +168,6 @@ end = struct
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =
-    fprintf fmt "(** Connect widgets ans signals *)\n\n";
     fprintf fmt "module %s : sig\n" w.ml_name;
     let f s = fprintf fmt " %a\n\n" Signal.print_ml_sig s in
     List.iter f w.signals;
@@ -192,11 +202,11 @@ let create_env () =
   let open Event_info in
   let add env (name, c_name, ml_name, conv_name) =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
-    let ei = {c_name; ml_name; cb_name; conv = Some conv_name} in
+    let ei = {input = true; c_name; ml_name; cb_name; conv = Some conv_name} in
     Env.add env name ei in
   let add_cast env (name, c_name, ml_name) =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
-    let ei = {c_name; ml_name; cb_name; conv = None} in
+    let ei = {input = true; c_name; ml_name; cb_name; conv = None} in
     Env.add env name ei in
   let env1 = List.fold_left add env [
     ("string_opt", "const char*", "string option", "copy_string_opt");
@@ -220,6 +230,7 @@ let () =
   let env = create_env () in
   print_cb_unit fmt_c_impl;
   Env.print_c_impl fmt_c_impl env;
+  fprintf fmt_ml_sig "(** Connect widgets and signals *)\n\n";
   (try while true do
     let widget_name = input_line ch in
     let w = Widget.create widget_name env in
