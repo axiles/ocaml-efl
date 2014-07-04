@@ -50,3 +50,4 @@ gengrid
 genlist
 conformant
 layout
+naviframe
