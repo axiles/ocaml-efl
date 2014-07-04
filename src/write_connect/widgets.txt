@@ -5,3 +5,4 @@ button
 calendar
 check
 clock
+colorselector

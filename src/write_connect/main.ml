@@ -15,11 +15,11 @@ module Event_info = struct
     fprintf fmt "        value* v_fun = (value*) data;\n";
     fprintf fmt "        %s ei = (%s) event_info;\n" ei.c_name ei.c_name;
     (match ei.conv with
-    | None -> fprintf fmt "        v_ei = (%s) ei;\n" ei.c_name;
+    | None -> fprintf fmt "        v_ei = (value) ei;\n";
     | Some x -> fprintf fmt "        v_ei = %s(ei);\n" x);
     fprintf fmt "        caml_callback2(*v_fun, (value) obj, v_ei);\n";
     fprintf fmt "        CAMLreturn0;\n";
-    fprintf fmt "}"
+    fprintf fmt "}\n\n"
   let princ_ref_c_impl fmt ei =
     fprintf fmt "void %s(void* data, Evas_Object* obj, void* event_info)\n"
       ei.cb_name;
@@ -192,8 +192,14 @@ let create_env () =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
     let ei = {c_name; ml_name; cb_name; conv = Some conv_name} in
     Env.add env name ei in
-  List.fold_left add env
-    [("string_opt", "const char*", "string option", "copy_string_opt")]
+  let add_cast env (name, c_name, ml_name) =
+    let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
+    let ei = {c_name; ml_name; cb_name; conv = None} in
+    Env.add env name ei in
+  let env1 = List.fold_left add env
+    [("string_opt", "const char*", "string option", "copy_string_opt")] in
+  List.fold_left add_cast env1
+    [("item", "Elm_Object_Item*", "Elm_object.item")]
 
 let () =
   let ( / ) = Filename.concat in
