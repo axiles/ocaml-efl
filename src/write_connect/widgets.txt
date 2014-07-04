@@ -8,3 +8,5 @@ clock
 colorselector
 ctxpopup
 datetime
+dayselector
+
