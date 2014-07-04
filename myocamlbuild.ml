@@ -548,12 +548,12 @@ let write_connect () =
       r := s :: !r
     done with End_of_file -> ());
     close_in ch;
-    let aux s = "src" / "write_connect" / (sprintf "%s.txt" s) in
+    let aux s = ["src" / "write_connect" / (sprintf "%s.txt" s)] in
     List.rev_map aux !r in
   let gen_prog = "src" / "write_connect" / "main.byte" in
   let action env builder =
     let deps = get_txt_dep () in
-    ignore (builder [deps]);
+    ignore (builder deps);
     Cmd (P gen_prog) in
   let prods = [
     "src" / "elm_connect.mli";

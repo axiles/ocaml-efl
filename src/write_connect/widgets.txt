@@ -12,5 +12,7 @@ dayselector
 diskselector
 entry
 fileselector_button
-fileseletor_entry
+fileselector_entry
 fileselector
+flip
+flipselector

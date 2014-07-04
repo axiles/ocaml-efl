@@ -1,0 +1,8 @@
+ELM_OBJ_FLIPSELECTOR_CLASS
+"selected" item
+"overflowed"
+"underflowed"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

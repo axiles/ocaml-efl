@@ -70,7 +70,9 @@ end = struct
     for i = 0 to String.length ml_name - 1 do
       if ml_name.[i] = ',' then ml_name.[i] <- '_'
     done;
-    ml_name
+    match ml_name with
+    | "end" | "done" -> sprintf "_%s" ml_name
+    | _ -> ml_name
   let create e env =
     let name = e.Expr.Signal.name in
     let ml_name = ml_name_of_name name in
@@ -218,13 +220,13 @@ let () =
   let env = create_env () in
   print_cb_unit fmt_c_impl;
   Env.print_c_impl fmt_c_impl env;
-  (try
+  (try while true do
     let widget_name = input_line ch in
     let w = Widget.create widget_name env in
     Widget.print_ml_sig fmt_ml_sig w;
     Widget.print_ml_impl fmt_ml_impl w;
     Widget.print_c_impl fmt_c_impl w;
-  with End_of_file -> ());
+  done with End_of_file -> ());
   fprintf fmt_ml_sig "%!";
   fprintf fmt_ml_impl "%!";
   fprintf fmt_c_impl "%!";

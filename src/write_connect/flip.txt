@@ -1,0 +1,5 @@
+ELM_OBJ_FLIP_CLASS
+"animate,begin"
+"animate,done"
+"theme,changed"
+"language,changed"

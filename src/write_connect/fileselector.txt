@@ -3,6 +3,6 @@ ELM_FILESELECTOR_CLASS
 "selected" string
 "selected,invalid"
 "directory,open" string
-"done" string_option
+"done" string_opt
 "theme,changed"
 "language,changed"
