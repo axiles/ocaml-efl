@@ -6,3 +6,4 @@ calendar
 check
 clock
 colorselector
+ctxpopup
