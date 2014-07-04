@@ -1,0 +1,7 @@
+ELM_OBJ_SLIDESHOW_CLASS
+"changed" item
+"transition,end" item
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

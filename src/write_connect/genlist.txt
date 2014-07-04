@@ -1,0 +1,44 @@
+ELM_OBJ_GENLIST_CLASS
+"activated" item
+"pressed" item
+"released" item
+"clicked,double" item
+"selected" item
+"unselected" item
+"expanded" item
+"contracted" item
+"expand,request" item
+"contract,request" item
+"realized" item
+"unrealized" item
+"drag,start,up"
+"drag,start,down"
+"drag,start,left"
+"drag,start,right"
+"drag,stop"
+"drag" item
+"scroll,anim,start"
+"scroll,anim,stop"
+"scroll,drag,start"
+"scroll,drag,stop"
+"edge,bottom"
+"edge,left"
+"edge,right"
+"multi,swipe,left"
+"multi,swipe,right"
+"multi,swipe,up"
+"multi,swipe,down"
+"multi,pinch,out"
+"multi,pinch,in"
+"swipe"
+"moved" item
+"moved,after" item
+"moved,before" item
+"index,update"
+"tree,effect,finished"
+"highlighted" item
+"unhighlighted" item
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

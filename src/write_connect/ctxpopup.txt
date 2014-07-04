@@ -1,0 +1,6 @@
+ELM_OBJ_CTXPOPUP_CLASS
+"dismissed"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

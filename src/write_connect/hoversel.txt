@@ -1,0 +1,11 @@
+ELM_OBJ_HOVERSEL_CLASS
+"selected" item
+"dismissed"                                   
+"clicked"
+"repeated"
+"pressed"
+"unpressed"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

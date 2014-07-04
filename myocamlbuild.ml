@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: e65a304bbcf0abe6ee5d2192a7996e10) *)
+(* DO NOT EDIT (digest: 162452ff42a161e4cec6f596d93ddae5) *)
 module OASISGettext = struct
 # 21 "/home/axiles/src/oasis-0.3.0/src/oasis/OASISGettext.ml"
 
@@ -494,9 +494,11 @@ let package_default =
                "src/elm_wrap.h";
                "src/elm_object_wrap.h";
                "src/elm_gen_wrap.h";
+               "src/elm_entry_wrap.h";
                "src/elm_icon_wrap.h";
                "src/elm_list_wrap.h";
-               "src/elm_scroller_wrap.h"
+               "src/elm_scroller_wrap.h";
+               "src/elm_web_wrap.h"
             ])
        ];
      flags = [];
@@ -506,7 +508,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 510 "myocamlbuild.ml"
+# 512 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 open Ocamlbuild_plugin
@@ -536,6 +538,32 @@ let write_intro () =
   flag ["doc"; "extension:html"] (Sh "-t \"OCaml EFL Documentation\"");
   flag ["doc"; "extension:html"] (A "-colorize-code")
 
+(* Add rules to generate src/elm_connect{.ml,.mli,_wrap.c}*)
+let write_connect () =
+  let widgets_filename = "src" / "write_connect" / "widgets.txt" in
+  let get_txt_dep () =
+    let ch = open_in widgets_filename in
+    let r = ref [] in
+    (try while true do
+      let s = input_line ch in
+      r := s :: !r
+    done with End_of_file -> ());
+    close_in ch;
+    let aux s = ["src" / "write_connect" / (sprintf "%s.txt" s)] in
+    List.rev_map aux !r in
+  let gen_prog = "src" / "write_connect" / "main.byte" in
+  let action env builder =
+    let deps = get_txt_dep () in
+    ignore (builder deps);
+    Cmd (P gen_prog) in
+  let prods = [
+    "src" / "elm_connect.mli";
+    "src" / "elm_connect.ml";
+    "src" / "elm_connect_wrap.c"
+  ] in
+  rule "write_connect" ~deps:[gen_prog; widgets_filename] ~prods action
+  (*flag ["file:src/elm_connect.cmx"] (Sh "-for-pack Efl")*)
+
 let () = dispatch & fun h ->
   dispatch_default h;
   match h with
@@ -545,6 +573,7 @@ let () = dispatch & fun h ->
 
     write_variants ();
     write_intro ();
+    write_connect ();
 
     (* Get the values of the env variables *)
     let env = BaseEnvLight.load () in 

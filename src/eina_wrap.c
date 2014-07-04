@@ -177,3 +177,24 @@ inline value safe_copy_string(const char* s)
         else return copy_string(s);
 }
 
+inline value Val_Eina_Bool_ptr(Eina_Bool* ptr)
+{
+        return Val_bool(*ptr);
+}
+
+
+inline value copy_double_ptr(double* ptr)
+{
+        return copy_double(*ptr);
+}
+
+inline value copy_string_string(char** x)
+{
+        CAMLparam0();
+        CAMLlocal1(v);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, copy_string(x[0]));
+        Store_field(v, 1, copy_string(x[1]));
+        CAMLreturn(v);
+}
+

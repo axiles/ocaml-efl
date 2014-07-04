@@ -1,0 +1,6 @@
+ELM_OBJ_CLOCK_CLASS
+"changed"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

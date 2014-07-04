@@ -81,3 +81,4 @@ elm_inwin_wrap.o
 elm_actionslider_wrap.o
 elm_video_wrap.o
 # OASIS_STOP
+elm_connect_wrap.o

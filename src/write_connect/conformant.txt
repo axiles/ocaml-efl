@@ -1,0 +1,7 @@
+ELM_OBJ_CONFORMANT_CLASS
+"virtualkeypad,state,on"
+"virtualkeypad,state,off"
+"clipboard,state,on"
+"clipboard,state,off"
+"theme,changed"
+"language,changed"

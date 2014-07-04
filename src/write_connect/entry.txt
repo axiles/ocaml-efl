@@ -1,0 +1,29 @@
+ELM_OBJ_ENTRY_CLASS
+"changed"
+"changed,user"
+"activated"
+"aborted"
+"press"
+"longpressed"
+"clicked"
+"clicked,double"
+"clicked,triple"
+"focused"
+"unfocused"
+"selection,paste"
+"selection,copy"                                                                 
+"selection,cut"
+"selection,start"                                                                
+"selection,changed"
+"selection,cleared"
+"cursor,changed"
+"cursor,changed,manual"
+"anchor,clicked" anchor
+"anchor,in" anchor
+"anchor,out" anchor
+"anchor,up" anchor
+"anchor,down" anchor            
+"preedit,changed"
+"text,set,done" 
+"theme,changed"
+"language,changed"

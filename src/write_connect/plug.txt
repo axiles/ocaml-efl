@@ -1,0 +1,4 @@
+ELM_OBJ_PLUG_CLASS
+"clicked"
+"image,deleted"
+"image,resized" coord_size

@@ -16,6 +16,8 @@
 
 /* EFL headers */
 
+#define EFL_BETA_API_SUPPORT 1
+#define EFL_EO_API_SUPPORT 1
 #include <Elementary.h>
 
 /* Prefix used on all functions */
@@ -47,7 +49,9 @@ inline value safe_copy_string(const char* s);
 #include "elm_gen_wrap.h"
 #include "elm_scroller_wrap.h"
 #include "elm_list_wrap.h"
+#include "elm_entry_wrap.h"
 #include "elm_icon_wrap.h"
+#include "elm_web_wrap.h"
 
 #endif
 

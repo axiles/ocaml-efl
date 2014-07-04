@@ -1,0 +1,6 @@
+ELM_OBJ_BUBBLE_CLASS
+"clicked"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

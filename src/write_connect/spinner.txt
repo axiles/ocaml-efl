@@ -1,0 +1,9 @@
+ELM_OBJ_SPINNER_CLASS
+"changed"
+"delay,changed"
+"focused"
+"unfocused"
+"spinner,drag,start"
+"spinner,drag,stop"
+"theme,changed"
+"language,changed"

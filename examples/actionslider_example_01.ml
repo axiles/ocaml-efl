@@ -50,8 +50,10 @@ let () =
   Elm_object.part_text_set asl ~p:"left" "Snooze";
   Elm_object.part_text_set asl ~p:"right" "Stop";
   Elm_actionslider.enabled_pos_set asl true false true;
-  Evas_object_smart.callback_add asl pos_changed position_change_magnetic_cb;
-  Evas_object_smart.callback_add asl selected pos_selected_cb;
+  (*Evas_object_smart.callback_add asl pos_changed position_change_magnetic_cb;
+  Evas_object_smart.callback_add asl selected pos_selected_cb;*)
+  Elm_connect.Actionslider.pos_changed asl position_change_magnetic_cb;
+  Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
   Elm_box.pack_end bx asl;
 

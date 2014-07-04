@@ -1,0 +1,10 @@
+ELM_OBJ_INDEX_CLASS
+"changed" item
+"delay,changed" item
+"selected" item
+"level,up"
+"level,down"
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"
