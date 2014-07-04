@@ -26,3 +26,4 @@ index
 inwin
 list
 label
+map
