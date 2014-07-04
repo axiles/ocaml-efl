@@ -16,3 +16,4 @@ fileselector_entry
 fileselector
 flip
 flipselector
+frame
