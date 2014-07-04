@@ -34,3 +34,4 @@ photo
 photocam
 popup
 progressbar
+radio
