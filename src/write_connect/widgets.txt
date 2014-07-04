@@ -4,6 +4,7 @@ fileselector
 fileselector_button
 fileselector_entry
 hoversel
+multibuttonentry
 naviframe
 popup
 bg
