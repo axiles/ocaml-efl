@@ -1,0 +1,9 @@
+ELM_OBJ_SLIDER_CLASS
+"changed"
+"slider,drag,start"
+"slider,drag,stop"
+"delay,changed"                         
+"focused"
+"unfocused"
+"theme,changed"
+"language,changed"

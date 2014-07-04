@@ -37,3 +37,4 @@ progressbar
 radio
 segment_control
 separator
+slider
