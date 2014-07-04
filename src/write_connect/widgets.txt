@@ -33,3 +33,4 @@ panel
 photo
 photocam
 popup
+progressbar
