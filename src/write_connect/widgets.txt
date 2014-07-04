@@ -19,3 +19,4 @@ flipselector
 frame
 glview
 hover
+hoversel
