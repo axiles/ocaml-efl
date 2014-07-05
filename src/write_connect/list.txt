@@ -12,5 +12,7 @@ ELM_OBJ_LIST_CLASS
 "unhighlighted" item
 "focused"
 "unfocused"                                    
+"item,focused"
+"item,unfocused"
 "theme,changed"
 "language,changed"

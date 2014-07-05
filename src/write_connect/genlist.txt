@@ -40,5 +40,7 @@ ELM_OBJ_GENLIST_CLASS
 "unhighlighted" item
 "focused"
 "unfocused"
+"item,focused"
+"item,unfocused"
 "theme,changed"
 "language,changed"

@@ -31,5 +31,9 @@ ELM_OBJ_GENGRID_CLASS
 "unhighlighted" item
 "focused"
 "unfocused"
+"item,focused"
+"item,unfocused"
+"item,reorder,anim,start" item
+"item,reorder,anim,stop" item
 "theme,changed"
 "language,changed"

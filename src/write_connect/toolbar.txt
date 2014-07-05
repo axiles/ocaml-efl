@@ -4,3 +4,5 @@ ELM_OBJ_TOOLBAR_CLASS
 "language,changed"
 "focused"
 "unfocused"                                  
+"item,focused"
+"item,unfocused"

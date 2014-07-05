@@ -3,5 +3,7 @@ ELM_OBJ_POPUP_CLASS
 "block,clicked"
 "focused"
 "unfocused"                                        
+"item,focused"
+"item,unfocused"
 "theme,changed"
 "language,changed"
