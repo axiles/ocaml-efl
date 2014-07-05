@@ -4,5 +4,7 @@ ELM_OBJ_FILESELECTOR_CLASS
 "selected,invalid"
 "directory,open" string
 "done" string_opt
+"focused"
+"unfocused"
 "theme,changed"
 "language,changed"

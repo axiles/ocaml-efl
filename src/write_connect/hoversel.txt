@@ -1,6 +1,7 @@
 ELM_OBJ_HOVERSEL_CLASS
 "selected" item
 "dismissed"                                   
+"expanded"
 "clicked"
 "repeated"
 "pressed"
