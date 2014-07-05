@@ -75,13 +75,10 @@ The default value is [ true ].
 - autodel: Used with [Elm_win.autodel_set]. Default value is [ false ].
 - size: Used with [Evas_object.resize], if set.
 - ty: Type of the window. Default value is [ `basic ].
-- cb: List of callbacks for the window. Example:
-{[
-let ( >< ) = Elm.connect
-let win = Elm_win.addx ~cb:[Elm_sig.delete_request >< on_done] name
-]}
+- cb: This argument is deprecated. Do not use it.
+
 Therefore, the difference bewteen [Elm_win.add name] and [Elm_win.addx name] is
-that in the latter case there is a background to the window *)
+that in the latter case there is a background in the window *)
 
 val util_standard_add : string -> string -> Evas.obj
 

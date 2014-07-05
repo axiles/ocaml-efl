@@ -226,11 +226,7 @@ depending of the arguments win, inwin box and content_of.
 - part_text: Used with [Elm_object.part_text_set]. Default value is [ [] ].
 - part_content: Used with [Elm_object.part_content_set]. Default value is
 [ [] ].
-- cb: List of callbacks. Default is [ [] ]. Example:
-{[
-let ( >< ) = Elm.connect
-let btn = Elm_button.addx ~text:"Hello" ~cb:[Elm_sig.clicked >< btn_cb] win
-]}
+- cb: This argument is deprecated. Do not use it.
 - show: Use Evas_object.show if set to true. Default value is true.
 
 Therefore, the difference between [Elm_button.add win] and [Elm_button.addx win]
