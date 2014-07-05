@@ -52,13 +52,13 @@ let () =
     Evas_object.color_set obj 128 64 0 128 in
 
   let bt = Elm_button.addx ~text:"Button 1" ~box:bx win in
-  Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
+  Elm_connect.Button.clicked bt unpack_cb;
 
   let bt = Elm_button.addx ~text:"Button 2" ~size_hint:[`hexpand; `valign 1.]
     ~box:bx win in
-  Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
+  Elm_connect.Button.clicked bt unpack_cb;
   let bt = Elm_button.addx ~text:"Button 3" ~size_hint:[] ~box:bx win in
-  Evas_object_smart.callback_add bt Elm_sig.clicked unpack_cb;
+  Elm_connect.Button.clicked bt unpack_cb;
 
   let add_cb _ =
     let btn = Elm_button.addx ~text:"I do nothing" ~size_hint:[] bx in
@@ -66,10 +66,10 @@ let () =
     (match children with
     | [] -> Elm_box.pack_end bx btn
     | o :: _ -> Elm_box.pack_after bx btn o) in
-  Evas_object_smart.callback_add bt_add Elm_sig.clicked add_cb;
+  Elm_connect.Button.clicked bt_add add_cb;
 
   let clear_cb _ = Elm_box.clear bx in
-  Evas_object_smart.callback_add bt_clear Elm_sig.clicked clear_cb;
+  Elm_connect.Button.clicked bt_clear clear_cb;
 
   Elm_box.layout_set bx Evas_object.box_layout_horizontal (fun () -> ());
   test_box_transition_change bx transitions;

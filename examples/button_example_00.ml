@@ -17,7 +17,7 @@ let () =
 
   let btn = Elm_button.addx ~text:"Good-Bye, World"
     ~size:(120, 30) ~pos:(60, 15) win in
-  Evas_object_smart.callback_add btn Elm_sig.clicked on_click;
+  Elm_connect.Button.clicked btn on_click;
 
   Elm.run ();
   Elm.shutdown ()

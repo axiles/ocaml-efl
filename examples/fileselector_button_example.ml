@@ -67,8 +67,7 @@ let () =
   Elm_box.pack_end vbox hbox;
   Evas_object.show hbox;
 
-  let add_cb ck cb =
-    Evas_object_smart.callback_add ck Elm_sig.changed (cb fs_bt) in
+  let add_cb ck cb = Elm_connect.Check.changed ck (cb fs_bt) in
 
   let ck = Elm_check.add win in
   Elm_object.text_set ck "editable selection";
@@ -106,8 +105,7 @@ let () =
   let en = Elm_entry.add win in
   Elm_entry.line_wrap_set en `none;
   Elm_entry.editable_set en false;
-  Evas_object_smart.callback_add fs_bt Elm_sig.file_chosen
-    (file_chosen en);
+  Elm_connect.Fileselector_button.file_chosen fs_bt (file_chosen en);
   Elm_box.pack_end vbox en;
   Evas_object.show en;
 

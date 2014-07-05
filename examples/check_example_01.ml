@@ -12,7 +12,7 @@ let () =
   Elm.policy_quit_set `last_window_closed;
 
   let cb = Elm_check.addx ~text:"checkbox" ~pos:(10, 10) ~size:(200, 30) win in
-  Evas_object_smart.callback_add cb Elm_sig.changed print;
+  Elm_connect.Check.changed cb print;
 
   let icon = Evas_object.rectangle_add (Evas_object.evas_get win) in
   Evas_object.color_set icon 0 255 0 255;

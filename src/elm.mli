@@ -61,6 +61,7 @@ val policy_throttle_get : unit -> policy_throttle
 val language_set : string -> unit
 
 val connect : 'a Evas.Signal.t -> 'a -> Evas_object_smart.sig_with_cb
+(** @deprecated Use module [Elm_connect] instead.*)
 
 (** {2 Gesture Layer} *)
 

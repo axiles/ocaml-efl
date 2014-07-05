@@ -89,7 +89,7 @@ let button_add win box list label cb =
   Elm_object.text_set bt label;
   Elm_box.pack_end box bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add bt Elm_sig.clicked (cb list)
+  Elm_connect.Button.clicked bt (cb list)
 
 let () =
   Elm.init ();

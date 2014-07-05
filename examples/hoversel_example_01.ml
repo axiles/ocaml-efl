@@ -38,7 +38,7 @@ let () =
     ~func:print_items () : Elm_object.item);
   ignore (Elm_hoversel.item_add hoversel ~label:"Option 2"
     ~icon:("home", `standard) () : Elm_object.item);
-  Evas_object_smart.callback_add hoversel Elm_sig.clicked add_item;
+  Elm_connect.Hoversel.clicked hoversel add_item;
 
   Evas_object.resize hoversel 180 30;
   Evas_object.move hoversel 10 10;
@@ -46,8 +46,7 @@ let () =
 
   let btn = Elm_button.add win in
   Elm_object.text_set btn "Clear all items";
-  Evas_object_smart.callback_add btn Elm_sig.clicked
-    (clear_btn_clicked_cb hoversel);
+  Elm_connect.Button.clicked btn (clear_btn_clicked_cb hoversel);
   Evas_object.resize btn 180 30;
   Evas_object.move btn 10 50;
   Evas_object.show btn;

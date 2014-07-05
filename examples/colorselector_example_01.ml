@@ -49,10 +49,11 @@ let () =
   Evas_object.size_hint_set cs [`hexpand; `hfill; `valign 0.];
   Elm_colorselector.color_set cs 255 90 18 255;
   Evas_object.show cs;
-  let add_cb s cb = Evas_object_smart.callback_add cs s cb in
-  add_cb Elm_sig.changed (color_change rect);
-  add_cb Elm_sig.color_item_selected (color_palette_clicked_cb rect);
-  add_cb Elm_sig.color_item_longpressed color_palette_longpressed_cb;
+  let add_cb f cb = f cs cb in
+  let module CC = Elm_connect.Colorselector in
+  add_cb CC.changed (color_change rect);
+  add_cb CC.color_item_selected (color_palette_clicked_cb rect);
+  add_cb CC.color_item_longpressed color_palette_longpressed_cb;
   Elm_object.content_set fr cs;
 
   Evas_object.resize win 320 480;

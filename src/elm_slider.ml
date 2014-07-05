@@ -52,16 +52,8 @@ external indicator_format_set_aux : Evas.obj -> string -> unit =
 
 let default_format x = ""
 
-module E = struct
-  type u = Evas.Signal.u
-  let f = Evas.Signal.create_unit
-  let changed = f "changed"
-  let slider_drag_start = f "slider,drag,start"
-  let slider_drag_stop = f "slider,drag,stop"
-  let delay_changed = f "delay,changed"
-  let focused = f "focused"
-  let unfocused = f "unfocused"
-end
+external connect_changed : Evas.obj -> (Evas.obj -> unit) -> unit =
+  "ml_connect_Slider_changed"
 
 let changed_cb obj =
   let format_fun = match FU.find fu obj with
@@ -82,7 +74,7 @@ let free_cb e obj () =
 
 let add parent =
   let sl = add_aux parent in
-  Evas_object_smart.callback_add sl E.changed changed_cb;
+  connect_changed sl changed_cb;
   changed_cb sl;
   Evas_object.event_callback_add_free sl free_cb;
   sl

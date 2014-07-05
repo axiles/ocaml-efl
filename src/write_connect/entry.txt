@@ -25,5 +25,7 @@ ELM_OBJ_ENTRY_CLASS
 "anchor,down" anchor            
 "preedit,changed"
 "text,set,done" 
+"undo,request"
+"rejected"
 "theme,changed"
 "language,changed"

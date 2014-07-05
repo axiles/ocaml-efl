@@ -51,7 +51,7 @@ let add_bt win box text cb =
   Elm_object.text_set bt text;
   Elm_box.pack_end box bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add bt Elm_sig.clicked cb;
+  Elm_connect.Button.clicked bt cb;
   bt
 
 let question_box ~title ~buttons ?default ?icon ?parent question cb =
@@ -62,7 +62,7 @@ let question_box ~title ~buttons ?default ?icon ?parent question cb =
     match default with
     | Some d -> quit d
     | None -> () in
-  Evas_object_smart.callback_add win Elm_sig.delete_request del_cb;
+  Elm_connect.Win.delete_request win del_cb;
 
   let box = add_vbox win in
 
@@ -87,7 +87,7 @@ let message_box ~title ?icon ?(ok = "Ok") ?parent msg cb =
   Elm_win.title_set win title;
   let quit () = Evas_object.del win; cb () in
   let del_cb obj = quit () in
-  Evas_object_smart.callback_add win Elm_sig.delete_request del_cb;
+  Elm_connect.Win.delete_request win del_cb;
 
   let box = add_vbox win in
 
@@ -107,7 +107,7 @@ let input sl name ~title ?(ok = "Ok") ?(cancel = "Cancel") ?default_text ?parent
   let cancel_cb obj = quit None in
   let ok_cb entry obj =
     quit (Some (Elm_entry.markup_to_utf8 (Elm_entry.entry_get entry))) in
-  Evas_object_smart.callback_add win Elm_sig.delete_request cancel_cb;
+  Elm_connect.Win.delete_request win cancel_cb;
 
   let box = add_vbox win in
 
@@ -119,8 +119,7 @@ let input sl name ~title ?(ok = "Ok") ?(cancel = "Cancel") ?default_text ?parent
   (match default_text with Some t -> Elm_entry.entry_set entry t | None -> ());
   Evas_object.show entry;
   Elm_entry.single_line_set entry sl;
-  if sl then
-    Evas_object_smart.callback_add entry Elm_sig.activated (ok_cb entry);
+  if sl then Elm_connect.Entry.activated entry (ok_cb entry);
 
   let hbox = add_hbox win box in
   ignore (add_bt win hbox ok (ok_cb entry));

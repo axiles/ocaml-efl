@@ -1,4 +1,7 @@
-(** Signals *)
+(** Signals
+
+@deprecated Use the module [Elm_connect] instead.
+*)
 
 type u = Evas.Signal.u
   

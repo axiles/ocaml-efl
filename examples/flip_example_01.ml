@@ -41,8 +41,7 @@ let () =
     | None -> Elm_radio.value_set radio value
     | Some r1 -> Elm_radio.group_add radio r1);
     Elm_radio.state_value_set radio value;
-    Evas_object_smart.callback_add radio Elm_sig.changed
-      (change_interaction flip);
+    Elm_connect.Radio.changed radio (change_interaction flip);
     radio in
   let radio = add_radio "page" 1 None 10 in
   ignore (add_radio "cube" 2 (Some radio) 70);

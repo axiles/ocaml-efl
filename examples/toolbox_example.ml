@@ -8,7 +8,7 @@ let add_test win box name action =
   Elm_object.text_set bt name;
   Elm_box.pack_end box bt;
   Evas_object.show bt;
-  Evas_object_smart.callback_add bt Elm_sig.clicked (fun _ -> action ())
+  Elm_connect.Button.clicked bt (fun _ -> action ())
 
 let question_box_action () =
   Elm_toolbox.question_box ~title:"Saving before exiting"
