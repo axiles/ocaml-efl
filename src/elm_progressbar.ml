@@ -58,11 +58,8 @@ let changed_cb obj =
   let x = value_get obj in
   unit_format_set_aux obj (fstring_of_string (format_fun x))
 
-module E = struct
-  type u = Evas.Signal.u
-  let f = Evas.Signal.create_unit
-  let changed = f "changed"
-end
+external connect_changed : Evas.obj -> (Evas.obj -> unit) -> unit =
+  "ml_connect_Progressbar_changed"
 
 external add_aux : Evas.obj -> Evas.obj = "ml_elm_progressbar_add"
 
@@ -70,7 +67,7 @@ let free_cb e obj () = FU.remove fu obj
 
 let add parent =
   let pb = add_aux parent in
-  Evas_object_smart.callback_add pb E.changed changed_cb;
+  connect_changed pb changed_cb;
   changed_cb pb;
   Evas_object.event_callback_add_free pb free_cb;
   pb
