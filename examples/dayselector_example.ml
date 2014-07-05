@@ -29,7 +29,7 @@ let () =
   let add_dayselector style =
     let ds = Elm_dayselector.add win in
     Evas_object.size_hint_set ds [`expand; `hfill];
-    Evas_object_smart.callback_add ds Elm_sig.dayselector_changed changed_cb;
+    Elm_connect.Dayselector.dayselector_changed ds changed_cb;
     (match style with
     | None -> ()
     | Some s -> ignore (Elm_object.style_set ds s : bool));

@@ -22,7 +22,7 @@ let () =
 
   let win = Elm_win.add "dialog" `basic in
   Elm_win.title_set win "Dialog";
-  Evas_object_smart.callback_add win Elm_sig.delete_request win_del;
+  Elm_connect.Win.delete_request win win_del;
 
   ignore (Elm_bg.addx ~size_hint:[] ~win win);
 
@@ -47,10 +47,10 @@ let () =
   Elm_object.content_set fr bx2;
 
   let bt = Elm_button.addx ~text:"OK" ~box:bx2 win in
-  Evas_object_smart.callback_add bt Elm_sig.clicked on_ok;
+  Elm_connect.Button.clicked bt on_ok;
 
   let bt = Elm_button.addx ~text:"Cancel" ~box:bx2 win in
-  Evas_object_smart.callback_add bt Elm_sig.clicked on_cancel;
+  Elm_connect.Button.clicked bt on_cancel;
 
   Evas_object.show win;
 

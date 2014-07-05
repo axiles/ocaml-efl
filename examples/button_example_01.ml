@@ -94,10 +94,8 @@ let () =
     Evas_object.size_hint_align_set mid ax2 ay2 in
 
   let aux1 cursor =
-    Evas_object_smart.callback_add cursor Elm_sig.repeated
-      move_cursor;
-    Evas_object_smart.callback_add cursor Elm_sig.unpressed
-      release_cb in
+    Elm_connect.Button.repeated cursor move_cursor;
+    Elm_connect.Button.unpressed cursor release_cb in
   List.iter aux1 cursors;
 
   let options_cb obj =
@@ -109,7 +107,7 @@ let () =
     List.iter (fun cursor -> f cursor x) cursors in
 
   let aux2 cursor =
-    Evas_object_smart.callback_add cursor Elm_sig.clicked options_cb
+    Elm_connect.Button.clicked cursor options_cb
   in
   List.iter aux2 (initial_param_list @ gap_param_list);
 

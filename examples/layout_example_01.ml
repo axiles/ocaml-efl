@@ -24,8 +24,7 @@ let rec box_btn_cb layout btn =
   Evas_object.size_hint_weight_set item Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set item Evas.hint_fill Evas.hint_fill;
   let (_ : bool) = Elm_layout.box_insert_before layout box item btn in
-  Evas_object_smart.callback_add item Elm_sig.clicked
-    (box_btn_cb layout);
+  Elm_connect.Button.clicked item (box_btn_cb layout);
   Evas_object.show item
 
 let swallow_btn_cb layout btn =
@@ -84,8 +83,7 @@ end = struct
     | Prepend -> let (_ : bool) = Elm_layout.box_prepend layout box obj in ()
     | Content -> Elm_object.part_content_set layout ~p:swallow obj);
     (match item.cb with
-    | Some f -> Evas_object_smart.callback_add obj Elm_sig.clicked
-      (f layout)
+    | Some f -> Elm_connect.Button.clicked obj (f layout)
     | None -> ());
     Evas_object.show obj
 

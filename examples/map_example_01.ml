@@ -33,7 +33,7 @@ let () =
     Elm_object.text_set bt label;
     Elm_box.pack_end box bt;
     Evas_object.show bt;
-    Evas_object_smart.callback_add bt Elm_sig.clicked (cb map) in
+    Elm_connect.Button.clicked bt (cb map) in
   add_bt "+" bt_zoom_in;
   add_bt "-" bt_zoom_out;
   add_bt "X" bt_zoom_fit;

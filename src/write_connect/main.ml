@@ -229,6 +229,8 @@ let create_env () =
     ("float", "double*", "float", "copy_double_ptr");
     ("web_menu", "Elm_Web_Menu*", "Elm_web.menu", "copy_Elm_Web_Menu");
     ("coord_size", "Evas_Coord_Size*", "int * int", "copy_Evas_Coord_Size");
+    ("day", "Elm_Dayselector_Day", "Elm_dayselector.day",
+      "Val_Elm_Dayselector_Day");
   ] in
   let env2 = List.fold_left add_cast env1 [
     ("item", "Elm_Object_Item*", "Elm_object.item");

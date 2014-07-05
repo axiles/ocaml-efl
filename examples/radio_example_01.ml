@@ -23,7 +23,7 @@ let add_radio win bx i icon_name group =
   (match group with
   | Nothing -> ()
   | Cb_only | Group_and_cb _ ->
-    Evas_object_smart.callback_add radio Elm_sig.changed cb);
+    Elm_connect.Radio.changed radio cb);
   radio
 
 let add_radio_next win bx i icon_name group =

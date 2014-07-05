@@ -1,5 +1,4 @@
 open Efl
-open Elm_sig
 open Format
 
 let on_done _ = Elm.exit ()
@@ -87,7 +86,7 @@ let disable_cb = action_cb_bool Elm_object.item_disabled_set true
 let add_button win li bx label cb =
   let bt = Elm_button.add win in
   Elm_object.text_set bt label;
-  Evas_object_smart.callback_add bt clicked (cb li);
+  Elm_connect.Button.clicked bt (cb li);
   Elm_box.pack_end bx bt;
   Evas_object.size_hint_weight_set bt Evas.hint_expand 0.;
   Evas_object.size_hint_align_set bt Evas.hint_fill 0.;
@@ -107,7 +106,7 @@ let () =
 
   let win = Elm_win.add "list" `basic in
   Elm_win.title_set win "List Items Example";
-  Evas_object_smart.callback_add win delete_request on_done;
+  Elm_connect.Win.delete_request win on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

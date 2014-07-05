@@ -1,5 +1,4 @@
 open Efl
-open Elm_sig
 
 let on_done _ = Elm.exit ()
 
@@ -11,7 +10,7 @@ let () =
 
   let win = Elm_win.add "list" `basic in
   Elm_win.title_set win "List Example";
-  Evas_object_smart.callback_add win delete_request on_done;
+  Elm_connect.Win.delete_request win on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;

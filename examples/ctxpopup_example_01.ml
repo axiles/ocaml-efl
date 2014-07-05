@@ -19,7 +19,7 @@ let list_item_cb obj event_info =
   if !ref_list_mouse_down > 0 then ()
   else (
     let ctxpopup = Elm_ctxpopup.add obj in
-    Evas_object_smart.callback_add ctxpopup Elm_sig.dismissed dismissed_cb;
+    Elm_connect.Ctxpopup.dismissed ctxpopup dismissed_cb;
 
     let item_new1 label icon =
       ignore (item_new ctxpopup (Some label) icon : Elm_object.item) in
@@ -44,7 +44,7 @@ let list_item_cb2 obj event_info =
   if !ref_list_mouse_down > 0 then ()
   else (
     let ctxpopup = Elm_ctxpopup.add obj in
-    Evas_object_smart.callback_add ctxpopup Elm_sig.dismissed dismissed_cb;
+    Elm_connect.Ctxpopup.dismissed ctxpopup dismissed_cb;
     Elm_ctxpopup.horizontal_set ctxpopup true;
 
     let item_new1 icon =
@@ -73,7 +73,7 @@ let () =
   Elm.policy_quit_set `last_window_closed;
 
   let win = Elm_win.util_standard_add "Contextual popup" "Contextual popup" in
-  Evas_object_smart.callback_add win Elm_sig.delete_request win_del;
+  Elm_connect.Win.delete_request win win_del;
   Elm_win.autodel_set win true;
   Evas_object.resize win 400 400;
   Evas_object.show win;

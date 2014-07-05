@@ -145,6 +145,7 @@ Library efl
     elm_colorselector_wrap.c,
     elm_conformant_wrap.c,
     elm_datetime_wrap.c,
+    elm_dayselector_wrap.h,
     elm_dayselector_wrap.c,
     elm_diskselector_wrap.c,
     elm_entry_wrap.h,

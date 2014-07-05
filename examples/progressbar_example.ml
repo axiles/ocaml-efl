@@ -1,7 +1,5 @@
 open Efl
 open Format
-open Elm_sig
-open Elm_sig
 
 let run = ref false
 
@@ -66,8 +64,7 @@ let add_pb4 win bx =
   Evas_object.size_hint_set label [`center; `expand];
   Elm_box.pack_end bx label;
   Evas_object.show label;
-  Evas_object_smart.callback_add pb Elm_sig.changed
-    (on_changed label);
+  Elm_connect.Progressbar.changed pb (on_changed label);
   pb
 
 let add_pb5 win bx =
@@ -145,7 +142,7 @@ let on_done list_pb _ =
 let add_bt win bt_bx label cb =
   let bt = Elm_button.add win in
   Elm_object.text_set bt label;
-  Evas_object_smart.callback_add bt clicked cb;
+  Elm_connect.Button.clicked bt cb;
   Elm_box.pack_end bt_bx bt;
   Evas_object.show bt
 
@@ -193,7 +190,7 @@ let () =
 
   List.iter (fun (label, cb) -> add_bt win bt_bx label (cb  list_pb
       [pb1; pb3; pb4; pb5; pb7])) list_bt;
-  Evas_object_smart.callback_add win delete_request (on_done list_pb);
+  Elm_connect.Win.delete_request win (on_done list_pb);
 
   Evas_object.show win;
 

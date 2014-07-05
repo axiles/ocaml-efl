@@ -42,8 +42,8 @@ let () =
   Elm_object.part_content_set hover ~p:"right" rect3;
   Elm_object.part_content_set hover ~p:"middle" bt2;
 
-  Evas_object_smart.callback_add bt Elm_sig.clicked (show_hover hover);
-  Evas_object_smart.callback_add bt2 Elm_sig.clicked (hide_hover hover);
+  Elm_connect.Button.clicked bt (show_hover hover);
+  Elm_connect.Button.clicked bt2 (hide_hover hover);
 
   Evas_object.resize win 200 200;
   Evas_object.show win;

@@ -143,7 +143,7 @@ let button_add win box list label cb =
   (match cb with
   | None -> ()
   | Some cb1 ->
-    Evas_object_smart.callback_add bt Elm_sig.clicked (cb1 list));
+    Elm_connect.Button.clicked bt (cb1 list));
   bt
   
 let () =
@@ -206,8 +206,7 @@ let () =
       else add_item list !nitems !glg in
     incr nitems;
 
-    let add_cb bt cb =
-      Evas_object_smart.callback_add bt Elm_sig.clicked (cb gli) in
+    let add_cb bt cb = Elm_connect.Button.clicked bt (cb gli) in
     let add_cb2 bt1 cb1 bt2 cb2 = add_cb bt1 cb1; add_cb bt2 cb2 in
     match i with
     | 3 -> Elm_object.item_disabled_set gli true

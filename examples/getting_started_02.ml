@@ -10,7 +10,7 @@ let () =
   let win = Elm_win.util_standard_add "hello" "Hello" in
   
   (* when the user clicks "close" on a window there is a request to delete *)
-  Evas_object_smart.callback_add win Elm_sig.delete_request on_done;
+  Elm_connect.Win.delete_request win on_done;
 
   (* add a box object - default is vertical. a box holds children in a row
    * either horizontally or vertically. nothing more. *)
@@ -48,7 +48,7 @@ let () =
   Evas_object.show btn;
 
   (* call on_done when the button is clicked *)
-  Evas_object_smart.callback_add btn Elm_sig.clicked on_done;
+  Elm_connect.Button.clicked btn on_done;
 
   (* now we are done, show the window *)
   Evas_object.show win;

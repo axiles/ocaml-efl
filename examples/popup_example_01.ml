@@ -15,12 +15,12 @@ let () =
 
   let popup = Elm_popup.add win in
   Elm_popup.timeout_set popup 3.;
-  Evas_object_smart.callback_add popup Elm_sig.timeout timeout;
+  Elm_connect.Popup.timeout popup timeout;
 
   Elm_object.content_set popup content;
   Elm_object.part_text_set popup ~p:"title,text" "Title";
   Evas_object.show popup;
-  Evas_object_smart.callback_add popup Elm_sig.block_clicked block_clicked;
+  Elm_connect.Popup.block_clicked popup block_clicked;
 
   Evas_object.show win;
   Evas_object.resize win 480 800;
