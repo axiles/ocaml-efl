@@ -171,7 +171,7 @@ let () =
   Elm_object.text_set btn "Show status";
   Evas_object.size_hint_weight_set btn 0. 0.;
   Evas_object.size_hint_align_set btn 0.5 0.5;
-  Evas_object_smart.callback_add btn Elm_sig.clicked (show_status_cb list);
+  Elm_connect.Button.clicked btn (show_status_cb list);
   Elm_box.pack_end hbox btn;
   Evas_object.show btn;
 
@@ -179,7 +179,7 @@ let () =
   Elm_object.text_set btn "Realize";
   Evas_object.size_hint_weight_set btn 0. 0.;
   Evas_object.size_hint_align_set btn 0.5 0.5;
-  Evas_object_smart.callback_add btn Elm_sig.clicked (realize_cb list);
+  Elm_connect.Button.clicked btn (realize_cb list);
   Elm_box.pack_end hbox btn;
   Evas_object.show btn;
 

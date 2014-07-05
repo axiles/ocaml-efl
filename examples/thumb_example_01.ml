@@ -18,10 +18,10 @@ let () =
 
   let thumb = Elm_thumb.add win in
 
-  let add_cb s cb = Evas_object_smart.callback_add thumb s cb in
-  add_cb Elm_sig.generate_start generation_started_cb;
-  add_cb Elm_sig.generate_stop generation_finished_cb;
-  add_cb Elm_sig.generate_error generation_error_cb;
+  let add_cb f cb = f thumb cb in
+  add_cb Elm_connect.Thumb.generate_start generation_started_cb;
+  add_cb Elm_connect.Thumb.generate_stop generation_finished_cb;
+  add_cb Elm_connect.Thumb.generate_error generation_error_cb;
 
   Elm_thumb.size_set thumb 160 160;
   Elm_thumb.editable_set thumb false;

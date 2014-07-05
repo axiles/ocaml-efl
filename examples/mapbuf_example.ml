@@ -48,7 +48,7 @@ let () =
     let ck = Elm_check.add win in
     Elm_object.text_set ck text;
     (match state with Some s -> Elm_check.state_set ck s | None -> ());
-    Evas_object_smart.callback_add ck Elm_sig.changed (cb mb);
+    Elm_connect.Check.changed ck (cb mb);
     Elm_box.pack_end hbx ck;
     Evas_object.show ck;
     ck in

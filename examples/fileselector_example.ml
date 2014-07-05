@@ -11,8 +11,7 @@ let fs_done obj event_info =
   Elm.exit ()
 
 let fs_selected obj selected =
-  let s = match selected with Some x -> x | None -> assert false in
-  printf "There's been a selection: %s\n%!" s
+  printf "There's been a selection: %s\n%!" selected
 
 let add_check win box fs name msg f_set f_get =
   let cb obj =
@@ -23,7 +22,7 @@ let add_check win box fs name msg f_set f_get =
   let bt = Elm_check.add win in
   Elm_object.text_set bt name;
   Elm_check.state_set bt (f_get fs);
-  Evas_object_smart.callback_add bt Elm_sig.changed cb;
+  Elm_connect.Check.changed bt cb;
   Elm_box.pack_end box bt;
   Evas_object.show bt
 
@@ -31,7 +30,7 @@ let add_data_button win box fs name msg f_get =
   let cb _ = printf "%s name is: %s\n%!" msg (f_get fs) in
   let bt = Elm_button.add win in
   Elm_object.text_set bt name;
-  Evas_object_smart.callback_add bt Elm_sig.clicked cb;
+  Elm_connect.Button.clicked bt cb;
   Elm_box.pack_end box bt;
   Evas_object.show bt
 
@@ -41,7 +40,7 @@ let () =
 
   let win = Elm_win.add "fileselector" `basic in
   Elm_win.title_set win "File Selector Example";
-  Evas_object_smart.callback_add win Elm_sig.delete_request on_done;
+  Elm_connect.Win.delete_request win on_done;
 
   let bg = Elm_bg.add win in
   Elm_win.resize_object_add win bg;
@@ -70,8 +69,8 @@ let () =
   Elm_box.pack_end vbox fs;
   Evas_object.show fs;
 
-  Evas_object_smart.callback_add fs Elm_sig._done fs_done;
-  Evas_object_smart.callback_add fs Elm_sig.selected fs_selected;
+  Elm_connect.Fileselector._done fs fs_done;
+  Elm_connect.Fileselector.selected fs fs_selected;
 
   let sep = Elm_separator.add win in
   Elm_separator.horizontal_set sep true;

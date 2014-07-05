@@ -57,8 +57,8 @@ let () =
   aux 1 months;
 
   let sp = add_spinner win bx in
-  Evas_object_smart.callback_add sp Elm_sig.changed changed_cb;
-  Evas_object_smart.callback_add sp Elm_sig.delay_changed delay_changed_cb;
+  Elm_connect.Spinner.changed sp changed_cb;
+  Elm_connect.Spinner.delay_changed sp delay_changed_cb;
 
   Evas_object.show win;
 

@@ -28,19 +28,19 @@ let () =
   Elm_object.text_set btn1 "Ok";
 
   Elm_object.part_content_set popup ~p:"button1" btn1; 
-  Evas_object_smart.callback_add btn1 Elm_sig.clicked (response_cb popup);
+  Elm_connect.Button.clicked btn1 (response_cb popup);
 
   let btn2 = Elm_button.add popup in
   Elm_object.text_set btn2 "Cancel";
 
   Elm_object.part_content_set popup ~p:"button2" btn2;
-  Evas_object_smart.callback_add btn2 Elm_sig.clicked (response_cb popup);
+  Elm_connect.Button.clicked btn2 (response_cb popup);
 
   let btn3 = Elm_button.add popup in
   Elm_object.text_set btn3 "Close";
 
   Elm_object.part_content_set popup ~p:"button3" btn3;
-  Evas_object_smart.callback_add btn3 Elm_sig.clicked (response_cb popup);
+  Elm_connect.Button.clicked btn3 (response_cb popup);
   Elm_popup.orient_set popup `top;
   Evas_object.show popup;
 

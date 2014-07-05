@@ -1,6 +1,5 @@
 open Efl
 open Printf
-open Elm_sig
 
 let pos_selected_cb obj part =
   let sel = match part with
@@ -50,8 +49,6 @@ let () =
   Elm_object.part_text_set asl ~p:"left" "Snooze";
   Elm_object.part_text_set asl ~p:"right" "Stop";
   Elm_actionslider.enabled_pos_set asl true false true;
-  (*Evas_object_smart.callback_add asl pos_changed position_change_magnetic_cb;
-  Evas_object_smart.callback_add asl selected pos_selected_cb;*)
   Elm_connect.Actionslider.pos_changed asl position_change_magnetic_cb;
   Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
@@ -65,7 +62,7 @@ let () =
   Elm_object.part_text_set asl ~p:"left" "Snooze";
   Elm_object.part_text_set asl ~p:"right" "Stop";
   Elm_actionslider.enabled_pos_set asl true false true;
-  Evas_object_smart.callback_add asl selected pos_selected_cb;
+  Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
   Elm_box.pack_end bx asl;
 
@@ -78,7 +75,7 @@ let () =
   Elm_object.part_text_set asl ~p:"center" "Accept";
   Elm_object.part_text_set asl ~p:"right" "Reject";
   Elm_actionslider.enabled_pos_set asl false true true;
-  Evas_object_smart.callback_add asl selected pos_selected_cb;
+  Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
   Elm_box.pack_end bx asl;
 
@@ -91,8 +88,8 @@ let () =
   Elm_object.part_text_set asl ~p:"center" "Accept";
   Elm_object.part_text_set asl ~p:"right" "Reject";
   Elm_object.text_set asl "Go";
-  Evas_object_smart.callback_add asl pos_changed position_change_magnetic_cb;
-  Evas_object_smart.callback_add asl selected pos_selected_cb;
+  Elm_connect.Actionslider.pos_changed asl position_change_magnetic_cb;
+  Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
   Elm_box.pack_end bx asl;
 
@@ -105,7 +102,7 @@ let () =
   Elm_object.part_text_set asl ~p:"center" "Center";
   Elm_object.part_text_set asl ~p:"right" "Right";
   Elm_object.text_set asl "Go";
-  Evas_object_smart.callback_add asl selected pos_selected_cb;
+  Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
   Elm_box.pack_end bx asl;
 
@@ -117,8 +114,8 @@ let () =
   Elm_object.part_text_set asl ~p:"left" "Enable";
   Elm_object.part_text_set asl ~p:"center" "Magnet";
   Elm_object.part_text_set asl ~p:"right" "Disable";
-  Evas_object_smart.callback_add asl pos_changed magnet_enable_disable_cb;
-  Evas_object_smart.callback_add asl selected pos_selected_cb;
+  Elm_connect.Actionslider.pos_changed asl magnet_enable_disable_cb;
+  Elm_connect.Actionslider.selected asl pos_selected_cb;
   Evas_object.show asl;
   Elm_box.pack_end bx asl;
 

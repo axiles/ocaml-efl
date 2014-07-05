@@ -30,22 +30,22 @@ let () =
     (Elm_app.data_dir_get ()) in
   ignore (Elm_photocam.file_set pc buf : Evas.load_error);
   Elm_scroller.bounce_set pc false true;
-  Evas_object_smart.callback_add pc Elm_sig.load_detail bring_in;
+  Elm_connect.Photocam.load_detail pc bring_in;
   Evas_object.resize pc 500 400;
   Evas_object.show pc;
 
-  let add_widget add_func signal label x w cb =
+  let add_widget add_func f label x w cb =
     let obj = add_func win in
     Elm_object.text_set obj label;
     Evas_object.show obj;
     Evas_object.resize obj w 30;
     Evas_object.move obj x 410;
-    Evas_object_smart.callback_add obj signal (cb pc) in
+    f obj (cb pc) in
 
-  let add_button = add_widget Elm_button.add Elm_sig.clicked in
+  let add_button = add_widget Elm_button.add Elm_connect.Button.clicked in
   add_button "Fit" 10 50 fit;
   add_button "Unfit" 70 70 unfit;
-  add_widget Elm_slider.add Elm_sig.changed "Zoom" 150 300 zoom;
+  add_widget Elm_slider.add Elm_connect.Slider.changed "Zoom" 150 300 zoom;
 
   Evas_object.resize win 500 440;
   Evas_object.show win;

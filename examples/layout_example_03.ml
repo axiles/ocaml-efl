@@ -57,8 +57,7 @@ let () =
   Evas_object.size_hint_weight_set btn Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set btn Evas.hint_fill Evas.hint_fill;
   Elm_object.part_content_set layout ~p:swallow btn;
-  Evas_object_smart.callback_add btn Elm_sig.clicked
-    (swallow_btn_cb layout);
+  Elm_connect.Button.clicked btn (swallow_btn_cb layout);
 
   Evas_object.resize win 160 160;
   Evas_object.show win;

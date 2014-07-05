@@ -12,7 +12,7 @@ let add_button window box text =
   let clicked_cb obj =
     let (_ : Thread.t) = Thread.create thread_cb () in
     () in
-  Evas_object_smart.callback_add btn Elm_sig.clicked clicked_cb;
+  Elm_connect.Button.clicked btn clicked_cb;
   Elm_box.pack_end box btn;
   Evas_object.show btn
 

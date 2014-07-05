@@ -47,8 +47,7 @@ let add_radio win box bg ?rdg name opt =
   (match rdg with Some r1 -> Elm_radio.group_add rd r1 | None -> ());
   Elm_object.text_set rd name;
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_fill;
-  Evas_object_smart.callback_add rd Elm_sig.changed
-    (cb_radio_changed bg);
+  Elm_connect.Radio.changed rd (cb_radio_changed bg);
   Elm_box.pack_end box rd;
   Evas_object.show rd;
   rd
@@ -66,7 +65,7 @@ let () =
   Elm_app.info_set "elementary" ~checkfile:"object/test.edj" ();
   let win = Elm_win.add "bg-options" `basic in
   Elm_win.title_set win "Bg Options";
-  Evas_object_smart.callback_add win Elm_sig.delete_request on_done;
+  Elm_connect.Win.delete_request win on_done;
   Elm_win.autodel_set win true;
 
   let bg = Elm_bg.add win in
@@ -97,8 +96,7 @@ let () =
   let rd = Elm_check.add win in
   Elm_object.text_set rd "Show Overlay";
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_fill;
-  Evas_object_smart.callback_add rd Elm_sig.changed
-    (cb_overlay_changed o_bg);
+  Elm_connect.Check.changed rd (cb_overlay_changed o_bg);
   Elm_box.pack_end hbox rd;
   Evas_object.show rd;
 
@@ -111,8 +109,7 @@ let () =
   List.iter (fun (i, c) -> Elm_spinner.special_value_add rd i c) list;
   Evas_object.size_hint_weight_set rd Evas.hint_expand Evas.hint_expand;
   Evas_object.size_hint_align_set rd Evas.hint_fill Evas.hint_fill;
-  Evas_object_smart.callback_add rd Elm_sig.changed
-    (cb_color_changed o_bg);
+  Elm_connect.Spinner.changed rd (cb_color_changed o_bg);
   Elm_box.pack_end hbox rd;
   Evas_object.show rd;
 

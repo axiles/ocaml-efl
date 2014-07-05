@@ -1,6 +1,4 @@
 ELM_OBJ_DAYSELECTOR_CLASS
-"changed"
-"focused"
-"unfocused"
+"dayselector,changed" day
 "theme,changed"
 "language,changed"
