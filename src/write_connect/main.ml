@@ -265,5 +265,6 @@ let () =
   close_out ch_ml_sig;
   close_out ch_ml_impl;
   close_out ch_c_impl;
-  close_in ch
+  close_in ch;
+  exit 0
 
