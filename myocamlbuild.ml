@@ -552,18 +552,17 @@ let write_connect () =
     close_in ch;
     let aux s = ["src" / "write_connect" / (sprintf "%s.txt" s)] in
     List.rev_map aux !r in
-  let gen_prog = "src" / "write_connect" / "main.byte" in
+  let gen_prog = "src" / "write_connect" / "main.cma" in
   let action env builder =
     let deps = get_txt_dep () in
     ignore (builder deps);
-    Cmd (P gen_prog) in
+    Cmd (S [P "ocaml"; P gen_prog]) in
   let prods = [
     "src" / "elm_connect.mli";
     "src" / "elm_connect.ml";
     "src" / "elm_connect_wrap.c"
   ] in
   rule "write_connect" ~deps:[gen_prog; widgets_filename] ~prods action
-  (*flag ["file:src/elm_connect.cmx"] (Sh "-for-pack Efl")*)
 
 let () = dispatch & fun h ->
   dispatch_default h;
