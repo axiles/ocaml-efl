@@ -29,4 +29,6 @@ inline value Val_Eina_Bool_ptr(Eina_Bool* ptr);
 inline value copy_double_ptr(double* ptr);
 inline value copy_string_string(char** x);
 
+inline const char* String_opt_val(value v);
+
 #endif
