@@ -503,45 +503,39 @@ PREFIX value ml_elm_object_item_content_set(value v_item, value v_content)
 }
 
 PREFIX value ml_elm_object_item_part_content_set(
-        value v_it, value v_parent, value v_content)
+        value v_it, value v_part, value v_content)
 {
-        const char* parent;
-        if(v_parent == Val_int(0)) parent = NULL;
-        else parent = String_val(Field(v_parent, 0));
-        elm_object_item_part_content_set((Elm_Object_Item*) v_it, parent,
+        const char* part = String_opt_val(v_part);
+        elm_object_item_part_content_set((Elm_Object_Item*) v_it, part,
                 (Evas_Object*) v_content);
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_part_content_get(
-        value v_it, value v_parent, value v_unit)
+        value v_it, value v_part, value v_unit)
 {
-        const char* parent;
-        if(v_parent == Val_int(0)) parent = NULL;
+        const char* part = String_opt_val(v_part);
         Evas_Object* content = elm_object_item_part_content_get(
-                (Elm_Object_Item*) v_it, parent);
+                (Elm_Object_Item*) v_it, part);
         if(content == NULL) caml_failwith("elm_object_item_part_content_get");
         return (value) content;
 }
 
 PREFIX value ml_elm_object_item_part_content_unset(
-        value v_it, value v_parent, value v_unit)
+        value v_it, value v_part, value v_unit)
 {
-        const char* parent;
-        if(v_parent == Val_int(0)) parent = NULL;
+        const char* part = String_opt_val(v_part);
         Evas_Object* content = elm_object_item_part_content_unset(
-                (Elm_Object_Item*) v_it, parent);
+                (Elm_Object_Item*) v_it, part);
         if(content == NULL) caml_failwith("elm_object_item_part_content_unset");
         return (value) content;
 }
 
 PREFIX value ml_elm_object_item_part_text_set(
-        value v_it, value v_parent, value v_text)
+        value v_it, value v_part, value v_text)
 {
-        const char* parent;
-        if(v_parent == Val_int(0)) parent = NULL;
-        else parent = String_val(Field(v_parent, 0));
-        elm_object_item_part_text_set((Elm_Object_Item*) v_it, parent,
+        const char* part = String_opt_val(v_part);
+        elm_object_item_part_text_set((Elm_Object_Item*) v_it, part,
                 String_val(v_text));
         return Val_unit;
 }
@@ -554,12 +548,11 @@ PREFIX value ml_elm_object_item_text_get(value v_item)
 }
 
 PREFIX value ml_elm_object_item_part_text_get(
-        value v_it, value v_parent, value v_unit)
+        value v_it, value v_part, value v_unit)
 {
-        const char* parent;
-        if(v_parent == Val_int(0)) parent = NULL;
+        const char* part = String_opt_val(v_part);
         const char* text = elm_object_item_part_text_get(
-                (Elm_Object_Item*) v_it, parent);
+                (Elm_Object_Item*) v_it, part);
         if(text == NULL) caml_failwith("elm_object_item_part_text_get");
         return copy_string(text);
 }
@@ -567,15 +560,9 @@ PREFIX value ml_elm_object_item_part_text_get(
 PREFIX value ml_elm_object_item_domain_translatable_part_text_set(
         value v_it, value v_part, value v_domain, value v_text, value v_unit)
 {
-        const char* part;
-        if(v_part == Val_int(0)) part = NULL;
-        else part = String_val(Field(v_part, 0));
-        const char* domain;
-        if(v_domain == Val_int(0)) domain = NULL;
-        else domain = String_val(Field(v_domain, 0));
-        const char* text;
-        if(v_text == Val_int(0)) text = NULL;
-        else text = String_val(Field(v_text, 0));
+        const char* part = String_opt_val(v_part);
+        const char* domain = String_opt_val(v_domain);
+        const char* text = String_opt_val(v_text);
         elm_object_item_domain_translatable_part_text_set(
                 (Elm_Object_Item*) v_it, part, domain, text);
         return Val_unit;
@@ -584,9 +571,7 @@ PREFIX value ml_elm_object_item_domain_translatable_part_text_set(
 PREFIX value ml_elm_object_item_translatable_part_text_get(
         value v_it, value v_part, value v_unit)
 {
-        const char* part;
-        if(v_part == Val_int(0)) part = NULL;
-        else part = String_val(Field(v_part, 0));
+        const char* part = String_opt_val(v_part);
         const char* text = elm_object_item_translatable_part_text_get(
                 (Elm_Object_Item*) v_it, part);
         if(text == NULL)
@@ -597,12 +582,8 @@ PREFIX value ml_elm_object_item_translatable_part_text_get(
 PREFIX value ml_elm_object_item_domain_part_text_translatable_set(
         value v_it, value v_part, value v_domain, value v_flag)
 {
-        const char* part;
-        if(v_part == Val_int(0)) part = NULL;
-        else part = String_val(Field(v_part, 0));
-        const char* domain;
-        if(v_domain == Val_int(0)) domain = NULL;
-        else domain = String_val(Field(v_domain, 0));
+        const char* part = String_opt_val(v_part);
+        const char* domain = String_opt_val(v_domain);
         elm_object_item_domain_part_text_translatable_set(
                 (Elm_Object_Item*) v_it, part, domain, Bool_val(v_flag));
         return Val_unit;
