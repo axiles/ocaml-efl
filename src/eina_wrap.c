@@ -198,3 +198,12 @@ inline value copy_string_string(char** x)
         CAMLreturn(v);
 }
 
+inline const char* String_opt_val(value v)
+{
+        const char* s;
+        if(v == Val_int(0)) s = NULL;
+        else s = String_val(Field(v, 0));
+        return s;
+}
+
+
