@@ -21,7 +21,7 @@ let () =
   g "add";
   g "add_rel";
   g "after";
-  g "all";
+  (*g "all";*)
   g "allcharacter";
   g "alpha";
   g "alphabet";
@@ -42,7 +42,7 @@ let () =
   g "block_horizontal";
   g "block_vertical";
   g "block_vertical_horizontal";
-  g "both";
+  (*g "both";*)
   g "bottom";
   g "bottom_left";
   g "bottom_right";
@@ -60,7 +60,7 @@ let () =
   f "Val_class" "_class";
   g "close";
   g "combo";
-  g "components";
+  (*g "components";*)
   g "compress";
   g "config";
   g "content";
@@ -227,12 +227,12 @@ let () =
   g "page_left";
   g "page_right";
   g "page_up";
-  g "palette";
+  (*g "palette";*)
   g "password";
   g "permission_denied";
   g "phone_number";
   g "phonenumber";
-  g "picker";
+  (*g "picker";*)
   g "pin";
   g "plain_utf8";
   g "plaintext";

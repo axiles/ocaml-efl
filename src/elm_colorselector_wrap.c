@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Colorselector_Mode Elm_Colorselector_Mode_val(value v)
+/*inline Elm_Colorselector_Mode Elm_Colorselector_Mode_val(value v)
 {
         switch(v) {
                 case Val_palette: return ELM_COLORSELECTOR_PALETTE;
@@ -25,7 +25,7 @@ inline value Val_Elm_Colorselector_Mode(Elm_Colorselector_Mode m)
         }
         caml_failwith("Val_Elm_Colorselector_Mode");
         return Val_palette;
-}
+}*/
 
 PREFIX value ml_elm_colorselector_add(value v_parent)
 {

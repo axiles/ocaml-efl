@@ -524,7 +524,8 @@ let write_variants () =
       P ("src" / "variants.h")]) in
   rule "write_variants2" ~prod:("src" / "variants.h")
     ~dep:("src" / "write_variants.ml") action;
-  dep ["c"; "compile"; "efl"] ["src" / "variants.h"]
+  (*dep ["c"; "compile"; "efl"] ["src" / "variants.h"]*)
+  dep ["extension:c"] ["src" / "variants.h"]
 
 (* Add a rule to generate src/intro.txt *)
 let write_intro () =
@@ -564,6 +565,24 @@ let write_connect () =
   ] in
   rule "write_connect" ~deps:[gen_prog; widgets_filename] ~prods action
 
+(* Add rules to generate enum bindings *)
+let write_enums () =
+  let enums_filename = "src" / "write_enums" / "enums.txt" in
+  let gen_prog = "src" / "write_enums" / "main.cma" in
+  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let deps = [gen_prog; enums_filename] in
+  let prods = [
+    "src" / "henums.ml";
+    "src" / "enums_wrap.c";
+    "src" / "enums_wrap.h";
+    "src" / "enums_variants_wrap.h";
+    "src" / "write_enums" / "help.mli";
+    "src" / "write_enums" / "help.ml"
+  ] in
+  rule "write_enums" ~deps ~prods action;
+  dep ["extension:c"] prods;
+  dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
+
 let () = dispatch & fun h ->
   dispatch_default h;
   match h with
@@ -574,6 +593,7 @@ let () = dispatch & fun h ->
     write_variants ();
     write_intro ();
     write_connect ();
+    write_enums ();
 
     (* Get the values of the env variables *)
     let env = BaseEnvLight.load () in 
