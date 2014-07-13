@@ -99,7 +99,7 @@ end = struct
       fprintf fmt "                case %s: return %s;\n"
         variant.macro variant.c in
     List.iter aux enum.variants;
-    fprintf fmt "                default: break;\n";
+    (*fprintf fmt "                default: break;\n";*)
     fprintf fmt "        }\n";
     fprintf fmt "        caml_failwith(\"%s\");\n" enum.c_of_ml;
     (match enum.variants with
@@ -114,7 +114,7 @@ end = struct
       fprintf fmt "                case %s: return %s;\n"
         variant.c variant.macro in
     List.iter aux enum.variants;
-    fprintf fmt "                default: break;\n";
+    (*fprintf fmt "                default: break;\n";*)
     fprintf fmt "        }\n";
     fprintf fmt "        caml_failwith(\"%s\");\n" enum.ml_of_c;
     (match enum.variants with
