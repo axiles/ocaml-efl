@@ -69,7 +69,7 @@ val item_focus_get : item -> bool
 
 (** {2 General} *)
 
-type select_mode = [`default | `always | `none | `display_only]
+type select_mode = [`default | `always | `none | `display_only | `max]
 
 type item_signal_cb = item -> string -> string -> unit
 

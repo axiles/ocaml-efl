@@ -1,17 +1,5 @@
 #include "include.h"
 
-inline Elm_Hover_Axis Elm_Hover_Axis_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_HOVER_AXIS_NONE;
-                case Val_horizontal: return ELM_HOVER_AXIS_HORIZONTAL;
-                case Val_vertical: return ELM_HOVER_AXIS_VERTICAL;
-                case Val_both: return ELM_HOVER_AXIS_BOTH;
-        }
-        caml_failwith("Elm_Hover_Axis_val");
-        return ELM_HOVER_AXIS_NONE;
-}
-
 PREFIX value ml_elm_hover_add(value v_parent)
 {
         Evas_Object* obj = elm_hover_add((Evas_Object*) v_parent);

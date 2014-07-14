@@ -1,31 +1,5 @@
 #include "include.h"
 
-inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
-{
-        switch(v) {
-                case Val_down: return ELM_CTXPOPUP_DIRECTION_DOWN;
-                case Val_right: return ELM_CTXPOPUP_DIRECTION_RIGHT;
-                case Val_left: return ELM_CTXPOPUP_DIRECTION_LEFT;
-                case Val_up: return ELM_CTXPOPUP_DIRECTION_UP;
-                case Val_unknown: return ELM_CTXPOPUP_DIRECTION_UNKNOWN;
-                default: break;
-        }
-        caml_failwith("Elm_Ctxpopup_Direction_val");
-        return ELM_CTXPOPUP_DIRECTION_DOWN;
-}
-
-inline value Val_Elm_Ctxpopup_Direction(Elm_Ctxpopup_Direction d)
-{
-        switch(d) {
-                case ELM_CTXPOPUP_DIRECTION_DOWN: return Val_down;
-                case ELM_CTXPOPUP_DIRECTION_RIGHT: return Val_right;
-                case ELM_CTXPOPUP_DIRECTION_LEFT: return Val_left;
-                case ELM_CTXPOPUP_DIRECTION_UP: return Val_up;
-                case ELM_CTXPOPUP_DIRECTION_UNKNOWN: return Val_unknown;
-        }
-        return Val_down;
-}
-
 PREFIX value ml_elm_ctxpopup_add(value v_parent)
 {
         Evas_Object* ctxpopup = elm_ctxpopup_add((Evas_Object*) v_parent);

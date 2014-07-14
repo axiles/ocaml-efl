@@ -1,4 +1,4 @@
-type orient = [`top | `bottom | `left | `right]
+type orient = Henums.Elm_panel.orient
 
 external add : Evas.obj -> Evas.obj = "ml_elm_panel_add"
 

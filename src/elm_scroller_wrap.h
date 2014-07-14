@@ -3,7 +3,4 @@
 
 #include "include.h"
 
-inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v);
-inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p);
-
 #endif

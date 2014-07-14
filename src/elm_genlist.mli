@@ -8,7 +8,7 @@ type item_class = Elm_gen.item_class = {
   func_del : Evas.obj -> unit;
 }
 
-type item_type = [`none | `tree | `group]
+type item_type = [`none | `tree | `group | `max]
 
 type item_field_type = [`all | `text | `content | `state]
 

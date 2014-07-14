@@ -11,13 +11,13 @@ type weekday = [
   | `sunday
   | `monday
   | `tuesday
-  | `wednessday
+  | `wednesday
   | `thursday
   | `friday
   | `saturday
   | `last]
 
-type selectable = [`year | `month | `day]
+type selectable = [`none | `year | `month | `day]
 
 type selectable_ = {year : bool; month : bool; day : bool}
 

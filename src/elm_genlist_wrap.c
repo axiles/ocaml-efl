@@ -18,55 +18,6 @@ PREFIX void ml_Elm_Genlist_Item_Class(
         *data = v_data;
 }
 
-inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_GENLIST_ITEM_NONE;
-                case Val_tree: return ELM_GENLIST_ITEM_TREE;
-                case Val_group: return ELM_GENLIST_ITEM_GROUP;
-        }
-        caml_failwith("Elm_Genlist_Item_Type_val");
-        return ELM_GENLIST_ITEM_NONE;
-}
-
-inline value Val_Elm_Genlist_Item_Type(Elm_Genlist_Item_Type t)
-{
-        switch(t) {
-                case ELM_GENLIST_ITEM_NONE: return Val_none;
-                case ELM_GENLIST_ITEM_TREE: return Val_tree;
-                case ELM_GENLIST_ITEM_GROUP: return Val_group;
-                default: break;
-        }
-        caml_failwith("Val_Elm_Genlist_Item_Type_val");
-        return Val_none;
-}
-
-inline Elm_Genlist_Item_Field_Type Elm_Genlist_Item_Field_Type_val(
-        value v)
-{
-        switch(v) {
-                case Val_all: return ELM_GENLIST_ITEM_FIELD_ALL;
-                case Val_text: return ELM_GENLIST_ITEM_FIELD_TEXT;
-                case Val_content: return ELM_GENLIST_ITEM_FIELD_CONTENT;
-                case Val_state: return ELM_GENLIST_ITEM_FIELD_STATE;
-        }
-        caml_failwith("Elm_Genlist_Item_Type_val");
-        return ELM_GENLIST_ITEM_FIELD_ALL;
-}
-
-inline Elm_Genlist_Item_Scrollto_Type
-Elm_Genlist_Item_Scrollto_Type_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_GENLIST_ITEM_SCROLLTO_NONE;
-                case Val_in: return ELM_GENLIST_ITEM_SCROLLTO_IN;
-                case Val_top: return ELM_GENLIST_ITEM_SCROLLTO_TOP;
-                case Val_middle: return ELM_GENLIST_ITEM_SCROLLTO_MIDDLE;
-        }
-        caml_failwith("Elm_Genlist_Item_Scrollto_Type_val");
-        return ELM_GENLIST_ITEM_SCROLLTO_NONE;
-}
-
 PREFIX value ml_elm_genlist_add(value v_parent)
 {
         Evas_Object* obj = elm_genlist_add((Evas_Object*) v_parent);

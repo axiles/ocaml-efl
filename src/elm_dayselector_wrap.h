@@ -3,7 +3,5 @@
 
 #include "include.h"
 
-inline value Val_Elm_Dayselector_Day(Elm_Dayselector_Day d);
-
 #endif
 

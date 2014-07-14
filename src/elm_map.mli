@@ -6,7 +6,7 @@ type overlay_type = [
   | `_class
   | `group
   | `bubble
-  | `rout
+  | `route
   | `line
   | `polygon
   | `circle
@@ -20,17 +20,23 @@ type overlay_get_cb = Evas.obj -> overlay -> unit
 
 type route
 
-type source_type = [`tile | `route | `name]
+type source_type = [`tile | `route | `name | `last]
 
-type route_type = [`motocar | `bicycle | `foot]
+type route_type = [`motocar | `bicycle | `foot | `last]
 
-type route_method = [`fastest | `shortest]
+type route_method = [`fastest | `shortest | `last]
 
 type route_cb = Evas.obj -> route -> unit
 
 type name
 
 type name_cb = Evas.obj -> name -> unit
+
+type name_method = [
+| `search
+| `reverse
+| `last
+]
 
 val add : Evas.obj -> Evas.obj
 

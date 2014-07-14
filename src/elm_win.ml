@@ -1,50 +1,12 @@
-type ty = [
-  | `unknown
-  | `basic
-  | `dialog_basic
-  | `desktop
-  | `dock
-  | `toolbar
-  | `menu
-  | `utility
-  | `splash
-  | `dropdown_menu
-  | `popup_menu
-  | `tooltip
-  | `notification
-  | `combo
-  | `dnd
-  | `inlined_image
-  | `socket_image]
+module HE = Henums.Elm_win
 
-type keyboard_mode = [
-  | `unknown
-  | `off
-  | `on
-  | `alpha
-  | `numeric
-  | `pin
-  | `phone_number
-  | `hex
-  | `terminal
-  | `password
-  | `ip
-  | `host
-  | `file
-  | `url
-  | `keypad
-  | `j2me]
+type ty = HE.ty
 
-type indicator_mode = [
-  | `unknown
-  | `hide
-  | `show]
+type keyboard_mode = HE.keyboard_mode
 
-type indicator_opacity_mode = [
-  | `opacity_unknown
-  | `opaque
-  | `translucent
-  | `transparent]
+type indicator_mode = HE.indicator_mode
+
+type indicator_opacity_mode = HE.indicator_opacity_mode
 
 type illume_command = Elm.illume_command
 

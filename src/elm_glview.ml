@@ -1,8 +1,10 @@
-type mode = [`none | `alpha | `depth | `stencil | `direct]
+module HE = Henums.Elm_glview
 
-type resize_policy = [`recreate | `scale]
+type mode = HE.mode
 
-type render_policy = [`on_demand | `always]
+type resize_policy = HE.resize_policy
+
+type render_policy = HE.render_policy
 
 type func_cb = Evas.obj -> unit
 

@@ -1,86 +1,23 @@
 #include "include.h"
 
-inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
+inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val_list(
+        value v_list)
 {
-        switch(v) {
-                case Val_auto: return ELM_SCROLLER_POLICY_AUTO;
-                case Val_on: return ELM_SCROLLER_POLICY_ON;
-                case Val_off: return ELM_SCROLLER_POLICY_OFF;
-	        default: break;
+        value v = v_list;
+        Elm_Scroller_Movement_Block r = ELM_SCROLLER_MOVEMENT_NO_BLOCK;
+        while(v != Val_int(0)) {
+                r = r | Elm_Scroller_Movement_Block_val(Field(v, 0));
+                v = Field(v, 1);
         }
-        caml_failwith("Elm_Scroller_Policy_val");
-        return ELM_SCROLLER_POLICY_AUTO;
+        return r;
 }
 
-inline value Val_Elm_Scroller_Policy(Elm_Scroller_Policy p)
+inline value copy_Elm_Scroller_Movement_Block(Elm_Scroller_Movement_Block m)
 {
-        switch(p) {
-                case ELM_SCROLLER_POLICY_AUTO: return Val_auto;
-                case ELM_SCROLLER_POLICY_ON: return Val_on;
-                case ELM_SCROLLER_POLICY_OFF: return Val_off;
-		default: break;
-        }
-        caml_failwith("Val_Elm_Scroller_Policy");
-        return Val_auto;
-}
-
-inline Elm_Scroller_Single_Direction
-Elm_Scroller_Single_Direction_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_SCROLLER_SINGLE_DIRECTION_NONE;
-                case Val_soft: return ELM_SCROLLER_SINGLE_DIRECTION_SOFT;
-                case Val_hard: return ELM_SCROLLER_SINGLE_DIRECTION_HARD;
-                case Val_last: return ELM_SCROLLER_SINGLE_DIRECTION_LAST;
-                default: break;
-        }
-        caml_failwith("Elm_Scroller_Single_Direction_val");
-        return ELM_SCROLLER_SINGLE_DIRECTION_NONE;
-}
-
-inline value Val_Elm_Scroller_Single_Direction(
-        Elm_Scroller_Single_Direction sd)
-{
-        switch(sd) {
-                case ELM_SCROLLER_SINGLE_DIRECTION_NONE: return Val_none;
-                case ELM_SCROLLER_SINGLE_DIRECTION_SOFT: return Val_soft;
-                case ELM_SCROLLER_SINGLE_DIRECTION_HARD: return Val_hard;
-                case ELM_SCROLLER_SINGLE_DIRECTION_LAST: return Val_last;
-                default: break;
-        }
-        caml_failwith("Val_Elm_Scroller_Single_Direction");
-        return Val_none;
-}
-
-inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val(
-        value v)
-{
-        switch(v) {
-                case Val_no_block: return ELM_SCROLLER_MOVEMENT_NO_BLOCK;
-                case Val_block_vertical:
-                        return ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL;
-                case Val_block_horizontal:
-                        return ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL;
-                case Val_block_vertical_horizontal:
-                        return ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL |
-                                ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL;
-                default: break;
-        }
-        caml_failwith("Elm_Scroller_Movement_Block_val");
-        return ELM_SCROLLER_MOVEMENT_NO_BLOCK;
-}
-
-inline value Val_Elm_Scroller_Movement_Block(
-        Elm_Scroller_Movement_Block mb)
-{
-        if(mb == ELM_SCROLLER_MOVEMENT_NO_BLOCK) return Val_no_block;
-        int bv = mb & ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL;
-        int bh = mb & ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL;
-        if(bv && bh) return Val_block_vertical_horizontal;
-        if(bv) return Val_block_vertical;
-        if(bh) return Val_block_horizontal;
-        caml_failwith("Val_Elm_Scroller_Movement_Block");
-        return Val_no_block;
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_bool(m & ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL));
+        Store_field(v, 1, Val_bool(m & ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL));
+        return v;
 }
 
 PREFIX value ml_elm_scroller_add(value v_parent)
@@ -325,13 +262,13 @@ PREFIX value ml_elm_scroller_gravity_get(value v_obj)
 PREFIX value ml_elm_scroller_movement_block_set(value v_obj, value v_mb)
 {
         elm_scroller_movement_block_set((Evas_Object*) v_obj,
-                Elm_Scroller_Movement_Block_val(v_mb));
+                Elm_Scroller_Movement_Block_val_list(v_mb));
         return Val_unit;
 }
 
 PREFIX value ml_elm_scroller_movement_block_get(value v_obj)
 {
-        return Val_Elm_Scroller_Movement_Block(elm_scroller_movement_block_get(
+        return copy_Elm_Scroller_Movement_Block(elm_scroller_movement_block_get(
                 (Evas_Object*) v_obj));
 }
 

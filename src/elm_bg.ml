@@ -1,4 +1,4 @@
-type opt = [`center | `scale | `stretch | `tile | `last]
+type opt = Henums.Elm_bg.opt
 
 external add : Evas.obj -> Evas.obj = "ml_elm_bg_add"
 

@@ -2,7 +2,7 @@
 
 type orient = [
   | `top
-  | `centre
+  | `center
   | `bottom
   | `left
   | `right

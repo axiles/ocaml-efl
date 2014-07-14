@@ -1,12 +1,4 @@
-type edit_mode = [
-  | `default
-  | `hour_decimal
-  | `hour_unit
-  | `min_decimal
-  | `min_unit
-  | `sec_decimal
-  | `sec_unit
-  | `all]
+type edit_mode = Henums.Elm_clock.edit_mode
 
 type edit_mode_ = {
   defalt : bool;

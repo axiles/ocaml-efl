@@ -1,12 +1,15 @@
-type policy = [`auto | `on | `off]
+module HE = Henums.Elm_scroller
 
-type single_direction = [`none | `soft | `hard | `last]
+type policy = HE.policy
 
-type movement_block = [
-  | `no_block
-  | `block_vertical
-  | `block_horizontal
-  | `block_vertical_horizontal]
+type single_direction = HE.single_direction
+
+type movement_block = HE.movement_block
+
+type movement_block_ = {
+  vertical : bool;
+  horizontal : bool;
+}
 
 external add : Evas.obj -> Evas.obj = "ml_elm_scroller_add"
 
@@ -87,9 +90,9 @@ external gravity_set : Evas.obj -> float -> float -> unit =
 
 external gravity_get : Evas.obj -> float * float = "ml_elm_scroller_gravity_get"
 
-external movement_block_set : Evas.obj -> movement_block -> unit =
+external movement_block_set : Evas.obj -> movement_block list -> unit =
   "ml_elm_scroller_movement_block_set"
 
-external movement_block_get : Evas.obj -> movement_block =
+external movement_block_get : Evas.obj -> movement_block_ =
   "ml_elm_scroller_movement_block_get"
 

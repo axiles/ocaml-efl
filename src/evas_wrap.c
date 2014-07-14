@@ -95,32 +95,6 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
         CAMLreturn(v);
 }
 
-inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
-{
-        switch(v) {
-                case Val_none: return EVAS_ASPECT_CONTROL_NONE;
-                case Val_neither: return EVAS_ASPECT_CONTROL_NEITHER;
-                case Val_horizontal: return EVAS_ASPECT_CONTROL_HORIZONTAL;
-                case Val_vertical: return EVAS_ASPECT_CONTROL_VERTICAL;
-                case Val_both: return EVAS_ASPECT_CONTROL_BOTH;
-        }
-        caml_failwith("Evas_Aspect_Control_val");
-        return EVAS_ASPECT_CONTROL_NONE;
-}
-
-inline value Val_Evas_Aspect_Control(Evas_Aspect_Control ac)
-{
-        switch(ac) {
-                case EVAS_ASPECT_CONTROL_NONE: return Val_none;
-                case EVAS_ASPECT_CONTROL_NEITHER: return Val_neither;
-                case EVAS_ASPECT_CONTROL_HORIZONTAL: return Val_horizontal;
-                case EVAS_ASPECT_CONTROL_VERTICAL: return Val_vertical;
-                case EVAS_ASPECT_CONTROL_BOTH: return Val_both;
-        }
-        caml_failwith("Val_Evas_Aspect_Control");
-        return Val_none;
-}
-
 PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
 {
         Evas_Coord x, y;
@@ -173,42 +147,6 @@ PREFIX value ml_float_of_ptr(value v_ptr)
         return copy_double(*x);
 }
 
-inline Evas_Load_Error Evas_Load_Error_val(value v)
-{
-        switch(v) {
-                case Val_none: return EVAS_LOAD_ERROR_NONE;
-                case Val_generic: return EVAS_LOAD_ERROR_GENERIC;
-                case Val_does_not_exist: return EVAS_LOAD_ERROR_DOES_NOT_EXIST;
-                case Val_permission_denied:
-                        return EVAS_LOAD_ERROR_PERMISSION_DENIED;
-                case Val_resource_allocation_failed:
-                        return EVAS_LOAD_ERROR_RESOURCE_ALLOCATION_FAILED;
-                case Val_corrupt_file: return EVAS_LOAD_ERROR_CORRUPT_FILE;
-                case Val_unknown_format: return EVAS_LOAD_ERROR_UNKNOWN_FORMAT;
-                default: break;
-        }
-        caml_failwith("Evas_Load_Error_val");
-        return EVAS_LOAD_ERROR_NONE;
-}
-
-inline value Val_Evas_Load_Error(Evas_Load_Error e)
-{
-        switch(e) {
-                case EVAS_LOAD_ERROR_NONE: return Val_none;
-                case EVAS_LOAD_ERROR_GENERIC: return Val_generic;
-                case EVAS_LOAD_ERROR_DOES_NOT_EXIST:
-                        return Val_does_not_exist;
-                case EVAS_LOAD_ERROR_PERMISSION_DENIED:
-                        return Val_permission_denied;
-                case EVAS_LOAD_ERROR_RESOURCE_ALLOCATION_FAILED:
-                        return Val_resource_allocation_failed;
-                case EVAS_LOAD_ERROR_CORRUPT_FILE: return Val_corrupt_file;
-                case EVAS_LOAD_ERROR_UNKNOWN_FORMAT: return Val_unknown_format;
-        }
-        caml_failwith("Val_Evas_Load_Error");
-        return Val_none;
-}
-
 void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* v_obj, void* event_info)
 {
@@ -217,17 +155,6 @@ void ml_Evas_Smart_Cb_on_del(
 }
 
 /* Top Level Functions */
-
-inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
-{
-        switch(e) {
-                case EVAS_ALLOC_ERROR_NONE: return Val_none;
-                case EVAS_ALLOC_ERROR_FATAL: return Val_fatal;
-                case EVAS_ALLOC_ERROR_RECOVERED: return Val_recovered;
-        }
-        caml_failwith("Val_Evas_Alloc_Error");
-        return Val_none;
-}
 
 PREFIX value ml_evas_init(value v_unit)
 {
@@ -383,11 +310,16 @@ PREFIX value ml_evas_output_framespace_get(value v_e)
 
 inline Evas_Callback_Priority Evas_Callback_Priority_val(value v)
 {
-        switch(v) {
-                case Val_after: return EVAS_CALLBACK_PRIORITY_AFTER;
-                case Val_before: return EVAS_CALLBACK_PRIORITY_BEFORE;
-                case Val_default: return EVAS_CALLBACK_PRIORITY_DEFAULT;
-                default: break;
+        if(Is_long(v)) {
+                switch(v) {
+                        case Val_after: return EVAS_CALLBACK_PRIORITY_AFTER;
+                        case Val_before: return EVAS_CALLBACK_PRIORITY_BEFORE;
+                        case Val_default: return EVAS_CALLBACK_PRIORITY_DEFAULT;
+                }
+        } else {
+                switch(Field(v, 0)) {
+                        case Val_other: return Int_val(Field(v, 1));
+                }
         }
         caml_failwith("Evas_Callback_Priority_val");
         return EVAS_CALLBACK_PRIORITY_AFTER;

@@ -8,7 +8,7 @@ type smart_cb = obj -> ptr -> unit
 
 type modifier
 
-type callback_priority = [`after | `before | `default]
+type callback_priority = [`after | `before | `default | `other of int]
 
 module Point = struct
   type t = {x : int; y : int}
@@ -48,17 +48,9 @@ end
 
 type precision_position = Precision_position.t
 
-type aspect_control = [`none | `neither | `horizontal | `vertical | `both]
+type aspect_control = Henums.Evas.aspect_control
 
-type load_error = [
-  | `none
-  | `generic
-  | `does_not_exist
-  | `permission_denied
-  | `resource_allocation_failed
-  | `corrupt_file
-  | `unknown_format
-]
+type load_error = Henums.Evas.load_error
 
 module Signal = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
@@ -83,22 +75,9 @@ type gl_api
 
 type map
 
-type display_mode = [`none | `compress | `expand | `dont_change]
+type display_mode = Henums.Evas.display_mode
 
-type render_op = [
-  | `blend
-  | `blend_rel
-  | `copy
-  | `copy_rel
-  | `add
-  | `add_rel
-  | `sub
-  | `sub_rel
-  | `tint
-  | `tint_rel
-  | `mask
-  | `mul
-]
+type render_op = Henums.Evas.render_op
 
 let hint_expand = 1.
 
@@ -127,7 +106,7 @@ external float_of_ptr : ptr -> float = "ml_float_of_ptr"
 
 (* Top Level Functions *)
 
-type alloc_error = [`none | `fatal | `recovered]
+type alloc_error = Henums.Evas.alloc_error
 
 external init : unit -> int = "ml_evas_init"
 

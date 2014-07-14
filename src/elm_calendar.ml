@@ -1,21 +1,14 @@
-type select_mode = [`default | `always | `none | `ondemand]
+module HE = Henums.Elm_calendar
 
-type mark_repeat_type = [
-  `unique | `daily | `weekly | `monthly | `annually | `last_day_of_month]
+type select_mode = HE.select_mode
+
+type mark_repeat_type = HE.mark_repeat_type
 
 type mark
 
-type weekday = [
-  | `sunday
-  | `monday
-  | `tuesday
-  | `wednessday
-  | `thursday
-  | `friday
-  | `saturday
-  | `last]
+type weekday = HE.weekday
 
-type selectable = [`year | `month | `day]
+type selectable = HE.selectable
 
 type selectable_ = {year : bool; month : bool; day : bool}
 

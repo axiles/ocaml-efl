@@ -21,6 +21,7 @@ let string_of_policy (p : Elm_scroller.policy) =
   | `auto -> "auto"
   | `on -> "on"
   | `off -> "off"
+  | `last -> "last"
 
 let string_of_weekday = function
   | 0 -> "Sun"
