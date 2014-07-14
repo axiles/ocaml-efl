@@ -333,30 +333,6 @@ PREFIX value ml_evas_object_map_get(value v_obj)
 
 /* Size Hints */
 
-inline Evas_Display_Mode Evas_Display_Mode_val(value v)
-{
-        switch(v) {
-                case Val_none: return EVAS_DISPLAY_MODE_NONE;
-                case Val_compress: return EVAS_DISPLAY_MODE_COMPRESS;
-                case Val_expand: return EVAS_DISPLAY_MODE_EXPAND;
-                case Val_dont_change: return EVAS_DISPLAY_MODE_DONT_CHANGE;
-        }
-        caml_failwith("Evas_Display_Mode_val");
-        return EVAS_DISPLAY_MODE_NONE;
-}
-
-inline value Val_Evas_Display_Mode(Evas_Display_Mode m)
-{
-        switch(m) {
-                case EVAS_DISPLAY_MODE_NONE: return Val_none;
-                case EVAS_DISPLAY_MODE_COMPRESS: return Val_compress;
-                case EVAS_DISPLAY_MODE_EXPAND: return Val_expand;
-                case EVAS_DISPLAY_MODE_DONT_CHANGE: return Val_dont_change;
-        }
-        caml_failwith("Val_Evas_Display_Mode");
-        return Val_none;
-}
-
 PREFIX value ml_evas_object_size_hint_min_get(value v_obj)
 {
         Evas_Coord w, h;
@@ -503,70 +479,6 @@ PREFIX value ml_evas_object_size_hint_padding_set(
 }
 
 /* Extra Object Manipulation */
-
-inline Evas_Object_Pointer_Mode Evas_Object_Pointer_Mode_val(value v)
-{
-        switch(v) {
-                case Val_autograb: return EVAS_OBJECT_POINTER_MODE_AUTOGRAB;
-                case Val_nograb: return EVAS_OBJECT_POINTER_MODE_NOGRAB;
-                case Val_nograb_no_repeat_updown:
-                        return EVAS_OBJECT_POINTER_MODE_NOGRAB_NO_REPEAT_UPDOWN;
-        }
-        caml_failwith("Evas_Object_Pointer_Mode_val");
-        return EVAS_OBJECT_POINTER_MODE_AUTOGRAB;
-}
-
-inline value Val_Evas_Object_Pointer_Mode(Evas_Object_Pointer_Mode m)
-{
-        switch(m) {
-                case EVAS_OBJECT_POINTER_MODE_AUTOGRAB: return Val_autograb;
-                case EVAS_OBJECT_POINTER_MODE_NOGRAB: return Val_nograb;
-                case EVAS_OBJECT_POINTER_MODE_NOGRAB_NO_REPEAT_UPDOWN:
-                        return Val_nograb_no_repeat_updown;
-        }
-        caml_failwith("Val_Evas_Object_Pointer_Mode");
-        return Val_autograb;
-}
-
-inline Evas_Render_Op Evas_Render_Op_val(value v)
-{
-        switch(v) {
-                case Val_blend: return EVAS_RENDER_BLEND;
-                case Val_blend_rel: return EVAS_RENDER_BLEND_REL;
-                case Val_copy: return EVAS_RENDER_COPY;
-                case Val_copy_rel: return EVAS_RENDER_COPY_REL;
-                case Val_add: return EVAS_RENDER_ADD;
-                case Val_add_rel: return EVAS_RENDER_ADD_REL;
-                case Val_sub: return EVAS_RENDER_SUB;
-                case Val_sub_rel: return EVAS_RENDER_SUB_REL;
-                case Val_tint: return EVAS_RENDER_TINT;
-                case Val_tint_rel: return EVAS_RENDER_TINT_REL;
-                case Val_mask: return EVAS_RENDER_MASK;
-                case Val_mul: return EVAS_RENDER_MUL;
-        }
-        caml_failwith("Evas_Render_Op_val");
-        return EVAS_RENDER_BLEND;
-}
-
-inline value Val_Evas_Render_Op(Evas_Render_Op op)
-{
-        switch(op) {
-                case EVAS_RENDER_BLEND: return Val_blend;
-                case EVAS_RENDER_BLEND_REL: return Val_blend_rel;
-                case EVAS_RENDER_COPY: return Val_copy;
-                case EVAS_RENDER_COPY_REL: return Val_copy_rel;
-                case EVAS_RENDER_ADD: return Val_add;
-                case EVAS_RENDER_ADD_REL: return Val_add_rel;
-                case EVAS_RENDER_SUB: return Val_sub;
-                case EVAS_RENDER_SUB_REL: return Val_sub_rel;
-                case EVAS_RENDER_TINT: return Val_tint;
-                case EVAS_RENDER_TINT_REL: return Val_tint_rel;
-                case EVAS_RENDER_MASK: return Val_mask;
-                case EVAS_RENDER_MUL: return Val_mul;
-        }
-        caml_failwith("Val_Evas_Render_Op");
-        return Val_blend;
-}
 
 PREFIX value ml_evas_object_pointer_mode_set(value v_obj, value v_m)
 {

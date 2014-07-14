@@ -1,32 +1,5 @@
 #include "include.h"
 
-inline Elm_Thumb_Animation_Setting Elm_Thumb_Animation_Setting_val(
-        value v)
-{
-        switch(v) {
-                case Val_start: return ELM_THUMB_ANIMATION_START;
-                case Val_loop: return ELM_THUMB_ANIMATION_LOOP;
-                case Val_stop: return ELM_THUMB_ANIMATION_STOP;
-                case Val_last: return ELM_THUMB_ANIMATION_LAST;
-                default: break;
-        }
-        caml_failwith("Elm_Thumb_Animation_Setting_val");
-        return ELM_THUMB_ANIMATION_START;
-}
-
-inline value Val_Elm_Thumb_Animation_Setting(
-        Elm_Thumb_Animation_Setting s)
-{
-        switch(s) {
-                case ELM_THUMB_ANIMATION_START: return Val_start;
-                case ELM_THUMB_ANIMATION_LOOP: return Val_loop;
-                case ELM_THUMB_ANIMATION_STOP: return Val_stop;
-                case ELM_THUMB_ANIMATION_LAST: return Val_last;
-        }
-        caml_failwith("Val_Elm_Thumb_Animation_Setting");
-        return Val_start;
-}
-
 PREFIX value ml_elm_thumb_add(value v_parent)
 {
         Evas_Object* thumb = elm_thumb_add((Evas_Object*) v_parent);

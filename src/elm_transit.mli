@@ -3,10 +3,14 @@
 type t = Elm.transit
 
 type tween_mode = [
-  | `linear
-  | `sinusoidal
-  | `decelerate
-  | `accelerate]
+| `linear
+| `sinusoidal
+| `decelerate
+| `accelerate
+| `divisor_interp
+| `bounce
+| `spring
+]
 
 type effect_flip_axis = [`x | `y]
 

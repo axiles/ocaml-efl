@@ -1,30 +1,5 @@
 #include "include.h"
 
-inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
-{
-        switch(v_m) {
-                case Val_default: return ELM_CALENDAR_SELECT_MODE_DEFAULT;
-                case Val_always: return ELM_CALENDAR_SELECT_MODE_ALWAYS;
-                case Val_none: return ELM_CALENDAR_SELECT_MODE_NONE;
-                case Val_ondemand: return ELM_CALENDAR_SELECT_MODE_ONDEMAND;
-		default: break;
-        }
-        caml_failwith("Elm_Calendar_Select_Mode_val");
-        return ELM_CALENDAR_SELECT_MODE_DEFAULT;
-}
-
-inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
-{
-        switch(m) {
-                case ELM_CALENDAR_SELECT_MODE_DEFAULT: return Val_default;
-                case ELM_CALENDAR_SELECT_MODE_ALWAYS: return Val_always;
-                case ELM_CALENDAR_SELECT_MODE_NONE: return Val_none;
-                case ELM_CALENDAR_SELECT_MODE_ONDEMAND: return Val_ondemand;
-        }
-        caml_failwith("Val_Elm_Calendar_Select_Mode");
-        return Val_default;
-}
-
 inline struct tm Tm_val(value v)
 {
         struct tm t;
@@ -55,23 +30,6 @@ inline value copy_tm(struct tm t)
         return v;
 }
 
-inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
-        value v)
-{
-        switch(v) {
-                case Val_unique: return ELM_CALENDAR_UNIQUE;
-                case Val_daily: return ELM_CALENDAR_DAILY;
-                case Val_weekly: return ELM_CALENDAR_WEEKLY;
-                case Val_monthly: return ELM_CALENDAR_MONTHLY;
-                case Val_annually: return ELM_CALENDAR_ANNUALLY;
-                case Val_last_day_of_month:
-                        return ELM_CALENDAR_LAST_DAY_OF_MONTH;
-                default: break;
-        }
-        caml_failwith("Elm_Calendar_Mark_Repeat_Type_val");
-        return ELM_CALENDAR_UNIQUE;
-}
-
 inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
 {
         CAMLparam0();
@@ -86,51 +44,6 @@ inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
-}
-
-inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
-{
-        switch(v) {
-                case Val_sunday: return ELM_DAY_SUNDAY;
-                case Val_monday: return ELM_DAY_MONDAY;
-                case Val_tuesday: return ELM_DAY_TUESDAY;
-                case Val_wednesday: return ELM_DAY_WEDNESDAY;
-                case Val_thursday: return ELM_DAY_THURSDAY;
-                case Val_friday: return ELM_DAY_FRIDAY;
-                case Val_saturday: return ELM_DAY_SATURDAY;
-                case Val_last: return ELM_DAY_LAST;
-                default: break;
-        }
-        caml_failwith("Elm_Calendar_Weekday_val");
-        return ELM_DAY_SUNDAY;
-}
-
-inline value Val_Elm_Calendar_Weekday(Elm_Calendar_Weekday d)
-{
-        switch(d) {
-                case ELM_DAY_SUNDAY: return Val_sunday;
-                case ELM_DAY_MONDAY: return Val_monday;
-                case ELM_DAY_TUESDAY: return Val_tuesday;
-                case ELM_DAY_WEDNESDAY: return Val_wednesday;
-                case ELM_DAY_THURSDAY: return Val_thursday;
-                case ELM_DAY_FRIDAY: return Val_friday;
-                case ELM_DAY_SATURDAY: return Val_saturday;
-                case ELM_DAY_LAST: return Val_last;
-        }
-        caml_failwith("Val_Elm_Calendar_Weekday");
-        return Val_monday;
-}
-
-inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val(value v)
-{
-        switch(v) {
-                case Val_year: return ELM_CALENDAR_SELECTABLE_YEAR;
-                case Val_month: return ELM_CALENDAR_SELECTABLE_MONTH;
-                case Val_day: return ELM_CALENDAR_SELECTABLE_DAY;
-                default: break;
-        }
-        caml_failwith("Elm_Calendar_Selectable_val");
-        return ELM_CALENDAR_SELECTABLE_YEAR;
 }
 
 inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)

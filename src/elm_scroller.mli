@@ -1,14 +1,18 @@
 (** Scroller *)
 
-type policy = [`auto | `on | `off]
+type policy = [`auto | `on | `off | `last]
 
 type single_direction = [`none | `soft | `hard | `last]
 
 type movement_block = [
   | `no_block
   | `block_vertical
-  | `block_horizontal
-  | `block_vertical_horizontal]
+  | `block_horizontal]
+
+type movement_block_ = {
+  vertical : bool;
+  horizontal : bool;
+}
 
 val add : Evas.obj -> Evas.obj
 
@@ -66,7 +70,7 @@ val gravity_set : Evas.obj -> float -> float -> unit
 
 val gravity_get : Evas.obj -> float * float
 
-val movement_block_set : Evas.obj -> movement_block -> unit
+val movement_block_set : Evas.obj -> movement_block list -> unit
 
-val movement_block_get : Evas.obj -> movement_block
+val movement_block_get : Evas.obj -> movement_block_
 

@@ -1,16 +1,14 @@
+module HE = Henums.Elm_transit
+
 type t = Elm.transit
 
-type tween_mode = [
-  | `linear
-  | `sinusoidal
-  | `decelerate
-  | `accelerate]
+type tween_mode = HE.tween_mode
 
-type effect_flip_axis = [`x | `y]
+type effect_flip_axis = HE.effect_flip_axis
 
-type effect_wipe_type = [`hide | `show]
+type effect_wipe_type = HE.effect_wipe_type
 
-type effect_wipe_dir = [`left | `right | `up | `down]
+type effect_wipe_dir = HE.effect_wipe_dir
 
 external add : unit -> t = "ml_elm_transit_add"
 

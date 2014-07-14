@@ -83,7 +83,7 @@ external focus_highlight_style_get : Evas.obj -> string =
 
 type item
 
-type select_mode = [`default | `always | `none | `display_only]
+type select_mode = Henums.Elm_object.select_mode
 
 type item_signal_cb = item -> string -> string -> unit
 

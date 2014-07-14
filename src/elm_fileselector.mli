@@ -3,14 +3,14 @@
 type mode = [`list | `grid | `last]
 
 type sort = [
-  | `filename_asc
-  | `filename_desc
-  | `type_asc
-  | `type_desc
-  | `size_asc
-  | `size_desc
-  | `modified_asc
-  | `modified_desc
+  | `by_filename_asc
+  | `by_filename_desc
+  | `by_type_asc
+  | `by_type_desc
+  | `by_size_asc
+  | `by_size_desc
+  | `by_modified_asc
+  | `by_modified_desc
   | `last
 ]
 

@@ -18,18 +18,7 @@ type x_window = int
 
 type wl_window
 
-type pos_map = [
-  | `linear
-  | `accelerate
-  | `decelerate
-  | `sinusoidal
-  | `accelerate_factor
-  | `decelerate_factor
-  | `sinusoidal_factor
-  | `divisor_interp
-  | `bounce
-  | `spring
-  | `cubic_bezier]
+type pos_map = Henums.Ecore.pos_map
 
 external x_window_focus : x_window -> unit = "ml_ecore_x_window_focus"
 

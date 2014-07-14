@@ -1,6 +1,8 @@
-type ty = [`none | `file | `standard]
+module HE = Henums.Elm_icon
 
-type lookup_order = [`fdo_theme | `theme_fdo | `fdo | `theme]
+type ty = HE.ty
+
+type lookup_order = HE.lookup_order
 
 external add : Evas.obj -> Evas.obj = "ml_elm_icon_add"
 

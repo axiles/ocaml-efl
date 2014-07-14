@@ -410,7 +410,7 @@ let size_hint_set obj list =
 
 (* Extra Object Manipulation *)
 
-type pointer_mode = [`autograb | `nograb | `no_grab_no_repeat_updown]
+type pointer_mode = Henums.Evas_object.pointer_mode
 
 external pointer_mode_set : t -> pointer_mode -> unit =
   "ml_evas_object_pointer_mode_set"

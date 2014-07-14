@@ -1,21 +1,5 @@
 #include "include.h"
 
-inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val(value v)
-{
-        switch(v) {
-                case Val_default: return ELM_CLOCK_EDIT_DEFAULT;
-                case Val_hour_decimal: return ELM_CLOCK_EDIT_HOUR_DECIMAL;
-                case Val_hour_unit: return ELM_CLOCK_EDIT_HOUR_UNIT;
-                case Val_min_decimal: return ELM_CLOCK_EDIT_MIN_DECIMAL;
-                case Val_min_unit: return ELM_CLOCK_EDIT_MIN_UNIT;
-                case Val_sec_decimal: return ELM_CLOCK_EDIT_SEC_DECIMAL;
-                case Val_sec_unit: return ELM_CLOCK_EDIT_SEC_UNIT;
-                case Val_all: return ELM_CLOCK_EDIT_ALL;
-        }
-        caml_failwith("Elm_Clock_Edit_Mode_val");
-        return ELM_CLOCK_EDIT_DEFAULT;
-}
-
 inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val_list(value v)
 {
         value v_tmp = v;

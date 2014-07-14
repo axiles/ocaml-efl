@@ -1,4 +1,4 @@
-type field_type = [`year | `month | `date | `hour | `minute | `ampm]
+type field_type = Henums.Elm_datetime.field_type
 
 external add : Evas.obj -> Evas.obj = "ml_elm_datetime_add"
 

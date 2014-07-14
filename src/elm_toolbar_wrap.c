@@ -1,50 +1,5 @@
 #include "include.h"
 
-inline Elm_Toolbar_Shrink_Mode Elm_Toolbar_Shrink_Mode_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_TOOLBAR_SHRINK_NONE;
-                case Val_hide: return ELM_TOOLBAR_SHRINK_HIDE;
-                case Val_scroll: return ELM_TOOLBAR_SHRINK_SCROLL;
-                case Val_menu: return ELM_TOOLBAR_SHRINK_MENU;
-                case Val_expand: return ELM_TOOLBAR_SHRINK_EXPAND;
-                case Val_last: return ELM_TOOLBAR_SHRINK_LAST;
-                default: break;
-        }
-        caml_failwith("Elm_Toolbar_Shrink_Mode_val");
-        return ELM_TOOLBAR_SHRINK_NONE;
-}
-
-inline value Val_Elm_Toolbar_Shrink_Mode(Elm_Toolbar_Shrink_Mode m)
-{
-       switch(m) {
-               case ELM_TOOLBAR_SHRINK_NONE: return Val_none;
-               case ELM_TOOLBAR_SHRINK_HIDE: return Val_hide;
-               case ELM_TOOLBAR_SHRINK_SCROLL: return Val_scroll;
-               case ELM_TOOLBAR_SHRINK_MENU: return Val_menu;
-               case ELM_TOOLBAR_SHRINK_EXPAND: return Val_expand;
-               case ELM_TOOLBAR_SHRINK_LAST: return Val_last;
-               default: break;
-       }
-       caml_failwith("Val_Elm_Toolbar_Shrink_Mode");
-       return Val_none;
-}
-
-inline Elm_Toolbar_Item_Scrollto_Type
-Elm_Toolbar_Item_Scrollto_Type_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
-                case Val_in: return ELM_TOOLBAR_ITEM_SCROLLTO_IN;
-                case Val_first: return ELM_TOOLBAR_ITEM_SCROLLTO_FIRST;
-                case Val_middle: return ELM_TOOLBAR_ITEM_SCROLLTO_MIDDLE;
-                case Val_last: return ELM_TOOLBAR_ITEM_SCROLLTO_LAST;
-                default: break;
-        }
-        caml_failwith("Elm_Toolbar_Scrollto_Type_val");
-        return ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
-}
-
 inline Elm_Toolbar_Item_Scrollto_Type
 Elm_Toolbar_Item_Scrollto_Type_val_list(value v)
 {

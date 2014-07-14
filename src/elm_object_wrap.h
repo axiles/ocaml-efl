@@ -3,8 +3,6 @@
 
 #include "include.h"
 
-inline Elm_Object_Select_Mode Elm_Object_Select_Mode_val(value v_m);
-
 inline value Val_Elm_Object_Select_Mode(Elm_Object_Select_Mode m);
 
 PREFIX Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(

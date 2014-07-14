@@ -297,7 +297,7 @@ val size_hint_set : t -> size_hint list -> unit
 
 (** {2 Extra Object Manipulation} *)
 
-type pointer_mode = [`autograb | `nograb | `no_grab_no_repeat_updown]
+type pointer_mode = [`autograb | `nograb | `nograb_no_repeat_updown]
 
 val pointer_mode_set : t -> pointer_mode -> unit
 

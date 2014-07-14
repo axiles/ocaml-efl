@@ -1,4 +1,4 @@
-type animation_setting = [`start | `loop | `stop | `last]
+type animation_settings = Henums.Elm_thumb.animation_settings
 
 external add : Evas.obj -> Evas.obj = "ml_elm_thumb_add"
 
@@ -55,10 +55,10 @@ external quality_set : Evas.obj -> int -> unit = "ml_elm_thumb_quality_set"
 
 external quality_get : Evas.obj -> int = "ml_elm_thumb_quality_get"
 
-external animate_set : Evas.obj -> animation_setting -> unit =
+external animate_set : Evas.obj -> animation_settings -> unit =
   "ml_elm_thumb_animate_set"
 
-external animate_get : Evas.obj -> animation_setting =
+external animate_get : Evas.obj -> animation_settings =
   "ml_elm_thumb_animate_get"
 
 external ethumb_client_connected_get : unit -> bool =
