@@ -2,18 +2,6 @@ module HE = Henums.Elm_fileselector
 
 type mode = HE.mode
 
-(*type sort = [
-  | `filename_asc
-  | `filename_desc
-  | `type_asc
-  | `type_desc
-  | `size_asc
-  | `size_desc
-  | `modified_asc
-  | `modified_desc
-  | `last
-]*)
-
 type sort = HE.sort
 
 type filter_func = string -> bool -> bool
