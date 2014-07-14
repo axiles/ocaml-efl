@@ -1,37 +1,5 @@
 #include "include.h"
 
-/*inline Elm_Image_Orient Elm_Image_Orient_val(value v_o)
-{
-        switch(v_o) {
-                case Val_orient_none: return ELM_IMAGE_ORIENT_NONE;
-                case Val_rotate_90: return ELM_IMAGE_ROTATE_90;
-                case Val_rotate_180: return ELM_IMAGE_ROTATE_180;
-                case Val_rotate_270: return ELM_IMAGE_ROTATE_270;
-                case Val_flip_horizontal: return ELM_IMAGE_FLIP_HORIZONTAL;
-                case Val_flip_vertical: return ELM_IMAGE_FLIP_VERTICAL;
-                case Val_flip_transpose: return ELM_IMAGE_FLIP_TRANSPOSE;
-                case Val_flip_transverse: return ELM_IMAGE_FLIP_TRANSVERSE;
-        }
-        caml_failwith("Elm_Image_Orient_val");
-        return ELM_IMAGE_ORIENT_NONE;
-}
-
-inline value Val_Elm_Image_Orient(value o)
-{
-        switch(o) {
-                case ELM_IMAGE_ORIENT_NONE: return Val_orient_none;
-                case ELM_IMAGE_ROTATE_90: return Val_rotate_90;
-                case ELM_IMAGE_ROTATE_180: return Val_rotate_180;
-                case ELM_IMAGE_ROTATE_270: return Val_rotate_270;
-                case ELM_IMAGE_FLIP_HORIZONTAL: return Val_flip_horizontal;
-                case ELM_IMAGE_FLIP_VERTICAL: return Val_flip_vertical;
-                case ELM_IMAGE_FLIP_TRANSPOSE: return Val_flip_transpose;
-                case ELM_IMAGE_FLIP_TRANSVERSE: return Val_flip_transverse;
-        }
-        caml_failwith("Val_Elm_Image_Orient");
-        return Val_orient_none;
-}*/
-
 PREFIX value ml_elm_image_add(value v_parent)
 {
         Evas_Object* obj = elm_image_add((Evas_Object*) v_parent);

@@ -18,19 +18,6 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         *data = v_data;
 }
 
-/*inline Elm_Gengrid_Item_Scrollto_Type
-Elm_Gengrid_Item_Scrollto_Type_val(value v)
-{
-        switch(v) {
-                case Val_none: return ELM_GENGRID_ITEM_SCROLLTO_NONE;
-                case Val_in: return ELM_GENGRID_ITEM_SCROLLTO_IN;
-                case Val_top: return ELM_GENGRID_ITEM_SCROLLTO_TOP;
-                case Val_middle: return ELM_GENGRID_ITEM_SCROLLTO_MIDDLE;
-        }
-        caml_failwith("Elm_Gengrid_Item_Scrollto_Type_val");
-        return ELM_GENGRID_ITEM_SCROLLTO_NONE;
-}*/
-
 PREFIX value ml_elm_gengrid_add(value v_parent)
 {
         Evas_Object* obj = elm_gengrid_add((Evas_Object*) v_parent);

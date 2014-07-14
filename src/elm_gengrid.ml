@@ -6,8 +6,6 @@ type item_class = Elm_gen.item_class = {
   func_del : Evas.obj -> unit;
 }
 
-(*type item_scrollto_type = [`none | `_in | `top | `middle]*)
-
 type item_scrollto_type = Henums.Elm_gengrid.item_scrollto_type
 
 external add : Evas.obj -> Evas.obj = "ml_elm_gengrid_add"

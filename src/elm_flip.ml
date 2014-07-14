@@ -1,27 +1,5 @@
 module HE = Henums.Elm_flip
 
-(*type mode = [
-  | `rotate_y_center_axis
-  | `rotate_x_center_axis
-  | `rotate_xz_center_axis
-  | `rotate_yz_center_axis
-  | `cube_left
-  | `cube_right
-  | `cube_up
-  | `cube_down
-  | `page_up
-  | `page_down
-  | `page_left
-  | `page_right]
-
-type interaction = [`none | `rotate | `cube | `page]
-
-type direction = [
-  | `up
-  | `down
-  | `left
-  | `right]*)
-
 type mode = HE.mode
 
 type interaction = HE.interaction

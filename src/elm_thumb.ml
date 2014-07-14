@@ -1,5 +1,3 @@
-(*type animation_setting = [`start | `loop | `stop | `last]*)
-
 type animation_settings = Henums.Elm_thumb.animation_settings
 
 external add : Evas.obj -> Evas.obj = "ml_elm_thumb_add"

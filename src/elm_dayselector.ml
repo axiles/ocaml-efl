@@ -1,5 +1,3 @@
-(*type day = [`sun | `mon | `tue | `wed | `thu | `fri | `sat | `max]*)
-
 type day = Henums.Elm_dayselector.day
 
 external add : Evas.obj -> Evas.obj = "ml_elm_dayselector_add"

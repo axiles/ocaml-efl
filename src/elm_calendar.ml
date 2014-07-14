@@ -1,27 +1,10 @@
 module HE = Henums.Elm_calendar
 
-(*type select_mode = [`default | `always | `none | `ondemand]
-
-type mark_repeat_type = [
-  `unique | `daily | `weekly | `monthly | `annually | `last_day_of_month]*)
-
 type select_mode = HE.select_mode
 
 type mark_repeat_type = HE.mark_repeat_type
 
 type mark
-
-(*type weekday = [
-  | `sunday
-  | `monday
-  | `tuesday
-  | `wednessday
-  | `thursday
-  | `friday
-  | `saturday
-  | `last]
-
-type selectable = [`year | `month | `day]*)
 
 type weekday = HE.weekday
 

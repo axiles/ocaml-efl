@@ -1,5 +1,3 @@
-(*type mode = [`list | `grid | `last]*)
-
 type mode = Henums.Elm_fileselector.mode
 
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"

@@ -1,7 +1,5 @@
 (** Colorselector *)
 
-(*type mode = [`palette | `components | `both | `picker | `all]*)
-
 type mode = [
 | `palette
 | `components

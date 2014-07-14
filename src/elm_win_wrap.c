@@ -1,138 +1,5 @@
 #include "include.h"
 
-/*inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
-{
-        switch(v_ty) {
-                case Val_basic: return ELM_WIN_BASIC;
-                case Val_dialog_basic: return ELM_WIN_DIALOG_BASIC;
-                case Val_desktop: return ELM_WIN_DESKTOP;
-                case Val_dock: return ELM_WIN_DOCK;
-                case Val_toolbar: return ELM_WIN_TOOLBAR;
-                case Val_menu: return ELM_WIN_MENU;
-                case Val_utility: return ELM_WIN_UTILITY;
-                case Val_splash: return ELM_WIN_SPLASH;
-                case Val_dropdown_menu: return ELM_WIN_DROPDOWN_MENU;
-                case Val_popup_menu: return ELM_WIN_POPUP_MENU;
-                case Val_tooltip: return ELM_WIN_TOOLTIP;
-                case Val_notification: return ELM_WIN_NOTIFICATION;
-                case Val_combo: return ELM_WIN_COMBO;
-                case Val_dnd: return ELM_WIN_DND;
-                case Val_inlined_image: return ELM_WIN_INLINED_IMAGE;
-                case Val_socket_image: return ELM_WIN_SOCKET_IMAGE;
-        }
-        caml_failwith("Elm_Win_Type_val");
-        return ELM_WIN_BASIC;
-}
-
-inline Elm_Win_Keyboard_Mode Elm_Win_Keyboard_Mode_val(value v_mode)
-{
-        switch(v_mode) {
-                case Val_unknown: return ELM_WIN_KEYBOARD_UNKNOWN;
-                case Val_off: return ELM_WIN_KEYBOARD_OFF;
-                case Val_on: return ELM_WIN_KEYBOARD_ON;
-                case Val_alpha: return ELM_WIN_KEYBOARD_ALPHA;
-                case Val_numeric: return ELM_WIN_KEYBOARD_NUMERIC;
-                case Val_pin: return ELM_WIN_KEYBOARD_PIN;
-                case Val_phone_number: return ELM_WIN_KEYBOARD_PHONE_NUMBER;
-                case Val_hex: return ELM_WIN_KEYBOARD_HEX;
-                case Val_terminal: return ELM_WIN_KEYBOARD_TERMINAL;
-                case Val_password: return ELM_WIN_KEYBOARD_PASSWORD;
-                case Val_ip: return ELM_WIN_KEYBOARD_IP;
-                case Val_host: return ELM_WIN_KEYBOARD_HOST;
-                case Val_file: return ELM_WIN_KEYBOARD_FILE;
-                case Val_url: return ELM_WIN_KEYBOARD_URL;
-                case Val_keypad: return ELM_WIN_KEYBOARD_KEYPAD;
-                case Val_j2me: return ELM_WIN_KEYBOARD_J2ME;
-        }
-        caml_failwith("Elm_Win_Keyboard_Mode");
-        return ELM_WIN_KEYBOARD_UNKNOWN;
-}
-
-inline value Val_Elm_Win_Keyboard_Mode(Elm_Win_Keyboard_Mode mode)
-{
-        switch(mode) {
-                case ELM_WIN_KEYBOARD_UNKNOWN: return Val_unknown;
-                case ELM_WIN_KEYBOARD_OFF: return Val_off;
-                case ELM_WIN_KEYBOARD_ON: return Val_on;
-                case ELM_WIN_KEYBOARD_ALPHA: return Val_alpha;
-                case ELM_WIN_KEYBOARD_NUMERIC: return Val_numeric;
-                case ELM_WIN_KEYBOARD_PIN: return Val_pin;
-                case ELM_WIN_KEYBOARD_PHONE_NUMBER: return Val_phone_number;
-                case ELM_WIN_KEYBOARD_HEX: return Val_hex;
-                case ELM_WIN_KEYBOARD_TERMINAL: return Val_terminal;
-                case ELM_WIN_KEYBOARD_PASSWORD: return Val_password;
-                case ELM_WIN_KEYBOARD_IP: return Val_ip;
-                case ELM_WIN_KEYBOARD_HOST: return Val_host;
-                case ELM_WIN_KEYBOARD_FILE: return Val_file;
-                case ELM_WIN_KEYBOARD_URL: return Val_url;
-                case ELM_WIN_KEYBOARD_KEYPAD: return Val_keypad;
-                case ELM_WIN_KEYBOARD_J2ME: return Val_j2me;
-        }
-        caml_failwith("Val_Elm_Win_Keyboard_Mode");
-        return Val_unknown;
-}
-
-inline Elm_Win_Indicator_Mode Elm_Win_Indicator_Mode_val(value v_mode)
-{
-        switch(v_mode) {
-                case Val_unknown: return ELM_WIN_INDICATOR_UNKNOWN;
-                case Val_hide: return ELM_WIN_INDICATOR_HIDE;
-                case Val_show: return ELM_WIN_INDICATOR_SHOW;
-        }
-        caml_failwith("Elm_Win_Indicator_Mode_val");
-        return ELM_WIN_INDICATOR_UNKNOWN;
-}
-
-inline value Val_Elm_Win_Indicator_Mode(Elm_Win_Indicator_Mode mode)
-{
-        switch(mode) {
-                case ELM_WIN_INDICATOR_UNKNOWN: return Val_unknown;
-                case ELM_WIN_INDICATOR_HIDE: return Val_hide;
-                case ELM_WIN_INDICATOR_SHOW: return Val_show;
-        }
-        caml_failwith("Val_Elm_Indicator_Mode");
-        return Val_unknown;
-}
-
-inline Elm_Win_Indicator_Opacity_Mode
-Elm_Win_Indicator_Opacity_Mode_val(value v_mode)
-{
-        switch(v_mode) {
-                case Val_opacity_unknown:
-                        return ELM_WIN_INDICATOR_OPACITY_UNKNOWN;
-                case Val_opaque: return ELM_WIN_INDICATOR_OPAQUE;
-                case Val_translucent: return ELM_WIN_INDICATOR_TRANSLUCENT;
-                case Val_transparent: return ELM_WIN_INDICATOR_TRANSPARENT;
-        }
-        caml_failwith("Elm_Win_Indicator_Opacity_Mode");
-        return ELM_WIN_INDICATOR_OPACITY_UNKNOWN;
-}
-
-inline value
-Val_Elm_Win_Indicator_Opacity_Mode(Elm_Win_Indicator_Opacity_Mode mode)
-{
-        switch(mode) {
-                case ELM_WIN_INDICATOR_OPACITY_UNKNOWN:
-                        return Val_opacity_unknown;
-                case ELM_WIN_INDICATOR_OPAQUE: return Val_opaque;
-                case ELM_WIN_INDICATOR_TRANSLUCENT: return Val_translucent;
-                case ELM_WIN_INDICATOR_TRANSPARENT: return Val_transparent;
-        }
-        caml_failwith("Val_Elm_Win_Indicator_Opacity_Mode");
-}*/
-
-/*inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
-{
-        switch(v_c) {
-                case Val_focus_back: return ELM_ILLUME_COMMAND_FOCUS_BACK;
-                case Val_focus_forward: return ELM_ILLUME_COMMAND_FOCUS_FORWARD;
-                case Val_focus_home: return ELM_ILLUME_COMMAND_FOCUS_HOME;
-                case Val_close: return ELM_ILLUME_COMMAND_CLOSE;
-        }
-        caml_failwith("Elm_Illume_Command_val");
-        return ELM_ILLUME_COMMAND_FOCUS_BACK;
-}*/
-
 PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
 {
         Evas_Object* parent;
@@ -348,7 +215,8 @@ PREFIX value ml_elm_win_available_profiles_set(value v_obj, value v_profiles)
         for(i = 0; i < size; i++) {
                 profiles[i] = String_val(Field(v_profiles, i));
         }
-        elm_win_available_profiles_set((Evas_Object*) v_obj, (const char**) profiles, size);
+        elm_win_available_profiles_set((Evas_Object*) v_obj,
+                (const char**) profiles, size);
         return Val_unit;
 }
 

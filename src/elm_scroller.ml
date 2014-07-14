@@ -1,15 +1,5 @@
 module HE = Henums.Elm_scroller
 
-(*type policy = [`auto | `on | `off]
-
-type single_direction = [`none | `soft | `hard | `last]
-
-type movement_block = [
-  | `no_block
-  | `block_vertical
-  | `block_horizontal
-  | `block_vertical_horizontal]*)
-
 type policy = HE.policy
 
 type single_direction = HE.single_direction

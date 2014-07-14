@@ -1,27 +1,5 @@
 #include "include.h"
 
-/*inline Elm_Fileselector_Mode Elm_Fileselector_Mode_val(value v_mode)
-{
-        switch(v_mode) {
-                case Val_list: return ELM_FILESELECTOR_LIST;
-                case Val_grid: return ELM_FILESELECTOR_GRID;
-                case Val_last: return ELM_FILESELECTOR_LAST;
-        }
-        caml_failwith("Elm_FileSelector_Mode_val");
-        return ELM_FILESELECTOR_LIST;
-}
-
-inline value Val_Elm_Fileselector_Mode(Elm_Fileselector_Mode mode)
-{
-        switch(mode) {
-                case ELM_FILESELECTOR_LIST: return Val_list;
-                case ELM_FILESELECTOR_GRID: return Val_grid;
-                case ELM_FILESELECTOR_LAST: return Val_last;
-        }
-        caml_failwith("Val_Elm_Fileselector_Mode");
-        return Val_list;
-}*/
-
 PREFIX value ml_elm_fileselector_add(value v_parent)
 {
         Evas_Object* obj = elm_fileselector_add((Evas_Object*) v_parent);

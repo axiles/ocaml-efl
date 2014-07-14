@@ -1,13 +1,3 @@
-(*type orient = [
-  | `orient_none
-  | `rotate_90
-  | `rotate_180
-  | `rotate_270
-  | `flip_horizontal
-  | `flip_vertical
-  | `flip_transpose
-  | `flip_transverse]*)
-
 type orient = Henums.Elm_image.orient
 
 external add : Evas.obj -> Evas.obj = "ml_elm_image_add"

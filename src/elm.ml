@@ -11,23 +11,9 @@ external coords_finger_size_adjust : int -> int -> int * int =
 
 (* Focus *)
 
-(*type focus_direction = [
-  `previous |
-  `next |
-  `up |
-  `down |
-  `right |
-  `left]*)
-
 type focus_direction = HE.focus_direction
 
 (* General *)
-
-(*type policy_quit = [`none | `last_window_closed]
-
-type policy_exit = [`none | `windows_del]
-
-type policy_throttle = [`config | `hidden_always | `never]*)
 
 type policy_quit = HE.policy_quit
 
@@ -73,25 +59,7 @@ let connect = Evas_object_smart.create_sig_with_cb
 
 (* Gesture Layer *)
 
-(*type gesture_type = [
-  | `n_taps
-  | `n_long_taps
-  | `n_double_taps
-  | `n_triple_taps
-  | `momentum
-  | `n_lines
-  | `n_flicks
-  | `zoom
-  | `rotate]*)
-
 type gesture_type = HE.gesture_type
-
-(*type gesture_state = [
-  | `undefined
-  | `start
-  | `move
-  | `_end
-  | `abort]*)
 
 type gesture_state = HE.gesture_state
 
@@ -172,44 +140,6 @@ external need_web : unit -> bool = "ml_elm_need_web"
 
 (* Entry *)
 
-(*type wrap_type = [`none | `char | `word | `mixed]
-
-type text_format = [`plain_utf8 | `markup_utf8]
-
-type input_panel_layout = [
-  | `normal
-  | `number
-  | `email
-  | `url
-  | `phonenumber
-  | `ip
-  | `month
-  | `numberonly
-  | `invalid
-  | `hex
-  | `terminal
-  | `password
-  | `datetime
-]
-
-type autocapital_type = [`none | `word | `sentence | `allcharacter]
-
-type input_panel_lang = [`automatic | `alphabet]
-
-type input_panel_return_key_type = [
-  | `default
-  | `_done
-  | `go
-  | `join
-  | `login
-  | `next
-  | `search
-  | `send
-  | `signin
-]
-
-type cnp_mode = [`markup | `no_image | `plaintext]*)
-
 type text_format = HE.text_format
 
 type wrap_type = HE.wrap_type
@@ -225,8 +155,6 @@ type input_panel_return_key_type = HE.input_panel_return_key_type
 type cnp_mode = HE.cnp_mode
 
 (* Window *)
-
-(*type illume_command = [`focus_back | `focus_forward | `focus_home | `close]*)
 
 type illume_command = HE.illume_command
 

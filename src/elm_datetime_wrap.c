@@ -1,20 +1,5 @@
 #include "include.h"
 
-/*inline Elm_Datetime_Field_Type Elm_Datetime_Field_Type_val(value v)
-{
-        switch(v) {
-                case Val_year: return ELM_DATETIME_YEAR;
-                case Val_month: return ELM_DATETIME_MONTH;
-                case Val_date: return ELM_DATETIME_DATE;
-                case Val_hour: return ELM_DATETIME_HOUR;
-                case Val_minute: return ELM_DATETIME_MINUTE;
-                case Val_ampm: return ELM_DATETIME_AMPM;
-                default: break;
-        }
-        caml_failwith("Elm_Datetime_Field_Type_val");
-        return ELM_DATETIME_YEAR;
-}*/
-
 PREFIX value ml_elm_datetime_add(value v_parent)
 {
         Evas_Object* datetime = elm_datetime_add((Evas_Object*) v_parent);

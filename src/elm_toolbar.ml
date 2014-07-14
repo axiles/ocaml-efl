@@ -2,22 +2,6 @@ module HE = Henums.Elm_toolbar
 
 type item_state
 
-(*type shrink_mode = [
-  | `none
-  | `hide
-  | `scroll
-  | `menu
-  | `expand
-  | `last]
-
-type item_scrollto_type = [
-  | `none
-  | `_in
-  | `first
-  | `middle
-  | `last
-]*)
-
 type shrink_mode = HE.shrink_mode
 
 type item_scrollto_type = HE.item_scrollto_type

@@ -1,11 +1,5 @@
 module HE = Henums.Elm_glview
 
-(*type mode = [`none | `alpha | `depth | `stencil | `direct]
-
-type resize_policy = [`recreate | `scale]
-
-type render_policy = [`on_demand | `always]*)
-
 type mode = HE.mode
 
 type resize_policy = HE.resize_policy

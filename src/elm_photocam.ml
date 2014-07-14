@@ -1,5 +1,3 @@
-(*type zoom_mode = [`manual | `auto_fit | `auto_fill | `auto_fit_in | `last]*)
-
 type zoom_mode = Henums.Elm_photocam.zoom_mode
 
 type progress = {now : float; total : float}

@@ -1,48 +1,5 @@
 #include "include.h"
 
-/*inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
-{
-        switch(t) {
-                case ELM_MAP_OVERLAY_TYPE_NONE: return Val_none;
-                case ELM_MAP_OVERLAY_TYPE_DEFAULT: return Val_default;
-                case ELM_MAP_OVERLAY_TYPE_CLASS: return Val_class;
-                case ELM_MAP_OVERLAY_TYPE_GROUP: return Val_group;
-                case ELM_MAP_OVERLAY_TYPE_BUBBLE: return Val_bubble;
-                case ELM_MAP_OVERLAY_TYPE_ROUTE: return Val_route;
-                case ELM_MAP_OVERLAY_TYPE_LINE: return Val_line;
-                case ELM_MAP_OVERLAY_TYPE_POLYGON: return Val_polygon;
-                case ELM_MAP_OVERLAY_TYPE_CIRCLE: return Val_circle;
-                case ELM_MAP_OVERLAY_TYPE_SCALE: return Val_scale;
-        }
-        caml_failwith("Val_elm_Map_Overlay_Type");
-        return Val_none;
-}
-
-inline Elm_Map_Zoom_Mode Elm_Map_Zoom_Mode_val(value v)
-{
-        switch(v) {
-                case Val_manual: return ELM_MAP_ZOOM_MODE_MANUAL;
-                case Val_auto_fit: return ELM_MAP_ZOOM_MODE_AUTO_FIT;
-                case Val_auto_fill: return ELM_MAP_ZOOM_MODE_AUTO_FILL;
-                case Val_last: return ELM_MAP_ZOOM_MODE_LAST;
-                default: break;
-        }
-        caml_failwith("Elm_Map_Zoom_Mode_val");
-        return ELM_MAP_ZOOM_MODE_MANUAL;
-}
-
-inline value Val_Elm_Map_Zoom_Mode(Elm_Map_Zoom_Mode m)
-{
-        switch(m) {
-                case ELM_MAP_ZOOM_MODE_MANUAL: return Val_manual;
-                case ELM_MAP_ZOOM_MODE_AUTO_FIT: return Val_auto_fit;
-                case ELM_MAP_ZOOM_MODE_AUTO_FILL: return Val_auto_fill;
-                case ELM_MAP_ZOOM_MODE_LAST: return Val_last;
-        }
-        caml_failwith("Val_Elm_Map_Zoom_Mode");
-        return Val_manual;
-}*/
-
 inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
 {
         CAMLparam0();
@@ -76,41 +33,6 @@ void ml_Elm_Map_Overlay_Get_Cb(
         value* v_fun = (value*) data;
         caml_callback2(*v_fun, (value) map, (value) overlay);
 }
-
-/*inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
-{
-        switch(v) {
-                case Val_tile: return ELM_MAP_SOURCE_TYPE_TILE;
-                case Val_route: return ELM_MAP_SOURCE_TYPE_ROUTE;
-                case Val_name: return ELM_MAP_SOURCE_TYPE_NAME;
-                default: break;
-        }
-        caml_failwith("Elm_Map_Source_Type_val");
-        return ELM_MAP_SOURCE_TYPE_TILE;
-}
-
-inline Elm_Map_Route_Type Elm_Map_Route_Type_val(value v)
-{
-        switch(v) {
-                case Val_motocar: return ELM_MAP_ROUTE_TYPE_MOTOCAR;
-                case Val_bicycle: return ELM_MAP_ROUTE_TYPE_BICYCLE;
-                case Val_foot: return ELM_MAP_ROUTE_TYPE_FOOT;
-                default: break;
-        }
-        caml_failwith("Elm_Map_Route_Type_val");
-        return ELM_MAP_ROUTE_TYPE_MOTOCAR;
-}
-
-inline Elm_Map_Route_Method Elm_Map_Route_Method_val(value v)
-{
-        switch(v) {
-                case Val_fastest: return ELM_MAP_ROUTE_METHOD_FASTEST;
-                case Val_shortest: return ELM_MAP_ROUTE_METHOD_SHORTEST;
-                default: break;
-        }
-        caml_failwith("Elm_Map_Route_Method_val");
-        return ELM_MAP_ROUTE_METHOD_FASTEST;
-}*/
 
 void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
 {
