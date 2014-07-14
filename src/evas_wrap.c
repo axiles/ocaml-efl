@@ -95,7 +95,7 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
         CAMLreturn(v);
 }
 
-inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
+/*inline Evas_Aspect_Control Evas_Aspect_Control_val(value v)
 {
         switch(v) {
                 case Val_none: return EVAS_ASPECT_CONTROL_NONE;
@@ -119,7 +119,7 @@ inline value Val_Evas_Aspect_Control(Evas_Aspect_Control ac)
         }
         caml_failwith("Val_Evas_Aspect_Control");
         return Val_none;
-}
+}*/
 
 PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
 {
@@ -173,7 +173,7 @@ PREFIX value ml_float_of_ptr(value v_ptr)
         return copy_double(*x);
 }
 
-inline Evas_Load_Error Evas_Load_Error_val(value v)
+/*inline Evas_Load_Error Evas_Load_Error_val(value v)
 {
         switch(v) {
                 case Val_none: return EVAS_LOAD_ERROR_NONE;
@@ -207,7 +207,7 @@ inline value Val_Evas_Load_Error(Evas_Load_Error e)
         }
         caml_failwith("Val_Evas_Load_Error");
         return Val_none;
-}
+}*/
 
 void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* v_obj, void* event_info)
@@ -218,7 +218,7 @@ void ml_Evas_Smart_Cb_on_del(
 
 /* Top Level Functions */
 
-inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
+/*inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
 {
         switch(e) {
                 case EVAS_ALLOC_ERROR_NONE: return Val_none;
@@ -227,7 +227,7 @@ inline value Val_Evas_Alloc_Error(Evas_Alloc_Error e)
         }
         caml_failwith("Val_Evas_Alloc_Error");
         return Val_none;
-}
+}*/
 
 PREFIX value ml_evas_init(value v_unit)
 {

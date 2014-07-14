@@ -1,6 +1,6 @@
 (*type mode = [`palette | `components | `both | `picker | `all]*)
 
-type mode = Henums.Colorselector.mode
+type mode = Henums.Elm_colorselector.mode
 
 external add : Evas.obj -> Evas.obj = "ml_elm_colorselector_add"
 

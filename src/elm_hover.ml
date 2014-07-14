@@ -1,4 +1,6 @@
-type axis = [`none | `horizontal | `vertical | `both]
+(*type axis = [`none | `horizontal | `vertical | `both]*)
+
+type axis = Henums.Elm_hover.axis
 
 external add : Evas.obj -> Evas.obj = "ml_elm_hover_add"
 

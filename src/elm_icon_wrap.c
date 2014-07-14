@@ -1,6 +1,6 @@
 #include "elm_icon_wrap.h"
 
-inline Elm_Icon_Type Elm_Icon_Type_val(value v)
+/*inline Elm_Icon_Type Elm_Icon_Type_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_ICON_NONE;
@@ -44,7 +44,7 @@ inline value Val_Elm_Icon_Lookup_Order(Elm_Icon_Lookup_Order o)
         }
         caml_failwith("Val_Elm_Icon_Lookup_Order");
         return Val_fdo_theme;
-}
+}*/
 
 PREFIX value ml_elm_icon_add(value v_parent)
 {

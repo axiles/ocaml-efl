@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
+/*inline Elm_Scroller_Policy Elm_Scroller_Policy_val(value v)
 {
         switch(v) {
                 case Val_auto: return ELM_SCROLLER_POLICY_AUTO;
@@ -81,6 +81,26 @@ inline value Val_Elm_Scroller_Movement_Block(
         if(bh) return Val_block_horizontal;
         caml_failwith("Val_Elm_Scroller_Movement_Block");
         return Val_no_block;
+}*/
+
+inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val_list(
+        value v_list)
+{
+        value v = v_list;
+        Elm_Scroller_Movement_Block r = ELM_SCROLLER_MOVEMENT_NO_BLOCK;
+        while(v != Val_int(0)) {
+                r = r | Elm_Scroller_Movement_Block_val(Field(v, 0));
+                v = Field(v, 1);
+        }
+        return r;
+}
+
+inline value copy_Elm_Scroller_Movement_Block(Elm_Scroller_Movement_Block m)
+{
+        value v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_bool(m & ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL));
+        Store_field(v, 1, Val_bool(m & ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL));
+        return v;
 }
 
 PREFIX value ml_elm_scroller_add(value v_parent)
@@ -325,13 +345,13 @@ PREFIX value ml_elm_scroller_gravity_get(value v_obj)
 PREFIX value ml_elm_scroller_movement_block_set(value v_obj, value v_mb)
 {
         elm_scroller_movement_block_set((Evas_Object*) v_obj,
-                Elm_Scroller_Movement_Block_val(v_mb));
+                Elm_Scroller_Movement_Block_val_list(v_mb));
         return Val_unit;
 }
 
 PREFIX value ml_elm_scroller_movement_block_get(value v_obj)
 {
-        return Val_Elm_Scroller_Movement_Block(elm_scroller_movement_block_get(
+        return copy_Elm_Scroller_Movement_Block(elm_scroller_movement_block_get(
                 (Evas_Object*) v_obj));
 }
 

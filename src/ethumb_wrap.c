@@ -1,6 +1,6 @@
 #include "ethumb_wrap.h"
 
-inline Ethumb_Thumb_Aspect Ethumb_Thumb_Aspect_val(value v)
+/*inline Ethumb_Thumb_Aspect Ethumb_Thumb_Aspect_val(value v)
 {
         switch(v) {
                 case Val_keep_aspect: return ETHUMB_THUMB_KEEP_ASPECT;
@@ -100,5 +100,5 @@ inline value Val_Ethumb_Thumb_Orientation(Ethumb_Thumb_Orientation o)
         }
         caml_failwith("Val_Ethumb_Thumb_Orientation");
         return Val_orient_none;
-}
+}*/
 

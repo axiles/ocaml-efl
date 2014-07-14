@@ -1,9 +1,11 @@
-type direction = [
+(*type direction = [
   | `down
   | `right
   | `left
   | `up
-  | `unknown]
+  | `unknown]*)
+
+type direction = Henums.Elm_ctxpopup.direction
 
 external add : Evas.obj -> Evas.obj = "ml_elm_ctxpopup_add"
 

@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Bg_Option Elm_Bg_Option_val(value v_o)
+/*inline Elm_Bg_Option Elm_Bg_Option_val(value v_o)
 {
         switch(v_o) {
                 case Val_center: return ELM_BG_OPTION_CENTER;
@@ -24,7 +24,7 @@ inline value Val_Elm_Bg_Option(Elm_Bg_Option o)
         }
         caml_failwith("Val_Elm_Bg_Option");
         return Val_center;
-}
+}*/
 
 PREFIX value ml_elm_bg_add(value v_parent)
 {

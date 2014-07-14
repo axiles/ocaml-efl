@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_GLView_Mode Elm_GLView_Mode_val(value v)
+/*inline Elm_GLView_Mode Elm_GLView_Mode_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_GLVIEW_NONE;
@@ -12,7 +12,7 @@ inline Elm_GLView_Mode Elm_GLView_Mode_val(value v)
         }
         caml_failwith("Elm_GLView_Mode_val");
         return ELM_GLVIEW_NONE;
-}
+}*/
 
 inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
 {
@@ -25,7 +25,7 @@ inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
         return m;
 }
 
-inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
+/*inline Elm_GLView_Resize_Policy Elm_GLView_Resize_Policy_val(value v)
 {
         switch(v) {
                 case Val_recreate: return ELM_GLVIEW_RESIZE_POLICY_RECREATE;
@@ -45,7 +45,7 @@ inline Elm_GLView_Render_Policy Elm_GLView_Render_Policy_val(value v)
         }
         caml_failwith("Elm_GLView_Render_Policy_val");
         return ELM_GLVIEW_RENDER_POLICY_ON_DEMAND;
-}
+}*/
 
 void ml_Elm_GLView_Func_Cb_init(Evas_Object* obj)
 {

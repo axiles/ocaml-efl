@@ -62,6 +62,7 @@ val connect : 'a Evas.Signal.t -> 'a -> Evas_object_smart.sig_with_cb
 (** {2 Gesture Layer} *)
 
 type gesture_type = [
+  | `first
   | `n_taps
   | `n_long_taps
   | `n_double_taps
@@ -70,7 +71,8 @@ type gesture_type = [
   | `n_lines
   | `n_flicks
   | `zoom
-  | `rotate]
+  | `rotate
+  | `last]
 
 type gesture_state = [
   | `undefined
@@ -154,11 +156,11 @@ val need_ethumb : unit -> bool
 
 val need_web : unit -> bool
 
-(** Entry *)
+(** {2 Entry} *)
 
 type text_format = [`plain_utf8 | `markup_utf8]
 
-type wrap_type = [`none | `char | `word | `mixed]
+type wrap_type = [`none | `char | `word | `mixed | `last]
 
 type input_panel_layout = [
   | `normal

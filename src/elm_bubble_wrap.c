@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Bubble_Pos Elm_Bubble_Pos_val(value v)
+/*inline Elm_Bubble_Pos Elm_Bubble_Pos_val(value v)
 {
         switch(v) {
                 case Val_invalid: return ELM_BUBBLE_POS_INVALID;
@@ -26,7 +26,7 @@ inline value Val_Elm_Bubble_Pos(Elm_Bubble_Pos p)
         }
         caml_failwith("Val_Elm_Bubble_Pos");
         return Val_invalid;
-}
+}*/
 
 PREFIX value ml_elm_bubble_add(Evas_Object* v_parent)
 {

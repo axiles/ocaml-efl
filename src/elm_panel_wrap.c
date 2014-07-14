@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Panel_Orient Elm_Panel_Orient_val(value v)
+/*inline Elm_Panel_Orient Elm_Panel_Orient_val(value v)
 {
         switch(v) {
                 case Val_top: return ELM_PANEL_ORIENT_TOP;
@@ -23,7 +23,7 @@ inline value Val_Elm_Panel_Orient(Elm_Panel_Orient o)
         }
         caml_failwith("Val_Elm_Panel_Orient");
         return Val_top;
-}
+}*/
 
 PREFIX value ml_elm_panel_add(value v_parent)
 {

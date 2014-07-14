@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Gesture_Type Elm_Gesture_Type_val(value v)
+/*inline Elm_Gesture_Type Elm_Gesture_Type_val(value v)
 {
         switch(v) {
                 case Val_n_taps: return ELM_GESTURE_N_TAPS;
@@ -30,7 +30,7 @@ inline Elm_Gesture_State Elm_Gesture_State_val(value v)
         }
         caml_failwith("Elm_Gesture_State_val");
         return ELM_GESTURE_STATE_UNDEFINED;
-}
+}*/
 
 PREFIX value ml_Elm_Gesture_Taps_Info_of_ptr(value v_ptr)
 {

@@ -1,4 +1,7 @@
-type pos = [`invalid | `top_left | `top_right | `bottom_left | `bottom_right]
+(*type pos = [`invalid | `top_left | `top_right | `bottom_left | `bottom_right]
+ *)
+
+type pos = Henums.Elm_bubble.pos
 
 external add : Evas.obj -> Evas.obj = "ml_elm_bubble_add"
 

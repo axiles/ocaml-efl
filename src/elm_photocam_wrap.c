@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Photocam_Zoom_Mode Elm_Photocam_Zoom_Mode_val(value v)
+/*inline Elm_Photocam_Zoom_Mode Elm_Photocam_Zoom_Mode_val(value v)
 {
         switch(v) {
                 case Val_manual: return ELM_PHOTOCAM_ZOOM_MODE_MANUAL;
@@ -25,7 +25,7 @@ inline value Val_Elm_Photocam_Zoom_Mode(Elm_Photocam_Zoom_Mode m)
         }
         caml_failwith("Val_Elm_Photocam_Zoom_Mode");
         return Val_manual;
-}
+}*/
 
 PREFIX value ml_elm_photocam_add(value v_parent)
 {

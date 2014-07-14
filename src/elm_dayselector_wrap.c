@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Dayselector_Day Elm_Dayselector_Day_val(value v)
+/*inline Elm_Dayselector_Day Elm_Dayselector_Day_val(value v)
 {
         switch(v) {
                 case Val_sun: return ELM_DAYSELECTOR_SUN;
@@ -31,7 +31,7 @@ inline value Val_Elm_Dayselector_Day(Elm_Dayselector_Day d)
         }
         caml_failwith("Val_Elm_Dayselector_Day");
         return Val_sun;
-}
+}*/
 
 PREFIX value ml_elm_dayselector_add(value v_parent)
 {

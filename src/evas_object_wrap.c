@@ -333,7 +333,7 @@ PREFIX value ml_evas_object_map_get(value v_obj)
 
 /* Size Hints */
 
-inline Evas_Display_Mode Evas_Display_Mode_val(value v)
+/*inline Evas_Display_Mode Evas_Display_Mode_val(value v)
 {
         switch(v) {
                 case Val_none: return EVAS_DISPLAY_MODE_NONE;
@@ -355,7 +355,7 @@ inline value Val_Evas_Display_Mode(Evas_Display_Mode m)
         }
         caml_failwith("Val_Evas_Display_Mode");
         return Val_none;
-}
+}*/
 
 PREFIX value ml_evas_object_size_hint_min_get(value v_obj)
 {
@@ -504,7 +504,7 @@ PREFIX value ml_evas_object_size_hint_padding_set(
 
 /* Extra Object Manipulation */
 
-inline Evas_Object_Pointer_Mode Evas_Object_Pointer_Mode_val(value v)
+/*inline Evas_Object_Pointer_Mode Evas_Object_Pointer_Mode_val(value v)
 {
         switch(v) {
                 case Val_autograb: return EVAS_OBJECT_POINTER_MODE_AUTOGRAB;
@@ -526,9 +526,9 @@ inline value Val_Evas_Object_Pointer_Mode(Evas_Object_Pointer_Mode m)
         }
         caml_failwith("Val_Evas_Object_Pointer_Mode");
         return Val_autograb;
-}
+}*/
 
-inline Evas_Render_Op Evas_Render_Op_val(value v)
+/*inline Evas_Render_Op Evas_Render_Op_val(value v)
 {
         switch(v) {
                 case Val_blend: return EVAS_RENDER_BLEND;
@@ -566,7 +566,7 @@ inline value Val_Evas_Render_Op(Evas_Render_Op op)
         }
         caml_failwith("Val_Evas_Render_Op");
         return Val_blend;
-}
+}*/
 
 PREFIX value ml_evas_object_pointer_mode_set(value v_obj, value v_m)
 {

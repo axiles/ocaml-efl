@@ -1,3 +1,5 @@
+module HE = Henums.Elm_genlist
+
 type item_class = Elm_gen.item_class = {
   item_style : string;
   func_text_get : Evas.obj -> string -> string;
@@ -6,11 +8,17 @@ type item_class = Elm_gen.item_class = {
   func_del : Evas.obj -> unit;
 }
 
-type item_type = [`none | `tree | `group]
+(*type item_type = [`none | `tree | `group]
 
 type item_field_type = [`all | `text | `content | `state]
 
-type item_scrollto_type = [`none | `_in | `top | `middle]
+type item_scrollto_type = [`none | `_in | `top | `middle]*)
+
+type item_type = HE.item_type
+
+type item_field_type = HE.item_field_type
+
+type item_scrollto_type = HE.item_scrollto_type
 
 external add : Evas.obj -> Evas.obj = "ml_elm_genlist_add"
 

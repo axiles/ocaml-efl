@@ -1,4 +1,4 @@
-type orient = [
+(*type orient = [
   | `top
   | `centre
   | `bottom
@@ -8,7 +8,9 @@ type orient = [
   | `top_right
   | `bottom_left
   | `bottom_right
-  | `last]
+  | `last]*)
+
+type orient = Henums.Elm_popup.orient
 
 external add : Evas.obj -> Evas.obj = "ml_elm_popup_add"
 

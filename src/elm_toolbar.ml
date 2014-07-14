@@ -1,6 +1,8 @@
+module HE = Henums.Elm_toolbar
+
 type item_state
 
-type shrink_mode = [
+(*type shrink_mode = [
   | `none
   | `hide
   | `scroll
@@ -14,7 +16,11 @@ type item_scrollto_type = [
   | `first
   | `middle
   | `last
-]
+]*)
+
+type shrink_mode = HE.shrink_mode
+
+type item_scrollto_type = HE.item_scrollto_type
 
 external add : Evas.obj -> Evas.obj = "ml_elm_toolbar_add"
 

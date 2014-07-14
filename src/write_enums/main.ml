@@ -24,9 +24,11 @@ end = struct
     c : string;
     macro : string;
   }
+  let keywords = ["end"; "done"; "in"; "class"]
   let create c n =
     let ml = String.lowercase (String.sub c n (String.length c - n)) in
     let macro = sprintf "Val_%s" ml in
+    let ml = if List.mem ml keywords then sprintf "_%s" ml else ml in
     {ml; c; macro}
   let compare v1 v2 = compare v1.c v2.c
 end

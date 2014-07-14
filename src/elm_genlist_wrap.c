@@ -18,7 +18,7 @@ PREFIX void ml_Elm_Genlist_Item_Class(
         *data = v_data;
 }
 
-inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
+/*inline Elm_Genlist_Item_Type Elm_Genlist_Item_Type_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_GENLIST_ITEM_NONE;
@@ -65,7 +65,7 @@ Elm_Genlist_Item_Scrollto_Type_val(value v)
         }
         caml_failwith("Elm_Genlist_Item_Scrollto_Type_val");
         return ELM_GENLIST_ITEM_SCROLLTO_NONE;
-}
+}*/
 
 PREFIX value ml_elm_genlist_add(value v_parent)
 {

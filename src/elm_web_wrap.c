@@ -149,7 +149,7 @@ void ml_Elm_Web_Console_Message(
         CAMLreturn0;
 }
 
-inline Elm_Web_Zoom_Mode Elm_Web_Zoom_Mode_val(value v)
+/*inline Elm_Web_Zoom_Mode Elm_Web_Zoom_Mode_val(value v)
 {
         switch(v) {
                 case Val_manual: return ELM_WEB_ZOOM_MODE_MANUAL;
@@ -211,7 +211,7 @@ inline value Val_Elm_Web_Menu_Item_Type(Elm_Web_Menu_Item_Type t)
         }
         caml_failwith("Val_Elm_Web_Menu_Item_Type");
         return Val_separator;
-}
+}*/
 
 inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
 {

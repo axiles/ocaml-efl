@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Flip_Mode Elm_Flip_Mode_val(value v)
+/*inline Elm_Flip_Mode Elm_Flip_Mode_val(value v)
 {
         switch(v) {
                 case Val_rotate_y_center_axis:
@@ -71,7 +71,7 @@ inline value Val_Elm_Flip_Direction(Elm_Flip_Direction d)
                 case ELM_FLIP_DIRECTION_RIGHT: return Val_right;
         }
         return Val_up;
-}
+}*/
 
 PREFIX value ml_elm_flip_add(value v_parent)
 {

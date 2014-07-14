@@ -18,7 +18,7 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         *data = v_data;
 }
 
-inline Elm_Gengrid_Item_Scrollto_Type
+/*inline Elm_Gengrid_Item_Scrollto_Type
 Elm_Gengrid_Item_Scrollto_Type_val(value v)
 {
         switch(v) {
@@ -29,7 +29,7 @@ Elm_Gengrid_Item_Scrollto_Type_val(value v)
         }
         caml_failwith("Elm_Gengrid_Item_Scrollto_Type_val");
         return ELM_GENGRID_ITEM_SCROLLTO_NONE;
-}
+}*/
 
 PREFIX value ml_elm_gengrid_add(value v_parent)
 {

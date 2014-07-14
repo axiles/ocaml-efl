@@ -25,7 +25,7 @@ void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
         ml_remove_value(v_fun);
 }
 
-inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
+/*inline Elm_Transit_Tween_Mode Elm_Transit_Tween_Mode_val(value v)
 {
         switch(v) {
                 case Val_linear: return ELM_TRANSIT_TWEEN_MODE_LINEAR;
@@ -49,7 +49,7 @@ inline value Val_Elm_Transit_Tween_Mode(Elm_Transit_Tween_Mode m)
         }
         caml_failwith("Val_Elm_Transit_Tween_Mode");
         return Val_linear;
-}
+}*/
 
 inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
 {
@@ -67,7 +67,7 @@ inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
+/*inline Elm_Transit_Effect_Flip_Axis Elm_Transit_Effect_Flip_Axis_val(
         value v)
 {
         switch(v) {
@@ -103,7 +103,7 @@ inline Elm_Transit_Effect_Wipe_Dir Elm_Transit_Effect_Wipe_Dir_val(
         }
         caml_failwith("Elm_Transit_Effect_Wipe_Dir_val");
         return ELM_TRANSIT_EFFECT_WIPE_DIR_LEFT;
-}
+}*/
 
 PREFIX value ml_elm_transit_add(value v_unit)
 {

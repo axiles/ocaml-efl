@@ -23,7 +23,7 @@ PREFIX value ml_elm_coords_finger_size_adjust(value v_times_w, value v_times_h)
 
 /* Focus */
 
-inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
+/*inline Elm_Focus_Direction Elm_Focus_Direction_val(value v)
 {
         switch(v) {
                 case Val_previous: return ELM_FOCUS_PREVIOUS;
@@ -51,11 +51,11 @@ inline value Val_Elm_Focus_Direction(Elm_Focus_Direction d)
         }
         caml_failwith("Val_Elm_Focus_Direction");
         return Val_previous;
-}
+}*/
 
 /* General */
 
-inline int Elm_Policy_Quit_val(value v)
+/*inline int Elm_Policy_Quit_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_POLICY_QUIT_NONE;
@@ -124,7 +124,7 @@ inline value Val_Elm_Policy_Throttle(int pv)
         }
         caml_failwith("Val_Elm_Policy_Throttle");
         return Val_config;
-}
+}*/
 
 Eina_Bool ml_Elm_Event_Cb(
         void* data, Evas_Object* obj, Evas_Object* src, Evas_Callback_Type type,

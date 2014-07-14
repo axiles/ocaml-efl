@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Ecore_Pos_Map Ecore_Pos_Map_val(value v)
+/*inline Ecore_Pos_Map Ecore_Pos_Map_val(value v)
 {
         switch(v) {
                 case Val_linear: return ECORE_POS_MAP_LINEAR;
@@ -41,7 +41,7 @@ inline value Val_Ecore_Pos_Map_val(Ecore_Pos_Map m)
         }
         caml_failwith("Val_Ecore_Pos_Map");
         return Val_linear;
-}
+}*/
 
 PREFIX void raise_not_X()
 {

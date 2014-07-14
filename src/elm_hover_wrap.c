@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Hover_Axis Elm_Hover_Axis_val(value v)
+/*inline Elm_Hover_Axis Elm_Hover_Axis_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_HOVER_AXIS_NONE;
@@ -10,7 +10,7 @@ inline Elm_Hover_Axis Elm_Hover_Axis_val(value v)
         }
         caml_failwith("Elm_Hover_Axis_val");
         return ELM_HOVER_AXIS_NONE;
-}
+}*/
 
 PREFIX value ml_elm_hover_add(value v_parent)
 {

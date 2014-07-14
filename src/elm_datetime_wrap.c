@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Datetime_Field_Type Elm_Datetime_Field_Type_val(value v)
+/*inline Elm_Datetime_Field_Type Elm_Datetime_Field_Type_val(value v)
 {
         switch(v) {
                 case Val_year: return ELM_DATETIME_YEAR;
@@ -13,7 +13,7 @@ inline Elm_Datetime_Field_Type Elm_Datetime_Field_Type_val(value v)
         }
         caml_failwith("Elm_Datetime_Field_Type_val");
         return ELM_DATETIME_YEAR;
-}
+}*/
 
 PREFIX value ml_elm_datetime_add(value v_parent)
 {

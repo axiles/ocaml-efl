@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_List_Mode Elm_List_Mode_val(value v_m)
+/*inline Elm_List_Mode Elm_List_Mode_val(value v_m)
 {
         switch(v_m) {
                 case Val_compress: return ELM_LIST_COMPRESS;
@@ -24,7 +24,7 @@ inline value Val_Elm_List_Mode(Elm_List_Mode m)
         }
         caml_failwith("Val_Elm_List_Mode");
         return Val_compress;
-}
+}*/
 
 PREFIX value ml_elm_list_add(value v_parent)
 {

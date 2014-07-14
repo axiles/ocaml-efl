@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
+/*inline Elm_Calendar_Select_Mode Elm_Calendar_Select_Mode_val(value v_m)
 {
         switch(v_m) {
                 case Val_default: return ELM_CALENDAR_SELECT_MODE_DEFAULT;
@@ -23,7 +23,7 @@ inline value Val_Elm_Calendar_Select_Mode(Elm_Calendar_Select_Mode m)
         }
         caml_failwith("Val_Elm_Calendar_Select_Mode");
         return Val_default;
-}
+}*/
 
 inline struct tm Tm_val(value v)
 {
@@ -55,7 +55,7 @@ inline value copy_tm(struct tm t)
         return v;
 }
 
-inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
+/*inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
         value v)
 {
         switch(v) {
@@ -70,7 +70,7 @@ inline Elm_Calendar_Mark_Repeat_Type Elm_Calendar_Mark_Repeat_Type_val(
         }
         caml_failwith("Elm_Calendar_Mark_Repeat_Type_val");
         return ELM_CALENDAR_UNIQUE;
-}
+}*/
 
 inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
 {
@@ -88,7 +88,7 @@ inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
+/*inline Elm_Calendar_Weekday Elm_Calendar_Weekday_val(value v)
 {
         switch(v) {
                 case Val_sunday: return ELM_DAY_SUNDAY;
@@ -131,7 +131,7 @@ inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val(value v)
         }
         caml_failwith("Elm_Calendar_Selectable_val");
         return ELM_CALENDAR_SELECTABLE_YEAR;
-}
+}*/
 
 inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
 {

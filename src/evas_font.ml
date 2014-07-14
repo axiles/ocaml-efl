@@ -1,4 +1,6 @@
-type hinting_flags = [`none | `auto | `bytecode]
+(*type hinting_flags = [`none | `auto | `bytecode]*)
+
+type hinting_flags = Henums.Evas_font.hinting_flags
 
 external hinting_set : Evas.t -> hinting_flags -> unit =
   "ml_evas_font_hinting_set"

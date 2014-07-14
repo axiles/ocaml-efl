@@ -1,4 +1,6 @@
-type overlay_type = [
+module HE = Henums.Elm_map
+
+(*type overlay_type = [
   | `none
   | `default
   | `_class
@@ -8,21 +10,33 @@ type overlay_type = [
   | `line
   | `polygon
   | `circle
-  | `scale]
+  | `scale]*)
+
+type overlay_type = HE.overlay_type
 
 type overlay
 
-type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
+(*type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]*)
+
+type zoom_mode = HE.zoom_mode
 
 type overlay_get_cb = Evas.obj -> overlay -> unit
 
 type route
 
-type source_type = [`tile | `route | `name]
+(*type source_type = [`tile | `route | `name]
 
 type route_type = [`motocar | `bicycle | `foot]
 
-type route_method = [`fastest | `shortest]
+type route_method = [`fastest | `shortest]*)
+
+type source_type = HE.source_type
+
+type route_type = HE.route_type
+
+type route_method = HE.route_method
+
+type name_method = HE.name_method
 
 type route_cb = Evas.obj -> route -> unit
 

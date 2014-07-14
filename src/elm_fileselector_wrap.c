@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Fileselector_Mode Elm_Fileselector_Mode_val(value v_mode)
+/*inline Elm_Fileselector_Mode Elm_Fileselector_Mode_val(value v_mode)
 {
         switch(v_mode) {
                 case Val_list: return ELM_FILESELECTOR_LIST;
@@ -20,7 +20,7 @@ inline value Val_Elm_Fileselector_Mode(Elm_Fileselector_Mode mode)
         }
         caml_failwith("Val_Elm_Fileselector_Mode");
         return Val_list;
-}
+}*/
 
 PREFIX value ml_elm_fileselector_add(value v_parent)
 {

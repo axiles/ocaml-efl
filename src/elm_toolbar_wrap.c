@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Toolbar_Shrink_Mode Elm_Toolbar_Shrink_Mode_val(value v)
+/*inline Elm_Toolbar_Shrink_Mode Elm_Toolbar_Shrink_Mode_val(value v)
 {
         switch(v) {
                 case Val_none: return ELM_TOOLBAR_SHRINK_NONE;
@@ -43,7 +43,7 @@ Elm_Toolbar_Item_Scrollto_Type_val(value v)
         }
         caml_failwith("Elm_Toolbar_Scrollto_Type_val");
         return ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
-}
+}*/
 
 inline Elm_Toolbar_Item_Scrollto_Type
 Elm_Toolbar_Item_Scrollto_Type_val_list(value v)

@@ -69,7 +69,7 @@ inline value
         CAMLreturn(v);
 }
 
-inline Elm_Text_Format Elm_Text_Format_val(value v)
+/*inline Elm_Text_Format Elm_Text_Format_val(value v)
 {
         switch(v) {
                 case Val_plain_utf8: return ELM_TEXT_FORMAT_PLAIN_UTF8;
@@ -260,7 +260,7 @@ inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m)
         }
         caml_failwith("Val_Elm_Cnp_Mode");
         return Val_markup;
-}
+}*/
 
 inline value copy_Elm_Entry_Anchor_Info(Elm_Entry_Anchor_Info* info)
 {

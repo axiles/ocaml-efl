@@ -1,3 +1,5 @@
+module HE = Henums.Elm
+
 (* Cache *)
 
 external cache_all_flush : unit -> unit = "ml_elm_cache_all_flush"
@@ -9,21 +11,29 @@ external coords_finger_size_adjust : int -> int -> int * int =
 
 (* Focus *)
 
-type focus_direction = [
+(*type focus_direction = [
   `previous |
   `next |
   `up |
   `down |
   `right |
-  `left]
+  `left]*)
+
+type focus_direction = HE.focus_direction
 
 (* General *)
 
-type policy_quit = [`none | `last_window_closed]
+(*type policy_quit = [`none | `last_window_closed]
 
 type policy_exit = [`none | `windows_del]
 
-type policy_throttle = [`config | `hidden_always | `never]
+type policy_throttle = [`config | `hidden_always | `never]*)
+
+type policy_quit = HE.policy_quit
+
+type policy_exit = HE.policy_exit
+
+type policy_throttle = HE.policy_throttle
 
 type event_cb = Evas.obj -> Evas.obj -> Evas_event.t -> bool
 
@@ -63,7 +73,7 @@ let connect = Evas_object_smart.create_sig_with_cb
 
 (* Gesture Layer *)
 
-type gesture_type = [
+(*type gesture_type = [
   | `n_taps
   | `n_long_taps
   | `n_double_taps
@@ -72,14 +82,18 @@ type gesture_type = [
   | `n_lines
   | `n_flicks
   | `zoom
-  | `rotate]
+  | `rotate]*)
 
-type gesture_state = [
+type gesture_type = HE.gesture_type
+
+(*type gesture_state = [
   | `undefined
   | `start
   | `move
   | `_end
-  | `abort]
+  | `abort]*)
+
+type gesture_state = HE.gesture_state
 
 type gesture_event_cb = Evas.ptr -> unit
 
@@ -158,7 +172,7 @@ external need_web : unit -> bool = "ml_elm_need_web"
 
 (* Entry *)
 
-type wrap_type = [`none | `char | `word | `mixed]
+(*type wrap_type = [`none | `char | `word | `mixed]
 
 type text_format = [`plain_utf8 | `markup_utf8]
 
@@ -194,11 +208,27 @@ type input_panel_return_key_type = [
   | `signin
 ]
 
-type cnp_mode = [`markup | `no_image | `plaintext]
+type cnp_mode = [`markup | `no_image | `plaintext]*)
+
+type text_format = HE.text_format
+
+type wrap_type = HE.wrap_type
+
+type input_panel_layout = HE.input_panel_layout
+
+type input_panel_lang = HE.input_panel_lang
+
+type autocapital_type = HE.autocapital_type
+
+type input_panel_return_key_type = HE.input_panel_return_key_type
+
+type cnp_mode = HE.cnp_mode
 
 (* Window *)
 
-type illume_command = [`focus_back | `focus_forward | `focus_home | `close]
+(*type illume_command = [`focus_back | `focus_forward | `focus_home | `close]*)
+
+type illume_command = HE.illume_command
 
 (* Transit *)
 

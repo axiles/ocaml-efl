@@ -1,4 +1,6 @@
-type mode = [
+module HE = Henums.Elm_flip
+
+(*type mode = [
   | `rotate_y_center_axis
   | `rotate_x_center_axis
   | `rotate_xz_center_axis
@@ -18,7 +20,13 @@ type direction = [
   | `up
   | `down
   | `left
-  | `right]
+  | `right]*)
+
+type mode = HE.mode
+
+type interaction = HE.interaction
+
+type direction = HE.direction
 
 external add : Evas.obj -> Evas.obj = "ml_elm_flip_add"
 

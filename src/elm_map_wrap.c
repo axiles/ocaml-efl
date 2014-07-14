@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
+/*inline value Val_Elm_Map_Overlay_Type(Elm_Map_Overlay_Type t)
 {
         switch(t) {
                 case ELM_MAP_OVERLAY_TYPE_NONE: return Val_none;
@@ -41,7 +41,7 @@ inline value Val_Elm_Map_Zoom_Mode(Elm_Map_Zoom_Mode m)
         }
         caml_failwith("Val_Elm_Map_Zoom_Mode");
         return Val_manual;
-}
+}*/
 
 inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
 {
@@ -77,7 +77,7 @@ void ml_Elm_Map_Overlay_Get_Cb(
         caml_callback2(*v_fun, (value) map, (value) overlay);
 }
 
-inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
+/*inline Elm_Map_Source_Type Elm_Map_Source_Type_val(value v)
 {
         switch(v) {
                 case Val_tile: return ELM_MAP_SOURCE_TYPE_TILE;
@@ -110,7 +110,7 @@ inline Elm_Map_Route_Method Elm_Map_Route_Method_val(value v)
         }
         caml_failwith("Elm_Map_Route_Method_val");
         return ELM_MAP_ROUTE_METHOD_FASTEST;
-}
+}*/
 
 void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
 {

@@ -1,4 +1,6 @@
-type ty = [
+module HE = Henums.Elm_win
+
+(*type ty = [
   | `basic
   | `dialog_basic
   | `desktop
@@ -43,7 +45,15 @@ type indicator_opacity_mode = [
   | `opacity_unknown
   | `opaque
   | `translucent
-  | `transparent]
+  | `transparent]*)
+
+type ty = HE.ty
+
+type keyboard_mode = HE.keyboard_mode
+
+type indicator_mode = HE.indicator_mode
+
+type indicator_opacity_mode = HE.indicator_opacity_mode
 
 type illume_command = Elm.illume_command
 

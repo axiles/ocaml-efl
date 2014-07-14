@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
+/*inline Elm_Win_Type Elm_Win_Type_val(value v_ty)
 {
         switch(v_ty) {
                 case Val_basic: return ELM_WIN_BASIC;
@@ -119,9 +119,9 @@ Val_Elm_Win_Indicator_Opacity_Mode(Elm_Win_Indicator_Opacity_Mode mode)
                 case ELM_WIN_INDICATOR_TRANSPARENT: return Val_transparent;
         }
         caml_failwith("Val_Elm_Win_Indicator_Opacity_Mode");
-}
+}*/
 
-inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
+/*inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
 {
         switch(v_c) {
                 case Val_focus_back: return ELM_ILLUME_COMMAND_FOCUS_BACK;
@@ -131,7 +131,7 @@ inline Elm_Illume_Command Elm_Illume_Command_val(value v_c)
         }
         caml_failwith("Elm_Illume_Command_val");
         return ELM_ILLUME_COMMAND_FOCUS_BACK;
-}
+}*/
 
 PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
 {

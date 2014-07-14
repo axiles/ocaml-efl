@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Image_Orient Elm_Image_Orient_val(value v_o)
+/*inline Elm_Image_Orient Elm_Image_Orient_val(value v_o)
 {
         switch(v_o) {
                 case Val_orient_none: return ELM_IMAGE_ORIENT_NONE;
@@ -30,7 +30,7 @@ inline value Val_Elm_Image_Orient(value o)
         }
         caml_failwith("Val_Elm_Image_Orient");
         return Val_orient_none;
-}
+}*/
 
 PREFIX value ml_elm_image_add(value v_parent)
 {

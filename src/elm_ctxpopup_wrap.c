@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
+/*inline Elm_Ctxpopup_Direction Elm_Ctxpopup_Direction_val(value v)
 {
         switch(v) {
                 case Val_down: return ELM_CTXPOPUP_DIRECTION_DOWN;
@@ -24,7 +24,7 @@ inline value Val_Elm_Ctxpopup_Direction(Elm_Ctxpopup_Direction d)
                 case ELM_CTXPOPUP_DIRECTION_UNKNOWN: return Val_unknown;
         }
         return Val_down;
-}
+}*/
 
 PREFIX value ml_elm_ctxpopup_add(value v_parent)
 {

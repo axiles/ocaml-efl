@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Thumb_Animation_Setting Elm_Thumb_Animation_Setting_val(
+/*inline Elm_Thumb_Animation_Setting Elm_Thumb_Animation_Setting_val(
         value v)
 {
         switch(v) {
@@ -25,7 +25,7 @@ inline value Val_Elm_Thumb_Animation_Setting(
         }
         caml_failwith("Val_Elm_Thumb_Animation_Setting");
         return Val_start;
-}
+}*/
 
 PREFIX value ml_elm_thumb_add(value v_parent)
 {

@@ -1,3 +1,5 @@
+module HE = Henums.Elm_web
+
 type window_features
 
 type window_open = Evas.obj -> bool -> window_features -> Evas.obj option
@@ -14,7 +16,7 @@ type dialog_file_selector =
 
 type console_message = Evas.obj -> string -> int -> string -> unit
 
-type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
+(*type zoom_mode = [`manual | `auto_fit | `auto_fill | `last]
 
 type window_feature_flag = [
   | `toolbar
@@ -22,7 +24,11 @@ type window_feature_flag = [
   | `scrollbars
   | `menubar
   | `locationbar
-  | `fullscreen]
+  | `fullscreen]*)
+
+type zoom_mode = HE.zoom_mode
+
+type window_feature_flag = HE.window_feature_flag
 
 type frame_load_error = {
   code : int;
@@ -33,7 +39,9 @@ type frame_load_error = {
   frame : Evas.obj;
 }
 
-type menu_item_type = [`separator | `group | `option]
+(*type menu_item_type = [`separator | `group | `option]*)
+
+type menu_item_type = HE.menu_item_type
 
 type menu_item = {text : string; ty : menu_item_type}
 
