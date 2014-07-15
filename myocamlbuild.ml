@@ -577,11 +577,13 @@ let write_enums () =
     "src" / "enums_wrap.h";
     "src" / "enums_variants_wrap.h";
     "src" / "write_enums" / "help.mli";
-    "src" / "write_enums" / "help.ml"
+    "src" / "write_enums" / "help.ml";
+    "src" / "henums_check.ml"
   ] in
   rule "write_enums" ~deps ~prods action;
   dep ["extension:c"] prods;
   dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
+  (*flag_and_dep ["file:src/efl.cmo"] (P ("src" / "henums_check.cmo"))*)
 
 let () = dispatch & fun h ->
   dispatch_default h;

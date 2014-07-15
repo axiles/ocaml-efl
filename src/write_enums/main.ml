@@ -135,6 +135,7 @@ module Section : sig
   val print_ml_impl_help : formatter -> string -> t -> unit
   val print_c_include : formatter -> t -> unit
   val print_c_impl : formatter -> t -> unit
+  val print_ml_check : formatter -> string -> t -> unit
   val add_variants : t -> Variants.t -> Variants.t
 end = struct
   type t = {name : string; enums : Enum.t list}
@@ -155,6 +156,9 @@ end = struct
   let print_c_include fmt s =
     List.iter (Enum.print_c_include fmt) s.enums
   let print_c_impl fmt s = List.iter (Enum.print_c_impl fmt) s.enums
+  let print_ml_check fmt hidden_name s =
+    fprintf fmt "module H%s : module type of %s.%s = %s\n"
+      s.name hidden_name s.name s.name 
   let add_variants s set =
     let aux accu enum = Enum.add_variants enum accu in
     List.fold_left aux set s.enums
@@ -168,6 +172,7 @@ module Sections : sig
   val print_ml_impl_help : t -> unit
   val print_c_include : t -> unit
   val print_c_impl : t -> unit
+  val print_ml_check : t -> unit
 end = struct
   type t = Section.t list
   let ( / ) = Filename.concat
@@ -202,6 +207,9 @@ end = struct
   let print_c_impl =
     print_aux ("src" / "enums_wrap.c") "#include \"include.h\""
       Section.print_c_impl
+  let print_ml_check =
+    print_aux ("src" / "henums_check.ml") ""
+      (fun fmt -> Section.print_ml_check fmt "Henums")
 end
 
 let () =
@@ -211,4 +219,5 @@ let () =
   Sections.print_ml_impl_help sections;
   Sections.print_c_include sections;
   Sections.print_c_impl sections;
+  Sections.print_ml_check sections;
   exit 0
