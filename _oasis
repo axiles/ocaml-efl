@@ -26,6 +26,7 @@ Library efl
     Edje,
 
     Elm,
+    Elm_font,
     Elm_config,
     Elm_object,
     Elm_gen,
@@ -54,7 +55,6 @@ Library efl
     Elm_entry,
     Elm_flip,
     Elm_flipselector,
-    Elm_font,
     Elm_frame,
     Elm_gengrid,
     Elm_genlist,

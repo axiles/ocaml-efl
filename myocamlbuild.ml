@@ -556,7 +556,9 @@ let write_connect () =
   let gen_prog = "src" / "write_connect" / "main.cma" in
   let action env builder =
     let deps = get_txt_dep () in
-    ignore (builder deps);
+    List.iter (function
+    | Outcome.Good _ -> ()
+    | Outcome.Bad exn -> raise exn)  (builder deps);
     Cmd (S [P "ocaml"; P gen_prog]) in
   let prods = [
     "src" / "elm_connect.mli";
@@ -577,11 +579,35 @@ let write_enums () =
     "src" / "enums_wrap.h";
     "src" / "enums_variants_wrap.h";
     "src" / "write_enums" / "help.mli";
-    "src" / "write_enums" / "help.ml"
+    "src" / "write_enums" / "help.ml";
+    "src" / "henums_check.ml"
   ] in
   rule "write_enums" ~deps ~prods action;
   dep ["extension:c"] prods;
   dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
+  (*flag_and_dep ["file:src/efl.cmo"] (P ("src" / "henums_check.cmo"))*)
+
+(* Add rule to generate file efl.mli *)
+let write_big_mli () =
+  let mlpack_name = "src" / "efl.mlpack" in
+  let gen_prog = "src" / "write_big_mli.cma" in
+  let action env build =
+    let modules = string_list_of_file mlpack_name in
+    let check_public = function
+      | "Henums" | "Henums_check" -> false
+      | _ -> true in
+    let public_modules = List.filter check_public modules in
+    let mli_of_module s = "src" / String.uncapitalize s ^ ".mli" in
+    let mli_files = List.map mli_of_module public_modules in
+    let deps = List.map (fun x -> [x]) mli_files in
+    List.iter (function
+      | Outcome.Good _ -> ()
+      | Outcome.Bad exn -> raise exn) (build deps);
+    let args = List.map (fun s -> Sh s) public_modules in
+    Cmd (S [P "ocaml"; P gen_prog; S args]) in
+  let deps = [gen_prog; mlpack_name] in
+  let prod = "src" / "efl.mli" in
+  rule "write_big_mli" ~deps ~prod action
 
 let () = dispatch & fun h ->
   dispatch_default h;
@@ -594,6 +620,7 @@ let () = dispatch & fun h ->
     write_intro ();
     write_connect ();
     write_enums ();
+    write_big_mli ();
 
     (* Get the values of the env variables *)
     let env = BaseEnvLight.load () in 
