@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 6df6aaa946b60b130567b04f941576a6)
+# DO NOT EDIT (digest: 076e3e38ccf2fa5980b1f44742fa4ec4)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -26,6 +26,7 @@
 "src/ethumb.cmx": for-pack(Efl)
 "src/edje.cmx": for-pack(Efl)
 "src/elm.cmx": for-pack(Efl)
+"src/elm_font.cmx": for-pack(Efl)
 "src/elm_config.cmx": for-pack(Efl)
 "src/elm_object.cmx": for-pack(Efl)
 "src/elm_gen.cmx": for-pack(Efl)
@@ -54,7 +55,6 @@
 "src/elm_entry.cmx": for-pack(Efl)
 "src/elm_flip.cmx": for-pack(Efl)
 "src/elm_flipselector.cmx": for-pack(Efl)
-"src/elm_font.cmx": for-pack(Efl)
 "src/elm_frame.cmx": for-pack(Efl)
 "src/elm_gengrid.cmx": for-pack(Efl)
 "src/elm_genlist.cmx": for-pack(Efl)
@@ -260,6 +260,8 @@
 <src/edje_*>: efl
 <src/elm_*>: efl
 "src/elm_connect.cmx": for-pack(Efl)
+"src/henums.cmx": for-pack(Efl)
+"src/henums_check.cmx": for-pack(Efl)
 #<efl.{cma,cmxa}>: oasis_library_efl_cclib
 #"libefl_stubs.lib": oasis_library_efl_cclib
 #"dllefl_stubs.dll": oasis_library_efl_cclib
