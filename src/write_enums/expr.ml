@@ -1,7 +1,7 @@
 type enum = {
   ml_name : string;
   c_name : string;
-  prefix_length : int;
+  prefix_length : int option;
   variants : string list;
 }
 
