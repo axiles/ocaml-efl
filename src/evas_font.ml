@@ -1,4 +1,4 @@
-type hinting_flags = Henums.Evas_font.hinting_flags
+include Henums.Evas_font
 
 external hinting_set : Evas.t -> hinting_flags -> unit =
   "ml_evas_font_hinting_set"

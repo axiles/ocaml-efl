@@ -1,4 +1,4 @@
-type orient = Henums.Elm_panel.orient
+include Henums.Elm_panel
 
 external add : Evas.obj -> Evas.obj = "ml_elm_panel_add"
 

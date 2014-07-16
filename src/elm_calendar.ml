@@ -1,14 +1,6 @@
-module HE = Henums.Elm_calendar
-
-type select_mode = HE.select_mode
-
-type mark_repeat_type = HE.mark_repeat_type
+include Henums.Elm_calendar
 
 type mark
-
-type weekday = HE.weekday
-
-type selectable = HE.selectable
 
 type selectable_ = {year : bool; month : bool; day : bool}
 

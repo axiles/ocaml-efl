@@ -1,5 +1,5 @@
 Section Ecore {
-  Enum pos_map Ecore_Pos_Map 14 {
+  Enum Ecore_Pos_Map {
     ECORE_POS_MAP_LINEAR
     ECORE_POS_MAP_ACCELERATE
     ECORE_POS_MAP_DECELERATE
@@ -15,14 +15,14 @@ Section Ecore {
 }
 
 Section Evas {
-  Enum aspect_control Evas_Aspect_Control 20 {
+  Enum Evas_Aspect_Control {
     EVAS_ASPECT_CONTROL_NONE
     EVAS_ASPECT_CONTROL_NEITHER
     EVAS_ASPECT_CONTROL_HORIZONTAL
     EVAS_ASPECT_CONTROL_VERTICAL
     EVAS_ASPECT_CONTROL_BOTH
   }
-  Enum load_error Evas_Load_Error 16 {
+  Enum Evas_Load_Error {
     EVAS_LOAD_ERROR_NONE
     EVAS_LOAD_ERROR_GENERIC
     EVAS_LOAD_ERROR_DOES_NOT_EXIST
@@ -31,13 +31,13 @@ Section Evas {
     EVAS_LOAD_ERROR_CORRUPT_FILE
     EVAS_LOAD_ERROR_UNKNOWN_FORMAT
   }
-  Enum display_mode Evas_Display_Mode 18 {
+  Enum Evas_Display_Mode {
     EVAS_DISPLAY_MODE_NONE
     EVAS_DISPLAY_MODE_COMPRESS
     EVAS_DISPLAY_MODE_EXPAND
     EVAS_DISPLAY_MODE_DONT_CHANGE
   }
-  Enum render_op Evas_Render_Op 12 {
+  Enum Evas_Render_Op {
     EVAS_RENDER_BLEND
     EVAS_RENDER_BLEND_REL
     EVAS_RENDER_COPY
@@ -51,7 +51,7 @@ Section Evas {
     EVAS_RENDER_MASK
     EVAS_RENDER_MUL
   }
-  Enum alloc_error Evas_Alloc_Error 17 {
+  Enum Evas_Alloc_Error {
     EVAS_ALLOC_ERROR_NONE
     EVAS_ALLOC_ERROR_FATAL
     EVAS_ALLOC_ERROR_RECOVERED
@@ -59,7 +59,7 @@ Section Evas {
 }
 
 Section Evas_font {
-  Enum hinting_flags Evas_Font_Hinting_Flags 18 {
+  Enum Evas_Font_Hinting_Flags {
     EVAS_FONT_HINTING_NONE
     EVAS_FONT_HINTING_AUTO
     EVAS_FONT_HINTING_BYTECODE
@@ -67,7 +67,7 @@ Section Evas_font {
 }
 
 Section Evas_object {
-  Enum pointer_mode Evas_Object_Pointer_Mode 25 {
+  Enum Evas_Object_Pointer_Mode {
     EVAS_OBJECT_POINTER_MODE_AUTOGRAB
     EVAS_OBJECT_POINTER_MODE_NOGRAB
     EVAS_OBJECT_POINTER_MODE_NOGRAB_NO_REPEAT_UPDOWN
@@ -75,21 +75,21 @@ Section Evas_object {
 }
 
 Section Ethumb {
-  Enum thumb_aspect Ethumb_Thumb_Aspect 13 {
+  Enum Ethumb_Thumb_Aspect {
     ETHUMB_THUMB_KEEP_ASPECT
     ETHUMB_THUMB_IGNORE_ASPECT
     ETHUMB_THUMB_CROP
   }
-  Enum thumb_fdo_size Ethumb_Thumb_FDO_Size 13 {
+  Enum Ethumb_Thumb_FDO_Size {
     ETHUMB_THUMB_NORMAL
     ETHUMB_THUMB_LARGE
   }
-  Enum thumb_format Ethumb_Thumb_Format 13 {
+  Enum Ethumb_Thumb_Format {
     ETHUMB_THUMB_FDO
     ETHUMB_THUMB_JPEG
     ETHUMB_THUMB_EET
   }
-  Enum thumb_orientation Ethumb_Thumb_Orientation 13 {
+  Enum Ethumb_Thumb_Orientation {
     ETHUMB_THUMB_ORIENT_NONE
     ETHUMB_THUMB_ROTATE_90_CW
     ETHUMB_THUMB_ROTATE_180
@@ -103,12 +103,12 @@ Section Ethumb {
 }
 
 Section Elm {
-  Enum focus_autoscroll_mode Elm_Focus_Autoscroll_Mode 26 {
+  Enum Elm_Focus_Autoscroll_Mode {
     ELM_FOCUS_AUTOSCROLL_MODE_SHOW
     ELM_FOCUS_AUTOSCROLL_MODE_NONE
     ELM_FOCUS_AUTOSCROLL_MODE_BRING_IN
   }
-  Enum focus_direction Elm_Focus_Direction 10 {
+  Enum Elm_Focus_Direction {
     ELM_FOCUS_PREVIOUS
     ELM_FOCUS_NEXT
     ELM_FOCUS_UP
@@ -116,24 +116,24 @@ Section Elm {
     ELM_FOCUS_RIGHT
     ELM_FOCUS_LEFT
   }
-  Enum focus_move_policy Elm_Focus_Move_Policy 22 {
+  Enum Elm_Focus_Move_Policy {
     ELM_FOCUS_MOVE_POLICY_CLICK
     ELM_FOCUS_MOVE_POLICY_IN
   }
-  Enum policy_quit Elm_Policy_Quit 16 {
+  Enum Elm_Policy_Quit {
     ELM_POLICY_QUIT_NONE
     ELM_POLICY_QUIT_LAST_WINDOW_CLOSED
   }
-  Enum policy_exit Elm_Policy_Exit 16 {
+  Enum Elm_Policy_Exit {
     ELM_POLICY_EXIT_NONE
     ELM_POLICY_EXIT_WINDOWS_DEL
   }
-  Enum policy_throttle Elm_Policy_Throttle 20 {
+  Enum Elm_Policy_Throttle {
     ELM_POLICY_THROTTLE_CONFIG
     ELM_POLICY_THROTTLE_HIDDEN_ALWAYS
     ELM_POLICY_THROTTLE_NEVER
   }
-  Enum gesture_type Elm_Gesture_Type 12 {                                                                                
+  Enum Elm_Gesture_Type {                                                                                
     ELM_GESTURE_FIRST
     ELM_GESTURE_N_TAPS
     ELM_GESTURE_N_LONG_TAPS
@@ -146,25 +146,25 @@ Section Elm {
     ELM_GESTURE_ROTATE
     ELM_GESTURE_LAST
   }
-  Enum gesture_state Elm_Gesture_State 18 {
+  Enum Elm_Gesture_State {
     ELM_GESTURE_STATE_UNDEFINED
     ELM_GESTURE_STATE_START
     ELM_GESTURE_STATE_MOVE
     ELM_GESTURE_STATE_END
     ELM_GESTURE_STATE_ABORT
   }
-  Enum text_format Elm_Text_Format 16 {
+  Enum Elm_Text_Format {
     ELM_TEXT_FORMAT_PLAIN_UTF8
     ELM_TEXT_FORMAT_MARKUP_UTF8
   }
-  Enum wrap_type Elm_Wrap_Type 9 {
+  Enum Elm_Wrap_Type {
     ELM_WRAP_NONE
     ELM_WRAP_CHAR
     ELM_WRAP_WORD
     ELM_WRAP_MIXED
     ELM_WRAP_LAST
   }
-  Enum input_panel_layout Elm_Input_Panel_Layout 23 {
+  Enum Elm_Input_Panel_Layout {
     ELM_INPUT_PANEL_LAYOUT_NORMAL
     ELM_INPUT_PANEL_LAYOUT_NUMBER
     ELM_INPUT_PANEL_LAYOUT_EMAIL
@@ -180,17 +180,17 @@ Section Elm {
     ELM_INPUT_PANEL_LAYOUT_DATETIME
     ELM_INPUT_PANEL_LAYOUT_EMOTICON
   }
-  Enum input_panel_lang Elm_Input_Panel_Lang 21 {
+  Enum Elm_Input_Panel_Lang {
     ELM_INPUT_PANEL_LANG_AUTOMATIC
     ELM_INPUT_PANEL_LANG_ALPHABET
   }
-  Enum autocapital_type Elm_Autocapital_Type 21 {
+  Enum Elm_Autocapital_Type {
     ELM_AUTOCAPITAL_TYPE_NONE
     ELM_AUTOCAPITAL_TYPE_WORD
     ELM_AUTOCAPITAL_TYPE_SENTENCE
     ELM_AUTOCAPITAL_TYPE_ALLCHARACTER
   }
-  Enum input_panel_return_key_type Elm_Input_Panel_Return_Key_Type 32 {
+  Enum Elm_Input_Panel_Return_Key_Type {
     ELM_INPUT_PANEL_RETURN_KEY_TYPE_DEFAULT
     ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE
     ELM_INPUT_PANEL_RETURN_KEY_TYPE_GO
@@ -201,18 +201,18 @@ Section Elm {
     ELM_INPUT_PANEL_RETURN_KEY_TYPE_SEND
     ELM_INPUT_PANEL_RETURN_KEY_TYPE_SIGNIN
   }
-  Enum cnp_mode Elm_Cnp_Mode 13 {
+  Enum Elm_Cnp_Mode {
     ELM_CNP_MODE_MARKUP
     ELM_CNP_MODE_NO_IMAGE
     ELM_CNP_MODE_PLAINTEXT
   }
-  Enum illume_command Elm_Illume_Command 19 {
+  Enum Elm_Illume_Command {
     ELM_ILLUME_COMMAND_FOCUS_BACK
     ELM_ILLUME_COMMAND_FOCUS_FORWARD
     ELM_ILLUME_COMMAND_FOCUS_HOME
     ELM_ILLUME_COMMAND_CLOSE
   }
-  Enum tooltip_orient Elm_Tooltip_Orient 19 {
+  Enum Elm_Tooltip_Orient {
     ELM_TOOLTIP_ORIENT_NONE
     ELM_TOOLTIP_ORIENT_TOP_LEFT
     ELM_TOOLTIP_ORIENT_TOP
@@ -227,7 +227,7 @@ Section Elm {
   }
 }
 Section Elm_object {
-  Enum select_mode Elm_Object_Select_Mode 23 {
+  Enum Elm_Object_Select_Mode {
     ELM_OBJECT_SELECT_MODE_DEFAULT
     ELM_OBJECT_SELECT_MODE_ALWAYS
     ELM_OBJECT_SELECT_MODE_NONE
@@ -237,7 +237,7 @@ Section Elm_object {
 }
 
 Section Elm_ctxpopup {
-  Enum direction Elm_Ctxpopup_Direction 23 {
+  Enum Elm_Ctxpopup_Direction {
     ELM_CTXPOPUP_DIRECTION_DOWN
     ELM_CTXPOPUP_DIRECTION_RIGHT
     ELM_CTXPOPUP_DIRECTION_LEFT
@@ -247,12 +247,12 @@ Section Elm_ctxpopup {
 }
 
 Section Elm_fileselector {
-  Enum mode Elm_Fileselector_Mode 17 {
+  Enum Elm_Fileselector_Mode {
     ELM_FILESELECTOR_LIST
     ELM_FILESELECTOR_GRID
     ELM_FILESELECTOR_LAST
   }
-  Enum sort Elm_Fileselector_Sort 22 {
+  Enum Elm_Fileselector_Sort {
     ELM_FILESELECTOR_SORT_BY_FILENAME_ASC
     ELM_FILESELECTOR_SORT_BY_FILENAME_DESC
     ELM_FILESELECTOR_SORT_BY_TYPE_ASC
@@ -266,7 +266,7 @@ Section Elm_fileselector {
 }
 
 Section Elm_popup {
-  Enum orient Elm_Popup_Orient 17 {
+  Enum Elm_Popup_Orient {
     ELM_POPUP_ORIENT_TOP
     ELM_POPUP_ORIENT_CENTER
     ELM_POPUP_ORIENT_BOTTOM
@@ -281,7 +281,7 @@ Section Elm_popup {
 }
 
 Section Elm_bg {
-  Enum opt Elm_Bg_Option 14 {
+  Enum opt Elm_Bg_Option {
     ELM_BG_OPTION_CENTER
     ELM_BG_OPTION_SCALE
     ELM_BG_OPTION_STRETCH
@@ -291,7 +291,7 @@ Section Elm_bg {
 }
 
 Section Elm_bubble {
-  Enum pos Elm_Bubble_Pos 15 {
+  Enum Elm_Bubble_Pos {
     ELM_BUBBLE_POS_INVALID
     ELM_BUBBLE_POS_TOP_LEFT
     ELM_BUBBLE_POS_TOP_RIGHT
@@ -301,13 +301,13 @@ Section Elm_bubble {
 }
 
 Section Elm_calendar {
-  Enum select_mode Elm_Calendar_Select_Mode 25 {
+  Enum Elm_Calendar_Select_Mode {
     ELM_CALENDAR_SELECT_MODE_DEFAULT
     ELM_CALENDAR_SELECT_MODE_ALWAYS
     ELM_CALENDAR_SELECT_MODE_NONE
     ELM_CALENDAR_SELECT_MODE_ONDEMAND
   }
-  Enum mark_repeat_type Elm_Calendar_Mark_Repeat_Type 13 {
+  Enum Elm_Calendar_Mark_Repeat_Type {
     ELM_CALENDAR_UNIQUE
     ELM_CALENDAR_DAILY
     ELM_CALENDAR_WEEKLY
@@ -315,7 +315,7 @@ Section Elm_calendar {
     ELM_CALENDAR_ANNUALLY
     ELM_CALENDAR_LAST_DAY_OF_MONTH
   }
-  Enum weekday Elm_Calendar_Weekday 8 {
+  Enum Elm_Calendar_Weekday {
     ELM_DAY_SUNDAY
     ELM_DAY_MONDAY
     ELM_DAY_TUESDAY
@@ -325,7 +325,7 @@ Section Elm_calendar {
     ELM_DAY_SATURDAY
     ELM_DAY_LAST                                                                  
   }
-  Enum selectable Elm_Calendar_Selectable 24 {                                                                          
+  Enum Elm_Calendar_Selectable {                                                                          
     ELM_CALENDAR_SELECTABLE_NONE
     ELM_CALENDAR_SELECTABLE_YEAR
     ELM_CALENDAR_SELECTABLE_MONTH
@@ -334,7 +334,7 @@ Section Elm_calendar {
 }
 
 Section Elm_clock {
-  Enum edit_mode Elm_Clock_Edit_Mode 15 {
+  Enum Elm_Clock_Edit_Mode {
     ELM_CLOCK_EDIT_DEFAULT
     ELM_CLOCK_EDIT_HOUR_DECIMAL
     ELM_CLOCK_EDIT_HOUR_UNIT
@@ -347,7 +347,7 @@ Section Elm_clock {
 }
 
 Section Elm_colorselector {
-  Enum mode Elm_Colorselector_Mode 18 {
+  Enum Elm_Colorselector_Mode {
     ELM_COLORSELECTOR_PALETTE
     ELM_COLORSELECTOR_COMPONENTS
     ELM_COLORSELECTOR_BOTH
@@ -357,7 +357,7 @@ Section Elm_colorselector {
 }
 
 Section Elm_datetime {
-  Enum field_type Elm_Datetime_Field_Type 13 {
+  Enum Elm_Datetime_Field_Type {
     ELM_DATETIME_YEAR
     ELM_DATETIME_MONTH
     ELM_DATETIME_DATE
@@ -368,7 +368,7 @@ Section Elm_datetime {
 }
 
 Section Elm_dayselector {
-  Enum day Elm_Dayselector_Day 16 {
+  Enum Elm_Dayselector_Day {
     ELM_DAYSELECTOR_SUN
     ELM_DAYSELECTOR_MON
     ELM_DAYSELECTOR_TUE
@@ -381,7 +381,7 @@ Section Elm_dayselector {
 }
 
 Section Elm_flip {
-  Enum mode Elm_Flip_Mode 9 {
+  Enum Elm_Flip_Mode {
     ELM_FLIP_ROTATE_Y_CENTER_AXIS
     ELM_FLIP_ROTATE_X_CENTER_AXIS
     ELM_FLIP_ROTATE_XZ_CENTER_AXIS
@@ -395,13 +395,13 @@ Section Elm_flip {
     ELM_FLIP_PAGE_UP
     ELM_FLIP_PAGE_DOWN                                                            
   }
-  Enum interaction Elm_Flip_Interaction 21 {
+  Enum Elm_Flip_Interaction {
     ELM_FLIP_INTERACTION_NONE
     ELM_FLIP_INTERACTION_ROTATE
     ELM_FLIP_INTERACTION_CUBE
     ELM_FLIP_INTERACTION_PAGE                                                     
   }
-  Enum direction Elm_Flip_Direction 19 {
+  Enum Elm_Flip_Direction {
     ELM_FLIP_DIRECTION_UP
     ELM_FLIP_DIRECTION_DOWN
     ELM_FLIP_DIRECTION_LEFT
@@ -410,7 +410,7 @@ Section Elm_flip {
 }
 
 Section Elm_gengrid {
-  Enum item_scrollto_type Elm_Gengrid_Item_Scrollto_Type 26 {
+  Enum Elm_Gengrid_Item_Scrollto_Type {
     ELM_GENGRID_ITEM_SCROLLTO_NONE
     ELM_GENGRID_ITEM_SCROLLTO_IN
     ELM_GENGRID_ITEM_SCROLLTO_TOP
@@ -419,19 +419,19 @@ Section Elm_gengrid {
 }
 
 Section Elm_genlist {
-  Enum item_type Elm_Genlist_Item_Type 17 {
+  Enum Elm_Genlist_Item_Type {
     ELM_GENLIST_ITEM_NONE
     ELM_GENLIST_ITEM_TREE
     ELM_GENLIST_ITEM_GROUP
     ELM_GENLIST_ITEM_MAX
   }
-  Enum item_field_type Elm_Genlist_Item_Field_Type 23 {
+  Enum Elm_Genlist_Item_Field_Type {
     ELM_GENLIST_ITEM_FIELD_ALL
     ELM_GENLIST_ITEM_FIELD_TEXT
     ELM_GENLIST_ITEM_FIELD_CONTENT
     ELM_GENLIST_ITEM_FIELD_STATE
   }
-  Enum item_scrollto_type Elm_Genlist_Item_Scrollto_Type 26 {
+  Enum Elm_Genlist_Item_Scrollto_Type {
     ELM_GENLIST_ITEM_SCROLLTO_NONE
     ELM_GENLIST_ITEM_SCROLLTO_IN
     ELM_GENLIST_ITEM_SCROLLTO_TOP
@@ -440,25 +440,25 @@ Section Elm_genlist {
 }
 
 Section Elm_glview {
-  Enum mode Elm_GLView_Mode 11 {
+  Enum Elm_GLView_Mode {
     ELM_GLVIEW_NONE
     ELM_GLVIEW_ALPHA
     ELM_GLVIEW_DEPTH
     ELM_GLVIEW_STENCIL
     ELM_GLVIEW_DIRECT
   }
-  Enum resize_policy Elm_GLView_Resize_Policy 25 {
+  Enum Elm_GLView_Resize_Policy {
     ELM_GLVIEW_RESIZE_POLICY_RECREATE
     ELM_GLVIEW_RESIZE_POLICY_SCALE
   }
-  Enum render_policy Elm_GLView_Render_Policy 25 {
+  Enum Elm_GLView_Render_Policy {
     ELM_GLVIEW_RENDER_POLICY_ON_DEMAND
     ELM_GLVIEW_RENDER_POLICY_ALWAYS
   }
 }
 
 Section Elm_hover {
-  Enum axis Elm_Hover_Axis 15 {
+  Enum Elm_Hover_Axis {
     ELM_HOVER_AXIS_NONE
     ELM_HOVER_AXIS_HORIZONTAL
     ELM_HOVER_AXIS_VERTICAL
@@ -467,12 +467,12 @@ Section Elm_hover {
 }
 
 Section Elm_icon {
-  Enum ty Elm_Icon_Type 9 {
+  Enum ty Elm_Icon_Type {
     ELM_ICON_NONE
     ELM_ICON_FILE
     ELM_ICON_STANDARD
   }
-  Enum lookup_order Elm_Icon_Lookup_Order 16 {
+  Enum Elm_Icon_Lookup_Order {
     ELM_ICON_LOOKUP_FDO_THEME
     ELM_ICON_LOOKUP_THEME_FDO
     ELM_ICON_LOOKUP_FDO
@@ -481,7 +481,7 @@ Section Elm_icon {
 }
 
 Section Elm_image {
-  Enum orient Elm_Image_Orient 10 {
+  Enum Elm_Image_Orient {
     ELM_IMAGE_ORIENT_NONE
     ELM_IMAGE_ROTATE_90
     ELM_IMAGE_ROTATE_180
@@ -494,7 +494,7 @@ Section Elm_image {
 }
 
 Section Elm_list {
-  Enum mode Elm_List_Mode 9 {
+  Enum Elm_List_Mode {
     ELM_LIST_COMPRESS
     ELM_LIST_SCROLL
     ELM_LIST_LIMIT
@@ -504,7 +504,7 @@ Section Elm_list {
 }
 
 Section Elm_map {
-  Enum overlay_type Elm_Map_Overlay_Type 21 {
+  Enum Elm_Map_Overlay_Type {
     ELM_MAP_OVERLAY_TYPE_NONE
     ELM_MAP_OVERLAY_TYPE_DEFAULT
     ELM_MAP_OVERLAY_TYPE_CLASS
@@ -516,30 +516,30 @@ Section Elm_map {
     ELM_MAP_OVERLAY_TYPE_CIRCLE
     ELM_MAP_OVERLAY_TYPE_SCALE
   }
-  Enum zoom_mode Elm_Map_Zoom_Mode 18 {                                                                        
+  Enum Elm_Map_Zoom_Mode {                                                                      
     ELM_MAP_ZOOM_MODE_MANUAL
     ELM_MAP_ZOOM_MODE_AUTO_FIT
     ELM_MAP_ZOOM_MODE_AUTO_FILL
     ELM_MAP_ZOOM_MODE_LAST
   }
-  Enum source_type Elm_Map_Source_Type 20 {
+  Enum Elm_Map_Source_Type {
     ELM_MAP_SOURCE_TYPE_TILE 
     ELM_MAP_SOURCE_TYPE_ROUTE
     ELM_MAP_SOURCE_TYPE_NAME
     ELM_MAP_SOURCE_TYPE_LAST
   }
-  Enum route_type Elm_Map_Route_Type 19 {
+  Enum Elm_Map_Route_Type {
     ELM_MAP_ROUTE_TYPE_MOTOCAR
     ELM_MAP_ROUTE_TYPE_BICYCLE
     ELM_MAP_ROUTE_TYPE_FOOT
     ELM_MAP_ROUTE_TYPE_LAST
   }
-  Enum route_method Elm_Map_Route_Method 21 {
+  Enum Elm_Map_Route_Method {
     ELM_MAP_ROUTE_METHOD_FASTEST
     ELM_MAP_ROUTE_METHOD_SHORTEST
     ELM_MAP_ROUTE_METHOD_LAST
   }
-  Enum name_method Elm_Map_Name_Method 20 {
+  Enum Elm_Map_Name_Method {
     ELM_MAP_NAME_METHOD_SEARCH
     ELM_MAP_NAME_METHOD_REVERSE
     ELM_MAP_NAME_METHOD_LAST
@@ -547,7 +547,7 @@ Section Elm_map {
 }
 
 Section Elm_panel {
-  Enum orient Elm_Panel_Orient 17 {
+  Enum Elm_Panel_Orient {
     ELM_PANEL_ORIENT_TOP
     ELM_PANEL_ORIENT_BOTTOM
     ELM_PANEL_ORIENT_LEFT
@@ -556,7 +556,7 @@ Section Elm_panel {
 }
 
 Section Elm_photocam {
-  Enum zoom_mode Elm_Photocam_Zoom_Mode 23 {
+  Enum Elm_Photocam_Zoom_Mode {
     ELM_PHOTOCAM_ZOOM_MODE_MANUAL
     ELM_PHOTOCAM_ZOOM_MODE_AUTO_FIT
     ELM_PHOTOCAM_ZOOM_MODE_AUTO_FILL
@@ -566,19 +566,19 @@ Section Elm_photocam {
 }
 
 Section Elm_scroller {
-  Enum policy Elm_Scroller_Policy 20 {
+  Enum Elm_Scroller_Policy {
     ELM_SCROLLER_POLICY_AUTO
     ELM_SCROLLER_POLICY_ON
     ELM_SCROLLER_POLICY_OFF
     ELM_SCROLLER_POLICY_LAST
   }
-  Enum single_direction Elm_Scroller_Single_Direction 30 {
+  Enum Elm_Scroller_Single_Direction {
     ELM_SCROLLER_SINGLE_DIRECTION_NONE
     ELM_SCROLLER_SINGLE_DIRECTION_SOFT
     ELM_SCROLLER_SINGLE_DIRECTION_HARD
     ELM_SCROLLER_SINGLE_DIRECTION_LAST
   }
-  Enum movement_block Elm_Scroller_Movement_Block 22 {
+  Enum Elm_Scroller_Movement_Block {
     ELM_SCROLLER_MOVEMENT_NO_BLOCK
     ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL
     ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL
@@ -586,7 +586,7 @@ Section Elm_scroller {
 }
 
 Section Elm_thumb {
-  Enum animation_settings Elm_Thumb_Animation_Setting 20 {
+  Enum Elm_Thumb_Animation_Setting {
     ELM_THUMB_ANIMATION_START
     ELM_THUMB_ANIMATION_LOOP
     ELM_THUMB_ANIMATION_STOP
@@ -595,7 +595,7 @@ Section Elm_thumb {
 }
 
 Section Elm_toolbar {
-  Enum shrink_mode Elm_Toolbar_Shrink_Mode 19 {
+  Enum Elm_Toolbar_Shrink_Mode {
     ELM_TOOLBAR_SHRINK_NONE
     ELM_TOOLBAR_SHRINK_HIDE
     ELM_TOOLBAR_SHRINK_SCROLL
@@ -603,7 +603,7 @@ Section Elm_toolbar {
     ELM_TOOLBAR_SHRINK_EXPAND
     ELM_TOOLBAR_SHRINK_LAST
   }
-  Enum item_scrollto_type Elm_Toolbar_Item_Scrollto_Type 26 {
+  Enum Elm_Toolbar_Item_Scrollto_Type {
     ELM_TOOLBAR_ITEM_SCROLLTO_NONE
     ELM_TOOLBAR_ITEM_SCROLLTO_IN
     ELM_TOOLBAR_ITEM_SCROLLTO_FIRST
@@ -613,7 +613,7 @@ Section Elm_toolbar {
 }
 
 Section Elm_transit {
-  Enum tween_mode Elm_Transit_Tween_Mode 23 {
+  Enum Elm_Transit_Tween_Mode {
     ELM_TRANSIT_TWEEN_MODE_LINEAR
     ELM_TRANSIT_TWEEN_MODE_SINUSOIDAL
     ELM_TRANSIT_TWEEN_MODE_DECELERATE
@@ -622,30 +622,30 @@ Section Elm_transit {
     ELM_TRANSIT_TWEEN_MODE_BOUNCE
     ELM_TRANSIT_TWEEN_MODE_SPRING
   }
-  Enum effect_flip_axis Elm_Transit_Effect_Flip_Axis 29 {
+  Enum Elm_Transit_Effect_Flip_Axis {
     ELM_TRANSIT_EFFECT_FLIP_AXIS_X
     ELM_TRANSIT_EFFECT_FLIP_AXIS_Y
   }
-  Enum effect_wipe_dir Elm_Transit_Effect_Wipe_Dir 28 {
+  Enum Elm_Transit_Effect_Wipe_Dir {
     ELM_TRANSIT_EFFECT_WIPE_DIR_LEFT
     ELM_TRANSIT_EFFECT_WIPE_DIR_RIGHT
     ELM_TRANSIT_EFFECT_WIPE_DIR_UP
     ELM_TRANSIT_EFFECT_WIPE_DIR_DOWN
   }
-  Enum effect_wipe_type Elm_Transit_Effect_Wipe_Type 29 {
+  Enum Elm_Transit_Effect_Wipe_Type {
     ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE
     ELM_TRANSIT_EFFECT_WIPE_TYPE_SHOW
   }
 }
 
 Section Elm_web {
-  Enum zoom_mode Elm_Web_Zoom_Mode 18 {
+  Enum Elm_Web_Zoom_Mode {
     ELM_WEB_ZOOM_MODE_MANUAL
     ELM_WEB_ZOOM_MODE_AUTO_FIT
     ELM_WEB_ZOOM_MODE_AUTO_FILL
     ELM_WEB_ZOOM_MODE_LAST
   }
-  Enum window_feature_flag Elm_Web_Window_Feature_Flag 23 {
+  Enum Elm_Web_Window_Feature_Flag {
     ELM_WEB_WINDOW_FEATURE_TOOLBAR
     ELM_WEB_WINDOW_FEATURE_STATUSBAR
     ELM_WEB_WINDOW_FEATURE_SCROLLBARS
@@ -653,7 +653,7 @@ Section Elm_web {
     ELM_WEB_WINDOW_FEATURE_LOCATIONBAR
     ELM_WEB_WINDOW_FEATURE_FULLSCREEN
   }
-  Enum menu_item_type Elm_Web_Menu_Item_Type 13 {
+  Enum Elm_Web_Menu_Item_Type {
     ELM_WEB_MENU_SEPARATOR
     ELM_WEB_MENU_GROUP
     ELM_WEB_MENU_OPTION
@@ -661,7 +661,7 @@ Section Elm_web {
 }
 
 Section Elm_win {
-  Enum ty Elm_Win_Type 8 {
+  Enum ty Elm_Win_Type {
     ELM_WIN_BASIC
     ELM_WIN_DIALOG_BASIC
     ELM_WIN_DESKTOP
@@ -680,7 +680,7 @@ Section Elm_win {
     ELM_WIN_SOCKET_IMAGE
     ELM_WIN_UNKNOWN
   }
-  Enum keyboard_mode Elm_Win_Keyboard_Mode 17 {
+  Enum Elm_Win_Keyboard_Mode {
     ELM_WIN_KEYBOARD_UNKNOWN
     ELM_WIN_KEYBOARD_OFF
     ELM_WIN_KEYBOARD_ON
@@ -698,17 +698,16 @@ Section Elm_win {
     ELM_WIN_KEYBOARD_KEYPAD
     ELM_WIN_KEYBOARD_J2ME
   }
-  Enum indicator_mode Elm_Win_Indicator_Mode 18 {
+  Enum Elm_Win_Indicator_Mode {
     ELM_WIN_INDICATOR_UNKNOWN
     ELM_WIN_INDICATOR_HIDE
     ELM_WIN_INDICATOR_SHOW
   }
-  Enum indicator_opacity_mode Elm_Win_Indicator_Opacity_Mode 18 {
+  Enum Elm_Win_Indicator_Opacity_Mode {
     ELM_WIN_INDICATOR_OPACITY_UNKNOWN
     ELM_WIN_INDICATOR_OPAQUE
     ELM_WIN_INDICATOR_TRANSLUCENT
     ELM_WIN_INDICATOR_TRANSPARENT
   }
 }
-
 

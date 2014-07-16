@@ -1,6 +1,6 @@
 (** Thumbnail *)
 
-type animation_settings = [`start | `loop | `stop | `last]
+type animation_setting = [`start | `loop | `stop | `last]
 
 val add : Evas.obj -> Evas.obj
 
@@ -46,9 +46,9 @@ val quality_set : Evas.obj -> int -> unit
 
 val quality_get : Evas.obj -> int
 
-val animate_set : Evas.obj -> animation_settings -> unit
+val animate_set : Evas.obj -> animation_setting -> unit
 
-val animate_get : Evas.obj -> animation_settings
+val animate_get : Evas.obj -> animation_setting
 
 val ethumb_client_connected_get : unit -> bool
 

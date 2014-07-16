@@ -1,10 +1,4 @@
-module HE = Henums.Elm_glview
-
-type mode = HE.mode
-
-type resize_policy = HE.resize_policy
-
-type render_policy = HE.render_policy
+include Henums.Elm_glview
 
 type func_cb = Evas.obj -> unit
 

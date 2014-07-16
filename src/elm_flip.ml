@@ -1,10 +1,4 @@
-module HE = Henums.Elm_flip
-
-type mode = HE.mode
-
-type interaction = HE.interaction
-
-type direction = HE.direction
+include Henums.Elm_flip
 
 external add : Evas.obj -> Evas.obj = "ml_elm_flip_add"
 

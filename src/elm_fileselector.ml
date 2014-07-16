@@ -1,8 +1,4 @@
-module HE = Henums.Elm_fileselector
-
-type mode = HE.mode
-
-type sort = HE.sort
+include Henums.Elm_fileselector
 
 type filter_func = string -> bool -> bool
 

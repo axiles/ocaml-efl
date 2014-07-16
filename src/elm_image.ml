@@ -1,4 +1,4 @@
-type orient = Henums.Elm_image.orient
+include Henums.Elm_image
 
 external add : Evas.obj -> Evas.obj = "ml_elm_image_add"
 

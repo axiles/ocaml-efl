@@ -1,12 +1,4 @@
-module HE = Henums.Elm_win
-
-type ty = HE.ty
-
-type keyboard_mode = HE.keyboard_mode
-
-type indicator_mode = HE.indicator_mode
-
-type indicator_opacity_mode = HE.indicator_opacity_mode
+include Henums.Elm_win
 
 type illume_command = Elm.illume_command
 

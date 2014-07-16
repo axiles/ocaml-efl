@@ -1,4 +1,4 @@
-module HE = Henums.Elm_genlist
+include Henums.Elm_genlist
 
 type item_class = Elm_gen.item_class = {
   item_style : string;
@@ -7,12 +7,6 @@ type item_class = Elm_gen.item_class = {
   func_state_get : Evas.obj -> string -> bool;
   func_del : Evas.obj -> unit;
 }
-
-type item_type = HE.item_type
-
-type item_field_type = HE.item_field_type
-
-type item_scrollto_type = HE.item_scrollto_type
 
 external add : Evas.obj -> Evas.obj = "ml_elm_genlist_add"
 
