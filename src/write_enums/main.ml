@@ -58,7 +58,7 @@ module Enum : sig
     c_of_ml : string;
     variants : Variant.t list;
   }
-  val create : Expr.enum -> t
+  val create : string -> Expr.enum -> t
   val print_ml : formatter -> t -> unit
   val print_ml_sig_help : formatter -> t -> unit
   val print_ml_impl_help : formatter -> string -> t -> unit
@@ -87,9 +87,14 @@ end = struct
         else if x.[n - 1] = '_' then n
         else aux3 (n - 1) in
       aux3 (List.fold_left aux2 (String.length x) list)
-  let create e =
-    let ml_name = e.Expr.ml_name in
+  let get_ml_name module_name c_name =
+    let n = String.length module_name + 1 in
+    String.lowercase (String.sub c_name n (String.length c_name - n))
+  let create module_name e =
     let c_name = e.Expr.c_name in
+    let ml_name = match e.Expr.ml_name with
+    | "" -> get_ml_name module_name c_name
+    | s -> s in
     let ml_of_c = sprintf "Val_%s" c_name in
     let c_of_ml = sprintf "%s_val" c_name in
     let prefix_length = match e.Expr.prefix_length with
@@ -158,7 +163,7 @@ end = struct
   type t = {name : string; enums : Enum.t list}
   let create e =
     let name = e.Expr.name in
-    let enums = List.rev (List.rev_map Enum.create e.Expr.enums) in
+    let enums = List.rev (List.rev_map (Enum.create name) e.Expr.enums) in
     {name; enums}
   let print_ml fmt s =
     fprintf fmt "module %s = struct\n\n" s.name;

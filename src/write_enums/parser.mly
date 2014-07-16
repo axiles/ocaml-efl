@@ -37,6 +37,9 @@ enum:
 | ENUM IDENT IDENT LB variant_list RB {
   {ml_name = $2; c_name = $3; prefix_length = None; variants = List.rev $5}
 }
+| ENUM IDENT LB variant_list RB {
+  {ml_name = ""; c_name = $2; prefix_length = None; variants = List.rev $4}
+}
 
 variant_list:
 | variant { [ $1 ] }
