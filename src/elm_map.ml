@@ -1,22 +1,10 @@
-module HE = Henums.Elm_map
-
-type overlay_type = HE.overlay_type
+include Henums.Elm_map
 
 type overlay
-
-type zoom_mode = HE.zoom_mode
 
 type overlay_get_cb = Evas.obj -> overlay -> unit
 
 type route
-
-type source_type = HE.source_type
-
-type route_type = HE.route_type
-
-type route_method = HE.route_method
-
-type name_method = HE.name_method
 
 type route_cb = Evas.obj -> route -> unit
 

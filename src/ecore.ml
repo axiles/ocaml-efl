@@ -1,3 +1,5 @@
+include Henums.Ecore
+
 exception Not_X
 
 let _ = Callback.register_exception "Not_X exception" Not_X
@@ -17,8 +19,6 @@ type window
 type x_window = int
 
 type wl_window
-
-type pos_map = Henums.Ecore.pos_map
 
 external x_window_focus : x_window -> unit = "ml_ecore_x_window_focus"
 

@@ -1,4 +1,4 @@
-type mode = Henums.Elm_list.mode
+include Henums.Elm_list
 
 external add : Evas.obj -> Evas.obj = "ml_elm_list_add"
 

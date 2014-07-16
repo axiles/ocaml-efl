@@ -1,3 +1,5 @@
+include Henums.Evas_object
+
 type t = Evas.obj
 
 type box_data
@@ -409,8 +411,6 @@ let size_hint_set obj list =
   size_hint_align_set obj ha va
 
 (* Extra Object Manipulation *)
-
-type pointer_mode = Henums.Evas_object.pointer_mode
 
 external pointer_mode_set : t -> pointer_mode -> unit =
   "ml_evas_object_pointer_mode_set"

@@ -1,4 +1,4 @@
-type zoom_mode = Henums.Elm_photocam.zoom_mode
+include Henums.Elm_photocam
 
 type progress = {now : float; total : float}
 

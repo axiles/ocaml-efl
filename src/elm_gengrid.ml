@@ -1,3 +1,5 @@
+include Henums.Elm_gengrid
+
 type item_class = Elm_gen.item_class = {
   item_style : string;
   func_text_get : Evas.obj -> string -> string;
@@ -5,8 +7,6 @@ type item_class = Elm_gen.item_class = {
   func_state_get : Evas.obj -> string -> bool;
   func_del : Evas.obj -> unit;
 }
-
-type item_scrollto_type = Henums.Elm_gengrid.item_scrollto_type
 
 external add : Evas.obj -> Evas.obj = "ml_elm_gengrid_add"
 

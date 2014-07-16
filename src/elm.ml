@@ -1,4 +1,4 @@
-module HE = Henums.Elm
+include Henums.Elm
 
 (* Cache *)
 
@@ -11,15 +11,7 @@ external coords_finger_size_adjust : int -> int -> int * int =
 
 (* Focus *)
 
-type focus_direction = HE.focus_direction
-
 (* General *)
-
-type policy_quit = HE.policy_quit
-
-type policy_exit = HE.policy_exit
-
-type policy_throttle = HE.policy_throttle
 
 type event_cb = Evas.obj -> Evas.obj -> Evas_event.t -> bool
 
@@ -58,10 +50,6 @@ external language_set : string -> unit = "ml_elm_language_set"
 let connect = Evas_object_smart.create_sig_with_cb
 
 (* Gesture Layer *)
-
-type gesture_type = HE.gesture_type
-
-type gesture_state = HE.gesture_state
 
 type gesture_event_cb = Evas.ptr -> unit
 
@@ -140,31 +128,13 @@ external need_web : unit -> bool = "ml_elm_need_web"
 
 (* Entry *)
 
-type text_format = HE.text_format
-
-type wrap_type = HE.wrap_type
-
-type input_panel_layout = HE.input_panel_layout
-
-type input_panel_lang = HE.input_panel_lang
-
-type autocapital_type = HE.autocapital_type
-
-type input_panel_return_key_type = HE.input_panel_return_key_type
-
-type cnp_mode = HE.cnp_mode
-
 (* Window *)
-
-type illume_command = HE.illume_command
 
 (* Transit *)
 
 type transit
 
 (* Tooltips *)
-
-type tooltip_orient = HE.tooltip_orient
 
 type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
 
