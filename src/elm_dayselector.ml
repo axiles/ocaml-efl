@@ -1,4 +1,4 @@
-type day = Henums.Elm_dayselector.day
+include Henums.Elm_dayselector
 
 external add : Evas.obj -> Evas.obj = "ml_elm_dayselector_add"
 

@@ -1,4 +1,4 @@
-type field_type = Henums.Elm_datetime.field_type
+include Henums.Elm_datetime
 
 external add : Evas.obj -> Evas.obj = "ml_elm_datetime_add"
 

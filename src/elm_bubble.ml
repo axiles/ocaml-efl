@@ -1,4 +1,4 @@
-type pos = Henums.Elm_bubble.pos
+include Henums.Elm_bubble
 
 external add : Evas.obj -> Evas.obj = "ml_elm_bubble_add"
 

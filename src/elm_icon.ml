@@ -1,8 +1,4 @@
-module HE = Henums.Elm_icon
-
-type ty = HE.ty
-
-type lookup_order = HE.lookup_order
+include Henums.Elm_icon
 
 external add : Evas.obj -> Evas.obj = "ml_elm_icon_add"
 

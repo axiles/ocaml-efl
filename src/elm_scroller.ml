@@ -1,10 +1,4 @@
-module HE = Henums.Elm_scroller
-
-type policy = HE.policy
-
-type single_direction = HE.single_direction
-
-type movement_block = HE.movement_block
+include Henums.Elm_scroller
 
 type movement_block_ = {
   vertical : bool;

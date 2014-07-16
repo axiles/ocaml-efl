@@ -1,4 +1,4 @@
-type axis = Henums.Elm_hover.axis
+include Henums.Elm_hover
 
 external add : Evas.obj -> Evas.obj = "ml_elm_hover_add"
 

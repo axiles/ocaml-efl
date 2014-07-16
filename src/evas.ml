@@ -1,3 +1,5 @@
+include Henums.Evas
+
 type ptr
 
 type obj
@@ -48,10 +50,6 @@ end
 
 type precision_position = Precision_position.t
 
-type aspect_control = Henums.Evas.aspect_control
-
-type load_error = Henums.Evas.load_error
-
 module Signal = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
   type 'a v = (obj -> 'a -> unit) t
@@ -74,10 +72,6 @@ end
 type gl_api
 
 type map
-
-type display_mode = Henums.Evas.display_mode
-
-type render_op = Henums.Evas.render_op
 
 let hint_expand = 1.
 
@@ -105,8 +99,6 @@ external obj_of_ptr : ptr -> obj = "ml_obj_of_ptr"
 external float_of_ptr : ptr -> float = "ml_float_of_ptr"
 
 (* Top Level Functions *)
-
-type alloc_error = Henums.Evas.alloc_error
 
 external init : unit -> int = "ml_evas_init"
 

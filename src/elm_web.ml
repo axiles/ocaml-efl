@@ -1,4 +1,4 @@
-module HE = Henums.Elm_web
+include Henums.Elm_web
 
 type window_features
 
@@ -16,10 +16,6 @@ type dialog_file_selector =
 
 type console_message = Evas.obj -> string -> int -> string -> unit
 
-type zoom_mode = HE.zoom_mode
-
-type window_feature_flag = HE.window_feature_flag
-
 type frame_load_error = {
   code : int;
   is_cancellation : bool;
@@ -28,8 +24,6 @@ type frame_load_error = {
   failing_url : string;
   frame : Evas.obj;
 }
-
-type menu_item_type = HE.menu_item_type
 
 type menu_item = {text : string; ty : menu_item_type}
 

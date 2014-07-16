@@ -1,4 +1,4 @@
-type mode = Henums.Elm_fileselector.mode
+include Henums.Elm_fileselector
 
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"
 

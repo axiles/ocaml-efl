@@ -1,4 +1,4 @@
-type direction = Henums.Elm_ctxpopup.direction
+include Henums.Elm_ctxpopup
 
 external add : Evas.obj -> Evas.obj = "ml_elm_ctxpopup_add"
 

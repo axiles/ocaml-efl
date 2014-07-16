@@ -1,4 +1,4 @@
-type edit_mode = Henums.Elm_clock.edit_mode
+include Henums.Elm_clock
 
 type edit_mode_ = {
   defalt : bool;

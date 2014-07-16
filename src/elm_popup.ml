@@ -1,4 +1,4 @@
-type orient = Henums.Elm_popup.orient
+include Henums.Elm_popup
 
 external add : Evas.obj -> Evas.obj = "ml_elm_popup_add"
 

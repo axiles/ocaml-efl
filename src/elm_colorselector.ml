@@ -1,4 +1,4 @@
-type mode = Henums.Elm_colorselector.mode
+include Henums.Elm_colorselector
 
 external add : Evas.obj -> Evas.obj = "ml_elm_colorselector_add"
 

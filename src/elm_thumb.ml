@@ -1,4 +1,4 @@
-type animation_setting = Henums.Elm_thumb.animation_setting
+include Henums.Elm_thumb
 
 external add : Evas.obj -> Evas.obj = "ml_elm_thumb_add"
 

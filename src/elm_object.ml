@@ -1,3 +1,5 @@
+include Henums.Elm_object
+
 (* Cursors *)
 
 external cursor_set : Evas.obj -> string -> unit = "ml_elm_object_cursor_set"
@@ -76,8 +78,6 @@ external tree_focus_allow_set : Evas.obj -> bool -> unit =
 (* General *)
 
 type item
-
-type select_mode = Henums.Elm_object.select_mode
 
 type item_signal_cb = item -> string -> string -> unit
 
