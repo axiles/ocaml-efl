@@ -1,4 +1,5 @@
 include Henums.Evas
+include Hstructs.Evas
 
 type ptr
 
@@ -12,11 +13,14 @@ type modifier
 
 type callback_priority = [`after | `before | `default | `other of int]
 
-module Point = struct
+(*module Point = struct
   type t = {x : int; y : int}
 end
 
-type point = Point.t
+type point = Point.t*)
+
+module Mpoint = Fpoint (struct end)
+include Mpoint
 
 module Coord_point = struct
   type t = Point.t = {x : int; y : int}
@@ -24,11 +28,14 @@ end
 
 type coord_point = Coord_point.t
 
-module Position = struct
+(*module Position = struct
   type t = {output : point; canvas : point}
 end
 
-type position = Position.t
+type position = Position.t*)
+
+module Mposition = Fposition(struct type evas_point = point end)
+include Mposition
 
 module Button_flags = struct
   type t = {double_click : bool; triple_click : bool}

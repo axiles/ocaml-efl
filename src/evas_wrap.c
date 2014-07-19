@@ -1,12 +1,12 @@
 #include "include.h"
 
-inline value copy_Evas_Point(Evas_Point p)
+/*inline value copy_Evas_Point(Evas_Point p)
 {
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(p.x));
         Store_field(v, 1, Val_int(p.y));
         return v;
-}
+}*/
 
 inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
 {
@@ -16,7 +16,7 @@ inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
         return v;
 }
 
-inline value copy_Evas_Position(Evas_Position p)
+/*inline value copy_Evas_Position(Evas_Position p)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -24,7 +24,7 @@ inline value copy_Evas_Position(Evas_Position p)
         Store_field(v, 0, copy_Evas_Point(p.output));
         Store_field(v, 1, copy_Evas_Coord_Point(p.canvas));
         CAMLreturn(v);
-}
+}*/
 
 inline value copy_Evas_Coord_Precision_Point(
         Evas_Coord_Precision_Point p)

@@ -11,11 +11,11 @@ PREFIX void ml_Evas_Smart_Cb_1_free(
 inline value copy_Evas_Event_Info(
         Evas_Callback_Type type, void* event_info);
 
-inline value copy_Evas_Point(Evas_Point p);
+/*inline value copy_Evas_Point(Evas_Point p);*/
 
 inline value copy_Evas_Coord_Point(Evas_Coord_Point p);
 
-inline value copy_Evas_Position(Evas_Position p);
+/*inline value copy_Evas_Position(Evas_Position p);*/
 
 inline value copy_Evas_Coord_Precision_Point(
         Evas_Coord_Precision_Point p);

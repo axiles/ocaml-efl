@@ -1,0 +1,11 @@
+Section Evas {
+  Struct point Evas_Point module {
+    x int;
+    y int;
+  }
+  Struct position Evas_Position module {
+    output evas_point;
+    canvas evas_point;
+  }
+}
+
