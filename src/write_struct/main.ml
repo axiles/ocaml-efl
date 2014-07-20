@@ -106,7 +106,7 @@ end = struct
     let fields = List.map (Field.create env) e.E.fields in
     let c_of_ml = sprintf "inline %s %s_val(value v)" c_name c_name in
     let ml_of_c =
-      let s = if ptr then sprintf "%s*" c_name else c_name in
+      let s = if ptr then sprintf "const %s*" c_name else c_name in
       sprintf "inline value copy_%s(%s x)" c_name s in
     let params =
       let aux accu f =
@@ -140,6 +140,7 @@ end = struct
       fprintf fmt "        return x;\n}\n\n";
     );
     fprintf fmt "%s\n{\n" st.ml_of_c;
+    fprintf fmt "        CAMLparam0();\n";
     fprintf fmt "        CAMLlocal1(v);\n";
     fprintf fmt "        v = caml_alloc(%d, 0);\n" (List.length st.fields);
     let aux i f = Field.print_ml_of_c "v" i "x" st.ptr fmt f; i + 1 in
@@ -215,8 +216,49 @@ let create_env () =
   let list = [
     {Ty.name = "int"; ml_name = "int"; c_name = "int";
       c_of_ml = "Int_val"; ml_of_c = "Val_int"; base = true};
+    {Ty.name = "evas_coord"; ml_name = "int"; c_name = "Evas_Coord";
+      c_of_ml = "Int_val"; ml_of_c = "Val_int"; base = true};
+    {Ty.name = "double"; ml_name = "float"; c_name = "double";
+      c_of_ml = "Double_val"; ml_of_c = "copy_double"; base = true};
+    {Ty.name = "safe_string"; ml_name = "string"; c_name = "const char*";
+      c_of_ml = "String_val"; ml_of_c = "safe_copy_string"; base = true};
+    {Ty.name = "bool"; ml_name = "bool"; c_name = "Eina_Bool";
+      c_of_ml = "Bool_val"; ml_of_c = "Val_bool"; base = true};
     {Ty.name = "evas_point"; ml_name = "Evas.point"; c_name = "Evas_point";
-      c_of_ml = "Evas_Point_val"; ml_of_c = "copy_Evas_Point"; base = false;}
+      c_of_ml = "Evas_Point_val"; ml_of_c = "copy_Evas_Point"; base = false;};
+    {Ty.name = "evas_coord_point"; ml_name = "Evas.coord_point";
+      c_name = "Evas_Coord_Point"; c_of_ml = "Evas_Coord_Point_val";
+      ml_of_c = "copy_Evas_Coord_Point"; base = false};
+    {Ty.name = "evas_coord_precision_point";
+      ml_name = "Evas.coord_precision_point";
+      c_name = "Evas_Coord_Precision_Point";
+      c_of_ml = "Evas_Coord_Precision_Point_val";
+      ml_of_c = "copy_Evas_Coord_Precision_Point"; base = false;};
+    {Ty.name = "evas_modifier"; ml_name = "Evas.modifier";
+      c_name = "Evas_Modifier*"; c_of_ml = "Evas_Modifier_val";
+      ml_of_c = "Val_Evas_Modifier"; base = false};
+    {Ty.name = "evas_object"; ml_name = "Evas.obj";
+      c_name = "Evas_Object*"; c_of_ml = "Evas_Object_val";
+      ml_of_c = "Val_Evas_Object"; base = false};
+    {Ty.name = "evas_event_flags"; ml_name = "Evas.event_flags";
+      c_name = "Evas_Event_Flags"; c_of_ml = "Evas_Event_Flags_val";
+      ml_of_c = "Val_Evas_Event_Flags"; base = false;};
+    {Ty.name = "evas_device"; ml_name = "Evas.device"; c_name = "Evas_Device*";
+      c_of_ml = "Evas_Device_val"; ml_of_c = "Val_Evas_Device"; base = false};
+    {Ty.name = "evas_button_flags"; ml_name = "Evas.button_flags";
+      c_name = "Evas_Button_Flags"; c_of_ml = "Evas_Button_Flags_val";
+      ml_of_c = "copy_Evas_Button_Flags"; base = false};
+    {Ty.name = "evas_position"; ml_name = "Evas.position";
+      c_name = "Evas_Position"; c_of_ml = "Evas_Position_Val";
+      ml_of_c = "copy_Evas_Position"; base = false};
+    {Ty.name = "evas_precision_position"; ml_name = "Evas.precision_position";
+      c_name = "Evas_Precision_Position";
+      c_of_ml = "Evas_Precision_Position_val";
+      ml_of_c = "copy_Evas_Precision_Position"; base = false};
+    {Ty.name = "elm_entry_anchor_info"; ml_name = "Elm_entry.anchor_info";
+      c_name = "const Elm_Entry_Anchor_Info*";
+      c_of_ml = "Elm_Entry_Anchor_Info_val";
+      ml_of_c = "copy_Elm_Entry_Anchor_Info"; base = false};
   ] in
   List.fold_left Tys.add Tys.empty list
 

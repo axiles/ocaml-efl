@@ -1,3 +1,5 @@
+open Hstructs.Evas_event
+
 type obj = Evas.obj
 type point = Evas.point
 type modifier = Evas.modifier
@@ -10,7 +12,20 @@ type precision_position = Evas.precision_position
 
 type flags =  [`none | `on_hold | `on_scroll]
 
-module Mouse_in = struct
+module T = struct
+  type evas_object = Evas.obj
+  type evas_modifier = Evas.modifier
+  type evas_device = Evas.device
+  type evas_event_flags = flags
+  type evas_point = Evas.point
+  type evas_coord_point = Evas.coord_point
+  type evas_button_flags = Evas.button_flags
+  type evas_position = Evas.position
+  type evas_coord_precision_point = Evas.coord_precision_point
+  type evas_precision_position = Evas.precision_position
+end
+
+(*module Mouse_in = struct
   type t = {
     buttons : int;
     output : point;
@@ -23,9 +38,12 @@ module Mouse_in = struct
   }
 end
 
-type mouse_in = Mouse_in.t
+type mouse_in = Mouse_in.t*)
 
-module Mouse_out = struct
+module Mmouse_in = Fmouse_in(T)
+include Mmouse_in
+
+(*module Mouse_out = struct
   type t = {
     buttons : int;
     output : point;
@@ -38,9 +56,12 @@ module Mouse_out = struct
   }
 end
 
-type mouse_out = Mouse_out.t
+type mouse_out = Mouse_out.t*)
 
-module Mouse_down = struct
+module Mmouse_out = Fmouse_out(T)
+include Mmouse_out
+
+(*module Mouse_down = struct
   type t = {
     button : int;
     output : point;
@@ -54,9 +75,12 @@ module Mouse_down = struct
   }
 end
 
-type mouse_down = Mouse_down.t
+type mouse_down = Mouse_down.t*)
 
-module Mouse_up = struct
+module Mmouse_down = Fmouse_down(T)
+include Mmouse_down
+
+(*module Mouse_up = struct
   type t = {
     button : int;
     output : point;
@@ -70,9 +94,12 @@ module Mouse_up = struct
   }
 end
 
-type mouse_up = Mouse_up.t
+type mouse_up = Mouse_up.t*)
 
-module Mouse_move = struct
+module Mmouse_up = Fmouse_up(T)
+include Mmouse_up
+
+(*module Mouse_move = struct
   type t = {
     buttons : int;
     cur : position;
@@ -85,9 +112,12 @@ module Mouse_move = struct
   }
 end
 
-type mouse_move = Mouse_move.t
+type mouse_move = Mouse_move.t*)
 
-module Mouse_wheel = struct
+module Mmouse_move = Fmouse_move(T)
+include Mmouse_move
+
+(*module Mouse_wheel = struct
   type t = {
     direction : int;
     output : point;
@@ -99,9 +129,12 @@ module Mouse_wheel = struct
   }
 end
 
-type mouse_wheel = Mouse_wheel.t
+type mouse_wheel = Mouse_wheel.t*)
 
-module Multi_down = struct
+module Mmouse_wheel = Fmouse_wheel(T)
+include Mmouse_wheel
+
+(*module Multi_down = struct
   type t = {
     device : int;
     radius : float;
@@ -119,9 +152,12 @@ module Multi_down = struct
   }
 end
 
-type multi_down = Multi_down.t
+type multi_down = Multi_down.t*)
 
-module Multi_up = struct
+module Mmulti_down = Fmulti_down(T)
+include Mmulti_down
+
+(*module Multi_up = struct
   type t = {
     device : int;
     radius : float;
@@ -139,9 +175,12 @@ module Multi_up = struct
   }
 end
 
-type multi_up = Multi_up.t
+type multi_up = Multi_up.t*)
 
-module Multi_move = struct
+module Mmulti_up = Fmulti_up(T)
+include Mmulti_up
+
+(*module Multi_move = struct
   type t = {
     device : int;
     radius : float;
@@ -157,9 +196,12 @@ module Multi_move = struct
   }
 end
 
-type multi_move = Multi_move.t
+type multi_move = Multi_move.t*)
 
-module Key_down = struct
+module Mmulti_move = Fmulti_move(T)
+include Mmulti_move
+
+(*module Key_down = struct
   type t = {
     keyname : string;
     modifiers : modifier;
@@ -172,9 +214,12 @@ module Key_down = struct
   }
 end
 
-type key_down = Key_down.t
+type key_down = Key_down.t*)
 
-module Key_up = struct
+module Mkey_down = Fkey_down(T)
+include Mkey_down
+
+(*module Key_up = struct
   type t = {
     keyname : string;
     modifiers : modifier;
@@ -187,9 +232,12 @@ module Key_up = struct
   }
 end
 
-type key_up = Key_up.t
+type key_up = Key_up.t*)
 
-module Hold = struct
+module Mkey_up = Fkey_up(T)
+include Mkey_up
+
+(*module Hold = struct
   type t = {
     hold : int;
     timestamp : int;
@@ -198,7 +246,10 @@ module Hold = struct
   }
 end
 
-type hold = Hold.t
+type hold = Hold.t*)
+
+module Mhold = Fhold(T)
+include Mhold
 
 type t = [
   | `mouse_in of mouse_in

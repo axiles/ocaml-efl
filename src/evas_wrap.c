@@ -8,13 +8,13 @@
         return v;
 }*/
 
-inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
+/*inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
 {
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(p.x));
         Store_field(v, 1, Val_int(p.y));
         return v;
-}
+}*/
 
 /*inline value copy_Evas_Position(Evas_Position p)
 {
@@ -26,7 +26,7 @@ inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
         CAMLreturn(v);
 }*/
 
-inline value copy_Evas_Coord_Precision_Point(
+/*inline value copy_Evas_Coord_Precision_Point(
         Evas_Coord_Precision_Point p)
 {
         CAMLparam0();
@@ -47,6 +47,36 @@ inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
         Store_field(v, 0, copy_Evas_Point(p.output));
         Store_field(v, 1, copy_Evas_Coord_Precision_Point(p.canvas));
         CAMLreturn(v);
+}*/
+
+inline Evas_Modifier* Evas_Modifier_val(value v)
+{
+        return (Evas_Modifier*) v;
+}
+
+inline value Val_Evas_Modifier(Evas_Modifier* m)
+{
+        return (value) m;
+}
+
+inline Evas_Object* Evas_Object_val(value v)
+{
+        return (Evas_Object*) v;
+}
+
+inline value Val_Evas_Object(Evas_Object* obj)
+{
+        return (value) obj;
+}
+
+inline Evas_Device* Evas_Device_val(value v)
+{
+        return (Evas_Device*) v;
+}
+
+inline value Val_Evas_Device(Evas_Device* d)
+{
+        return (value) d;
 }
 
 inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
@@ -597,7 +627,7 @@ PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn)
 
 /* Shared Image Cache Server */
 
-inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
+/*inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -627,7 +657,7 @@ inline value copy_Evas_Cserve_Config(Evas_Cserve_Config c)
         Store_field(v, 1, Val_int(c.cache_item_timeout));
         Store_field(v, 2, Val_int(c.cache_item_timeout_check));
         return v;
-}
+}*/
 
 PREFIX value ml_evas_cserve_want_get(value v_unit)
 {

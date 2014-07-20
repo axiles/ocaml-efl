@@ -17,10 +17,10 @@ inline value copy_Evas_Coord_Point(Evas_Coord_Point p);
 
 /*inline value copy_Evas_Position(Evas_Position p);*/
 
-inline value copy_Evas_Coord_Precision_Point(
+/*inline value copy_Evas_Coord_Precision_Point(
         Evas_Coord_Precision_Point p);
 
-inline value copy_Evas_Precision_Position(Evas_Precision_Position p);
+inline value copy_Evas_Precision_Position(Evas_Precision_Position p);*/
 
 inline value copy_Evas_Button_Flags(Evas_Button_Flags f);
 
@@ -30,6 +30,15 @@ inline value* ml_Evas_register_value(value v);
 inline void ml_Evas_remove_values();
 
 inline value copy_Evas_Coord_Size(Evas_Coord_Size* s);
+
+inline Evas_Modifier* Evas_Modifier_val(value v);
+inline value Val_Evas_Modifier(Evas_Modifier* m);
+
+inline Evas_Object* Evas_Object_val(value v);
+inline value Val_Evas_Object(Evas_Object* obj);
+
+inline Evas_Device* Evas_Device_val(value v);
+inline value Val_Evas_Device(Evas_Device* d);
 
 #endif
 

@@ -11,7 +11,7 @@ inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
         return Val_none;
 }
 
-inline value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
+/*inline value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -25,9 +25,9 @@ inline value copy_Evas_Event_Mouse_In(Evas_Event_Mouse_In* e)
         Store_field(v, 6, (value) e->dev);
         Store_field(v, 7, (value) e->event_src);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
+/*inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -41,9 +41,9 @@ inline value copy_Evas_Event_Mouse_Out(Evas_Event_Mouse_Out* e)
         Store_field(v, 6, (value) e->dev);
         Store_field(v, 7, (value) e->event_src);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
+/*inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -58,9 +58,9 @@ inline value copy_Evas_Event_Mouse_Down(Evas_Event_Mouse_Down* ev)
         Store_field(v, 7, (value) ev->dev);
         Store_field(v, 8, (value) ev->event_src);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
+/*inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -75,9 +75,9 @@ inline value copy_Evas_Event_Mouse_Up(Evas_Event_Mouse_Up* ev)
         Store_field(v, 7, (value) ev->dev);
         Store_field(v, 8, (value) ev->event_src);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
+/*inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -90,9 +90,9 @@ inline value copy_Evas_Event_Mouse_Move(Evas_Event_Mouse_Move* ev)
         Store_field(v, 5, (value) ev->dev);
         Store_field(v, 6, (value) ev->event_src);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
+/*inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -105,9 +105,9 @@ inline value copy_Evas_Event_Mouse_Wheel(Evas_Event_Mouse_Wheel* ev)
         Store_field(v, 5, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 6, (value) ev->dev);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
+/*inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -126,9 +126,9 @@ inline value copy_Evas_Event_Multi_Down(Evas_Event_Multi_Down* ev)
         Store_field(v, 11, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 12, (value) ev->dev);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
+/*inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -147,9 +147,9 @@ inline value copy_Evas_Event_Multi_Up(Evas_Event_Multi_Up* ev)
         Store_field(v, 11, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 12, (value) ev->dev);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
+/*inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -166,9 +166,9 @@ inline value copy_Evas_Event_Multi_Move(Evas_Event_Multi_Move* ev)
         Store_field(v, 9, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 10, (value) ev->dev);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
+/*inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -182,9 +182,9 @@ inline value copy_Evas_Event_Key_Down(Evas_Event_Key_Down* info)
         Store_field(v, 6, Val_Evas_Event_Flags(info->event_flags));
         Store_field(v, 7, (value) info->dev);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
+/*inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -198,9 +198,9 @@ inline value copy_Evas_Event_Key_Up(Evas_Event_Key_Up* info)
         Store_field(v, 6, Val_Evas_Event_Flags(info->event_flags));
         Store_field(v, 7, (value) info->dev);
         CAMLreturn(v);
-}
+}*/
 
-inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
+/*inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
 {
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(ev->hold));
@@ -208,7 +208,7 @@ inline value copy_Evas_Event_Hold(Evas_Event_Hold* ev)
         Store_field(v, 2, Val_Evas_Event_Flags(ev->event_flags));
         Store_field(v, 3, (value) ev->dev);
         return v;
-}
+}*/
 
 inline value copy_Evas_Event_Info(
         Evas_Callback_Type t, void* event_info)

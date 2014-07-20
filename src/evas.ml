@@ -22,11 +22,14 @@ type point = Point.t*)
 module Mpoint = Fpoint (struct end)
 include Mpoint
 
-module Coord_point = struct
+(*module Coord_point = struct
   type t = Point.t = {x : int; y : int}
 end
 
-type coord_point = Coord_point.t
+type coord_point = Coord_point.t*)
+
+module Mcoord_point = Fcoord_point (struct end)
+include Mcoord_point
 
 (*module Position = struct
   type t = {output : point; canvas : point}
@@ -34,7 +37,10 @@ end
 
 type position = Position.t*)
 
-module Mposition = Fposition(struct type evas_point = point end)
+module Mposition = Fposition(struct
+  type evas_point = point
+  type evas_coord_point = coord_point
+end)
 include Mposition
 
 module Button_flags = struct
@@ -45,17 +51,26 @@ type button_flags = Button_flags.t
 
 type device
 
-module Coord_precision_point = struct
+(*module Coord_precision_point = struct
   type t = {x : int; y : int; xsub : float; ysub : float}
 end
 
-type coord_precision_point = Coord_precision_point.t
+type coord_precision_point = Coord_precision_point.t*)
 
-module Precision_position = struct
+module Mcoord_precision_point = Fcoord_precision_point (struct end)
+include Mcoord_precision_point
+
+(*module Precision_position = struct
   type t = {output : point; canvas : coord_precision_point}
 end
 
-type precision_position = Precision_position.t
+type precision_position = Precision_position.t*)
+
+module Mprecision_position = Fprecision_position (struct
+  type evas_point = point
+  type evas_coord_precision_point = coord_precision_point
+end)
+include Mprecision_position
 
 module Signal = struct
   type 'a t = {name : string; make_cb : 'a -> smart_cb}
@@ -252,7 +267,7 @@ external objects_in_rectangle_get :
 
 (* Shared Image Cache Server *)
 
-type cserve_stats = {
+(*type cserve_stats = {
   saved_memory : int;
   wasted_memory : int;
   save_memory_peak : int;
@@ -265,7 +280,13 @@ type cserve_config = {
   cache_max_usage : int;
   cache_item_timeout : int;
   cache_item_timeout_check : int;
-}
+}*)
+
+module Mcserve_stats = Fcserve_stats (struct end)
+include Mcserve_stats
+
+module Mcserve_config = Fcserve_config (struct end)
+include Mcserve_config
 
 external cserve_want_get : unit -> bool = "ml_evas_cserve_want_get"
 

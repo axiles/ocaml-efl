@@ -69,7 +69,7 @@ inline value
         CAMLreturn(v);
 }
 
-inline value copy_Elm_Entry_Anchor_Info(Elm_Entry_Anchor_Info* info)
+/*inline value copy_Elm_Entry_Anchor_Info(Elm_Entry_Anchor_Info* info)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -81,7 +81,7 @@ inline value copy_Elm_Entry_Anchor_Info(Elm_Entry_Anchor_Info* info)
         Store_field(v, 4, Val_int(info->w));
         Store_field(v, 5, Val_int(info->h));
         CAMLreturn(v);
-}
+}*/
 
 PREFIX value ml_elm_entry_add(value v_parent)
 {
@@ -705,10 +705,8 @@ PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
 
 PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
 {
-        CAMLparam0();
+        /*CAMLparam0();
         CAMLlocal1(v);
-        Elm_Entry_Anchor_Hover_Info* info =
-                (Elm_Entry_Anchor_Hover_Info*) v_ptr;
         v = caml_alloc(6, 0);
         Store_field(v, 0, ml_elm_entry_anchor_info_of_ptr(
                 (value) info->anchor_info));
@@ -717,6 +715,9 @@ PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
         Store_field(v, 3, Val_Eina_Bool(info->hover_right));
         Store_field(v, 4, Val_Eina_Bool(info->hover_top));
         Store_field(v, 5, Val_Eina_Bool(info->hover_bottom));
-        CAMLreturn(v);
+        CAMLreturn(v);*/
+        Elm_Entry_Anchor_Hover_Info* info =
+                (Elm_Entry_Anchor_Hover_Info*) v_ptr;
+        return copy_Elm_Entry_Anchor_Hover_Info(info);
 }
 
