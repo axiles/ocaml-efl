@@ -1,54 +1,5 @@
 #include "include.h"
 
-/*inline value copy_Evas_Point(Evas_Point p)
-{
-        value v = caml_alloc(2, 0);
-        Store_field(v, 0, Val_int(p.x));
-        Store_field(v, 1, Val_int(p.y));
-        return v;
-}*/
-
-/*inline value copy_Evas_Coord_Point(Evas_Coord_Point p)
-{
-        value v = caml_alloc(2, 0);
-        Store_field(v, 0, Val_int(p.x));
-        Store_field(v, 1, Val_int(p.y));
-        return v;
-}*/
-
-/*inline value copy_Evas_Position(Evas_Position p)
-{
-        CAMLparam0();
-        CAMLlocal1(v);
-        v = caml_alloc(2, 0);
-        Store_field(v, 0, copy_Evas_Point(p.output));
-        Store_field(v, 1, copy_Evas_Coord_Point(p.canvas));
-        CAMLreturn(v);
-}*/
-
-/*inline value copy_Evas_Coord_Precision_Point(
-        Evas_Coord_Precision_Point p)
-{
-        CAMLparam0();
-        CAMLlocal1(v);
-        v = caml_alloc(4, 0);
-        Store_field(v, 0, Val_int(p.x));
-        Store_field(v, 1, Val_int(p.y));
-        Store_field(v, 2, copy_double(p.xsub));
-        Store_field(v, 3, copy_double(p.ysub));
-        CAMLreturn(v);
-}
-
-inline value copy_Evas_Precision_Position(Evas_Precision_Position p)
-{
-        CAMLparam0();
-        CAMLlocal1(v);
-        v = caml_alloc(2, 0);
-        Store_field(v, 0, copy_Evas_Point(p.output));
-        Store_field(v, 1, copy_Evas_Coord_Precision_Point(p.canvas));
-        CAMLreturn(v);
-}*/
-
 inline Evas_Modifier* Evas_Modifier_val(value v)
 {
         return (Evas_Modifier*) v;

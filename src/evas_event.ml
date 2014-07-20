@@ -25,228 +25,38 @@ module T = struct
   type evas_precision_position = Evas.precision_position
 end
 
-(*module Mouse_in = struct
-  type t = {
-    buttons : int;
-    output : point;
-    canvas : coord_point;
-    modifiers : modifier;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-    event_src : obj;
-  }
-end
-
-type mouse_in = Mouse_in.t*)
-
 module Mmouse_in = Fmouse_in(T)
 include Mmouse_in
-
-(*module Mouse_out = struct
-  type t = {
-    buttons : int;
-    output : point;
-    canvas : coord_point;
-    modifiers : modifier;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-    event_src : obj;
-  }
-end
-
-type mouse_out = Mouse_out.t*)
 
 module Mmouse_out = Fmouse_out(T)
 include Mmouse_out
 
-(*module Mouse_down = struct
-  type t = {
-    button : int;
-    output : point;
-    canvas : coord_point;
-    modifiers : modifier;
-    flags : button_flags;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-    event_src : obj;
-  }
-end
-
-type mouse_down = Mouse_down.t*)
-
 module Mmouse_down = Fmouse_down(T)
 include Mmouse_down
-
-(*module Mouse_up = struct
-  type t = {
-    button : int;
-    output : point;
-    canvas : coord_point;
-    modifiers : modifier;
-    flags : button_flags;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-    event_src : obj;
-  }
-end
-
-type mouse_up = Mouse_up.t*)
 
 module Mmouse_up = Fmouse_up(T)
 include Mmouse_up
 
-(*module Mouse_move = struct
-  type t = {
-    buttons : int;
-    cur : position;
-    prev : position;
-    modifiers : modifier;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-    event_src : obj;
-  }
-end
-
-type mouse_move = Mouse_move.t*)
-
 module Mmouse_move = Fmouse_move(T)
 include Mmouse_move
-
-(*module Mouse_wheel = struct
-  type t = {
-    direction : int;
-    output : point;
-    canvas : coord_point;
-    modifiers : modifier;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type mouse_wheel = Mouse_wheel.t*)
 
 module Mmouse_wheel = Fmouse_wheel(T)
 include Mmouse_wheel
 
-(*module Multi_down = struct
-  type t = {
-    device : int;
-    radius : float;
-    radius_x : float;
-    radius_y : float;
-    pressure : float;
-    angle : float;
-    output : point;
-    canvas : coord_precision_point;
-    modifiers : modifier;
-    flags : button_flags;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type multi_down = Multi_down.t*)
-
 module Mmulti_down = Fmulti_down(T)
 include Mmulti_down
-
-(*module Multi_up = struct
-  type t = {
-    device : int;
-    radius : float;
-    radius_x : float;
-    radius_y : float;
-    pressure : float;
-    angle : float;
-    output : point;
-    canvas : coord_precision_point;
-    modifiers : modifier;
-    flags : button_flags;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type multi_up = Multi_up.t*)
 
 module Mmulti_up = Fmulti_up(T)
 include Mmulti_up
 
-(*module Multi_move = struct
-  type t = {
-    device : int;
-    radius : float;
-    radius_x : float;
-    radius_y : float;
-    pressure : float;
-    angle : float;
-    cur : precision_position;
-    modifiers : modifier;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type multi_move = Multi_move.t*)
-
 module Mmulti_move = Fmulti_move(T)
 include Mmulti_move
-
-(*module Key_down = struct
-  type t = {
-    keyname : string;
-    modifiers : modifier;
-    key : string;
-    string : string;
-    compose : string;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type key_down = Key_down.t*)
 
 module Mkey_down = Fkey_down(T)
 include Mkey_down
 
-(*module Key_up = struct
-  type t = {
-    keyname : string;
-    modifiers : modifier;
-    key : string;
-    string : string;
-    compose : string;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type key_up = Key_up.t*)
-
 module Mkey_up = Fkey_up(T)
 include Mkey_up
-
-(*module Hold = struct
-  type t = {
-    hold : int;
-    timestamp : int;
-    event_flags : flags;
-    dev : device;
-  }
-end
-
-type hold = Hold.t*)
 
 module Mhold = Fhold(T)
 include Mhold
