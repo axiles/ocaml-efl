@@ -1,0 +1,195 @@
+Section Evas {
+  Struct point Evas_Point module {
+    x int;
+    y int;
+  }
+  Struct coord_point Evas_Coord_Point module {
+    x evas_coord;
+    y evas_coord;
+  }
+  Struct position Evas_Position module {
+    output evas_point;
+    canvas evas_coord_point;
+  }
+  Struct coord_precision_point Evas_Coord_Precision_Point module {
+    x evas_coord;
+    y evas_coord;
+    xsub double;
+    ysub double;
+  }
+  Struct precision_position Evas_Precision_Position module {
+    output evas_point;
+    canvas evas_coord_precision_point;
+  }
+  Struct cserve_stats Evas_Cserve_Stats {
+    saved_memory int;
+    wasted_memory int;
+    saved_memory_peak int;
+    wasted_memory_peak int;
+    saved_time_image_header_load double;
+    saved_time_image_data_load double;
+  }
+  Struct cserve_config Evas_Cserve_Config {
+    cache_max_usage int;
+    cache_item_timeout int;
+    cache_item_timeout_check int;
+  }
+}
+
+Section Evas_event {
+  Struct mouse_in Evas_Event_Mouse_In* module {
+    buttons int;
+    output evas_point;
+    canvas evas_coord_point;
+    modifiers evas_modifier;
+    timestamp int;                                                   
+    event_flags evas_event_flags;                                                 
+    dev evas_device;                                                         
+    event_src evas_object;
+  }
+  Struct mouse_out Evas_Event_Mouse_Out* module {
+    buttons int;
+    output evas_point;
+    canvas evas_coord_point;
+    modifiers evas_modifier;
+    timestamp int;                                                   
+    event_flags evas_event_flags;                                                 
+    dev evas_device;                                                         
+    event_src evas_object;
+  }
+  Struct mouse_down Evas_Event_Mouse_Down* module {
+    button int;
+    output evas_point;
+    canvas evas_coord_point;
+    modifiers evas_modifier;
+    flags evas_button_flags;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+    event_src evas_object;
+  }
+  Struct mouse_up Evas_Event_Mouse_Up* module {
+    button int;
+    output evas_point;
+    canvas evas_coord_point;
+    modifiers evas_modifier;
+    flags evas_button_flags;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+    event_src evas_object;
+  }
+  Struct mouse_move Evas_Event_Mouse_Move* module {
+    buttons int;
+    cur evas_position;
+    prev evas_position;
+    modifiers evas_modifier;
+    timestamp int;                                                   
+    event_flags evas_event_flags;                                                 
+    dev evas_device;
+    event_src evas_object;
+  }
+  Struct mouse_wheel Evas_Event_Mouse_Wheel* module {
+    direction int;
+    z int;
+    output evas_point;
+    canvas evas_coord_point;
+    modifiers evas_modifier;
+    timestamp int;                                                   
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+  Struct multi_down Evas_Event_Multi_Down* module {
+    device int;
+    radius double;
+    radius_x double;
+    radius_y double;
+    pressure double;
+    angle double;
+    output evas_point;
+    canvas evas_coord_precision_point;
+    modifiers evas_modifier;
+    flags evas_button_flags;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+  Struct multi_up Evas_Event_Multi_Up* module {
+    device int;
+    radius double;
+    radius_x double;
+    radius_y double;
+    pressure double;
+    angle double;
+    output evas_point;
+    canvas evas_coord_precision_point;
+    modifiers evas_modifier;
+    flags evas_button_flags;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+  Struct multi_move Evas_Event_Multi_Move* module {
+    device int;
+    radius double;
+    radius_x double;
+    radius_y double;
+    pressure double;
+    angle double;
+    cur evas_precision_position;
+    modifiers evas_modifier;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+  Struct key_down Evas_Event_Key_Down* module {
+    keyname safe_string;                         
+    modifiers evas_modifier;
+    key safe_string;
+    string safe_string;
+    compose safe_string;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+  Struct key_up Evas_Event_Key_Up* module {
+    keyname safe_string;                         
+    modifiers evas_modifier;
+    key safe_string;
+    string safe_string;
+    compose safe_string;
+    timestamp int;
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+  Struct hold Evas_Event_Hold* module {
+    hold int;
+    timestamp int;                                                   
+    event_flags evas_event_flags;
+    dev evas_device;
+  }
+}
+
+Section Elm_entry {
+  Struct anchor_info Elm_Entry_Anchor_Info* {
+    name safe_string;
+    button int;
+    x evas_coord;
+    y evas_coord;
+    w evas_coord;
+    h evas_coord;
+  }
+  Struct anchor_hover_info Elm_Entry_Anchor_Hover_Info* {
+    anchor_info elm_entry_anchor_info;
+    hover evas_object;
+    hover_parent.x evas_coord;
+    hover_parent.y evas_coord;
+    hover_parent.w evas_coord;
+    hover_parent.h evas_coord;            
+    hover_left bool;
+    hover_right bool;
+    hover_top bool;
+    hover_bottom bool;
+  }
+}
+

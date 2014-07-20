@@ -1,20 +1,13 @@
-type anchor_info = {
-  name : string;
-  button : int;
-  x : int;
-  y : int;
-  w : int;
-  h : int;
-}
+open Hstructs.Elm_entry
 
-type anchor_hover_info = {
-  anchor_info : anchor_info;
-  hover : Evas.obj;
-  hover_left : bool;
-  hover_right : bool;
-  hover_top : bool;
-  hover_bottom : bool;
-}
+module Manchor_info = Fanchor_info (struct end)
+include Manchor_info
+
+module Manchor_hover_info = Fanchor_hover_info (struct
+  type elm_entry_anchor_info = anchor_info
+  type evas_object = Evas.obj
+end)
+include Manchor_hover_info
 
 type item_provider_cb = Evas.obj -> string -> Evas.obj option
 

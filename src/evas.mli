@@ -19,13 +19,13 @@ end
 type point = Point.t
 
 module Coord_point : sig
-  type t = Point.t = {x : int; y : int}
+  type t = {x : int; y : int}
 end
 
 type coord_point = Coord_point.t
 
 module Position : sig
-  type t = {output : point; canvas : point}
+  type t = {output : point; canvas : coord_point}
 end
 
 type position = Position.t
@@ -249,7 +249,7 @@ val objects_in_rectangle_get :
 type cserve_stats = {
   saved_memory : int;
   wasted_memory : int;
-  save_memory_peak : int;
+  saved_memory_peak : int;
   wasted_memory_peak : int;
   saved_time_image_header_load : float;
   saved_time_image_data_load : float;

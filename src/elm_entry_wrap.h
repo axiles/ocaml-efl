@@ -3,7 +3,5 @@
 
 #include "include.h"
 
-inline value copy_Elm_Entry_Anchor_Info(Elm_Entry_Anchor_Info* info);
-
 #endif
 
