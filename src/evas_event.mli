@@ -80,6 +80,7 @@ type mouse_move = Mouse_move.t
 module Mouse_wheel : sig
   type t = {
     direction : int;
+    z : int;
     output : Evas.point;
     canvas : Evas.coord_point;
     modifiers : Evas.modifier;

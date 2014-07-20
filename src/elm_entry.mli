@@ -24,6 +24,10 @@ type anchor_info = {
 type anchor_hover_info = {
   anchor_info : anchor_info;
   hover : Evas.obj;
+  hover_parent_x : int;
+  hover_parent_y : int;
+  hover_parent_w : int;
+  hover_parent_h : int;
   hover_left : bool;
   hover_right : bool;
   hover_top : bool;

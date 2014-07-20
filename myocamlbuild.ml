@@ -587,6 +587,22 @@ let write_enums () =
   dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
   (*flag_and_dep ["file:src/efl.cmo"] (P ("src" / "henums_check.cmo"))*)
 
+(* Add rules to generate structure bindings *)
+let write_struct () =
+  let struct_filename = "src" / "write_struct" / "structs.txt" in
+  let gen_prog = "src" / "write_struct" / "main.cma" in
+  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let deps = [gen_prog; struct_filename] in
+  let prods = [
+    "src" / "hstructs.ml";
+    "src" / "structs_wrap.c";
+    "src" / "structs_wrap.h";
+    "src" / "write_struct" / "help.mli";
+  ] in
+  rule "write_struct" ~deps ~prods action;
+  dep ["extension:c"] prods;
+  dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
+
 (* Add rule to generate file efl.mli *)
 let write_big_mli () =
   let mlpack_name = "src" / "efl.mlpack" in
@@ -594,7 +610,7 @@ let write_big_mli () =
   let action env build =
     let modules = string_list_of_file mlpack_name in
     let check_public = function
-      | "Henums" | "Henums_check" -> false
+      | "Henums" | "Henums_check" | "Hstructs" -> false
       | _ -> true in
     let public_modules = List.filter check_public modules in
     let mli_of_module s = "src" / String.uncapitalize s ^ ".mli" in
@@ -620,6 +636,7 @@ let () = dispatch & fun h ->
     write_intro ();
     write_connect ();
     write_enums ();
+    write_struct ();
     write_big_mli ();
 
     (* Get the values of the env variables *)
