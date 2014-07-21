@@ -601,7 +601,20 @@ let write_struct () =
   ] in
   rule "write_struct" ~deps ~prods action;
   dep ["extension:c"] prods;
-  dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
+  dep ["file:src/structs_wrap.c"] ["src" / "include.h"]
+
+(* Add rule to generate other_wrap.{h,c} *)
+let write_other () =
+  let gen_prog = "src" / "write_other.cma" in
+  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let deps = [gen_prog] in
+  let prods = [
+    "src" / "other_wrap.h";
+    "src" / "other_wrap.c";
+  ] in
+  rule "write_other" ~deps ~prods action;
+  dep ["extension:c"] prods;
+  dep ["file:src/write_other.c"] ["src" / "include.h"]
 
 (* Add rule to generate file efl.mli *)
 let write_big_mli () =
@@ -637,6 +650,7 @@ let () = dispatch & fun h ->
     write_connect ();
     write_enums ();
     write_struct ();
+    write_other ();
     write_big_mli ();
 
     (* Get the values of the env variables *)

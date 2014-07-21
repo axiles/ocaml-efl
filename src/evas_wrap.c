@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Evas_Modifier* Evas_Modifier_val(value v)
+/*inline Evas_Modifier* Evas_Modifier_val(value v)
 {
         return (Evas_Modifier*) v;
 }
@@ -28,7 +28,7 @@ inline Evas_Device* Evas_Device_val(value v)
 inline value Val_Evas_Device(Evas_Device* d)
 {
         return (value) d;
-}
+}*/
 
 inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
 {

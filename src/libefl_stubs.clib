@@ -84,3 +84,4 @@ elm_video_wrap.o
 elm_connect_wrap.o
 enums_wrap.o
 structs_wrap.o
+other_wrap.o

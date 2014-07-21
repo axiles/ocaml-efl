@@ -56,6 +56,7 @@ inline value safe_copy_string(const char* s);
 #include "enums_variants_wrap.h"
 #include "enums_wrap.h"
 #include "structs_wrap.h"
+#include "other_wrap.h"
 
 #endif
 
