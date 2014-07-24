@@ -1,10 +1,11 @@
 include Henums.Elm_bubble
+module AF = Autofun.Elm_bubble.F (struct
+  type evas_object = Evas.obj
+  type elm_bubble_pos = pos
+end)
+include AF
 
 external add : Evas.obj -> Evas.obj = "ml_elm_bubble_add"
 
 let addx = Elm_object.create_addx add
-
-external pos_set : Evas.obj -> pos -> unit = "ml_elm_bubble_pos_set"
-
-external pos_get : Evas.obj -> pos = "ml_elm_bubble_pos_get"
 

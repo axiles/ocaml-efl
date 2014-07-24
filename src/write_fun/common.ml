@@ -193,23 +193,25 @@ let double = {
   base = true;
 }
 
-let evas_object = {
-  name = "evas_object";
-  ml_name = "Evas.obj";
-  c_name = "Evas_Object*";
-  c_of_ml = "Evas_Object_val";
-  ml_of_c = "Val_Evas_Object";
-  base = false;
-}
+let simple_ty first second =
+  let c_name = sprintf "%s_%s" first second in
+  let name = String.lowercase c_name in
+  let ml_name =
+    let s1 = String.lowercase first in
+    let s2 = String.lowercase second in
+    s1.[0] <- Char.uppercase s1.[0];
+    let s2 = match s2 with
+    | "option" -> "opt"
+    | "object" -> "obj"
+    | _ -> s2 in
+    sprintf "%s.%s" s1 s2 in
+  let c_of_ml = sprintf "%s_val" c_name in
+  let ml_of_c = sprintf "Val_%s" c_name in
+  {name; ml_name; c_name; c_of_ml; ml_of_c; base = false}
 
-let elm_bg_option = {
-  name = "elm_bg_option";
-  ml_name = "Elm_bg.opt";
-  c_name = "Elm_Bg_Option";
-  c_of_ml = "Elm_Bg_Option_val";
-  ml_of_c = "Val_Elm_Bg_Option";
-  base = false;
-}
+let evas_object = simple_ty "Evas" "Object"
+let elm_bg_option = simple_ty "Elm_Bg" "Option"
+let elm_bubble_pos = simple_ty "Elm_Bubble" "Pos"
 
 let simple name list res = {
   Fun.ml_name = name;
