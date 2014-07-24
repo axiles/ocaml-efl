@@ -616,6 +616,19 @@ let write_other () =
   dep ["extension:c"] prods;
   dep ["file:src/write_other.c"] ["src" / "include.h"]
 
+(* Add rule to generate autofun* *)
+let write_autofun () =
+  let gen_prog = "src" / "write_fun" / "main.cma" in
+  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let deps = [gen_prog] in
+  let prods = [
+    "src" / "autofun.ml";
+    "src" / "autofun_wrap.c";
+  ] in
+  rule "write_autofun" ~deps ~prods action;
+  dep ["extension:c"] prods;
+  dep ["file:src/autofun_wrap.c"] ["src" / "include.h"]
+
 (* Add rule to generate file efl.mli *)
 let write_big_mli () =
   let mlpack_name = "src" / "efl.mlpack" in
@@ -623,7 +636,7 @@ let write_big_mli () =
   let action env build =
     let modules = string_list_of_file mlpack_name in
     let check_public = function
-      | "Henums" | "Henums_check" | "Hstructs" -> false
+      | "Henums" | "Henums_check" | "Hstructs" | "Autofun" -> false
       | _ -> true in
     let public_modules = List.filter check_public modules in
     let mli_of_module s = "src" / String.uncapitalize s ^ ".mli" in
@@ -651,6 +664,7 @@ let () = dispatch & fun h ->
     write_enums ();
     write_struct ();
     write_other ();
+    write_autofun ();
     write_big_mli ();
 
     (* Get the values of the env variables *)
