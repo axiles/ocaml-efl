@@ -8,53 +8,6 @@ PREFIX value ml_elm_diskselector_add(Evas_Object* v_parent)
         return (value) diskselector;
 }
 
-PREFIX value ml_elm_diskselector_round_enabled_set(value v_obj, value v_flag)
-{
-        elm_diskselector_round_enabled_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_diskselector_round_enabled_get(value v_obj)
-{
-        return Val_bool(elm_diskselector_round_enabled_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_diskselector_side_text_max_length_get(value v_obj)
-{
-        return Val_int(elm_diskselector_side_text_max_length_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_diskselector_side_text_max_length_set(value v_obj,
-        value v_x)
-{
-        elm_diskselector_side_text_max_length_set((Evas_Object*) v_obj,
-                Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_diskselector_display_item_num_set(value v_obj,
-        value v_x)
-{
-        elm_diskselector_display_item_num_set((Evas_Object*) v_obj,
-                Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_diskselector_display_item_num_get(value v_obj)
-{
-        return Val_int(elm_diskselector_display_item_num_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_diskselector_clear(value v_obj)
-{
-        elm_diskselector_clear((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
 PREFIX value ml_elm_diskselector_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_diskselector_items_get(
@@ -98,19 +51,6 @@ PREFIX value ml_elm_diskselector_selected_item_get(value v_obj)
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
         return v;
-}
-
-PREFIX value ml_elm_diskselector_item_selected_set(value v_it, value v_flag)
-{
-        elm_diskselector_item_selected_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_diskselector_item_selected_get(value v_it)
-{
-        return Val_bool(elm_diskselector_item_selected_get(
-                (Elm_Object_Item*) v_it));
 }
 
 PREFIX value ml_elm_diskselector_first_item_get(value v_obj)

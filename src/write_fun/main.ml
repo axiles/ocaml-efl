@@ -12,6 +12,7 @@ let list = [
   ("Elm_colorselector", Elm_colorselector.funs);
   ("Elm_datetime", Elm_datetime.funs);
   ("Elm_dayselector", Elm_dayselector.funs);
+  ("Elm_diskselector", Elm_diskselector.funs);
 ]
 
 let write filename print secs =
