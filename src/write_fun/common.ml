@@ -256,6 +256,7 @@ let elm_calendar_mark = simple_ty "Elm_Calendar" "Mark"
 let elm_calendar_mark_repeat_type = simple_ty "Elm_Calendar" "Mark_Repeat_Type"
 let elm_calendar_weekday = simple_ty "Elm_Calendar" "Weekday"
 let elm_colorselector_mode = simple_ty "Elm_Colorselector" "Mode"
+let elm_datetime_field_type = simple_ty "Elm_Datetime" "Field_Type"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
@@ -274,9 +275,9 @@ let simple_unit name list = {
   res = Fun.Unit;
 }
 
-let prop name ty =
-  [simple_unit (sprintf "%s_set" name) [evas_object; ty];
-    simple (sprintf "%s_get" name) [evas_object] ty
+let prop ?(args = [evas_object]) name ty =
+  [simple_unit (sprintf "%s_set" name) (args @ [ty]);
+    simple (sprintf "%s_get" name) args ty
   ]
 
 let prop_flags name (ty1, ty2) =
