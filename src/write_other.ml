@@ -4,6 +4,7 @@ let ptr_types = [
   "Evas_Modifier";
   "Evas_Object";
   "Evas_Device";
+  "Elm_Object_Item";
   "Elm_Calendar_Mark";
 ]
 

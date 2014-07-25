@@ -9,6 +9,7 @@ let list = [
   ("Elm_calendar", Elm_calendar.funs);
   ("Elm_check", Elm_check.funs);
   ("Elm_clock", Elm_clock.funs);
+  ("Elm_colorselector", Elm_colorselector.funs);
 ]
 
 let write filename print secs =

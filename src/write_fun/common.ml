@@ -202,6 +202,15 @@ let unix_tm = {
   base = true;
 }
 
+let safe_string = {
+  name = "safe_string";
+  ml_name = "string";
+  c_name = "const char*";
+  c_of_ml = "String_val";
+  ml_of_c = "safe_copy_string";
+  base = true;
+}
+
 let simple_ty first second =
   let c_name = sprintf "%s_%s" first second in
   let name = String.lowercase c_name in
@@ -239,12 +248,14 @@ let flags_ty first second =
 
 
 let evas_object = simple_ty "Evas" "Object"
+let elm_object_item = simple_ty "Elm_Object" "Item"
 let elm_bg_option = simple_ty "Elm_Bg" "Option"
 let elm_bubble_pos = simple_ty "Elm_Bubble" "Pos"
 let elm_calendar_select_mode = simple_ty "Elm_Calendar" "Select_Mode"
 let elm_calendar_mark = simple_ty "Elm_Calendar" "Mark"
 let elm_calendar_mark_repeat_type = simple_ty "Elm_Calendar" "Mark_Repeat_Type"
 let elm_calendar_weekday = simple_ty "Elm_Calendar" "Weekday"
+let elm_colorselector_mode = simple_ty "Elm_Colorselector" "Mode"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
