@@ -15,6 +15,7 @@ let list = [
   ("Elm_diskselector", Elm_diskselector.funs);
   ("Elm_entry", Elm_entry.funs);
   ("Elm_flip", Elm_flip.funs);
+  ("Elm_flipselector", Elm_flipselector.funs);
 ]
 
 let write filename print secs =
