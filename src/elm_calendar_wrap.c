@@ -99,14 +99,6 @@ PREFIX value ml_elm_calendar_weekdays_names_set(value v_obj, value v_a)
         return Val_unit;
 }
 
-PREFIX value ml_elm_calendar_min_max_year_set(
-        value v_obj, value v_min, value v_max)
-{
-        elm_calendar_min_max_year_set((Evas_Object*) v_obj, Int_val(v_min),
-                Int_val(v_max));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_calendar_min_max_year_get(value v_obj)
 {
         int min, max;
@@ -115,32 +107,6 @@ PREFIX value ml_elm_calendar_min_max_year_get(value v_obj)
         Store_field(v_r, 0, Val_int(min));
         Store_field(v_r, 1, Val_int(max));
         return v_r;
-}
-
-PREFIX value ml_elm_calendar_select_mode_set(value v_obj, value v_mode)
-{
-        elm_calendar_select_mode_set((Evas_Object*) v_obj,
-                Elm_Calendar_Select_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_calendar_select_mode_get(value v_obj)
-{
-        return Val_Elm_Calendar_Select_Mode(elm_calendar_select_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_calendar_selectable_set(value v_obj, value v_s)
-{
-        elm_calendar_selectable_set((Evas_Object*) v_obj,
-                Elm_Calendar_Selectable_val_list(v_s));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_calendar_selectable_get(value v_obj)
-{
-        return copy_Elm_Calendar_Selectable(elm_calendar_selectable_get(
-                (Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_calendar_displayed_time_get(value v_obj)
@@ -189,51 +155,9 @@ PREFIX value ml_elm_calendar_mark_add(
         return (value) m;
 }
 
-PREFIX value ml_elm_calendar_mark_del(value v_m)
-{
-        elm_calendar_mark_del((Elm_Calendar_Mark*) v_m);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_calendar_marks_clear(value v_obj)
-{
-        elm_calendar_marks_clear((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
 PREFIX value ml_elm_calendar_marks_get(value v_obj)
 {
         return copy_Eina_List_Elm_Calendar_Mark(elm_calendar_marks_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_calendar_marks_draw(value v_obj)
-{
-        elm_calendar_marks_draw((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_calendar_interval_set(value v_obj, value v_x)
-{
-        elm_calendar_interval_set((Evas_Object*) v_obj, Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_calendar_interval_get(value v_obj)
-{
-        return copy_double(elm_calendar_interval_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_calendar_first_day_of_week_set(value v_obj, value v_d)
-{
-        elm_calendar_first_day_of_week_set((Evas_Object*) v_obj,
-                Elm_Calendar_Weekday_val(v_d));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_calendar_first_day_of_week_get(value v_obj)
-{
-        return Val_Elm_Calendar_Weekday(elm_calendar_first_day_of_week_get(
                 (Evas_Object*) v_obj));
 }
 

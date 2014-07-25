@@ -4,6 +4,7 @@ let ptr_types = [
   "Evas_Modifier";
   "Evas_Object";
   "Evas_Device";
+  "Elm_Calendar_Mark";
 ]
 
 let print_ptr_type_c_impl fmt name =

@@ -193,6 +193,15 @@ let double = {
   base = true;
 }
 
+let unix_tm = {
+  name = "unix_tm";
+  ml_name = "Unix.tm";
+  c_name = "struct tm";
+  c_of_ml = "Tm_val";
+  ml_of_c = "Val_Tm";
+  base = true;
+}
+
 let simple_ty first second =
   let c_name = sprintf "%s_%s" first second in
   let name = String.lowercase c_name in
@@ -209,9 +218,35 @@ let simple_ty first second =
   let ml_of_c = sprintf "Val_%s" c_name in
   {name; ml_name; c_name; c_of_ml; ml_of_c; base = false}
 
+let flags_ty first second =
+  let c_name = sprintf "%s_%s" first second in
+  let name = String.lowercase c_name in
+  let name_ = sprintf "%s_" name in
+  let name = sprintf "%s_list" name in
+  let ml_name, ml_name_ =
+    let s1 = String.lowercase first in
+    let s2 = String.lowercase second in
+    s1.[0] <- Char.uppercase s1.[0];
+    let s3 = sprintf "%s.%s" s1 s2 in
+    (sprintf "%s list" s3, sprintf "%s_" s3) in
+  let c_of_ml = sprintf "%s_val_list" c_name in
+  let ml_of_c = sprintf "copy_%s" c_name in
+  let ty1 = {name; c_name; ml_name; c_of_ml; ml_of_c = "NOT IMPLEMENTED";
+    base = false} in
+  let ty2 = {name = name_; c_name; ml_name = ml_name_;
+    c_of_ml = "NOT IMPLEMENTED"; ml_of_c; base = false} in
+  (ty1, ty2)
+
+
 let evas_object = simple_ty "Evas" "Object"
 let elm_bg_option = simple_ty "Elm_Bg" "Option"
 let elm_bubble_pos = simple_ty "Elm_Bubble" "Pos"
+let elm_calendar_select_mode = simple_ty "Elm_Calendar" "Select_Mode"
+let elm_calendar_mark = simple_ty "Elm_Calendar" "Mark"
+let elm_calendar_mark_repeat_type = simple_ty "Elm_Calendar" "Mark_Repeat_Type"
+let elm_calendar_weekday = simple_ty "Elm_Calendar" "Weekday"
+
+let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 
 let simple name list res = {
   Fun.ml_name = name;
@@ -230,6 +265,11 @@ let simple_unit name list = {
 let prop name ty =
   [simple_unit (sprintf "%s_set" name) [evas_object; ty];
     simple (sprintf "%s_get" name) [evas_object] ty
+  ]
+
+let prop_flags name (ty1, ty2) =
+  [simple_unit (sprintf "%s_set" name) [evas_object; ty1];
+    simple (sprintf "%s_get" name) [evas_object] ty2;
   ]
 
 let _simple = simple

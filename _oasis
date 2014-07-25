@@ -139,6 +139,7 @@ Library efl
     elm_box_wrap.c,
     elm_bubble_wrap.c,
     elm_button_wrap.c,
+    elm_calendar_wrap.h,
     elm_calendar_wrap.c,
     elm_check_wrap.c,
     elm_clock_wrap.c,
