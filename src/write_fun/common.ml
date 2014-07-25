@@ -266,6 +266,9 @@ let elm_input_panel_lang = simple_ty "Elm" "Input_Panel_Lang"
 let elm_input_panel_return_key_type =
   simple_ty "Elm" "Input_Panel_Return_Key_Type"
 let elm_cnp_mode = simple_ty "Elm" "Cnp_Mode"
+let elm_flip_mode = simple_ty "Elm_Flip" "Mode"
+let elm_flip_interaction = simple_ty "Elm_Flip" "Interaction"
+let elm_flip_direction = simple_ty "Elm_Flip" "Direction"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
