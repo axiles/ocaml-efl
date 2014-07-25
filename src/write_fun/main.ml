@@ -7,6 +7,8 @@ let list = [
   ("Elm_bubble", Elm_bubble.funs);
   ("Elm_button", Elm_button.funs);
   ("Elm_calendar", Elm_calendar.funs);
+  ("Elm_check", Elm_check.funs);
+  ("Elm_clock", Elm_clock.funs);
 ]
 
 let write filename print secs =

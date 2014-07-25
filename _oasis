@@ -142,6 +142,7 @@ Library efl
     elm_calendar_wrap.h,
     elm_calendar_wrap.c,
     elm_check_wrap.c,
+    elm_clock_wrap.h,
     elm_clock_wrap.c,
     elm_colorselector_wrap.c,
     elm_conformant_wrap.c,

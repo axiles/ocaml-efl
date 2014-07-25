@@ -247,6 +247,7 @@ let elm_calendar_mark_repeat_type = simple_ty "Elm_Calendar" "Mark_Repeat_Type"
 let elm_calendar_weekday = simple_ty "Elm_Calendar" "Weekday"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
+let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
 
 let simple name list res = {
   Fun.ml_name = name;
