@@ -33,6 +33,7 @@ let list = [
   ("Elm_menu", Elm_menu.funs);
   ("Elm_notify", Elm_notify.funs);
   ("Elm_panel", Elm_panel.funs);
+  ("Elm_panes", Elm_panes.funs);
 ]
 
 let write filename print secs =
