@@ -23,6 +23,7 @@ let list = [
   ("Elm_glview", Elm_glview.funs);
   ("Elm_grid", Elm_grid.funs);
   ("Elm_hover", Elm_hover.funs); 
+  ("Elm_icon", Elm_icon.funs);
 ]
 
 let write filename print secs =
