@@ -21,6 +21,7 @@ let list = [
   ("Elm_genlist", Elm_genlist.funs);
   ("Elm_gesture_layer", Elm_gesture_layer.funs);
   ("Elm_glview", Elm_glview.funs);
+  ("Elm_grid", Elm_grid.funs);
 ]
 
 let write filename print secs =
