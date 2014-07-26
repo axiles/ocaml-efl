@@ -8,18 +8,6 @@ PREFIX value ml_elm_flipselector_add(value v_parent)
         return (value) flipselector;
 }
 
-PREFIX value ml_elm_flipselector_flip_next(value v_obj)
-{
-        elm_flipselector_flip_next((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_flipselector_flip_prev(value v_obj)
-{
-        elm_flipselector_flip_prev((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
 PREFIX value ml_elm_flipselector_item_append(
         value v_obj, value v_label, value v_func, value v_unit)
 {
@@ -108,19 +96,6 @@ PREFIX value ml_elm_flipselector_selected_item_get(value v_obj)
         return v;
 }
 
-PREFIX value ml_elm_flipselector_item_selected_set(value v_it, value v_flag)
-{
-        elm_flipselector_item_selected_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_flipselector_item_selected_get(value v_it)
-{
-        return Val_bool(elm_flipselector_item_selected_get(
-                (Elm_Object_Item*) v_it));
-}
-
 PREFIX value ml_elm_flipselector_item_prev_get(value v_it)
 {
         Elm_Object_Item* it1 = elm_flipselector_item_prev_get(
@@ -139,18 +114,5 @@ PREFIX value ml_elm_flipselector_item_next_get(value v_it)
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it1);
         return v;
-}
-
-PREFIX value ml_elm_flipselector_first_interval_set(value v_obj, value v_x)
-{
-        elm_flipselector_first_interval_set((Evas_Object*) v_obj,
-                Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_flipselector_first_interval_get(value v_obj)
-{
-        return copy_double(elm_flipselector_first_interval_get(
-                (Evas_Object*) v_obj));
 }
 
