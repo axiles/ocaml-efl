@@ -30,6 +30,7 @@ let list = [
   ("Elm_list", Elm_list.funs);
   ("Elm_map", Elm_map.funs);
   ("Elm_mapbuf", Elm_mapbuf.funs);
+  ("Elm_menu", Elm_menu.funs);
 ]
 
 let write filename print secs =
