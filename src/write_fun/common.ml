@@ -269,6 +269,9 @@ let elm_cnp_mode = simple_ty "Elm" "Cnp_Mode"
 let elm_flip_mode = simple_ty "Elm_Flip" "Mode"
 let elm_flip_interaction = simple_ty "Elm_Flip" "Interaction"
 let elm_flip_direction = simple_ty "Elm_Flip" "Direction"
+let elm_gengrid_item_scrollto_type =
+  simple_ty "Elm_Gengrid" "Item_Scrollto_Type"
+let elm_object_select_mode = simple_ty "Elm_Object" "Select_Mode"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"

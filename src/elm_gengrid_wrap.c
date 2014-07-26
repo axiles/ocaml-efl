@@ -25,49 +25,6 @@ PREFIX value ml_elm_gengrid_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_gengrid_clear(value v_obj)
-{
-        elm_gengrid_clear((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_multi_select_set(value v_obj, value v_flag)
-{
-        elm_gengrid_multi_select_set((Evas_Object*) v_obj,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_multi_select_get(value v_obj)
-{
-        return Val_Eina_Bool(elm_gengrid_multi_select_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_gengrid_multi_select_mode_set(value v_obj, value v_flag)
-{
-        elm_gengrid_multi_select_mode_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_multi_select_mode_get(value v_obj)
-{
-        return Val_bool(elm_gengrid_multi_select_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_gengrid_horizontal_set(value v_obj, value v_flag)
-{
-        elm_gengrid_horizontal_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_horizontal_get(value v_obj)
-{
-        return Val_bool(elm_gengrid_horizontal_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_gengrid_item_append(
         value v_obj, value v_class, value v_func)
 {
@@ -221,56 +178,6 @@ PREFIX value ml_elm_gengrid_item_prev_get(value v_it)
         return v;
 }
 
-PREFIX value ml_elm_gengrid_item_selected_set(value v_it, value v_flag)
-{
-        elm_gengrid_item_selected_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_selected_get(value v_it)
-{
-        return Val_Eina_Bool(elm_gengrid_item_selected_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_gengrid_item_show(value v_it, value v_type)
-{
-        elm_gengrid_item_show((Elm_Object_Item*) v_it,
-                Elm_Gengrid_Item_Scrollto_Type_val(v_type));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_bring_in(value v_it, value v_type)
-{
-        elm_gengrid_item_bring_in((Elm_Object_Item*) v_it,
-                Elm_Gengrid_Item_Scrollto_Type_val(v_type));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_update(value v_it)
-{
-        elm_gengrid_item_update((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_index_get(value v_it)
-{
-        return Val_int(elm_gengrid_item_index_get((Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_gengrid_items_count(value v_obj)
-{
-        return Val_int(elm_gengrid_items_count((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_gengrid_item_tooltip_text_set(value v_it, value v_text)
-{
-        elm_gengrid_item_tooltip_text_set((Elm_Object_Item*) v_it,
-                String_val(v_text));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_gengrid_item_tooltip_content_cb_set(
         value v_it, value v_func, value v_del_cb)
 {
@@ -285,47 +192,6 @@ PREFIX value ml_elm_gengrid_item_tooltip_content_cb_set(
                 ml_Evas_Smart_Cb_1_free);
         CAMLreturn(Val_unit);
 }
-
-PREFIX value ml_elm_gengrid_item_tooltip_unset(value v_it)
-{
-        elm_gengrid_item_tooltip_unset((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_tooltip_style_set(value v_it, value v_style)
-{
-        elm_gengrid_item_tooltip_style_set((Elm_Object_Item*) v_it,
-                String_val(v_style));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_tooltip_style_get(value v_it)
-{
-        return copy_string(elm_gengrid_item_tooltip_style_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_gengrid_item_tooltip_window_mode_set(
-        value v_it, value v_flag)
-{
-        elm_gengrid_item_tooltip_window_mode_set((Elm_Object_Item*) v_it,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_tooltip_window_mode_get(value v_it)
-{
-        return Val_bool(elm_gengrid_item_tooltip_window_mode_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_gengrid_item_cursor_set(value v_it, value v_cursor)
-{
-        char* cursor = String_val(v_cursor);
-        elm_gengrid_item_cursor_set((Elm_Object_Item*) v_it, cursor);
-        return Val_unit;
-}
-
 PREFIX value ml_elm_gengrid_item_cursor_get(value v_it)
 {
         CAMLparam1(v_it);
@@ -339,20 +205,6 @@ PREFIX value ml_elm_gengrid_item_cursor_get(value v_it)
         }
         CAMLreturn(v_cursor);
 }
-
-PREFIX value ml_elm_gengrid_item_cursor_unset(value v_it)
-{
-        elm_gengrid_item_cursor_unset((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_cursor_style_set(value v_it, value v_style)
-{
-        elm_gengrid_item_cursor_style_set((Elm_Object_Item*) v_it,
-                String_val(v_style));
-        return Val_unit;
-}
-
 
 PREFIX value ml_elm_gengrid_item_cursor_style_get(value v_it)
 {
@@ -368,27 +220,6 @@ PREFIX value ml_elm_gengrid_item_cursor_style_get(value v_it)
         CAMLreturn(v_style);
 }
 
-PREFIX value ml_elm_gengrid_item_cursor_engine_only_set(
-        value v_it, value v_flag)
-{
-        elm_gengrid_item_cursor_engine_only_set((Elm_Object_Item*) v_it,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_cursor_engine_only_get(value v_it)
-{
-        return Val_bool(elm_gengrid_item_cursor_engine_only_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_gengrid_item_size_set(value v_obj, value v_w, value v_h)
-{
-        elm_gengrid_item_size_set((Evas_Object*) v_obj, Int_val(v_w),
-                Int_val(v_h));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_gengrid_item_size_get(value v_obj)
 {
         Evas_Coord w, h;
@@ -399,13 +230,6 @@ PREFIX value ml_elm_gengrid_item_size_get(value v_obj)
         return v_r;
 }
 
-PREFIX value ml_elm_gengrid_group_item_size_set(value v_obj, value v_w, value v_h)
-{
-        elm_gengrid_group_item_size_set((Evas_Object*) v_obj, Int_val(v_w),
-                Int_val(v_h));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_gengrid_group_item_size_get(value v_obj)
 {
         Evas_Coord w, h;
@@ -414,13 +238,6 @@ PREFIX value ml_elm_gengrid_group_item_size_get(value v_obj)
         Store_field(v_r, 0, Val_int(w));
         Store_field(v_r, 1, Val_int(h));
         return v_r;
-}
-
-PREFIX value ml_elm_gengrid_align_set(value v_obj, value v_x, value v_y)
-{
-        elm_gengrid_align_set((Evas_Object*) v_obj, Double_val(v_x),
-                Double_val(v_y));
-        return Val_unit;
 }
 
 PREFIX value ml_elm_gengrid_align_get(value v_obj)
@@ -435,24 +252,6 @@ PREFIX value ml_elm_gengrid_align_get(value v_obj)
         CAMLreturn(v_r);
 }
 
-PREFIX value ml_elm_gengrid_reorder_mode_set(value v_obj, value v_flag)
-{
-        elm_gengrid_reorder_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_reorder_mode_get(value v_obj)
-{
-        return Val_bool(elm_gengrid_reorder_mode_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_gengrid_page_show(value v_obj, value v_h, value v_v)
-{
-        elm_gengrid_page_show((Evas_Object*) v_obj, Int_val(v_h),
-                Int_val(v_v));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_gengrid_item_pos_get(value v_it)
 {
         unsigned int x, y;
@@ -463,41 +262,6 @@ PREFIX value ml_elm_gengrid_item_pos_get(value v_it)
         return v_r;
 }
 
-PREFIX value ml_elm_gengrid_filled_set(value v_obj, value v_flag)
-{
-        elm_gengrid_filled_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_filled_get(value v_obj)
-{
-        return Val_bool(elm_gengrid_filled_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_gengrid_select_mode_set(value v_obj, value v_mode)
-{
-        elm_gengrid_select_mode_set((Evas_Object*) v_obj,
-                Elm_Object_Select_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_select_mode_get(value v_obj)
-{
-        return Val_Elm_Object_Select_Mode(elm_gengrid_select_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_gengrid_highlight_mode_set(value v_obj, value v_flag)
-{
-        elm_gengrid_highlight_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_highlight_mode_get(value v_obj)
-{
-        return Val_bool(elm_gengrid_highlight_mode_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_gengrid_nth_item_get(value v_obj, value v_k)
 {
         Elm_Object_Item* it = elm_gengrid_nth_item_get((Evas_Object*) v_obj,
@@ -506,18 +270,5 @@ PREFIX value ml_elm_gengrid_nth_item_get(value v_obj, value v_k)
         value v_r = caml_alloc(1, 0);
         Store_field(v_r, 0, (value) it);
         return v_r;
-}
-
-PREFIX value ml_elm_gengrid_item_select_mode_set(value v_it, value v_mode)
-{
-        elm_gengrid_item_select_mode_set((Elm_Object_Item*) v_it,
-                Elm_Object_Select_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_gengrid_item_select_mode_get(value v_it)
-{
-        return Val_Elm_Object_Select_Mode(elm_gengrid_item_select_mode_get(
-                (Elm_Object_Item*) v_it));
 }
 
