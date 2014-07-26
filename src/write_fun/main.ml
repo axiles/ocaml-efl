@@ -27,6 +27,7 @@ let list = [
   ("Elm_image", Elm_image.funs);
   ("Elm_index", Elm_index.funs);
   ("Elm_label", Elm_label.funs);
+  ("Elm_list", Elm_list.funs);
 ]
 
 let write filename print secs =

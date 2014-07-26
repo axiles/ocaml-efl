@@ -7,7 +7,7 @@ PREFIX value ml_elm_list_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_list_go(value v_obj)
+/*PREFIX value ml_elm_list_go(value v_obj)
 {
         elm_list_go((Evas_Object*) v_obj);
         return Val_unit;
@@ -58,7 +58,7 @@ PREFIX value ml_elm_list_select_mode_get(value v_obj)
         return Val_Elm_Object_Select_Mode(elm_list_select_mode_get(
                 (Evas_Object*) v_obj));
 }
-
+*/
 PREFIX value ml_elm_list_item_append_native(
         value v_obj, value v_label, value v_icon, value v_end, value v_func,
         value v_unit)
@@ -216,11 +216,11 @@ PREFIX value ml_elm_list_item_insert_after_byte(value* argv, int argn)
                 argv[3], argv[4], argv[5], argv[6]);
 }
 
-PREFIX value ml_elm_list_clear(value v_obj)
+/*PREFIX value ml_elm_list_clear(value v_obj)
 {
         elm_list_clear((Evas_Object*) v_obj);
         return Val_unit;
-}
+}*/
 
 PREFIX value ml_elm_list_items_get(value v_obj)
 {
@@ -244,7 +244,7 @@ PREFIX value ml_elm_list_selected_items_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
-PREFIX value ml_elm_list_item_selected_set(value v_it, value v_flag)
+/*PREFIX value ml_elm_list_item_selected_set(value v_it, value v_flag)
 {
         elm_list_item_selected_set((Elm_Object_Item*) v_it,
                 Eina_Bool_val(v_flag));
@@ -286,7 +286,7 @@ PREFIX value ml_elm_list_item_object_get(value v_it)
 {
         return (value) elm_list_item_object_get((Elm_Object_Item*) v_it);
 }
-
+*/
 PREFIX value ml_elm_list_item_prev(value v_it)
 {
         Elm_Object_Item* it1 = elm_list_item_prev((Elm_Object_Item*) v_it);
