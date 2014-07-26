@@ -280,6 +280,7 @@ let elm_genlist_item_type = simple_ty "Elm_Genlist" "Item_Type"
 let elm_glview_resize_policy = simple_ty "Elm_GLView" "Resize_Policy"
 let elm_glview_render_policy = simple_ty "Elm_GLView" "Render_Policy"
 let elm_icon_lookup_order = simple_ty "Elm_Icon" "Lookup_Order"
+let elm_image_orient = simple_ty "Elm_Image" "Orient"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
