@@ -7,12 +7,6 @@ PREFIX value ml_elm_photo_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_photo_file_set(value v_obj, value v_file)
-{
-        return Val_bool(elm_photo_file_set((Evas_Object*) v_obj,
-                String_val(v_file)));
-}
-
 PREFIX value ml_elm_photo_file_set_null(value v_obj)
 {
         return Val_bool(elm_photo_file_set((Evas_Object*) v_obj, NULL));
@@ -36,34 +30,5 @@ PREFIX value ml_elm_photo_thumb_set_null(
         else group = String_val(Field(v_group, 0));
         elm_photo_thumb_set((Evas_Object*) v_obj, NULL, group);
         return Val_unit;
-}
-
-PREFIX value ml_elm_photo_size_set(value v_obj, value v_x)
-{
-        elm_photo_size_set((Evas_Object*) v_obj, Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photo_fill_inside_set(value v_obj, value v_flag)
-{
-        elm_photo_fill_inside_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photo_editable_set(value v_obj, value v_flag)
-{
-        elm_photo_editable_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photo_aspect_fixed_set(value v_obj, value v_flag)
-{
-        elm_photo_aspect_fixed_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photo_aspect_fixed_get(value v_obj)
-{
-        return Val_bool(elm_photo_aspect_fixed_get((Evas_Object*) v_obj));
 }
 
