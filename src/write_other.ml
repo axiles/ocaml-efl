@@ -6,6 +6,9 @@ let ptr_types = [
   "Evas_Device";
   "Elm_Object_Item";
   "Elm_Calendar_Mark";
+  "Elm_Map_Overlay";
+  "Elm_Map_Route";
+  "Elm_Map_Name";
 ]
 
 let print_ptr_type_c_impl fmt name =
