@@ -22,6 +22,7 @@ let list = [
   ("Elm_gesture_layer", Elm_gesture_layer.funs);
   ("Elm_glview", Elm_glview.funs);
   ("Elm_grid", Elm_grid.funs);
+  ("Elm_hover", Elm_hover.funs); 
 ]
 
 let write filename print secs =
