@@ -287,6 +287,7 @@ let elm_image_orient = simple_ty "Elm_Image" "Orient"
 let elm_map_zoom_mode = simple_ty "Elm_Map" "Zoom_Mode"
 let elm_map_overlay_type = simple_ty "Elm_Map" "Overlay_Type"
 let elm_map_source_type = simple_ty "Elm_Map" "Source_Type"
+let elm_panel_orient = simple_ty "Elm_Panel" "Orient"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
