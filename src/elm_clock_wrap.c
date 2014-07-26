@@ -32,13 +32,6 @@ PREFIX value ml_elm_clock_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_clock_time_set(value v_obj, value v_h, value v_m, value v_s)
-{
-        elm_clock_time_set((Evas_Object*) v_obj, Int_val(v_h), Int_val(v_m),
-                Int_val(v_s));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_clock_time_get(value v_obj)
 {
         int h, m, s;
@@ -48,73 +41,5 @@ PREFIX value ml_elm_clock_time_get(value v_obj)
         Store_field(v, 1, Val_int(m));
         Store_field(v, 2, Val_int(s));
         return v;
-}
-
-PREFIX value ml_elm_clock_edit_set(value v_obj, value v_flag)
-{
-        elm_clock_edit_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_clock_edit_get(value v_obj)
-{
-        return Val_bool(elm_clock_edit_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_clock_edit_mode_set(value v_obj, value v_m)
-{
-        elm_clock_edit_mode_set((Evas_Object*) v_obj,
-                Elm_Clock_Edit_Mode_val_list(v_m));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_clock_edit_mode_get(value v_obj)
-{
-        return copy_Elm_Clock_Edit_Mode(elm_clock_edit_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_clock_show_am_pm_set(value v_obj, value v_flag)
-{
-        elm_clock_show_am_pm_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_clock_show_am_pm_get(value v_obj)
-{
-        return Val_bool(elm_clock_show_am_pm_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_clock_show_seconds_set(value v_obj, value v_flag)
-{
-        elm_clock_show_seconds_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_clock_show_seconds_get(value v_obj)
-{
-        return Val_bool(elm_clock_show_seconds_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_clock_first_interval_set(value v_obj, value v_x)
-{
-        elm_clock_first_interval_set((Evas_Object*) v_obj, Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_clock_first_interval_get(value v_obj)
-{
-        return copy_double(elm_clock_first_interval_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_clock_pause_set(value v_obj, value v_flag)
-{
-        elm_clock_pause_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_clock_pause_get(value v_obj)
-{
-        return Val_bool(elm_clock_pause_get((Evas_Object*) v_obj));
 }
 

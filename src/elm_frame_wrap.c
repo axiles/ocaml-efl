@@ -7,31 +7,3 @@ PREFIX value ml_elm_frame_add(value v_parent)
         return (value) frame;
 }
 
-PREFIX value ml_elm_frame_autocollapse_set(value v_obj, value v_flag)
-{
-        elm_frame_autocollapse_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_frame_autocollapse_get(value v_obj)
-{
-        return Val_bool(elm_frame_autocollapse_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_frame_collapse_set(value v_obj, value v_flag)
-{
-        elm_frame_collapse_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_frame_collapse_get(value v_obj)
-{
-        return Val_bool(elm_frame_collapse_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_frame_collapse_go(value v_obj, value v_flag)
-{
-        elm_frame_collapse_go((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-

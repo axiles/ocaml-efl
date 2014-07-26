@@ -7,35 +7,6 @@ PREFIX value ml_elm_index_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_index_autohide_disabled_set(value v_obj, value v_flag)
-{
-        elm_index_autohide_disabled_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value  ml_elm_index_autohide_disabled_get(value v_obj)
-{
-        return Val_bool(elm_index_autohide_disabled_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_index_item_level_set(value v_obj, value v_x)
-{
-        elm_index_item_level_set((Evas_Object*) v_obj, Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_index_item_level_get(value v_obj)
-{
-        return Val_int(elm_index_item_level_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_index_item_selected_set(value v_it, value v_flag)
-{
-        elm_index_item_selected_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_index_selected_item_get(value v_obj, value v_level)
 {
         Elm_Object_Item* item = elm_index_selected_item_get(
@@ -100,69 +71,5 @@ PREFIX value ml_elm_index_item_insert_before(
         }
         elm_object_item_del_cb_set(it, ml_Evas_Smart_Cb_on_del);
         return (value) it;
-}
-
-PREFIX value ml_elm_index_item_clear(value v_obj)
-{
-        elm_index_item_clear((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_index_level_go(value v_obj, value v_level)
-{
-        elm_index_level_go((Evas_Object*) v_obj, Int_val(v_level));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_index_item_letter_get(value v_it)
-{
-        return copy_string(elm_index_item_letter_get((Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_index_indicator_disabled_set(value v_obj, value v_flag)
-{
-        elm_index_indicator_disabled_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value  ml_elm_index_indicator_disabled_get(value v_obj)
-{
-        return Val_bool(elm_index_indicator_disabled_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_index_horizontal_set(value v_obj, value v_flag)
-{
-        elm_index_horizontal_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value  ml_elm_index_horizontal_get(value v_obj)
-{
-        return Val_bool(elm_index_horizontal_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_index_delay_change_time_set(value v_obj, value v_x)
-{
-        elm_index_delay_change_time_set((Evas_Object*) v_obj,
-                Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_index_delay_change_time_get(value v_obj)
-{
-        return copy_double(elm_index_delay_change_time_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_index_omit_enabled_set(value v_obj, value v_flag)
-{
-        elm_index_omit_enabled_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value  ml_elm_index_omit_enabled_get(value v_obj)
-{
-        return Val_bool(elm_index_omit_enabled_get((Evas_Object*) v_obj));
 }
 

@@ -47,6 +47,8 @@ inline value safe_copy_string(const char* s);
 #include "elm_wrap.h"
 #include "elm_object_wrap.h"
 #include "elm_gen_wrap.h"
+#include "elm_calendar_wrap.h"
+#include "elm_clock_wrap.h"
 #include "elm_scroller_wrap.h"
 #include "elm_list_wrap.h"
 #include "elm_entry_wrap.h"
@@ -56,6 +58,7 @@ inline value safe_copy_string(const char* s);
 #include "enums_variants_wrap.h"
 #include "enums_wrap.h"
 #include "structs_wrap.h"
+#include "other_wrap.h"
 
 #endif
 

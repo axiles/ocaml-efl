@@ -263,6 +263,7 @@
 "src/henums.cmx": for-pack(Efl)
 "src/henums_check.cmx": for-pack(Efl)
 "src/hstructs.cmx": for-pack(Efl)
+"src/autofun.cmx": for-pack(Efl)
 #<efl.{cma,cmxa}>: oasis_library_efl_cclib
 #"libefl_stubs.lib": oasis_library_efl_cclib
 #"dllefl_stubs.dll": oasis_library_efl_cclib

@@ -1,35 +1,5 @@
 #include "include.h"
 
-inline Evas_Modifier* Evas_Modifier_val(value v)
-{
-        return (Evas_Modifier*) v;
-}
-
-inline value Val_Evas_Modifier(Evas_Modifier* m)
-{
-        return (value) m;
-}
-
-inline Evas_Object* Evas_Object_val(value v)
-{
-        return (Evas_Object*) v;
-}
-
-inline value Val_Evas_Object(Evas_Object* obj)
-{
-        return (value) obj;
-}
-
-inline Evas_Device* Evas_Device_val(value v)
-{
-        return (Evas_Device*) v;
-}
-
-inline value Val_Evas_Device(Evas_Device* d)
-{
-        return (value) d;
-}
-
 inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
 {
         value v = caml_alloc(2, 0);

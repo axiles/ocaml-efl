@@ -50,12 +50,6 @@ PREFIX value ml_elm_glview_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_glview_size_set(value v_obj, value v_w, value v_h)
-{
-        elm_glview_size_set((Evas_Object*) v_obj, Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_glview_size_get(value v_obj)
 {
         Evas_Coord w, h;
@@ -75,24 +69,6 @@ PREFIX value ml_elm_glview_mode_set(value v_obj, value v_m)
 {
         elm_glview_mode_set((Evas_Object*) v_obj,
                 Elm_GLView_Mode_val_list(v_m));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_glview_resize_policy_set(value v_obj, value v_p)
-{
-        return Val_bool(elm_glview_resize_policy_set((Evas_Object*) v_obj,
-                Elm_GLView_Resize_Policy_val(v_p)));
-}
-
-PREFIX value ml_elm_glview_render_policy_set(value v_obj, value v_p)
-{
-        return Val_bool(elm_glview_render_policy_set((Evas_Object*) v_obj,
-                Elm_GLView_Render_Policy_val(v_p)));
-}
-
-PREFIX value ml_elm_glview_changed_set(value v_obj)
-{
-        elm_glview_changed_set((Evas_Object*) v_obj);
         return Val_unit;
 }
 
