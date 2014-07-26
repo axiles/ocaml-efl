@@ -29,6 +29,7 @@ let list = [
   ("Elm_label", Elm_label.funs);
   ("Elm_list", Elm_list.funs);
   ("Elm_map", Elm_map.funs);
+  ("Elm_mapbuf", Elm_mapbuf.funs);
 ]
 
 let write filename print secs =
