@@ -628,7 +628,6 @@ let write_autofun () =
     "src" / "autofun_wrap.c";
   ] in
   rule "write_autofun" ~deps ~prods action;
-  dep ["extension:c"] prods;
   dep ["file:src/autofun_wrap.c"] ["src" / "include.h"]
 
 (* Add rule to generate file efl.mli *)

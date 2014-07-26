@@ -25,49 +25,6 @@ PREFIX value ml_elm_genlist_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_genlist_clear(value v_obj)
-{
-        elm_genlist_clear((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_multi_select_set(value v_obj, value v_flag)
-{
-        elm_genlist_multi_select_set((Evas_Object*) v_obj,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_multi_select_get(value v_obj)
-{
-        return Val_Eina_Bool(elm_genlist_multi_select_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_multi_select_mode_set(value v_obj, value v_flag)
-{
-        elm_genlist_multi_select_mode_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_multi_select_mode_get(value v_obj)
-{
-        return Val_bool(elm_genlist_multi_select_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_mode_set(value v_obj, value v_mode)
-{
-        elm_genlist_mode_set((Evas_Object*) v_obj, Elm_List_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_mode_get(value v_obj)
-{
-        return Val_Elm_List_Mode(elm_genlist_mode_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_genlist_item_append(
         value v_obj, value v_itc, value v_parent, value v_type, value v_func)
 {
@@ -256,62 +213,6 @@ PREFIX value ml_elm_genlist_item_prev_get(value v_it)
         return v;
 }
 
-PREFIX value ml_elm_genlist_item_selected_set(value v_it, value v_flag)
-{
-        elm_genlist_item_selected_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_selected_get(value v_it)
-{
-        return Val_Eina_Bool(elm_genlist_item_selected_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_item_show(value v_it, value v_type)
-{
-        elm_genlist_item_show((Elm_Object_Item*) v_it,
-                Elm_Genlist_Item_Scrollto_Type_val(v_type));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_bring_in(value v_it, value v_type)
-{
-        elm_genlist_item_bring_in((Elm_Object_Item*) v_it,
-                Elm_Genlist_Item_Scrollto_Type_val(v_type));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_update(value v_it)
-{
-        elm_genlist_item_update((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_index_get(value v_it)
-{
-        return Val_int(elm_genlist_item_index_get((Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_realized_items_update(value v_obj)
-{
-        elm_genlist_realized_items_update((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_items_count(value v_obj)
-{
-        return Val_int(elm_genlist_items_count((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_item_tooltip_text_set(value v_it, value v_text)
-{
-        elm_genlist_item_tooltip_text_set((Elm_Object_Item*) v_it,
-                String_val(v_text));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_genlist_item_tooltip_content_cb_set(
         value v_it, value v_func, value v_del_cb)
 {
@@ -325,46 +226,6 @@ PREFIX value ml_elm_genlist_item_tooltip_content_cb_set(
                 ml_Elm_Tooltip_Item_Content_Cb_0, data,
                 ml_Evas_Smart_Cb_1_free);
         CAMLreturn(Val_unit);
-}
-
-PREFIX value ml_elm_genlist_item_tooltip_unset(value v_it)
-{
-        elm_genlist_item_tooltip_unset((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_tooltip_style_set(value v_it, value v_style)
-{
-        elm_genlist_item_tooltip_style_set((Elm_Object_Item*) v_it,
-                String_val(v_style));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_tooltip_style_get(value v_it)
-{
-        return copy_string(elm_genlist_item_tooltip_style_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_item_tooltip_window_mode_set(
-        value v_it, value v_flag)
-{
-        elm_genlist_item_tooltip_window_mode_set((Elm_Object_Item*) v_it,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_tooltip_window_mode_get(value v_it)
-{
-        return Val_bool(elm_genlist_item_tooltip_window_mode_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_item_cursor_set(value v_it, value v_cursor)
-{
-        char* cursor = String_val(v_cursor);
-        elm_genlist_item_cursor_set((Elm_Object_Item*) v_it, cursor);
-        return Val_unit;
 }
 
 PREFIX value ml_elm_genlist_item_cursor_get(value v_it)
@@ -381,20 +242,6 @@ PREFIX value ml_elm_genlist_item_cursor_get(value v_it)
         CAMLreturn(v_cursor);
 }
 
-PREFIX value ml_elm_genlist_item_cursor_unset(value v_it)
-{
-        elm_genlist_item_cursor_unset((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_cursor_style_set(value v_it, value v_style)
-{
-        elm_genlist_item_cursor_style_set((Elm_Object_Item*) v_it,
-                String_val(v_style));
-        return Val_unit;
-}
-
-
 PREFIX value ml_elm_genlist_item_cursor_style_get(value v_it)
 {
         CAMLparam1(v_it);
@@ -407,55 +254,6 @@ PREFIX value ml_elm_genlist_item_cursor_style_get(value v_it)
                 Store_field(v_style, 0, copy_string(style));
         }
         CAMLreturn(v_style);
-}
-
-PREFIX value ml_elm_genlist_item_cursor_engine_only_set(
-        value v_it, value v_flag)
-{
-        elm_genlist_item_cursor_engine_only_set((Elm_Object_Item*) v_it,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_cursor_engine_only_get(value v_it)
-{
-        return Val_bool(elm_genlist_item_cursor_engine_only_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_homogeneous_set(value v_obj, value v_flag)
-{
-        elm_genlist_homogeneous_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_homogeneous_get(value v_obj)
-{
-        return Val_bool(elm_genlist_homogeneous_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_block_count_set(value v_obj, value v_x)
-{
-        elm_genlist_block_count_set((Evas_Object*) v_obj, Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_block_count_get(value v_obj)
-{
-        return Val_int(elm_genlist_block_count_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_longpress_timeout_set(value v_obj, value v_x)
-{
-        elm_genlist_longpress_timeout_set((Evas_Object*) v_obj,
-                Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_longpress_timeout_get(value v_obj)
-{
-        return copy_double(elm_genlist_longpress_timeout_get(
-                (Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_genlist_at_xy_item_get(value v_obj, value v_x, value v_y)
@@ -489,69 +287,11 @@ PREFIX value ml_elm_genlist_item_parent_get(value v_it)
 }
 
 
-PREFIX value ml_elm_genlist_item_subitems_clear(value v_it)
-{
-        elm_genlist_item_subitems_clear((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_expanded_set(value v_it, value v_flag)
-{
-        elm_genlist_item_expanded_set((Elm_Object_Item*) v_it,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_expanded_get(value v_it, value v_flag)
-{
-        return Val_bool(elm_genlist_item_expanded_get((Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_item_expanded_depth_get(value v_it)
-{
-        return Val_int(elm_genlist_item_expanded_depth_get(
-                (Elm_Object_Item*) v_it));
-}
-
 PREFIX value ml_elm_genlist_item_all_contents_unset(value v_it)
 {
         Eina_List* list;
         elm_genlist_item_all_contents_unset((Elm_Object_Item*) v_it, &list);
         return copy_Eina_List_Elm_Object_Item(list);
-}
-
-PREFIX value ml_elm_genlist_item_promote(value v_it)
-{
-        elm_genlist_item_promote((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_demote(value v_it)
-{
-        elm_genlist_item_demote((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_fields_update(
-        value v_it, value v_part, value v_itf)
-{
-        elm_genlist_item_fields_update((Elm_Object_Item*) v_it,
-                String_val(v_part), Elm_Genlist_Item_Field_Type_val(v_itf));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_decorate_mode_set(
-        value v_it, value v_t, value v_flag)
-{
-        elm_genlist_item_decorate_mode_set((Elm_Object_Item*) v_it,
-                String_val(v_t), Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_decorate_mode_get(value v_it)
-{
-        return copy_string(elm_genlist_item_decorate_mode_get(
-                (Elm_Object_Item*) v_it));
 }
 
 PREFIX value ml_elm_genlist_decorated_item_get(value v_obj)
@@ -566,82 +306,6 @@ PREFIX value ml_elm_genlist_decorated_item_get(value v_obj)
         }
 }
 
-PREFIX value ml_elm_genlist_reorder_mode_set(value v_obj, value v_flag)
-{
-        elm_genlist_reorder_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_reorder_mode_get(value v_obj)
-{
-        return Val_bool(elm_genlist_reorder_mode_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_item_type_get(value v_it)
-{
-        return Val_Elm_Genlist_Item_Type(elm_genlist_item_type_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_decorate_mode_set(value v_obj, value v_flag)
-{
-        elm_genlist_decorate_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_decorate_mode_get(value v_obj)
-{
-        return Val_bool(elm_genlist_decorate_mode_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_item_flip_set(value v_it, value v_flag)
-{
-        elm_genlist_item_flip_set((Elm_Object_Item*) v_it, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_flip_get(value v_it)
-{
-        return Val_bool(elm_genlist_item_flip_get((Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_genlist_tree_effect_enabled_set(value v_obj, value v_flag)
-{
-        elm_genlist_tree_effect_enabled_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_tree_effect_enabled_get(value v_obj)
-{
-        return Val_bool(elm_genlist_tree_effect_enabled_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_select_mode_set(value v_obj, value v_mode)
-{
-        elm_genlist_select_mode_set((Evas_Object*) v_obj,
-                Elm_Object_Select_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_select_mode_get(value v_obj)
-{
-        return Val_Elm_Object_Select_Mode(elm_genlist_select_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_genlist_highlight_mode_set(value v_obj, value v_flag)
-{
-        elm_genlist_highlight_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_highlight_mode_get(value v_obj)
-{
-        return Val_bool(elm_genlist_highlight_mode_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_genlist_nth_item_get(value v_obj, value v_k)
 {
         Elm_Object_Item* it = elm_genlist_nth_item_get((Evas_Object*) v_obj,
@@ -650,18 +314,5 @@ PREFIX value ml_elm_genlist_nth_item_get(value v_obj, value v_k)
         value v_r = caml_alloc(1, 0);
         Store_field(v_r, 0, (value) it);
         return v_r;
-}
-
-PREFIX value ml_elm_genlist_item_select_mode_set(value v_it, value v_mode)
-{
-        elm_genlist_item_select_mode_set((Elm_Object_Item*) v_it,
-                Elm_Object_Select_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_genlist_item_select_mode_get(value v_it)
-{
-        return Val_Elm_Object_Select_Mode(elm_genlist_item_select_mode_get(
-                (Elm_Object_Item*) v_it));
 }
 

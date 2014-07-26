@@ -272,6 +272,11 @@ let elm_flip_direction = simple_ty "Elm_Flip" "Direction"
 let elm_gengrid_item_scrollto_type =
   simple_ty "Elm_Gengrid" "Item_Scrollto_Type"
 let elm_object_select_mode = simple_ty "Elm_Object" "Select_Mode"
+let elm_list_mode = simple_ty "Elm_List" "Mode"
+let elm_genlist_item_scrollto_type =
+  simple_ty "Elm_Genlist" "Item_Scrollto_Type"
+let elm_genlist_item_field_type = simple_ty "Elm_Genlist" "Item_Field_Type"
+let elm_genlist_item_type = simple_ty "Elm_Genlist" "Item_Type"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"

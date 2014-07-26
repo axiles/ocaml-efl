@@ -18,6 +18,7 @@ let list = [
   ("Elm_flipselector", Elm_flipselector.funs);
   ("Elm_frame", Elm_frame.funs);
   ("Elm_gengrid", Elm_gengrid.funs);
+  ("Elm_genlist", Elm_genlist.funs);
 ]
 
 let write filename print secs =
