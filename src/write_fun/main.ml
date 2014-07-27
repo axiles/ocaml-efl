@@ -35,6 +35,7 @@ let list = [
   ("Elm_panel", Elm_panel.funs);
   ("Elm_panes", Elm_panes.funs);
   ("Elm_photo", Elm_photo.funs);
+  ("Elm_photocam", Elm_photocam.funs);
 ]
 
 let write filename print secs =
