@@ -7,13 +7,6 @@ PREFIX value ml_elm_plug_add(value v_parent)
         return (value) plug;
 }
 
-PREFIX value ml_elm_plug_connect(
-        value v_obj, value v_name, value v_num, value v_sys)
-{
-        return Val_bool(elm_plug_connect((Evas_Object*) v_obj,
-                String_val(v_name), Int_val(v_num), Bool_val(v_sys)));
-}
-
 PREFIX value ml_elm_plug_image_object_get(value v_obj)
 {
         Evas_Object* img = elm_plug_image_object_get((Evas_Object*) v_obj);
