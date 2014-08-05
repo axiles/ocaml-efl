@@ -27,29 +27,6 @@ PREFIX value ml_elm_scroller_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_scroller_content_min_limit(
-        value v_obj, value v_w, value v_h)
-{
-        elm_scroller_content_min_limit((Evas_Object*) v_obj, Bool_val(v_w),
-                Bool_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_region_show(
-        value v_obj, value v_x, value v_y, value v_w, value v_h)
-{
-        elm_scroller_region_show((Evas_Object*) v_obj, Int_val(v_x),
-                Int_val(v_y), Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_policy_set(value v_obj, value v_h, value v_v)
-{
-        elm_scroller_policy_set((Evas_Object*) v_obj,
-                Elm_Scroller_Policy_val(v_h), Elm_Scroller_Policy_val(v_v));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_scroller_policy_get(value v_obj)
 {
         Elm_Scroller_Policy ph, pv;
@@ -58,19 +35,6 @@ PREFIX value ml_elm_scroller_policy_get(value v_obj)
         Store_field(v, 0, Val_Elm_Scroller_Policy(ph));
         Store_field(v, 1, Val_Elm_Scroller_Policy(pv));
         return v;
-}
-
-PREFIX value ml_elm_scroller_single_direction_set(value v_obj, value v_sd)
-{
-        elm_scroller_single_direction_set((Evas_Object*) v_obj,
-                Elm_Scroller_Single_Direction_val(v_sd));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_single_direction_get(value v_obj)
-{
-        return Val_Elm_Scroller_Single_Direction(
-                elm_scroller_single_direction_get((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_scroller_region_get(value v_obj)
@@ -95,13 +59,6 @@ PREFIX value ml_elm_scroller_child_size_get(value v_obj, value v_w, value v_h)
         return v;
 }
 
-PREFIX value ml_elm_scroller_page_snap_set(value v_obj, value v_ph, value v_pv)
-{
-        elm_scroller_page_snap_set((Evas_Object*) v_obj, Bool_val(v_ph),
-                Bool_val(v_pv));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_scroller_page_snap_get(value v_obj)
 {
         Eina_Bool ph, pv;
@@ -112,13 +69,6 @@ PREFIX value ml_elm_scroller_page_snap_get(value v_obj)
         return v_r;
 }
 
-PREFIX value ml_elm_scroller_bounce_set(value v_obj, value v_h, value v_v)
-{
-        elm_scroller_bounce_set((Evas_Object*) v_obj, Eina_Bool_val(v_h),
-                Eina_Bool_val(v_v));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_scroller_bounce_get(value v_obj)
 {
         Eina_Bool h_bounce, v_bounce;
@@ -127,14 +77,6 @@ PREFIX value ml_elm_scroller_bounce_get(value v_obj)
         Store_field(v, 0, Val_Eina_Bool(h_bounce));
         Store_field(v, 1, Val_Eina_Bool(v_bounce));
         return v;
-}
-
-PREFIX value ml_elm_scroller_page_relative_set(
-        value v_obj, value v_h, value v_v)
-{
-        elm_scroller_page_relative_set((Evas_Object*) v_obj,
-                Double_val(v_h), Double_val(v_v));
-        return Val_unit;
 }
 
 PREFIX value ml_elm_scroller_page_relative_get(value v_obj)
@@ -149,13 +91,6 @@ PREFIX value ml_elm_scroller_page_relative_get(value v_obj)
         CAMLreturn(v_r);
 }
 
-PREFIX value ml_elm_scroller_page_size_set(value v_obj, value v_h, value v_v)
-{
-        elm_scroller_page_size_set((Evas_Object*) v_obj, Int_val(v_h),
-                Int_val(v_v));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_scroller_page_size_get(value v_obj)
 {
         Evas_Coord h, v;
@@ -164,14 +99,6 @@ PREFIX value ml_elm_scroller_page_size_get(value v_obj)
         Store_field(v_r, 0, Val_int(h));
         Store_field(v_r, 1, Val_int(v));
         return v_r;
-}
-
-PREFIX value ml_elm_scroller_page_scroll_limit_set(
-        value v_obj, value v_lph, value v_lpv)
-{
-        elm_scroller_page_scroll_limit_set((Evas_Object*) v_obj,
-                Int_val(v_lph), Int_val(v_lpv));
-        return Val_unit;
 }
 
 PREFIX value ml_elm_scroller_page_scroll_limit_get(value v_obj)
@@ -204,49 +131,6 @@ PREFIX value ml_elm_scroller_last_page_get(value v_obj)
         return v_r;
 }
 
-PREFIX value ml_elm_scroller_page_show(value v_obj, value v_h, value v_v)
-{
-        elm_scroller_page_show((Evas_Object*) v_obj, Int_val(v_h),
-                Int_val(v_v));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_page_bring_in(value v_obj, value v_h, value v_v)
-{
-        elm_scroller_page_bring_in((Evas_Object*) v_obj, Int_val(v_h),
-                Int_val(v_v));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_region_bring_in(
-        value v_obj, value v_x, value v_y, value v_w, value v_h)
-{
-        elm_scroller_region_bring_in((Evas_Object*) v_obj, Int_val(v_x),
-                Int_val(v_y), Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_propagate_events_set(value v_obj, value v_flag)
-{
-        elm_scroller_propagate_events_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_propagate_events_get(value v_obj)
-{
-        return Val_bool(elm_scroller_propagate_events_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_scroller_gravity_set(
-        value v_obj, value v_x, value v_y)
-{
-        elm_scroller_gravity_set((Evas_Object*) v_obj,
-                Double_val(v_x), Double_val(v_y));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_scroller_gravity_get(value v_obj)
 {
         CAMLparam1(v_obj);
@@ -257,18 +141,5 @@ PREFIX value ml_elm_scroller_gravity_get(value v_obj)
         Store_field(v_r, 0, copy_double(x));
         Store_field(v_r, 1, copy_double(y));
         CAMLreturn(v_r);
-}
-
-PREFIX value ml_elm_scroller_movement_block_set(value v_obj, value v_mb)
-{
-        elm_scroller_movement_block_set((Evas_Object*) v_obj,
-                Elm_Scroller_Movement_Block_val_list(v_mb));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_scroller_movement_block_get(value v_obj)
-{
-        return copy_Elm_Scroller_Movement_Block(elm_scroller_movement_block_get(
-                (Evas_Object*) v_obj));
 }
 
