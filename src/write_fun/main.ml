@@ -48,6 +48,7 @@ let list = [
   ("Elm_table", Elm_table.funs);
   ("Elm_thumb", Elm_thumb.funs);
   ("Elm_toolbar", Elm_toolbar.funs);
+  ("Elm_transit", Elm_transit.funs);
 ]
 
 let write filename print secs =
