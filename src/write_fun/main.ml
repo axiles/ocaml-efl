@@ -50,6 +50,7 @@ let list = [
   ("Elm_toolbar", Elm_toolbar.funs);
   ("Elm_transit", Elm_transit.funs);
   ("Elm_web", Elm_web.funs);
+  ("Elm_win", Elm_win.funs);
 ]
 
 let write filename print secs =

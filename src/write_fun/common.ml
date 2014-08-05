@@ -308,6 +308,12 @@ let elm_transit_effect_wipe_dir = simple_ty "Elm_Transit" "Effect_Wipe_Dir"
 let elm_web_window_features = simple_ty "Elm_Web" "Window_Features"
 let elm_web_window_feature_flag = simple_ty "Elm_Web" "Window_Feature_Flag"
 let elm_web_zoom_mode = simple_ty "Elm_Web" "Zoom_Mode"
+let elm_illume_command = simple_ty "Elm" "Illume_Command"
+let elm_win_keyboard_mode = simple_ty "Elm_Win" "Keyboard_Mode"
+let elm_win_indicator_mode = simple_ty "Elm_Win" "Indicator_Mode" 
+let elm_win_indicator_opacity_mode =
+  simple_ty "Elm_Win" "Indicator_Opacity_Mode"
+let ecore_window = simple_ty "Ecore" "Window"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"

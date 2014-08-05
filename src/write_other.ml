@@ -12,6 +12,7 @@ let ptr_types = [
   "Elm_Toolbar_Item_State";
   "Elm_Transit";
   "Elm_Web_Window_Features";
+  "Ecore_Window";
 ]
 
 let print_ptr_type_c_impl fmt name =
