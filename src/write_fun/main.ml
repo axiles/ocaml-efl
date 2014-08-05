@@ -44,6 +44,7 @@ let list = [
   ("Elm_separator", Elm_separator.funs);
   ("Elm_slider", Elm_slider.funs);
   ("Elm_slideshow", Elm_slideshow.funs);
+  ("Elm_spinner", Elm_spinner.funs);
 ]
 
 let write filename print secs =
