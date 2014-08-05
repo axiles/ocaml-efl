@@ -292,10 +292,15 @@ let evas_load_error = simple_ty "Evas" "Load_Error"
 let elm_photocam_zoom_mode = simple_ty "Elm_Photocam" "Zoom_Mode"
 let elm_scroller_policy = simple_ty "Elm_Scroller" "Policy"
 let elm_scroller_single_direction = simple_ty "Elm_Scroller" "Single_Direction"
-let elm_scroller_movement_block = flags_ty "Elm_Scroller" "Movement_Block"
+let ethumb_thumb_aspect = simple_ty "Ethumb" "Thumb_Aspect"
+let ethumb_thumb_fdo_size = simple_ty "Ethumb" "Thumb_FDO_Size"
+let ethumb_thumb_format = simple_ty "Ethumb" "Thumb_Format"
+let ethumb_thumb_orientation = simple_ty "Ethumb" "Thumb_Orientation"
+let elm_thumb_animation_setting = simple_ty "Elm_Thumb" "Animation_Setting"
 
 let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
 let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
+let elm_scroller_movement_block = flags_ty "Elm_Scroller" "Movement_Block"
 
 let simple name list res = {
   Fun.ml_name = name;
