@@ -42,6 +42,7 @@ let list = [
   ("Elm_scroller", Elm_scroller.funs);
   ("Elm_segment_control", Elm_segment_control.funs);
   ("Elm_separator", Elm_separator.funs);
+  ("Elm_slider", Elm_slider.funs);
 ]
 
 let write filename print secs =
