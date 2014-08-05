@@ -200,22 +200,6 @@ PREFIX value ml_elm_web_add(Evas_Object* v_parent)
         return (value) web;
 }
 
-PREFIX value ml_elm_web_useragent_set(value v_obj, value v_s)
-{
-        elm_web_useragent_set((Evas_Object*) v_obj, String_val(v_s));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_useragent_get(value v_obj)
-{
-        return copy_string(elm_web_useragent_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_webkit_view_get(value v_obj)
-{
-        return (value) elm_web_webkit_view_get((Evas_Object*) v_obj);
-}
-
 PREFIX value ml_elm_web_window_create_hook_set(value v_obj, value v_fun)
 {
         Evas_Object* obj = (Evas_Object*) v_obj;
@@ -265,23 +249,6 @@ PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
         return Val_unit;
 }
 
-PREFIX value ml_elm_web_tab_propagate_get(value v_obj)
-{
-        return Val_bool(elm_web_tab_propagate_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_tab_propagate_set(value v_obj, value v_flag)
-{
-        elm_web_tab_propagate_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_url_set(value v_obj, value v_s)
-{
-        elm_web_url_set((Evas_Object*) v_obj, String_val(v_s));
-        return Val_unit;
-}
-
 PREFIX value ml_elm_web_url_get(value v_obj)
 {
         CAMLparam1(v_obj);
@@ -306,14 +273,6 @@ PREFIX value ml_elm_web_title_get(value v_obj)
                 Store_field(v_s, 0, copy_string(s));
         }
         CAMLreturn(v_s);
-}
-
-PREFIX value ml_elm_web_bg_color_set(
-        value v_obj, value v_r, value v_g, value v_b, value v_a)
-{
-        elm_web_bg_color_set((Evas_Object*) v_obj, Int_val(v_r), Int_val(v_g),
-                Int_val(v_b), Int_val(v_a));
-        return Val_unit;
 }
 
 PREFIX value ml_elm_web_bg_color_get(value v_obj)
@@ -341,17 +300,6 @@ PREFIX value ml_elm_web_selection_get(value v_obj)
         CAMLreturn(v_s);
 }
 
-PREFIX value ml_elm_web_popup_selected_set(value v_obj, value v_x)
-{
-        elm_web_popup_selected_set((Evas_Object*) v_obj, Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_popup_destroy(value v_obj)
-{
-        return Val_bool(elm_web_popup_destroy((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_web_text_search(
         value v_obj, value v_s, value v_cs, value v_fwd, value v_wrp)
 {
@@ -366,144 +314,6 @@ PREFIX value ml_elm_web_text_matches_mark(
         return Val_int(elm_web_text_matches_mark((Evas_Object*) v_obj,
                 String_val(v_s), Bool_val(v_cs), Bool_val(v_hl),
                 Int_val(v_limit)));
-}
-
-PREFIX value ml_elm_web_text_matches_unmark_all(value v_obj)
-{
-        return Val_bool(elm_web_text_matches_unmark_all((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_text_matches_highlight_set(value v_obj, value v_flag)
-{
-        return Val_bool(elm_web_text_matches_highlight_set((Evas_Object*) v_obj,
-                Bool_val(v_flag)));
-}
-
-PREFIX value ml_elm_web_text_matches_highlight_get(value v_obj)
-{
-        return Val_bool(elm_web_text_matches_highlight_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_load_progress_get(value v_obj)
-{
-        return copy_double(elm_web_load_progress_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_stop(value v_obj)
-{
-        return Val_bool(elm_web_stop((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_reload(value v_obj)
-{
-        return Val_bool(elm_web_reload((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_reload_full(value v_obj)
-{
-        return Val_bool(elm_web_reload_full((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_back(value v_obj)
-{
-        return Val_bool(elm_web_back((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_forward(value v_obj)
-{
-        return Val_bool(elm_web_forward((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_navigate(value v_obj, value v_n)
-{
-        return Val_bool(elm_web_navigate((Evas_Object*) v_obj, Int_val(v_n)));
-}
-
-PREFIX value ml_elm_web_back_possible_get(value v_obj)
-{
-        return Val_bool(elm_web_back_possible_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_forward_possible_get(value v_obj)
-{
-        return Val_bool(elm_web_forward_possible_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_navigate_possible_get(value v_obj, value v_n)
-{
-        return Val_bool(elm_web_navigate_possible_get(
-                (Evas_Object*) v_obj, Int_val(v_n)));
-}
-
-PREFIX value ml_elm_web_history_enabled_get(value v_obj)
-{
-        return Val_bool(elm_web_history_enabled_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_history_enabled_set(value v_obj, value v_flag)
-{
-        elm_web_history_enabled_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_zoom_set(value v_obj, value v_x)
-{
-        elm_web_zoom_set((Evas_Object*) v_obj, Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_zoom_get(value v_obj)
-{
-        return copy_double(elm_web_zoom_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_zoom_mode_set(value v_obj, value v_mode)
-{
-        elm_web_zoom_mode_set((Evas_Object*) v_obj,
-                Elm_Web_Zoom_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_zoom_mode_get(value v_obj)
-{
-        return Val_Elm_Web_Zoom_Mode(elm_web_zoom_mode_get(
-                (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_region_show(
-        value v_obj, value v_x, value v_y, value v_w, value v_h)
-{
-        elm_web_region_show((Evas_Object*) v_obj, Int_val(v_x), Int_val(v_y),
-                Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_region_bring_in(
-        value v_obj, value v_x, value v_y, value v_w, value v_h)
-{
-        elm_web_region_bring_in((Evas_Object*) v_obj, Int_val(v_x),
-                Int_val(v_y), Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_inwin_mode_set(
-        value v_obj, value v_flag)
-{
-        elm_web_inwin_mode_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_web_inwin_mode_get(value v_obj)
-{
-        return Val_bool(elm_web_inwin_mode_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_web_window_features_property_get(value v_wf, value v_flag)
-{
-        return Val_bool(elm_web_window_features_property_get(
-                (Elm_Web_Window_Features*) v_wf,
-                Elm_Web_Window_Feature_Flag_val(v_flag)));
 }
 
 PREFIX value ml_elm_web_window_features_region_get(value v_wf)
