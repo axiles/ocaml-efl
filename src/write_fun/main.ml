@@ -40,6 +40,7 @@ let list = [
   ("Elm_progressbar", Elm_progressbar.funs);
   ("Elm_radio", Elm_radio.funs);
   ("Elm_scroller", Elm_scroller.funs);
+  ("Elm_segment_control", Elm_segment_control.funs);
 ]
 
 let write filename print secs =
