@@ -9,6 +9,7 @@ let ptr_types = [
   "Elm_Map_Overlay";
   "Elm_Map_Route";
   "Elm_Map_Name";
+  "Elm_Toolbar_Item_State"
 ]
 
 let print_ptr_type_c_impl fmt name =
