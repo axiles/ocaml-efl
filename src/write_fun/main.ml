@@ -51,6 +51,7 @@ let list = [
   ("Elm_transit", Elm_transit.funs);
   ("Elm_web", Elm_web.funs);
   ("Elm_win", Elm_win.funs);
+  ("Elm_video", Elm_video.funs);
 ]
 
 let write filename print secs =
