@@ -49,67 +49,10 @@ PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
         return (value) it;
 }
 
-PREFIX value ml_elm_slideshow_item_show(value v_it)
-{
-        elm_slideshow_item_show((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_next(value v_obj)
-{
-        elm_slideshow_next((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_previous(value v_obj)
-{
-        elm_slideshow_previous((Evas_Object*) v_obj);
-        return Val_unit;
-}
-
 PREFIX value ml_elm_slideshow_transitions_get(value v_obj)
 {
         return copy_Eina_List_string(elm_slideshow_transitions_get(
                 (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_transition_set(value v_obj, value v_s)
-{
-        elm_slideshow_transition_set((Evas_Object*) v_obj, String_val(v_s));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_transition_get(value v_obj)
-{
-        return copy_string(elm_slideshow_transition_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_timeout_set(value v_obj, value v_x)
-{
-        elm_slideshow_timeout_set((Evas_Object*) v_obj, Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_timeout_get(value v_obj)
-{
-        return copy_double(elm_slideshow_timeout_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_loop_set(value v_obj, value v_flag)
-{
-        elm_slideshow_loop_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_loop_get(value v_obj)
-{
-        return Val_bool(elm_slideshow_loop_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_clear(value v_obj)
-{
-        elm_slideshow_clear((Evas_Object*) v_obj);
-        return Val_unit;
 }
 
 PREFIX value ml_elm_slideshow_items_get(value v_obj)
@@ -136,47 +79,9 @@ PREFIX value ml_elm_slideshow_item_nth_get(value v_obj, value v_i)
                 (Evas_Object*) v_obj, Int_val(v_i)));
 }
 
-PREFIX value ml_elm_slideshow_layout_set(value v_obj, value v_s)
-{
-        elm_slideshow_layout_set((Evas_Object*) v_obj, String_val(v_s));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_layout_get(value v_obj)
-{
-        return copy_string(elm_slideshow_layout_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_slideshow_layouts_get(value v_obj)
 {
         return copy_Eina_List_string(elm_slideshow_layouts_get(
                 (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_cache_before_set(value v_obj, value v_x)
-{
-        elm_slideshow_cache_before_set((Evas_Object*) v_obj, Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_cache_before_get(value v_obj)
-{
-        return Val_int(elm_slideshow_cache_before_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_cache_after_set(value v_obj, value v_x)
-{
-        elm_slideshow_cache_after_set((Evas_Object*) v_obj, Int_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_slideshow_cache_after_get(value v_obj)
-{
-        return Val_int(elm_slideshow_cache_after_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_slideshow_count_get(value v_obj)
-{
-        return Val_int(elm_slideshow_count_get((Evas_Object*) v_obj));
 }
 

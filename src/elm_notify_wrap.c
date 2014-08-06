@@ -7,7 +7,7 @@ PREFIX value ml_elm_notify_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_notify_parent_set(value v_obj, value v_parent)
+/*PREFIX value ml_elm_notify_parent_set(value v_obj, value v_parent)
 {
         elm_notify_parent_set((Evas_Object*) v_obj, (Evas_Object*) v_parent);
         return Val_unit;
@@ -24,7 +24,7 @@ PREFIX value ml_elm_notify_align_set(value v_obj, value v_h, value v_v)
                 Double_val(v_v));
         return Val_unit;
 }
-
+*/
 PREFIX value ml_elm_notify_align_get(value v_obj)
 {
         CAMLparam1(v_obj);
@@ -37,7 +37,7 @@ PREFIX value ml_elm_notify_align_get(value v_obj)
         CAMLreturn(v_res);
 }
 
-PREFIX value ml_elm_notify_timeout_set(value v_obj, value v_time)
+/*PREFIX value ml_elm_notify_timeout_set(value v_obj, value v_time)
 {
         elm_notify_timeout_set((Evas_Object*) v_obj, Double_val(v_time));
         return Val_unit;
@@ -59,4 +59,4 @@ PREFIX value ml_elm_notify_allow_events_get(value v_obj)
 {
         return Val_Eina_Bool(elm_notify_allow_events_get((Evas_Object*) v_obj));
 }
-
+*/

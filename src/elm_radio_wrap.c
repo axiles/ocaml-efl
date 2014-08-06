@@ -7,34 +7,6 @@ PREFIX value ml_elm_radio_add(value v_parent)
         return (value) obj;
 }
 
-PREFIX value ml_elm_radio_group_add(value v_obj, value v_group)
-{
-        elm_radio_group_add((Evas_Object*) v_obj, (Evas_Object*) v_group);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_radio_state_value_set(value v_obj, value v_v)
-{
-        elm_radio_state_value_set((Evas_Object*) v_obj, Int_val(v_v));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_radio_state_value_get(value v_obj)
-{
-        return Val_int(elm_radio_state_value_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_radio_value_set(value v_obj, value v_v)
-{
-        elm_radio_value_set((Evas_Object*) v_obj, Int_val(v_v));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_radio_value_get(value v_obj)
-{
-        return Val_int(elm_radio_value_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_radio_selected_object_get(value v_obj)
 {
         return (value) elm_radio_selected_object_get((Evas_Object*) v_obj);
