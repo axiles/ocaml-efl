@@ -29,7 +29,7 @@ let win_action_all win box win2 =
   let war = win_action_rot win box win2 in
   wad "activate" Elm_win.activate;
   wad "lower" Elm_win.lower;
-  wad "raise" Elm_win.raises;
+  wad "raise" Elm_win.raise;
   was "borderless" Elm_win.borderless_get Elm_win.borderless_set;
   was "shaped" Elm_win.shaped_get Elm_win.shaped_set;
   was "alpha" Elm_win.alpha_get Elm_win.alpha_set;

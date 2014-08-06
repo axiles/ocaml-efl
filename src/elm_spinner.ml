@@ -1,5 +1,10 @@
 open Printf
 
+module AF = Autofun.Elm_spinner.F (struct
+  type evas_object = Evas.obj
+end)
+include AF
+
 let ht = Hashtbl.create 15
 
 (* This replace every % by %% *)                                                 
@@ -21,10 +26,6 @@ let fstring_of_string s =
   aux 0 0;                                                                       
   s1                                                                             
               
-external value_set : Evas.obj -> float -> unit = "ml_elm_spinner_value_set"
- 
-external value_get : Evas.obj -> float = "ml_elm_spinner_value_get"
-
 external label_format_set_aux : Evas.obj -> string -> unit =
   "ml_elm_spinner_label_format_set"
 
@@ -48,14 +49,7 @@ let add parent =
 
 let addx = Elm_object.create_addx add
 
-external min_max_set : Evas.obj -> float -> float -> unit =
-  "ml_elm_spinner_min_max_set"
-
 external min_max_get : Evas.obj -> float * float = "ml_elm_spinner_min_max_get"
-
-external step_set : Evas.obj -> float -> unit = "ml_elm_spinner_step_set"
-
-external step_get : Evas.obj -> float = "ml_elm_spinner_step_get"
 
 let label_format_function_set obj func =
   Hashtbl.replace ht obj func;
@@ -64,28 +58,4 @@ let label_format_function_set obj func =
 let label_format_set obj fmt =
   let format_func x = sprintf fmt x in
   label_format_function_set obj format_func
-
-external wrap_set : Evas.obj -> bool -> unit = "ml_elm_spinner_wrap_set"
-
-external wrap_get : Evas.obj -> bool = "ml_elm_spinner_wrap_get"
-
-external editable_set : Evas.obj -> bool -> unit = "ml_elm_spinner_editable_set"
-
-external editable_get : Evas.obj -> bool = "ml_elm_spinner_editable_get"
-
-external special_value_add : Evas.obj -> float -> string -> unit =
-  "ml_elm_spinner_special_value_add"
-
-external interval_set : Evas.obj -> float -> unit =
-  "ml_elm_spinner_interval_set"
-
-external interval_get : Evas.obj -> float = "ml_elm_spinner_interval_get"
-
-external base_set : Evas.obj -> float -> unit = "ml_elm_spinner_base_set"
-
-external base_get : Evas.obj -> float = "ml_elm_spinner_base_get"
-
-external round_set : Evas.obj -> int -> unit = "ml_elm_spinner_round_set"
-
-external round_get : Evas.obj -> int = "ml_elm_spinner_round_get"
 

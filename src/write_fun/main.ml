@@ -26,6 +26,32 @@ let list = [
   ("Elm_icon", Elm_icon.funs);
   ("Elm_image", Elm_image.funs);
   ("Elm_index", Elm_index.funs);
+  ("Elm_label", Elm_label.funs);
+  ("Elm_list", Elm_list.funs);
+  ("Elm_map", Elm_map.funs);
+  ("Elm_mapbuf", Elm_mapbuf.funs);
+  ("Elm_menu", Elm_menu.funs);
+  ("Elm_notify", Elm_notify.funs);
+  ("Elm_panel", Elm_panel.funs);
+  ("Elm_panes", Elm_panes.funs);
+  ("Elm_photo", Elm_photo.funs);
+  ("Elm_photocam", Elm_photocam.funs);
+  ("Elm_plug", Elm_plug.funs);
+  ("Elm_progressbar", Elm_progressbar.funs);
+  ("Elm_radio", Elm_radio.funs);
+  ("Elm_scroller", Elm_scroller.funs);
+  ("Elm_segment_control", Elm_segment_control.funs);
+  ("Elm_separator", Elm_separator.funs);
+  ("Elm_slider", Elm_slider.funs);
+  ("Elm_slideshow", Elm_slideshow.funs);
+  ("Elm_spinner", Elm_spinner.funs);
+  ("Elm_table", Elm_table.funs);
+  ("Elm_thumb", Elm_thumb.funs);
+  ("Elm_toolbar", Elm_toolbar.funs);
+  ("Elm_transit", Elm_transit.funs);
+  ("Elm_web", Elm_web.funs);
+  ("Elm_win", Elm_win.funs);
+  ("Elm_video", Elm_video.funs);
 ]
 
 let write filename print secs =

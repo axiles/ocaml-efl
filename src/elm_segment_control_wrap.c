@@ -38,18 +38,6 @@ PREFIX value ml_elm_segment_control_item_insert_at(
         return (value) it;
 }
 
-PREFIX value ml_elm_segment_control_item_del_at(value v_obj, value v_i)
-{
-        elm_segment_control_item_del_at((Evas_Object*) v_obj, Int_val(v_i));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_segment_control_item_count_get(value v_obj)
-{
-        return Val_int(elm_segment_control_item_count_get(
-                (Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_segment_control_item_get(value v_obj, value v_i)
 {
         return copy_Elm_Object_Item_opt(elm_segment_control_item_get(
@@ -68,28 +56,9 @@ PREFIX value ml_elm_segment_control_item_icon_get(value v_obj, value v_i)
                 (Evas_Object*) v_obj, Int_val(v_i)));
 }
 
-PREFIX value ml_elm_segment_control_item_index_get(value v_it)
-{
-        return Val_int(elm_segment_control_item_index_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_segment_control_item_object_get(value v_it)
-{
-        return (value) elm_segment_control_item_object_get(
-                (Elm_Object_Item*) v_it);
-}
-
 PREFIX value ml_elm_segment_control_item_selected_get(value v_obj)
 {
         return copy_Elm_Object_Item_opt(elm_segment_control_item_selected_get(
                 (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_segment_control_item_selected_set(value v_it, value v_flag)
-{
-        elm_segment_control_item_selected_set((Elm_Object_Item*) v_it,
-                Bool_val(v_flag));
-        return Val_unit;
 }
 

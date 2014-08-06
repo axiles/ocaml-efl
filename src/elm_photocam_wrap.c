@@ -7,41 +7,11 @@ PREFIX value ml_elm_photocam_add(value v_parent)
         return (value) photocam;
 }
 
-PREFIX value ml_elm_photocam_file_set(value v_obj, value v_file)
-{
-        return Val_Evas_Load_Error(elm_photocam_file_set(
-                (Evas_Object*) v_obj, String_val(v_file)));
-}
-
 PREFIX value ml_elm_photocam_file_get(value v_obj)
 {
         const char* file = elm_photocam_file_get((Evas_Object*) v_obj);
         if(file == NULL) caml_failwith("elm_photocam_file_get");
         return copy_string(file);
-}
-
-PREFIX value ml_elm_photocam_zoom_set(value v_obj, value v_x)
-{
-        elm_photocam_zoom_set((Evas_Object*) v_obj, Double_val(v_x));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photocam_zoom_get(value v_obj)
-{
-        return copy_double(elm_photocam_zoom_get((Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_photocam_zoom_mode_set(value v_obj, value v_mode)
-{
-        elm_photocam_zoom_mode_set((Evas_Object*) v_obj,
-                Elm_Photocam_Zoom_Mode_val(v_mode));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photocam_zoom_mode_get(value v_obj)
-{
-        return Val_Elm_Photocam_Zoom_Mode(elm_photocam_zoom_mode_get(
-                (Evas_Object*) v_obj));
 }
 
 PREFIX value ml_elm_photocam_image_size_get(value v_obj)
@@ -66,49 +36,10 @@ PREFIX value ml_elm_photocam_image_region_get(value v_obj)
         return v;
 }
 
-PREFIX value ml_elm_photocam_image_region_show(
-        value v_obj, value v_x, value v_y, value v_w, value v_h)
-{
-        elm_photocam_image_region_show((Evas_Object*) v_obj, Int_val(v_x),
-                Int_val(v_y), Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photocam_image_region_bring_in(
-        value v_obj, value v_x, value v_y, value v_w, value v_h)
-{
-        elm_photocam_image_region_bring_in((Evas_Object*) v_obj, Int_val(v_x),
-                Int_val(v_y), Int_val(v_w), Int_val(v_h));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photocam_paused_set(value v_obj, value v_flag)
-{
-        elm_photocam_paused_set((Evas_Object*) v_obj, Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photocam_paused_get(value v_obj)
-{
-        return Val_bool(elm_photocam_paused_get((Evas_Object*) v_obj));
-}
-
 PREFIX value ml_elm_photocam_internal_image_get(value v_obj)
 {
         return copy_Evas_Object_opt(elm_photocam_internal_image_get(
                 (Evas_Object*) v_obj));
-}
-
-PREFIX value ml_elm_photocam_gesture_enabled_set(value v_obj, value v_flag)
-{
-        elm_photocam_gesture_enabled_set((Evas_Object*) v_obj,
-                Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_photocam_gesture_enabled_get(value v_obj)
-{
-        return Val_bool(elm_photocam_gesture_enabled_get((Evas_Object*) v_obj));
 }
 
 PREFIX value ml_Elm_Photocam_Progress_of_ptr(value v_ptr)

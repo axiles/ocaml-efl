@@ -1,3 +1,8 @@
+module AF = Autofun.Elm_progressbar.F (struct
+  type evas_object = Evas.obj
+end)
+include AF
+
 (* For elm_progressbar_function_set we do not have a void* data so we have to
 reproduce this function via a callback *)
 
@@ -42,10 +47,6 @@ end
 
 let fu = FU.create ()
 
-external value_set : Evas.obj -> float -> unit = "ml_elm_progressbar_value_set"
- 
-external value_get : Evas.obj -> float = "ml_elm_progressbar_value_get"
-
 external unit_format_set_aux : Evas.obj -> string -> unit =
   "ml_elm_progressbar_unit_format_set"
 
@@ -74,16 +75,7 @@ let add parent =
 
 let addx = Elm_object.create_addx add
 
-external pulse_set : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse_set"
-
-external pulse_get : Evas.obj -> bool = "ml_elm_progressbar_pulse_get"
-
 external pulse : Evas.obj -> bool -> unit = "ml_elm_progressbar_pulse"
-
-external span_size_set : Evas.obj -> int -> unit =
-  "ml_elm_progressbar_span_size_set"
-
-external span_size_get : Evas.obj -> int = "ml_elm_progressbar_span_size_get"
 
 let unit_format_function_set obj func =
   FU.replace fu obj func;
@@ -92,16 +84,6 @@ let unit_format_function_set obj func =
 let unit_format_set obj fmt =
   let f x = sprintf fmt (x *. 100.) in
   unit_format_function_set obj f
-
-external horizontal_set : Evas.obj -> bool -> unit =
-  "ml_elm_progressbar_horizontal_set"
-
-external horizontal_get : Evas.obj -> bool = "ml_elm_progressbar_horizontal_get"
-
-external inverted_set : Evas.obj -> bool -> unit =
-  "ml_elm_progressbar_inverted_set"
-
-external inverted_get : Evas.obj -> bool = "ml_elm_progressbar_inverted_get"
 
 external part_value_set : Evas.obj -> ?p:string -> float -> unit =
   "ml_elm_progressbar_part_value_set"

@@ -1,5 +1,10 @@
 open Printf
 
+module AF = Autofun.Elm_slider.F (struct
+  type evas_object = Evas.obj
+end)
+include AF
+
 (* This replace every % by %% *)
 let fstring_of_string s =
   let num_percent = ref 0 in
@@ -97,32 +102,5 @@ let indicator_format_set obj fmt =
   let f x = sprintf fmt (x *. 100.) in
   indicator_format_function_set obj f
 
-external span_size_set : Evas.obj -> int -> unit = "ml_elm_slider_span_size_set"
-
-external span_size_get : Evas.obj -> int = "ml_elm_slider_span_size_get"
-
-external horizontal_set : Evas.obj -> bool -> unit =
-  "ml_elm_slider_horizontal_set"
-
-external horizontal_get : Evas.obj -> bool = "ml_elm_slider_horizontal_get"
-
-external min_max_set : Evas.obj -> float -> float -> unit =
-  "ml_elm_slider_min_max_set"
-
 external min_max_get : Evas.obj -> float * float = "ml_elm_slider_min_max_get"
-
-external inverted_set : Evas.obj -> bool -> unit =
-  "ml_elm_slider_inverted_set"
-
-external inverted_get : Evas.obj -> bool = "ml_elm_slider_inverted_get"
-
-external indicator_show_set : Evas.obj -> bool -> unit =
-  "ml_elm_slider_indicator_show_set"
-
-external indicator_show_get : Evas.obj -> bool =
-  "ml_elm_slider_indicator_show_get"
-
-external step_set : Evas.obj -> float -> unit = "ml_elm_slider_step_set"
-
-external step_get : Evas.obj -> float = "ml_elm_slider_step_get"
 
