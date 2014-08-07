@@ -40,6 +40,9 @@ external auto_hide_disabled_set : Evas.obj -> bool -> unit =
 external auto_hide_disabled_get : Evas.obj -> bool =
   "ml_elm_ctxpopup_auto_hide_disabled_get"
 
+external items_get : Evas.obj -> Elm_object.item list =
+  "ml_elm_ctxpopup_items_get"
+
 external item_prev_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_ctxpopup_item_prev_get"
 

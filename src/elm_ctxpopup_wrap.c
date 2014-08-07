@@ -114,6 +114,12 @@ PREFIX value ml_elm_ctxpopup_auto_hide_disabled_get(value v_obj)
           (Evas_Object*) v_obj));
 }
 
+PREFIX value ml_elm_ctxpopup_items_get(value v_obj)
+{
+        return copy_Eina_List_Elm_Object_Item(elm_ctxpopup_items_get(
+                Evas_Object_val(v_obj)));
+}
+
 PREFIX value ml_elm_ctxpopup_item_prev_get(value v_it)
 {
         return copy_Elm_Object_Item_opt(elm_ctxpopup_item_prev_get(
