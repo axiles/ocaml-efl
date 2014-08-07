@@ -30,6 +30,13 @@ type policy_exit = [`none | `windows_del]
 
 type policy_throttle = [`config | `hidden_always | `never]
 
+type glob_match_flags = [
+| `no_escape
+| `path
+| `period
+| `nocase
+]
+
 type event_cb = Evas.obj -> Evas.obj -> Evas_event.t -> bool
 
 val init : unit -> unit

@@ -131,6 +131,18 @@ PREFIX value ml_elm_language_set(value v_lang)
         return Val_unit;
 }
 
+inline Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(
+        value v_list)
+{
+        value v = v_list;
+        Elm_Scroller_Movement_Block r = 0;
+        while(v != Val_int(0)) {
+                r = r | Elm_Glob_Match_Flags_val(Field(v, 0));
+                v = Field(v, 1);
+        }
+        return r;
+}
+
 /* Colors */
 
 PREFIX value copy_Elm_Color_Class(Elm_Color_Class* c)

@@ -47,4 +47,6 @@ inline value Val_Elm_Input_Panel_Return_Key_Type(
 inline Elm_Cnp_Mode Elm_Cnp_Mode_val(value v);
 inline value Val_Elm_Cnp_Mode(Elm_Cnp_Mode m);
 
+inline Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(value v);
+
 #endif
