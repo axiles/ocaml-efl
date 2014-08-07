@@ -43,6 +43,12 @@ external auto_hide_disabled_get : Evas.obj -> bool =
 external items_get : Evas.obj -> Elm_object.item list =
   "ml_elm_ctxpopup_items_get"
 
+external first_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_ctxpopup_first_item_get"
+
+external last_item_get : Evas.obj -> Elm_object.item option =
+  "ml_elm_ctxpopup_last_item_get"
+
 external item_prev_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_ctxpopup_item_prev_get"
 

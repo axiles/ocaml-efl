@@ -120,6 +120,18 @@ PREFIX value ml_elm_ctxpopup_items_get(value v_obj)
                 Evas_Object_val(v_obj)));
 }
 
+PREFIX value ml_elm_ctxpopup_first_item_get(value v_obj)
+{
+        return copy_Elm_Object_Item_opt(elm_ctxpopup_first_item_get(
+                Evas_Object_val(v_obj)));
+}
+
+PREFIX value ml_elm_ctxpopup_last_item_get(value v_obj)
+{
+        return copy_Elm_Object_Item_opt(elm_ctxpopup_last_item_get(
+                Evas_Object_val(v_obj)));
+}
+
 PREFIX value ml_elm_ctxpopup_item_prev_get(value v_it)
 {
         return copy_Elm_Object_Item_opt(elm_ctxpopup_item_prev_get(
