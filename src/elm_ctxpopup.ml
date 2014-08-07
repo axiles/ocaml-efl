@@ -22,6 +22,11 @@ external item_append :
       Elm_object.item =
       "ml_elm_ctxpopup_item_append"
 
+external item_prepend :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
+      Elm_object.item =
+      "ml_elm_ctxpopup_item_prepend"
+
 external direction_priority_set :
   Evas.obj -> direction -> direction -> direction -> direction -> unit =
     "ml_elm_ctxpopup_direction_priority_set"
