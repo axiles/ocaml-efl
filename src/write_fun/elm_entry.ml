@@ -33,8 +33,8 @@ let funs = [
   simple_unit "selection_paste" [evas_object];
   simple_unit "context_menu_clear" [evas_object];
   prop "context_menu_disabled" bool;
-  simple "markup_to_utf8" [safe_string] safe_string;
-  simple "utf8_to_markup" [safe_string] safe_string;
+  simple "markup_to_utf8" [safe_string] safe_string_free;
+  simple "utf8_to_markup" [safe_string] safe_string_free;
   simple "file_set" [evas_object; safe_string; elm_text_format] bool;
   simple_unit "file_save" [evas_object];
   prop "autosave" bool;

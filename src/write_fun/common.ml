@@ -211,6 +211,8 @@ let safe_string = {
   base = true;
 }
 
+let safe_string_free = {safe_string with ml_of_c = "safe_copy_string_free"}
+
 let simple_ty first second =
   let c_name = sprintf "%s_%s" first second in
   let name = String.lowercase c_name in
