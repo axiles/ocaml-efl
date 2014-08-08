@@ -33,6 +33,7 @@ inline value* ml_register_value(value v);
 inline void ml_remove_value(value* data);
 
 inline value safe_copy_string(const char* s);
+inline value safe_copy_string_free(char* s);
 
 /* Local headers */
 

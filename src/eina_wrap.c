@@ -177,6 +177,13 @@ inline value safe_copy_string(const char* s)
         else return copy_string(s);
 }
 
+inline value safe_copy_string_free(char* s)
+{
+        value v = safe_copy_string(s);
+        free(s);
+        return v;
+}
+
 inline value Val_Eina_Bool_ptr(Eina_Bool* ptr)
 {
         return Val_bool(*ptr);
