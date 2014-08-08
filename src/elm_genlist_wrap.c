@@ -159,6 +159,17 @@ PREFIX value ml_elm_genlist_selected_item_get(value v_obj)
         return v;
 }
 
+PREFIX value ml_elm_genlist_search_by_text_item_get(
+        value v_obj, value v_item_start_from, value v_part_name,
+        value v_pattern, value v_flags)
+{
+        return copy_Elm_Object_Item_opt(elm_genlist_search_by_text_item_get(
+                Evas_Object_val(v_obj),
+                Elm_Object_Item_opt_val(v_item_start_from),
+                String_val(v_part_name), String_val(v_pattern),
+                Elm_Glob_Match_Flags_val_list(v_flags)));
+}
+
 PREFIX value ml_elm_genlist_selected_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_genlist_selected_items_get(

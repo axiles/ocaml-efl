@@ -39,6 +39,11 @@ external item_insert_after :
     Elm_object.item =
       "ml_elm_gengrid_item_insert_after"
 
+external search_by_text_item_get :
+  Evas.obj -> ?item_to_search_from:Elm_object.item -> part_name:string ->
+    pattern:string -> Elm.glob_match_flags list -> Elm_object.item option =
+      "ml_elm_gengrid_search_by_text_item_get"
+
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_gengrid_selected_item_get"
 

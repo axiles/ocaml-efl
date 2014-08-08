@@ -15,6 +15,7 @@ inline Eina_List* Eina_List_Evas_Object_val(value v_list);
 
 inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list);
 
+inline Elm_Object_Item* Elm_Object_Item_opt_val(value v);
 inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it);
 
 inline value copy_string_opt(const char* s);

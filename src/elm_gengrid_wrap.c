@@ -114,6 +114,17 @@ PREFIX value ml_elm_gengrid_item_insert_after(
         return (value) item;
 }
 
+PREFIX value ml_elm_gengrid_search_by_text_item_get(
+        value v_obj, value v_item_start_from, value v_part_name,
+        value v_pattern, value v_flags)
+{
+        return copy_Elm_Object_Item_opt(elm_gengrid_search_by_text_item_get(
+                Evas_Object_val(v_obj),
+                Elm_Object_Item_opt_val(v_item_start_from),
+                String_val(v_part_name), String_val(v_pattern),
+                Elm_Glob_Match_Flags_val_list(v_flags)));
+}
+
 PREFIX value ml_elm_gengrid_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_gengrid_selected_item_get(

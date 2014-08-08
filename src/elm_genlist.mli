@@ -48,6 +48,10 @@ val item_insert_after :
   Evas.obj -> item_class -> Elm_object.item option -> Elm_object.item ->
     item_type -> Evas.smart_cb -> Elm_object.item
 
+val search_by_text_item_get :
+  Evas.obj -> ?item_to_search_from:Elm_object.item -> part_name:string ->
+    pattern:string -> Elm.glob_match_flags list -> Elm_object.item option
+
 val selected_item_get : Evas.obj -> Elm_object.item option
 
 val selected_items_get : Evas.obj -> Elm_object.item list

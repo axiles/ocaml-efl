@@ -45,6 +45,11 @@ external item_insert_after :
   "ml_elm_genlist_item_insert_after_byte"
   "ml_elm_genlist_item_insert_after_native"
 
+external search_by_text_item_get :
+  Evas.obj -> ?item_to_search_from:Elm_object.item -> part_name:string ->
+    pattern:string -> Elm.glob_match_flags list -> Elm_object.item option =
+      "ml_elm_genlist_search_by_text_item_get"
+
 external selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_genlist_selected_item_get"
 
