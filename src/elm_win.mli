@@ -233,6 +233,10 @@ val illume_command_send : Evas.obj -> Elm.illume_command -> unit
 
 val inlined_image_object_get : Evas.obj -> Evas.obj
 
+val noblank_set : Evas.obj -> bool -> unit
+
+val noblank_get : Evas.obj -> bool
+
 val focus_get : Evas.obj -> bool
 
 val screen_constrain_set : Evas.obj -> bool -> unit
