@@ -186,6 +186,12 @@ external item_select_on_focus_disabled_get : unit -> bool =
 external item_select_on_focus_disabled_set : bool -> unit =
   "ml_elm_config_item_select_on_focus_disabled_set"
 
+external first_item_focus_on_first_focusin_get : unit -> bool =
+  "ml_elm_config_first_item_focus_on_first_focusin_get"
+
+external first_item_focus_on_first_focusin_set : bool -> unit =
+  "ml_elm_config_first_item_focus_on_first_focusin_set"
+
 (* Colors *)
 
 external color_classes_list_get : unit -> Elm.color_class list =

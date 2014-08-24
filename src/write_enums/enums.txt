@@ -225,6 +225,12 @@ Section Elm {
     ELM_TOOLTIP_ORIENT_BOTTOM_RIGHT
     ELM_TOOLTIP_ORIENT_LAST
   }
+  Enum Elm_Glob_Match_Flags {
+    ELM_GLOB_MATCH_NO_ESCAPE
+    ELM_GLOB_MATCH_PATH
+    ELM_GLOB_MATCH_PERIOD
+    ELM_GLOB_MATCH_NOCASE
+  }
 }
 Section Elm_object {
   Enum Elm_Object_Select_Mode {

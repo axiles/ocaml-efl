@@ -162,10 +162,17 @@ end = struct
     let e = Parser.widget Lexer.token lexbuf in
     close_in ch;
     e
+  let replace_prefix s p1 p2 =
+    let n = String.length s and m = String.length p1 in
+    if n < m then s
+    else if String.sub s 0 m = p1 then
+      sprintf "%s%s" p2 (String.sub s m (n - m))
+    else s
   let create name env =
     let e = get_expr name in
     let ml_name = ml_name_of_name name in
     let eo_name = e.Expr.name in
+    let eo_name = replace_prefix eo_name "ELM_OBJ" "ELM" in
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =

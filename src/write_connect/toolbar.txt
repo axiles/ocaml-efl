@@ -6,3 +6,5 @@ ELM_OBJ_TOOLBAR_CLASS
 "unfocused"                                  
 "item,focused"
 "item,unfocused"
+"selected" item
+"unselected" item

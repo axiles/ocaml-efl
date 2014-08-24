@@ -25,6 +25,10 @@ val item_append :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
     Elm_object.item
 
+val item_prepend :
+  Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
+    Elm_object.item
+
 val direction_priority_set :
   Evas.obj -> direction -> direction -> direction -> direction -> unit
 
@@ -38,4 +42,14 @@ val dismiss : Evas.obj -> unit
 val auto_hide_disabled_set : Evas.obj -> bool -> unit
 
 val auto_hide_disabled_get : Evas.obj -> bool
+
+val items_get : Evas.obj -> Elm_object.item list
+
+val first_item_get : Evas.obj -> Elm_object.item option
+
+val last_item_get : Evas.obj -> Elm_object.item option
+
+val item_prev_get : Elm_object.item -> Elm_object.item option
+
+val item_next_get : Elm_object.item -> Elm_object.item option
 

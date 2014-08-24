@@ -90,6 +90,14 @@ inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
         CAMLreturn(v);
 }
 
+inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
+{
+        Elm_Object_Item* it;
+        if(v == Val_int(0)) it = NULL;
+        else it = Elm_Object_Item_val(Field(v, 0));
+        return it;
+}
+
 inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
 {
         if(it == NULL) return Val_int(0);

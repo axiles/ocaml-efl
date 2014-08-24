@@ -143,6 +143,10 @@ val item_select_on_focus_disabled_get : unit -> bool
 
 val item_select_on_focus_disabled_set : bool -> unit
 
+val first_item_focus_on_first_focusin_get : unit -> bool
+
+val first_item_focus_on_first_focusin_set : bool -> unit
+
 (** {2 Colors} *)
 
 val color_classes_list_get : unit -> Elm.color_class list

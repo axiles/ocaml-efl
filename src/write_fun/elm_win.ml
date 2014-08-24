@@ -42,6 +42,7 @@ let funs = [
   prop "quickpanel_zone" int;
   simple_unit "prop_focus_skip_set" [evas_object; bool];
   simple "inlined_image_object_get" [evas_object] evas_object;
+  prop "noblank" bool;
   simple "focus_get" [evas_object] bool;
   prop "screen_constrain" bool;
   prop "focus_highlight_enabled" bool;

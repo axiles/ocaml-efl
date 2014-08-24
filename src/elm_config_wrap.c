@@ -415,6 +415,17 @@ PREFIX value ml_elm_config_item_select_on_focus_disabled_set(value v_flag)
         return Val_unit;
 }
 
+PREFIX value ml_elm_config_first_item_focus_on_first_focusin_get(value v_unit)
+{
+        return Val_bool(elm_config_first_item_focus_on_first_focusin_get());
+}
+
+PREFIX value ml_elm_config_first_item_focus_on_first_focusin_set(value v_flag)
+{
+        elm_config_first_item_focus_on_first_focusin_set(Bool_val(v_flag));
+        return Val_unit;
+}
+
 /* Colors */
 
 PREFIX value ml_elm_config_color_classes_list_get(value v_unit)
