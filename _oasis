@@ -650,3 +650,9 @@ Executable toolbox_example
   Build$: flag(examples)
   BuildDepends: efl
   MainIs: toolbox_example.ml
+Executable test_ecore_event
+  Path: examples
+  Install$: flag(install_examples)
+  Build$: flag(examples)
+  BuildDepends: efl
+  MainIs: test_ecore_event.ml
