@@ -13,6 +13,8 @@ let ptr_types = [
   "Elm_Transit";
   "Elm_Web_Window_Features";
   "Ecore_Window";
+  "Ecore_Event_Handler";
+  "Ecore_Event";
 ]
 
 let print_ptr_type_c_impl fmt name =

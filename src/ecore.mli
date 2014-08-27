@@ -29,6 +29,14 @@ type pos_map = [
   | `spring
   | `cubic_bezier]
 
+type 'a event_type
+
+type 'a event_handler_cb = 'a event_type -> 'a -> bool
+
+type event_handler
+
+type event
+
 val x_window_focus : x_window -> unit
 
 val main_loop_thread_safe_call_sync : cb -> unit
@@ -39,4 +47,14 @@ val main_loop_thread_safe_call_sync : cb -> unit
 - If an exception is raised by f () then it can be caught by the thread that
 called Ecore.call f *)
 val call : (unit -> 'a) -> 'a
+
+val event_type_new : unit -> 'a event_type
+
+val event_handler_add : 'a event_type -> 'a event_handler_cb -> event_handler
+
+val event_handler_del : event_handler -> unit
+
+val event_add : 'a event_type -> 'a -> ('a -> unit) -> event
+
+val event_del : event -> unit
 
