@@ -22,6 +22,7 @@ module Fun : sig
     res : res
   }
   val print_ml : formatter -> t -> unit
+  val print_mli : formatter -> t -> unit
   val print_c : formatter -> t -> unit
 end = struct
   type res = Simple of Ty.t | Unit
@@ -32,16 +33,24 @@ end = struct
     args : arg list;
     res : res
   }
-  let print_ml fmt f =
-    fprintf fmt "external %s : " f.ml_name;
+  let print_sig fmt module_t f =
     let string_of_ty ty =
-      if ty.Ty.base then ty.Ty.ml_name else sprintf "T.%s" ty.Ty.name in
+      if ty.Ty.base || not module_t then ty.Ty.ml_name
+      else sprintf "T.%s" ty.Ty.name in
     List.iter (fun ty -> fprintf fmt "%s -> " (string_of_ty ty)) f.args;
     (match f.res with
-    | Simple ty -> fprintf fmt " %s = " (string_of_ty ty)
-    | Unit -> fprintf fmt " unit = ");
+    | Simple ty -> fprintf fmt " %s" (string_of_ty ty)
+    | Unit -> fprintf fmt " unit")
+  let print_ml fmt f =
+    fprintf fmt "external %s : " f.ml_name;
+    print_sig fmt true f;
+    fprintf fmt " = ";
     if List.length f.args <= 5 then fprintf fmt "\"ml_%s\"\n\n" f.c_name
     else fprintf fmt "\"ml_%s_byte\" \"ml_%s_native\"\n\n" f.c_name f.c_name
+  let print_mli fmt f =
+    fprintf fmt "val %s : " f.ml_name;
+    print_sig fmt false f;
+    fprintf fmt "\n\n"
   let print_seq sep fmt list =
     match list with
     | [] -> ()
@@ -113,16 +122,17 @@ module Section : sig
   val create : string -> Fun.t list list -> t
   val print_c : formatter -> t -> unit
   val print_ml : formatter -> t -> unit
+  val print_check : formatter -> t -> unit
 end = struct
-  module StringSet = Set.Make (struct
-    type t = string
-    let compare : string -> string -> int = compare
+  module StringStringSet = Set.Make (struct
+    type t = string * string
+    let compare = compare
   end)
   type t = {
     name : string;
     c_prefix : string;
     funs : Fun.t list;
-    params : StringSet.t;
+    params : StringStringSet.t;
   }
   let create name list =
     let c_prefix = String.lowercase name in
@@ -131,7 +141,8 @@ end = struct
     let aux2 accu list1 = List.fold_left aux1 accu list1 in
     let funs = List.rev (List.fold_left aux2 [] list) in
     let add_ty set ty =
-      if not ty.Ty.base then StringSet.add ty.Ty.name set else set in
+      if not ty.Ty.base then
+        StringStringSet.add (ty.Ty.name, ty.Ty.ml_name) set else set in
     let aux3 = add_ty in
     let aux4 accu f =
       let accu1 = List.fold_left aux3 accu f.Fun.args in
@@ -139,17 +150,26 @@ end = struct
       | Fun.Simple ty -> add_ty accu1 ty
       | Fun.Unit -> accu1 in
       accu2 in
-    let params = List.fold_left aux4 StringSet.empty funs in
+    let params = List.fold_left aux4 StringStringSet.empty funs in
     {name; c_prefix; funs; params}
   let print_c fmt sec = List.iter (Fun.print_c fmt) sec.funs
   let print_ml fmt sec =
     fprintf fmt "module %s = struct\n\n" sec.name;
     fprintf fmt "module type S = sig\n";
-    StringSet.iter (fun s -> fprintf fmt "type %s\n" s) sec.params;
+    StringStringSet.iter (fun (s, _) -> fprintf fmt "type %s\n" s) sec.params;
     fprintf fmt "end\n\n";
     fprintf fmt "module F (T : S) = struct\n\n";
     List.iter (Fun.print_ml fmt) sec.funs;
     fprintf fmt "end\n\nend\n\n"
+  let print_check fmt sec =
+    fprintf fmt "module M%s : sig\n" sec.name;
+    let aux1 (s1, s2) = fprintf fmt "type %s = %s\n\n" s1 s2 in
+    let aux2 () = StringStringSet.iter aux1 sec.params in
+    aux2 ();
+    List.iter (Fun.print_mli fmt) sec.funs;
+    fprintf fmt "end = struct\n";
+    aux2 ();
+    fprintf fmt "include %s\nend\n\n" sec.name
 end
 
 module Sections : sig
@@ -157,6 +177,7 @@ module Sections : sig
   val create : (string * Fun.t list list) list -> t
   val print_ml : formatter -> t -> unit
   val print_c : formatter -> t -> unit
+  val print_check : formatter -> t -> unit
 end = struct
   type t = Section.t list
   let create = List.map (fun (s, l) -> Section.create s l)
@@ -164,6 +185,7 @@ end = struct
   let print_c fmt list =
     fprintf fmt "#include \"include.h\"\n\n";
     List.iter (Section.print_c fmt) list
+  let print_check fmt = List.iter (Section.print_check fmt)
 end
 
 open Ty
