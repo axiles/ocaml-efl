@@ -9,7 +9,8 @@ let funs = [
   simple_unit "popup_selected_set" [evas_object; int];
   simple "popup_destroy" [evas_object] bool;
   simple "text_matches_unmark_all" [evas_object] bool;
-  prop "text_matches_highlight" bool;
+  simple "text_matches_highlight_get" [evas_object] bool;
+  simple "text_matches_highlight_set" [evas_object; bool] bool;
   simple "load_progress_get" [evas_object] double;
   simple "stop" [evas_object] bool;
   simple "reload" [evas_object] bool;

@@ -626,6 +626,7 @@ let write_autofun () =
   let prods = [
     "src" / "autofun.ml";
     "src" / "autofun_wrap.c";
+    "src" / "autofun_check.ml";
   ] in
   rule "write_autofun" ~deps ~prods action;
   dep ["file:src/autofun_wrap.c"] ["src" / "include.h"]
@@ -637,7 +638,8 @@ let write_big_mli () =
   let action env build =
     let modules = string_list_of_file mlpack_name in
     let check_public = function
-      | "Henums" | "Henums_check" | "Hstructs" | "Autofun" -> false
+      | "Henums" | "Henums_check" | "Hstructs"
+        | "Autofun" | "Autofun_check" -> false
       | _ -> true in
     let public_modules = List.filter check_public modules in
     let mli_of_module s = "src" / String.uncapitalize s ^ ".mli" in

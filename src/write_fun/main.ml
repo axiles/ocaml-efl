@@ -67,5 +67,6 @@ let () =
   let secs = Sections.create list in
   write ("src" / "autofun.ml") Sections.print_ml secs;
   write ("src" / "autofun_wrap.c") Sections.print_c secs;
+  write ("src" / "autofun_check.ml") Sections.print_check secs;
   exit 0
 
