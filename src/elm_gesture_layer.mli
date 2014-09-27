@@ -44,7 +44,7 @@ val double_tap_timeout_set : Evas.obj -> float -> unit
 
 val double_tap_timeout_get : Evas.obj -> float
 
-val tap_finger_size_get : Evas.obj -> int -> unit
+val tap_finger_size_set : Evas.obj -> int -> unit
 
 val tap_finger_size_get : Evas.obj -> int
 
