@@ -240,7 +240,7 @@ let safe_string = {
 
 let safe_string_free = {safe_string with ml_of_c = "safe_copy_string_free"}
 
-let simple_ty first second =
+let simple_ty ?(ptr = true) first second =
   let c_name = sprintf "%s_%s" first second in
   let name = String.lowercase c_name in
   let ml_name =
@@ -254,6 +254,7 @@ let simple_ty first second =
     sprintf "%s.%s" s1 s2 in
   let c_of_ml = sprintf "%s_val" c_name in
   let ml_of_c = sprintf "Val_%s" c_name in
+  let c_name = if ptr then sprintf "const %s*" c_name else c_name in
   {name; ml_name; c_name; c_of_ml; ml_of_c; base = false}
 
 let flags_ty first second =
@@ -276,11 +277,11 @@ let flags_ty first second =
   (ty1, ty2)
 
 
-let evas_object = simple_ty "Evas" "Object"
-let elm_object_item = simple_ty "Elm_Object" "Item"
-let elm_map_overlay = simple_ty "Elm_Map" "Overlay"
-let elm_map_route = simple_ty "Elm_Map" "Route"
-let elm_map_name = simple_ty "Elm_Map" "Name"
+let evas_object = simple_ty ~ptr:true "Evas" "Object"
+let elm_object_item = simple_ty ~ptr:true "Elm_Object" "Item"
+let elm_map_overlay = simple_ty ~ptr:true "Elm_Map" "Overlay"
+let elm_map_route = simple_ty ~ptr:true "Elm_Map" "Route"
+let elm_map_name = simple_ty ~ptr:true "Elm_Map" "Name"
 let elm_bg_option = simple_ty "Elm_Bg" "Option"
 let elm_bubble_pos = simple_ty "Elm_Bubble" "Pos"
 let elm_calendar_select_mode = simple_ty "Elm_Calendar" "Select_Mode"
