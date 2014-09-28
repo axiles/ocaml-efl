@@ -1,13 +1,15 @@
 open Common
 
+let item_scrollto_type = simple_ty "Elm_Gengrid" "Item_Scrollto_Type"
+
 let funs = [
   simple_unit "clear" [evas_object];
   prop "multi_select" bool;
   prop "multi_select_mode" bool;
   prop "horizontal" bool;
   prop ~args:[elm_object_item] "item_selected" bool;
-  simple_unit "item_show" [elm_object_item; elm_gengrid_item_scrollto_type];
-  simple_unit "item_bring_in" [elm_object_item; elm_gengrid_item_scrollto_type];
+  simple_unit "item_show" [elm_object_item; item_scrollto_type];
+  simple_unit "item_bring_in" [elm_object_item; item_scrollto_type];
   simple_unit "item_update" [elm_object_item];
   simple "item_index_get" [elm_object_item] int;
   simple "items_count" [evas_object] int;

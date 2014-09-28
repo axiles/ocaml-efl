@@ -1,7 +1,9 @@
 open Common
 
+let lookup_order = simple_ty "Elm_Icon" "Lookup_Order"
+
 let funs = [
   simple "standard_set" [evas_object; safe_string] bool;
-  prop "order_lookup" elm_icon_lookup_order
+  prop "order_lookup" lookup_order
 ]
 
