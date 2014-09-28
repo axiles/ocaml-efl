@@ -1,12 +1,15 @@
 open Common
 
-let overlay = elm_map_overlay
-let route = elm_map_route
-let name = elm_map_name
+let overlay = simple_ty ~ptr:true "Elm_Map" "Overlay"
+let route = simple_ty ~ptr:true "Elm_Map" "Route"
+let name = simple_ty ~ptr:true "Elm_Map" "Name"
+let zoom_mode = simple_ty "Elm_Map" "Zoom_Mode"
+let overlay_type = simple_ty "Elm_Map" "Overlay_Type"
+let source_type = simple_ty "Elm_Map" "Source_Type"
 
 let funs = [
   prop "zoom" int;
-  prop "zoom_mode" elm_map_zoom_mode;
+  prop "zoom_mode" zoom_mode;
   prop "zoom_min" int;
   prop "zoom_max" int;
   simple_unit "region_bring_in" [evas_object; double; double];
@@ -16,7 +19,7 @@ let funs = [
   prop "wheel_disabled" bool;
   prop "user_agent" safe_string;
   simple_unit "overlay_del" [overlay];
-  simple "overlay_type_get" [overlay] elm_map_overlay_type;
+  simple "overlay_type_get" [overlay] overlay_type;
   prop ~args:[overlay] "overlay_hide" bool;
   prop ~args:[overlay] "overlay_displayed_zoom_min" int;
   prop ~args:[overlay] "overlay_paused" bool;
@@ -31,7 +34,7 @@ let funs = [
   simple_unit "overlay_bubble_content_append" [overlay; evas_object];
   simple_unit "overlay_bubble_content_clear" [overlay];
   simple_unit "overlay_polygon_region_add" [overlay; double; double];
-  prop ~args:[evas_object; elm_map_source_type] "source" safe_string;
+  prop ~args:[evas_object; source_type] "source" safe_string;
   simple_unit "route_del" [route];
   simple "route_distance_get" [route] double;
   simple "route_node_get" [route] safe_string;

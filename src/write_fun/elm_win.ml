@@ -1,5 +1,9 @@
 open Common
 
+let keyboard_mode = simple_ty "Elm_Win" "Keyboard_Mode"
+let indicator_mode = simple_ty "Elm_Win" "Indicator_Mode" 
+let indicator_opacity_mode = simple_ty "Elm_Win" "Indicator_Opacity_Mode"
+
 let funs = [
   simple_unit "resize_object_add" [evas_object; evas_object];
   simple_unit "resize_object_del" [evas_object; evas_object];
@@ -47,10 +51,10 @@ let funs = [
   prop "screen_constrain" bool;
   prop "focus_highlight_enabled" bool;
   prop "focus_highlight_animate" bool;
-  prop "keyboard_mode" elm_win_keyboard_mode;
+  prop "keyboard_mode" keyboard_mode;
   prop "keyboard_win" bool;
-  prop "indicator_mode" elm_win_indicator_mode;
-  prop "indicator_opacity" elm_win_indicator_opacity_mode;
+  prop "indicator_mode" indicator_mode;
+  prop "indicator_opacity" indicator_opacity_mode;
   simple_unit "socket_listen" [evas_object; safe_string; int; bool];
   prop "floating_mode" bool;
 ]
