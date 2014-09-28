@@ -38,6 +38,7 @@ end = struct
       if ty.Ty.base || not module_t then ty.Ty.ml_name
       else sprintf "T.%s" ty.Ty.name in
     List.iter (fun ty -> fprintf fmt "%s -> " (string_of_ty ty)) f.args;
+    if f.args = [] then fprintf fmt "unit -> ";
     (match f.res with
     | Simple ty -> fprintf fmt " %s" (string_of_ty ty)
     | Unit -> fprintf fmt " unit")
@@ -94,7 +95,9 @@ end = struct
   let print_c_aux name fmt f =
     let args = mapi (fun i ty -> (sprintf "x%d" i, ty)) f.args in
     let aux1 (x, ty) = sprintf "value %s" x in
-    fprintf fmt "PREFIX value %a\n{\n" print_call (name, List.map aux1 args);
+    let args1 = List.map aux1 args in
+    let args1 = if args1 = [] then ["value v_unit"] else args1 in
+    fprintf fmt "PREFIX value %a\n{\n" print_call (name, args1);
     let aux2 (x, ty) = sprintf "%s(%s)" ty.Ty.c_of_ml x in
     (match f.res with
     | Simple ty ->

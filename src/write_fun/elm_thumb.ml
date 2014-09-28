@@ -12,6 +12,7 @@ let funs = [
   simple_unit "compress_set" [evas_object; int];
   simple_unit "quality_set" [evas_object; int];
   prop "animate" elm_thumb_animation_setting;
+  simple "ethumb_client_connected_get" [] bool;
   prop "editable" bool;
 ]
 
