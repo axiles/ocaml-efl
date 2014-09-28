@@ -1,9 +1,11 @@
 open Common
 
+let mode = simple_ty "Elm_List" "Mode"
+
 let funs = [
   simple_unit "go" [evas_object];
   prop "multi_select" bool;
-  prop "mode" elm_list_mode;
+  prop "mode" mode;
   prop "horizontal" bool;
   prop "select_mode" elm_object_select_mode;
   simple_unit "clear" [evas_object];
