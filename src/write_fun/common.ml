@@ -1,6 +1,7 @@
 (* WARNING: This part is still in heavy development *)
 
 open Format
+
 module Ty = struct
   type t = {
     name : string;
@@ -38,6 +39,7 @@ end = struct
       if ty.Ty.base || not module_t then ty.Ty.ml_name
       else sprintf "T.%s" ty.Ty.name in
     List.iter (fun ty -> fprintf fmt "%s -> " (string_of_ty ty)) f.args;
+    if f.args = [] then fprintf fmt "unit -> ";
     (match f.res with
     | Simple ty -> fprintf fmt " %s" (string_of_ty ty)
     | Unit -> fprintf fmt " unit")
@@ -94,7 +96,9 @@ end = struct
   let print_c_aux name fmt f =
     let args = mapi (fun i ty -> (sprintf "x%d" i, ty)) f.args in
     let aux1 (x, ty) = sprintf "value %s" x in
-    fprintf fmt "PREFIX value %a\n{\n" print_call (name, List.map aux1 args);
+    let args1 = List.map aux1 args in
+    let args1 = if args1 = [] then ["value v_unit"] else args1 in
+    fprintf fmt "PREFIX value %a\n{\n" print_call (name, args1);
     let aux2 (x, ty) = sprintf "%s(%s)" ty.Ty.c_of_ml x in
     (match f.res with
     | Simple ty ->
@@ -237,7 +241,7 @@ let safe_string = {
 
 let safe_string_free = {safe_string with ml_of_c = "safe_copy_string_free"}
 
-let simple_ty first second =
+let simple_ty ?(ptr = true) first second =
   let c_name = sprintf "%s_%s" first second in
   let name = String.lowercase c_name in
   let ml_name =
@@ -251,6 +255,7 @@ let simple_ty first second =
     sprintf "%s.%s" s1 s2 in
   let c_of_ml = sprintf "%s_val" c_name in
   let ml_of_c = sprintf "Val_%s" c_name in
+  let c_name = if ptr then sprintf "const %s*" c_name else c_name in
   {name; ml_name; c_name; c_of_ml; ml_of_c; base = false}
 
 let flags_ty first second =
@@ -272,21 +277,8 @@ let flags_ty first second =
     c_of_ml = "NOT IMPLEMENTED"; ml_of_c; base = false} in
   (ty1, ty2)
 
-
-let evas_object = simple_ty "Evas" "Object"
-let elm_object_item = simple_ty "Elm_Object" "Item"
-let elm_map_overlay = simple_ty "Elm_Map" "Overlay"
-let elm_map_route = simple_ty "Elm_Map" "Route"
-let elm_map_name = simple_ty "Elm_Map" "Name"
-let elm_bg_option = simple_ty "Elm_Bg" "Option"
-let elm_bubble_pos = simple_ty "Elm_Bubble" "Pos"
-let elm_calendar_select_mode = simple_ty "Elm_Calendar" "Select_Mode"
-let elm_calendar_mark = simple_ty "Elm_Calendar" "Mark"
-let elm_calendar_mark_repeat_type = simple_ty "Elm_Calendar" "Mark_Repeat_Type"
-let elm_calendar_weekday = simple_ty "Elm_Calendar" "Weekday"
-let elm_colorselector_mode = simple_ty "Elm_Colorselector" "Mode"
-let elm_datetime_field_type = simple_ty "Elm_Datetime" "Field_Type"
-let elm_dayselector_day = simple_ty "Elm_Dayselector" "Day"
+let evas_object = simple_ty ~ptr:true "Evas" "Object"
+let elm_object_item = simple_ty ~ptr:true "Elm_Object" "Item"
 let elm_wrap_type = simple_ty "Elm" "Wrap_Type"
 let elm_text_format = simple_ty "Elm" "Text_Format"
 let elm_input_panel_layout = simple_ty "Elm" "Input_Panel_Layout"
@@ -295,57 +287,16 @@ let elm_input_panel_lang = simple_ty "Elm" "Input_Panel_Lang"
 let elm_input_panel_return_key_type =
   simple_ty "Elm" "Input_Panel_Return_Key_Type"
 let elm_cnp_mode = simple_ty "Elm" "Cnp_Mode"
-let elm_flip_mode = simple_ty "Elm_Flip" "Mode"
-let elm_flip_interaction = simple_ty "Elm_Flip" "Interaction"
-let elm_flip_direction = simple_ty "Elm_Flip" "Direction"
-let elm_gengrid_item_scrollto_type =
-  simple_ty "Elm_Gengrid" "Item_Scrollto_Type"
 let elm_object_select_mode = simple_ty "Elm_Object" "Select_Mode"
-let elm_list_mode = simple_ty "Elm_List" "Mode"
-let elm_genlist_item_scrollto_type =
-  simple_ty "Elm_Genlist" "Item_Scrollto_Type"
-let elm_genlist_item_field_type = simple_ty "Elm_Genlist" "Item_Field_Type"
-let elm_genlist_item_type = simple_ty "Elm_Genlist" "Item_Type"
-let elm_glview_resize_policy = simple_ty "Elm_GLView" "Resize_Policy"
-let elm_glview_render_policy = simple_ty "Elm_GLView" "Render_Policy"
-let elm_icon_lookup_order = simple_ty "Elm_Icon" "Lookup_Order"
-let elm_image_orient = simple_ty "Elm_Image" "Orient"
 let ecore_pos_map = simple_ty "Ecore" "Pos_Map"
-let elm_map_zoom_mode = simple_ty "Elm_Map" "Zoom_Mode"
-let elm_map_overlay_type = simple_ty "Elm_Map" "Overlay_Type"
-let elm_map_source_type = simple_ty "Elm_Map" "Source_Type"
-let elm_panel_orient = simple_ty "Elm_Panel" "Orient"
 let evas_load_error = simple_ty "Evas" "Load_Error"
-let elm_photocam_zoom_mode = simple_ty "Elm_Photocam" "Zoom_Mode"
-let elm_scroller_policy = simple_ty "Elm_Scroller" "Policy"
-let elm_scroller_single_direction = simple_ty "Elm_Scroller" "Single_Direction"
 let ethumb_thumb_aspect = simple_ty "Ethumb" "Thumb_Aspect"
 let ethumb_thumb_fdo_size = simple_ty "Ethumb" "Thumb_FDO_Size"
 let ethumb_thumb_format = simple_ty "Ethumb" "Thumb_Format"
 let ethumb_thumb_orientation = simple_ty "Ethumb" "Thumb_Orientation"
-let elm_thumb_animation_setting = simple_ty "Elm_Thumb" "Animation_Setting"
-let elm_icon_lookup_order = simple_ty "Elm_Icon" "Lookup_Order"
-let elm_toolbar_shrink_mode = simple_ty "Elm_Toolbar" "Shrink_Mode"
-let elm_toolbar_item_state = simple_ty "Elm_Toolbar" "Item_State"
 let elm_transit = simple_ty "Elm" "Transit"
-let elm_transit_tween_mode = simple_ty "Elm_Transit" "Tween_Mode"
-let elm_transit_effect_flip_axis = simple_ty "Elm_Transit" "Effect_Flip_Axis"
-let elm_transit_effect_wipe_type = simple_ty "Elm_Transit" "Effect_Wipe_Type"
-let elm_transit_effect_wipe_dir = simple_ty "Elm_Transit" "Effect_Wipe_Dir"
-let elm_web_window_features = simple_ty "Elm_Web" "Window_Features"
-let elm_web_window_feature_flag = simple_ty "Elm_Web" "Window_Feature_Flag"
-let elm_web_zoom_mode = simple_ty "Elm_Web" "Zoom_Mode"
 let elm_illume_command = simple_ty "Elm" "Illume_Command"
-let elm_win_keyboard_mode = simple_ty "Elm_Win" "Keyboard_Mode"
-let elm_win_indicator_mode = simple_ty "Elm_Win" "Indicator_Mode" 
-let elm_win_indicator_opacity_mode =
-  simple_ty "Elm_Win" "Indicator_Opacity_Mode"
 let ecore_window = simple_ty "Ecore" "Window"
-(*>>>>>>> 1.9*)
-
-let elm_calendar_selectable = flags_ty "Elm_Calendar" "Selectable"
-let elm_clock_edit_mode = flags_ty "Elm_Clock" "Edit_Mode"
-let elm_scroller_movement_block = flags_ty "Elm_Scroller" "Movement_Block"
 
 let simple name list res = {
   Fun.ml_name = name;

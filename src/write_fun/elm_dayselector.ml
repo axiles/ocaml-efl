@@ -1,6 +1,6 @@
 open Common
 
-let day = elm_dayselector_day
+let day = simple_ty "Elm_Dayselector" "Day"
 
 let funs = [
   prop ~args:[evas_object; day] "day_selected" bool;

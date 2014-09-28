@@ -30,6 +30,3 @@ external quality_get : Evas.obj -> int = "ml_elm_thumb_quality_get"
 external animate_set : Evas.obj -> animation_setting -> unit =
   "ml_elm_thumb_animate_set"
 
-external ethumb_client_connected_get : unit -> bool =
-  "ml_elm_thumb_ethumb_client_connected_get"
-
