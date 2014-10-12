@@ -296,7 +296,7 @@ external scroll_thumbscroll_sensitivity_friction_set : float -> unit =
 
 (* Widget Scaling *)
 
-external scale_get : unit -> float = "elm_config_scale_get"
+external scale_get : unit -> float = "ml_elm_config_scale_get"
 
-external scale_set : float -> unit = "elm_config_scale_set"
+external scale_set : float -> unit = "ml_elm_config_scale_set"
 
