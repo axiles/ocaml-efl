@@ -92,3 +92,5 @@ external item_pos_get : Elm_object.item -> int * int =
 external nth_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_gengrid_nth_item_get"
 
+let page_show = Elm_scroller.page_show
+

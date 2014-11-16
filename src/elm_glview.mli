@@ -1,6 +1,25 @@
 (** GLView *)
 
-type mode = [`none | `alpha | `depth | `stencil | `direct]
+type mode = [
+  | `none
+  | `alpha 
+  | `depth
+  | `stencil
+  | `direct
+  | `client_side_rotation
+  | `depth_8
+  | `depth_16
+  | `depth_24
+  | `depth_32
+  | `stencil_1
+  | `stencil_2
+  | `stencil_4
+  | `stencil_8
+  | `stencil_16
+  | `multisample_low
+  | `multisample_med
+  | `multisample_high
+]
 
 type resize_policy = [`recreate | `scale]
 

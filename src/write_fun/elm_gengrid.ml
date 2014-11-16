@@ -25,7 +25,7 @@ let funs = [
   simple_unit "group_item_size_set" [evas_object; int; int];
   simple_unit "align_set" [evas_object; double; double];
   prop "reorder_mode" bool;
-  simple_unit "page_show" [evas_object; int; int];
+  (*simple_unit "page_show" [evas_object; int; int];*)
   prop "filled" bool;
   prop "select_mode" elm_object_select_mode;
   prop "highlight_mode" bool;

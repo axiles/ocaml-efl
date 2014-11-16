@@ -116,6 +116,8 @@ val reorder_mode_set : Evas.obj -> bool -> unit
 
 val reorder_mode_get : Evas.obj -> bool
 
+(** @depricated *)
+(* DEPRICATED *)
 val page_show : Evas.obj -> int -> int -> unit
 
 val item_pos_get : Elm_object.item -> int * int
