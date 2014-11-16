@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: ff858de6b99c71571cdbfa29726a7580)
-# Ignore VCS directories, you can use the same kind of rule outside 
-# OASIS_START/STOP if you want to exclude directories that contains 
+# DO NOT EDIT (digest: 8aa55d86c19cf7809ecfb7767b406a00)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
 <**/.svn>: -traverse
 <**/.svn>: not_hygienic
@@ -154,28 +154,28 @@
 # Executable menu_example_01
 "examples/menu_example_01.byte": use_efl
 # Executable progressbar_example
-"examples/progressbar_example.byte": use_efl
 "examples/progressbar_example.byte": pkg_threads
+"examples/progressbar_example.byte": use_efl
 # Executable test_efl_ocaml_threads
-"examples/test_efl_ocaml_threads.byte": use_efl
 "examples/test_efl_ocaml_threads.byte": pkg_threads
+"examples/test_efl_ocaml_threads.byte": use_efl
 # Executable test_efl_ocaml_threads2
-"examples/test_efl_ocaml_threads2.byte": use_efl
 "examples/test_efl_ocaml_threads2.byte": pkg_threads
+"examples/test_efl_ocaml_threads2.byte": use_efl
 <examples/*.ml{,i}>: pkg_threads
 # Executable genlist_example_01
 "examples/genlist_example_01.byte": use_efl
 # Executable genlist_example_02
-"examples/genlist_example_02.byte": use_efl
 "examples/genlist_example_02.byte": pkg_unix
+"examples/genlist_example_02.byte": use_efl
 # Executable genlist_example_03
-"examples/genlist_example_03.byte": use_efl
 "examples/genlist_example_03.byte": pkg_unix
+"examples/genlist_example_03.byte": use_efl
 # Executable scroller_example_01
 "examples/scroller_example_01.byte": use_efl
 # Executable genlist_example_04
-"examples/genlist_example_04.byte": use_efl
 "examples/genlist_example_04.byte": pkg_unix
+"examples/genlist_example_04.byte": use_efl
 <examples/*.ml{,i}>: pkg_unix
 # Executable genlist_example_05
 "examples/genlist_example_05.byte": use_efl
@@ -248,8 +248,8 @@
 # Executable dayselector_example
 "examples/dayselector_example.byte": use_efl
 # Executable myglview_example
-"examples/myglview_example.byte": use_efl
 "examples/myglview_example.byte": pkg_lablgl
+"examples/myglview_example.byte": use_efl
 <examples/*.ml{,i}>: pkg_lablgl
 # Executable toolbox_example
 "examples/toolbox_example.byte": use_efl

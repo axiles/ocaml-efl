@@ -5,7 +5,7 @@ Version: 1.9.3
 OCamlVersion: >= 3.12
 Synopsis: An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 License: LGPL-2.1+ with Ocaml linking exception
-Authors: Alexis Bernadet <alexis.bernadet ate noos.fr>
+Authors: Alexis Bernadet <alexis.bernadet at noos.fr>
 BuildTools: ocamlbuild
 XStdFilesREADME: false
 XStdFilesINSTALL: false
