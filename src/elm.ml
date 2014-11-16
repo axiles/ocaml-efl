@@ -47,6 +47,8 @@ external policy_throttle_get : unit -> policy_throttle =
 
 external language_set : string -> unit = "ml_elm_language_set"
 
+external process_state_get : unit -> process_state = "ml_elm_process_state_get"
+
 let connect = Evas_object_smart.create_sig_with_cb
 
 (* Gesture Layer *)

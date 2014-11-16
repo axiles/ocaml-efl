@@ -37,6 +37,8 @@ type glob_match_flags = [
 | `nocase
 ]
 
+type process_state = [`foreground | `background]
+
 type event_cb = Evas.obj -> Evas.obj -> Evas_event.t -> bool
 
 val init : unit -> unit
@@ -66,6 +68,8 @@ val policy_exit_get : unit -> policy_exit
 val policy_throttle_get : unit -> policy_throttle
 
 val language_set : string -> unit
+
+val process_state_get : unit -> process_state
 
 val connect : 'a Evas.Signal.t -> 'a -> Evas_object_smart.sig_with_cb
 (** @deprecated Use module [Elm_connect] instead.*)

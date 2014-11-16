@@ -143,6 +143,11 @@ inline Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(
         return r;
 }
 
+PREFIX value ml_elm_process_state_get(value v_unit)
+{
+        return Val_Elm_Process_State(elm_process_state_get());
+}
+
 /* Colors */
 
 PREFIX value copy_Elm_Color_Class(Elm_Color_Class* c)

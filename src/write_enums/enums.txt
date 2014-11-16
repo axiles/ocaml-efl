@@ -231,7 +231,12 @@ Section Elm {
     ELM_GLOB_MATCH_PERIOD
     ELM_GLOB_MATCH_NOCASE
   }
+  Enum Elm_Process_State {
+    ELM_PROCESS_STATE_FOREGROUND
+    ELM_PROCESS_STATE_BACKGROUND
+  }
 }
+
 Section Elm_object {
   Enum Elm_Object_Select_Mode {
     ELM_OBJECT_SELECT_MODE_DEFAULT
