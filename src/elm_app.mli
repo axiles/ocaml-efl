@@ -28,3 +28,7 @@ val data_dir_get : unit -> string
 
 val locale_dir_get : unit -> string
 
+val base_scale_set : float -> unit
+
+val base_scale_get : unit -> float
+

@@ -28,3 +28,7 @@ external data_dir_get : unit -> string = "ml_elm_app_data_dir_get"
 
 external locale_dir_get : unit -> string = "ml_elm_app_locale_dir_get"
 
+external base_scale_set : float -> unit = "ml_elm_app_base_scale_set"
+
+external base_scale_get : unit -> float = "ml_elm_app_base_scale_get"
+

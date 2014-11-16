@@ -80,3 +80,14 @@ PREFIX value ml_elm_app_locale_dir_get(value v_unit)
         return copy_string(elm_app_locale_dir_get());
 }
 
+PREFIX value ml_elm_app_base_scale_set(value v_x)
+{
+        elm_app_base_scale_set(Double_val(v_x));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_app_base_scale_get()
+{
+        return copy_double(elm_app_base_scale_get());
+}
+
