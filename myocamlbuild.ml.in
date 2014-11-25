@@ -185,13 +185,20 @@ let () = dispatch & fun h ->
     let elementary_cflags = "$(pkg-config elementary --cflags)" in
     let elementary_libs = "$(pkg-config elementary --libs)" in
 
+    flag ["file:src/efl.cma"] (Sh "-dllib -lefl_stubs");
+    flag ["file:src/efl.cmxa"] (Sh "-cclib -lefl_stubs");
+    dep ["file:src/efl.cma"] ["src" / "libefl_stubs.a"];
+    (*dep ["file:src/efl.cmxa"] ["src" / "libefl_stubs.a"];*)
+
     (* Insert flags and linking information about the EFL *)
+    let ch = Unix.open_process_in "pkg-config elementary --libs" in
+    let s = input_line ch in
     flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
-    (*flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));*)
+    flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" s));
     flag ["ocamlmklib"] (Sh elementary_libs);
 
     (* Used to compile the examples *)
-    (*flag ["use_efl"; "link"] (Sh (sprintf "-cclib '%s'" elementary_libs));*)
+    flag ["use_efl"; "link"] (Sh (sprintf "-cclib '%s'" elementary_libs));
 
     (* Removed a harmless warning in generating the documentation *)
     (*flag ["doc"] (Sh "-hide-warnings");*)
