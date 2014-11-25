@@ -1,6 +1,4 @@
-# OASIS_START
-# DO NOT EDIT (digest: 042c77b72c4b33132e6e16134bb05811)
-version = "1.12.0"
+version = "@PACKAGE_VERSION@"
 description =
 "An OCaml interface to the Enlightenment Foundation Libraries (EFL)."
 archive(byte) = "efl.cma"
@@ -8,5 +6,3 @@ archive(byte, plugin) = "efl.cma"
 archive(native) = "efl.cmxa"
 archive(native, plugin) = "efl.cmxs"
 exists_if = "efl.cma"
-# OASIS_STOP
-
