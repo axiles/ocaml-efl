@@ -138,6 +138,30 @@ let write_big_mli () =
   let prod = "src" / "efl.mli" in
   rule "write_big_mli" ~deps ~prod action
 
+let add_header_depends () =
+  let headers = [
+    "include.h";
+    "eina_wrap.h";
+    "evas_wrap.h";
+    "evas_event_wrap.h";
+    "evas_object_wrap.h";
+    "ecore_wrap.h";
+    "ethumb_wrap.h";
+    "edje_wrap.h";
+    "elm_wrap.h";
+    "elm_object_wrap.h";
+    "elm_gen_wrap.h";
+    "elm_calendar_wrap.h";
+    "elm_clock_wrap.h";
+    "elm_dayselector_wrap.h";
+    "elm_entry_wrap.h";
+    "elm_icon_wrap.h";
+    "elm_list_wrap.h";
+    "elm_scroller_wrap.h";
+    "elm_web_wrap.h";
+  ] in
+  List.iter (fun s -> dep ["extension:c"] ["src" / s]) headers
+
 let () = dispatch & fun h ->
   match h with
   | After_options ->
@@ -152,16 +176,19 @@ let () = dispatch & fun h ->
     write_other ();
     write_autofun ();
     write_big_mli ();
+    add_header_depends ();
 
     (* Get the values of the env variables *)
     (*let env = BaseEnvLight.load () in 
     let elementary_cflags = BaseEnvLight.var_get "elementary_cflags" env in
     let elementary_libs = BaseEnvLight.var_get "elementary_libs" env in*)
+    let elementary_cflags = "$(pkg-config elementary --cflags)" in
+    let elementary_libs = "$(pkg-config elementary --libs)" in
 
     (* Insert flags and linking information about the EFL *)
-    (*flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
-    flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));
-    flag ["ocamlmklib"] (Sh elementary_libs);*)
+    flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
+    (*flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));*)
+    flag ["ocamlmklib"] (Sh elementary_libs);
 
     (* Used to compile the examples *)
     (*flag ["use_efl"; "link"] (Sh (sprintf "-cclib '%s'" elementary_libs));*)

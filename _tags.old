@@ -257,10 +257,6 @@
 "examples/test_ecore_event.byte": use_efl
 <examples/*.ml{,i}>: use_efl
 # OASIS_STOP
-<src/eina_*>: efl
-<src/evas_*>: efl
-<src/edje_*>: efl
-<src/elm_*>: efl
 "src/elm_connect.cmx": for-pack(Efl)
 "src/henums.cmx": for-pack(Efl)
 "src/henums_check.cmx": for-pack(Efl)

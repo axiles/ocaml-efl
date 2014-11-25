@@ -1,0 +1,4 @@
+<src/eina_*>: efl
+<src/evas_*>: efl
+<src/edje_*>: efl
+<src/elm_*>: efl
