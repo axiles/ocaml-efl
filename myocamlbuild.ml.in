@@ -10,6 +10,8 @@ let ocamlmktop = "@OCAMLMKTOP@"
 let ocamlmklib = "@OCAMLMKLIB@"
 let ocamldoc = "@OCAMLDOC@"
 
+let native_available = ocamlc != ocamlbest
+
 (* Set the toolchain from the autoconf variables *)
 let set_options () =
   let f x y = x := P y in
@@ -185,6 +187,21 @@ let add_header_depends () =
   ] in
   List.iter (fun s -> dep ["extension:c"] ["src" / s]) headers
 
+(*let examples = [
+  "bg_example_01";
+  "test"
+]
+
+let examples =
+  let aux x =
+    if x = "test" && native_available then (x, sprintf "%s.native")
+    else (x, sprintf "%s.byte") in
+  List.map aux examples
+
+let rule_examples () =
+  let dep = List.map snd examples in
+  let prod = ""
+ *) 
 let () = dispatch & fun h ->
   match h with
   | After_options ->
