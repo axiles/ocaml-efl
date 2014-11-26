@@ -4,11 +4,18 @@ OCAMLFIND_OPT= -destdir $(DESTDIR)$(OCAMLFIND_DESTDIR) \
 all-local:
 	@$(OCAMLBUILD) src/efl.cma src/efl.cmxa src/efl.cmxs
 
-install-exec-local:
+byte:
+	@$(OCAMLBUILD) src/efl.cma
+
+native:
+	@$(OCAMLBUILD) src/efl.cmxa src/efl.cmxs
+
+install:
 	@mkdir -p $(DESTDIR)$(OCAMLFIND_DESTDIR)
 	@$(OCAMLFIND) install $(OCAMLFIND_OPT) efl src/META _build/src/efl.cma \
-		_build/src/efl.cmi _build/src/efl.cmxa  _build/src/efl.cmxs \
-		_build/src/dllefl_stubs.so _build/src/libefl_stubs.a _build/src/efl.a
+		_build/src/efl.cmi -optional _build/src/efl.cmxa \
+		-optional _build/src/efl.cmxs _build/src/dllefl_stubs.so \
+		-optional _build/src/libefl_stubs.a -optional _build/src/efl.a
 
 uninstall-local:
 	@$(OCAMLFIND) remove $(OCAMLFIND_OPT) efl
