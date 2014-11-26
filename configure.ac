@@ -9,6 +9,9 @@ AC_PROG_OCAML
 AS_IF([test $OCAMLC = "no"], [
   AC_MSG_ERROR([OCaml was not found on this system])
 ])
+AX_COMPARE_VERSION([$OCAMLVERSION], [ge], [3.12], [], [
+  AC_MSG_ERROR([OCaml 3.12 or newer is required])
+])
 
 dnl Checking for OCamlfind
 AC_PROG_FINDLIB
