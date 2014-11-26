@@ -225,6 +225,7 @@ let () = dispatch & fun h ->
     flag ["use_efl"; "link"] (Sh (sprintf "-cclib '%s'" elementary_libs));
 
     (* Removed a harmless warning in generating the documentation *)
-    (*flag ["doc"] (Sh "-hide-warnings");*)
+    flag ["doc"] (Sh "-hide-warnings");
+    (*flag ["doc"] (Sh "-v");*)
   | _ -> ()
 

@@ -13,6 +13,9 @@ install-exec-local:
 uninstall-local:
 	@$(OCAMLFIND) remove $(OCAMLFIND_OPT) efl
 
+doc:
+	$(OCAMLBUILD) src/efl_doc.docdir/index.html
+
 clean-local:
 	@$(OCAMLBUILD) -clean
 	@echo ""
