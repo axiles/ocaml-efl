@@ -21,7 +21,7 @@ AS_IF([test -z $OCAMLFIND_DESTDIR], [
 ])
 AC_ARG_VAR([OCAMLFIND_LDCONF], [(Default: $OCAMLLIB/ldconf.so)])
 AS_IF([test -z $OCAMLFIND_LDCONF], [
-  OCAMLFIND_LDCONF=$OCAMLLIB/ldconf.so
+  OCAMLFIND_LDCONF=$OCAMLLIB/ld.conf
 ])
 
 dnl Checking for Elementary

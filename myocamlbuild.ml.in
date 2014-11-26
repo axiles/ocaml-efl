@@ -2,7 +2,23 @@ open Ocamlbuild_plugin
 open Printf
 
 let ocaml = "@OCAML@"
+let ocamlc = "@OCAMLC@"
+let ocamlopt = "@OCAMLOPT@"
+let ocamlbest = "@OCAMLBEST@"
+let ocamldep = "@OCAMLDEP@"
+let ocamlmktop = "@OCAMLMKTOP@"
 let ocamlmklib = "@OCAMLMKLIB@"
+let ocamldoc = "@OCAMLDOC@"
+
+(* Set the toolchain from the autoconf variables *)
+let set_options () =
+  let f x y = x := P y in
+  f Options.ocamlc ocamlc;
+  f Options.ocamlopt ocamlopt;
+  f Options.ocamldep ocamldep;
+  f Options.ocamlmktop ocamlmktop;
+  f Options.ocamlmklib ocamlmklib;
+  f Options.ocamldoc ocamldoc
 
 let elementary_cflags = "@ELEMENTARY_CFLAGS@"
 let elementary_libs = "@ELEMENTARY_LIBS@"
@@ -175,8 +191,7 @@ let () = dispatch & fun h ->
     (* We want a clean root directory *)
     Options.make_links := false;
 
-    Options.ocamlmklib := P ocamlmklib;
-
+    set_options ();
     write_variants ();
     write_intro ();
     write_connect ();
