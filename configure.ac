@@ -2,6 +2,42 @@ AC_INIT([ocaml-efl], [1.12.0])
 
 AM_INIT_AUTOMAKE([foreign])
 
+AC_CONFIG_MACRO_DIR([m4])
+
+dnl Checking for OCaml
+AC_PROG_OCAML
+AS_IF([test $OCAMLC = "no"], [
+  AC_MSG_ERROR([OCaml was not found on this system])
+])
+
+dnl Checking for OCamlfind
+AC_PROG_FINDLIB
+AS_IF([test $OCAMLFIND = "no"],
+  AC_MSG_ERROR([OCamlfind/Findlib was not found on this system])
+])
+AC_ARG_VAR([OCAMLFIND_DESTDIR], [(Default: $libdir/ocaml/$OCAMLVERSION)])
+AS_IF([test -z $OCAMLFIND_DESTDIR], [
+  OCAMLFIND_DESTDIR=$libdir/ocaml/$OCAMLVERSION
+])
+AC_ARG_VAR([OCAMLFIND_LDCONF], [(Default: $OCAMLLIB/ldconf.so)])
+AS_IF([test -z $OCAMLFIND_LDCONF], [
+  OCAMLFIND_LDCONF=$OCAMLLIB/ldconf.so
+])
+
+dnl Checking for Elementary
+PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.12])
+AC_ARG_VAR([ELEMENTARY_VERSION],[
+  version for ELEMENTARY, overriding pkg-config
+])
+AS_IF([test -z ELEMENTARY_VERSION], [
+  AS_IF([test -z PKG_CONFIG], [
+    AC_MSG_ERROR(
+      [Without pkg-config, you must set the variable ELEMENTARY_VERSION]
+    )
+  ])  
+  ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
+])
+
 AC_CONFIG_FILES([Makefile myocamlbuild.ml src/META])
 
 AC_OUTPUT

@@ -1,12 +1,19 @@
 open Ocamlbuild_plugin
 open Printf
 
+let ocaml = "@OCAML@"
+let ocamlmklib = "@OCAMLMKLIB@"
+
+let elementary_cflags = "@ELEMENTARY_CFLAGS@"
+let elementary_libs = "@ELEMENTARY_LIBS@"
+let elementary_version = "@ELEMENTARY_VERSION@"
+
 let ( & ) f x  = f x
 
 (* The file variants.h is generated: this function adds the rules of builing *)
 let write_variants () =
   let action env builder =
-    Cmd (S [P "ocaml"; P ("src" / "write_variants.ml"); Sh ">";
+    Cmd (S [P ocaml; P ("src" / "write_variants.ml"); Sh ">";
       P ("src" / "variants.h")]) in
   rule "write_variants2" ~prod:("src" / "variants.h")
     ~dep:("src" / "write_variants.ml") action;
@@ -18,7 +25,7 @@ let write_intro () =
   let intro = "src" / "intro.txt" in
   let lib = "src" / "efl_doc.odocl" in
   let action env builder =
-          Cmd (S [P "ocaml"; P ("src" / "write_intro.ml"); P lib; P intro]) in
+          Cmd (S [P ocaml; P ("src" / "write_intro.ml"); P lib; P intro]) in
   let deps = ["src" / "write_intro.ml"; lib] in
   rule "write_intro" ~prod:intro ~deps action;
   flag_and_dep ["doc"; "extension:html"] (S [A "-intro"; P intro]);
@@ -45,7 +52,7 @@ let write_connect () =
     List.iter (function
     | Outcome.Good _ -> ()
     | Outcome.Bad exn -> raise exn)  (builder deps);
-    Cmd (S [P "ocaml"; P gen_prog]) in
+    Cmd (S [P ocaml; P gen_prog]) in
   let prods = [
     "src" / "elm_connect.mli";
     "src" / "elm_connect.ml";
@@ -57,7 +64,7 @@ let write_connect () =
 let write_enums () =
   let enums_filename = "src" / "write_enums" / "enums.txt" in
   let gen_prog = "src" / "write_enums" / "main.cma" in
-  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let action _ _ = Cmd (S [P ocaml; P gen_prog]) in
   let deps = [gen_prog; enums_filename] in
   let prods = [
     "src" / "henums.ml";
@@ -77,7 +84,7 @@ let write_enums () =
 let write_struct () =
   let struct_filename = "src" / "write_struct" / "structs.txt" in
   let gen_prog = "src" / "write_struct" / "main.cma" in
-  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let action _ _ = Cmd (S [P ocaml; P gen_prog]) in
   let deps = [gen_prog; struct_filename] in
   let prods = [
     "src" / "hstructs.ml";
@@ -92,7 +99,7 @@ let write_struct () =
 (* Add rule to generate other_wrap.{h,c} *)
 let write_other () =
   let gen_prog = "src" / "write_other.cma" in
-  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let action _ _ = Cmd (S [P ocaml; P gen_prog]) in
   let deps = [gen_prog] in
   let prods = [
     "src" / "other_wrap.h";
@@ -105,7 +112,7 @@ let write_other () =
 (* Add rule to generate autofun* *)
 let write_autofun () =
   let gen_prog = "src" / "write_fun" / "main.cma" in
-  let action _ _ = Cmd (S [P "ocaml"; P gen_prog]) in
+  let action _ _ = Cmd (S [P ocaml; P gen_prog]) in
   let deps = [gen_prog] in
   let prods = [
     "src" / "autofun.ml";
@@ -133,7 +140,7 @@ let write_big_mli () =
       | Outcome.Good _ -> ()
       | Outcome.Bad exn -> raise exn) (build deps);
     let args = List.map (fun s -> Sh s) public_modules in
-    Cmd (S [P "ocaml"; P gen_prog; S args]) in
+    Cmd (S [P ocaml; P gen_prog; S args]) in
   let deps = [gen_prog; mlpack_name] in
   let prod = "src" / "efl.mli" in
   rule "write_big_mli" ~deps ~prod action
@@ -168,6 +175,8 @@ let () = dispatch & fun h ->
     (* We want a clean root directory *)
     Options.make_links := false;
 
+    Options.ocamlmklib := P ocamlmklib;
+
     write_variants ();
     write_intro ();
     write_connect ();
@@ -182,8 +191,8 @@ let () = dispatch & fun h ->
     (*let env = BaseEnvLight.load () in 
     let elementary_cflags = BaseEnvLight.var_get "elementary_cflags" env in
     let elementary_libs = BaseEnvLight.var_get "elementary_libs" env in*)
-    let elementary_cflags = "$(pkg-config elementary --cflags)" in
-    let elementary_libs = "$(pkg-config elementary --libs)" in
+    (*let elementary_cflags = "$(pkg-config elementary --cflags)" in
+    let elementary_libs = "$(pkg-config elementary --libs)" in*)
 
     flag ["file:src/efl.cma"] (Sh "-dllib -lefl_stubs");
     flag ["file:src/efl.cmxa"] (Sh "-cclib -lefl_stubs");
@@ -191,10 +200,10 @@ let () = dispatch & fun h ->
     (*dep ["file:src/efl.cmxa"] ["src" / "libefl_stubs.a"];*)
 
     (* Insert flags and linking information about the EFL *)
-    let ch = Unix.open_process_in "pkg-config elementary --libs" in
-    let s = input_line ch in
+    (*let ch = Unix.open_process_in "pkg-config elementary --libs" in
+    let s = input_line ch in*)
     flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
-    flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" s));
+    flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));
     flag ["ocamlmklib"] (Sh elementary_libs);
 
     (* Used to compile the examples *)
