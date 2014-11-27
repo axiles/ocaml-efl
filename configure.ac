@@ -41,6 +41,12 @@ AS_IF([test -z ELEMENTARY_VERSION], [
   ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
 ])
 
+dnl Checking for Lablgl (used to define an example, optional)
+AC_CHECK_OCAML_PKG([lablgl])
+AS_IF([test OCAML_PKG_lablgl = "no"], [], [
+  AC_SUBST([LABGL_DIR], [$($OCAMLFIND query lablgl)])
+])
+
 dnl Get the list of the examples
 rm -f examples/list.txt
 AS_FOR([FILE], [file], [examples/*.ml], [

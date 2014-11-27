@@ -12,6 +12,8 @@ let ocamldoc = "@OCAMLDOC@"
 let ocamlfind_destdir = "@OCAMLFIND_DESTDIR@"
 
 let native_available = ocamlc != ocamlbest
+let lablgl_available = "@OCAML_PKG_lablgl@" <> "no"
+let lablgl_dir = "@LABGL_DIR@"
 
 (* Set the toolchain from the autoconf variables *)
 let set_options () =
@@ -207,7 +209,7 @@ let rule_examples () =
   let action env build =
     let list = string_list_of_file dep in
     let list1 = List.filter (function
-      | "myglview_example" -> false
+      | "myglview_example" -> lablgl_available
       | x -> true) list in
     let aux x =
       if native_available && x = "test" then [sprintf "examples/%s.native" x]
@@ -220,7 +222,12 @@ let rule_examples () =
   rule "examples" ~dep ~prod action;
   flag ["link"; "pkg_unix"] (Sh "unix.cma");
   flag ["link"; "pkg_thread"] (Sh "-thread unix.cma threads.cma");
-  flag ["compile"; "pkg_thread"] (Sh "-thread")
+  flag ["compile"; "pkg_thread"] (Sh "-thread");
+  if lablgl_available then (
+    flag ["compile"; "pkg_lablgl"] (Sh (sprintf "-I %s" lablgl_dir));
+    flag ["link"; "pkg_lablgl"] (Sh (sprintf "-I %s lablgl.cma" lablgl_dir))
+  )
+    
   (*flag ["use_efl"] (S [A "-I"; P "src"])*)
   
 
