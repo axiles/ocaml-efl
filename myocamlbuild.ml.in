@@ -207,9 +207,7 @@ let rule_examples () =
   let action env build =
     let list = string_list_of_file dep in
     let list1 = List.filter (function
-      | "myglview_example" | "progressbar_example" | "test_efl_ocaml_threads" |
-        "test_efl_ocaml_threads2" | "genlist_example_02" |
-        "genlist_example_03" | "genlist_example_04" -> false
+      | "myglview_example" -> false
       | x -> true) list in
     let aux x =
       if native_available && x = "test" then [sprintf "examples/%s.native" x]
@@ -219,7 +217,10 @@ let rule_examples () =
       | Outcome.Good _ -> ()
       | Outcome.Bad exn -> raise exn) (build deps);
     Nop in
-  rule "examples" ~dep ~prod action
+  rule "examples" ~dep ~prod action;
+  flag ["link"; "pkg_unix"] (Sh "unix.cma");
+  flag ["link"; "pkg_thread"] (Sh "-thread unix.cma threads.cma");
+  flag ["compile"; "pkg_thread"] (Sh "-thread")
   (*flag ["use_efl"] (S [A "-I"; P "src"])*)
   
 

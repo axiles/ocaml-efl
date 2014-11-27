@@ -94,3 +94,8 @@
 <src/efl.{cma,cmxa}>: use_libefl_stubs
 <examples/*.byte>: use_libefl_stubs, examples
 <examples/*.native>: use_libefl_stubs, examples
+<examples/genlist_example_02.byte>: pkg_unix
+<examples/genlist_example_03.byte>: pkg_unix
+<examples/genlist_example_04.byte>: pkg_unix
+<examples/progressbar_example.*>: pkg_thread
+<examples/test_efl_ocaml_threads*>: pkg_thread
