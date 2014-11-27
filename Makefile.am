@@ -1,6 +1,8 @@
 OCAMLFIND_OPT= -destdir $(DESTDIR)$(OCAMLFIND_DESTDIR) \
 	-ldconf $(DESTDIR)$(OCAMLFIND_LDCONF)
 
+.PHONY:examples
+
 all-local:
 	@$(OCAMLBUILD) src/efl.cma src/efl.cmxa src/efl.cmxs
 
@@ -23,9 +25,14 @@ uninstall:
 	@src/uninstall-doc.sh $(DESTDIR)$(docdir)
 
 doc:
-	$(OCAMLBUILD) src/efl_doc.docdir/index.html
+	@$(OCAMLBUILD) src/efl_doc.docdir/index.html
+
+examples:
+	@$(OCAMLBUILD) ex
 
 clean-local:
 	@$(OCAMLBUILD) -clean
 	@echo ""
 
+distclean-local:
+	rm -f examples/list.txt

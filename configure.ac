@@ -48,6 +48,7 @@ AS_IF([test OCAML_PKG_lablgl = "no"], [], [
 ])
 
 dnl Get the list of the examples
+AS_ECHO(["configure: creating ./examples/list.txt"])
 rm -f examples/list.txt
 AS_FOR([FILE], [file], [examples/*.ml], [
   echo FILE | sed 's|examples/\(.*\)[.]ml|\1|' >> examples/list.txt
