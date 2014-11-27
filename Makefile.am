@@ -45,3 +45,10 @@ distclean-local:
 #	tar -czf $(PACKAGE_NAME)-$(PACKAGE_VERSION).tar.gz \
 #		src examples/*.ml myocamlbuild.ml.in aclocal.m4 autom4te.cache configure \
 #		configure.ac install-sh m4 Makefile.am Makefile.in missing _tags
+
+distcheck: dist
+	tar -xzf $(PACKAGE_NAME)-$(PACKAGE_VERSION).tar.gz
+	cd $(PACKAGE_NAME)-$(PACKAGE_VERSION) && \
+		./configure && make && make doc && make examples && make distclean
+	rm -rf $(PACKAGE_NAME)-$(PACKAGE_VERSION)
+
