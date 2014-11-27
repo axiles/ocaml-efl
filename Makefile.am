@@ -19,10 +19,12 @@ install:
 		-optional _build/src/efl.cmxs _build/src/dllefl_stubs.so \
 		-optional _build/src/libefl_stubs.a -optional _build/src/efl.a
 	@src/install-doc.sh $(DESTDIR)$(docdir)
+	@examples/install.sh $(DESTDIR)$(bindir)/ocaml-efl_
 
 uninstall:
 	@$(OCAMLFIND) remove $(OCAMLFIND_OPT) efl
 	@src/uninstall-doc.sh $(DESTDIR)$(docdir)
+	@examples/uninstall.sh $(DESTDIR)$(bindir)/ocaml-efl_
 
 doc:
 	@$(OCAMLBUILD) src/efl_doc.docdir/index.html
