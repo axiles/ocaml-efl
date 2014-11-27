@@ -3,6 +3,8 @@ OCAMLFIND_OPT= -destdir $(DESTDIR)$(OCAMLFIND_DESTDIR) \
 
 .PHONY:examples
 
+EXTRA_DIST=src examples/*.ml _tags
+
 all-local:
 	@$(OCAMLBUILD) src/efl.cma src/efl.cmxa src/efl.cmxs
 
@@ -38,3 +40,8 @@ clean-local:
 
 distclean-local:
 	rm -f examples/list.txt
+
+##dist-local:
+#	tar -czf $(PACKAGE_NAME)-$(PACKAGE_VERSION).tar.gz \
+#		src examples/*.ml myocamlbuild.ml.in aclocal.m4 autom4te.cache configure \
+#		configure.ac install-sh m4 Makefile.am Makefile.in missing _tags
