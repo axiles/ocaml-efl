@@ -11,3 +11,4 @@ config.log
 config.status
 missing
 src/META
+examples/list.txt

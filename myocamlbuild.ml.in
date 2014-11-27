@@ -9,6 +9,7 @@ let ocamldep = "@OCAMLDEP@"
 let ocamlmktop = "@OCAMLMKTOP@"
 let ocamlmklib = "@OCAMLMKLIB@"
 let ocamldoc = "@OCAMLDOC@"
+let ocamlfind_destdir = "@OCAMLFIND_DESTDIR@"
 
 let native_available = ocamlc != ocamlbest
 
@@ -187,10 +188,7 @@ let add_header_depends () =
   ] in
   List.iter (fun s -> dep ["extension:c"] ["src" / s]) headers
 
-(*let examples = [
-  "bg_example_01";
-  "test"
-]
+(*let examples = List_examples.x
 
 let examples =
   let aux x =
@@ -201,12 +199,37 @@ let examples =
 let rule_examples () =
   let dep = List.map snd examples in
   let prod = ""
- *) 
+ *)
+
+let rule_examples () =
+  let dep = "examples" / "list.txt" in
+  let prod = "ex" in
+  let action env build =
+    let list = string_list_of_file dep in
+    let list1 = List.filter (function
+      | "myglview_example" | "progressbar_example" | "test_efl_ocaml_threads" |
+        "test_efl_ocaml_threads2" | "genlist_example_02" |
+        "genlist_example_03" | "genlist_example_04" -> false
+      | x -> true) list in
+    let aux x =
+      if native_available && x = "test" then [sprintf "examples/%s.native" x]
+      else [sprintf "examples/%s.byte" x] in
+    let deps = List.map aux list1 in
+    List.iter (function
+      | Outcome.Good _ -> ()
+      | Outcome.Bad exn -> raise exn) (build deps);
+    Nop in
+  rule "examples" ~dep ~prod action
+  (*flag ["use_efl"] (S [A "-I"; P "src"])*)
+  
+
+     
 let () = dispatch & fun h ->
   match h with
   | After_options ->
     (* We want a clean root directory *)
     Options.make_links := false;
+    Options.include_dirs := ["src"];
 
     set_options ();
     write_variants ();
@@ -218,6 +241,7 @@ let () = dispatch & fun h ->
     write_autofun ();
     write_big_mli ();
     add_header_depends ();
+    rule_examples ();
 
     (* Get the values of the env variables *)
     (*let env = BaseEnvLight.load () in 
@@ -227,8 +251,10 @@ let () = dispatch & fun h ->
     let elementary_libs = "$(pkg-config elementary --libs)" in*)
 
     flag ["file:src/efl.cma"] (Sh "-dllib -lefl_stubs");
+    flag ["examples"; "link"; "byte"] (Sh (sprintf "-I src -dllpath _build/src -dllpath %s/stublibs -dllib -lefl_stubs" ocamlfind_destdir));
     flag ["file:src/efl.cmxa"] (Sh "-cclib -lefl_stubs");
     dep ["file:src/efl.cma"] ["src" / "libefl_stubs.a"];
+    dep ["examples"] ["src" / "libefl_stubs.a"];
     (*dep ["file:src/efl.cmxa"] ["src" / "libefl_stubs.a"];*)
 
     (* Insert flags and linking information about the EFL *)

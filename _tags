@@ -92,3 +92,5 @@
 "src/autofun.cmx": for-pack(Efl)
 "src/autofun_check.cmx": for-pack(Efl)
 <src/efl.{cma,cmxa}>: use_libefl_stubs
+<examples/*.byte>: use_libefl_stubs, examples
+<examples/*.native>: use_libefl_stubs, examples

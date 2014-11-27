@@ -41,6 +41,12 @@ AS_IF([test -z ELEMENTARY_VERSION], [
   ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
 ])
 
+dnl Get the list of the examples
+rm -f examples/list.txt
+AS_FOR([FILE], [file], [examples/*.ml], [
+  echo FILE | sed 's|examples/\(.*\)[.]ml|\1|' >> examples/list.txt
+])
+
 AC_CONFIG_FILES([Makefile myocamlbuild.ml src/META])
 
 AC_OUTPUT
