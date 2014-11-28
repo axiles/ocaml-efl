@@ -28,6 +28,7 @@ let set_options () =
 let elementary_cflags = "@ELEMENTARY_CFLAGS@"
 let elementary_libs = "@ELEMENTARY_LIBS@"
 let elementary_version = "@ELEMENTARY_VERSION@"
+let elm_eo_class_obj = "@ELM_EO_CLASS_OBJ@" = "yes"
 
 let ( & ) f x  = f x
 
@@ -73,7 +74,8 @@ let write_connect () =
     List.iter (function
     | Outcome.Good _ -> ()
     | Outcome.Bad exn -> raise exn)  (builder deps);
-    Cmd (S [P ocaml; P gen_prog]) in
+    let arg = if elm_eo_class_obj then P "obj" else N in
+    Cmd (S [P ocaml; P gen_prog; arg]) in
   let prods = [
     "src" / "elm_connect.mli";
     "src" / "elm_connect.ml";

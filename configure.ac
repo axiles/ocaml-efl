@@ -28,7 +28,7 @@ AS_IF([test -z $OCAMLFIND_LDCONF], [
 ])
 
 dnl Checking for Elementary
-PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.11])
+PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.10])
 AC_ARG_VAR([ELEMENTARY_VERSION],[
   version for ELEMENTARY, overriding pkg-config
 ])
@@ -40,6 +40,10 @@ AS_IF([test -z $ELEMENTARY_VERSION], [
   ])  
   ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
 ])
+AC_SUBST([ELM_EO_CLASS_OBJ], "yes")
+AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
+  ELM_EO_CLASS_OBJ="no"
+], [])
 
 dnl Checking for Lablgl (used to define an example, optional)
 AC_CHECK_OCAML_PKG([lablgl])

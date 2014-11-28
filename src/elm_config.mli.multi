@@ -143,9 +143,11 @@ val item_select_on_focus_disabled_get : unit -> bool
 
 val item_select_on_focus_disabled_set : bool -> unit
 
+(* BEGIN: 1.11 *)
 val first_item_focus_on_first_focusin_get : unit -> bool
 
 val first_item_focus_on_first_focusin_set : bool -> unit
+(* END *)
 
 (** {2 Colors} *)
 

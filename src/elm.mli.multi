@@ -30,12 +30,14 @@ type policy_exit = [`none | `windows_del]
 
 type policy_throttle = [`config | `hidden_always | `never]
 
+(* BEGIN: 1.11 *)
 type glob_match_flags = [
 | `no_escape
 | `path
 | `period
 | `nocase
 ]
+(* END *)
 
 (* BEGIN: 1.12 *)
 type process_state = [`foreground | `background]

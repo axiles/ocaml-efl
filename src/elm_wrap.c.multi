@@ -131,6 +131,7 @@ PREFIX value ml_elm_language_set(value v_lang)
         return Val_unit;
 }
 
+/* BEGIN: 1.11 */
 inline Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(
         value v_list)
 {
@@ -142,6 +143,7 @@ inline Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(
         }
         return r;
 }
+/* END */
 
 /* BEGIN: 1.12 */
 PREFIX value ml_elm_process_state_get(value v_unit)

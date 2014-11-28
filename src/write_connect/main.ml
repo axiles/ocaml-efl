@@ -1,5 +1,7 @@
 open Format
 
+let elm_eo_class_obj = Array.length Sys.argv >= 3
+
 module Event_info : sig
   type t = {
     input : bool;
@@ -172,7 +174,12 @@ end = struct
     let e = get_expr name in
     let ml_name = ml_name_of_name name in
     let eo_name = e.Expr.name in
-    let eo_name = replace_prefix eo_name "ELM_OBJ" "ELM" in
+    let eo_name =
+      if not elm_eo_class_obj then replace_prefix eo_name "ELM_OBJ" "ELM"
+      else eo_name in
+    let eo_name =
+      if not elm_eo_class_obj && eo_name = "ELM_WIN_INWIN_CLASS" then
+        "ELM_WIN_CLASS" else eo_name in
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =

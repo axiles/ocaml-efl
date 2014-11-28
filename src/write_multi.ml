@@ -39,8 +39,10 @@ let read_line ch =
 
 let is_section_valid version sec =
   match version, sec with
-  | ("1.11", "1.12") ->  false
-  | ("1.12", "1.12") -> true
+  | ("1.11", "1.12") |
+    ("1.10", "1.11") | ("1.10", "1.12") ->  false
+  | ("1.11", "1.11") |
+    ("1.12", "1.11") | ("1.12", "1.12") -> true
   | _ -> failwith "Wrong section"
 
 let rec read_file ch_in ch_out =

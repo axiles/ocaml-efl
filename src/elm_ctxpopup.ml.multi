@@ -22,10 +22,12 @@ external item_append :
       Elm_object.item =
       "ml_elm_ctxpopup_item_append"
 
+(* BEGIN: 1.11 *)
 external item_prepend :
   Evas.obj -> ?label:string -> ?icon:Evas.obj -> ?func:Evas.smart_cb -> unit ->
       Elm_object.item =
       "ml_elm_ctxpopup_item_prepend"
+(* END *)
 
 external direction_priority_set :
   Evas.obj -> direction -> direction -> direction -> direction -> unit =
@@ -45,6 +47,7 @@ external auto_hide_disabled_set : Evas.obj -> bool -> unit =
 external auto_hide_disabled_get : Evas.obj -> bool =
   "ml_elm_ctxpopup_auto_hide_disabled_get"
 
+(* BEGIN: 1.11 *)
 external items_get : Evas.obj -> Elm_object.item list =
   "ml_elm_ctxpopup_items_get"
 
@@ -59,4 +62,5 @@ external item_prev_get : Elm_object.item -> Elm_object.item option =
 
 external item_next_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_ctxpopup_item_next_get"
+(* END *)
 

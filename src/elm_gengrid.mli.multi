@@ -1,4 +1,4 @@
-(** Genlist *)
+(** Gengrid (Generic Grid) *)
 
 type item_class = Elm_gen.item_class = {
   item_style : string;
@@ -7,10 +7,6 @@ type item_class = Elm_gen.item_class = {
   func_state_get : Evas.obj -> string -> bool;
   func_del : Evas.obj -> unit;
 }
-
-type item_type = [`none | `tree | `group | `max]
-
-type item_field_type = [`all | `text | `content | `state]
 
 type item_scrollto_type = [`none | `_in | `top | `middle]
 
@@ -28,29 +24,25 @@ val multi_select_mode_set : Evas.obj -> bool -> unit
 
 val multi_select_mode_get : Evas.obj -> bool
 
-val mode_set : Evas.obj -> Elm_list.mode -> unit
+val horizontal_set : Evas.obj -> bool -> unit
 
-val mode_get : Evas.obj -> Elm_list.mode
+val horizontal_get : Evas.obj -> bool
 
-val item_append :
-  Evas.obj -> item_class -> Elm_object.item option -> item_type ->
-    Evas.smart_cb -> Elm_object.item
+val item_append : Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item
 
-val item_prepend :
-  Evas.obj -> item_class -> Elm_object.item option -> item_type ->
-    Evas.smart_cb -> Elm_object.item
+val item_prepend : Evas.obj -> item_class -> Evas.smart_cb -> Elm_object.item
 
 val item_insert_before :
-  Evas.obj -> item_class -> Elm_object.item option -> Elm_object.item ->
-    item_type -> Evas.smart_cb -> Elm_object.item
+  Evas.obj -> item_class -> Elm_object.item -> Evas.smart_cb -> Elm_object.item
 
 val item_insert_after :
-  Evas.obj -> item_class -> Elm_object.item option -> Elm_object.item ->
-    item_type -> Evas.smart_cb -> Elm_object.item
+  Evas.obj -> item_class -> Elm_object.item -> Evas.smart_cb -> Elm_object.item
 
+(* BEGIN: 1.11 *)
 val search_by_text_item_get :
   Evas.obj -> ?item_to_search_from:Elm_object.item -> part_name:string ->
     pattern:string -> Elm.glob_match_flags list -> Elm_object.item option
+(* END *)
 
 val selected_item_get : Evas.obj -> Elm_object.item option
 
@@ -77,8 +69,6 @@ val item_bring_in : Elm_object.item -> item_scrollto_type -> unit
 val item_update : Elm_object.item -> unit
 
 val item_index_get : Elm_object.item -> int
-
-val realized_items_update : Evas.obj -> unit
 
 val items_count : Evas.obj -> int
 
@@ -112,65 +102,31 @@ val item_cursor_engine_only_set : Elm_object.item -> bool -> unit
 
 val item_cursor_engine_only_get : Elm_object.item -> bool
 
-val homogeneous_set : Evas.obj -> bool -> unit
+val item_size_set : Evas.obj -> int -> int -> unit
 
-val homogeneous_get : Evas.obj -> bool
+val item_size_get : Evas.obj -> int * int
 
-val block_count_set : Evas.obj -> int -> unit
+val group_item_size_set : Evas.obj -> int -> int -> unit
 
-val block_count_get : Evas.obj -> int
+val group_item_size_get : Evas.obj -> int * int
 
-val longpress_timeout_set : Evas.obj -> float -> unit
+val align_set : Evas.obj -> float -> float -> unit
 
-val longpress_timeout_get : Evas.obj -> float
-
-val at_xy_item_get : Evas.obj -> int -> int -> (Elm_object.item * int) option
-
-val item_parent_get : Elm_object.item -> Elm_object.item option
-
-val item_subitems_count : Elm_object.item -> int
-
-val item_subitems_get : Elm_object.item -> Elm_object.item list
-
-val item_subitems_clear : Elm_object.item -> unit
-
-val item_expanded_set : Elm_object.item -> bool -> unit
-
-val item_expanded_get : Elm_object.item -> bool
-
-val item_expanded_depth_get : Elm_object.item -> int
-
-val item_all_contents_unset : Elm_object.item -> Elm_object.item list
-
-val item_promote : Elm_object.item -> unit
-
-val item_demote : Elm_object.item -> unit
-
-val item_fields_update : Elm_object.item -> string -> item_field_type -> unit
-
-val item_decorate_mode_set : Elm_object.item -> string -> bool -> unit
-
-val item_decorate_mode_get : Elm_object.item -> string
-
-val decorated_item_get : Evas.obj -> Elm_object.item option
+val align_get : Evas.obj -> float * float
 
 val reorder_mode_set : Evas.obj -> bool -> unit
 
 val reorder_mode_get : Evas.obj -> bool
 
-val item_type_get : Elm_object.item -> item_type
+(** @deprecated Use Elm_scroller.page_show instead. *)
+val page_show : Evas.obj -> int -> int -> unit
+(* DEPRICATED *)
 
-val decorate_mode_set : Evas.obj -> bool -> unit
+val item_pos_get : Elm_object.item -> int * int
 
-val decorate_mode_get : Evas.obj -> bool
+val filled_set : Evas.obj -> bool -> unit
 
-val item_flip_set : Elm_object.item -> bool -> unit
-
-val item_flip_get : Elm_object.item -> bool
-
-val tree_effect_enabled_set : Evas.obj -> bool -> unit
-
-val tree_effect_enabled_get : Evas.obj -> bool
+val filled_get : Evas.obj -> bool
 
 val select_mode_set : Evas.obj -> Elm_object.select_mode -> unit
 
@@ -185,4 +141,8 @@ val nth_item_get : Evas.obj -> Elm_object.item option
 val item_select_mode_set : Elm_object.item -> Elm_object.select_mode -> unit
 
 val item_select_mode_get : Elm_object.item -> Elm_object.select_mode
+
+val reorder_mode_start : Evas.obj -> Ecore.pos_map -> unit
+
+val reorder_mode_stop : Evas.obj -> unit
 
