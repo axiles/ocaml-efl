@@ -165,6 +165,23 @@ let write_big_mli () =
   let prod = "src" / "efl.mli" in
   rule "write_big_mli" ~deps ~prod action
 
+(* Add rule to generate files from *.multi.* *)
+let rule_multi () =
+  let f kind suffix =
+    let src = sprintf "%%.multi.%s" suffix in
+    let prog = "src" / "write_multi.ml" in
+    let deps = [prog; src] in
+    let prod = sprintf "%%.%s" suffix in
+    let action env _ =
+      let src = env src and prod = env prod in
+      Cmd(S [P ocaml; P prog; Sh kind; Sh elementary_version; P src; P prod]) in
+    rule (sprintf "multi_%s" suffix) ~deps ~prod action in
+  f "ml" "ml";
+  f "ml" "mli";
+  f "ml" "txt";
+  f "c" "c";
+  f "c" "h"
+
 let add_header_depends () =
   let headers = [
     "include.h";
@@ -233,6 +250,7 @@ let () = dispatch & fun h ->
     write_big_mli ();
     add_header_depends ();
     rule_examples ();
+    rule_multi ();
 
     flag ["file:src/efl.cma"] (Sh "-dllib -lefl_stubs");
     flag ["examples"; "link"; "byte"] (Sh (sprintf "-I src -dllpath _build/src -dllpath %s/stublibs -dllib -lefl_stubs" ocamlfind_destdir));
