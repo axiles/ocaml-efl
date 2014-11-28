@@ -50,8 +50,9 @@ expose the capability of the EFL.
 INSTALLING
 ==========
 
-This package uses OASIS to generate its build system. You can find more
-detailed instructions in the INSTALL file.
+This package uses a configure script created with autoconf/automake
+(although ocamlbuild is used in the backstage).
+You can find more detailed instructions in the INSTALL file.
 
 LICENSE
 =======
