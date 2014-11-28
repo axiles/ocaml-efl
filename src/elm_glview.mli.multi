@@ -6,6 +6,7 @@ type mode = [
   | `depth
   | `stencil
   | `direct
+(* BEGIN: 1.12 *)
   | `client_side_rotation
   | `depth_8
   | `depth_16
@@ -19,6 +20,7 @@ type mode = [
   | `multisample_low
   | `multisample_med
   | `multisample_high
+(* END *)
 ]
 
 type resize_policy = [`recreate | `scale]

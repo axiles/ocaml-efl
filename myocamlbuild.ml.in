@@ -163,19 +163,19 @@ let write_big_mli () =
     Cmd (S [P ocaml; P gen_prog; S args]) in
   let deps = [gen_prog; mlpack_name] in
   let prod = "src" / "efl.mli" in
-  rule "write_big_mli" ~deps ~prod action
+  rule "write_big_mli" ~deps ~prod ~insert:`top action
 
 (* Add rule to generate files from *.multi.* *)
 let rule_multi () =
   let f kind suffix =
-    let src = sprintf "%%.multi.%s" suffix in
+    let src = sprintf "%%.%s.multi" suffix in
     let prog = "src" / "write_multi.ml" in
     let deps = [prog; src] in
     let prod = sprintf "%%.%s" suffix in
     let action env _ =
       let src = env src and prod = env prod in
       Cmd(S [P ocaml; P prog; Sh kind; Sh elementary_version; P src; P prod]) in
-    rule (sprintf "multi_%s" suffix) ~deps ~prod action in
+    rule (sprintf "multi_%s" suffix) ~deps ~prod ~insert:`bottom action in
   f "ml" "ml";
   f "ml" "mli";
   f "ml" "txt";
@@ -236,10 +236,9 @@ let () = dispatch & fun h ->
   | After_options ->
     (* We want a clean root directory *)
     Options.make_links := false;
-
     Options.include_dirs := ["src"];
-
     set_options ();
+  | After_rules ->
     write_variants ();
     write_intro ();
     write_connect ();

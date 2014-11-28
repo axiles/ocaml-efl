@@ -47,7 +47,9 @@ external policy_throttle_get : unit -> policy_throttle =
 
 external language_set : string -> unit = "ml_elm_language_set"
 
+(* BEGIN: 1.12 *)
 external process_state_get : unit -> process_state = "ml_elm_process_state_get"
+(* END *)
 
 let connect = Evas_object_smart.create_sig_with_cb
 
