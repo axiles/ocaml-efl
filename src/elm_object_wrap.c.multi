@@ -173,6 +173,7 @@ PREFIX value ml_elm_object_tree_focus_allow_get(value v_obj)
         return Val_bool(elm_object_tree_focus_allow_get((Evas_Object*) v_obj));
 }
 
+/* BEGIN: 1.9 */
 PREFIX value ml_elm_object_focus_highlight_style_set(value v_obj, value v_s)
 {
         return Val_bool(elm_object_focus_highlight_style_set(
@@ -184,6 +185,7 @@ PREFIX value ml_elm_object_focus_highlight_style_get(value v_obj)
         return copy_string(elm_object_focus_highlight_style_get(
                 (Evas_Object*) v_obj));
 }
+/* END */
 
 /* BEGIN: 1.10 */
 PREFIX value ml_elm_object_focused_item_get(value v_obj)
@@ -728,6 +730,7 @@ PREFIX value ml_elm_object_item_track_get(value v_it)
         return Val_int(elm_object_item_track_get((Elm_Object_Item*) v_it));
 }
 
+/* BEGIN: 1.9 */
 PREFIX value ml_elm_object_item_style_set(value v_it, value v_s)
 {
         elm_object_item_style_set((Elm_Object_Item*) v_it, String_val(v_s));
@@ -738,6 +741,7 @@ PREFIX value ml_elm_object_item_style_get(value v_it)
 {
         return copy_string(elm_object_item_style_get((Elm_Object_Item*) v_it));
 }
+/* END */
 
 inline void ml_Elm_Object_Item_gc_value(
         const Elm_Object_Item* it, value* data)
@@ -965,6 +969,7 @@ PREFIX value ml_elm_object_widget_type_get(value v_obj)
 
 /* Tooltips */
 
+/* BEGIN: 1.9 */
 PREFIX value ml_elm_object_tooltip_move_freeze_push(value v_obj)
 {
         elm_object_tooltip_move_freeze_push((Evas_Object*) v_obj);
@@ -982,6 +987,7 @@ PREFIX value ml_elm_object_tooltip_move_freeze_get(value v_obj)
         return Val_int(elm_object_tooltip_move_freeze_get(
                 (Evas_Object*) v_obj));
 }
+/* END */
 
 PREFIX value ml_elm_object_tooltip_show(value v_obj)
 {
@@ -1043,6 +1049,7 @@ PREFIX value ml_elm_object_tooltip_window_mode_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+/* BEGIN: 1.9 */
 PREFIX value ml_elm_object_tooltip_orient_set(value v_obj, value v_or)
 {
         elm_object_tooltip_orient_set((Evas_Object*) v_obj,
@@ -1055,4 +1062,5 @@ PREFIX value ml_elm_object_tooltip_orient_get(value v_obj)
         return Val_Elm_Tooltip_Orient(elm_object_tooltip_orient_get(
                 (Evas_Object*) v_obj));
 }
+/* END */
 

@@ -1,0 +1,202 @@
+#include "include.h"
+
+/* BEGIN: 1.9 */
+Eina_Bool ml_Elm_Fileselector_Filter_Func(
+        const char* path, Eina_Bool dir, void* data)
+{
+        CAMLparam0();
+        CAMLlocal2(v_s, v_r);
+        value* v_fun = (value*) data;
+        v_s = copy_string(path);
+        v_r = caml_callback2(*v_fun, v_s, Val_bool(dir));
+        CAMLreturnT(Eina_Bool, Bool_val(v_r));
+}
+/* END */
+
+PREFIX value ml_elm_fileselector_add(value v_parent)
+{
+        Evas_Object* obj = elm_fileselector_add((Evas_Object*) v_parent);
+        if(obj == NULL) caml_failwith("elm_fileselector");
+        return (value) obj;
+}
+
+PREFIX value ml_elm_fileselector_is_save_set(value v_obj, value v_flag)
+{
+        elm_fileselector_is_save_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_is_save_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_fileselector_is_save_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_folder_only_set(value v_obj, value v_flag)
+{
+        elm_fileselector_folder_only_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_folder_only_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_fileselector_folder_only_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_buttons_ok_cancel_set(
+        value v_obj, value v_flag)
+{
+        elm_fileselector_buttons_ok_cancel_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_buttons_ok_cancel_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_fileselector_buttons_ok_cancel_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_expandable_set(value v_obj, value v_flag)
+{
+        elm_fileselector_expandable_set((Evas_Object*) v_obj,
+                Eina_Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_expandable_get(value v_obj)
+{
+        return Val_Eina_Bool(elm_fileselector_expandable_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_path_set(value v_obj, value v_path)
+{
+        elm_fileselector_path_set((Evas_Object*) v_obj, String_val(v_path));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_path_get(value v_obj)
+{
+        return copy_string(elm_fileselector_path_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_selected_set(value v_obj, value v_path)
+{
+        return Val_Eina_Bool(elm_fileselector_selected_set((Evas_Object*) v_obj,
+                String_val(v_path)));
+}
+
+PREFIX value ml_elm_fileselector_selected_get(value v_obj)
+{
+        return copy_string(elm_fileselector_selected_get((Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_mime_types_filter_append(
+        value v_obj, value v_mime_types, value v_filter_name, value v_unit)
+{
+        char* filter_name;
+        if(v_filter_name == Val_int(0)) filter_name = NULL;
+        else filter_name = String_val(Field(v_filter_name, 0));
+        return Val_bool(elm_fileselector_mime_types_filter_append(
+                (Evas_Object*) v_obj, String_val(v_mime_types), filter_name));
+}
+
+/* BEGIN: 1.9 */
+PREFIX value ml_elm_fileselector_custom_filter_append(
+        value v_obj, value v_fun, value v_name, value v_unit)
+{
+        Evas_Object* obj = (Evas_Object*) v_obj;
+        value* data = ml_Evas_Object_register_value(obj, v_fun);
+        return Val_bool(elm_fileselector_custom_filter_append(obj,
+                ml_Elm_Fileselector_Filter_Func, data, String_opt_val(v_name)));
+}
+/* END */
+
+PREFIX value ml_elm_fileselector_filters_clear(value v_obj)
+{
+        elm_fileselector_filters_clear((Evas_Object*) v_obj);
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_hidden_visible_set(value v_obj, value v_flag)
+{
+        elm_fileselector_hidden_visible_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_hidden_visible_get(value v_obj)
+{
+        return Val_bool(elm_fileselector_hidden_visible_get(
+                (Evas_Object*) v_obj));
+}
+
+/* BEGIN: 1.9 */
+PREFIX value ml_elm_fileselector_thumbnail_size_set(
+        value v_obj, value v_w, value v_h)
+{
+        elm_fileselector_thumbnail_size_set((Evas_Object*) v_obj,
+                Int_val(v_w), Int_val(v_h));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_thumbnail_size_get(value v_obj)
+{
+        Evas_Coord w, h;
+        elm_fileselector_thumbnail_size_get((Evas_Object*) v_obj, &w, &h);
+        value v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(w));
+        Store_field(v_r, 1, Val_int(h));
+        return v_r;
+}
+
+PREFIX value ml_elm_fileselector_sort_method_get(value v_obj)
+{
+        return Val_Elm_Fileselector_Sort(elm_fileselector_sort_method_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_sort_method_set(value v_obj, value v_sort)
+{
+        elm_fileselector_sort_method_set((Evas_Object*) v_obj,
+                Elm_Fileselector_Sort_val(v_sort));
+        return Val_unit;
+}
+/* END */
+
+PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
+{
+        elm_fileselector_mode_set((Evas_Object*) v_obj,
+                Elm_Fileselector_Mode_val(v_mode));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_mode_get(value v_obj)
+{
+        return Val_Elm_Fileselector_Mode(elm_fileselector_mode_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_multi_select_set(value v_obj, value v_flag)
+{
+        elm_fileselector_multi_select_set((Evas_Object*) v_obj,
+                Bool_val(v_flag));
+        return Val_unit;
+}
+
+PREFIX value ml_elm_fileselector_multi_select_get(value v_obj)
+{
+        return Val_bool(elm_fileselector_multi_select_get(
+                (Evas_Object*) v_obj));
+}
+
+PREFIX value ml_elm_fileselector_selected_paths_get(value v_obj)
+{
+        return copy_Eina_List_string(
+                elm_fileselector_selected_paths_get((Evas_Object*) v_obj));
+}
+

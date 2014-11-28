@@ -1,0 +1,80 @@
+include Henums.Elm_win
+
+type illume_command = Elm.illume_command
+
+module AF = Autofun.Elm_win.F (struct
+  type evas_object = Evas.obj
+  type elm_win_keyboard_mode = keyboard_mode
+  type elm_win_indicator_opacity_mode = indicator_opacity_mode
+  type elm_win_indicator_mode = indicator_mode
+end)
+include AF
+
+external add : ?p:Evas.obj -> string -> ty -> Evas.obj =
+  "ml_elm_win_add"
+
+(* BEGIN: 1.9 *)
+external type_get : Evas.obj -> ty = "ml_elm_win_type_get"
+(* END *)
+
+external util_standard_add : string -> string -> Evas.obj =
+  "ml_elm_win_util_standard_add"
+
+external resize_object_add : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_resize_object_add"
+
+external resize_object_del : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_resize_object_del"
+
+external icon_object_set : Evas.obj -> Evas.obj -> unit =
+  "ml_elm_win_icon_object_set"
+
+external icon_object_get : Evas.obj -> Evas.obj = "ml_elm_win_icon_object_get"
+
+external main_menu_get : Evas.obj -> Evas.obj option =
+  "ml_elm_win_main_menu_get"
+
+external available_profiles_set : Evas.obj -> string array -> unit =
+  "ml_elm_win_available_profiles_set"
+
+external available_profiles_get : Evas.obj -> string array =
+  "ml_elm_win_available_profiles_get"
+
+external size_base_get : Evas.obj -> int * int = "ml_elm_win_size_base_get"
+
+external size_step_get : Evas.obj -> int * int = "ml_elm_win_size_step_get"
+
+external illume_command_send : Evas.obj -> Elm.illume_command -> unit =
+  "ml_elm_win_illume_command_send"
+  
+external screen_size_get : Evas.obj -> int * int * int * int =
+  "ml_elm_win_screen_size_get"
+
+external screen_dpi_get : Evas.obj -> int * int = "ml_elm_win_screen_dpi_get"
+
+external focus_highlight_style_set : Evas.obj -> string option -> unit =
+  "ml_elm_win_focus_highlight_style_set"
+
+external focus_highlight_style_get : Evas.obj -> string option =
+  "ml_elm_win_focus_highlight_style_get"
+
+external screen_position_get : Evas.obj -> int * int =
+  "ml_elm_win_screen_position_get"
+
+external xwindow_get : Evas.obj -> Ecore.x_window = "ml_elm_win_xwindow_get"
+
+external wl_window_get : Evas.obj -> Ecore.wl_window =
+  "ml_elm_win_wl_window_get"
+
+external window_id_get : Evas.obj -> Ecore.window = "ml_elm_win_window_id_get"
+
+let addx ?title ?parent ?(bg = true) ?(autodel = false) ?size ?(ty = `basic)
+  ?(cb = []) name =
+    let win = add ?p:parent name ty in
+    (match title with Some t -> title_set win t | None -> ());
+    autodel_set win autodel;
+    if bg then ignore (Elm_bg.addx ~size_hint:[`expand] ~win win);
+    (match size with Some (w, h) -> Evas_object.resize win w h | None -> ());
+    List.iter (fun s -> Evas_object_smart.connect s win) cb;
+    win
+

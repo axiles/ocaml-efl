@@ -36,7 +36,9 @@ let funs = [
   simple "norender_get" [evas_object] int;
   simple_unit "render" [evas_object];
   prop "rotation" int;
+(* BEGIN: 1.9 *)
   simple "wm_rotation_supported_get" [evas_object] bool;
+(* END *)
   simple_unit "rotation_with_resize_set" [evas_object; int];
   prop "sticky" bool;
   prop "conformant" bool;

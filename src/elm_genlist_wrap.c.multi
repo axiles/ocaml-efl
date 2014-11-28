@@ -299,11 +299,14 @@ PREFIX value ml_elm_genlist_item_parent_get(value v_it)
         return v_r;
 }
 
+/* BEGIN: 1.9 */
 PREFIX value ml_elm_genlist_item_subitems_get(value v_it)
 {
         return copy_Eina_List_Elm_Object_Item(elm_genlist_item_subitems_get(
                 (Elm_Object_Item*) v_it));
 }
+
+/* END */
 
 PREFIX value ml_elm_genlist_item_all_contents_unset(value v_it)
 {

@@ -7,7 +7,9 @@ elm_win_trap_set
 *)
 
 type ty = [
+(* BEGIN: 1.9 *)
   | `unknown
+(* END *)
   | `basic
   | `dialog_basic
   | `desktop
@@ -81,7 +83,9 @@ The default value is [ true ].
 Therefore, the difference bewteen [Elm_win.add name] and [Elm_win.addx name] is
 that in the latter case there is a background in the window *)
 
+(* BEGIN: 1.9 *)
 val type_get : Evas.obj -> ty
+(* END *)
 
 val util_standard_add : string -> string -> Evas.obj
 
@@ -201,7 +205,9 @@ val rotation_with_resize_set : Evas.obj -> int -> unit
 
 val rotation_get : Evas.obj -> int
 
+(* BEGIN: 1.9 *)
 val wm_rotation_supported_get : Evas.obj -> bool
+(* END *)
 
 val sticky_set : Evas.obj -> bool -> unit
 
