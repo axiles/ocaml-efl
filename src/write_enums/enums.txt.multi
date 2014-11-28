@@ -103,11 +103,13 @@ Section Ethumb {
 }
 
 Section Elm {
+(* BEGIN: 1.10 *)
   Enum Elm_Focus_Autoscroll_Mode {
     ELM_FOCUS_AUTOSCROLL_MODE_SHOW
     ELM_FOCUS_AUTOSCROLL_MODE_NONE
     ELM_FOCUS_AUTOSCROLL_MODE_BRING_IN
   }
+(* END *)
   Enum Elm_Focus_Direction {
     ELM_FOCUS_PREVIOUS
     ELM_FOCUS_NEXT
@@ -116,10 +118,12 @@ Section Elm {
     ELM_FOCUS_RIGHT
     ELM_FOCUS_LEFT
   }
+(* BEGIN: 1.10 *)
   Enum Elm_Focus_Move_Policy {
     ELM_FOCUS_MOVE_POLICY_CLICK
     ELM_FOCUS_MOVE_POLICY_IN
   }
+(* END *)
   Enum Elm_Policy_Quit {
     ELM_POLICY_QUIT_NONE
     ELM_POLICY_QUIT_LAST_WINDOW_CLOSED
@@ -178,7 +182,9 @@ Section Elm {
     ELM_INPUT_PANEL_LAYOUT_TERMINAL
     ELM_INPUT_PANEL_LAYOUT_PASSWORD
     ELM_INPUT_PANEL_LAYOUT_DATETIME
+(* BEGIN: 1.10 *)
     ELM_INPUT_PANEL_LAYOUT_EMOTICON
+(* END *)
   }
   Enum Elm_Input_Panel_Lang {
     ELM_INPUT_PANEL_LANG_AUTOMATIC

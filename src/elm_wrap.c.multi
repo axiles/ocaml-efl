@@ -154,6 +154,7 @@ PREFIX value ml_elm_process_state_get(value v_unit)
 
 /* Colors */
 
+/* BEGIN: 1.10 */
 PREFIX value copy_Elm_Color_Class(Elm_Color_Class* c)
 {
         CAMLparam0();
@@ -218,6 +219,7 @@ inline value copy_Eina_List_Elm_Color_Overlay(const Eina_List* list)
         }
         CAMLreturn(v);
 }
+/* END */
 
 /* Need */
 

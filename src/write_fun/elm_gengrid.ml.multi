@@ -30,7 +30,9 @@ let funs = [
   prop "select_mode" elm_object_select_mode;
   prop "highlight_mode" bool;
   prop ~args:[elm_object_item] "item_select_mode" elm_object_select_mode;
+(* BEGIN: 1.10 *)
   simple_unit "reorder_mode_start" [evas_object; ecore_pos_map];
   simple_unit "reorder_mode_stop" [evas_object];
+(* END *)
 ]
 

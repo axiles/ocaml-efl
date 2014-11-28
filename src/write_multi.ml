@@ -40,10 +40,12 @@ let read_line ch =
 let is_section_valid version sec =
   match version, sec with
   | ("1.11", "1.12") |
-    ("1.10", "1.11") | ("1.10", "1.12") ->  false
-  | ("1.11", "1.11") |
-    ("1.12", "1.11") | ("1.12", "1.12") -> true
-  | _ -> failwith "Wrong section"
+    ("1.10", "1.11") | ("1.10", "1.12") |
+    ("1.9", "1.10") | ("1.9", "1.11") | ("1.9", "1.12") ->  false
+  | ("1.10", "1.10") |
+    ("1.11", "1.10") | ("1.11", "1.11") |
+    ("1.12", "1.10") | ("1.12", "1.11") | ("1.12", "1.12") -> true
+  | _ -> failwith (sprintf "Wrong section: %s %s" version sec)
 
 let rec read_file ch_in ch_out =
   match read_line ch_in with

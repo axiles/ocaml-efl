@@ -83,12 +83,14 @@ external focus_highlight_style_set : Evas.obj -> string -> bool =
 external focus_highlight_style_get : Evas.obj -> string =
   "ml_elm_object_focus_highlight_style_get"
 
+(* BEGIN: 1.10 *)
 external focused_item_get : Evas.obj -> item option =
   "ml_elm_object_focused_item_get"
 
 external item_focus_set : item -> bool -> unit = "ml_elm_object_item_focus_set"
 
 external item_focus_get : item -> bool = "ml_elm_object_item_focus_get"
+(* END *)
 
 (* General *)
 
@@ -350,11 +352,13 @@ external scroll_lock_x_get : Evas.obj -> bool =
 external scroll_lock_y_get : Evas.obj -> bool =
   "ml_elm_object_scroll_lock_y_get"
 
+(* BEGIN: 1.10 *)
 external scroll_item_loop_enabled_set : Evas.obj -> bool -> unit =
   "ml_elm_object_scroll_item_loop_enabled_set"
 
 external scroll_item_loop_enabled_get : Evas.obj -> bool =
   "ml_elm_object_scroll_item_loop_enabled_get"
+(* END *)
 
 (* Mirroring *)
 

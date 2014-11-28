@@ -64,11 +64,13 @@ external preferred_engine_get : unit -> string =
 external preferred_engine_set : string -> unit =
   "ml_elm_config_preferred_engine_set"
 
+(* BEGIN: 1.10 *)
 external accel_preference_get : unit -> string =
   "ml_elm_config_accel_preference_get"
 
 external accel_preference_set : string -> unit =
   "ml_elm_config_accel_preference_set"
+(* END *)
 
 external access_get : unit -> bool = "ml_elm_config_access_get"
 
@@ -105,9 +107,11 @@ external glayer_double_tap_timeout_get : unit -> float =
 external glayer_double_tap_timeout_set : float -> unit =
   "ml_elm_config_glayer_double_tap_timeout_set"
 
+(* BEGIN: 1.10 *)
 external atspi_mode_get : unit -> bool = "ml_elm_config_atspi_mode_get"
 
 external atspi_mode_set : bool -> unit = "ml_elm_config_atspi_mode_set"
+(* END *)
 
 (* Elementary fonts *)
 
@@ -150,11 +154,13 @@ external finger_size_set : int -> unit = "ml_elm_config_finger_size_set"
 
 (* Focus *)
 
+(* BEGIN: 1.10 *)
 external focus_autoscroll_mode_get : unit -> Elm.focus_autoscroll_mode =
   "ml_elm_config_focus_autoscroll_mode_get"
 
 external focus_autoscroll_mode_set : Elm.focus_autoscroll_mode -> unit =
   "ml_elm_config_focus_autoscroll_mode_set"
+(* END *)
 
 external focus_highlight_enabled_get : unit -> bool =
   "ml_elm_config_focus_highlight_enabled_get"
@@ -168,6 +174,7 @@ external focus_highlight_animate_get : unit -> bool =
 external focus_highlight_animate_set : bool -> unit =
   "ml_elm_config_focus_highlight_animate_set"
 
+(* BEGIN: 1.10 *)
 external focus_highlight_clip_disabled_get : unit -> bool =
   "ml_elm_config_focus_highlight_clip_disabled_get"
 
@@ -185,6 +192,7 @@ external item_select_on_focus_disabled_get : unit -> bool =
 
 external item_select_on_focus_disabled_set : bool -> unit =
   "ml_elm_config_item_select_on_focus_disabled_set"
+(* END *)
 
 (* BEGIN: 1.11 *)
 external first_item_focus_on_first_focusin_get : unit -> bool =
@@ -196,6 +204,7 @@ external first_item_focus_on_first_focusin_set : bool -> unit =
 
 (* Colors *)
 
+(* BEGIN: 1.10 *)
 external color_classes_list_get : unit -> Elm.color_class list =
   "ml_elm_config_color_classes_list_get"
 
@@ -213,6 +222,7 @@ external color_overlay_unset : string -> unit =
 
 external color_overlay_apply : unit -> unit =
   "ml_elm_config_color_overlay_apply"
+(* END *)
 
 (* Password show last *)
 

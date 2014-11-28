@@ -61,11 +61,13 @@ val focus_highlight_style_set : Evas.obj -> string -> bool
 
 val focus_highlight_style_get : Evas.obj -> string
 
+(* BEGIN: 1.10 *)
 val focused_item_get : Evas.obj -> item option
 
 val item_focus_set : item -> bool -> unit
 
 val item_focus_get : item -> bool
+(* END *)
 
 (** {2 General} *)
 
@@ -275,9 +277,11 @@ val scroll_lock_x_get : Evas.obj -> bool
 
 val scroll_lock_y_get : Evas.obj -> bool
 
+(* BEGIN: 1.10 *)
 val scroll_item_loop_enabled_set : Evas.obj -> bool -> unit
 
 val scroll_item_loop_enabled_get : Evas.obj -> bool
+(* END *)
 
 (** {2 Mirroring} *)
 

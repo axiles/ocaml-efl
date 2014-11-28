@@ -185,6 +185,7 @@ PREFIX value ml_elm_object_focus_highlight_style_get(value v_obj)
                 (Evas_Object*) v_obj));
 }
 
+/* BEGIN: 1.10 */
 PREFIX value ml_elm_object_focused_item_get(value v_obj)
 {
         return copy_Elm_Object_Item_opt(elm_object_focused_item_get(
@@ -201,6 +202,7 @@ PREFIX value ml_elm_object_item_focus_get(value v_it)
 {
         return Val_bool(elm_object_item_focus_get((Elm_Object_Item*) v_it));
 }
+/* END */
 
 /* General */
 
@@ -811,6 +813,7 @@ PREFIX value ml_elm_object_scroll_lock_y_get(value v_obj, value v_flag)
         return Val_bool(elm_object_scroll_lock_y_get((Evas_Object*) v_obj));
 }
 
+/* BEGIN: 1.10 */
 PREFIX value ml_elm_object_scroll_item_loop_enabled_set(
         value v_obj, value v_flag)
 {
@@ -824,6 +827,7 @@ PREFIX value ml_elm_object_scroll_item_loop_enabled_get(value v_obj)
         return Val_bool(elm_object_scroll_item_loop_enabled_get(
                 (Evas_Object*) v_obj));
 }
+/* END */
 
 /* Mirroring */
 

@@ -7,11 +7,13 @@
 
 /* Colors */
 
+/* BEGIN: 1.10 */
 inline value copy_Elm_Color_Class(Elm_Color_Class* c);
 inline value copy_Eina_List_Elm_Color_Class(const Eina_List* list);
 
 inline value copy_Elm_Color_Overlay(Elm_Color_Overlay* o);
 inline value copy_Eina_List_Elm_Color_Overlay(const Eina_List* list);
+/* END */
 
 /* Tooltips */
 
