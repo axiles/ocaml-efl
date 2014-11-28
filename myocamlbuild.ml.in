@@ -99,7 +99,6 @@ let write_enums () =
   rule "write_enums" ~deps ~prods action;
   dep ["extension:c"] prods;
   dep ["file:src/enums_wrap.c"] ["src" / "include.h"]
-  (*flag_and_dep ["file:src/efl.cmo"] (P ("src" / "henums_check.cmo"))*)
 
 (* Add rules to generate structure bindings *)
 let write_struct () =
@@ -190,19 +189,6 @@ let add_header_depends () =
   ] in
   List.iter (fun s -> dep ["extension:c"] ["src" / s]) headers
 
-(*let examples = List_examples.x
-
-let examples =
-  let aux x =
-    if x = "test" && native_available then (x, sprintf "%s.native")
-    else (x, sprintf "%s.byte") in
-  List.map aux examples
-
-let rule_examples () =
-  let dep = List.map snd examples in
-  let prod = ""
- *)
-
 let rule_examples () =
   let dep = "examples" / "list.txt" in
   let prod = "ex" in
@@ -228,15 +214,12 @@ let rule_examples () =
     flag ["link"; "pkg_lablgl"] (Sh (sprintf "-I %s lablgl.cma" lablgl_dir))
   )
     
-  (*flag ["use_efl"] (S [A "-I"; P "src"])*)
-  
-
-     
 let () = dispatch & fun h ->
   match h with
   | After_options ->
     (* We want a clean root directory *)
     Options.make_links := false;
+
     Options.include_dirs := ["src"];
 
     set_options ();
@@ -251,23 +234,13 @@ let () = dispatch & fun h ->
     add_header_depends ();
     rule_examples ();
 
-    (* Get the values of the env variables *)
-    (*let env = BaseEnvLight.load () in 
-    let elementary_cflags = BaseEnvLight.var_get "elementary_cflags" env in
-    let elementary_libs = BaseEnvLight.var_get "elementary_libs" env in*)
-    (*let elementary_cflags = "$(pkg-config elementary --cflags)" in
-    let elementary_libs = "$(pkg-config elementary --libs)" in*)
-
     flag ["file:src/efl.cma"] (Sh "-dllib -lefl_stubs");
     flag ["examples"; "link"; "byte"] (Sh (sprintf "-I src -dllpath _build/src -dllpath %s/stublibs -dllib -lefl_stubs" ocamlfind_destdir));
     flag ["file:src/efl.cmxa"] (Sh "-cclib -lefl_stubs");
     dep ["file:src/efl.cma"] ["src" / "libefl_stubs.a"];
     dep ["examples"] ["src" / "libefl_stubs.a"];
-    (*dep ["file:src/efl.cmxa"] ["src" / "libefl_stubs.a"];*)
 
     (* Insert flags and linking information about the EFL *)
-    (*let ch = Unix.open_process_in "pkg-config elementary --libs" in
-    let s = input_line ch in*)
     flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
     flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));
     flag ["ocamlmklib"] (Sh elementary_libs);
@@ -277,6 +250,5 @@ let () = dispatch & fun h ->
 
     (* Removed a harmless warning in generating the documentation *)
     flag ["doc"] (Sh "-hide-warnings");
-    (*flag ["doc"] (Sh "-v");*)
   | _ -> ()
 

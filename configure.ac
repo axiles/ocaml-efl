@@ -32,7 +32,7 @@ PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.12])
 AC_ARG_VAR([ELEMENTARY_VERSION],[
   version for ELEMENTARY, overriding pkg-config
 ])
-AS_IF([test -z ELEMENTARY_VERSION], [
+AS_IF([test -z $ELEMENTARY_VERSION], [
   AS_IF([test -z PKG_CONFIG], [
     AC_MSG_ERROR(
       [Without pkg-config, you must set the variable ELEMENTARY_VERSION]
