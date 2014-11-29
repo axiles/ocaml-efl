@@ -28,10 +28,10 @@ let read_line ch =
   try (
     let s = input_line ch in
     if s = "" then Normal s else
-    let ((fmt_open, s_close) : ('a, 'b, 'c, 'd, 'e, 'f) format6 * string) =
-      match kind with
-      | ML -> ("(* BEGIN: %s *)", "(* END *)")
-      | C -> ("/* BEGIN: %s */", "/* END */") in
+    let f (x : ('a, 'b, 'c, 'd, 'e, 'f) format6) = x in
+    let (fmt_open, s_close) = match kind with
+      | ML -> (f "(* BEGIN: %s *)", "(* END *)")
+      | C -> (f "/* BEGIN: %s */", "/* END */") in
     try sscanf s fmt_open (fun x -> Begin_section x) with Scan_failure _ ->
     if s = s_close then End_section
     else Normal s
