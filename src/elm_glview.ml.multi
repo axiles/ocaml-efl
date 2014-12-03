@@ -19,6 +19,8 @@ external gl_api_get : Evas.obj -> Evas.gl_api = "ml_elm_glview_gl_api_get"
 
 (* BEGIN: 1.12 *)
 external evas_gl_get : Evas.obj -> Evas.gl = "ml_elm_glview_evas_gl_get"
+
+external rotation_get : Evas.obj -> int = "ml_elm_glview_rotation_get"
 (* END *)
 
 external mode_set : Evas.obj -> mode list -> unit = "ml_elm_glview_mode_set"

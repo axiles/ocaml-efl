@@ -70,6 +70,11 @@ PREFIX value ml_elm_glview_evas_gl_get(value v_obj)
 {
         return Val_Evas_GL(elm_glview_evas_gl_get(Evas_Object_val(v_obj)));
 }
+
+PREFIX value ml_elm_glview_rotation_get(value v_obj)
+{
+        return Val_int(elm_glview_rotation_get(Evas_Object_val(v_obj)));
+}
 /* END */
 
 PREFIX value ml_elm_glview_mode_set(value v_obj, value v_m)

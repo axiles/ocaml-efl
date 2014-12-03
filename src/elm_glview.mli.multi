@@ -41,6 +41,8 @@ val gl_api_get : Evas.obj -> Evas.gl_api
 
 (* BEGIN: 1.12 *)
 val evas_gl_get : Evas.obj -> Evas.gl
+
+val rotation_get : Evas.obj -> int
 (* END *)
 
 val mode_set : Evas.obj -> mode list -> unit
