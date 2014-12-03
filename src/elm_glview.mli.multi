@@ -33,6 +33,10 @@ val add : Evas.obj -> Evas.obj
 
 val addx : Elm_object.t_addx
 
+(* BEGIN: 1.12 *)
+val version_add : Evas.obj -> Evas.gl_context_version -> Evas.obj
+(* END *)
+
 val size_set : Evas.obj -> int -> int -> unit
 
 val size_get : Evas.obj -> int * int

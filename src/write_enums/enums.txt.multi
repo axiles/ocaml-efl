@@ -58,6 +58,13 @@ Section Evas {
     EVAS_ALLOC_ERROR_FATAL
     EVAS_ALLOC_ERROR_RECOVERED
   }
+(* BEGIN: 1.12 *)
+  Enum gl_context_version Evas_GL_Context_Version 8 {
+    EVAS_GL_GLES_1_X
+    EVAS_GL_GLES_2_X
+    EVAS_GL_GLES_3_X
+   }
+(* END *)
 }
 
 Section Evas_font {
