@@ -10,6 +10,8 @@ val orient_set : Evas.obj -> orient -> unit
 
 val orient_get : Evas.obj -> orient
 
+val scrollable_get : Evas.obj -> bool
+
 val hidden_set : Evas.obj -> bool -> unit
 
 val hidden_get : Evas.obj -> bool
