@@ -65,6 +65,13 @@ PREFIX value ml_elm_glview_gl_api_get(value v_obj)
         return (value) elm_glview_gl_api_get((Evas_Object*) v_obj);
 }
 
+/* BEGIN: 1.12 */
+PREFIX value ml_elm_glview_evas_gl_get(value v_obj)
+{
+        return Val_Evas_GL(elm_glview_evas_gl_get(Evas_Object_val(v_obj)));
+}
+/* END */
+
 PREFIX value ml_elm_glview_mode_set(value v_obj, value v_m)
 {
         elm_glview_mode_set((Evas_Object*) v_obj,

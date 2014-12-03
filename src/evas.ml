@@ -13,6 +13,8 @@ type modifier
 
 type callback_priority = [`after | `before | `default | `other of int]
 
+type gl
+
 module Mpoint = Fpoint (struct end)
 include Mpoint
 

@@ -12,6 +12,8 @@ type modifier
 
 type callback_priority = [`after | `before | `default | `other of int]
 
+type gl
+
 module Point : sig
   type t = {x : int; y : int}
 end
