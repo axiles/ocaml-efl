@@ -2,6 +2,18 @@
 
 open Format
 
+let string_iteri f s =
+  for i = 0 to String.length s - 1 do
+    f i s.[i]
+  done
+
+(* Forward compatible implementation of String.mapi *)
+let string_mapi f s =
+  let buf = Buffer.create (String.length s) in
+  let aux i c = Buffer.add_char buf (f i c) in
+  string_iteri aux s;
+  Buffer.contents buf
+  
 module Ty = struct
   type t = {
     name : string;
@@ -245,13 +257,13 @@ let simple_ty ?(ptr = true) first second =
   let c_name = sprintf "%s_%s" first second in
   let name = String.lowercase c_name in
   let ml_name =
-    let s1 = String.lowercase first in
-    let s2 = String.lowercase second in
-    s1.[0] <- Char.uppercase s1.[0];
-    let s2 = match s2 with
+    let s1 =
+      let aux i c = (if i = 0 then Char.uppercase else Char.lowercase) c in
+      string_mapi aux first in
+    let s2 = match String.lowercase second with
     | "option" -> "opt"
     | "object" -> "obj"
-    | _ -> s2 in
+    | s -> s in
     sprintf "%s.%s" s1 s2 in
   let c_of_ml = sprintf "%s_val" c_name in
   let ml_of_c = sprintf "Val_%s" c_name in
@@ -264,9 +276,10 @@ let flags_ty first second =
   let name_ = sprintf "%s_" name in
   let name = sprintf "%s_list" name in
   let ml_name, ml_name_ =
-    let s1 = String.lowercase first in
+    let s1 =
+      let aux i c = (if i = 0 then Char.uppercase else Char.lowercase) c in
+      string_mapi aux first in
     let s2 = String.lowercase second in
-    s1.[0] <- Char.uppercase s1.[0];
     let s3 = sprintf "%s.%s" s1 s2 in
     (sprintf "%s list" s3, sprintf "%s_" s3) in
   let c_of_ml = sprintf "%s_val_list" c_name in

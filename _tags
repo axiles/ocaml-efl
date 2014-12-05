@@ -1,7 +1,3 @@
-<src/eina_*>: efl
-<src/evas_*>: efl
-<src/edje_*>: efl
-<src/elm_*>: efl
 "src/ecore.cmx": for-pack(Efl)
 "src/ecore_timer.cmx": for-pack(Efl)
 "src/evas.cmx": for-pack(Efl)
@@ -91,6 +87,7 @@
 "src/hstructs.cmx": for-pack(Efl)
 "src/autofun.cmx": for-pack(Efl)
 "src/autofun_check.cmx": for-pack(Efl)
+"src/common.cmx": for-pack(Efl)
 <src/efl.{cma,cmxa}>: use_libefl_stubs
 <examples/*.byte>: use_libefl_stubs, examples
 <examples/*.native>: use_libefl_stubs, examples
@@ -99,4 +96,4 @@
 <examples/genlist_example_04.byte>: pkg_unix
 <examples/progressbar_example.*>: pkg_thread
 <examples/test_efl_ocaml_threads*>: pkg_thread
-<examples/myglview_example*>: pkg_lablgl
+#<examples/myglview_example*>: pkg_lablgl

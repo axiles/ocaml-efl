@@ -1,5 +1,17 @@
 open Format
 
+let string_iteri f s =
+  for i = 0 to String.length s - 1 do
+    f i s.[i]
+  done
+
+(* Forward compatible implementation of String.mapi *)
+let string_mapi f s =
+  let buf = Buffer.create (String.length s) in
+  let aux i c = Buffer.add_char buf (f i c) in
+  string_iteri aux s;
+  Buffer.contents buf
+  
 module Ty = struct
   type t = {
     name : string;
@@ -44,10 +56,7 @@ end = struct
   }
   let create env e =
     let c_name = e.Expr.Field.name in
-    let ml_name = String.copy (String.lowercase c_name) in
-    for i = 0 to String.length ml_name - 1 do
-      if ml_name.[i] = '.' then ml_name.[i] <- '_'
-    done;
+    let ml_name = string_mapi (fun i c -> if c = '.' then '_' else c) c_name in
     let e_ty = e.Expr.Field.ty in
     let ty = match Tys.find env e_ty with
     | None -> failwith (sprintf "Unknown type %s" e_ty)
@@ -98,9 +107,8 @@ end = struct
     let c_name = e.E.c_name in
     let modu =
       if e.E.modu then (
-        let s = String.copy ml_name in
-        s.[0] <- Char.uppercase s.[0];
-        Some s)
+        let aux i c = if i = 0 then Char.uppercase c else c in
+        Some (string_mapi aux ml_name))
       else None in
     let ptr = e.E.ptr in
     let fields = List.map (Field.create env) e.E.fields in

@@ -152,7 +152,7 @@ let write_big_mli () =
     let modules = string_list_of_file mlpack_name in
     let check_public = function
       | "Henums" | "Henums_check" | "Hstructs"
-        | "Autofun" | "Autofun_check" -> false
+        | "Autofun" | "Autofun_check" | "Common" -> false
       | _ -> true in
     let public_modules = List.filter check_public modules in
     let mli_of_module s = "src" / String.uncapitalize s ^ ".mli" in
@@ -229,6 +229,8 @@ let rule_examples () =
   flag ["link"; "pkg_thread"] (Sh "-thread unix.cma threads.cma");
   flag ["compile"; "pkg_thread"] (Sh "-thread");
   if lablgl_available then (
+    tag_file "examples/myglview_example.cmo" ["pkg_lablgl"];
+    tag_file "examples/myglview_example.byte" ["pkg_lablgl"];
     flag ["compile"; "pkg_lablgl"] (Sh (sprintf "-I %s" lablgl_dir));
     flag ["link"; "pkg_lablgl"] (Sh (sprintf "-I %s lablgl.cma" lablgl_dir))
   )

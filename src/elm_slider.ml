@@ -5,42 +5,7 @@ module AF = Autofun.Elm_slider.F (struct
 end)
 include AF
 
-(* This replace every % by %% *)
-let fstring_of_string s =
-  let num_percent = ref 0 in
-  String.iter (fun c -> if c = '%' then incr num_percent) s;
-  let s1 = String.create (String.length s + !num_percent) in
-  let rec aux i j =
-    if i >= String.length s then ()
-    else (
-      let c = s.[i] in
-      if c = '%' then (
-        s1.[j] <- '%';
-        s1.[j + 1] <- '%';
-        aux (i + 1) (j + 2)
-      ) else (
-        s1.[j] <- c;
-        aux (i + 1) (j + 1))) in
-  aux 0 0;
-  s1
-
-module FU : sig
-  type t
-  val create : unit -> t
-  val replace : t -> Evas.obj -> (float -> string) -> unit
-  val remove : t -> Evas.obj -> unit
-  val find : t -> Evas.obj -> (float -> string) option
-end = struct
-  module M = Map.Make (struct
-    type t = Evas.obj
-    let compare : Evas.obj -> Evas.obj -> int = compare
-  end)
-  type t = (float -> string) M.t ref
-  let create () = ref M.empty
-  let replace fu obj f = fu := M.add obj f !fu
-  let remove fu obj = fu := M.remove obj !fu
-  let find fu obj = try Some (M.find obj !fu) with Not_found -> None
-end
+open Common
 
 let fu = FU.create ()
 let fu_ind = FU.create ()

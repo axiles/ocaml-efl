@@ -1,5 +1,17 @@
 open Format
 
+let string_iteri f s =
+  for i = 0 to String.length s - 1 do
+    f i s.[i]
+  done
+
+(* Forward compatible implementation of String.mapi *)
+let string_mapi f s =
+  let buf = Buffer.create (String.length s) in
+  let aux i c = Buffer.add_char buf (f i c) in
+  string_iteri aux s;
+  Buffer.contents buf
+  
 let elm_eo_class_obj = Array.length Sys.argv >= 3
 
 module Event_info : sig
@@ -84,9 +96,8 @@ end = struct
   type t = {name : string; ml_name : string; ty : ty}
   let ml_name_of_name name =
     let ml_name = String.sub name 1 (String.length name - 2) in
-    for i = 0 to String.length ml_name - 1 do
-      if ml_name.[i] = ',' then ml_name.[i] <- '_'
-    done;
+    let aux i c = if c = ',' then '_' else c in
+    let ml_name = string_mapi aux ml_name in
     match ml_name with
     | "end" | "done" -> sprintf "_%s" ml_name
     | _ -> ml_name
@@ -153,9 +164,8 @@ end = struct
     signals : Signal.t list
   }
   let ml_name_of_name name =
-    let ml_name = String.copy name in
-    ml_name.[0] <- Char.uppercase name.[0];
-    ml_name
+    let aux i c = if i = 0 then Char.uppercase c else c in
+    string_mapi aux name
   let get_expr name =
     let ( / ) = Filename.concat in
     let filename = "src" / "write_connect" / (sprintf "%s.txt" name) in

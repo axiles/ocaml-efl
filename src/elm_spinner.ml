@@ -5,27 +5,10 @@ module AF = Autofun.Elm_spinner.F (struct
 end)
 include AF
 
+open Common
+             
 let ht = Hashtbl.create 15
 
-(* This replace every % by %% *)                                                 
-let fstring_of_string s =                                                        
-  let num_percent = ref 0 in                                                     
-  String.iter (fun c -> if c = '%' then incr num_percent) s;                     
-  let s1 = String.create (String.length s + !num_percent) in                     
-  let rec aux i j =                                                              
-    if i >= String.length s then ()                                              
-    else (                                                                       
-      let c = s.[i] in                                                           
-      if c = '%' then (                                                          
-        s1.[j] <- '%';                                                           
-        s1.[j + 1] <- '%';                                                       
-        aux (i + 1) (j + 2)                                                      
-      ) else (                                                                   
-        s1.[j] <- c;                                                             
-        aux (i + 1) (j + 1))) in                                                 
-  aux 0 0;                                                                       
-  s1                                                                             
-              
 external label_format_set_aux : Evas.obj -> string -> unit =
   "ml_elm_spinner_label_format_set"
 
