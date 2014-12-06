@@ -93,6 +93,13 @@ PREFIX value ml_ecore_timer_add(value v_x, value v_fun)
         return (value) v_fun;
 }
 
+PREFIX value ml_ecore_main_loop_thread_safe_call_async(value v_fun)
+{
+        value* data = ml_register_value(v_fun);
+        ecore_main_loop_thread_safe_call_async(ml_Ecore_Cb_free, data);
+        return Val_unit;
+}
+
 PREFIX value ml_ecore_main_loop_thread_safe_call_sync(value v_fun)
 {
         CAMLparam1(v_fun);

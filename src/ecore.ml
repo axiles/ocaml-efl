@@ -30,6 +30,9 @@ type 'a event_handler_cb = 'a event_type -> 'a -> bool
 
 external x_window_focus : x_window -> unit = "ml_ecore_x_window_focus"
 
+external main_loop_thread_safe_call_async : cb -> unit =
+  "ml_ecore_main_loop_thread_safe_call_async"
+
 external main_loop_thread_safe_call_sync : cb -> unit =
   "ml_ecore_main_loop_thread_safe_call_sync"
 

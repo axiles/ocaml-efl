@@ -42,6 +42,8 @@ type event
 
 val x_window_focus : x_window -> unit
 
+val main_loop_thread_safe_call_async : cb -> unit
+
 val main_loop_thread_safe_call_sync : cb -> unit
 
 (** Same thing as Ecore.main_loop_thread_safe_call_sync except that:
