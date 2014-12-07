@@ -90,7 +90,13 @@ PREFIX value ml_ecore_timer_add(value v_x, value v_fun)
                 ml_remove_value(data);
                 caml_failwith("ecore_timer_add");
         }
-        return (value) v_fun;
+        return (value) timer;
+}
+
+PREFIX value ml_ecore_timer_delay(value v_timer, value v_x)
+{
+        ecore_timer_delay((Ecore_Timer*) v_timer, Double_val(v_x));
+        return Val_unit;
 }
 
 PREFIX value ml_ecore_main_loop_thread_safe_call_async(value v_fun)
