@@ -37,6 +37,8 @@ AC_DEFUN([AC_PROG_OCAML],
 	if test "$TMPVERSION" != "$OCAMLVERSION" ; then
 	    AC_MSG_RESULT([versions differs from ocamlc; ocamlopt discarded.])
 	    OCAMLOPT=no
+  elif test `$OCAMLCDOTOPT -where 2>/dev/null || $OCAMLCDOTOPT -v|tail -1|cut -d ' ' -f 4` != "$OCAMLLIB"; then
+            AC_MSG_RESULT([library path differs from ocamlc; ocamlc.opt discarded])
 	else
 	    OCAMLBEST=opt
 	fi
@@ -50,6 +52,8 @@ AC_DEFUN([AC_PROG_OCAML],
 	TMPVERSION=`$OCAMLCDOTOPT -v | sed -n -e 's|.*version* *\(.*\)$|\1|p' `
 	if test "$TMPVERSION" != "$OCAMLVERSION" ; then
 	    AC_MSG_RESULT([versions differs from ocamlc; ocamlc.opt discarded.])
+  elif test `$OCAMLOPTDOTOPT -where 2>/dev/null || $OCAMLOPTDOTOPT -v|tail -1|cut -d ' ' -f 4` != "$OCAMLLIB"; then
+              AC_MSG_RESULT([library path differs from ocamlc; ocamlopt.opt discarded])
 	else
 	    OCAMLC=$OCAMLCDOTOPT
 	fi
