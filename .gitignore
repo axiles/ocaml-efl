@@ -12,3 +12,4 @@ config.status
 missing
 src/META
 examples/list.txt
+ocaml-efl-*.tar.gz
