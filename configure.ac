@@ -45,10 +45,20 @@ AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
   ELM_EO_CLASS_OBJ="no"
 ], [])
 
-dnl Checking for Lablgl (used to define an example, optional)
+dnl Checking for Lablgl (used to compile an example, optional)
 AC_CHECK_OCAML_PKG([lablgl])
-AS_IF([test OCAML_PKG_lablgl = "no"], [], [
+AS_IF([test OCAML_PKG_lablgl = "no"], [
+  AC_MSG_WARN(["Could not find lablgl. Some examples won't be compiled"])
+], [
   AC_SUBST([LABGL_DIR], [$($OCAMLFIND query lablgl)])
+])
+
+dnl Checking for Lwt (used to compile an example, optional
+AC_CHECK_OCAML_PKG([lwt.extra])
+AS_IF([test OCAML_PKG_lwt_extra = "no"],
+  AC_MSG_WARN(["Could not find Lwt. Some examples won't be compiled"])
+], [
+  AC_SUBST([LWT_DIR], [$($OCAMLFIND query lwt.extra)])
 ])
 
 dnl Get the list of the examples

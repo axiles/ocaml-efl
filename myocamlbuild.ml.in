@@ -14,6 +14,8 @@ let ocamlfind_destdir = "@OCAMLFIND_DESTDIR@"
 let native_available = ocamlc != ocamlbest
 let lablgl_available = "@OCAML_PKG_lablgl@" <> "no"
 let lablgl_dir = "@LABGL_DIR@"
+let lwt_available = "@OCAML_PKG_lwt_extra@" <> "no"
+let lwt_dir = "@LWT_DIR@"
 
 (* Set the toolchain from the autoconf variables *)
 let set_options () =
