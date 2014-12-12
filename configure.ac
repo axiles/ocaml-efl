@@ -47,16 +47,16 @@ AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
 
 dnl Checking for Lablgl (used to compile an example, optional)
 AC_CHECK_OCAML_PKG([lablgl])
-AS_IF([test OCAML_PKG_lablgl = "no"], [
-  AC_MSG_WARN(["Could not find lablgl. Some examples won't be compiled"])
+AS_IF([test $OCAML_PKG_lablgl = "no"], [
+  AC_MSG_WARN([Lablgl example will not be compiled])
 ], [
   AC_SUBST([LABGL_DIR], [$($OCAMLFIND query lablgl)])
 ])
 
 dnl Checking for Lwt (used to compile an example, optional
 AC_CHECK_OCAML_PKG([lwt.extra])
-AS_IF([test OCAML_PKG_lwt_extra = "no"],
-  AC_MSG_WARN(["Could not find Lwt. Some examples won't be compiled"])
+AS_IF([test $OCAML_PKG_lwt_extra = "no"], [
+  AC_MSG_WARN([Lwt example will not be compiled])
 ], [
   AC_SUBST([LWT_DIR], [$($OCAMLFIND query lwt.extra)])
 ])

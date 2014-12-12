@@ -217,6 +217,7 @@ let rule_examples () =
     let list = string_list_of_file dep in
     let list1 = List.filter (function
       | "myglview_example" -> lablgl_available
+      | "lwt_example" -> lwt_available
       | x -> true) list in
     let aux x =
       if native_available && x = "test" then [sprintf "examples/%s.native" x]
