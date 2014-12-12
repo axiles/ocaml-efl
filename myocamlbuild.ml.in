@@ -235,6 +235,14 @@ let rule_examples () =
     tag_file "examples/myglview_example.byte" ["pkg_lablgl"];
     flag ["compile"; "pkg_lablgl"] (Sh (sprintf "-I %s" lablgl_dir));
     flag ["link"; "pkg_lablgl"] (Sh (sprintf "-I %s lablgl.cma" lablgl_dir))
+  );
+  if lwt_available then (
+    tag_file "examples/lwt_example.cmo" ["pkg_lwt"];
+    tag_file "examples/lwt_example.byte" ["pkg_lwt"];
+    flag ["compile"; "pkg_lwt"] (Sh (sprintf "-I %s" lwt_dir));
+    flag ["link"; "pkg_lwt"]  (Sh (sprintf
+      "-I %s bigarray.cma lwt.cma lwt-unix.cma lwt-preemptive.cma lwt-extra.cma"
+      lwt_dir))
   )
     
 let () = dispatch & fun h ->

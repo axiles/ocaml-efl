@@ -96,4 +96,5 @@
 <examples/genlist_example_04.byte>: pkg_unix
 <examples/progressbar_example.*>: pkg_thread
 <examples/test_efl_ocaml_threads*>: pkg_thread
+<examples/lwt_example*>: pkg_thread
 #<examples/myglview_example*>: pkg_lablgl
