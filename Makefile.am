@@ -16,7 +16,7 @@ native:
 
 install:
 	@mkdir -p $(DESTDIR)$(OCAMLFIND_DESTDIR)
-	@$(OCAMLFIND) install $(OCAMLFIND_OPT) efl src/META _build/src/efl.cma \
+	@$(OCAMLFIND) install $(OCAMLFIND_OPT) efl META _build/src/efl.cma \
 		_build/src/efl.cmi -optional _build/src/efl.cmxa \
 		-optional _build/src/efl.cmxs _build/src/dllefl_stubs.so \
 		-optional _build/src/libefl_stubs.a -optional _build/src/efl.a
