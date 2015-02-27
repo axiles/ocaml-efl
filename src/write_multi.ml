@@ -3,9 +3,13 @@ open Printf
 
 type kind = ML | C
 
+type cmp =
+| Geq
+| Leq
+
 type line =
 | Normal of string
-| Begin_section of string
+| Begin_section of cmp * int
 | End_section
 | End_file
 
@@ -17,51 +21,56 @@ let kind = match Sys.argv.(1) with
   | _ -> failwith "Wrong kind"
 
 let version =
-  try sscanf Sys.argv.(2) "%d.%d.%d" (fun x y z -> sprintf "%d.%d" x y)
+  try sscanf Sys.argv.(2) "%d.%d.%d" (fun x y z -> y)
   with Scan_failure _ -> failwith "Wrong version number"
 
 let input_file = Sys.argv.(3)
 
 let output_file = Sys.argv.(4)
 
+(* Ugly function *)
 let read_line ch =
-  try (
+    try (
     let s = input_line ch in
-    if s = "" then Normal s else
-    let f (x : ('a, 'b, 'c, 'd, 'e, 'f) format6) = x in
-    let (fmt_open, s_close) = match kind with
-      | ML -> (f "(* BEGIN: %s *)", "(* END *)")
-      | C -> (f "/* BEGIN: %s */", "/* END */") in
-    try sscanf s fmt_open (fun x -> Begin_section x) with Scan_failure _ ->
-    if s = s_close then End_section
-    else Normal s
-  ) with End_of_file -> End_file
-
-let is_section_valid version sec =
-  try
-    let version = sscanf version "1.%d" (fun x -> x) in
-    let sec = sscanf sec "1.%d" (fun x -> x) in
-    sec <= version
-  with Scan_failure _ ->
-  (*match version, sec with
-  | ("1.11", "1.12") |
-    ("1.10", "1.11") | ("1.10", "1.12") |
-    ("1.9", "1.10") | ("1.9", "1.11") | ("1.9", "1.12") |
-    ("1.8", "1.9") | ("1.8", "1.10") | ("1.8", "1.11") | ("1.8", "1.12") ->
-      false
-  |
-    ("1.9", "1.9") |
-    ("1.10", "1.9") | ("1.10", "1.10") |
-    ("1.11", "1.9") | ("1.11", "1.10") | ("1.11", "1.11") |
-    ("1.12", "1.9") | ("1.12", "1.10") | ("1.12", "1.11") | ("1.12", "1.12") ->
-      true
-  | _ ->*) failwith (sprintf "Wrong section: %s %s" version sec)
+    if s = "" then Normal "" else
+    let patern1 () =
+      let fmt = match kind with
+      | ML -> format_of_string "(* BEGIN: 1.%d *)"
+      | C -> format_of_string "/* BEGIN: 1.%d */" in
+      sscanf s fmt (fun x -> Begin_section(Geq, x)) in
+    let patern2 () =
+      let fmt = match kind with
+      | ML -> format_of_string "(* BEGIN: %s 1.%d *)"
+      | C -> format_of_string "/* BEGIN: %s 1.%d */" in
+      sscanf s fmt (fun x y ->
+        let x1 = match x with
+        | "<=" -> Leq
+        | ">=" -> Geq
+        | _ -> failwith (sprintf "Wrong operator %s" x) in
+        Begin_section(x1, y)) in
+    let patern3 () =
+      let fmt = match kind with
+      | ML -> "(* END *)"
+      | C -> "/* END */" in
+      if s = fmt then End_section
+      else raise Exit in
+    let rec aux = function
+    | [] -> Normal s
+    | f :: fs ->
+      try f () with Scan_failure _ | Exit -> aux fs in
+    aux [patern1; patern2; patern3]) with End_of_file -> End_file
+ 
+let is_section_valid version cmp sec = 
+  let f = match cmp with
+  | Geq -> ( >= )
+  | Leq -> ( <= ) in
+  f version sec
 
 let rec read_file ch_in ch_out =
   match read_line ch_in with
   | Normal s -> fprintf ch_out "%s\n" s; read_file ch_in ch_out
-  | Begin_section sec ->
-    let valid = is_section_valid version sec in
+  | Begin_section(cmp, sec) ->
+    let valid = is_section_valid version cmp sec in
     read_section valid ch_in ch_out
   | End_section -> failwith "Unexpected end of section"
   | End_file -> ()

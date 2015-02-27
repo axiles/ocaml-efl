@@ -43,12 +43,28 @@ val all_flush : unit -> unit
 (** {2 Elementary Engine} *)
 
 val engine_get : unit -> string
+(* BEGIN: 1.13 *)
+(** @deprecated Use accel_preference_get instead *)
+(* DEPRICATED *)
+(* END *)
 
 val engine_set : string -> unit
+(* BEGIN: 1.13 *)
+(** @deprecated  Use accel_preference_set instead *)
+(* DEPRICATED *)
+(* END *)
 
 val preferred_engine_get : unit -> string
+(* BEGIN: 1.13 *)
+(** @deprecated Use accel_preference_get instead *)
+(* DEPRICATED *)
+(* END *)
 
 val preferred_engine_set : string -> unit
+(* BEGIN: 1.13 *)
+(** @deprecated Use accel_preference_set instead *)
+(* DEPRICATED *)
+(* END *)
 
 (* BEGIN: 1.10 *)
 val accel_preference_get : unit -> string
