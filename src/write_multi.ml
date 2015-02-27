@@ -38,7 +38,12 @@ let read_line ch =
   ) with End_of_file -> End_file
 
 let is_section_valid version sec =
-  match version, sec with
+  try
+    let version = sscanf version "1.%d" (fun x -> x) in
+    let sec = sscanf sec "1.%d" (fun x -> x) in
+    sec <= version
+  with Scan_failure _ ->
+  (*match version, sec with
   | ("1.11", "1.12") |
     ("1.10", "1.11") | ("1.10", "1.12") |
     ("1.9", "1.10") | ("1.9", "1.11") | ("1.9", "1.12") |
@@ -50,7 +55,7 @@ let is_section_valid version sec =
     ("1.11", "1.9") | ("1.11", "1.10") | ("1.11", "1.11") |
     ("1.12", "1.9") | ("1.12", "1.10") | ("1.12", "1.11") | ("1.12", "1.12") ->
       true
-  | _ -> failwith (sprintf "Wrong section: %s %s" version sec)
+  | _ ->*) failwith (sprintf "Wrong section: %s %s" version sec)
 
 let rec read_file ch_in ch_out =
   match read_line ch_in with

@@ -25,7 +25,11 @@ type ty = [
   | `combo
   | `dnd
   | `inlined_image
-  | `socket_image]
+  | `socket_image
+(* BEGIN: 1.13 *)
+  | `fake
+(* END *)
+]
 
 type keyboard_mode = [
   | `unknown

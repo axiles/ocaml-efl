@@ -10,6 +10,9 @@ type tween_mode = [
 | `divisor_interp
 | `bounce
 | `spring
+(* BEGIN: 1.13 *)
+| `bezier_curve
+(* END *)
 ]
 
 type effect_flip_axis = [`x | `y]
