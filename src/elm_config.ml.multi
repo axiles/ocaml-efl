@@ -1,6 +1,7 @@
 module AF = Autofun.Elm_config.F (struct
 (* BEGIN: 1.13 *)
 type elm_slider_indicator_visible_mode = Elm.slider_indicator_visible_mode
+type evas_font_hinting_flags = Evas_font.hinting_flags
 (* END *)
 end)
 include AF

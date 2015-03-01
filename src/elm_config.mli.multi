@@ -121,6 +121,10 @@ val font_overlay_unset : string -> unit
 
 val font_overlay_apply : unit -> unit
 
+(* BEGIN: 1.13 *)
+val font_hint_type_set : Evas_font.hinting_flags -> unit
+(* END *)
+
 (** {2 Elementary Profile} *)
 
 val profile_get : unit -> string
