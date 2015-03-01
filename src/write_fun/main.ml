@@ -2,6 +2,7 @@ open Format
 open Common
 
 let list = [
+  ("Elm_config", Elm_config.funs);
   ("Elm_bg", Elm_bg.funs);
   ("Elm_box", Elm_box.funs);
   ("Elm_bubble", Elm_bubble.funs);

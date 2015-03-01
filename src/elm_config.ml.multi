@@ -1,3 +1,10 @@
+module AF = Autofun.Elm_config.F (struct
+(* BEGIN: 1.13 *)
+type elm_slider_indicator_visible_mode = Elm.slider_indicator_visible_mode
+(* END *)
+end)
+include AF
+
 (* Cache *)
 
 external cache_flush_interval_get : unit -> int =

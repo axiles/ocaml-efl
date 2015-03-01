@@ -26,6 +26,17 @@ type focus_direction = [
 type focus_move_policy = [`click | `_in]
 (* END *)
 
+(* BEGIN: 1.13 *)
+
+type slider_indicator_visible_mode = [
+  | `default
+  | `always
+  | `on_focus
+  | `none
+]
+
+(* END *)
+
 (** {2 General} *)
 
 type policy_quit = [`none | `last_window_closed]

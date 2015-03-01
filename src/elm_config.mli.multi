@@ -173,6 +173,14 @@ val first_item_focus_on_first_focusin_get : unit -> bool
 val first_item_focus_on_first_focusin_set : bool -> unit
 (* END *)
 
+(* BEGIN: 1.13 *)
+val slider_indicator_visible_mode_set :
+  Elm.slider_indicator_visible_mode ->  unit
+
+val slider_indicator_visible_mode_get :
+  unit ->  Elm.slider_indicator_visible_mode
+(* END *)
+
 (* BEGIN: 1.10 *)
 (** {2 Colors} *)
 
