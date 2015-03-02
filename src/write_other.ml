@@ -1,6 +1,8 @@
 open Format
 
 let ptr_types = [
+  "Evas";
+  "Ecore_Evas";
   "Evas_Modifier";
   "Evas_Object";
   "Evas_Device";

@@ -16,6 +16,8 @@ type timer
 
 type window
 
+type evas
+
 type x_window = int
 
 type wl_window

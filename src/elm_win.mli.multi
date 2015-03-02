@@ -91,7 +91,15 @@ that in the latter case there is a background in the window *)
 val type_get : Evas.obj -> ty
 (* END *)
 
+(* BEGIN: 1.13 *)
+val fake_add : Ecore.evas -> Evas.obj
+(* END *)
+
 val util_standard_add : string -> string -> Evas.obj
+
+(* BEGIN: 1.13 *)
+val util_dialog_add : Evas.obj -> string -> string -> Evas.obj
+(* END *)
 
 val resize_object_add : Evas.obj -> Evas.obj -> unit
 

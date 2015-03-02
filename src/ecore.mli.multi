@@ -12,6 +12,8 @@ type timer
 
 type window
 
+type evas
+
 type x_window
 
 type wl_window

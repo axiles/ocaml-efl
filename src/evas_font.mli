@@ -1,3 +1,5 @@
+(** Evas Font *)
+
 type hinting_flags = [`none | `auto | `bytecode]
 
 val hinting_set : Evas.t -> hinting_flags -> unit

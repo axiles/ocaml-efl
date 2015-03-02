@@ -6,6 +6,7 @@
 "src/evas_map.cmx": for-pack(Efl)
 "src/evas_object.cmx": for-pack(Efl)
 "src/evas_object_smart.cmx": for-pack(Efl)
+"src/ecore_evas.cmx": for-pack(Efl)
 "src/ethumb.cmx": for-pack(Efl)
 "src/edje.cmx": for-pack(Efl)
 "src/elm.cmx": for-pack(Efl)

@@ -16,3 +16,5 @@ ELM_OBJ_WIN_CLASS
 "profile,changed"
 "focused"
 "unfocused"                                                      
+"theme,changed"
+

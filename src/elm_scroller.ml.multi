@@ -48,5 +48,7 @@ external last_page_get : Evas.obj -> int * int =
 
 external gravity_get : Evas.obj -> float * float = "ml_elm_scroller_gravity_get"
 
+(* BEGIN: 1.13 *)
 external step_size_get : Evas.obj -> int * int = "ml_elm_scroller_step_size_get"
+(* END *)
 

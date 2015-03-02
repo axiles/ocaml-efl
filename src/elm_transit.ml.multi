@@ -24,6 +24,11 @@ external del_cb_set : t -> (t -> unit) -> unit = "ml_elm_transit_del_cb_set"
 external tween_mode_factor_get : t -> float * float =
   "ml_elm_transit_tween_mode_factor_get"
 
+(* BEGIN: 1.13 *)
+external tween_mode_factor_n_set : t -> float array -> unit =
+  "ml_elm_transit_tween_mode_factor_n_set"
+(* END *)
+
 external chain_transits_get : t -> t list = "ml_elm_transit_chain_transits_get"
 
 external effect_image_animation_add : t -> string list -> unit =

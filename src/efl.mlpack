@@ -8,6 +8,7 @@ Evas_font
 Evas_map
 Evas_object
 Evas_object_smart
+Ecore_evas
 Ethumb
 Edje
 Elm

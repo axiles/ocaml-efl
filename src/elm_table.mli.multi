@@ -12,6 +12,12 @@ val padding_set : Evas.obj -> int -> int -> unit
 
 val padding_get : Evas.obj -> int * int
 
+(* BEGIN: 1.13 *)
+val align_set : Evas.obj -> float -> float -> unit
+
+val align_get : Evas.obj -> float * float
+(* END *)
+
 val pack : Evas.obj -> Evas.obj -> int -> int -> int -> int -> unit
 
 val unpack : Evas.obj -> Evas.obj -> unit

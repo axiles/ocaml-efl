@@ -17,6 +17,19 @@ PREFIX value ml_elm_table_padding_get(value v_obj)
         return v_r;
 }
 
+/* BEGIN: 1.13 */
+PREFIX value ml_elm_table_align_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double x, y;
+        elm_table_align_get(Evas_Object_val(v_obj), &x, &y);
+        Store_field(v_r, 0, copy_double(x));
+        Store_field(v_r, 1, copy_double(y));
+        CAMLreturn(v_r);
+}
+/* END */
+
 PREFIX value ml_elm_table_pack_get(value v_obj)
 {
         Evas_Coord x, y, w, h;

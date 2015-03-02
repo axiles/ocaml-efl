@@ -17,8 +17,17 @@ external add : ?p:Evas.obj -> string -> ty -> Evas.obj =
 external type_get : Evas.obj -> ty = "ml_elm_win_type_get"
 (* END *)
 
+(* BEGIN: 1.13 *)
+external fake_add : Ecore.evas -> Evas.obj = "ml_elm_win_fake_add"
+(* END *)
+
 external util_standard_add : string -> string -> Evas.obj =
   "ml_elm_win_util_standard_add"
+
+(* BEGIN: 1.13 *)
+external util_dialog_add : Evas.obj -> string -> string -> Evas.obj =
+  "ml_elm_win_util_dialog_add"
+(* END *)
 
 external resize_object_add : Evas.obj -> Evas.obj -> unit =
   "ml_elm_win_resize_object_add"
