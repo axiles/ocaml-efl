@@ -17,3 +17,7 @@ val title_set : t -> string -> unit
 
 val title_get : t -> string
 
+val show : t -> unit
+
+val hide : t -> unit
+
