@@ -3,6 +3,7 @@ ELM_OBJ_GENGRID_CLASS
 "pressed" item
 "released" item
 "clicked,double" item
+"clicked,right" item
 "longpressed"
 "selected" item
 "unselected" item

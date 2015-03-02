@@ -20,5 +20,8 @@ let funs = [
   prop "propagate_events" bool;
   simple_unit "gravity_set" [evas_object; double; double];
   prop_flags "movement_block" movement_block;
+(* BEGIN: 1.13 *)
+  simple_unit "step_size_set" [evas_object; int; int];
+(* END *)
 ]
 

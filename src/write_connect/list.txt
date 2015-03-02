@@ -1,6 +1,7 @@
 ELM_OBJ_LIST_CLASS
 "activated" item
 "clicked,double" item
+"clicked,right" item
 "selected"
 "unselected"
 "longpressed"

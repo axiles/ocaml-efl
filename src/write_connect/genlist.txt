@@ -3,6 +3,7 @@ ELM_OBJ_GENLIST_CLASS
 "pressed" item
 "released" item
 "clicked,double" item
+"clicked,right" item
 "selected" item
 "unselected" item
 "expanded" item
@@ -17,6 +18,7 @@ ELM_OBJ_GENLIST_CLASS
 "drag,start,right"
 "drag,stop"
 "drag" item
+"scroll"
 "scroll,anim,start"
 "scroll,anim,stop"
 "scroll,drag,start"

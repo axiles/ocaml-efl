@@ -143,3 +143,15 @@ PREFIX value ml_elm_scroller_gravity_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+PREFIX value ml_elm_scroller_step_size_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        Evas_Coord x, y;
+        elm_scroller_step_size_get(Evas_Object_val(v_obj), &x, &y);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_int(x));
+        Store_field(v_r, 1, Val_int(y));
+        CAMLreturn(v_r);
+}
+
