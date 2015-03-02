@@ -300,6 +300,8 @@ let elm_autocapital_type = simple_ty "Elm" "Autocapital_Type"
 let elm_input_panel_lang = simple_ty "Elm" "Input_Panel_Lang"
 let elm_input_panel_return_key_type =
   simple_ty "Elm" "Input_Panel_Return_Key_Type"
+let elm_focus_autoscroll_mode = simple_ty "Elm" "Focus_Autoscroll_Mode"
+let elm_focus_move_policy = simple_ty "Elm" "Focus_Move_Policy"
 let elm_cnp_mode = simple_ty "Elm" "Cnp_Mode"
 let elm_object_select_mode = simple_ty "Elm_Object" "Select_Mode"
 let ecore_pos_map = simple_ty "Ecore" "Pos_Map"

@@ -1,0 +1,88 @@
+open Common
+
+(* BEGIN: 1.13 *)
+let slider_indicator_visible_mode =
+  simple_ty "Elm" "Slider_Indicator_Visible_Mode"
+(* END *)
+
+let funs = [
+(* Cache *)
+  prop ~args:[] "cache_flush_interval" int;
+  prop ~args:[] "cache_flush_enabled" bool;
+  prop ~args:[] "cache_font_cache_size" int;
+  prop ~args:[] "cache_image_cache_size" int;
+  prop ~args:[] "cache_edje_file_cache_size" int;
+  prop ~args:[] "cache_edje_collection_cache_size" int;
+(* Cursors *)
+  prop ~args:[] "cursor_engine_only" bool;
+(* Elementary Config *)
+  simple "save" [] bool;
+  simple_unit "reload" [];
+  simple_unit "all_flush" [];
+(* Elementary engine *)
+(* BEGIN: 1.10 *)
+  prop ~args:[] "accel_preference" safe_string;
+(* END *)
+  prop ~args:[] "access" bool;
+  prop ~args:[] "selection_unfocused_clear" bool;
+  prop ~args:[] "mirrored" bool;
+  prop ~args:[] "clouseau_enabled" bool;
+  simple "indicator_service_get" [int] safe_string;
+  prop ~args:[] "glayer_long_tap_start_timeout" double;
+  prop ~args:[] "glayer_double_tap_timeout" double;
+(* BEGIN: 1.10 *)
+  prop ~args:[] "atspi_mode" bool;
+(* END *)
+(* Elementary Font *)
+  simple_unit "font_overlay_set" [safe_string; safe_string; int];
+  simple_unit "font_overlay_unset" [safe_string];
+  simple_unit "font_overlay_apply" [];
+(* Elementary Slider *)
+(* BEGIN: 1.13 *)
+  prop ~args:[] "slider_indicator_visible_mode" slider_indicator_visible_mode;
+  simple_unit "font_hint_type_set" [evas_font_hinting_flags];
+(* END *)
+(* Elementary Profile *)
+  prop ~args:[] "profile" safe_string;
+(* Fingers *)
+  prop ~args:[] "finger_size" int;
+(* Focus *)
+(* BEGIN: 1.10 *)
+  prop ~args:[] "focus_autoscroll_mode" elm_focus_autoscroll_mode;
+(* END *)
+  prop ~args:[] "focus_highlight_enabled" bool;
+  prop ~args:[] "focus_highlight_animate" bool;
+(* BEGIN: 1.10 *)
+  prop ~args:[] "focus_highlight_clip_disabled" bool;
+  prop ~args:[] "focus_move_policy" elm_focus_move_policy;
+  prop ~args:[] "item_select_on_focus_disabled" bool;
+(* END *)
+(* BEGIN: 1.11 *)
+  prop ~args:[] "first_item_focus_on_first_focusin" bool;
+(* END *)
+(* Colors *)
+(* BEGIN: 1.10 *)
+  simple_unit "color_overlay_set"
+    [safe_string; int; int; int; int; int; int; int; int; int; int; int; int];
+  simple_unit "color_overlay_unset" [safe_string];
+  simple_unit "color_overlay_apply" [];
+(* END *)
+(* Password show last *)
+  prop ~args:[] "password_show_last" bool;
+  prop ~args:[] "password_show_last_timeout" double;
+(* Elementary Scrolling *)
+  prop ~args:[] "scroll_bounce_enabled" bool;
+  prop ~args:[] "scroll_bounce_friction" double;
+  prop ~args:[] "scroll_page_scroll_friction" double;
+  prop ~args:[] "scroll_bring_in_scroll_friction" double;
+  prop ~args:[] "scroll_zoom_friction" double;
+  prop ~args:[] "scroll_thumbscroll_enabled" bool;
+  prop ~args:[] "scroll_thumbscroll_threshold" int;
+  prop ~args:[] "scroll_thumbscroll_momentum_threshold" double;
+  prop ~args:[] "scroll_thumbscroll_friction" double;
+  prop ~args:[] "scroll_thumbscroll_border_friction" double;
+  prop ~args:[] "scroll_thumbscroll_sensitivity_friction" double;
+(* Widget Scaling *)
+  prop ~args:[] "scale" double;
+]
+
