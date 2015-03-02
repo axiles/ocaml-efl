@@ -2,6 +2,7 @@ open Format
 open Common
 
 let list = [
+  ("Ecore_evas", Ecore_evas.funs);
   ("Elm_config", Elm_config.funs);
   ("Elm_bg", Elm_bg.funs);
   ("Elm_box", Elm_box.funs);

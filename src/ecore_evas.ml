@@ -1,5 +1,10 @@
 type t = Ecore.evas
 
+module AF = Autofun.Ecore_evas.F (struct
+  type ecore_evas = t
+end)
+include AF
+
 external engines_get : unit -> string list = "ml_ecore_evas_engines_get"
 
 external new_ :

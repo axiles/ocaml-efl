@@ -13,3 +13,7 @@ val create :
   ?engine_name:string -> ?x:int -> ?y:int -> w:int -> h:int ->
     ?extra_option:string -> unit -> t
 
+val title_set : t -> string -> unit
+
+val title_get : t -> string
+
