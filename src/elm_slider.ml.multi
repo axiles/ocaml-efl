@@ -5,7 +5,9 @@ module AF = Autofun.Elm_slider.F (struct
 end)
 include AF
 
+(* BEGIN: 1.13 *)
 type indicator_visible_mode = Elm.slider_indicator_visible_mode
+(* END *)
 
 open Common
 
