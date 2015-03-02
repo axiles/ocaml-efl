@@ -138,6 +138,12 @@ inline const char* String_opt_val(value v)
         else return String_val(Field(v, 0));
 }
 
+inline int Int_opt_val(value v)
+{
+        if(v == Val_int(0)) return 0;
+        else return Int_val(Field(v, 0));
+}
+
 inline value* ml_register_value(value v)
 {
         value* data = caml_stat_alloc(sizeof(value));
