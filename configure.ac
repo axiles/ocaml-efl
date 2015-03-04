@@ -27,6 +27,11 @@ AS_IF([test -z $OCAMLFIND_LDCONF], [
   OCAMLFIND_LDCONF=$OCAMLLIB/ld.conf
 ])
 
+dnl Checking for CFLAGS
+AC_ARG_VAR([CFLAGS], [
+  Other options to pass to the C compiler
+])
+
 dnl Checking for Elementary
 PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.8])
 AC_ARG_VAR([ELEMENTARY_VERSION],[

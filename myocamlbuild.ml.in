@@ -17,6 +17,8 @@ let lablgl_dir = "@LABGL_DIR@"
 let lwt_available = "@OCAML_PKG_lwt_extra@" <> "no"
 let lwt_dir = "@LWT_DIR@"
 
+let general_cflags = "@CFLAGS@"
+
 (* Set the toolchain from the autoconf variables *)
 let set_options () =
   let f x y = x := P y in
@@ -273,7 +275,8 @@ let () = dispatch & fun h ->
     dep ["examples"] ["src" / "libefl_stubs.a"];
 
     (* Insert flags and linking information about the EFL *)
-    flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s\"" elementary_cflags));
+    flag ["compile"; "c"] (Sh (sprintf "-ccopt \"%s %s\"" elementary_cflags
+      general_cflags));
     flag ["use_libefl_stubs"] (Sh (sprintf "-cclib '%s'" elementary_libs));
     flag ["ocamlmklib"] (Sh elementary_libs);
 
