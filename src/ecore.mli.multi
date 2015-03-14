@@ -65,3 +65,9 @@ val event_add : 'a event_type -> 'a -> ('a -> unit) -> event
 
 val event_del : event -> unit
 
+val time_get : unit -> float
+
+val time_unix_get : unit -> float
+
+val loop_time_get : unit -> float
+

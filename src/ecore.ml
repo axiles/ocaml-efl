@@ -1,5 +1,9 @@
 include Henums.Ecore
 
+module AF = Autofun.Ecore.F (struct
+end)
+include AF
+
 exception Not_X
 
 let _ = Callback.register_exception "Not_X exception" Not_X
