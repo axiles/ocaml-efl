@@ -4,6 +4,7 @@ open Common
 let list = [
   ("Ecore", Ecore.funs);
   ("Ecore_evas", Ecore_evas.funs);
+  ("Ecore_animator", Ecore_animator.funs);
   ("Elm_config", Elm_config.funs);
   ("Elm_bg", Elm_bg.funs);
   ("Elm_box", Elm_box.funs);

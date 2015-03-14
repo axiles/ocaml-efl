@@ -16,6 +16,8 @@ type cb = unit -> unit
 
 type task_cb = unit -> bool
 
+type timeline_cb = float -> bool
+
 type timer
 
 type window
@@ -29,6 +31,8 @@ type wl_window
 type 'a event_type (* It is an integer *)
 
 type event
+
+type animator
 
 type event_handler
 

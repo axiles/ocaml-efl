@@ -6,6 +6,7 @@ evas_map_wrap.o
 evas_object_wrap.o
 evas_object_event_wrap.o
 ecore_wrap.o
+ecore_animator_wrap.o
 ecore_evas_wrap.o
 ethumb_wrap.o
 edje_wrap.o

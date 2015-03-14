@@ -1,6 +1,7 @@
 # OASIS_START
 # DO NOT EDIT (digest: dc1f7df494b86522154ff55102fcc2be)
 Ecore
+Ecore_animator
 Ecore_timer
 Evas
 Evas_event
@@ -8,6 +9,7 @@ Evas_font
 Evas_map
 Evas_object
 Evas_object_smart
+Ecore_evas
 Ethumb
 Edje
 Elm

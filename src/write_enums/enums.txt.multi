@@ -16,6 +16,13 @@ Section Ecore {
   }
 }
 
+Section Ecore_animator {
+  Enum Ecore_Animator_Source {
+    ECORE_ANIMATOR_SOURCE_TIMER
+    ECORE_ANIMATOR_SOURCE_CUSTOM
+  }
+}
+
 Section Evas {
   Enum Evas_Aspect_Control {
     EVAS_ASPECT_CONTROL_NONE

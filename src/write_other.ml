@@ -1,6 +1,7 @@
 open Format
 
 let ptr_types = [
+  "Ecore_Animator";
   "Evas";
   "Ecore_Evas";
   "Evas_Modifier";

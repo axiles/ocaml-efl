@@ -14,7 +14,13 @@ PREFIX void raise_not_Wayland()
         caml_raise_constant(*e);
 }
 
-void* ml_Ecore_Cb(void* data)
+void ml_Ecore_Cb(void* data)
+{
+        value* v_fun = (value*) data;
+        caml_callback(*v_fun, Val_unit);
+}
+
+void* ml_Ecore_Data_Cb(void* data)
 {
         value* v_fun = (value*) data;
         caml_callback(*v_fun, Val_unit);
@@ -111,7 +117,7 @@ PREFIX value ml_ecore_main_loop_thread_safe_call_sync(value v_fun)
         CAMLparam1(v_fun);
         Eina_Bool is_main_loop = eina_main_loop_is();
         if(!is_main_loop) caml_release_runtime_system();
-        ecore_main_loop_thread_safe_call_sync(ml_Ecore_Cb, &v_fun);
+        ecore_main_loop_thread_safe_call_sync(ml_Ecore_Data_Cb, &v_fun);
         if(!is_main_loop) caml_acquire_runtime_system();
         CAMLreturn(Val_unit);
 }

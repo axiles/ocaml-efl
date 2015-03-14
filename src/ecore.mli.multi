@@ -8,6 +8,8 @@ type cb = unit -> unit
 
 type task_cb = unit -> bool
 
+type timeline_cb = float -> bool
+
 type timer
 
 type window
@@ -41,6 +43,8 @@ type 'a event_handler_cb = 'a event_type -> 'a -> bool
 type event_handler
 
 type event
+
+type animator
 
 val x_window_focus : x_window -> unit
 

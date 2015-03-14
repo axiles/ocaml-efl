@@ -1,5 +1,6 @@
 "src/ecore.cmx": for-pack(Efl)
 "src/ecore_timer.cmx": for-pack(Efl)
+"src/ecore_animator.cmx": for-pack(Efl)
 "src/evas.cmx": for-pack(Efl)
 "src/evas_event.cmx": for-pack(Efl)
 "src/evas_font.cmx": for-pack(Efl)
