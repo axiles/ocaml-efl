@@ -57,7 +57,7 @@ inline value copy_Eina_List_Evas_Object(const Eina_List* list)
         EINA_LIST_REVERSE_FOREACH(list, it, obj) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, (value) obj);
+                Store_field(v, 0, copy_Evas_Object(obj));
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
@@ -68,7 +68,7 @@ inline Eina_List* Eina_List_Evas_Object_val(value v_list)
         Eina_List* list = NULL;
         value v = v_list;
         while(v != Val_int(0)) {
-                list = eina_list_append(list, (Evas_Object*) Field(v, 0));
+                list = eina_list_append(list, Evas_Object_val(Field(v, 0)));
                 v = Field(v, 1);
         }
         return list;
@@ -84,7 +84,7 @@ inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
         EINA_LIST_REVERSE_FOREACH(list, it, item) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, (value) item);
+                Store_field(v, 0, copy_Elm_Object_Item(item));
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
@@ -100,10 +100,14 @@ inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
 
 inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
 {
-        if(it == NULL) return Val_int(0);
-        value v_r = caml_alloc(1, 0);
-        Store_field(v_r, 0, (value) it);
-        return v_r;
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        if(it == NULL) v_r = Val_int(0);
+        else {
+          v_r = caml_alloc(1, 0);
+          Store_field(v_r, 0, copy_Elm_Object_Item(it));
+        }
+        CAMLreturn(v_r);
 }
 
 inline value copy_string_opt(const char* s)
@@ -120,16 +124,20 @@ inline value copy_string_opt(const char* s)
 
 inline value copy_Evas_Object_opt(const Evas_Object* obj)
 {
-        if(obj == NULL) return Val_int(0);
-        value v_r = caml_alloc(1, 0);
-        Store_field(v_r, 0, (value) obj);
-        return v_r;
+        CAMLparam0();
+        CAMLlocal1(v_r);
+        if(obj == NULL) v_r = Val_int(0);
+        else {
+          value v_r = caml_alloc(1, 0);
+          Store_field(v_r, 0, copy_Evas_Object(obj));
+        }
+        CAMLreturn(v_r);
 }
 
 inline Evas_Object* Evas_Object_opt_val(value v)
 {
         if(v == Val_int(0)) return NULL;
-        else return (Evas_Object*) Field(v, 0);
+        else return Evas_Object_val(Field(v, 0));
 }
 
 inline const char* String_opt_val(value v)
