@@ -27,15 +27,15 @@ inline value copy_Elm_Clock_Edit_Mode(Elm_Clock_Edit_Mode m)
 
 PREFIX value ml_elm_clock_add(value v_parent)
 {
-        Evas_Object* obj = elm_clock_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_clock_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_clock_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_clock_time_get(value v_obj)
 {
         int h, m, s;
-        elm_clock_time_get((Evas_Object*) v_obj, &h, &m, &s);
+        elm_clock_time_get(Evas_Object_val(v_obj), &h, &m, &s);
         value v = caml_alloc(3, 0);
         Store_field(v, 0, Val_int(h));
         Store_field(v, 1, Val_int(m));

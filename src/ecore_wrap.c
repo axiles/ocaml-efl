@@ -96,12 +96,12 @@ PREFIX value ml_ecore_timer_add(value v_x, value v_fun)
                 ml_remove_value(data);
                 caml_failwith("ecore_timer_add");
         }
-        return (value) timer;
+        return copy_Ecore_Timer(timer);
 }
 
 PREFIX value ml_ecore_timer_delay(value v_timer, value v_x)
 {
-        ecore_timer_delay((Ecore_Timer*) v_timer, Double_val(v_x));
+        ecore_timer_delay(Ecore_Timer_val(v_timer), Double_val(v_x));
         return Val_unit;
 }
 
@@ -133,7 +133,7 @@ PREFIX value ml_ecore_event_handler_add(value v_type, value v_cb)
         Ecore_Event_Handler* handler = ecore_event_handler_add(Int_val(v_type),
                 ml_Ecore_Event_Handler_Cb, data);
         if(handler == NULL) caml_failwith("ecore_event_handler_add");
-        return Val_Ecore_Event_Handler(handler);
+        return copy_Ecore_Event_Handler(handler);
 }
 
 PREFIX value ml_ecore_event_handler_del(value v_handler)
@@ -151,7 +151,7 @@ PREFIX value ml_ecore_event_add(value v_type, value v_ev, value v_func_free)
         Ecore_Event* event = ecore_event_add(Int_val(v_type), ev,
                 ml_Ecore_End_Cb_free, data_func_free);
         if(event == NULL) caml_failwith("ecore_event_add");
-        return Val_Ecore_Event(event);
+        return copy_Ecore_Event(event);
 }
 
 PREFIX value ml_ecore_event_del(value v_event)

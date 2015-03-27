@@ -21,9 +21,9 @@ PREFIX value copy_Elm_Actionslider_Pos(Elm_Actionslider_Pos pos)
 
 PREFIX value ml_elm_actionslider_add(value v_parent)
 {
-        Evas_Object* obj = elm_actionslider_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_actionslider_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_actionslider_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_actionslider_selected_label_get(value v_obj)
@@ -31,19 +31,15 @@ PREFIX value ml_elm_actionslider_selected_label_get(value v_obj)
         CAMLparam1(v_obj);
         CAMLlocal1(v_r);
         const char* label = elm_actionslider_selected_label_get(
-                (Evas_Object*) v_obj);
-        if(label == NULL) v_r = Val_int(0);
-        else {
-                v_r = caml_alloc(1, 0);
-                Store_field(v_r, 0, copy_string(label));
-        }
+                Evas_Object_val(v_obj));
+        v_r = copy_string_opt(label);
         CAMLreturn(v_r);
 }
 
 PREFIX value ml_elm_actionslider_indicator_pos_set(
         value v_obj, value v_left, value v_center, value v_right)
 {
-        elm_actionslider_indicator_pos_set((Evas_Object*) v_obj,
+        elm_actionslider_indicator_pos_set(Evas_Object_val(v_obj),
                 Elm_Actionslider_Pos_vals(v_left, v_center, v_right));
         return Val_unit;
 }
@@ -51,13 +47,13 @@ PREFIX value ml_elm_actionslider_indicator_pos_set(
 PREFIX value ml_elm_actionslider_indicator_pos_get(value v_obj)
 {
         return copy_Elm_Actionslider_Pos(elm_actionslider_indicator_pos_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_actionslider_magnet_pos_set(
         value v_obj, value v_left, value v_center, value v_right)
 {
-        elm_actionslider_magnet_pos_set((Evas_Object*) v_obj,
+        elm_actionslider_magnet_pos_set(Evas_Object_val(v_obj),
                 Elm_Actionslider_Pos_vals(v_left, v_center, v_right));
         return Val_unit;
 }
@@ -65,13 +61,13 @@ PREFIX value ml_elm_actionslider_magnet_pos_set(
 PREFIX value ml_elm_actionslider_magnet_pos_get(value v_obj)
 {
         return copy_Elm_Actionslider_Pos(elm_actionslider_magnet_pos_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_actionslider_enabled_pos_set(
         value v_obj, value v_left, value v_center, value v_right)
 {
-        elm_actionslider_enabled_pos_set((Evas_Object*) v_obj,
+        elm_actionslider_enabled_pos_set(Evas_Object_val(v_obj),
                 Elm_Actionslider_Pos_vals(v_left, v_center, v_right));
         return Val_unit;
 }
@@ -79,6 +75,6 @@ PREFIX value ml_elm_actionslider_enabled_pos_set(
 PREFIX value ml_elm_actionslider_enabled_pos_get(value v_obj)
 {
         return copy_Elm_Actionslider_Pos(elm_actionslider_enabled_pos_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 

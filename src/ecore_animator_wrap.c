@@ -55,7 +55,7 @@ PREFIX value ml_ecore_animator_add(value v_fun)
                 ml_remove_value(data);
                 caml_failwith("ecore_animator_add");
         }
-        return Val_Ecore_Animator(anim);
+        return copy_Ecore_Animator(anim);
 }
 
 PREFIX value ml_ecore_animator_del(value v_anim)

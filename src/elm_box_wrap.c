@@ -2,14 +2,14 @@
 
 PREFIX value ml_elm_box_add(value v_parent)
 {
-        Evas_Object* box = elm_box_add((Evas_Object*) v_parent);
+        Evas_Object* box = elm_box_add(Evas_Object_val(v_parent));
         if(box == NULL) caml_failwith("elm_box_add");
-        return (value) box;
+        return copy_Evas_Object(box);
 }
 
 PREFIX value ml_elm_box_children_get(value v_obj)
 {
-        Eina_List* list = elm_box_children_get((Evas_Object*) v_obj);
+        Eina_List* list = elm_box_children_get(Evas_Object_val(v_obj));
         value v = copy_Eina_List_Evas_Object(list);
         eina_list_free(list);
         return v;
@@ -18,7 +18,7 @@ PREFIX value ml_elm_box_children_get(value v_obj)
 PREFIX value ml_elm_box_padding_get(value v_obj)
 {
         Evas_Coord x, y;
-        elm_box_padding_get((Evas_Object*) v_obj, &x, &y);
+        elm_box_padding_get(Evas_Object_val(v_obj), &x, &y);
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(x));
         Store_field(v, 1, Val_int(y));
@@ -30,7 +30,7 @@ PREFIX value ml_elm_box_align_get(value v_obj)
         CAMLparam0();
         CAMLlocal1(v);
         double x, y;
-        elm_box_align_get((Evas_Object*) v_obj, &x, &y);
+        elm_box_align_get(Evas_Object_val(v_obj), &x, &y);
         v = caml_alloc(2, 0);
         Store_field(v, 0, copy_double(x));
         Store_field(v, 1, copy_double(y));
@@ -47,15 +47,15 @@ PREFIX value ml_elm_box_layout_set(value v_obj, value v_cb, value v_free_data)
         value* data = caml_stat_alloc(sizeof(value));
         *data = v;
         caml_register_generational_global_root(data);
-        elm_box_layout_set((Evas_Object*) v_obj, ml_Evas_Object_Box_Layout_0,
+        elm_box_layout_set(Evas_Object_val(v_obj), ml_Evas_Object_Box_Layout_0,
                 data, ml_Ecore_Cb_1_free);
         CAMLreturn(Val_unit);
 }
 
 PREFIX value ml_elm_box_layout_transition(value v_t, value v_obj, value v_priv)
 {
-        elm_box_layout_transition((Evas_Object*) v_obj,
-                (Evas_Object_Box_Data*) v_priv, (Elm_Box_Transition*) v_t);
+        elm_box_layout_transition(Evas_Object_val(v_obj),
+                Evas_Object_Box_Data_val(v_priv), Elm_Box_Transition_val(v_t));
         return Val_unit;
 }
 
@@ -86,7 +86,7 @@ PREFIX value ml_elm_box_transition_new_native(
                 ml_Evas_Object_Box_Layout_0, data1, ml_Ecore_Cb_1_free,
                 ml_Evas_Object_Box_Layout_0, data2, ml_Ecore_Cb_1_free,
                 ml_Ecore_Cb_free, data3);
-        CAMLreturn((value) t);
+        CAMLreturn(copy_Elm_Box_Transition(t));
 }
 
 PREFIX value ml_elm_box_transition_new_byte(value* argv, int argc)
@@ -97,7 +97,7 @@ PREFIX value ml_elm_box_transition_new_byte(value* argv, int argc)
 
 PREFIX value ml_elm_box_transition_free(value v_t, value v_unit)
 {
-        elm_box_transition_free((Elm_Box_Transition*) v_t);
-	return Val_unit;
+        elm_box_transition_free(Elm_Box_Transition_val(v_t));
+	      return Val_unit;
 }
 

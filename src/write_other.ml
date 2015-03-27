@@ -2,6 +2,7 @@ open Format
 
 let ptr_types = [
   "Ecore_Animator";
+  "Ecore_Timer";
   "Evas";
   "Ecore_Evas";
   "Evas_Modifier";
@@ -19,6 +20,8 @@ let ptr_types = [
   "Ecore_Event_Handler";
   "Ecore_Event";
   "Evas_GL";
+  "Elm_Box_Transition";
+  "Evas_Object_Box_Data";
 ]
 
 let print_ptr_type_c_impl fmt name =

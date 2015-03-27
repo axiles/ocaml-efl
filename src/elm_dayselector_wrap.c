@@ -2,9 +2,10 @@
 
 PREFIX value ml_elm_dayselector_add(value v_parent)
 {
-        Evas_Object* dayselector = elm_dayselector_add((Evas_Object*) v_parent);
+        Evas_Object* dayselector = elm_dayselector_add(
+                Evas_Object_val(v_parent));
         if(dayselector == NULL) caml_failwith("elm_dayselector_add");
-        return (value) dayselector;
+        return copy_Evas_Object(dayselector);
 }
 
 PREFIX value ml_elm_dayselector_weekdays_names_set(value v_obj, value v_a)
@@ -16,14 +17,14 @@ PREFIX value ml_elm_dayselector_weekdays_names_set(value v_obj, value v_a)
         for(i = 0; i < 7; i++) {
                 a[i]= String_val(Field(v_a, i));
         }
-        elm_dayselector_weekdays_names_set((Evas_Object*) v_obj, a);
+        elm_dayselector_weekdays_names_set(Evas_Object_val(v_obj), a);
         return Val_unit;
 }
 
 PREFIX value ml_elm_dayselector_weekdays_names_get(value v_obj)
 {
         return copy_Eina_List_string(elm_dayselector_weekdays_names_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_Elm_Dayselector_Day_of_ptr(value v_ptr)

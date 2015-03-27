@@ -40,7 +40,7 @@ inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
         EINA_LIST_REVERSE_FOREACH(list, it, mark) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, (value) mark);
+                Store_field(v, 0, copy_Elm_Calendar_Mark(mark));
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
@@ -70,18 +70,19 @@ PREFIX value ml_elm_calendar_add(value v_parent)
 {
         Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
         if(calendar == NULL) caml_failwith("elm_calendar_add");
-        return (value) calendar;
+        return copy_Evas_Object(calendar);
 }
 
 PREFIX value ml_elm_calendar_weekdays_names_get(value v_obj)
 {
         CAMLparam1(v_obj);
         CAMLlocal1(v_a);
-        const char** a = elm_calendar_weekdays_names_get((Evas_Object*) v_obj);
+        const char** a = elm_calendar_weekdays_names_get(
+                Evas_Object_val(v_obj));
         v_a = caml_alloc(7, 0);
         int i;
         for(i = 0; i < 7; i++) {
-                Store_field(v_a, i, copy_string(a[i]));
+                Store_field(v_a, i, safe_copy_string(a[i]));
         }
         CAMLreturn(v_a);
 }
@@ -95,14 +96,14 @@ PREFIX value ml_elm_calendar_weekdays_names_set(value v_obj, value v_a)
         for(i = 0; i < 7; i++) {
                 a[i]= String_val(Field(v_a, i));
         }
-        elm_calendar_weekdays_names_set((Evas_Object*) v_obj, a);
+        elm_calendar_weekdays_names_set(Evas_Object_val(v_obj), a);
         return Val_unit;
 }
 
 PREFIX value ml_elm_calendar_min_max_year_get(value v_obj)
 {
         int min, max;
-        elm_calendar_min_max_year_get((Evas_Object*) v_obj, &min, &max);
+        elm_calendar_min_max_year_get(Evas_Object_val(v_obj), &min, &max);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(min));
         Store_field(v_r, 1, Val_int(max));
@@ -114,7 +115,7 @@ PREFIX value ml_elm_calendar_displayed_time_get(value v_obj)
         CAMLparam1(v_obj);
         CAMLlocal1(v_t);
         struct tm t;
-        Eina_Bool flag = elm_calendar_displayed_time_get((Evas_Object*) v_obj,
+        Eina_Bool flag = elm_calendar_displayed_time_get(Evas_Object_val(v_obj),
                 &t);
         if(flag) {
                 v_t = caml_alloc(1, 0);
@@ -126,7 +127,7 @@ PREFIX value ml_elm_calendar_displayed_time_get(value v_obj)
 PREFIX value ml_elm_calendar_selected_time_set(value v_obj, value v_t)
 {
         struct tm t = Tm_val(v_t);
-        elm_calendar_selected_time_set((Evas_Object*) v_obj, &t);
+        elm_calendar_selected_time_set(Evas_Object_val(v_obj), &t);
         return Val_unit;
 }
 
@@ -135,7 +136,7 @@ PREFIX value ml_elm_calendar_selected_time_get(value v_obj)
         CAMLparam1(v_obj);
         CAMLlocal1(v_t);
         struct tm t;
-        Eina_Bool flag = elm_calendar_selected_time_get((Evas_Object*) v_obj,
+        Eina_Bool flag = elm_calendar_selected_time_get(Evas_Object_val(v_obj),
                 &t);
         if(flag) {
                 v_t = caml_alloc(1, 0);
@@ -149,10 +150,10 @@ PREFIX value ml_elm_calendar_mark_add(
 {
         struct tm m_time = Tm_val(v_m_time);
         Elm_Calendar_Mark* m = elm_calendar_mark_add(
-                (Evas_Object*) v_obj, String_val(v_m_type), &m_time,
+                Evas_Object_val(v_obj), String_val(v_m_type), &m_time,
                 Elm_Calendar_Mark_Repeat_Type_val(v_repeat));
         if(m == NULL) caml_failwith("elm_calendar_mark_add");
-        return (value) m;
+        return copy_Elm_Calendar_Mark(m);
 }
 
 PREFIX value ml_elm_calendar_marks_get(value v_obj)

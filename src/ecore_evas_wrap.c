@@ -16,7 +16,7 @@ PREFIX value ml_ecore_evas_new_native(
                 Int_opt_val(v_x), Int_opt_val(v_y), Int_val(v_w), Int_val(v_h),
                 String_opt_val(v_extra_options));
         if(ee == NULL) caml_failwith("ecore_evas_new");
-        return Val_Ecore_Evas(ee);
+        return copy_Ecore_Evas(ee);
 }
 
 PREFIX value ml_ecore_evas_new_byte(value* argv, int argn)
