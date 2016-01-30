@@ -69,6 +69,10 @@ val duration_get : t -> float
 
 val go : t -> unit
 
+(* BEGIN: 1.14 *)
+val go_in : t -> float -> unit
+(* END *)
+
 val paused_set : t -> bool -> unit
 
 val paused_get : t -> bool

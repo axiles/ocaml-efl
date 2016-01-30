@@ -19,6 +19,9 @@ let funs = [
   simple_unit "tween_mode_factor_set" [elm_transit; double; double];
   prop ~args:[elm_transit] "duration" double;
   simple_unit "go" [elm_transit];
+(* BEGIN: 1.14 *)
+  simple_unit "go_in" [elm_transit; double];
+(* END *)
   prop ~args:[elm_transit] "paused" bool;
   simple "progress_value_get" [elm_transit] double;
   simple_unit "chain_transit_add" [elm_transit; elm_transit];
