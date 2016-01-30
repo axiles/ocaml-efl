@@ -201,6 +201,17 @@ val color_overlay_unset : string -> unit
 val color_overlay_apply : unit -> unit
 (* END *)
 
+(* BEGIN: 1.9*)
+(** {2 Magnifier } *)
+val magnifier_enable_get : unit -> bool
+
+val magnifier_enable_set : bool -> unit
+
+val magnifier_scale_get : unit -> float
+
+val magnifier_scale_set : float -> unit
+(* END *)
+
 (** {2 Password show last} *)
 
 val password_show_last_get : unit -> bool

@@ -67,6 +67,11 @@ let funs = [
   simple_unit "color_overlay_unset" [safe_string];
   simple_unit "color_overlay_apply" [];
 (* END *)
+(* BEGIN: 1.9 *)
+(* Magnifier *)
+  prop ~args:[] "magnifier_enable" bool;
+  prop ~args:[] "magnifier_scale" double;
+(* END *)
 (* Password show last *)
   prop ~args:[] "password_show_last" bool;
   prop ~args:[] "password_show_last_timeout" double;
