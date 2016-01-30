@@ -72,6 +72,10 @@ let funs = [
   prop ~args:[] "magnifier_enable" bool;
   prop ~args:[] "magnifier_scale" double;
 (* END *)
+(* BEGIN: 1.14 *)
+  prop ~args:[] "window_auto_focus_enable" bool;
+  prop ~args:[] "window_auto_focus_animate" bool;
+(* END *)
 (* Password show last *)
   prop ~args:[] "password_show_last" bool;
   prop ~args:[] "password_show_last_timeout" double;
