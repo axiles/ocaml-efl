@@ -14,3 +14,15 @@ PREFIX value ml_elm_video_add(value v_parent)
         return (value) video;
 }
 
+/* BEGIN: 1.14 */
+PREFIX value ml_elm_video_file_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        const char* filename;
+        elm_video_file_get(Evas_Object_val(v_obj), &filename);
+        v_r = safe_copy_string(filename);
+        CAMLreturn(v_r);
+}
+/* END */
+
