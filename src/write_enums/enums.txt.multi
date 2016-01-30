@@ -72,6 +72,18 @@ Section Evas {
     EVAS_GL_GLES_3_X
    }
 (* END *)
+(* BEGIN: 1.14 *)
+  Enum Evas_Image_Orient {
+   EVAS_IMAGE_ORIENT_NONE
+   EVAS_IMAGE_ORIENT_90
+   EVAS_IMAGE_ORIENT_180
+   EVAS_IMAGE_ORIENT_270
+   EVAS_IMAGE_FLIP_HORIZONTAL
+   EVAS_IMAGE_FLIP_VERTICAL
+   EVAS_IMAGE_FLIP_TRANSPOSE
+   EVAS_IMAGE_FLIP_TRANSVERSE
+ }
+(* END *)
 }
 
 Section Evas_font {
@@ -545,6 +557,7 @@ Section Elm_icon {
 }
 
 Section Elm_image {
+(* BEGIN: <= 1.13 *)
   Enum Elm_Image_Orient {
     ELM_IMAGE_ORIENT_NONE
     ELM_IMAGE_ROTATE_90
@@ -555,6 +568,7 @@ Section Elm_image {
     ELM_IMAGE_FLIP_TRANSPOSE
     ELM_IMAGE_FLIP_TRANSVERSE
   }
+(* END *)
 }
 
 Section Elm_list {

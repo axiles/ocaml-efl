@@ -1,8 +1,17 @@
 include Henums.Elm_image
 
+(* BEGIN: 1.14 *)
+type orient = Evas.image_orient
+(* END *)
+
 module AF = Autofun.Elm_image.F (struct
   type evas_object = Evas.obj
+(* BEGIN: 1.14 *)
+  type evas_image_orient = orient
+(* END *)
+(* BEGIN: <= 1.13 *)
   type elm_image_orient = orient
+(* END *)
 end)
 include AF
 

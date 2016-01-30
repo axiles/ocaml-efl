@@ -24,7 +24,9 @@ section_list:
 | section { [ $1 ] }
 | section_list section { $2 :: $1 }
 
-section: SECTION IDENT LB enum_list RB { {name = $2; enums = List.rev $4} }
+section:
+| SECTION IDENT LB RB { {name = $2; enums = []} }
+| SECTION IDENT LB enum_list RB { {name = $2; enums = List.rev $4} }
 
 enum_list:
 | enum { [ $1 ] }

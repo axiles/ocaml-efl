@@ -1,6 +1,11 @@
 open Common
 
+(* BEGIN: 1.14 *)
+let orient = simple_ty "Evas" "Image_Orient"
+(* END *)
+(* BEGIN: <= 1.13 *)
 let orient = simple_ty "Elm_Image" "Orient"
+(* END *)
 
 let funs = [
   prop "smooth" bool;

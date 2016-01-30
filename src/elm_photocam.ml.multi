@@ -8,6 +8,9 @@ module AF = Autofun.Elm_photocam.F (struct
   type evas_object = Evas.obj
   type elm_photocam_zoom_mode = zoom_mode
   type evas_load_error = Evas.load_error
+(* BEGIN: 1.14 *)
+  type evas_image_orient = Evas.image_orient
+(* END *)
 end)
 include AF
 
