@@ -557,7 +557,6 @@ Section Elm_icon {
 }
 
 Section Elm_image {
-(* BEGIN: <= 1.13 *)
   Enum Elm_Image_Orient {
     ELM_IMAGE_ORIENT_NONE
     ELM_IMAGE_ROTATE_90
@@ -568,7 +567,6 @@ Section Elm_image {
     ELM_IMAGE_FLIP_TRANSPOSE
     ELM_IMAGE_FLIP_TRANSVERSE
   }
-(* END *)
 }
 
 Section Elm_list {

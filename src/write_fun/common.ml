@@ -293,6 +293,7 @@ let flags_ty first second =
 
 let evas_object = simple_ty ~ptr:true "Evas" "Object"
 let evas_font_hinting_flags = simple_ty "Evas_Font" "Hinting_Flags"
+let evas_image_orient = simple_ty "Evas" "Image_Orient"
 let elm_object_item = simple_ty ~ptr:true "Elm_Object" "Item"
 let elm_wrap_type = simple_ty "Elm" "Wrap_Type"
 let elm_text_format = simple_ty "Elm" "Text_Format"

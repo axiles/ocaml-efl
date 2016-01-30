@@ -6,12 +6,7 @@ elm_image_memfile_set
 
 *)
 
-type orient
-(* BEGIN: 1.14 *)
-= Evas.image_orient
-(* END *)
-(* BEGIN: <= 1.13 *)
-= [
+type orient = [
   | `orient_none
   | `rotate_90
   | `rotate_180
@@ -20,7 +15,6 @@ type orient
   | `flip_vertical
   | `flip_transpose
   | `flip_transverse]
-(* END *)
 
 val add : Evas.obj -> Evas.obj
 

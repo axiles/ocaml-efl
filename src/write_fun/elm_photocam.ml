@@ -7,7 +7,7 @@ let funs = [
   prop "zoom" double;
   prop "zoom_mode" zoom_mode;
 (* BEGIN: 1.14 *)
-  prop "image_orient" Elm_image.orient;
+  prop "image_orient" evas_image_orient;
 (* END *)
   simple_unit "image_region_show" [evas_object; int; int; int; int];
   simple_unit "image_region_bring_in" [evas_object; int; int; int; int];
