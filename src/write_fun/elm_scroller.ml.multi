@@ -23,5 +23,8 @@ let funs = [
 (* BEGIN: 1.13 *)
   simple_unit "step_size_set" [evas_object; int; int];
 (* END *)
+(* BEGIN: 1.14 *)
+  simple_unit "loop_set" [evas_object; bool; bool]
+(* END *)
 ]
 

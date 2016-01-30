@@ -157,3 +157,17 @@ PREFIX value ml_elm_scroller_step_size_get(value v_obj)
 }
 /* END */
 
+/* BEGIN: 1.14 */
+PREFIX value ml_elm_scroller_loop_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        Eina_Bool h, v;
+        elm_scroller_loop_get(Evas_Object_val(v_obj), &h, &v);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, Val_bool(h));
+        Store_field(v_r, 1, Val_bool(v));
+        CAMLreturn(v_r);
+}
+/* END */
+
