@@ -9,8 +9,10 @@ module AF = Autofun.Ecore_animator.F (struct
 end)
 include AF
 
+(* BEGIN: 1.9 *)
 external pos_map_list : float -> Ecore.pos_map -> float list -> float =
   "ml_ecore_animator_pos_map_list"
+(* END *)
 
 external custom_source_tick_begin_callback_set : Ecore.cb -> unit =
   "ml_ecore_animator_custom_source_tick_begin_callback_set"
