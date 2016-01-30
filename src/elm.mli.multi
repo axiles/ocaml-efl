@@ -23,7 +23,13 @@ type focus_direction = [
   `left]
 
 (* BEGIN: 1.10 *)
-type focus_move_policy = [`click | `_in]
+type focus_move_policy = [`click | `_in
+(* END *)
+(* BEGIN: 1.15 *)
+| `key_only
+(* END *)
+(* BEGIN: 1.10 *)
+]
 (* END *)
 
 (* BEGIN: 1.13 *)
@@ -39,7 +45,11 @@ type slider_indicator_visible_mode = [
 
 (** {2 General} *)
 
-type policy_quit = [`none | `last_window_closed]
+type policy_quit = [`none | `last_window_closed
+(* BEGIN: 1.15 *)
+| `last_window_hidden
+(* END *)
+]
 
 type policy_exit = [`none | `windows_del]
 
