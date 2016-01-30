@@ -116,3 +116,8 @@ external freeze : Evas.obj -> int = "ml_elm_layout_freeze"
 
 external thaw : Evas.obj -> int = "ml_elm_layout_thaw"
 
+(* BEGIN: 1.14 *)
+external file_get : Evas.obj -> string * string = "ml_elm_layout_file_get"
+
+(* END *)
+

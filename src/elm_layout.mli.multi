@@ -83,3 +83,7 @@ val freeze : Evas.obj -> int
 
 val thaw : Evas.obj -> int
 
+(* BEGIN: 1.14 *)
+val file_get : Evas.obj -> string * string
+(* END *)
+

@@ -292,3 +292,17 @@ PREFIX value ml_elm_layout_thaw(value v_obj)
         return Val_int(elm_layout_thaw((Evas_Object*) v_obj));
 }
 
+/* BEGIN: 1.14 */
+PREFIX value ml_elm_layout_file_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        const char *file, *group;
+        elm_layout_file_get(Evas_Object_val(v_obj), &file, &group);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, safe_copy_string(file));
+        Store_field(v_r, 1, safe_copy_string(group));
+        CAMLreturn(v_r);
+}
+/* END */
+
