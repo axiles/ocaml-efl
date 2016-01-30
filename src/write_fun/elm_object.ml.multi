@@ -1,0 +1,8 @@
+open Common
+
+let funs = [
+(* BEGIN: 1.14 *)
+  simple "access_info_get" [evas_object] safe_string;
+(* END *)
+]
+

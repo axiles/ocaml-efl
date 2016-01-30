@@ -6,6 +6,7 @@ let list = [
   ("Ecore_evas", Ecore_evas.funs);
   ("Ecore_animator", Ecore_animator.funs);
   ("Elm_config", Elm_config.funs);
+  ("Elm_object", Elm_object.funs);
   ("Elm_bg", Elm_bg.funs);
   ("Elm_box", Elm_box.funs);
   ("Elm_bubble", Elm_bubble.funs);

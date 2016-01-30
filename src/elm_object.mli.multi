@@ -109,6 +109,10 @@ val part_content_unset : Evas.obj -> ?p:string -> unit -> Evas.obj
 
 val access_info_set : Evas.obj -> string -> unit
 
+(* BEGIN: 1.14 *)
+val access_info_get : Evas.obj -> string
+(* END *)
+
 val name_find : Evas.obj -> string -> int -> Evas.obj option
 
 val signal_emit : Evas.obj -> string -> string -> unit

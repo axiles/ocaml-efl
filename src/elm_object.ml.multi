@@ -2,6 +2,11 @@ include Henums.Elm_object
 
 type item
 
+module AF = Autofun.Elm_object.F (struct
+  type evas_object = Evas.obj
+end)
+include AF
+
 (* Cursors *)
 
 external cursor_set : Evas.obj -> string -> unit = "ml_elm_object_cursor_set"
