@@ -32,5 +32,8 @@ ELM_OBJ_ENTRY_CLASS
 (* BEGIN: 1.14 *)
 "validate"
 (* END *)
+(* BEGIN: 1.15 *)
+"context,open"
+(* END *)
 "theme,changed"
 "language,changed"
