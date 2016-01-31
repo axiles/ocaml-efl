@@ -8,12 +8,17 @@ type item_class = Elm_gen.item_class = {
   func_del : Evas.obj -> unit;
 }
 
+type item_field_type = Elm_genlist.item_field_type
+
 module AF = Autofun.Elm_gengrid.F (struct
   type evas_object = Evas.obj
   type elm_object_item = Elm_object.item
   type elm_object_select_mode = Elm_object.select_mode
   type elm_gengrid_item_scrollto_type = item_scrollto_type
   type ecore_pos_map = Ecore.pos_map
+(* BEGIN: 1.15 *)
+  type elm_genlist_item_field_type = Elm_genlist.item_field_type
+(* END *)
 end)
 include AF
 
