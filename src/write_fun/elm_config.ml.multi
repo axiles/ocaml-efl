@@ -94,6 +94,9 @@ let funs = [
   prop ~args:[] "scroll_thumbscroll_friction" double;
   prop ~args:[] "scroll_thumbscroll_border_friction" double;
   prop ~args:[] "scroll_thumbscroll_sensitivity_friction" double;
+(* BEGIN: 1.16 *)
+  prop ~args:[] "scroll_thumbscroll_smooth_start" bool;
+(* END *)
 (* Widget Scaling *)
   prop ~args:[] "scale" double;
 ]
