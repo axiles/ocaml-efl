@@ -33,6 +33,9 @@ let funs = [
 (* BEGIN: 1.10 *)
   prop ~args:[] "atspi_mode" bool;
 (* END *)
+(* BEGIN: 1.15 *)
+  prop ~args:[] "transition_duration_factor" double;
+(* END *)
 (* Elementary Font *)
   simple_unit "font_overlay_set" [safe_string; safe_string; int];
   simple_unit "font_overlay_unset" [safe_string];
