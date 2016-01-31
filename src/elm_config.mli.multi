@@ -288,6 +288,14 @@ val scroll_thumbscroll_sensitivity_friction_set : float -> unit
 val scroll_thumbscroll_smooth_start_get : unit -> bool
 
 val scroll_thumbscroll_smooth_start_set : bool -> unit
+
+val scroll_thumbscroll_smooth_amount_get : unit -> float
+
+val scroll_thumbscroll_smooth_amount_set : float -> unit
+
+val scroll_thumbscroll_smooth_time_window_get : unit -> float
+
+val scroll_thumbscroll_smooth_time_window_set : float -> unit
 (* END *)
 
 (** {2 Widget Scaling} *)

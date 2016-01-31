@@ -7,5 +7,8 @@ let funs = [
 (* BEGIN: 1.15 *)
   prop "focus_move_policy" elm_focus_move_policy;
 (* END *)
+(* BEGIN: 1.16 *)
+  prop "focus_region_show_mode" elm_focus_region_show_mode
+(* END *)
 ]
 

@@ -304,6 +304,7 @@ let elm_input_panel_return_key_type =
   simple_ty "Elm" "Input_Panel_Return_Key_Type"
 let elm_focus_autoscroll_mode = simple_ty "Elm" "Focus_Autoscroll_Mode"
 let elm_focus_move_policy = simple_ty "Elm" "Focus_Move_Policy"
+let elm_focus_region_show_mode = simple_ty "Elm" "Focus_Region_Show_Mode"
 let elm_cnp_mode = simple_ty "Elm" "Cnp_Mode"
 let elm_object_select_mode = simple_ty "Elm_Object" "Select_Mode"
 let evas_load_error = simple_ty "Evas" "Load_Error"

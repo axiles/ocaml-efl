@@ -157,6 +157,12 @@ Section Elm {
 (* BEGIN: 1.10 *)
   }
 (* END *)
+(* BEGIN: 1.16 *)
+  Enum Elm_Focus_Region_Show_Mode {
+    ELM_FOCUS_REGION_SHOW_WIDGET
+    ELM_FOCUS_REGION_SHOW_ITEM
+}
+(* END *)
   Enum Elm_Policy_Quit {
     ELM_POLICY_QUIT_NONE
     ELM_POLICY_QUIT_LAST_WINDOW_CLOSED
