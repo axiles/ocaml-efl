@@ -71,6 +71,12 @@ val item_focus_set : item -> bool -> unit
 val item_focus_get : item -> bool
 (* END *)
 
+(* BEGIN: 1.15 *)
+val focus_move_policy_set : Evas.obj -> Elm.focus_move_policy -> unit
+
+val focus_move_policy_get : Evas.obj -> Elm.focus_move_policy
+(* END *)
+
 (** {2 General} *)
 
 type select_mode = [`default | `always | `none | `display_only | `max]

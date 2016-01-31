@@ -4,6 +4,9 @@ type item
 
 module AF = Autofun.Elm_object.F (struct
   type evas_object = Evas.obj
+(* BEGIN: 1.15 *)
+  type elm_focus_move_policy = Elm.focus_move_policy
+(* END *)
 end)
 include AF
 
