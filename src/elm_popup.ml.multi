@@ -1,5 +1,10 @@
 include Henums.Elm_popup
 
+module AF = Autofun.Elm_popup.F (struct
+  type evas_object = Evas.obj
+end)
+include AF
+
 external add : Evas.obj -> Evas.obj = "ml_elm_popup_add"
 
 let addx = Elm_object.create_addx add

@@ -1,0 +1,8 @@
+open Common
+
+let funs = [
+(* BEGIN: 1.15 *)
+  prop "scrollable" bool;
+(* END *)
+]
+
