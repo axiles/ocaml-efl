@@ -24,7 +24,10 @@ let funs = [
   simple_unit "step_size_set" [evas_object; int; int];
 (* END *)
 (* BEGIN: 1.14 *)
-  simple_unit "loop_set" [evas_object; bool; bool]
+  simple_unit "loop_set" [evas_object; bool; bool];
+(* END *)
+(* BEGIN: 1.15 *)
+  prop "wheel_disabled" bool;
 (* END *)
 ]
 
