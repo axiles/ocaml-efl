@@ -51,6 +51,6 @@ val omit_enabled_get : Evas.obj -> bool
 (* BEGIN: 1.16 *)
 val standard_priority_set : Evas.obj -> int -> unit
 
-val standard_priority_get : Evas.obj -> unit
+val standard_priority_get : Evas.obj -> int
 (* END *)
 
