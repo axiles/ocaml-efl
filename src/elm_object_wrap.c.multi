@@ -206,6 +206,22 @@ PREFIX value ml_elm_object_item_focus_get(value v_it)
 }
 /* END */
 
+/* BEGIN: 1.16 */
+PREFIX value ml_elm_object_focus_next_item_get(value v_obj, value v_dir)
+{
+        return copy_Elm_Object_Item_opt(elm_object_focus_next_item_get(
+                Evas_Object_val(v_obj), Elm_Focus_Direction_val(v_dir));
+}
+
+PREFIX value ml_elm_object_focus_next_item_set(
+        value v_obj, value v_item, value v_dir)
+{
+        elm_object_focus_next_item_set(Evas_Object_val(v_obj),
+                Elm_Object_Item_val(v_item), Elm_Focus_Direction_val(v_dir)):
+        return Val_unit;
+}
+/* END */
+
 /* General */
 
 Evas_Object* ml_Elm_Tooltip_Content_Cb(

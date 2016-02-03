@@ -105,6 +105,14 @@ external item_focus_set : item -> bool -> unit = "ml_elm_object_item_focus_set"
 external item_focus_get : item -> bool = "ml_elm_object_item_focus_get"
 (* END *)
 
+(* BEGIN: 1.16 *)
+external focus_next_item_get : Evas.obj -> Elm.focus_direction -> item option =
+  "ml_elm_object_focus_next_item_get"
+
+external focus_next_item_set : Evas.obj -> item -> Elm.focus_direction -> unit =
+  "ml_elm_object_focus_next_item_set"
+(* END *)
+
 (* General *)
 
 type item_signal_cb = item -> string -> string -> unit
