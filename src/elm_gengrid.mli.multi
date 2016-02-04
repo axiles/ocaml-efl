@@ -8,7 +8,12 @@ type item_class = Elm_gen.item_class = {
   func_del : Evas.obj -> unit;
 }
 
-type item_scrollto_type = [`none | `_in | `top | `middle]
+type item_scrollto_type = [`none | `_in | `top | `middle
+(* BEGIN: 1.17 *)
+| `bottom
+(* END *)
+]
+
 type item_field_type = Elm_genlist.item_field_type
 
 val add : Evas.obj -> Evas.obj
