@@ -1,6 +1,9 @@
 open Common
 
 let funs = [
+(* BEGIN: 1.17 *)
+  simple_unit "dismiss" [evas_object];
+(* END *)
 (* BEGIN: 1.15 *)
   prop "scrollable" bool;
 (* END *)
