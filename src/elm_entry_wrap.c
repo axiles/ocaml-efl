@@ -239,3 +239,4 @@ PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
                 (Elm_Entry_Anchor_Hover_Info*) v_ptr;
         return copy_Elm_Entry_Anchor_Hover_Info(info);
 }
+

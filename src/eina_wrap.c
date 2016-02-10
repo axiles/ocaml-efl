@@ -226,3 +226,4 @@ inline value copy_string_string(char** x)
         Store_field(v, 1, copy_string(x[1]));
         CAMLreturn(v);
 }
+
