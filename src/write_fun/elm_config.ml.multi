@@ -47,6 +47,12 @@ let funs = [
 (* END *)
 (* Elementary Profile *)
   prop ~args:[] "profile" safe_string;
+(* BEGIN: 1.17 *)
+  simple "profile_exists" [safe_string] bool;
+  simple_unit "profile_save" [safe_string];
+  simple_unit "profile_derived_add" [safe_string; safe_string];
+  simple_unit "profile_derived_del" [safe_string];
+(* END *)
 (* Fingers *)
   prop ~args:[] "finger_size" int;
 (* Focus *)
@@ -86,6 +92,9 @@ let funs = [
   prop ~args:[] "scroll_bounce_enabled" bool;
   prop ~args:[] "scroll_bounce_friction" double;
   prop ~args:[] "scroll_page_scroll_friction" double;
+(* BEGIN: 1.17 *)
+  prop ~args:[] "context_menu_disabled" bool;
+(* END *)
   prop ~args:[] "scroll_bring_in_scroll_friction" double;
   prop ~args:[] "scroll_zoom_friction" double;
   prop ~args:[] "scroll_thumbscroll_enabled" bool;

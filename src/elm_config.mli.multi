@@ -139,7 +139,21 @@ val profile_dir_get : string -> bool -> string
 
 val profile_list_get : unit -> string list
 
+(* BEGIN: 1.17 *)
+val profile_list_full_get : unit -> string list
+
+val profile_exists : string -> bool
+(* END *)
+
 val profile_set : string -> unit
+
+(* BEGIN: 1.17 *)
+val profile_save : string -> unit
+
+val profile_derived_add : string -> string -> unit
+
+val profile_derived_del : string -> unit
+(* END *)
 
 (** {2 Fingers} *)
 
@@ -251,6 +265,12 @@ val scroll_bounce_friction_set : float -> unit
 val scroll_page_scroll_friction_get : unit -> float
 
 val scroll_page_scroll_friction_set : float -> unit
+
+(* BEGIN: 1.17 *)
+val context_menu_disabled_get : unit -> bool
+
+val context_menu_disabled_set : bool -> unit
+(* END *)
 
 val scroll_bring_in_scroll_friction_get : unit -> float
 

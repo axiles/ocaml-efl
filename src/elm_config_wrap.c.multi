@@ -133,6 +133,16 @@ PREFIX value ml_elm_config_profile_list_get(value v_unit)
         return v_list;
 }
 
+/* BEGIN: 1.17 */
+PREFIX value ml_elm_config_profile_list_full_get(value v_unit)
+{
+        Eina_List* list = elm_config_profile_list_full_get();
+        value v_list = copy_Eina_List_string(list);
+        elm_config_profile_list_free(list);
+        return v_list;
+}
+/* END */
+
 /* Fingers */
 
 /* Focus */
