@@ -163,7 +163,7 @@ inline value* ml_register_value(value v)
 inline void ml_remove_value(value* data)
 {
         caml_remove_generational_global_root(data);
-        free(data);
+        caml_stat_free(data);
 }
 
 inline value copy_Eina_Rectangle(Eina_Rectangle* rect)

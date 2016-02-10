@@ -3,19 +3,19 @@
 Evas_Object* ml_Elm_Entry_Item_Provider_Cb(
         void* data, Evas_Object* entry, const char* item)
 {
-      
+
         value* v_fun = (value*) data;
         value v_r = caml_callback2(*v_fun, (value) entry, copy_string(item));
         Evas_Object* r;
         if(v_r == Val_int(0)) r = NULL;
         else r = (Evas_Object*) Field(v_r, 0);
-      
+
         return r;
 }
 
 void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
 {
-      
+
         value* v_fun = (value*) data;
         value v_r = caml_callback2(*v_fun, (value) entry, copy_string(*text));
         free(*text);
@@ -25,7 +25,7 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
                 *text = caml_stat_alloc(strlen(text1) + 1);
                 strcpy(*text, text1);
         }
-      
+
 }
 
 inline Elm_Entry_Filter_Limit_Size
@@ -191,7 +191,7 @@ PREFIX value ml_elm_entry_filter_limit_size(
         else {
                 v = caml_alloc(1, 0);
                 Store_field(v, 0, copy_string(text));
-                free(text);
+                caml_stat_free(text);
         }
         CAMLreturn(v);
 }
@@ -209,7 +209,7 @@ PREFIX value ml_elm_entry_filter_accept_set(
         else {
                 v = caml_alloc(1, 0);
                 Store_field(v, 0, copy_string(text));
-                free(text);
+                caml_stat_free(text);
         }
         CAMLreturn(v);
 }
