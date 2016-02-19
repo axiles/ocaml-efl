@@ -5,10 +5,10 @@
 PREFIX value ml_elm_config_engine_get(value v_unit)
 {
 /* BEGIN: <= 1.12 */
-        return copy_string(elm_config_engine_get());
+        return safe_copy_string(elm_config_engine_get());
 /* END */
 /* BEGIN: 1.13 */
-        return copy_string(elm_config_accel_preference_get());
+        return safe_copy_string(elm_config_accel_preference_get());
 /* END */
 }
 
