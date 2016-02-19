@@ -45,7 +45,7 @@ AC_DEFUN([AC_PROG_OCAML],
 
     # checking for ocamlc.opt
     AC_CHECK_TOOL([OCAMLCDOTOPT],[ocamlc.opt],[no])
-    AS_IF([test $host = $build && test "$OCAMLCDOTOPT" != "no"], [
+    AS_IF([test "$host" = "$build" && test "$OCAMLCDOTOPT" != "no"], [
 	    TMPVERSION=`$OCAMLCDOTOPT -v | sed -n -e 's|.*version* *\(.*\)$|\1|p' `
 	    AS_IF([test "$TMPVERSION" != "$OCAMLVERSION"], [
 	      AC_MSG_RESULT([versions differs from ocamlc; ocamlc.opt discarded.])
@@ -57,7 +57,7 @@ AC_DEFUN([AC_PROG_OCAML],
     # checking for ocamlopt.opt
     AS_IF([test "$OCAMLOPT" != "no"], [
 	    AC_CHECK_TOOL([OCAMLOPTDOTOPT],[ocamlopt.opt],[no])
-	    AS_IF([test $host = $build && test "$OCAMLOPTDOTOPT" != "no"], [
+	    AS_IF([test "$host" = "$build" && test "$OCAMLOPTDOTOPT" != "no"], [
 	      TMPVERSION=`$OCAMLOPTDOTOPT -v | sed -n -e 's|.*version* *\(.*\)$|\1|p' `
 	      AS_IF([test "$TMPVERSION" != "$OCAMLVERSION"], [
 	        AC_MSG_RESULT([version differs from ocamlc; ocamlopt.opt discarded.])
