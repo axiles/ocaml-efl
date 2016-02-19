@@ -3,7 +3,8 @@ OCAMLFIND_OPT= -destdir $(DESTDIR)$(OCAMLFIND_DESTDIR) \
 
 .PHONY:examples
 
-EXTRA_DIST=src examples/*.ml _tags examples/install.sh examples/uninstall.sh
+EXTRA_DIST=src examples/*.ml _tags examples/install.sh examples/uninstall.sh \
+	autogen.sh
 
 all-local:
 	@$(OCAMLBUILD) src/efl.cma src/efl.cmxa src/efl.cmxs
