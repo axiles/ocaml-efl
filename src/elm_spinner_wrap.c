@@ -9,7 +9,7 @@ PREFIX value ml_elm_spinner_add(value v_parent)
 
 PREFIX value ml_elm_spinner_label_format_set(value v_obj, value v_fmt)
 {
-        elm_spinner_label_format_set((Evas_Object*) v_obj, String_val(v_fmt));
+        elm_spinner_label_format_set(Evas_Object_val(v_obj), String_val(v_fmt));
         return Val_unit;
 }
 

@@ -26,19 +26,27 @@ external connect_changed : Evas.obj -> (Evas.obj -> unit) -> unit =
 
 let add parent =
   let pb = add_aux parent in
+(* BEGIN: <= 1.14 *)
   connect_changed pb changed_cb;
   changed_cb pb;
+(* END *)
   pb
 
 let addx = Elm_object.create_addx add
 
 external min_max_get : Evas.obj -> float * float = "ml_elm_spinner_min_max_get"
 
+(* BEGIN: <= 1.14 *)
 let label_format_function_set obj func =
   Hashtbl.replace ht obj func;
   changed_cb obj
+(* END *)
 
 let label_format_set obj fmt =
+(* BEGIN: <= 1.14 *)
   let format_func x = sprintf fmt x in
   label_format_function_set obj format_func
-
+(* END *)
+(* BEGIN: 1.15 *)
+  label_format_set_aux obj (string_of_format fmt)
+(* END *)

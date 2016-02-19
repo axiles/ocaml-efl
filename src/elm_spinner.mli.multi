@@ -4,7 +4,9 @@ val add : Evas.obj -> Evas.obj
 
 val addx : Elm_object.t_addx
 
+(* BEGIN: <= 1.14 *)
 val label_format_function_set : Evas.obj -> (float -> string) -> unit
+(* END *)
 
 val label_format_set :
   Evas.obj -> (float -> string, unit, string) format -> unit
