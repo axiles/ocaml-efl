@@ -39,8 +39,8 @@ let print_ptr_type_c_impl fmt name =
   of_c (sprintf "copy_%s" name)
 
 let print_ptr_type_c_header fmt name =
-  fprintf fmt "%s* %s_val(value v);\n\n" name name;
-  let of_c name1 = fprintf fmt "value %s(const %s* x);\n\n" name1 name in
+  fprintf fmt "inline %s* %s_val(value v);\n\n" name name;
+  let of_c name1 = fprintf fmt "inline value %s(const %s* x);\n\n" name1 name in
   of_c (sprintf "Val_%s" name);
   of_c (sprintf "copy_%s" name)
 

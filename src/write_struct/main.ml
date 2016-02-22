@@ -112,10 +112,10 @@ end = struct
       else None in
     let ptr = e.E.ptr in
     let fields = List.map (Field.create env) e.E.fields in
-    let c_of_ml = sprintf "%s %s_val(value v)" c_name c_name in
+    let c_of_ml = sprintf "inline %s %s_val(value v)" c_name c_name in
     let ml_of_c =
       let s = if ptr then sprintf "const %s*" c_name else c_name in
-      sprintf "value copy_%s(%s x)" c_name s in
+      sprintf "inline value copy_%s(%s x)" c_name s in
     let params =
       let aux accu f =
         match Field.get_param f with
@@ -141,13 +141,13 @@ end = struct
   let print_mli = print_ml_aux Field.print_ml ": sig"
   let print_c_impl fmt st =
     if not st.ptr then (
-      fprintf fmt "inline %s\n{\n" st.c_of_ml;
+      fprintf fmt "%s\n{\n" st.c_of_ml;
       fprintf fmt "        %s x;\n" st.c_name;
       let aux i f = Field.print_c_of_ml "x" false "v" i fmt f; i + 1 in
       ignore (List.fold_left aux 0 st.fields);
       fprintf fmt "        return x;\n}\n\n";
     );
-    fprintf fmt "inline %s\n{\n" st.ml_of_c;
+    fprintf fmt "%s\n{\n" st.ml_of_c;
     fprintf fmt "        CAMLparam0();\n";
     fprintf fmt "        CAMLlocal1(v);\n";
     fprintf fmt "        v = caml_alloc(%d, 0);\n" (List.length st.fields);
