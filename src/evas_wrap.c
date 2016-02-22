@@ -420,6 +420,8 @@ PREFIX value ml_evas_render_dump(value v_e)
 
 /* Input Events Feeding Functions */
 
+value copy_Eina_List_Evas_Device(const Eina_List* list);
+
 inline value copy_Eina_List_Evas_Device(const Eina_List* list)
 {
         CAMLparam0();

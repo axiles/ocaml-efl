@@ -162,6 +162,8 @@ inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
         CAMLreturn(v_r);
 }
 
+value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list);
+
 inline value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
 {
         CAMLparam0();
