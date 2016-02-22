@@ -112,8 +112,8 @@ end = struct
   let print_ml_impl_help fmt prefix enum =
     fprintf fmt "type %s = %s.%s\n\n" enum.ml_name prefix enum.ml_name
   let print_c_include fmt enum =
-    fprintf fmt "inline %s %s(value v);\n" enum.c_name enum.c_of_ml;
-    fprintf fmt "inline value %s(%s x);\n\n" enum.ml_of_c enum.c_name
+    fprintf fmt "%s %s(value v);\n" enum.c_name enum.c_of_ml;
+    fprintf fmt "value %s(%s x);\n\n" enum.ml_of_c enum.c_name
   let print_c_impl fmt enum =
     fprintf fmt "inline %s %s(value v)\n" enum.c_name enum.c_of_ml;
     fprintf fmt "{\n";
