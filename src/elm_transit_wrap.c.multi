@@ -25,7 +25,7 @@ void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
         ml_remove_value(v_fun);
 }
 
- value copy_Eina_List_Elm_Transit(const Eina_List* list)
+inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);

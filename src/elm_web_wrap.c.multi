@@ -1,6 +1,6 @@
 #include "include.h"
 
- value copy_Elm_Web_Download(Elm_Web_Download* d)
+inline value copy_Elm_Web_Download(Elm_Web_Download* d)
 {
         CAMLparam0();
         CAMLlocal1(v_r);
@@ -12,7 +12,7 @@
         CAMLreturn(v_r);
 }
 
- value copy_Elm_Web_Frame_Load_Error(Elm_Web_Frame_Load_Error* fle)
+inline value copy_Elm_Web_Frame_Load_Error(Elm_Web_Frame_Load_Error* fle)
 {
         CAMLparam0();
         CAMLlocal1(v_r);
@@ -35,7 +35,7 @@
         CAMLreturn(v_r);
 }
 
- value copy_Elm_Web_Frame_Load_Error_opt(Elm_Web_Frame_Load_Error* fle)
+inline value copy_Elm_Web_Frame_Load_Error_opt(Elm_Web_Frame_Load_Error* fle)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -149,7 +149,7 @@ void ml_Elm_Web_Console_Message(
         CAMLreturn0;
 }
 
- value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
+inline value copy_Elm_Web_Menu_Item(Elm_Web_Menu_Item* mit)
 {
         CAMLparam0();
         CAMLlocal1(v_r);
@@ -162,7 +162,7 @@ void ml_Elm_Web_Console_Message(
         CAMLreturn(v_r);
 }
 
- value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
+inline value copy_Eina_List_Elm_Web_Menu_Item(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_i);
@@ -179,7 +179,7 @@ void ml_Elm_Web_Console_Message(
         CAMLreturn(v);
 }
 
- value copy_Elm_Web_Menu(Elm_Web_Menu* m)
+inline value copy_Elm_Web_Menu(Elm_Web_Menu* m)
 {
         CAMLparam0();
         CAMLlocal1(v_r);

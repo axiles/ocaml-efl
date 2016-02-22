@@ -1,6 +1,6 @@
 #include "include.h"
 
- Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val_list(value v)
+inline Elm_Clock_Edit_Mode Elm_Clock_Edit_Mode_val_list(value v)
 {
         value v_tmp = v;
         Elm_Clock_Edit_Mode m = ELM_CLOCK_EDIT_DEFAULT;
@@ -11,7 +11,7 @@
         return m;
 }
 
- value copy_Elm_Clock_Edit_Mode(Elm_Clock_Edit_Mode m)
+inline value copy_Elm_Clock_Edit_Mode(Elm_Clock_Edit_Mode m)
 {
         value v = caml_alloc(8, 0);
         Store_field(v, 0, Val_bool((m == ELM_CLOCK_EDIT_DEFAULT)));

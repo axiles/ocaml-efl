@@ -1,6 +1,6 @@
 #include "include.h"
 
- Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val_list(
+inline Elm_Scroller_Movement_Block Elm_Scroller_Movement_Block_val_list(
         value v_list)
 {
         value v = v_list;
@@ -12,7 +12,7 @@
         return r;
 }
 
- value copy_Elm_Scroller_Movement_Block(Elm_Scroller_Movement_Block m)
+inline value copy_Elm_Scroller_Movement_Block(Elm_Scroller_Movement_Block m)
 {
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_bool(m & ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL));

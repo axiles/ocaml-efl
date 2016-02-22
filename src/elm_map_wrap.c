@@ -1,6 +1,6 @@
 #include "include.h"
 
- value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
+inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -16,7 +16,7 @@
         CAMLreturn(v);
 }
 
- Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
+inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;

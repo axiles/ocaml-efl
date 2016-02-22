@@ -1,6 +1,6 @@
 #include "include.h"
 
- struct tm Tm_val(value v)
+inline struct tm Tm_val(value v)
 {
         struct tm t;
         t.tm_sec = Int_val(Field(v, 0));
@@ -15,7 +15,7 @@
         return t;
 }
 
- value copy_tm(struct tm t)
+inline value copy_tm(struct tm t)
 {
         value v = caml_alloc(9, 0);
         Store_field(v, 0, Val_int(t.tm_sec));
@@ -30,7 +30,7 @@
         return v;
 }
 
- value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
+inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -46,7 +46,7 @@
         CAMLreturn(v);
 }
 
- Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
+inline Elm_Calendar_Selectable Elm_Calendar_Selectable_val_list(value v)
 {
         value v_tmp = v;
         Elm_Calendar_Selectable s = ELM_CALENDAR_SELECTABLE_NONE;
@@ -57,7 +57,7 @@
         return s;
 }
 
- value copy_Elm_Calendar_Selectable(Elm_Calendar_Selectable s)
+inline value copy_Elm_Calendar_Selectable(Elm_Calendar_Selectable s)
 {
         value v = caml_alloc(3, 0);
         Store_field(v, 0, Val_bool(s & ELM_CALENDAR_SELECTABLE_YEAR));
