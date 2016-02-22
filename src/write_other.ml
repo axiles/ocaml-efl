@@ -25,13 +25,13 @@ let ptr_types = [
 ]
 
 let print_ptr_type_c_impl fmt name =
-  fprintf fmt "%s* %s_val(value v)\n" name name;
+  fprintf fmt "inline %s* %s_val(value v)\n" name name;
   fprintf fmt "{\n";
   fprintf fmt "        return (%s*) v;\n" name;
   fprintf fmt "}\n\n";
 (* Keeping Val_%s, for now for compatibility reasons *)
   let of_c name1 = 
-    fprintf fmt "value %s(const %s* x)\n" name1 name;
+    fprintf fmt "inline value %s(const %s* x)\n" name1 name;
     fprintf fmt "{\n";
     fprintf fmt "        return (value) x;\n";
     fprintf fmt "}\n\n" in

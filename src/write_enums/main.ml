@@ -115,7 +115,7 @@ end = struct
     fprintf fmt "inline %s %s(value v);\n" enum.c_name enum.c_of_ml;
     fprintf fmt "inline value %s(%s x);\n\n" enum.ml_of_c enum.c_name
   let print_c_impl fmt enum =
-    fprintf fmt "%s %s(value v)\n" enum.c_name enum.c_of_ml;
+    fprintf fmt "inline %s %s(value v)\n" enum.c_name enum.c_of_ml;
     fprintf fmt "{\n";
     fprintf fmt "        switch(v) {\n";
     let aux variant =
@@ -130,7 +130,7 @@ end = struct
     | [] -> assert false
     | v :: _ -> fprintf fmt "        return %s;\n" v.Variant.c);
     fprintf fmt "}\n\n";
-    fprintf fmt "value %s(%s x)\n" enum.ml_of_c enum.c_name;
+    fprintf fmt "inline value %s(%s x)\n" enum.ml_of_c enum.c_name;
     fprintf fmt "{\n";
     fprintf fmt "        switch(x) {\n";
     let aux variant =
