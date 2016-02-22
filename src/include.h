@@ -26,14 +26,14 @@
 
 /* General functions */
 
-inline struct tm Tm_val(value v);
-inline value copy_tm(struct tm t);
+ struct tm Tm_val(value v);
+ value copy_tm(struct tm t);
 
-inline value* ml_register_value(value v);
-inline void ml_remove_value(value* data);
+ value* ml_register_value(value v);
+ void ml_remove_value(value* data);
 
-inline value safe_copy_string(const char* s);
-inline value safe_copy_string_free(char* s);
+ value safe_copy_string(const char* s);
+ value safe_copy_string_free(char* s);
 
 /* Local headers */
 
