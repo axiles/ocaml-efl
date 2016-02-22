@@ -1,6 +1,6 @@
 #include "evas_event_wrap.h"
 
-inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
+ value Val_Evas_Event_Flags(Evas_Event_Flags f)
 {
         switch(f) {
                 case EVAS_EVENT_FLAG_NONE: return Val_none;
@@ -11,7 +11,7 @@ inline value Val_Evas_Event_Flags(Evas_Event_Flags f)
         return Val_none;
 }
 
-inline value copy_Evas_Event_Info(
+ value copy_Evas_Event_Info(
         Evas_Callback_Type t, void* event_info)
 {
         CAMLparam0();

@@ -112,10 +112,10 @@ end = struct
       else None in
     let ptr = e.E.ptr in
     let fields = List.map (Field.create env) e.E.fields in
-    let c_of_ml = sprintf "inline %s %s_val(value v)" c_name c_name in
+    let c_of_ml = sprintf " %s %s_val(value v)" c_name c_name in
     let ml_of_c =
       let s = if ptr then sprintf "const %s*" c_name else c_name in
-      sprintf "inline value copy_%s(%s x)" c_name s in
+      sprintf " value copy_%s(%s x)" c_name s in
     let params =
       let aux accu f =
         match Field.get_param f with

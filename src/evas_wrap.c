@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
+ value copy_Evas_Button_Flags(Evas_Button_Flags f)
 {
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_bool(f & EVAS_BUTTON_DOUBLE_CLICK));
@@ -136,14 +136,14 @@ PREFIX value ml_evas_async_events_process(value v_unit)
 
 static Eina_List* ml_evas_values_list = NULL;
 
-inline value* ml_Evas_register_value(value v)
+ value* ml_Evas_register_value(value v)
 {
         value* data = ml_register_value(v);
         ml_evas_values_list = eina_list_append(ml_evas_values_list, data);
         return data;
 }
 
-inline void ml_Evas_remove_values()
+ void ml_Evas_remove_values()
 {
         Eina_List* tmp;
         value* data;
@@ -259,7 +259,7 @@ PREFIX value ml_evas_output_framespace_get(value v_e)
         return v_r;
 }
 
-inline Evas_Callback_Priority Evas_Callback_Priority_val(value v)
+ Evas_Callback_Priority Evas_Callback_Priority_val(value v)
 {
         if(Is_long(v)) {
                 switch(v) {
@@ -420,7 +420,7 @@ PREFIX value ml_evas_render_dump(value v_e)
 
 /* Input Events Feeding Functions */
 
-inline value copy_Eina_List_Evas_Device(const Eina_List* list)
+ value copy_Eina_List_Evas_Device(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -436,7 +436,7 @@ inline value copy_Eina_List_Evas_Device(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline value copy_Evas_Device_opt(const Evas_Device* dev)
+ value copy_Evas_Device_opt(const Evas_Device* dev)
 {
         if(dev == NULL) return Val_int(0);
         value v_r = caml_alloc(1, 0);
@@ -444,7 +444,7 @@ inline value copy_Evas_Device_opt(const Evas_Device* dev)
         return v_r;
 }
 
-inline Evas_Device* Evas_Device_opt_val(value v)
+ Evas_Device* Evas_Device_opt_val(value v)
 {
         if(v == Val_int(0)) return NULL;
         else return (Evas_Device*) Field(v, 0);
@@ -548,7 +548,7 @@ PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn)
 
 /* Shared Image Cache Server */
 
-/*inline value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
+/* value copy_Evas_Cserve_Stats(Evas_Cserve_Stats s)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -562,7 +562,7 @@ PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn)
         CAMLreturn(v);
 }
 
-inline Evas_Cserve_Config Evas_Cserve_Config_val(value v)
+ Evas_Cserve_Config Evas_Cserve_Config_val(value v)
 {
         Evas_Cserve_Config c;
         c.cache_max_usage = Int_val(Field(v, 0));
@@ -571,7 +571,7 @@ inline Evas_Cserve_Config Evas_Cserve_Config_val(value v)
         return c;
 }
 
-inline value copy_Evas_Cserve_Config(Evas_Cserve_Config c)
+ value copy_Evas_Cserve_Config(Evas_Cserve_Config c)
 {
         value v = caml_alloc(3, 0);
         Store_field(v, 0, Val_int(c.cache_max_usage));

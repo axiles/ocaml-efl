@@ -22,7 +22,7 @@ void ml_SlideshowItemDelFunc_1_free(void* data, Evas_Object* obj)
         CAMLreturn0;
 }
 
-inline void ml_Elm_Slideshow_Item_Class(
+ void ml_Elm_Slideshow_Item_Class(
         Elm_Slideshow_Item_Class* itc, void** data, value v_itc)
 {
         value* v_data = ml_register_value(v_itc);

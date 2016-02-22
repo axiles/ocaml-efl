@@ -1,14 +1,14 @@
 #include "include.h"
 
-inline Eina_Bool Eina_Bool_val(value v) {
+ Eina_Bool Eina_Bool_val(value v) {
         return (Eina_Bool) Int_val(v);
 }
 
-inline value Val_Eina_Bool(Eina_Bool b) {
+ value Val_Eina_Bool(Eina_Bool b) {
         return Val_int (b);
 }
 
-inline value copy_Eina_List_string(const Eina_List* list)
+ value copy_Eina_List_string(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);
@@ -25,7 +25,7 @@ inline value copy_Eina_List_string(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline Eina_List* Eina_List_string_val(value v_list)
+ Eina_List* Eina_List_string_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -36,7 +36,7 @@ inline Eina_List* Eina_List_string_val(value v_list)
         return list;
 }
 
-inline Eina_List* Eina_List_string_malloc_val(value v_list)
+ Eina_List* Eina_List_string_malloc_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -47,7 +47,7 @@ inline Eina_List* Eina_List_string_malloc_val(value v_list)
         return list;
 }
 
-inline value copy_Eina_List_Evas_Object(const Eina_List* list)
+ value copy_Eina_List_Evas_Object(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -63,7 +63,7 @@ inline value copy_Eina_List_Evas_Object(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline Eina_List* Eina_List_Evas_Object_val(value v_list)
+ Eina_List* Eina_List_Evas_Object_val(value v_list)
 {
         Eina_List* list = NULL;
         value v = v_list;
@@ -74,7 +74,7 @@ inline Eina_List* Eina_List_Evas_Object_val(value v_list)
         return list;
 }
 
-inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
+ value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal2(v, v1);
@@ -90,7 +90,7 @@ inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
+ Elm_Object_Item* Elm_Object_Item_opt_val(value v)
 {
         Elm_Object_Item* it;
         if(v == Val_int(0)) it = NULL;
@@ -98,7 +98,7 @@ inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
         return it;
 }
 
-inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
+ value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
 {
         CAMLparam0();
         CAMLlocal1(v_r);
@@ -110,7 +110,7 @@ inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
         CAMLreturn(v_r);
 }
 
-inline value copy_string_opt(const char* s)
+ value copy_string_opt(const char* s)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -122,7 +122,7 @@ inline value copy_string_opt(const char* s)
         CAMLreturn(v);
 }
 
-inline value copy_Evas_Object_opt(const Evas_Object* obj)
+ value copy_Evas_Object_opt(const Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal1(v_r);
@@ -134,25 +134,25 @@ inline value copy_Evas_Object_opt(const Evas_Object* obj)
         CAMLreturn(v_r);
 }
 
-inline Evas_Object* Evas_Object_opt_val(value v)
+ Evas_Object* Evas_Object_opt_val(value v)
 {
         if(v == Val_int(0)) return NULL;
         else return Evas_Object_val(Field(v, 0));
 }
 
-inline const char* String_opt_val(value v)
+ const char* String_opt_val(value v)
 {
         if(v == Val_int(0)) return NULL;
         else return String_val(Field(v, 0));
 }
 
-inline int Int_opt_val(value v)
+ int Int_opt_val(value v)
 {
         if(v == Val_int(0)) return 0;
         else return Int_val(Field(v, 0));
 }
 
-inline value* ml_register_value(value v)
+ value* ml_register_value(value v)
 {
         value* data = caml_stat_alloc(sizeof(value));
         *data = v;
@@ -160,13 +160,13 @@ inline value* ml_register_value(value v)
         return data;
 }
 
-inline void ml_remove_value(value* data)
+ void ml_remove_value(value* data)
 {
         caml_remove_generational_global_root(data);
         caml_stat_free(data);
 }
 
-inline value copy_Eina_Rectangle(Eina_Rectangle* rect)
+ value copy_Eina_Rectangle(Eina_Rectangle* rect)
 {
         value v = caml_alloc(4, 0);
         Store_field(v, 0, rect->x);
@@ -176,7 +176,7 @@ inline value copy_Eina_Rectangle(Eina_Rectangle* rect)
         return v;
 }
 
-inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
+ value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);
@@ -193,31 +193,31 @@ inline value copy_Eina_List_Eina_Rectangle(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline value safe_copy_string(const char* s)
+ value safe_copy_string(const char* s)
 {
         if(s == NULL) return copy_string("");
         else return copy_string(s);
 }
 
-inline value safe_copy_string_free(char* s)
+ value safe_copy_string_free(char* s)
 {
         value v = safe_copy_string(s);
         free(s);
         return v;
 }
 
-inline value Val_Eina_Bool_ptr(Eina_Bool* ptr)
+ value Val_Eina_Bool_ptr(Eina_Bool* ptr)
 {
         return Val_bool(*ptr);
 }
 
 
-inline value copy_double_ptr(double* ptr)
+ value copy_double_ptr(double* ptr)
 {
         return copy_double(*ptr);
 }
 
-inline value copy_string_string(char** x)
+ value copy_string_string(char** x)
 {
         CAMLparam0();
         CAMLlocal1(v);

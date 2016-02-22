@@ -47,7 +47,7 @@ PREFIX value ml_elm_config_preferred_engine_set(value v_preferred_engine)
 
 /* Elementary Fonts */
 
-inline value copy_Elm_Text_Class(Elm_Text_Class* c)
+ value copy_Elm_Text_Class(Elm_Text_Class* c)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -56,7 +56,7 @@ inline value copy_Elm_Text_Class(Elm_Text_Class* c)
         CAMLreturn(v);
 }
 
-inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
+ value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);
@@ -73,7 +73,7 @@ inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
+ value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
 {
         CAMLparam0();
         CAMLlocal1(v);
@@ -83,7 +83,7 @@ inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
         CAMLreturn(v);
 }
 
-inline value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list)
+ value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_s);

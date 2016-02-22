@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
+ Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
 {
         value v_tmp = v;
         Elm_GLView_Mode m = ELM_GLVIEW_NONE;

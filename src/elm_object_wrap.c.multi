@@ -759,7 +759,7 @@ PREFIX value ml_elm_object_item_style_get(value v_it)
 }
 /* END */
 
-inline void ml_Elm_Object_Item_gc_value(
+ void ml_Elm_Object_Item_gc_value(
         const Elm_Object_Item* it, value* data)
 {
         Evas_Object* obj = elm_object_item_widget_get(it);
@@ -767,7 +767,7 @@ inline void ml_Elm_Object_Item_gc_value(
                 ml_Evas_Object_Event_Cb_on_del, data);
 }
 
-inline value* ml_Elm_Object_Item_register_value(
+ value* ml_Elm_Object_Item_register_value(
         Elm_Object_Item* it, value v)
 {
         value* data = ml_register_value(v);

@@ -132,7 +132,7 @@ PREFIX value ml_elm_language_set(value v_lang)
 }
 
 /* BEGIN: 1.11 */
-inline Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(
+ Elm_Glob_Match_Flags Elm_Glob_Match_Flags_val_list(
         value v_list)
 {
         value v = v_list;
@@ -165,7 +165,7 @@ PREFIX value copy_Elm_Color_Class(Elm_Color_Class* c)
         CAMLreturn(v);
 }
 
-inline value copy_Eina_List_Elm_Color_Class(const Eina_List* list)
+ value copy_Eina_List_Elm_Color_Class(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_c);
@@ -203,7 +203,7 @@ PREFIX value copy_Elm_Color_Overlay(Elm_Color_Overlay* o)
         CAMLreturn(v);
 }
 
-inline value copy_Eina_List_Elm_Color_Overlay(const Eina_List* list)
+ value copy_Eina_List_Elm_Color_Overlay(const Eina_List* list)
 {
         CAMLparam0();
         CAMLlocal3(v, v1, v_o);

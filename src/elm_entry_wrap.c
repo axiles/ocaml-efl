@@ -28,7 +28,7 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
 
 }
 
-inline Elm_Entry_Filter_Limit_Size
+ Elm_Entry_Filter_Limit_Size
         Elm_Entry_Filter_Limit_Size_val(value v)
 {
         Elm_Entry_Filter_Limit_Size ls;
@@ -37,7 +37,7 @@ inline Elm_Entry_Filter_Limit_Size
         return ls;
 }
 
-inline value
+ value
         copy_Elm_Entry_Filter_Limit_Size(Elm_Entry_Filter_Limit_Size ls)
 {
         value v = caml_alloc(2, 0);
@@ -47,7 +47,7 @@ inline value
 }
 
 /* WARNING: You must not use the GC when using the result */
-inline Elm_Entry_Filter_Accept_Set
+ Elm_Entry_Filter_Accept_Set
         Elm_Entry_Filter_Accept_Set_val(value v)
 {
         Elm_Entry_Filter_Accept_Set as;
@@ -56,7 +56,7 @@ inline Elm_Entry_Filter_Accept_Set
         return as;
 }
 
-inline value
+ value
         copy_Elm_Entry_Filter_Accept_Set(Elm_Entry_Filter_Accept_Set as)
 {
         CAMLparam0();

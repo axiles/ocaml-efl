@@ -1,6 +1,6 @@
 #include "include.h"
 
-inline Elm_Toolbar_Item_Scrollto_Type
+ Elm_Toolbar_Item_Scrollto_Type
 Elm_Toolbar_Item_Scrollto_Type_val_list(value v)
 {
         Elm_Toolbar_Item_Scrollto_Type r = ELM_TOOLBAR_ITEM_SCROLLTO_NONE;
