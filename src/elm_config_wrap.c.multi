@@ -56,6 +56,7 @@ inline value copy_Elm_Text_Class(Elm_Text_Class* c)
         CAMLreturn(v);
 }
 
+value copy_Eina_List_Elm_Text_Class(const Eina_List* list);
 inline value copy_Eina_List_Elm_Text_Class(const Eina_List* list)
 {
         CAMLparam0();
@@ -83,6 +84,7 @@ inline value copy_Elm_Font_Overlay(Elm_Font_Overlay* c)
         CAMLreturn(v);
 }
 
+value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list);
 inline value copy_Eina_List_Elm_Font_Overlay(const Eina_List* list)
 {
         CAMLparam0();

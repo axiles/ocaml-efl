@@ -30,6 +30,7 @@ inline value copy_tm(struct tm t)
         return v;
 }
 
+value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list);
 inline value copy_Eina_List_Elm_Calendar_Mark(const Eina_List* list)
 {
         CAMLparam0();
