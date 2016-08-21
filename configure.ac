@@ -1,4 +1,4 @@
-AC_INIT([ocaml-efl], [1.17.0])
+AC_INIT([ocaml-efl], [1.18.0])
 
 AM_INIT_AUTOMAKE([foreign])
 
@@ -45,9 +45,12 @@ AS_IF([test -z $ELEMENTARY_VERSION], [
   ])  
   ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
 ])
-AC_SUBST([ELM_EO_CLASS_OBJ], "yes")
+AC_SUBST([ELM_EO_CLASS_OBJ], "elm_obj")
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
-  ELM_EO_CLASS_OBJ="no"
+  ELM_EO_CLASS_OBJ="elm"
+], [])
+AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.18"], [
+  ELM_EO_CLASS_OBJ="efl_ui"
 ], [])
 
 dnl Checking for Lablgl (used to compile an example, optional)

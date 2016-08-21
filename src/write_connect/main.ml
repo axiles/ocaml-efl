@@ -12,7 +12,17 @@ let string_mapi f s =
   string_iteri aux s;
   Buffer.contents buf
   
-let elm_eo_class_obj = Array.length Sys.argv >= 3
+(* The names of the Eo class depends on the version of the EFL *)
+type elm_eo_class_prefix =
+| ELM
+| ELM_OBJ
+| EFL_UI
+
+let elm_eo_class_obj = match Sys.argv.(2) with
+| "elm" -> ELM
+| "elm_obj" -> ELM_OBJ
+| "efl_ui" -> EFL_UI
+| s -> invalid_arg (sprintf "%s is not elm, elm_obj or efl_ui" s)
 
 module Event_info : sig
   type t = {
@@ -185,11 +195,18 @@ end = struct
     let ml_name = ml_name_of_name name in
     let eo_name = e.Expr.name in
     let eo_name =
-      if not elm_eo_class_obj then replace_prefix eo_name "ELM_OBJ" "ELM"
-      else eo_name in
+      match elm_eo_class_obj with
+      | ELM | EFL_UI -> replace_prefix eo_name "ELM_OBJ" "ELM"
+      | ELM_OBJ -> eo_name in
     let eo_name =
-      if not elm_eo_class_obj && eo_name = "ELM_WIN_INWIN_CLASS" then
+      if elm_eo_class_obj <> ELM_OBJ && eo_name = "ELM_WIN_INWIN_CLASS" then
         "ELM_WIN_CLASS" else eo_name in
+    let eo_name = if elm_eo_class_obj = EFL_UI then match eo_name with
+      | "ELM_FLIP_CLASS" | "ELM_FRAME_CLASS" | "ELM_WIN_CLASS" |
+        "ELM_IMAGE_CLASS" | "ELM_VIDEO_CLASS" ->
+        replace_prefix eo_name "ELM" "EFL_UI"
+      | _ -> eo_name
+      else eo_name in
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =
