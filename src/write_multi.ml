@@ -66,28 +66,30 @@ let is_section_valid version cmp sec =
   | Leq -> ( <= ) in
   f version sec
 
-let rec read_file ch_in ch_out =
+let rec read_file ch_in ch_out line =
   match read_line ch_in with
-  | Normal s -> fprintf ch_out "%s\n" s; read_file ch_in ch_out
+  | Normal s -> fprintf ch_out "%s\n" s; read_file ch_in ch_out (line + 1)
   | Begin_section(cmp, sec) ->
     let valid = is_section_valid version cmp sec in
-    read_section valid ch_in ch_out
-  | End_section -> failwith "Unexpected end of section"
+    read_section valid ch_in ch_out (line + 1)
+  | End_section ->
+    failwith (sprintf "Unexpected end of section at line %d" line)
   | End_file -> ()
 
-and read_section valid ch_in ch_out =
+and read_section valid ch_in ch_out line =
   match read_line ch_in with
   | Normal s ->
     if valid then fprintf ch_out "%s\n" s;
-    read_section valid ch_in ch_out
-  | Begin_section _ -> failwith "Unexpected begin of section"
-  | End_section -> read_file ch_in ch_out
+    read_section valid ch_in ch_out (line + 1)
+  | Begin_section _ ->
+    failwith (sprintf "Unexpected begin of section at line %d" line)
+  | End_section -> read_file ch_in ch_out (line + 1)
   | End_file -> failwith "Unexpected end of file"
 
 let () =
   let ch_in = open_in input_file in
   let ch_out = open_out output_file in
-  read_file ch_in ch_out;
+  read_file ch_in ch_out 1;
   fprintf ch_out "%!";
   close_in ch_in;
   close_out ch_out

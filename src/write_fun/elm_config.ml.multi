@@ -36,6 +36,9 @@ let funs = [
 (* BEGIN: 1.15 *)
   prop ~args:[] "transition_duration_factor" double;
 (* END *)
+(* BEGIN: 1.18 *)
+  prop ~args:[] "web_backend" safe_string;
+(* END *)
 (* Elementary Font *)
   simple_unit "font_overlay_set" [safe_string; safe_string; int];
   simple_unit "font_overlay_unset" [safe_string];
@@ -85,6 +88,9 @@ let funs = [
   prop ~args:[] "window_auto_focus_enable" bool;
   prop ~args:[] "window_auto_focus_animate" bool;
 (* END *)
+(* BEGIN: 1.18 *)
+  prop ~args:[] "popup_scrollable" bool;
+(* END *)
 (* Password show last *)
   prop ~args:[] "password_show_last" bool;
   prop ~args:[] "password_show_last_timeout" double;
@@ -108,7 +114,14 @@ let funs = [
   prop ~args:[] "scroll_thumbscroll_smooth_amount" double;
   prop ~args:[] "scroll_thumbscroll_smooth_time_window" double;
 (* END *)
+(* BEGIN: 1.18 *)
+  prop ~args:[] "scroll_animation_disabled" bool;
+  prop ~args:[] "scroll_accel_factor" double;
+(* END *)
 (* Widget Scaling *)
   prop ~args:[] "scale" double;
+(* BEGIN: 1.18 *)
+  prop ~args:[] "icon_theme" safe_string;
+(* END *)
 ]
 
