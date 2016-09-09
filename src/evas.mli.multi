@@ -57,6 +57,8 @@ module Button_flags : sig
   type t = {double_click : bool; triple_click : bool}
 end
 
+type coord_rectangle = int * int * int * int
+
 type button_flags = Button_flags.t
 
 type device

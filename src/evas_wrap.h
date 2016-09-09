@@ -22,5 +22,7 @@ PREFIX void ml_Evas_Smart_Cb_1_free(
 
  value copy_Evas_Coord_Size(Evas_Coord_Size* s);
 
+value copy_Evas_Coord_Rectangle(Evas_Coord_Rectangle* r);
+
 #endif
 

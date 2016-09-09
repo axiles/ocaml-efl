@@ -755,3 +755,13 @@ PREFIX value copy_Evas_Coord_Size(Evas_Coord_Size* s)
         return v;
 }
 
+PREFIX value copy_Evas_Coord_Rectangle(Evas_Coord_Rectangle* r)
+{
+        value v = caml_alloc(4, 0);
+        Store_field(v, 0, Val_int(r->x));
+        Store_field(v, 1, Val_int(r->y));
+        Store_field(v, 2, Val_int(r->w));
+        Store_field(v, 3, Val_int(r->h));
+        return v;
+}
+

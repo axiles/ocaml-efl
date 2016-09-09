@@ -27,6 +27,8 @@ module Mposition = Fposition(struct
 end)
 include Mposition
 
+type coord_rectangle = int * int * int * int
+
 module Button_flags = struct
   type t = {double_click : bool; triple_click : bool}
 end

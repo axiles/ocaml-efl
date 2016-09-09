@@ -272,6 +272,8 @@ let create_env () =
     ("coord_size", "Evas_Coord_Size*", "int * int", "copy_Evas_Coord_Size");
     ("day", "Elm_Dayselector_Day", "Elm_dayselector.day",
       "Val_Elm_Dayselector_Day");
+    ("coord_rectangle", "Evas_Coord_Rectangle*", "Evas.coord_rectangle",
+      "copy_Evas_Coord_Rectangle");
   ] in
   let env2 = List.fold_left add_cast env1 [
     ("item", "Elm_Object_Item*", "Elm_object.item");

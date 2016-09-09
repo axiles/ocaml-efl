@@ -2,5 +2,8 @@ ELM_OBJ_CTXPOPUP_CLASS
 "dismissed"
 "focused"
 "unfocused"
+(* BEGIN: 1.18 *)
+"geometry,update" coord_rectangle
+(* END *)
 "theme,changed"
 "language,changed"
