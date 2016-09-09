@@ -5,16 +5,28 @@ let indicator_mode = simple_ty "Elm_Win" "Indicator_Mode"
 let indicator_opacity_mode = simple_ty "Elm_Win" "Indicator_Opacity_Mode"
 
 let funs = [
+(* BEGIN: 1.18 *)
+  simple "accel_preference_get" [evas_object] safe_string;
+(* END *)
   simple_unit "resize_object_add" [evas_object; evas_object];
   simple_unit "resize_object_del" [evas_object; evas_object];
   prop "title" safe_string;
   prop "icon_name" safe_string;
   prop "role" safe_string;
+(* BEGIN: 1.18 *)
+  simple "name_get" [evas_object] safe_string;
+(* END *)
   prop "autodel" bool;
   simple_unit "activate" [evas_object];
   simple_unit "lower" [evas_object];
   simple_unit "raise" [evas_object];
   simple_unit "center" [evas_object; bool; bool];
+(* BEGIN: 1.18 *)
+  simple_unit "teamwork_uri_preload" [evas_object; safe_string];
+  simple_unit "teamwork_uri_show" [evas_object; safe_string];
+  simple_unit "teamwork_uri_hide" [evas_object];
+  simple_unit "teamwork_uri_open" [evas_object; safe_string];
+(* END *)
   prop "borderless" bool;
   prop "shaped" bool;
   prop "alpha" bool;

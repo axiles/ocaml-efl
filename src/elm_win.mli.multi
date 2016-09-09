@@ -91,6 +91,12 @@ that in the latter case there is a background in the window *)
 val type_get : Evas.obj -> ty
 (* END *)
 
+(* BEGIN: 1.18 *)
+
+val accel_preference_get : Evas.obj -> string
+
+(* END *)
+
 (* BEGIN: 1.13 *)
 val fake_add : Ecore.evas -> Evas.obj
 (* END *)
@@ -117,6 +123,12 @@ val role_set : Evas.obj -> string -> unit
 
 val role_get : Evas.obj -> string
 
+(* BEGIN: 1.18 *)
+
+val name_get : Evas.obj -> string
+
+(* END *)
+
 val icon_object_set : Evas.obj -> Evas.obj -> unit
 
 val icon_object_get : Evas.obj -> Evas.obj
@@ -132,6 +144,18 @@ val lower : Evas.obj -> unit
 val raise : Evas.obj -> unit
 
 val center : Evas.obj -> bool -> bool -> unit
+
+(* BEGIN: 1.18 *)
+
+val teamwork_uri_preload : Evas.obj -> string -> unit
+
+val teamwork_uri_show : Evas.obj -> string -> unit
+
+val teamwork_uri_hide : Evas.obj -> unit
+
+val teamwork_uri_open : Evas.obj -> string -> unit
+
+(* END *)
 
 val borderless_set : Evas.obj -> bool -> unit
 
