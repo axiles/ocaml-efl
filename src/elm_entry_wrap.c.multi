@@ -240,3 +240,18 @@ PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
         return copy_Elm_Entry_Anchor_Hover_Info(info);
 }
 
+/* BEGIN: 1.18 */
+
+PREFIX value ml_elm_entry_select_region_get(value v_obj)
+{
+        value v;
+        int start, end;
+        elm_entry_select_region_get(Evas_Object_val(v_obj), &start, &end);
+        v = caml_alloc(2, 0);
+        Store_field(v, 0, Val_int(start));
+        Store_field(v, 1, Val_int(end));
+        return v;
+}
+
+/* END */
+
