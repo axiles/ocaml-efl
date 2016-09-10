@@ -69,6 +69,12 @@ val duration_get : t -> float
 
 val go : t -> unit
 
+(* BEGIN: 1.18 *)
+
+val revert : t -> unit
+
+(* END *)
+
 (* BEGIN: 1.14 *)
 val go_in : t -> float -> unit
 (* END *)
