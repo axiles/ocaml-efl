@@ -30,6 +30,9 @@ let funs = [
   simple_unit "cursor_selection_end" [evas_object];
   simple "cursor_is_format_get" [evas_object] bool;
   simple "cursor_is_visible_format_get" [evas_object] bool;
+(* BEGIN: 1.18 *)
+  prop "select_allow" bool;
+(* END *)
   prop "cursor_pos" int;
   simple_unit "selection_cut" [evas_object];
   simple_unit "selection_copy" [evas_object];
