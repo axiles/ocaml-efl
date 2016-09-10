@@ -89,6 +89,14 @@ val focus_region_show_mode_set : Evas.obj -> Elm.focus_region_show_mode -> unit
 val focus_region_show_mode_get : Evas.obj -> Elm.focus_region_show_mode
 (* END *)
 
+(* BEGIN: 1.18 *)
+
+val focus_move_policy_automatic_set : Evas.obj -> bool -> unit
+
+val focus_move_policy_automatic_get : Evas.obj -> bool
+
+(* END *)
+
 (** {2 General} *)
 
 type select_mode = [`default | `always | `none | `display_only | `max]
