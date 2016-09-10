@@ -13,7 +13,11 @@ let funs = [
   prop "indicator_show" bool;
   prop "step" double;
 (* BEGIN: 1.14 *)
-  prop "indicator_visible_mode" indicator_visible_mode
+  prop "indicator_visible_mode" indicator_visible_mode;
+(* END *)
+(* BEGIN: 1.18 *)
+  prop "range_enabled" bool;
+  simple_unit "range_set" [evas_object; double; double];
 (* END *)
 ]
 

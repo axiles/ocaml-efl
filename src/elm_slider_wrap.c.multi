@@ -32,3 +32,17 @@ PREFIX value ml_elm_slider_min_max_get(value v_obj)
         CAMLreturn(v_r);
 }
 
+/* BEGIN: 1.18 */
+PREFIX value ml_elm_slider_range_get(value v_obj)
+{
+        CAMLparam1(v_obj);
+        CAMLlocal1(v_r);
+        double from, to;
+        elm_slider_range_get(Evas_Object_val(v_obj), &from, &to);
+        v_r = caml_alloc(2, 0);
+        Store_field(v_r, 0, copy_double(from));
+        Store_field(v_r, 1, copy_double(to));
+        CAMLreturn(v_r);
+}
+/* END */
+
