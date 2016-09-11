@@ -50,14 +50,15 @@ inline Eina_List* Eina_List_string_malloc_val(value v_list)
 inline value copy_Eina_List_Evas_Object(const Eina_List* list)
 {
         CAMLparam0();
-        CAMLlocal2(v, v1);
+        CAMLlocal3(v, v1, v_obj);
         Eina_List* it;
         Evas_Object* obj;
         v = Val_int(0);
         EINA_LIST_REVERSE_FOREACH(list, it, obj) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, copy_Evas_Object(obj));
+                v_obj = copy_Evas_Object(obj);
+                Store_field(v, 0, v_obj);
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
@@ -125,11 +126,12 @@ inline value copy_string_opt(const char* s)
 inline value copy_Evas_Object_opt(const Evas_Object* obj)
 {
         CAMLparam0();
-        CAMLlocal1(v_r);
+        CAMLlocal2(v_r, v_obj);
         if(obj == NULL) v_r = Val_int(0);
         else {
-          value v_r = caml_alloc(1, 0);
-          Store_field(v_r, 0, copy_Evas_Object(obj));
+          v_r = caml_alloc(1, 0);
+          v_obj = copy_Evas_Object(obj);
+          Store_field(v_r, 0, v_obj);
         }
         CAMLreturn(v_r);
 }

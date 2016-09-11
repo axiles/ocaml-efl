@@ -187,49 +187,6 @@ PREFIX value ml_elm_list_selected_items_get(value v_obj)
                 Evas_Object_val(v_obj)));
 }
 
-/*PREFIX value ml_elm_list_item_selected_set(value v_it, value v_flag)
-{
-        elm_list_item_selected_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_list_item_selected_get(value v_it)
-{
-        return Val_bool(elm_list_item_selected_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_list_item_separator_set(value v_it, value v_flag)
-{
-        elm_list_item_separator_set((Elm_Object_Item*) v_it,
-                Eina_Bool_val(v_flag));
-        return Val_unit;
-}
-
-PREFIX value ml_elm_list_item_separator_get(value v_it, value v_flag)
-{
-        return Val_Eina_Bool(elm_list_item_separator_get(
-                (Elm_Object_Item*) v_it));
-}
-
-PREFIX value ml_elm_list_item_show(value v_it)
-{
-        elm_list_item_show((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_list_item_bring_in(value v_it)
-{
-        elm_list_item_bring_in((Elm_Object_Item*) v_it);
-        return Val_unit;
-}
-
-PREFIX value ml_elm_list_item_object_get(value v_it)
-{
-        return (value) elm_list_item_object_get((Elm_Object_Item*) v_it);
-}
-*/
 PREFIX value ml_elm_list_item_prev(value v_it)
 {
         Elm_Object_Item* it1 = elm_list_item_prev((Elm_Object_Item*) v_it);

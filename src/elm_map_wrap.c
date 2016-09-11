@@ -131,12 +131,8 @@ PREFIX value ml_elm_map_overlay_content_set(value v_ov, value v_obj)
 
 PREFIX value ml_elm_map_overlay_content_get(value v_ov)
 {
-        const Evas_Object* obj =
-                elm_map_overlay_content_get((Elm_Map_Overlay*) v_ov);
-        if(obj == NULL) return Val_int(0);
-        value v_obj = caml_alloc(1, 0);
-        Store_field(v_obj, 0, copy_Evas_Object(obj));
-        return v_obj;
+        return copy_Evas_Object_opt(elm_map_overlay_content_get(
+                (Elm_Map_Overlay*) v_ov));
 }
 
 PREFIX value ml_elm_map_overlay_icon_set(value v_ov, value v_obj)
@@ -150,12 +146,8 @@ PREFIX value ml_elm_map_overlay_icon_set(value v_ov, value v_obj)
 
 PREFIX value ml_elm_map_overlay_icon_get(value v_ov)
 {
-        const Evas_Object* obj =
-                elm_map_overlay_icon_get((Elm_Map_Overlay*) v_ov);
-        if(obj == NULL) return Val_int(0);
-        value v_obj = caml_alloc(1, 0);
-        Store_field(v_obj, 0, copy_Evas_Object(obj));
-        return v_obj;
+        return copy_Evas_Object_opt(elm_map_overlay_icon_get(
+                (Elm_Map_Overlay*) v_ov));
 }
 
 PREFIX value ml_elm_map_overlay_region_get(value v_ov)
