@@ -11,26 +11,26 @@ char* ml_Elm_Multibuttonentry_Format_Cb(int count, void* data)
 
 PREFIX value ml_elm_multibuttonentry_add(value v_parent)
 {
-        Evas_Object* obj = elm_multibuttonentry_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_multibuttonentry_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_multibuttonentry_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_multibuttonentry_entry_get(value v_obj)
 {
         return copy_Evas_Object_opt(elm_multibuttonentry_entry_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_multibuttonentry_expanded_get(value v_obj)
 {
         return Val_bool(elm_multibuttonentry_expanded_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_multibuttonentry_expanded_set(value v_obj, value v_flag)
 {
-        elm_multibuttonentry_expanded_set((Evas_Object*) v_obj,
+        elm_multibuttonentry_expanded_set(Evas_Object_val(v_obj),
                 Bool_val(v_flag));
         return Val_unit;
 }
@@ -51,7 +51,7 @@ PREFIX value ml_elm_multibuttonentry_item_prepend(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_multibuttonentry_item_prepend(
-                (Evas_Object*) v_obj, label, func, data);
+                Evas_Object_val(v_obj), label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_multibuttonentry_item_prepend");
@@ -77,7 +77,7 @@ PREFIX value ml_elm_multibuttonentry_item_append(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_multibuttonentry_item_append(
-                (Evas_Object*) v_obj, label, func, data);
+                Evas_Object_val(v_obj), label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_multibuttonentry_item_append");
@@ -103,7 +103,7 @@ PREFIX value ml_elm_multibuttonentry_item_insert_before(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_multibuttonentry_item_insert_before(
-                (Evas_Object*) v_obj, (Elm_Object_Item*) v_before,
+                Evas_Object_val(v_obj), (Elm_Object_Item*) v_before,
                 label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
@@ -130,7 +130,7 @@ PREFIX value ml_elm_multibuttonentry_item_insert_after(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_multibuttonentry_item_insert_after(
-                (Evas_Object*) v_obj, (Elm_Object_Item*) v_after,
+                Evas_Object_val(v_obj), (Elm_Object_Item*) v_after,
                 label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
@@ -144,13 +144,13 @@ PREFIX value ml_elm_multibuttonentry_item_insert_after(
 PREFIX value ml_elm_multibuttonentry_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_multibuttonentry_items_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_multibuttonentry_first_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_multibuttonentry_first_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -160,7 +160,7 @@ PREFIX value ml_elm_multibuttonentry_first_item_get(value v_obj)
 PREFIX value ml_elm_multibuttonentry_last_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_multibuttonentry_last_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -170,7 +170,7 @@ PREFIX value ml_elm_multibuttonentry_last_item_get(value v_obj)
 PREFIX value ml_elm_multibuttonentry_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item =
-                elm_multibuttonentry_selected_item_get((Evas_Object*) v_obj);
+                elm_multibuttonentry_selected_item_get(Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -192,7 +192,7 @@ PREFIX value ml_elm_multibuttonentry_item_selected_get(value v_it)
 
 PREFIX value ml_elm_multibuttonentry_clear(value v_obj)
 {
-        elm_multibuttonentry_clear((Evas_Object*) v_obj);
+        elm_multibuttonentry_clear(Evas_Object_val(v_obj));
         return Val_unit;
 }
 
@@ -218,7 +218,7 @@ PREFIX value ml_elm_multibuttonentry_item_next_get(value v_it)
 
 PREFIX value ml_elm_multibuttonentry_editable_set(value v_obj, value v_flag)
 {
-        elm_multibuttonentry_editable_set((Evas_Object*) v_obj,
+        elm_multibuttonentry_editable_set(Evas_Object_val(v_obj),
                 Bool_val(v_flag));
         return Val_unit;
 }
@@ -226,14 +226,14 @@ PREFIX value ml_elm_multibuttonentry_editable_set(value v_obj, value v_flag)
 PREFIX value ml_elm_multibuttonentry_editable_get(value v_obj)
 {
         return Val_bool(elm_multibuttonentry_editable_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 /* BEGIN: 1.9 */
 PREFIX value ml_elm_multibuttonentry_format_function_set(
         value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_multibuttonentry_format_function_set(obj,
                 ml_Elm_Multibuttonentry_Format_Cb, data);

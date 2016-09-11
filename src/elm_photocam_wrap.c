@@ -2,14 +2,14 @@
 
 PREFIX value ml_elm_photocam_add(value v_parent)
 {
-        Evas_Object* photocam = elm_photocam_add((Evas_Object*) v_parent);
+        Evas_Object* photocam = elm_photocam_add(Evas_Object_val(v_parent));
         if(photocam == NULL) caml_failwith("elm_photocam_add");
-        return (value) photocam;
+        return copy_Evas_Object(photocam);
 }
 
 PREFIX value ml_elm_photocam_file_get(value v_obj)
 {
-        const char* file = elm_photocam_file_get((Evas_Object*) v_obj);
+        const char* file = elm_photocam_file_get(Evas_Object_val(v_obj));
         if(file == NULL) caml_failwith("elm_photocam_file_get");
         return copy_string(file);
 }
@@ -17,7 +17,7 @@ PREFIX value ml_elm_photocam_file_get(value v_obj)
 PREFIX value ml_elm_photocam_image_size_get(value v_obj)
 {
         int w, h;
-        elm_photocam_image_size_get((Evas_Object*) v_obj, &w, &h);
+        elm_photocam_image_size_get(Evas_Object_val(v_obj), &w, &h);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(w));
         Store_field(v_r, 1, Val_int(h));
@@ -27,7 +27,7 @@ PREFIX value ml_elm_photocam_image_size_get(value v_obj)
 PREFIX value ml_elm_photocam_image_region_get(value v_obj)
 {
         int x, y, w, h;
-        elm_photocam_image_region_get((Evas_Object*) v_obj, &x, &y, &w, &h);
+        elm_photocam_image_region_get(Evas_Object_val(v_obj), &x, &y, &w, &h);
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(x));
         Store_field(v, 1, Val_int(y));
@@ -39,7 +39,7 @@ PREFIX value ml_elm_photocam_image_region_get(value v_obj)
 PREFIX value ml_elm_photocam_internal_image_get(value v_obj)
 {
         return copy_Evas_Object_opt(elm_photocam_internal_image_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_Elm_Photocam_Progress_of_ptr(value v_ptr)

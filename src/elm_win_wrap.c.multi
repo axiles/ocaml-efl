@@ -4,17 +4,17 @@ PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
 {
         Evas_Object* parent;
         if(v_parent == Val_int(0)) parent = NULL;
-        else parent = (Evas_Object*) Field(v_parent, 0);
+        else parent = Evas_Object_val(Field(v_parent, 0));
         Evas_Object* win = elm_win_add(parent, String_val(v_name),
                 Elm_Win_Type_val(v_ty));
         if(win == NULL) caml_failwith("elm_win_add");
-        return (value) win;
+        return copy_Evas_Object(win);
 }
 
 /* BEGIN: 1.9 */
 PREFIX value ml_elm_win_type_get(value v_obj)
 {
-        return Val_Elm_Win_Type(elm_win_type_get((Evas_Object*) v_obj));
+        return Val_Elm_Win_Type(elm_win_type_get(Evas_Object_val(v_obj)));
 }
 /* END */
 
@@ -32,7 +32,7 @@ PREFIX value ml_elm_win_util_standard_add(value v_name, value v_title)
         Evas_Object* obj = elm_win_util_standard_add(String_val(v_name),
                 String_val(v_title));
         if(obj == NULL) caml_failwith("elm_win_util_standard_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 /* BEGIN: 1.13 */
@@ -42,25 +42,26 @@ PREFIX value ml_elm_win_util_dialog_add(
         Evas_Object* obj = elm_win_util_dialog_add(Evas_Object_val(v_parent),
                 String_val(v_name), String_val(v_title));
         if(obj == NULL) caml_failwith("elm_win_util_dialog_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 /* END */
 
 PREFIX value ml_elm_win_icon_object_set(value v_obj, value v_icon)
 {
-        elm_win_icon_object_set((Evas_Object*) v_obj, (Evas_Object*) v_icon);
+        elm_win_icon_object_set(Evas_Object_val(v_obj),
+                  Evas_Object_val(v_icon));
         return Val_unit;
 }
 
 PREFIX value ml_elm_win_icon_object_get(value v_obj)
 {
-        return (value) elm_win_icon_object_get((Evas_Object*) v_obj);
+        return (value) elm_win_icon_object_get(Evas_Object_val(v_obj));
 }
 
 PREFIX value ml_elm_win_main_menu_get(value v_obj)
 {
         return copy_Evas_Object_opt(elm_win_main_menu_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_win_available_profiles_set(value v_obj, value v_profiles)
@@ -71,7 +72,7 @@ PREFIX value ml_elm_win_available_profiles_set(value v_obj, value v_profiles)
         for(i = 0; i < size; i++) {
                 profiles[i] = String_val(Field(v_profiles, i));
         }
-        elm_win_available_profiles_set((Evas_Object*) v_obj,
+        elm_win_available_profiles_set(Evas_Object_val(v_obj),
                 (const char**) profiles, size);
         return Val_unit;
 }
@@ -82,7 +83,7 @@ PREFIX value ml_elm_win_available_profiles_get(value v_obj)
         CAMLlocal1(v_profiles);
         unsigned int size;
         char** profiles;
-        if(!elm_win_available_profiles_get((Evas_Object*) v_obj, &profiles,
+        if(!elm_win_available_profiles_get(Evas_Object_val(v_obj), &profiles,
                 &size))
                 size = 0;
         v_profiles = caml_alloc(size, 0);
@@ -96,7 +97,7 @@ PREFIX value ml_elm_win_available_profiles_get(value v_obj)
 PREFIX value ml_elm_win_size_base_get(value v_obj)
 {
         int w, h;
-        elm_win_size_base_get((Evas_Object*) v_obj, &w, &h);
+        elm_win_size_base_get(Evas_Object_val(v_obj), &w, &h);
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(w));
         Store_field(v, 1, Val_int(h));
@@ -106,7 +107,7 @@ PREFIX value ml_elm_win_size_base_get(value v_obj)
 PREFIX value ml_elm_win_size_step_get(value v_obj)
 {
         int w, h;
-        elm_win_size_step_get((Evas_Object*) v_obj, &w, &h);
+        elm_win_size_step_get(Evas_Object_val(v_obj), &w, &h);
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(w));
         Store_field(v, 1, Val_int(h));
@@ -115,7 +116,7 @@ PREFIX value ml_elm_win_size_step_get(value v_obj)
 
 PREFIX value ml_elm_win_illume_command_send(value v_obj, value v_cmd)
 {
-        elm_win_illume_command_send((Evas_Object*) v_obj,
+        elm_win_illume_command_send(Evas_Object_val(v_obj),
                 Elm_Illume_Command_val(v_cmd), NULL);
         return Val_unit;
 }
@@ -123,7 +124,7 @@ PREFIX value ml_elm_win_illume_command_send(value v_obj, value v_cmd)
 PREFIX value ml_elm_win_screen_size_get(value v_obj)
 {
         int x, y, w, h;
-        elm_win_screen_size_get((Evas_Object*) v_obj, &x, &y, &w, &h);
+        elm_win_screen_size_get(Evas_Object_val(v_obj), &x, &y, &w, &h);
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(x));
         Store_field(v, 1, Val_int(y));
@@ -135,7 +136,7 @@ PREFIX value ml_elm_win_screen_size_get(value v_obj)
 PREFIX value ml_elm_win_screen_dpi_get(value v_obj)
 {
         int x, y;
-        elm_win_screen_dpi_get((Evas_Object*) v_obj, &x, &y);
+        elm_win_screen_dpi_get(Evas_Object_val(v_obj), &x, &y);
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(x));
         Store_field(v, 1, Val_int(y));
@@ -147,7 +148,7 @@ PREFIX value ml_elm_win_focus_highlight_style_set(value v_obj, value v_s)
         const char* style;
         if(v_s == Val_int(0)) style = NULL;
         else style = String_val(Field(v_s, 0));
-        elm_win_focus_highlight_style_set((Evas_Object*) v_obj, style);
+        elm_win_focus_highlight_style_set(Evas_Object_val(v_obj), style);
         return Val_unit;
 }
 
@@ -156,7 +157,7 @@ PREFIX value ml_elm_win_focus_highlight_style_get(value v_obj)
         CAMLparam0();
         CAMLlocal1(v);
         const char* style = elm_win_focus_highlight_style_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(style == NULL) v = Val_int(0);
         else {
                 v = caml_alloc(1, 0);
@@ -168,7 +169,7 @@ PREFIX value ml_elm_win_focus_highlight_style_get(value v_obj)
 PREFIX value ml_elm_win_screen_position_get(value v_obj)
 {
         int x, y;
-        elm_win_screen_position_get((Evas_Object*) v_obj, &x, &y);
+        elm_win_screen_position_get(Evas_Object_val(v_obj), &x, &y);
         value v = caml_alloc(2, 0);
         Store_field(v, 0, Val_int(x));
         Store_field(v, 1, Val_int(y));
@@ -177,7 +178,7 @@ PREFIX value ml_elm_win_screen_position_get(value v_obj)
 
 PREFIX value ml_elm_win_xwindow_get(value v_obj)
 {
-        Ecore_X_Window win = elm_win_xwindow_get((Evas_Object*) v_obj);
+        Ecore_X_Window win = elm_win_xwindow_get(Evas_Object_val(v_obj));
         if(win == 0) raise_not_X();
         return Val_int(win);
 }
@@ -190,13 +191,13 @@ PREFIX value ml_elm_win_wl_window_get(value v_obj)
 /* BEGIN: 1.17 */
         Ecore_Wl2_Window*
 /* END */
-                win = elm_win_wl_window_get((Evas_Object*) v_obj);
+                win = elm_win_wl_window_get(Evas_Object_val(v_obj));
         if(win == NULL) raise_not_Wayland();
         return (value) win;
 }
 
 PREFIX value ml_elm_win_window_id_get(value v_obj)
 {
-        return (value) elm_win_window_id_get((Evas_Object*) v_obj);
+        return (value) elm_win_window_id_get(Evas_Object_val(v_obj));
 }
 

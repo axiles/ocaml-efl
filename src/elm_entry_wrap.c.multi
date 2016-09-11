@@ -5,10 +5,11 @@ Evas_Object* ml_Elm_Entry_Item_Provider_Cb(
 {
 
         value* v_fun = (value*) data;
-        value v_r = caml_callback2(*v_fun, (value) entry, copy_string(item));
+        value v_r = caml_callback2(*v_fun, copy_Evas_Object(entry),
+                copy_string(item));
         Evas_Object* r;
         if(v_r == Val_int(0)) r = NULL;
-        else r = (Evas_Object*) Field(v_r, 0);
+        else r = Evas_Object_val(Field(v_r, 0));
 
         return r;
 }
@@ -17,7 +18,8 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
 {
 
         value* v_fun = (value*) data;
-        value v_r = caml_callback2(*v_fun, (value) entry, copy_string(*text));
+        value v_r = caml_callback2(*v_fun, copy_Evas_Object(entry),
+                copy_string(*text));
         free(*text);
         if(v_r == Val_int(0)) *text = NULL;
         else {
@@ -71,9 +73,9 @@ inline value
 
 PREFIX value ml_elm_entry_add(value v_parent)
 {
-        Evas_Object* entry = elm_entry_add((Evas_Object*) v_parent);
+        Evas_Object* entry = elm_entry_add(Evas_Object_val(v_parent));
         if(entry == NULL) caml_failwith("ml_elm_entry_add");
-        return (value) entry;
+        return copy_Evas_Object(entry);
 }
 
 PREFIX value ml_elm_entry_text_style_user_peek(value v_obj)
@@ -81,7 +83,7 @@ PREFIX value ml_elm_entry_text_style_user_peek(value v_obj)
         CAMLparam0();
         CAMLlocal1(v);
         char* text = (char*) elm_entry_text_style_user_peek(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(text == NULL) return Val_int(0);
         v = caml_alloc(1, 0);
         Store_field(v, 0, copy_string(text));
@@ -92,7 +94,7 @@ PREFIX value ml_elm_entry_selection_get(value v_obj)
 {
         CAMLparam0();
         CAMLlocal1(v);
-        const char* text = elm_entry_selection_get((Evas_Object*) v_obj);
+        const char* text = elm_entry_selection_get(Evas_Object_val(v_obj));
         v = caml_alloc(1, 0);
         Store_field(v, 0, copy_string(text));
         CAMLreturn(v);
@@ -100,7 +102,7 @@ PREFIX value ml_elm_entry_selection_get(value v_obj)
 
 PREFIX value ml_elm_entry_cursor_content_get(value v_obj)
 {
-        char* text = elm_entry_cursor_content_get((Evas_Object*) v_obj);
+        char* text = elm_entry_cursor_content_get(Evas_Object_val(v_obj));
         value v = copy_string(text);
         free(text);
         return v;
@@ -109,7 +111,7 @@ PREFIX value ml_elm_entry_cursor_content_get(value v_obj)
 PREFIX value ml_elm_entry_cursor_geometry_get(value v_obj)
 {
         Evas_Coord x, y, w, h;
-        if(!elm_entry_cursor_geometry_get((Evas_Object*) v_obj, &x, &y, &w, &h))
+        if(!elm_entry_cursor_geometry_get(Evas_Object_val(v_obj), &x, &y, &w, &h))
                 caml_failwith("elm_entry_cursor_geometry_get");
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(x));
@@ -123,7 +125,7 @@ PREFIX value ml_elm_entry_context_menu_item_add(
         value v_obj, value v_label, value v_icon_file, value v_icon_type,
         value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_entry_context_menu_item_add(obj, String_val(v_label),
                 String_val(v_icon_file), Elm_Icon_Type_val(v_icon_type),
@@ -133,7 +135,7 @@ PREFIX value ml_elm_entry_context_menu_item_add(
 
 PREFIX value ml_elm_entry_item_provider_append(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_entry_item_provider_append(obj,
                 ml_Elm_Entry_Item_Provider_Cb, data);
@@ -142,7 +144,7 @@ PREFIX value ml_elm_entry_item_provider_append(value v_obj, value v_fun)
 
 PREFIX value ml_elm_entry_item_provider_prepend(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_entry_item_provider_prepend(obj, ml_Elm_Entry_Item_Provider_Cb,
                 data);
@@ -151,7 +153,7 @@ PREFIX value ml_elm_entry_item_provider_prepend(value v_obj, value v_fun)
 
 PREFIX value ml_elm_entry_markup_filter_append(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_entry_markup_filter_append(obj, ml_Elm_Entry_Filter_Cb, data);
         return Val_unit;
@@ -159,7 +161,7 @@ PREFIX value ml_elm_entry_markup_filter_append(value v_obj, value v_fun)
 
 PREFIX value ml_elm_entry_markup_filter_prepend(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_entry_markup_filter_prepend(obj, ml_Elm_Entry_Filter_Cb, data);
         return Val_unit;
@@ -171,7 +173,7 @@ PREFIX value ml_elm_entry_file_get(value v_obj)
         CAMLlocal1(v);
         const char* file;
         Elm_Text_Format format;
-        elm_entry_file_get((Evas_Object*) v_obj, &file, &format);
+        elm_entry_file_get(Evas_Object_val(v_obj), &file, &format);
         v = caml_alloc(2, 0);
         Store_field(v, 0, copy_string(file));
         Store_field(v, 1, Val_Elm_Text_Format(format));
@@ -186,7 +188,7 @@ PREFIX value ml_elm_entry_filter_limit_size(
         char* text = caml_stat_alloc(strlen(String_val(v_text)) + 1);
         Elm_Entry_Filter_Limit_Size ls = Elm_Entry_Filter_Limit_Size_val(v_ls);
         strcpy(text, String_val(v_text));
-        elm_entry_filter_limit_size(&ls, (Evas_Object*) v_obj, &text);
+        elm_entry_filter_limit_size(&ls, Evas_Object_val(v_obj), &text);
         if(text == NULL) v = Val_int(0);
         else {
                 v = caml_alloc(1, 0);
@@ -204,7 +206,7 @@ PREFIX value ml_elm_entry_filter_accept_set(
         char* text = caml_stat_alloc(strlen(String_val(v_text)) + 1);
         strcpy(text, String_val(v_text));
         Elm_Entry_Filter_Accept_Set as = Elm_Entry_Filter_Accept_Set_val(v_as);
-        elm_entry_filter_accept_set(&as, (Evas_Object*) v_obj, &text);
+        elm_entry_filter_accept_set(&as, Evas_Object_val(v_obj), &text);
         if(text == NULL) v = Val_int(0);
         else {
                 v = caml_alloc(1, 0);
@@ -217,12 +219,12 @@ PREFIX value ml_elm_entry_filter_accept_set(
 PREFIX value ml_elm_entry_anchor_hover_parent_get(value v_obj)
 {
         Evas_Object* parent = elm_entry_anchor_hover_parent_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         value v;
         if(parent == NULL) v = Val_int(0);
         else {
                 v = caml_alloc(1, 0);
-                Store_field(v, 0, (value) parent);
+                Store_field(v, 0, copy_Evas_Object(parent));
         }
         return v;
 }

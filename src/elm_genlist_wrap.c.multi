@@ -20,9 +20,9 @@ PREFIX void ml_Elm_Genlist_Item_Class(
 
 PREFIX value ml_elm_genlist_add(value v_parent)
 {
-        Evas_Object* obj = elm_genlist_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_genlist_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_genlist_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_genlist_item_append(
@@ -38,7 +38,7 @@ PREFIX value ml_elm_genlist_item_append(
 
         value* func_data = ml_register_value(v_func);
 
-        Elm_Object_Item* item = elm_genlist_item_append((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_genlist_item_append(Evas_Object_val(v_obj),
                 itc, data, parent, Elm_Genlist_Item_Type_val(v_type),
                 ml_Evas_Smart_Cb, func_data);
         elm_genlist_item_class_free(itc);
@@ -65,7 +65,7 @@ PREFIX value ml_elm_genlist_item_prepend(
 
         value* func_data = ml_register_value(v_func);
 
-        Elm_Object_Item* item = elm_genlist_item_prepend((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_genlist_item_prepend(Evas_Object_val(v_obj),
                 itc, data, parent, Elm_Genlist_Item_Type_val(v_type),
                 ml_Evas_Smart_Cb, func_data);
         elm_genlist_item_class_free(itc);
@@ -94,7 +94,7 @@ PREFIX value ml_elm_genlist_item_insert_before_native(
         value* func_data = ml_register_value(v_func);
 
         Elm_Object_Item* item = elm_genlist_item_insert_before(
-                (Evas_Object*) v_obj, itc, data, parent,
+                Evas_Object_val(v_obj), itc, data, parent,
                 (Elm_Object_Item*) v_before, Elm_Genlist_Item_Type_val(v_type),
                 ml_Evas_Smart_Cb, func_data);
         elm_genlist_item_class_free(itc);
@@ -129,7 +129,7 @@ PREFIX value ml_elm_genlist_item_insert_after_native(
         value* func_data = ml_register_value(v_func);
 
         Elm_Object_Item* item = elm_genlist_item_insert_after(
-                (Evas_Object*) v_obj, itc, data, parent,
+                Evas_Object_val(v_obj), itc, data, parent,
                 (Elm_Object_Item*) v_after, Elm_Genlist_Item_Type_val(v_type),
                 ml_Evas_Smart_Cb, func_data);
         elm_genlist_item_class_free(itc);
@@ -152,7 +152,7 @@ PREFIX value ml_elm_genlist_item_insert_after_byte(value* argv, int argn)
 PREFIX value ml_elm_genlist_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_genlist_selected_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -175,12 +175,13 @@ PREFIX value ml_elm_genlist_search_by_text_item_get(
 PREFIX value ml_elm_genlist_selected_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_genlist_selected_items_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_genlist_realized_items_get(value v_obj)
 {
-        Eina_List* list = elm_genlist_realized_items_get((Evas_Object*) v_obj);
+        Eina_List* list = elm_genlist_realized_items_get(
+                Evas_Object_val(v_obj));
         value v = copy_Eina_List_Elm_Object_Item(list);
         eina_list_free(list);
         return v;
@@ -189,7 +190,7 @@ PREFIX value ml_elm_genlist_realized_items_get(value v_obj)
 PREFIX value ml_elm_genlist_first_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_genlist_first_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -199,7 +200,7 @@ PREFIX value ml_elm_genlist_first_item_get(value v_obj)
 PREFIX value ml_elm_genlist_last_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_genlist_last_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -275,7 +276,7 @@ PREFIX value ml_elm_genlist_at_xy_item_get(value v_obj, value v_x, value v_y)
         CAMLlocal2(v_item, v_r);
         Elm_Object_Item* item;
         int posret;
-        item = elm_genlist_at_xy_item_get((Evas_Object*) v_obj,
+        item = elm_genlist_at_xy_item_get(Evas_Object_val(v_obj),
                 Int_val(v_x), Int_val(v_y), &posret);
         if(item == NULL) {
                 v_r = Val_int(0);
@@ -318,7 +319,7 @@ PREFIX value ml_elm_genlist_item_all_contents_unset(value v_it)
 PREFIX value ml_elm_genlist_decorated_item_get(value v_obj)
 {
         Elm_Object_Item* it = elm_genlist_decorated_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         else {
                 value v_r = caml_alloc(1, 0);
@@ -329,7 +330,7 @@ PREFIX value ml_elm_genlist_decorated_item_get(value v_obj)
 
 PREFIX value ml_elm_genlist_nth_item_get(value v_obj, value v_k)
 {
-        Elm_Object_Item* it = elm_genlist_nth_item_get((Evas_Object*) v_obj,
+        Elm_Object_Item* it = elm_genlist_nth_item_get(Evas_Object_val(v_obj),
                 Int_val(v_k));
         if(it == NULL) return Val_int(0);
         value v_r = caml_alloc(1, 0);

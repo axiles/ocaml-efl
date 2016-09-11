@@ -69,7 +69,7 @@ inline value copy_Elm_Calendar_Selectable(Elm_Calendar_Selectable s)
 
 PREFIX value ml_elm_calendar_add(value v_parent)
 {
-        Evas_Object* calendar = elm_calendar_add((Evas_Object*) v_parent);
+        Evas_Object* calendar = elm_calendar_add(Evas_Object_val(v_parent));
         if(calendar == NULL) caml_failwith("elm_calendar_add");
         return copy_Evas_Object(calendar);
 }
@@ -160,6 +160,6 @@ PREFIX value ml_elm_calendar_mark_add(
 PREFIX value ml_elm_calendar_marks_get(value v_obj)
 {
         return copy_Eina_List_Elm_Calendar_Mark(elm_calendar_marks_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 

@@ -3,9 +3,9 @@
 PREFIX value ml_elm_flipselector_add(value v_parent)
 {
         Evas_Object* flipselector = elm_flipselector_add(
-                (Evas_Object*) v_parent);
+                Evas_Object_val(v_parent));
         if(flipselector == NULL) caml_failwith("elm_flipselector_add");
-        return (value) flipselector;
+        return copy_Evas_Object(flipselector);
 }
 
 PREFIX value ml_elm_flipselector_item_append(
@@ -24,7 +24,7 @@ PREFIX value ml_elm_flipselector_item_append(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_flipselector_item_append(
-                (Evas_Object*) v_obj, label, func, data);
+                Evas_Object_val(v_obj), label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_flipselector_item_append");
@@ -50,7 +50,7 @@ PREFIX value ml_elm_flipselector_item_prepend(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_flipselector_item_prepend(
-                (Evas_Object*) v_obj, label, func, data);
+                Evas_Object_val(v_obj), label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_flipselector_item_prepend");
@@ -63,13 +63,13 @@ PREFIX value ml_elm_flipselector_item_prepend(
 PREFIX value ml_elm_flipselector_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_flipselector_items_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_flipselector_first_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_flipselector_first_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -79,7 +79,7 @@ PREFIX value ml_elm_flipselector_first_item_get(value v_obj)
 PREFIX value ml_elm_flipselector_last_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_flipselector_last_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -89,7 +89,7 @@ PREFIX value ml_elm_flipselector_last_item_get(value v_obj)
 PREFIX value ml_elm_flipselector_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item =
-                elm_flipselector_selected_item_get((Evas_Object*) v_obj);
+                elm_flipselector_selected_item_get(Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);

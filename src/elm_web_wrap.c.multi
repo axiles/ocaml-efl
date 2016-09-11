@@ -54,11 +54,11 @@ Evas_Object* ml_Elm_Web_Window_Open(
         CAMLparam0();
         CAMLlocal1(v_r);
         value* v_fun = (value*) data;
-        v_r = caml_callback3(*v_fun, (value) obj, Val_bool(js),
+        v_r = caml_callback3(*v_fun, copy_Evas_Object(obj), Val_bool(js),
                 (value) window_features);
         Evas_Object* r;
         if(v_r == Val_int(0)) r = NULL;
-        else r = (Evas_Object*) Field(v_r, 0);
+        else r = Evas_Object_val(Field(v_r, 0));
         CAMLreturnT(Evas_Object*, r);
 }
 
@@ -69,7 +69,7 @@ Evas_Object* ml_Elm_Web_Dialog_Alert(
         CAMLlocal2(v_message, v_r);
         value* v_fun = (value*) data;
         v_message = copy_string(message);
-        v_r = caml_callback2(*v_fun, (value) obj, v_message);
+        v_r = caml_callback2(*v_fun, copy_Evas_Object(obj), v_message);
         Evas_Object* r;
         if(v_r == Val_int(0)) r = NULL;
         else r = (Evas_Object*) Field(v_r, 0);
@@ -83,7 +83,7 @@ Evas_Object* ml_Elm_Web_Dialog_Confirm(
         CAMLlocal3(v_message, v_r, v_r_obj);
         value* v_fun = (value*) data;
         v_message = copy_string(message);
-        v_r = caml_callback2(*v_fun, (value) obj, v_message);
+        v_r = caml_callback2(*v_fun, copy_Evas_Object(obj), v_message);
         v_r_obj = Field(v_r, 0);
         Evas_Object* r_obj;
         if(v_r_obj == Val_int(0)) r_obj = NULL;
@@ -102,7 +102,7 @@ Evas_Object* ml_Elm_Web_Dialog_Prompt(
         v_message = copy_string(message);
         if(def_value == NULL) v_def_value = copy_string("");
         else v_def_value = copy_string(def_value);
-        v_r = caml_callback3(*v_fun, (value) obj, v_message, v_def_value);
+        v_r = caml_callback3(*v_fun, copy_Evas_Object(obj), v_message, v_def_value);
         v_r_obj = Field(v_r, 0);
         Evas_Object* r_obj;
         if(v_r_obj == Val_int(0)) r_obj = NULL;
@@ -122,7 +122,7 @@ Evas_Object* ml_Elm_Web_Dialog_File_Selector(
         CAMLlocal3(v_accept_types, v_r, v_r_obj);
         value* v_fun = (value*) data;
         v_accept_types = copy_Eina_List_string(accept_types);
-        v_r = caml_callback3(*v_fun, (value) obj, Val_bool(allows_multiple),
+        v_r = caml_callback3(*v_fun, copy_Evas_Object(obj), Val_bool(allows_multiple),
                 v_accept_types);
         v_r_obj = Field(v_r, 0);
         Evas_Object* r_obj;
@@ -143,7 +143,7 @@ void ml_Elm_Web_Console_Message(
         else v_message = copy_string(message);
         if(source_id == NULL) v_source_id = copy_string("");
         else v_source_id = copy_string(source_id);
-        value args[] = {(value) obj, v_message, Val_int(line_number),
+        value args[] = {copy_Evas_Object(obj), v_message, Val_int(line_number),
                 v_source_id};
         caml_callbackN(*v_fun, 4, args);
         CAMLreturn0;
@@ -195,16 +195,16 @@ inline value copy_Elm_Web_Menu(Elm_Web_Menu* m)
         CAMLreturn(v_r);
 }
 
-PREFIX value ml_elm_web_add(Evas_Object* v_parent)
+PREFIX value ml_elm_web_add(value v_parent)
 {
-        Evas_Object* web = elm_web_add((Evas_Object*) v_parent);
+        Evas_Object* web = elm_web_add(Evas_Object_val(v_parent));
         if(web == NULL) caml_failwith("elm_web_add");
-        return (value) web;
+        return copy_Evas_Object(web);
 }
 
 PREFIX value ml_elm_web_window_create_hook_set(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_web_window_create_hook_set(obj, ml_Elm_Web_Window_Open, data);
         return Val_unit;
@@ -212,7 +212,7 @@ PREFIX value ml_elm_web_window_create_hook_set(value v_obj, value v_fun)
 
 PREFIX value ml_elm_web_dialog_alert_hook_set(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_web_dialog_alert_hook_set(obj, ml_Elm_Web_Dialog_Alert, data);
         return Val_unit;
@@ -220,7 +220,7 @@ PREFIX value ml_elm_web_dialog_alert_hook_set(value v_obj, value v_fun)
 
 PREFIX value ml_elm_web_dialog_confirm_hook_set(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_web_dialog_confirm_hook_set(obj, ml_Elm_Web_Dialog_Confirm, data);
         return Val_unit;
@@ -228,7 +228,7 @@ PREFIX value ml_elm_web_dialog_confirm_hook_set(value v_obj, value v_fun)
 
 PREFIX value ml_elm_web_dialog_prompt_hook_set(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_web_dialog_prompt_hook_set(obj, ml_Elm_Web_Dialog_Prompt, data);
         return Val_unit;
@@ -236,7 +236,7 @@ PREFIX value ml_elm_web_dialog_prompt_hook_set(value v_obj, value v_fun)
 
 PREFIX value ml_elm_web_dialog_file_selector_hook_set(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_web_dialog_file_selector_hook_set(obj,
                 ml_Elm_Web_Dialog_File_Selector, data);
@@ -245,7 +245,7 @@ PREFIX value ml_elm_web_dialog_file_selector_hook_set(value v_obj, value v_fun)
 
 PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);
         elm_web_console_message_hook_set(obj, ml_Elm_Web_Console_Message, data);
         return Val_unit;
@@ -256,7 +256,7 @@ PREFIX value ml_elm_web_html_string_load(
         value v_obj, value v_html, value v_base, value v_unreachable,
         value v_unit)
 {
-        return Val_bool(elm_web_html_string_load((Evas_Object*) v_obj,
+        return Val_bool(elm_web_html_string_load(Evas_Object_val(v_obj),
                 String_val(v_html), String_opt_val(v_base),
                 String_opt_val(v_unreachable)));
 }
@@ -266,7 +266,7 @@ PREFIX value ml_elm_web_url_get(value v_obj)
 {
         CAMLparam1(v_obj);
         CAMLlocal1(v_s);
-        const char* s = elm_web_url_get((Evas_Object*) v_obj);
+        const char* s = elm_web_url_get(Evas_Object_val(v_obj));
         if(s == NULL) v_s = Val_int(0);
         else {
                 v_s = caml_alloc(1, 0);
@@ -279,7 +279,7 @@ PREFIX value ml_elm_web_title_get(value v_obj)
 {
         CAMLparam1(v_obj);
         CAMLlocal1(v_s);
-        const char* s = elm_web_title_get((Evas_Object*) v_obj);
+        const char* s = elm_web_title_get(Evas_Object_val(v_obj));
         if(s == NULL) v_s = Val_int(0);
         else {
                 v_s = caml_alloc(1, 0);
@@ -291,7 +291,7 @@ PREFIX value ml_elm_web_title_get(value v_obj)
 PREFIX value ml_elm_web_bg_color_get(value v_obj)
 {
         int r, g, b, a;
-        elm_web_bg_color_get((Evas_Object*) v_obj, &r, &g, &b, &a);
+        elm_web_bg_color_get(Evas_Object_val(v_obj), &r, &g, &b, &a);
         value v_r = caml_alloc(4, 0);
         Store_field(v_r, 0, Val_int(r));
         Store_field(v_r, 1, Val_int(g));
@@ -304,7 +304,7 @@ PREFIX value ml_elm_web_selection_get(value v_obj)
 {
         CAMLparam1(v_obj);
         CAMLlocal1(v_s);
-        const char* s = elm_web_selection_get((Evas_Object*) v_obj);
+        const char* s = elm_web_selection_get(Evas_Object_val(v_obj));
         if(s == NULL) v_s = Val_int(0);
         else {
                 v_s = caml_alloc(1, 0);
@@ -316,7 +316,7 @@ PREFIX value ml_elm_web_selection_get(value v_obj)
 PREFIX value ml_elm_web_text_search(
         value v_obj, value v_s, value v_cs, value v_fwd, value v_wrp)
 {
-        return Val_bool(elm_web_text_search((Evas_Object*) v_obj,
+        return Val_bool(elm_web_text_search(Evas_Object_val(v_obj),
                 String_val(v_s), Bool_val(v_cs), Bool_val(v_fwd),
                 Bool_val(v_wrp)));
 }
@@ -324,7 +324,7 @@ PREFIX value ml_elm_web_text_search(
 PREFIX value ml_elm_web_text_matches_mark(
         value v_obj, value v_s, value v_cs, value v_hl, value v_limit)
 {
-        return Val_int(elm_web_text_matches_mark((Evas_Object*) v_obj,
+        return Val_int(elm_web_text_matches_mark(Evas_Object_val(v_obj),
                 String_val(v_s), Bool_val(v_cs), Bool_val(v_hl),
                 Int_val(v_limit)));
 }

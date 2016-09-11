@@ -2,9 +2,9 @@
 
 PREFIX value ml_elm_popup_add(value v_parent)
 {
-        Evas_Object* popup = elm_popup_add((Evas_Object*) v_parent);
+        Evas_Object* popup = elm_popup_add(Evas_Object_val(v_parent));
         if(popup == NULL) caml_failwith("elm_popup_add");
-        return (value) popup;
+        return copy_Evas_Object(popup);
 }
 
 PREFIX value ml_elm_popup_item_append(
@@ -15,7 +15,7 @@ PREFIX value ml_elm_popup_item_append(
         else label = String_val(Field(v_label, 0));
         Evas_Object* icon;
         if(v_icon == Val_int(0)) icon = NULL;
-        else icon = (Evas_Object*) Field(v_icon, 0);
+        else icon = Evas_Object_val(Field(v_icon, 0));
         Evas_Smart_Cb func;
         value* data;
         if(v_func == Val_int(0)) {
@@ -25,7 +25,7 @@ PREFIX value ml_elm_popup_item_append(
                 func = ml_Evas_Smart_Cb;
                 data = ml_register_value(Field(v_func, 0));
         }
-        Elm_Object_Item* item = elm_popup_item_append((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_popup_item_append(Evas_Object_val(v_obj),
                 label, icon, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
@@ -39,7 +39,7 @@ PREFIX value ml_elm_popup_item_append(
 /* BEGIN: 1.9 */
 PREFIX value ml_elm_popup_align_set(value v_obj, value v_h, value v_v)
 {
-        elm_popup_align_set((Evas_Object*) v_obj, Double_val(v_h),
+        elm_popup_align_set(Evas_Object_val(v_obj), Double_val(v_h),
                 Double_val(v_v));
         return Val_unit;
 }
@@ -49,7 +49,7 @@ PREFIX value ml_elm_popup_align_get(value v_obj)
         CAMLparam1(v_obj);
         CAMLlocal1(v_r);
         double w, h;
-        elm_popup_align_get((Evas_Object*) v_obj, &w, &h);
+        elm_popup_align_get(Evas_Object_val(v_obj), &w, &h);
         v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, copy_double(w));
         Store_field(v_r, 1, copy_double(h));
@@ -59,7 +59,7 @@ PREFIX value ml_elm_popup_align_get(value v_obj)
 
 PREFIX value ml_elm_popup_content_text_wrap_type_set(value v_obj, value v_wrap)
 {
-        elm_popup_content_text_wrap_type_set((Evas_Object*) v_obj,
+        elm_popup_content_text_wrap_type_set(Evas_Object_val(v_obj),
                 Elm_Wrap_Type_val(v_wrap));
         return Val_unit;
 }
@@ -67,41 +67,41 @@ PREFIX value ml_elm_popup_content_text_wrap_type_set(value v_obj, value v_wrap)
 PREFIX value ml_elm_popup_content_text_wrap_type_get(value v_obj)
 {
         return Val_Elm_Wrap_Type(elm_popup_content_text_wrap_type_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_popup_orient_set(value v_obj, value v_orient)
 {
-        elm_popup_orient_set((Evas_Object*) v_obj,
+        elm_popup_orient_set(Evas_Object_val(v_obj),
                 Elm_Popup_Orient_val(v_orient));
         return Val_unit;
 }
 
 PREFIX value ml_elm_popup_orient_get(value v_obj)
 {
-        return Val_Elm_Popup_Orient(elm_popup_orient_get((Evas_Object*) v_obj));
+        return Val_Elm_Popup_Orient(elm_popup_orient_get(Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_popup_timeout_set(value v_obj, value v_x)
 {
-        elm_popup_timeout_set((Evas_Object*) v_obj, Double_val(v_x));
+        elm_popup_timeout_set(Evas_Object_val(v_obj), Double_val(v_x));
         return Val_unit;
 }
 
 PREFIX value ml_elm_popup_timeout_get(value v_obj)
 {
-        return copy_double(elm_popup_timeout_get((Evas_Object*) v_obj));
+        return copy_double(elm_popup_timeout_get(Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_popup_allow_events_set(value v_obj, value v_flag)
 {
-        elm_popup_allow_events_set((Evas_Object*) v_obj,
+        elm_popup_allow_events_set(Evas_Object_val(v_obj),
                 Eina_Bool_val(v_flag));
         return Val_unit;
 }
 
 PREFIX value ml_elm_popup_allow_events_get(value v_obj)
 {
-        return Val_Eina_Bool(elm_popup_allow_events_get((Evas_Object*) v_obj));
+        return Val_Eina_Bool(elm_popup_allow_events_get(Evas_Object_val(v_obj)));
 }
 

@@ -2,15 +2,15 @@
 
 PREFIX value ml_elm_menu_add(value v_parent)
 {
-        Evas_Object* obj = elm_menu_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_menu_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_menu_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_menu_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_menu_items_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_menu_item_add_native(
@@ -35,8 +35,8 @@ PREFIX value ml_elm_menu_item_add_native(
                 func = ml_Evas_Smart_Cb;
                 data = ml_register_value(Field(v_func, 0));
         }
-        Elm_Object_Item* item = elm_menu_item_add((Evas_Object*) v_obj, parent,
-                icon, label, func, data);
+        Elm_Object_Item* item = elm_menu_item_add(Evas_Object_val(v_obj),
+                parent, icon, label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_menu_item_add");
@@ -65,7 +65,8 @@ PREFIX value ml_elm_menu_item_icon_name_get(value v_it)
 
 PREFIX value ml_elm_menu_item_separator_add(value v_obj, value v_parent)
 {
-        Elm_Object_Item* it = elm_menu_item_separator_add((Evas_Object*) v_obj,
+        Elm_Object_Item* it = elm_menu_item_separator_add(
+                Evas_Object_val(v_obj),
                 (Elm_Object_Item*) v_parent);
         if(it == NULL) caml_failwith("elm_menu_item_separator_add");
         value v = caml_alloc(1, 0);
@@ -81,7 +82,8 @@ PREFIX value ml_elm_menu_item_subitems_get(value v_it)
 
 PREFIX value ml_elm_menu_selected_item_get(value v_obj)
 {
-        Elm_Object_Item* it = elm_menu_selected_item_get((Evas_Object*) v_obj);
+        Elm_Object_Item* it = elm_menu_selected_item_get(
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -90,7 +92,8 @@ PREFIX value ml_elm_menu_selected_item_get(value v_obj)
 
 PREFIX value ml_elm_menu_last_item_get(value v_obj)
 {
-        Elm_Object_Item* it = elm_menu_last_item_get((Evas_Object*) v_obj);
+        Elm_Object_Item* it = elm_menu_last_item_get(
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -99,7 +102,7 @@ PREFIX value ml_elm_menu_last_item_get(value v_obj)
 
 PREFIX value ml_elm_menu_first_item_get(value v_obj)
 {
-        Elm_Object_Item* it = elm_menu_first_item_get((Evas_Object*) v_obj);
+        Elm_Object_Item* it = elm_menu_first_item_get(Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);

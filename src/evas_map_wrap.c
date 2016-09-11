@@ -4,7 +4,7 @@ PREFIX value ml_evas_map_util_points_populate_from_object_full(
         value v_m, value v_obj, value v_z)
 {
         evas_map_util_points_populate_from_object_full((Evas_Map*) v_m,
-                (Evas_Object*) v_obj, Int_val(v_z));
+                Evas_Object_val(v_obj), Int_val(v_z));
         return Val_unit;
 }
                 
@@ -12,7 +12,7 @@ PREFIX value ml_evas_map_util_points_populate_from_object(
         value v_m, value v_obj)
 {
         evas_map_util_points_populate_from_object((Evas_Map*) v_m,
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         return Val_unit;
 }
                 

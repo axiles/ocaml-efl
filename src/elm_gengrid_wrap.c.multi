@@ -20,9 +20,9 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
 
 PREFIX value ml_elm_gengrid_add(value v_parent)
 {
-        Evas_Object* obj = elm_gengrid_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_gengrid_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_gengrid_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_gengrid_item_append(
@@ -34,7 +34,7 @@ PREFIX value ml_elm_gengrid_item_append(
 
         value* data_func = ml_register_value(v_func);
 
-        Elm_Object_Item* item = elm_gengrid_item_append((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_gengrid_item_append(Evas_Object_val(v_obj),
                 class, data, ml_Evas_Smart_Cb, data_func);
         elm_gengrid_item_class_free(class);
 
@@ -55,7 +55,7 @@ PREFIX value ml_elm_gengrid_item_prepend(
 
         value* data_func = ml_register_value(v_func);
 
-        Elm_Object_Item* item = elm_gengrid_item_prepend((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_gengrid_item_prepend(Evas_Object_val(v_obj),
                 class, data, ml_Evas_Smart_Cb, data_func);
         elm_gengrid_item_class_free(class);
 
@@ -78,7 +78,7 @@ PREFIX value ml_elm_gengrid_item_insert_before(
         value* data_func = ml_register_value(v_func);
 
         Elm_Object_Item* item = elm_gengrid_item_insert_before(
-                (Evas_Object*) v_obj, class, data, (Elm_Object_Item*) v_rel,
+                Evas_Object_val(v_obj), class, data, (Elm_Object_Item*) v_rel,
                 ml_Evas_Smart_Cb, data_func);
         elm_gengrid_item_class_free(class);
 
@@ -101,7 +101,7 @@ PREFIX value ml_elm_gengrid_item_insert_after(
         value* data_func = ml_register_value(v_func);
 
         Elm_Object_Item* item = elm_gengrid_item_insert_after(
-                (Evas_Object*) v_obj, class, data, (Elm_Object_Item*) v_rel,
+                Evas_Object_val(v_obj), class, data, (Elm_Object_Item*) v_rel,
                 ml_Evas_Smart_Cb, data_func);
         elm_gengrid_item_class_free(class);
 
@@ -130,7 +130,7 @@ PREFIX value ml_elm_gengrid_search_by_text_item_get(
 PREFIX value ml_elm_gengrid_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_gengrid_selected_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -140,12 +140,12 @@ PREFIX value ml_elm_gengrid_selected_item_get(value v_obj)
 PREFIX value ml_elm_gengrid_selected_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_gengrid_selected_items_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_gengrid_realized_items_get(value v_obj)
 {
-        Eina_List* list = elm_gengrid_realized_items_get((Evas_Object*) v_obj);
+        Eina_List* list = elm_gengrid_realized_items_get(Evas_Object_val(v_obj));
         value v = copy_Eina_List_Elm_Object_Item(list);
         eina_list_free(list);
         return v;
@@ -154,7 +154,7 @@ PREFIX value ml_elm_gengrid_realized_items_get(value v_obj)
 PREFIX value ml_elm_gengrid_first_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_gengrid_first_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -164,7 +164,7 @@ PREFIX value ml_elm_gengrid_first_item_get(value v_obj)
 PREFIX value ml_elm_gengrid_last_item_get(value v_obj)
 {
         Elm_Object_Item* item = elm_gengrid_last_item_get(
-                (Evas_Object*) v_obj);
+                Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -236,7 +236,7 @@ PREFIX value ml_elm_gengrid_item_cursor_style_get(value v_it)
 PREFIX value ml_elm_gengrid_item_size_get(value v_obj)
 {
         Evas_Coord w, h;
-        elm_gengrid_item_size_get((Evas_Object*) v_obj, &w, &h);
+        elm_gengrid_item_size_get(Evas_Object_val(v_obj), &w, &h);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(w));
         Store_field(v_r, 1, Val_int(h));
@@ -246,7 +246,7 @@ PREFIX value ml_elm_gengrid_item_size_get(value v_obj)
 PREFIX value ml_elm_gengrid_group_item_size_get(value v_obj)
 {
         Evas_Coord w, h;
-        elm_gengrid_group_item_size_get((Evas_Object*) v_obj, &w, &h);
+        elm_gengrid_group_item_size_get(Evas_Object_val(v_obj), &w, &h);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(w));
         Store_field(v_r, 1, Val_int(h));
@@ -258,7 +258,7 @@ PREFIX value ml_elm_gengrid_align_get(value v_obj)
         CAMLparam1(v_obj);
         CAMLlocal1(v_r);
         double x, y;
-        elm_gengrid_align_get((Evas_Object*) v_obj, &x, &y);
+        elm_gengrid_align_get(Evas_Object_val(v_obj), &x, &y);
         v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, copy_double(x));
         Store_field(v_r, 1, copy_double(y));
@@ -277,7 +277,7 @@ PREFIX value ml_elm_gengrid_item_pos_get(value v_it)
 
 PREFIX value ml_elm_gengrid_nth_item_get(value v_obj, value v_k)
 {
-        Elm_Object_Item* it = elm_gengrid_nth_item_get((Evas_Object*) v_obj,
+        Elm_Object_Item* it = elm_gengrid_nth_item_get(Evas_Object_val(v_obj),
                 Int_val(v_k));
         if(it == NULL) return Val_int(0);
         value v_r = caml_alloc(1, 0);

@@ -22,7 +22,7 @@ Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
         v_part = copy_string(part);
         v = caml_callback2(Field(*v_class, 2), (value) obj, v_part);
         if(v == Val_int(0)) CAMLreturnT(Evas_Object*, NULL);
-        else CAMLreturnT(Evas_Object*, (Evas_Object*) Field(v, 0));
+        else CAMLreturnT(Evas_Object*, Evas_Object_val(Field(v, 0)));
 }
 
 Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(

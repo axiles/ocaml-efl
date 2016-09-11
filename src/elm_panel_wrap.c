@@ -2,8 +2,8 @@
 
 PREFIX value ml_elm_panel_add(value v_parent)
 {
-        Evas_Object* panel = elm_panel_add((Evas_Object*) v_parent);
+        Evas_Object* panel = elm_panel_add(Evas_Object_val(v_parent));
         if(panel == NULL) caml_failwith("elm_panel_add");
-        return (value) panel;
+        return copy_Evas_Object(panel);
 }
 

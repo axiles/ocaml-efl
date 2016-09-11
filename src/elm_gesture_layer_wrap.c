@@ -76,7 +76,7 @@ Evas_Event_Flags ml_Elm_Gesture_Event_Cb(void* data, void* event_info)
 PREFIX value ml_elm_gesture_layer_cb_set(
         value v_obj, value v_type, value v_state, value v_cb)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_cb);
         elm_gesture_layer_cb_set(obj, Elm_Gesture_Type_val(v_type),
                 Elm_Gesture_State_val(v_state), ml_Elm_Gesture_Event_Cb, data);
@@ -86,7 +86,7 @@ PREFIX value ml_elm_gesture_layer_cb_set(
 PREFIX value ml_elm_gesture_layer_tap_longpress_cb_add(
         value v_obj, value v_state, value v_cb)
 {
-        Evas_Object* obj = (Evas_Object*) v_obj;
+        Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_cb);
         elm_gesture_layer_tap_longpress_cb_add(obj,
                 Elm_Gesture_State_val(v_state), ml_Elm_Gesture_Event_Cb, data);
@@ -95,8 +95,8 @@ PREFIX value ml_elm_gesture_layer_tap_longpress_cb_add(
 
 PREFIX value ml_elm_gesture_layer_add(value v_parent)
 {
-        Evas_Object* obj = elm_gesture_layer_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_gesture_layer_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_gesture_layer_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 

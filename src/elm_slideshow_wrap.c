@@ -33,9 +33,9 @@ inline void ml_Elm_Slideshow_Item_Class(
 
 PREFIX value ml_elm_slideshow_add(value v_parent)
 {
-        Evas_Object* slideshow = elm_slideshow_add((Evas_Object*) v_parent);
+        Evas_Object* slideshow = elm_slideshow_add(Evas_Object_val(v_parent));
         if(slideshow == NULL) caml_failwith("elm_slideshow_add");
-        return (value) slideshow;
+        return Evas_Object_val(slideshow);
 }
 
 PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
@@ -43,8 +43,8 @@ PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
         Elm_Slideshow_Item_Class itc;
         void* data;
         ml_Elm_Slideshow_Item_Class(&itc, &data, v_itc);
-        Elm_Object_Item* it = elm_slideshow_item_add((Evas_Object*) v_obj, &itc,
-                data);
+        Elm_Object_Item* it = elm_slideshow_item_add(Evas_Object_val(v_obj),
+                &itc, data);
         if(it == NULL) caml_failwith("elm_slideshow_item_add");
         return (value) it;
 }
@@ -52,19 +52,19 @@ PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
 PREFIX value ml_elm_slideshow_transitions_get(value v_obj)
 {
         return copy_Eina_List_string(elm_slideshow_transitions_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_slideshow_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(elm_slideshow_items_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_slideshow_item_current_get(value v_obj)
 {
         return copy_Elm_Object_Item_opt(elm_slideshow_item_current_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_slideshow_item_object_get(value v_it)

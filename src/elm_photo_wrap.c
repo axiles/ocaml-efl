@@ -2,14 +2,14 @@
 
 PREFIX value ml_elm_photo_add(value v_parent)
 {
-        Evas_Object* obj = elm_photo_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_photo_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_photo_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_photo_file_set_null(value v_obj)
 {
-        return Val_bool(elm_photo_file_set((Evas_Object*) v_obj, NULL));
+        return Val_bool(elm_photo_file_set(Evas_Object_val(v_obj), NULL));
 }
 
 PREFIX value ml_elm_photo_thumb_set(
@@ -18,7 +18,7 @@ PREFIX value ml_elm_photo_thumb_set(
         const char* group;
         if(v_group == Val_int(0)) group = NULL;
         else group = String_val(Field(v_group, 0));
-        elm_photo_thumb_set((Evas_Object*) v_obj, String_val(v_file), group);
+        elm_photo_thumb_set(Evas_Object_val(v_obj), String_val(v_file), group);
         return Val_unit;
 }
 
@@ -28,7 +28,7 @@ PREFIX value ml_elm_photo_thumb_set_null(
         const char* group;
         if(v_group == Val_int(0)) group = NULL;
         else group = String_val(Field(v_group, 0));
-        elm_photo_thumb_set((Evas_Object*) v_obj, NULL, group);
+        elm_photo_thumb_set(Evas_Object_val(v_obj), NULL, group);
         return Val_unit;
 }
 

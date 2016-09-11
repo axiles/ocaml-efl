@@ -14,9 +14,9 @@ Elm_Toolbar_Item_Scrollto_Type_val_list(value v)
 
 PREFIX value ml_elm_toolbar_add(value v_parent)
 {
-        Evas_Object* obj = elm_toolbar_add((Evas_Object*) v_parent);
+        Evas_Object* obj = elm_toolbar_add(Evas_Object_val(v_parent));
         if(obj == NULL) caml_failwith("elm_toolbar_add");
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_toolbar_item_append(
@@ -37,7 +37,7 @@ PREFIX value ml_elm_toolbar_item_append(
                 func = ml_Evas_Smart_Cb;
                 data = ml_register_value(Field(v_func, 0));
         }
-        Elm_Object_Item* item = elm_toolbar_item_append((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_toolbar_item_append(Evas_Object_val(v_obj),
                 icon, label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
@@ -66,7 +66,7 @@ PREFIX value ml_elm_toolbar_item_prepend(
                 func = ml_Evas_Smart_Cb;
                 data = ml_register_value(Field(v_func, 0));
         }
-        Elm_Object_Item* item = elm_toolbar_item_prepend((Evas_Object*) v_obj,
+        Elm_Object_Item* item = elm_toolbar_item_prepend(Evas_Object_val(v_obj),
                 icon, label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
@@ -97,8 +97,8 @@ PREFIX value ml_elm_toolbar_item_insert_before_native(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_toolbar_item_insert_before(
-                (Evas_Object*) v_obj, (Elm_Object_Item*) v_before, icon, label,
-                func, data);
+                Evas_Object_val(v_obj), (Elm_Object_Item*) v_before, icon,
+                label, func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
                 caml_failwith("elm_toolbar_item_insert_before");
@@ -134,7 +134,7 @@ PREFIX value ml_elm_toolbar_item_insert_after_native(
                 data = ml_register_value(Field(v_func, 0));
         }
         Elm_Object_Item* item = elm_toolbar_item_insert_after(
-                (Evas_Object*) v_obj, (Elm_Object_Item*) v_after, icon, label,
+                Evas_Object_val(v_obj), (Elm_Object_Item*) v_after, icon, label,
                 func, data);
         if(item == NULL) {
                 if(data != NULL) ml_remove_value(data);
@@ -153,7 +153,8 @@ PREFIX value ml_elm_toolbar_item_insert_after_byte(value* argv, int argn)
 
 PREFIX value ml_elm_toolbar_first_item_get(value v_obj)
 {
-        Elm_Object_Item *it = elm_toolbar_first_item_get((Evas_Object*) v_obj);
+        Elm_Object_Item *it = elm_toolbar_first_item_get(
+                Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -162,7 +163,7 @@ PREFIX value ml_elm_toolbar_first_item_get(value v_obj)
 
 PREFIX value ml_elm_toolbar_last_item_get(value v_obj)
 {
-        Elm_Object_Item *it = elm_toolbar_last_item_get((Evas_Object*) v_obj);
+        Elm_Object_Item *it = elm_toolbar_last_item_get(Evas_Object_val(v_obj));
         if(it == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) it);
@@ -206,7 +207,7 @@ PREFIX value ml_elm_toolbar_item_bring_in(value v_it, value v_t)
 PREFIX value ml_elm_toolbar_item_find_by_label(value v_obj, value v_label)
 {
        Elm_Object_Item* it = elm_toolbar_item_find_by_label(
-               (Evas_Object*) v_obj, String_val(v_label));
+               Evas_Object_val(v_obj), String_val(v_label));
        if(it == NULL) return Val_int(0);
        value v_it = caml_alloc(1, 0);
        Store_field(v_it, 0, (value) it);
@@ -216,7 +217,7 @@ PREFIX value ml_elm_toolbar_item_find_by_label(value v_obj, value v_label)
 PREFIX value ml_elm_toolbar_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item =
-                elm_toolbar_selected_item_get((Evas_Object*) v_obj);
+                elm_toolbar_selected_item_get(Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -226,7 +227,7 @@ PREFIX value ml_elm_toolbar_selected_item_get(value v_obj)
 PREFIX value ml_elm_toolbar_more_item_get(value v_obj)
 {
         Elm_Object_Item* item =
-                elm_toolbar_more_item_get((Evas_Object*) v_obj);
+                elm_toolbar_more_item_get(Evas_Object_val(v_obj));
         if(item == NULL) return Val_int(0);
         value v = caml_alloc(1, 0);
         Store_field(v, 0, (value) item);
@@ -253,12 +254,12 @@ PREFIX value ml_elm_toolbar_item_icon_file_set(
 
 PREFIX value ml_elm_toolbar_menu_parent_get(value v_obj)
 {
-        return (value) elm_toolbar_menu_parent_get((Evas_Object*) v_obj);
+        return (value) elm_toolbar_menu_parent_get(Evas_Object_val(v_obj));
 }
 
 PREFIX value ml_elm_toolbar_item_menu_get(value v_it)
 {
-        Evas_Object* obj = elm_toolbar_item_menu_get((Elm_Object_Item*) v_it);
+        Evas_Object* obj = elm_toolbar_item_menu_get(Elm_Object_Item_val(v_it));
         if(obj == NULL) return Val_int(0);
         value v_obj = caml_alloc(1, 0);
         Store_field(v_obj, 0, (value) obj);
