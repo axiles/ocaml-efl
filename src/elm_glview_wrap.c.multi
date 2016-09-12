@@ -13,30 +13,46 @@ inline Elm_GLView_Mode Elm_GLView_Mode_val_list(value v)
 
 void ml_Elm_GLView_Func_Cb_init(Evas_Object* obj)
 {
+        CAMLparam0();
+        CAMLlocal1(v_obj);
         static value* v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_init");
-        caml_callback(*v_fun, copy_Evas_Object(obj));
+        v_obj = copy_Evas_Object(obj);
+        caml_callback(*v_fun, v_obj);
+        CAMLreturn0;
 }
 
 void ml_Elm_GLView_Func_Cb_del(Evas_Object* obj)
 {
+        CAMLparam0();
+        CAMLlocal1(v_obj);
         static value* v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_del");
-        caml_callback(*v_fun, copy_Evas_Object(obj));
+        v_obj = copy_Evas_Object(obj);
+        caml_callback(*v_fun, v_obj);
+        CAMLreturn0;
 }
 
 void ml_Elm_GLView_Func_Cb_resize(Evas_Object* obj)
 {
+        CAMLparam0();
+        CAMLlocal1(v_obj);
         static value* v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_resize");
-        caml_callback(*v_fun, copy_Evas_Object(obj));
+        v_obj = copy_Evas_Object(obj);
+        caml_callback(*v_fun, v_obj);
+        CAMLreturn0;
 }
 
 void ml_Elm_GLView_Func_Cb_render(Evas_Object* obj)
 {
+        CAMLparam0();
+        CAMLlocal1(v_obj);
         static value* v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_render");
-        caml_callback(*v_fun, copy_Evas_Object(obj));
+        v_obj = copy_Evas_Object(obj);
+        caml_callback(*v_fun, v_obj);
+        CAMLreturn0;
 }
 
 PREFIX value ml_elm_glview_add(value v_parent)

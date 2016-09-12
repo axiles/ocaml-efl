@@ -3,23 +3,24 @@
 Evas_Object* ml_Elm_Entry_Item_Provider_Cb(
         void* data, Evas_Object* entry, const char* item)
 {
-
+        CAMLparam0();
+        CAMLlocal3(v_entry, v_item, v_r);
         value* v_fun = (value*) data;
-        value v_r = caml_callback2(*v_fun, copy_Evas_Object(entry),
-                copy_string(item));
-        Evas_Object* r;
-        if(v_r == Val_int(0)) r = NULL;
-        else r = Evas_Object_val(Field(v_r, 0));
-
-        return r;
+        v_entry = copy_Evas_Object(entry);
+        v_item = copy_string(item);
+        v_r = caml_callback2(*v_fun, v_entry, v_item);
+        Evas_Object* r = Evas_Object_opt_val(v_r);
+        CAMLreturnT(Evas_Object*, r);
 }
 
 void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
 {
-
+        CAMLparam0();
+        CAMLlocal3(v_entry, v_text, v_r);
         value* v_fun = (value*) data;
-        value v_r = caml_callback2(*v_fun, copy_Evas_Object(entry),
-                copy_string(*text));
+        v_entry = copy_Evas_Object(entry);
+        v_text = copy_string(*text);
+        v_r = caml_callback2(*v_fun, v_entry, v_text);
         free(*text);
         if(v_r == Val_int(0)) *text = NULL;
         else {
@@ -27,7 +28,7 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
                 *text = caml_stat_alloc(strlen(text1) + 1);
                 strcpy(*text, text1);
         }
-
+        CAMLreturn0;
 }
 
 inline Elm_Entry_Filter_Limit_Size
@@ -220,13 +221,7 @@ PREFIX value ml_elm_entry_anchor_hover_parent_get(value v_obj)
 {
         Evas_Object* parent = elm_entry_anchor_hover_parent_get(
                 Evas_Object_val(v_obj));
-        value v;
-        if(parent == NULL) v = Val_int(0);
-        else {
-                v = caml_alloc(1, 0);
-                Store_field(v, 0, copy_Evas_Object(parent));
-        }
-        return v;
+        return copy_Evas_Object_opt(parent);
 }
 
 PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)

@@ -52,13 +52,12 @@ Evas_Object* ml_Elm_Web_Window_Open(
         const Elm_Web_Window_Features* window_features)
 {
         CAMLparam0();
-        CAMLlocal1(v_r);
+        CAMLlocal2(v_obj, v_r);
         value* v_fun = (value*) data;
-        v_r = caml_callback3(*v_fun, copy_Evas_Object(obj), Val_bool(js),
+        v_obj = copy_Evas_Object(obj);
+        v_r = caml_callback3(*v_fun, v_obj, Val_bool(js),
                 (value) window_features);
-        Evas_Object* r;
-        if(v_r == Val_int(0)) r = NULL;
-        else r = Evas_Object_val(Field(v_r, 0));
+        Evas_Object* r = Evas_Object_opt_val(v_r);
         CAMLreturnT(Evas_Object*, r);
 }
 
@@ -66,13 +65,12 @@ Evas_Object* ml_Elm_Web_Dialog_Alert(
         void* data,  Evas_Object* obj, const char* message)
 {
         CAMLparam0();
-        CAMLlocal2(v_message, v_r);
+        CAMLlocal3(v_obj, v_message, v_r);
         value* v_fun = (value*) data;
+        v_obj = copy_Evas_Object(obj);
         v_message = copy_string(message);
-        v_r = caml_callback2(*v_fun, copy_Evas_Object(obj), v_message);
-        Evas_Object* r;
-        if(v_r == Val_int(0)) r = NULL;
-        else r = (Evas_Object*) Field(v_r, 0);
+        v_r = caml_callback2(*v_fun, v_obj, v_message);
+        Evas_Object* r = Evas_Object_opt_val(v_r);
         CAMLreturnT(Evas_Object*, r);
 }
 
@@ -80,14 +78,13 @@ Evas_Object* ml_Elm_Web_Dialog_Confirm(
         void* data, Evas_Object* obj, const char* message, Eina_Bool* ret)
 {
         CAMLparam0();
-        CAMLlocal3(v_message, v_r, v_r_obj);
+        CAMLlocal4(v_obj, v_message, v_r, v_r_obj);
         value* v_fun = (value*) data;
         v_message = copy_string(message);
-        v_r = caml_callback2(*v_fun, copy_Evas_Object(obj), v_message);
+        v_obj = copy_Evas_Object(obj);
+        v_r = caml_callback2(*v_fun, v_obj, v_message);
         v_r_obj = Field(v_r, 0);
-        Evas_Object* r_obj;
-        if(v_r_obj == Val_int(0)) r_obj = NULL;
-        else r_obj = (Evas_Object*) Field(v_r_obj, 0);
+        Evas_Object* r_obj = Evas_Object_opt_val(v_r_obj);
         *ret = Bool_val(Field(v_r, 1));
         CAMLreturnT(Evas_Object*, r_obj);
 }
@@ -98,11 +95,11 @@ Evas_Object* ml_Elm_Web_Dialog_Prompt(
 {
         CAMLparam0();
         CAMLlocal5(v_message, v_def_value, v_r, v_r_obj, v_r_val);
+        CAMLlocal1(v_obj);
         value* v_fun = (value*) data;
         v_message = copy_string(message);
-        if(def_value == NULL) v_def_value = copy_string("");
-        else v_def_value = copy_string(def_value);
-        v_r = caml_callback3(*v_fun, copy_Evas_Object(obj), v_message, v_def_value);
+        v_def_value = safe_copy_string(def_value);
+        v_r = caml_callback3(*v_fun, v_obj, v_message, v_def_value);
         v_r_obj = Field(v_r, 0);
         Evas_Object* r_obj;
         if(v_r_obj == Val_int(0)) r_obj = NULL;
@@ -119,16 +116,17 @@ Evas_Object* ml_Elm_Web_Dialog_File_Selector(
         Eina_List *accept_types, Eina_List** selected, Eina_Bool* ret)
 {
         CAMLparam0();
-        CAMLlocal3(v_accept_types, v_r, v_r_obj);
+        CAMLlocal4(v_obj, v_accept_types, v_r, v_r_obj);
         value* v_fun = (value*) data;
+        v_obj = copy_Evas_Object(obj);
         v_accept_types = copy_Eina_List_string(accept_types);
-        v_r = caml_callback3(*v_fun, copy_Evas_Object(obj), Val_bool(allows_multiple),
+        v_r = caml_callback3(*v_fun, v_obj, Val_bool(allows_multiple),
                 v_accept_types);
         v_r_obj = Field(v_r, 0);
         Evas_Object* r_obj;
-        if(v_r_obj == Val_int(0)) r_obj = NULL;
         *selected = Eina_List_string_malloc_val(Field(v_r, 1));
         *ret = Bool_val(Field(v_r, 2));
+        r_obj = Evas_Object_opt_val(v_r_obj);
         CAMLreturnT(Evas_Object*, r_obj);
 }
 
@@ -137,14 +135,12 @@ void ml_Elm_Web_Console_Message(
         unsigned int line_number, const char* source_id)
 {
         CAMLparam0();
-        CAMLlocal2(v_message, v_source_id);
+        CAMLlocal3(v_obj, v_message, v_source_id);
         value* v_fun = (value*) data;
-        if(message == NULL) v_message = copy_string("");
-        else v_message = copy_string(message);
-        if(source_id == NULL) v_source_id = copy_string("");
-        else v_source_id = copy_string(source_id);
-        value args[] = {copy_Evas_Object(obj), v_message, Val_int(line_number),
-                v_source_id};
+        v_obj = copy_Evas_Object(obj);
+        v_message = safe_copy_string(message);
+        v_source_id = safe_copy_string(source_id);
+        value args[] = {v_obj, v_message, Val_int(line_number), v_source_id};
         caml_callbackN(*v_fun, 4, args);
         CAMLreturn0;
 }
