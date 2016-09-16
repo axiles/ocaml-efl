@@ -192,13 +192,13 @@ PREFIX value ml_elm_object_focused_item_get(value v_obj)
 
 PREFIX value ml_elm_object_item_focus_set(value v_it, value v_flag)
 {
-        elm_object_item_focus_set((Elm_Object_Item*) v_it, Bool_val(v_flag));
+        elm_object_item_focus_set(Elm_Object_Item_val(v_it), Bool_val(v_flag));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_focus_get(value v_it)
 {
-        return Val_bool(elm_object_item_focus_get((Elm_Object_Item*) v_it));
+        return Val_bool(elm_object_item_focus_get(Elm_Object_Item_val(v_it)));
 }
 /* END */
 
@@ -265,11 +265,12 @@ void ml_Elm_Object_Item_Signal_Cb(
         const char* source)
 {
         CAMLparam0();
-        CAMLlocal2(v_emission, v_source);
+        CAMLlocal3(v_it, v_emission, v_source);
         value* v_fun = (value*) data;
+        v_it = copy_Elm_Object_Item(it);
         v_emission = copy_string(emission);
         v_source = copy_string(source);
-        caml_callback3(*v_fun, (value) it, v_emission, v_source);
+        caml_callback3(*v_fun, v_it, v_emission, v_source);
         CAMLreturn0;
 }
 
@@ -476,12 +477,12 @@ PREFIX value ml_elm_object_orientation_mode_disabled_get(value v_obj)
 PREFIX value ml_elm_object_item_widget_get(value v_item)
 {
         return copy_Evas_Object(elm_object_item_widget_get(
-                (Elm_Object_Item*) v_item));
+                Elm_Object_Item_val(v_item)));
 }
 
 PREFIX value ml_elm_object_item_content_set(value v_item, value v_content)
 {
-        elm_object_item_content_set((Elm_Object_Item*) v_item,
+        elm_object_item_content_set(Elm_Object_Item_val(v_item),
                 Evas_Object_val(v_content));
         return Val_unit;
 }
@@ -490,7 +491,7 @@ PREFIX value ml_elm_object_item_part_content_set(
         value v_it, value v_part, value v_content)
 {
         const char* part = String_opt_val(v_part);
-        elm_object_item_part_content_set((Elm_Object_Item*) v_it, part,
+        elm_object_item_part_content_set(Elm_Object_Item_val(v_it), part,
                 Evas_Object_val(v_content));
         return Val_unit;
 }
@@ -500,7 +501,7 @@ PREFIX value ml_elm_object_item_part_content_get(
 {
         const char* part = String_opt_val(v_part);
         Evas_Object* content = elm_object_item_part_content_get(
-                (Elm_Object_Item*) v_it, part);
+                Elm_Object_Item_val(v_it), part);
         if(content == NULL) caml_failwith("elm_object_item_part_content_get");
         return copy_Evas_Object(content);
 }
@@ -510,7 +511,7 @@ PREFIX value ml_elm_object_item_part_content_unset(
 {
         const char* part = String_opt_val(v_part);
         Evas_Object* content = elm_object_item_part_content_unset(
-                (Elm_Object_Item*) v_it, part);
+                Elm_Object_Item_val(v_it), part);
         if(content == NULL) caml_failwith("elm_object_item_part_content_unset");
         return copy_Evas_Object(content);
 }
@@ -519,14 +520,15 @@ PREFIX value ml_elm_object_item_part_text_set(
         value v_it, value v_part, value v_text)
 {
         const char* part = String_opt_val(v_part);
-        elm_object_item_part_text_set((Elm_Object_Item*) v_it, part,
+        elm_object_item_part_text_set(Elm_Object_Item_val(v_it), part,
                 String_val(v_text));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_text_get(value v_item)
 {
-        const char* text = elm_object_item_text_get((Elm_Object_Item*) v_item);
+        const char* text = elm_object_item_text_get(
+                Elm_Object_Item_val(v_item));
         if(text == NULL) caml_failwith("elm_object_item_text_get");
         return copy_string(text);
 }
@@ -536,7 +538,7 @@ PREFIX value ml_elm_object_item_part_text_get(
 {
         const char* part = String_opt_val(v_part);
         const char* text = elm_object_item_part_text_get(
-                (Elm_Object_Item*) v_it, part);
+                Elm_Object_Item_val(v_it), part);
         if(text == NULL) caml_failwith("elm_object_item_part_text_get");
         return copy_string(text);
 }
@@ -548,7 +550,7 @@ PREFIX value ml_elm_object_item_domain_translatable_part_text_set(
         const char* domain = String_opt_val(v_domain);
         const char* text = String_opt_val(v_text);
         elm_object_item_domain_translatable_part_text_set(
-                (Elm_Object_Item*) v_it, part, domain, text);
+                Elm_Object_Item_val(v_it), part, domain, text);
         return Val_unit;
 }
 
@@ -557,7 +559,7 @@ PREFIX value ml_elm_object_item_translatable_part_text_get(
 {
         const char* part = String_opt_val(v_part);
         const char* text = elm_object_item_translatable_part_text_get(
-                (Elm_Object_Item*) v_it, part);
+                Elm_Object_Item_val(v_it), part);
         if(text == NULL)
                 caml_failwith("elm_object_item_translatable_part_text_get");
         return copy_string(text);
@@ -569,13 +571,13 @@ PREFIX value ml_elm_object_item_domain_part_text_translatable_set(
         const char* part = String_opt_val(v_part);
         const char* domain = String_opt_val(v_domain);
         elm_object_item_domain_part_text_translatable_set(
-                (Elm_Object_Item*) v_it, part, domain, Bool_val(v_flag));
+                Elm_Object_Item_val(v_it), part, domain, Bool_val(v_flag));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
 {
-        elm_object_item_access_info_set((Elm_Object_Item*) v_it,
+        elm_object_item_access_info_set(Elm_Object_Item_val(v_it),
                 String_val(v_txt));
         return Val_unit;
 }
@@ -583,28 +585,28 @@ PREFIX value ml_elm_object_item_access_info_set(value v_it, value v_txt)
 PREFIX value ml_elm_object_item_access_register(value v_it)
 {
         Evas_Object* obj = elm_object_item_access_register(
-                (Elm_Object_Item*) v_it);
+                Elm_Object_Item_val(v_it));
         if(obj == NULL) caml_failwith("elm_object_item_access_register");
         return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_object_item_access_unregister(value v_it)
 {
-        elm_object_item_access_unregister((Elm_Object_Item*) v_it);
+        elm_object_item_access_unregister(Elm_Object_Item_val(v_it));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_access_object_get(value v_it)
 {
         Evas_Object* obj = elm_object_item_access_object_get(
-                (Elm_Object_Item*) v_it);
+                Elm_Object_Item_val(v_it));
         if(obj == NULL) caml_failwith("elm_object_item_access_object_get");
         return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_object_item_access_order_set(value v_it, value v_list)
 {
-        elm_object_item_access_order_set((Elm_Object_Item*) v_it,
+        elm_object_item_access_order_set(Elm_Object_Item_val(v_it),
                 Eina_List_Evas_Object_val(v_list));
         return Val_unit;
 }
@@ -612,19 +614,19 @@ PREFIX value ml_elm_object_item_access_order_set(value v_it, value v_list)
 PREFIX value ml_elm_object_item_access_order_get(value v_it)
 {
         return copy_Eina_List_Evas_Object(elm_object_item_access_order_get(
-                (Elm_Object_Item*) v_it));
+                Elm_Object_Item_val(v_it)));
 }
 
 PREFIX value ml_elm_object_item_access_order_unset(value v_it)
 {
-        elm_object_item_access_order_unset((Elm_Object_Item*) v_it);
+        elm_object_item_access_order_unset(Elm_Object_Item_val(v_it));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_signal_emit(
         value v_it, value v_emission, value v_source)
 {
-        elm_object_item_signal_emit((Elm_Object_Item*) v_it,
+        elm_object_item_signal_emit(Elm_Object_Item_val(v_it),
                 String_val(v_emission), String_val(v_source));
         return Val_unit;
 }
@@ -632,7 +634,7 @@ PREFIX value ml_elm_object_item_signal_emit(
 PREFIX value ml_elm_object_item_signal_callback_add(
         value v_it, value v_emission, value v_source, value v_fun)
 {
-        Elm_Object_Item* it = (Elm_Object_Item*) v_it;
+        Elm_Object_Item* it = Elm_Object_Item_val(v_it);
         value* data = ml_Elm_Object_Item_register_value(it, v_fun);
         elm_object_item_signal_callback_add(it, String_val(v_emission),
                 String_val(v_source), ml_Elm_Object_Item_Signal_Cb, data);
@@ -641,13 +643,13 @@ PREFIX value ml_elm_object_item_signal_callback_add(
 
 PREFIX value ml_elm_object_item_del(value v_item)
 {
-        elm_object_item_del((Elm_Object_Item*) v_item);
+        elm_object_item_del(Elm_Object_Item_val(v_item));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_tooltip_text_set(value v_it, value v_text)
 {
-        elm_object_item_tooltip_text_set((Elm_Object_Item*) v_it,
+        elm_object_item_tooltip_text_set(Elm_Object_Item_val(v_it),
                 String_val(v_text));
         return Val_unit;
 }
@@ -655,7 +657,7 @@ PREFIX value ml_elm_object_item_tooltip_text_set(value v_it, value v_text)
 PREFIX value ml_elm_object_item_tooltip_content_cb_set(
         value v_item, value v_fun)
 {
-        Elm_Object_Item* it = (Elm_Object_Item*) v_item;
+        Elm_Object_Item* it = Elm_Object_Item_val(v_item);
         value* data = ml_Elm_Object_Item_register_value(it, v_fun);
         elm_object_item_tooltip_content_cb_set(it,
                 ml_Elm_Tooltip_Item_Content_Cb, data, ml_Evas_Smart_Cb_del);
@@ -664,13 +666,13 @@ PREFIX value ml_elm_object_item_tooltip_content_cb_set(
 
 PREFIX value ml_elm_object_item_tooltip_unset(value v_it)
 {
-        elm_object_item_tooltip_unset((Elm_Object_Item*) v_it);
+        elm_object_item_tooltip_unset(Elm_Object_Item_val(v_it));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_tooltip_style_set(value v_it, value v_style)
 {
-        elm_object_item_tooltip_style_set((Elm_Object_Item*) v_it,
+        elm_object_item_tooltip_style_set(Elm_Object_Item_val(v_it),
                 String_val(v_style));
         return Val_unit;
 }
@@ -678,25 +680,25 @@ PREFIX value ml_elm_object_item_tooltip_style_set(value v_it, value v_style)
 PREFIX value ml_elm_object_item_tooltip_style_get(value v_it)
 {
         return copy_string(elm_object_item_tooltip_style_get(
-                (Elm_Object_Item*) v_it));
+                Elm_Object_Item_val(v_it)));
 }
 
 PREFIX value ml_elm_object_item_cursor_set(value v_it, value v_item_cursor)
 {
-        elm_object_item_cursor_set((Elm_Object_Item*) v_it,
+        elm_object_item_cursor_set(Elm_Object_Item_val(v_it),
                 String_val(v_item_cursor));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_cursor_unset(value v_it)
 {
-        elm_object_item_cursor_unset((Elm_Object_Item*) v_it);
+        elm_object_item_cursor_unset(Elm_Object_Item_val(v_it));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_cursor_style_set(value v_it, value v_style)
 {
-        elm_object_item_cursor_style_set((Elm_Object_Item*) v_it,
+        elm_object_item_cursor_style_set(Elm_Object_Item_val(v_it),
                 String_val(v_style));
         return Val_unit;
 }
@@ -704,12 +706,12 @@ PREFIX value ml_elm_object_item_cursor_style_set(value v_it, value v_style)
 PREFIX value ml_elm_object_item_cursor_style_get(value v_it)
 {
         return copy_string(elm_object_item_cursor_style_get(
-                (Elm_Object_Item*) v_it));
+                Elm_Object_Item_val(v_it)));
 }
 
 PREFIX value ml_elm_object_item_cursor_engine_only_set(value v_it, value v_flag)
 {
-        elm_object_item_cursor_engine_only_set((Elm_Object_Item*) v_it,
+        elm_object_item_cursor_engine_only_set(Elm_Object_Item_val(v_it),
                 Bool_val(v_flag));
         return Val_unit;
 }
@@ -717,37 +719,38 @@ PREFIX value ml_elm_object_item_cursor_engine_only_set(value v_it, value v_flag)
 PREFIX value ml_elm_object_item_cursor_engine_only_get(value v_it)
 {
         return Val_bool(elm_object_item_cursor_engine_only_get(
-                (Elm_Object_Item*) v_it));
+                Elm_Object_Item_val(v_it)));
 }
 
 PREFIX value ml_elm_object_item_track(value v_it)
 {
-        Evas_Object* obj = elm_object_item_track((Elm_Object_Item*) v_it);
+        Evas_Object* obj = elm_object_item_track(Elm_Object_Item_val(v_it));
         if(obj == NULL) caml_failwith("elm_object_item_track");
         return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_elm_object_item_untrack(value v_it)
 {
-        elm_object_item_untrack((Elm_Object_Item*) v_it);
+        elm_object_item_untrack(Elm_Object_Item_val(v_it));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_track_get(value v_it)
 {
-        return Val_int(elm_object_item_track_get((Elm_Object_Item*) v_it));
+        return Val_int(elm_object_item_track_get(Elm_Object_Item_val(v_it)));
 }
 
 /* BEGIN: 1.9 */
 PREFIX value ml_elm_object_item_style_set(value v_it, value v_s)
 {
-        elm_object_item_style_set((Elm_Object_Item*) v_it, String_val(v_s));
+        elm_object_item_style_set(Elm_Object_Item_val(v_it), String_val(v_s));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_style_get(value v_it)
 {
-        return copy_string(elm_object_item_style_get((Elm_Object_Item*) v_it));
+        return copy_string(elm_object_item_style_get(
+              Elm_Object_Item_val(v_it)));
 }
 /* END */
 
@@ -906,14 +909,15 @@ PREFIX value ml_elm_object_disabled_get(value v_obj)
 
 PREFIX value ml_elm_object_item_disabled_set(value v_item, value v_flag)
 {
-        elm_object_item_disabled_set((Elm_Object_Item*) v_item,
+        elm_object_item_disabled_set(Elm_Object_Item_val(v_item),
                 Eina_Bool_val(v_flag));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_item_disabled_get(value v_it)
 {
-        return Val_bool(elm_object_item_disabled_get((Elm_Object_Item*) v_it));
+        return Val_bool(elm_object_item_disabled_get(
+                Elm_Object_Item_val(v_it)));
 }
 
 /* Theme */

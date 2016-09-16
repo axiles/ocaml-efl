@@ -31,7 +31,7 @@ PREFIX value ml_elm_flipselector_item_append(
         }
         if(data != NULL)
                 ml_Elm_Object_Item_gc_value(item, data);
-        return (value) item;
+        return copy_Elm_Object_Item(item);
 }
 
 PREFIX value ml_elm_flipselector_item_prepend(
@@ -57,7 +57,7 @@ PREFIX value ml_elm_flipselector_item_prepend(
         }
         if(data != NULL)
                 ml_Elm_Object_Item_gc_value(item, data);
-        return (value) item;
+        return copy_Elm_Object_Item(item);
 }
 
 PREFIX value ml_elm_flipselector_items_get(value v_obj)
@@ -90,29 +90,20 @@ PREFIX value ml_elm_flipselector_selected_item_get(value v_obj)
 {
         Elm_Object_Item* item =
                 elm_flipselector_selected_item_get(Evas_Object_val(v_obj));
-        if(item == NULL) return Val_int(0);
-        value v = caml_alloc(1, 0);
-        Store_field(v, 0, (value) item);
-        return v;
+        return copy_Elm_Object_Item_opt(item);
 }
 
 PREFIX value ml_elm_flipselector_item_prev_get(value v_it)
 {
         Elm_Object_Item* it1 = elm_flipselector_item_prev_get(
-                (Elm_Object_Item*) v_it);
-        if(it1 == NULL) return Val_int(0);
-        value v = caml_alloc(1, 0);
-        Store_field(v, 0, (value) it1);
-        return v;
+                Elm_Object_Item_val(v_it));
+        return copy_Elm_Object_Item_opt(it1);
 }
 
 PREFIX value ml_elm_flipselector_item_next_get(value v_it)
 {
         Elm_Object_Item* it1 = elm_flipselector_item_next_get(
-                (Elm_Object_Item*) v_it);
-        if(it1 == NULL) return Val_int(0);
-        value v = caml_alloc(1, 0);
-        Store_field(v, 0, (value) it1);
-        return v;
+                Elm_Object_Item_val(v_it));
+        return copy_Elm_Object_Item_opt(it1);
 }
 

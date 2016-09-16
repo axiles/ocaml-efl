@@ -20,7 +20,7 @@ PREFIX value ml_elm_segment_control_item_add(
         Elm_Object_Item* it = elm_segment_control_item_add(
                 Evas_Object_val(v_obj), icon, label);
         if(it == NULL) caml_failwith("elm_segment_control_item_add");
-        return (value) it;
+        return copy_Elm_Object_Item(it);
 }
 
 PREFIX value ml_elm_segment_control_item_insert_at(
@@ -35,7 +35,7 @@ PREFIX value ml_elm_segment_control_item_insert_at(
         Elm_Object_Item* it = elm_segment_control_item_insert_at(
                 Evas_Object_val(v_obj), icon, label, Int_val(v_index));
         if(it == NULL) caml_failwith("elm_segment_control_item_insert_at");
-        return (value) it;
+        return copy_Elm_Object_Item(it);
 }
 
 PREFIX value ml_elm_segment_control_item_get(value v_obj, value v_i)

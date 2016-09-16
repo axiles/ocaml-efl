@@ -55,7 +55,8 @@ PREFIX value ml_elm_win_icon_object_set(value v_obj, value v_icon)
 
 PREFIX value ml_elm_win_icon_object_get(value v_obj)
 {
-        return (value) elm_win_icon_object_get(Evas_Object_val(v_obj));
+        return copy_Evas_Object(elm_win_icon_object_get(
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_win_main_menu_get(value v_obj)

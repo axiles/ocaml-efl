@@ -102,6 +102,6 @@ external anchor_hover_info_of_ptr : Evas.ptr -> anchor_hover_info =
 
 (* BEGIN: 1.18 *)
 external select_region_get : Evas.obj -> int * int =
-  "ml_elm_enry_select_region_get"
+  "ml_elm_entry_select_region_get"
 (* END *)
 

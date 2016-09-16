@@ -3,10 +3,11 @@
 Evas_Object* ml_SlideshowItemGetFunc_0(void* data, Evas_Object* obj)
 {
         CAMLparam0();
-        CAMLlocal2(v_fun, v_content);
+        CAMLlocal3(v_fun, v_obj, v_content);
         value* v_itc = (value*) data;
+        v_obj = copy_Evas_Object(obj);
         v_fun = Field(*v_itc, 0);
-        v_content = caml_callback(v_fun, (value) obj);
+        v_content = caml_callback(v_fun, v_obj);
         Evas_Object* content = Evas_Object_opt_val(v_content);
         CAMLreturnT(Evas_Object*, content);
 }
@@ -14,10 +15,11 @@ Evas_Object* ml_SlideshowItemGetFunc_0(void* data, Evas_Object* obj)
 void ml_SlideshowItemDelFunc_1_free(void* data, Evas_Object* obj)
 {
         CAMLparam0();
-        CAMLlocal1(v_fun);
+        CAMLlocal2(v_fun, v_obj);
         value* v_itc = (value*) data;
         v_fun = Field(*v_itc, 1);
-        caml_callback(v_fun, (value) obj);
+        v_obj = copy_Evas_Object(obj);
+        caml_callback(v_fun, v_obj);
         ml_remove_value(v_itc);
         CAMLreturn0;
 }
@@ -35,7 +37,7 @@ PREFIX value ml_elm_slideshow_add(value v_parent)
 {
         Evas_Object* slideshow = elm_slideshow_add(Evas_Object_val(v_parent));
         if(slideshow == NULL) caml_failwith("elm_slideshow_add");
-        return Evas_Object_val(slideshow);
+        return copy_Evas_Object(slideshow);
 }
 
 PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
@@ -46,7 +48,7 @@ PREFIX value ml_elm_slideshow_item_add(value v_obj, value v_itc)
         Elm_Object_Item* it = elm_slideshow_item_add(Evas_Object_val(v_obj),
                 &itc, data);
         if(it == NULL) caml_failwith("elm_slideshow_item_add");
-        return (value) it;
+        return copy_Elm_Object_Item(it);
 }
 
 PREFIX value ml_elm_slideshow_transitions_get(value v_obj)
@@ -70,7 +72,7 @@ PREFIX value ml_elm_slideshow_item_current_get(value v_obj)
 PREFIX value ml_elm_slideshow_item_object_get(value v_it)
 {
         return copy_Evas_Object_opt(elm_slideshow_item_object_get(
-                (Elm_Object_Item*) v_it));
+                Elm_Object_Item_val(v_it)));
 }
 
 PREFIX value ml_elm_slideshow_item_nth_get(value v_obj, value v_i)

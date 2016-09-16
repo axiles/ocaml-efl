@@ -78,14 +78,15 @@ inline Eina_List* Eina_List_Evas_Object_val(value v_list)
 inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
 {
         CAMLparam0();
-        CAMLlocal2(v, v1);
+        CAMLlocal3(v, v1, v_item);
         Eina_List* it;
         Elm_Object_Item* item;
         v = Val_int(0);
         EINA_LIST_REVERSE_FOREACH(list, it, item) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, copy_Elm_Object_Item(item));
+                v_item = copy_Elm_Object_Item(item);
+                Store_field(v, 0, v_item);
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
@@ -102,11 +103,12 @@ inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
 inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
 {
         CAMLparam0();
-        CAMLlocal1(v_r);
+        CAMLlocal2(v_r, v_item);
         if(it == NULL) v_r = Val_int(0);
         else {
           v_r = caml_alloc(1, 0);
-          Store_field(v_r, 0, copy_Elm_Object_Item(it));
+          v_item = copy_Elm_Object_Item(it);
+          Store_field(v_r, 0, v_item);
         }
         CAMLreturn(v_r);
 }

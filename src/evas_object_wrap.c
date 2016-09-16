@@ -612,7 +612,7 @@ PREFIX value ml_evas_object_line_add(value v_e)
 {
         Evas_Object* line = evas_object_line_add((Evas*) v_e);
         if(line == NULL) caml_failwith("evas_object_line_add");
-        return (value) line;
+        return copy_Evas_Object(line);
 }
 
 PREFIX value ml_evas_object_line_xy_set(

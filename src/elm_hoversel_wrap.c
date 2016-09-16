@@ -93,7 +93,7 @@ PREFIX value ml_elm_hoversel_item_add(
         }
         if(data != NULL)
                 elm_object_item_del_cb_set(item, ml_Evas_Smart_Cb_on_del);
-        return (value) item;
+        return copy_Elm_Object_Item(item);
 }
 
 PREFIX value ml_elm_hoversel_item_icon_set(
@@ -102,7 +102,7 @@ PREFIX value ml_elm_hoversel_item_icon_set(
         const char* icon_group;
         if(v_icon_group == Val_int(0)) icon_group = NULL;
         else icon_group = String_val(Field(v_icon_group, 0));
-        elm_hoversel_item_icon_set((Elm_Object_Item*) v_it,
+        elm_hoversel_item_icon_set(Elm_Object_Item_val(v_it),
                 String_val(v_icon_file), icon_group,
                 Elm_Icon_Type_val(v_icon_type));
         return Val_unit;
@@ -115,7 +115,7 @@ PREFIX value ml_elm_hoversel_item_icon_get(value v_it)
         const char* icon_file;
         const char* icon_group;
         Elm_Icon_Type icon_type;
-        elm_hoversel_item_icon_get((Elm_Object_Item*) v_it, &icon_file,
+        elm_hoversel_item_icon_get(Elm_Object_Item_val(v_it), &icon_file,
                 &icon_group, &icon_type);
         v_r = caml_alloc(3, 0);
         Store_field(v_r, 0, copy_string(icon_file));

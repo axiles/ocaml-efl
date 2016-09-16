@@ -16,7 +16,8 @@ PREFIX value ml_elm_ctxpopup_hover_parent_set(value v_obj, value v_parent)
 
 PREFIX value ml_elm_ctxpopup_hover_parent_get(value v_obj)
 {
-        return (value) elm_ctxpopup_hover_parent_get(Evas_Object_val(v_obj));
+        return copy_Evas_Object(elm_ctxpopup_hover_parent_get(
+                Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_ctxpopup_clear(value v_obj)
@@ -62,7 +63,7 @@ PREFIX value ml_elm_ctxpopup_item_append(
         }
         if(data != NULL)
                 ml_Elm_Object_Item_gc_value(item, data);
-        return (value) item;
+        return copy_Elm_Object_Item(item);
 }
 
 /* BEGIN: 1.11 */
@@ -88,7 +89,7 @@ PREFIX value ml_elm_ctxpopup_item_prepend(
         }
         if(data != NULL)
                 ml_Elm_Object_Item_gc_value(item, data);
-        return (value) item;
+        return copy_Elm_Object_Item(item);
 }
 /* END */
 

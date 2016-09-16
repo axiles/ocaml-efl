@@ -23,7 +23,7 @@ PREFIX value ml_elm_colorselector_color_get(value v_obj)
 PREFIX value ml_elm_colorselector_palette_item_color_get(value v_it)
 {
         int r, g, b, a;
-        elm_colorselector_palette_item_color_get((Elm_Object_Item*) v_it, &r,
+        elm_colorselector_palette_item_color_get(Elm_Object_Item_val(v_it), &r,
                 &g, &b, &a);
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(r));
@@ -41,7 +41,7 @@ PREFIX value ml_elm_colorselector_palette_color_add(
                 Int_val(v_b), Int_val(v_a));
         if(it == NULL)
                 caml_failwith("elm_colorselector_palette_color_add");
-        return (value) it;
+        return copy_Elm_Object_Item(it);
 }
 
 /* BEGIN: 1.9 */

@@ -10,20 +10,25 @@ inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
 
 void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
 {
-      
+        CAMLparam0();
+        CAMLlocal1(v_obj);
+        v_obj = copy_Evas_Object(obj);
         value *v_fun = (value*) data;
-        caml_callback2(*v_fun, (value) obj, (value) event_info);
-      
+        caml_callback2(*v_fun, v_obj, (value) event_info);
+        CAMLreturn0; 
 }
 
 void ml_Evas_Smart_Cb_1_free(
         void *data, Evas_Object *obj, void *event_info)
 {
-      
+        CAMLparam0();
+        CAMLlocal2(v_fun, v_obj);     
         value* v_data = (value*) data;
-        value v_fun = Field(*v_data, 1);
-        caml_callback2(v_fun, (value) obj, (value) event_info);
+        v_fun = Field(*v_data, 1);
+        v_obj = copy_Evas_Object(obj);
+        caml_callback2(v_fun, v_obj, (value) event_info);
         ml_remove_value(v_data); 
+        CAMLreturn0;
 }
 
 PREFIX value ml_string_of_ptr(value v_ptr)
@@ -89,7 +94,7 @@ PREFIX value ml_store_ptr_bool(value v_ptr, value v_x)
 PREFIX value ml_obj_of_ptr(value v_ptr)
 {
         Evas_Object* obj = (Evas_Object*) v_ptr;
-        return (value) obj;
+        return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_float_of_ptr(value v_ptr)

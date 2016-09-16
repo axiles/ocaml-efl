@@ -31,27 +31,39 @@ inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
 void ml_Elm_Map_Overlay_Get_Cb(
         void* data, Evas_Object* map, Elm_Map_Overlay* overlay)
 {
+        CAMLparam0();
+        CAMLlocal1(v_map);
         value* v_fun = (value*) data;
-        caml_callback2(*v_fun, (value) map, (value) overlay);
+        v_map = copy_Evas_Object(map);
+        caml_callback2(*v_fun, v_map, (value) overlay);
+        CAMLreturn0;
 }
 
 void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
 {
+        CAMLparam0();
+        CAMLlocal1(v_map);
         value* v_fun = (value*) data;
-        caml_callback2(*v_fun, (value) map, (value) route);
+        v_map = copy_Evas_Object(map);
+        caml_callback2(*v_fun, v_map, (value) route);
+        CAMLreturn0;
 }
 
 void ml_Elm_Map_Name_Cb(void* data, Evas_Object* map, Elm_Map_Name* name)
 {
+        CAMLparam0();
+        CAMLlocal1(v_map);
         value* v_fun = (value*) data;
-        caml_callback2(*v_fun, (value) map, (value) name);
+        v_map = copy_Evas_Object(map);
+        caml_callback2(*v_fun, v_map, (value) name);
+        CAMLreturn0;
 }
 
 PREFIX value ml_elm_map_add(value v_parent)
 {
         Evas_Object* map = elm_map_add(Evas_Object_val(v_parent));
         if(map == NULL) caml_failwith("elm_map_add");
-        return (value) map;
+        return copy_Evas_Object(map);
 }
 
 PREFIX value ml_elm_map_region_get(value v_obj)
@@ -366,6 +378,6 @@ PREFIX value ml_elm_map_track_add(value v_obj, value v_route)
         Evas_Object* r = elm_map_track_add(Evas_Object_val(v_obj),
                 (Elm_Map_Route*) v_route);
         if(r == NULL) caml_failwith("elm_map_track_add");
-        return (value) r;
+        return copy_Evas_Object(r);
 }
 

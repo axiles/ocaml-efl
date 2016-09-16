@@ -30,10 +30,12 @@ Eina_Bool ml_Elm_Event_Cb(
         void* event_info)
 {
         CAMLparam0();
-        CAMLlocal2(v_event_info, v_r);
+        CAMLlocal4(v_obj, v_src, v_event_info, v_r);
         value* v_fun = (value*) data;
+        v_obj = copy_Evas_Object(obj);
+        v_src = copy_Evas_Object(src);
         v_event_info = copy_Evas_Event_Info(type, event_info);
-        v_r = caml_callback3(*v_fun, (value) obj, (value) src, v_event_info);
+        v_r = caml_callback3(*v_fun, v_obj, v_src, v_event_info);
         CAMLreturnT(Eina_Bool, Bool_val(v_r));
 }
 
