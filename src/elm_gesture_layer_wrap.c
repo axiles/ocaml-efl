@@ -29,13 +29,15 @@ PREFIX value ml_Elm_Gesture_Momentum_Info_of_ptr(value v_ptr)
 PREFIX value ml_Elm_Gesture_Line_Info_of_ptr(value v_ptr)
 {
         CAMLparam1(v_ptr);
-        CAMLlocal1(v_info);
+        CAMLlocal3(v_momentum, v_angle, v_info);
         Elm_Gesture_Line_Info* info = (Elm_Gesture_Line_Info*) v_ptr;
         v_info = caml_alloc(2, 0);
         Elm_Gesture_Momentum_Info* momentum = &(info->momentum);
+        v_momentum = copy_Elm_Gesture_Momentum_Info(momentum);
+        v_angle = copy_double(info->angle);
         Store_field(v_info, 0,
-                ml_Elm_Gesture_Momentum_Info_of_ptr((value) momentum));
-        Store_field(v_info, 1, copy_double(info->angle));
+                ml_Elm_Gesture_Momentum_Info_of_ptr(v_momentum));
+        Store_field(v_info, 1, v_angle);
         CAMLreturn(v_info);
 }
 

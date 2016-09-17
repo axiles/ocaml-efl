@@ -2,18 +2,18 @@
 
 PREFIX value ml_elm_theme_new(value v_unit)
 {
-        return (value) elm_theme_new();
+        return copy_Elm_Theme(elm_theme_new());
 }
 
 PREFIX value ml_elm_theme_free(value v_th)
 {
-        elm_theme_free((Elm_Theme*) v_th);
+        elm_theme_free(Elm_Theme_val(v_th));
         return Val_unit;
 }
 
 PREFIX value ml_elm_theme_copy(value v_th, value v_thref)
 {
-        elm_theme_copy((Elm_Theme*) v_th, (Elm_Theme*) v_thref);
+        elm_theme_copy(Elm_Theme_val(v_th), Elm_Theme_val(v_thref));
         return Val_unit;
 }
 
@@ -21,30 +21,27 @@ PREFIX value ml_elm_theme_ref_set(value v_th, value v_thref)
 {
         Elm_Theme* thref;
         if(v_thref == Val_int(0)) thref = NULL;
-        else thref = (Elm_Theme*) Field(v_thref, 0);
-        elm_theme_ref_set((Elm_Theme*) v_th, thref);
+        else thref = Elm_Theme_val(Field(v_thref, 0));
+        elm_theme_ref_set(Elm_Theme_val(v_th), thref);
         return Val_unit;
 }
 
 PREFIX value ml_elm_theme_ref_get(value v_th)
 {
-        Elm_Theme* thref = elm_theme_ref_get((Elm_Theme*) v_th);
-        if(thref == NULL) return Val_int(0);
-        value v_thref = caml_alloc(1, 0);
-        Store_field(v_thref, 0, (value) thref);
-        return v_thref;
+        Elm_Theme* thref = elm_theme_ref_get(Elm_Theme_val(v_th));
+        return copy_Elm_Theme_opt(thref);
 }
 
 PREFIX value ml_elm_theme_default_get(value v_unit)
 {
-        return (value) elm_theme_default_get();
+        return copy_Elm_Theme(elm_theme_default_get());
 }
 
 PREFIX value ml_elm_theme_overlay_add(value v_th, value v_item)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         elm_theme_overlay_add(th, String_val(v_item));
         return Val_unit;
 }
@@ -53,7 +50,7 @@ PREFIX value ml_elm_theme_overlay_del(value v_th, value v_item)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         elm_theme_overlay_del(th, String_val(v_item));
         return Val_unit;
 }
@@ -61,14 +58,14 @@ PREFIX value ml_elm_theme_overlay_del(value v_th, value v_item)
 PREFIX value ml_elm_theme_overlay_list_get(value v_th)
 {
         return copy_Eina_List_string(elm_theme_overlay_list_get(
-                (Elm_Theme*) v_th));
+                Elm_Theme_val(v_th)));
 }
 
 PREFIX value ml_elm_theme_extension_add(value v_th, value v_item)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         elm_theme_extension_add(th, String_val(v_item));
         return Val_unit;
 }
@@ -77,7 +74,7 @@ PREFIX value ml_elm_theme_extension_del(value v_th, value v_item)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         elm_theme_extension_del(th, String_val(v_item));
         return Val_unit;
 }
@@ -85,14 +82,14 @@ PREFIX value ml_elm_theme_extension_del(value v_th, value v_item)
 PREFIX value ml_elm_theme_extension_list_get(value v_th)
 {
         return copy_Eina_List_string(elm_theme_extension_list_get(
-                (Elm_Theme*) v_th));
+                Elm_Theme_val(v_th)));
 }
 
 PREFIX value ml_elm_theme_set(value v_th, value v_theme)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         elm_theme_set(th, String_val(v_theme));
         return Val_unit;
 }
@@ -101,7 +98,7 @@ PREFIX value ml_elm_theme_get(value v_th, value v_unit)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         return copy_string(elm_theme_get(th));
 }
 
@@ -109,7 +106,7 @@ PREFIX value ml_elm_theme_list_get(value v_th)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         return copy_Eina_List_string(elm_theme_list_get(th));
 }
 
@@ -135,7 +132,7 @@ PREFIX value ml_elm_theme_flush(value v_th, value v_unit)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         elm_theme_flush(th);
         return Val_unit;
 }
@@ -160,7 +157,7 @@ PREFIX value ml_elm_theme_data_get(value v_th, value v_key)
         CAMLlocal1(v_data);
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         const char* data = elm_theme_data_get(th, String_val(v_key));
         if(data == NULL) v_data = Val_int(0);
         else {
@@ -176,7 +173,7 @@ PREFIX value ml_elm_theme_group_path_find(value v_th, value v_path)
         CAMLlocal1(v_data);
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         const char* data = elm_theme_group_path_find(th, String_val(v_path));
         if(data == NULL) v_data = Val_int(0);
         else {
@@ -190,7 +187,7 @@ PREFIX value ml_elm_theme_group_base_list(value v_th, value v_base)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
+        else th = Elm_Theme_val(Field(v_th, 0));
         Eina_List* list = elm_theme_group_base_list(th, String_val(v_base));
         value v_list = copy_Eina_List_string(list);
         Eina_List* l;

@@ -4,12 +4,13 @@ void ml_Evas_Object_Event_Cb_mouse_in(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_obj, v_ev, v_e);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Mouse_In((Evas_Event_Mouse_In*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	      CAMLreturn0;
 }
 
@@ -17,12 +18,13 @@ void ml_Evas_Object_Event_Cb_mouse_out(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Mouse_Out((Evas_Event_Mouse_Out*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	      CAMLreturn0;
 }
 
@@ -30,12 +32,13 @@ void ml_Evas_Object_Event_Cb_mouse_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Mouse_Down((Evas_Event_Mouse_Down*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	      CAMLreturn0;
 }
 
@@ -43,12 +46,13 @@ void ml_Evas_Object_Event_Cb_mouse_up(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Mouse_Up((Evas_Event_Mouse_Up*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	      CAMLreturn0;
 }
 
@@ -56,12 +60,13 @@ void ml_Evas_Object_Event_Cb_mouse_move(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Mouse_Move((Evas_Event_Mouse_Move*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	      CAMLreturn0;
 }
 
@@ -69,13 +74,14 @@ void ml_Evas_Object_Event_Cb_mouse_wheel(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Mouse_Wheel(
                 (Evas_Event_Mouse_Wheel*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	      CAMLreturn0;
 }
 
@@ -83,13 +89,14 @@ void ml_Evas_Object_Event_Cb_multi_down(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Multi_Down(
                 (Evas_Event_Multi_Down*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
       	CAMLreturn0;
 }
 
@@ -97,13 +104,14 @@ void ml_Evas_Object_Event_Cb_multi_up(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Multi_Up(
                 (Evas_Event_Multi_Up*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	CAMLreturn0;
 }
 
@@ -111,13 +119,14 @@ void ml_Evas_Object_Event_Cb_multi_move(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Multi_Move(
                 (Evas_Event_Multi_Move*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
 	CAMLreturn0;
 }
 
@@ -125,11 +134,12 @@ void ml_Evas_Object_Event_Cb_unit(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal2(v_fun, v_obj);
+        CAMLlocal3(v_fun, v_e, v_obj);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
-        caml_callback3(v_fun, (value) e, v_obj, Val_unit);
+        caml_callback3(v_fun, v_e, v_obj, Val_unit);
 	CAMLreturn0;
 }
 
@@ -137,11 +147,12 @@ void ml_Evas_Object_Event_Cb_unit_free(
         void* data, Evas* e, Evas_Object *obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal2(v_fun, v_obj);
+        CAMLlocal3(v_fun, v_e, v_obj);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
-        caml_callback3(v_fun, (value) e, v_obj, Val_unit);
+        caml_callback3(v_fun, v_e, v_obj, Val_unit);
         ml_remove_value(d);
 	CAMLreturn0;
 }
@@ -150,12 +161,13 @@ void ml_Evas_Object_Event_Cb_key_down(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Key_Down((Evas_Event_Key_Down*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
         CAMLreturn0;
 }
 
@@ -163,12 +175,13 @@ void ml_Evas_Object_Event_Cb_key_up(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Key_Up((Evas_Event_Key_Up*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
         CAMLreturn0;
 }
 
@@ -176,12 +189,13 @@ void ml_Evas_Object_Event_Cb_hold(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal3(v_fun, v_obj, v_ev);
+        CAMLlocal4(v_fun, v_e, v_obj, v_ev);
         value* d = (value*) data;
         v_fun = *d;
+        v_e = copy_Evas(e);
         v_obj = copy_Evas_Object(obj);
         v_ev = copy_Evas_Event_Hold((Evas_Event_Hold*) event_info);
-        caml_callback3(v_fun, (value) e, v_obj, v_ev);
+        caml_callback3(v_fun, v_e, v_obj, v_ev);
         CAMLreturn0;
 }
 

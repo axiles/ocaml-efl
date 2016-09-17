@@ -4,14 +4,15 @@ value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list);
 inline value copy_Eina_List_Elm_Map_Overlay(const Eina_List* list)
 {
         CAMLparam0();
-        CAMLlocal2(v, v1);
+        CAMLlocal3(v, v1, v_overlay);
         Eina_List* it;
-        Elm_Map_Overlay* obj;
+        Elm_Map_Overlay* overlay;
         v = Val_int(0);
-        EINA_LIST_REVERSE_FOREACH(list, it, obj) {
+        EINA_LIST_REVERSE_FOREACH(list, it, overlay) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, (value) obj);
+                v_overlay = copy_Elm_Map_Overlay(overlay);
+                Store_field(v, 0, v_overlay);
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
@@ -22,7 +23,7 @@ inline Eina_List* Eina_List_Elm_Map_Overlay_val(value v_list)
         Eina_List* list = NULL;
         value v = v_list;
         while(v != Val_int(0)) {
-                list = eina_list_append(list, (Elm_Map_Overlay*) Field(v, 0));
+                list = eina_list_append(list, Elm_Map_Overlay_val(Field(v, 0)));
                 v = Field(v, 1);
         }
         return list;
@@ -32,30 +33,33 @@ void ml_Elm_Map_Overlay_Get_Cb(
         void* data, Evas_Object* map, Elm_Map_Overlay* overlay)
 {
         CAMLparam0();
-        CAMLlocal1(v_map);
+        CAMLlocal2(v_map, v_overlay);
         value* v_fun = (value*) data;
         v_map = copy_Evas_Object(map);
-        caml_callback2(*v_fun, v_map, (value) overlay);
+        v_overlay = copy_Elm_Map_Overlay(overlay);
+        caml_callback2(*v_fun, v_map, v_overlay);
         CAMLreturn0;
 }
 
 void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
 {
         CAMLparam0();
-        CAMLlocal1(v_map);
+        CAMLlocal2(v_map, v_route);
         value* v_fun = (value*) data;
         v_map = copy_Evas_Object(map);
-        caml_callback2(*v_fun, v_map, (value) route);
+        v_route = copy_Elm_Map_Route(route);
+        caml_callback2(*v_fun, v_map, v_route);
         CAMLreturn0;
 }
 
 void ml_Elm_Map_Name_Cb(void* data, Evas_Object* map, Elm_Map_Name* name)
 {
         CAMLparam0();
-        CAMLlocal1(v_map);
+        CAMLlocal2(v_map, v_name);
         value* v_fun = (value*) data;
         v_map = copy_Evas_Object(map);
-        caml_callback2(*v_fun, v_map, (value) name);
+        v_name = copy_Elm_Map_Name(name);
+        caml_callback2(*v_fun, v_map, v_name);
         CAMLreturn0;
 }
 
@@ -123,7 +127,7 @@ PREFIX value ml_elm_map_overlay_add(value v_obj, value v_lon, value v_lat)
         Elm_Map_Overlay* ov = elm_map_overlay_add(Evas_Object_val(v_obj),
                 Double_val(v_lon), Double_val(v_lat));
         if(ov == NULL) caml_failwith("elm_map_overlay_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlays_get(value v_obj)
@@ -137,14 +141,14 @@ PREFIX value ml_elm_map_overlay_content_set(value v_ov, value v_obj)
         Evas_Object* obj;
         if(v_obj == Val_int(0)) obj = NULL;
         else obj = Evas_Object_val(Field(v_obj, 0));
-        elm_map_overlay_content_set((Elm_Map_Overlay*) v_ov, obj);
+        elm_map_overlay_content_set(Elm_Map_Overlay_val(v_ov), obj);
         return Val_unit;
 }
 
 PREFIX value ml_elm_map_overlay_content_get(value v_ov)
 {
         return copy_Evas_Object_opt(elm_map_overlay_content_get(
-                (Elm_Map_Overlay*) v_ov));
+                Elm_Map_Overlay_val(v_ov)));
 }
 
 PREFIX value ml_elm_map_overlay_icon_set(value v_ov, value v_obj)
@@ -152,14 +156,14 @@ PREFIX value ml_elm_map_overlay_icon_set(value v_ov, value v_obj)
         Evas_Object* obj;
         if(v_obj == Val_int(0)) obj = NULL;
         else obj = Evas_Object_val(Field(v_obj, 0));
-        elm_map_overlay_icon_set((Elm_Map_Overlay*) v_ov, obj);
+        elm_map_overlay_icon_set(Elm_Map_Overlay_val(v_ov), obj);
         return Val_unit;
 }
 
 PREFIX value ml_elm_map_overlay_icon_get(value v_ov)
 {
         return copy_Evas_Object_opt(elm_map_overlay_icon_get(
-                (Elm_Map_Overlay*) v_ov));
+                Elm_Map_Overlay_val(v_ov)));
 }
 
 PREFIX value ml_elm_map_overlay_region_get(value v_ov)
@@ -167,7 +171,7 @@ PREFIX value ml_elm_map_overlay_region_get(value v_ov)
         CAMLparam1(v_ov);
         CAMLlocal1(v_r);
         double lon, lat;
-        elm_map_overlay_region_get((Elm_Map_Overlay*) v_ov, &lon, &lat);
+        elm_map_overlay_region_get(Elm_Map_Overlay_val(v_ov), &lon, &lat);
         v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, copy_double(lon));
         Store_field(v_r, 1, copy_double(lat));
@@ -177,7 +181,7 @@ PREFIX value ml_elm_map_overlay_region_get(value v_ov)
 PREFIX value ml_elm_map_overlay_color_get(value v_ov)
 {
         int r, g, b, a;
-        elm_map_overlay_color_get((Elm_Map_Overlay*) v_ov, &r, &g, &b, &a);
+        elm_map_overlay_color_get(Elm_Map_Overlay_val(v_ov), &r, &g, &b, &a);
         value v = caml_alloc(4, 0);
         Store_field(v, 0, Val_int(r));
         Store_field(v, 1, Val_int(g));
@@ -199,7 +203,7 @@ PREFIX value ml_elm_map_overlay_get_cb_set(value v_ov, value v_fun)
         value* data = caml_stat_alloc(sizeof(value));
         *data = v_fun;
         caml_register_global_root(data);
-        elm_map_overlay_get_cb_set((Elm_Map_Overlay*) v_ov,
+        elm_map_overlay_get_cb_set(Elm_Map_Overlay_val(v_ov),
                 ml_Elm_Map_Overlay_Get_Cb, data);
         return Val_unit;
 }
@@ -208,13 +212,13 @@ PREFIX value ml_elm_map_overlay_class_add(value v_obj)
 {
         Elm_Map_Overlay* ov = elm_map_overlay_class_add(Evas_Object_val(v_obj));
         if(ov == NULL) caml_failwith("elm_map_overlay_class_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlay_group_members_get(value v_ov)
 {
         return copy_Eina_List_Elm_Map_Overlay(elm_map_overlay_group_members_get(
-                (Elm_Map_Overlay*) v_ov));
+                Elm_Map_Overlay_val(v_ov)));
 }
 
 PREFIX value ml_elm_map_overlay_bubble_add(value v_obj)
@@ -222,15 +226,15 @@ PREFIX value ml_elm_map_overlay_bubble_add(value v_obj)
         Elm_Map_Overlay* ov = elm_map_overlay_bubble_add(
                 Evas_Object_val(v_obj));
         if(ov == NULL) caml_failwith("elm_map_overlay_bubble_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlay_route_add(value v_obj, value v_route)
 {
         Elm_Map_Overlay* ov = elm_map_overlay_route_add(Evas_Object_val(v_obj),
-                (Elm_Map_Route*) v_route);
+                Elm_Map_Route_val(v_route));
         if(ov == NULL) caml_failwith("elm_map_overlay_route_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlay_line_add(
@@ -240,7 +244,7 @@ PREFIX value ml_elm_map_overlay_line_add(
                 Double_val(v_flon), Double_val(v_flat), Double_val(v_tlon),
                 Double_val(v_tlat));
         if(ov == NULL) caml_failwith("elm_map_overlay_line_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlay_polygon_add(value v_obj)
@@ -248,7 +252,7 @@ PREFIX value ml_elm_map_overlay_polygon_add(value v_obj)
         Elm_Map_Overlay* ov = elm_map_overlay_polygon_add(
                 Evas_Object_val(v_obj));
         if(ov == NULL) caml_failwith("elm_map_overlay_polygon_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlay_circle_add(
@@ -257,7 +261,7 @@ PREFIX value ml_elm_map_overlay_circle_add(
         Elm_Map_Overlay* ov = elm_map_overlay_circle_add(Evas_Object_val(v_obj),
                 Double_val(v_lon), Double_val(v_lat), Double_val(v_radius));
         if(ov == NULL) caml_failwith("elm_map_overlay_circle_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_overlay_scale_add(value v_obj, value v_x, value v_y)
@@ -265,7 +269,7 @@ PREFIX value ml_elm_map_overlay_scale_add(value v_obj, value v_x, value v_y)
         Elm_Map_Overlay* ov = elm_map_overlay_scale_add(Evas_Object_val(v_obj),
                 Int_val(v_x), Int_val(v_y));
         if(ov == NULL) caml_failwith("elm_map_overlay_scale_add");
-        return (value) ov;
+        return copy_Elm_Map_Overlay(ov);
 }
 
 PREFIX value ml_elm_map_tile_load_status_get(value v_obj)
@@ -314,7 +318,7 @@ PREFIX value ml_elm_map_route_add_native(
                 Double_val(v_flat), Double_val(v_tlon), Double_val(v_tlat),
                 ml_Elm_Map_Route_Cb, data);
         if(route == NULL) caml_failwith("elm_map_route_add");
-        return (value) route;
+        return copy_Elm_Map_Route(route);
 }
 
 PREFIX value ml_elm_map_route_add_bytecode(value* argv, int argn)
@@ -352,7 +356,7 @@ PREFIX value ml_elm_map_name_add_native(
                 caml_failwith("elm_map_name_add");
         }
         if(data != NULL) ml_Evas_Object_gc_value(obj, data);
-        return (value) name;
+        return copy_Elm_Map_Name(name);
 }
 
 PREFIX value ml_elm_map_name_add_bytecode(value* argv, int argn)
@@ -366,7 +370,7 @@ PREFIX value ml_elm_map_name_region_get(value v_name)
         CAMLparam1(v_name);
         CAMLlocal1(v_r);
         double lon, lat;
-        elm_map_name_region_get((Elm_Map_Name*) v_name, &lon, &lat);
+        elm_map_name_region_get(Elm_Map_Name_val(v_name), &lon, &lat);
         v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, copy_double(lon));
         Store_field(v_r, 1, copy_double(lat));
@@ -376,7 +380,7 @@ PREFIX value ml_elm_map_name_region_get(value v_name)
 PREFIX value ml_elm_map_track_add(value v_obj, value v_route)
 {
         Evas_Object* r = elm_map_track_add(Evas_Object_val(v_obj),
-                (Elm_Map_Route*) v_route);
+                Elm_Map_Route_val(v_route));
         if(r == NULL) caml_failwith("elm_map_track_add");
         return copy_Evas_Object(r);
 }

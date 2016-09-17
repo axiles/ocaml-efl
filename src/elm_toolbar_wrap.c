@@ -270,7 +270,7 @@ PREFIX value ml_elm_toolbar_item_state_add(
         }
         if(data != NULL)
                 ml_Elm_Object_Item_gc_value(it, data);
-        return (value) state;
+        return copy_Elm_Toolbar_Item_State(state);
 }
 
 PREFIX value ml_elm_toolbar_item_state_set_null(value v_it)
@@ -283,29 +283,20 @@ PREFIX value ml_elm_toolbar_item_state_get(value v_it)
 {
         Elm_Toolbar_Item_State* state = elm_toolbar_item_state_get(
                 Elm_Object_Item_val(v_it));
-        if(state == NULL) return Val_int(0);
-        value v_state = caml_alloc(1, 0);
-        Store_field(v_state, 0, (value) state);
-        return v_state;
+        return copy_Elm_Toolbar_Item_State_opt(state);
 }
 
 PREFIX value ml_elm_toolbar_item_state_next(value v_it)
 {
         Elm_Toolbar_Item_State* state = elm_toolbar_item_state_next(
                 Elm_Object_Item_val(v_it));
-        if(state == NULL) return Val_int(0);
-        value v_state = caml_alloc(1, 0);
-        Store_field(v_state, 0, (value) state);
-        return v_state;
+        return copy_Elm_Toolbar_Item_State_opt(state);
 }
 
 PREFIX value ml_elm_toolbar_item_state_prev(value v_it)
 {
         Elm_Toolbar_Item_State* state = elm_toolbar_item_state_prev(
                 Elm_Object_Item_val(v_it));
-        if(state == NULL) return Val_int(0);
-        value v_state = caml_alloc(1, 0);
-        Store_field(v_state, 0, (value) state);
-        return v_state;
+        return copy_Elm_Toolbar_Item_State(state);
 }
 

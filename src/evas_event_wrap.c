@@ -165,32 +165,37 @@ inline value copy_Evas_Event_Info(
 void ml_Evas_Event_Cb_unit(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
+        CAMLlocal1(v_e);
         value* v_fun = (value*) data;
-        caml_callback2(*v_fun, (value) e, Val_unit);
+        v_e = copy_Evas(e),
+        caml_callback2(*v_fun, v_e, Val_unit);
         CAMLreturn0;
 }
 
 Eina_Bool ml_Evas_Object_Post_Event_Cb(void* data, Evas* e)
 {
         CAMLparam0();
-        CAMLlocal1(v_r);
+        CAMLlocal2(v_e, v_r);
         value* v_fun = (value*) data;
-        v_r = caml_callback(*v_fun, (value) e);
+        v_e = copy_Evas(e);
+        v_r = caml_callback(*v_fun, v_e);
         CAMLreturnT(Eina_Bool, Bool_val(v_r));
 }
 
 void ml_Evas_Event_Cb_value(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
+        CAMLlocal1(v_e);
         value* v_fun = (value*) data;
-        caml_callback2(*v_fun, (value) e, (value) event_info);
+        v_e = copy_Evas(e);
+        caml_callback2(*v_fun, v_e, (value) event_info);
         CAMLreturn0;
 }
 
 PREFIX value ml_evas_event_callback_add_render_flush_pre(value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_add((Evas*) v_e, EVAS_CALLBACK_RENDER_FLUSH_PRE,
+        evas_event_callback_add(Evas_val(v_e), EVAS_CALLBACK_RENDER_FLUSH_PRE,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
 }
@@ -198,7 +203,7 @@ PREFIX value ml_evas_event_callback_add_render_flush_pre(value v_e, value v_cb)
 PREFIX value ml_evas_event_callback_add_render_flush_post(value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_add((Evas*) v_e, EVAS_CALLBACK_RENDER_FLUSH_POST,
+        evas_event_callback_add(Evas_val(v_e), EVAS_CALLBACK_RENDER_FLUSH_POST,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
 }
@@ -206,7 +211,7 @@ PREFIX value ml_evas_event_callback_add_render_flush_post(value v_e, value v_cb)
 PREFIX value ml_evas_event_callback_add_canvas_focus_in(value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_add((Evas*) v_e, EVAS_CALLBACK_CANVAS_FOCUS_IN,
+        evas_event_callback_add(Evas_val(v_e), EVAS_CALLBACK_CANVAS_FOCUS_IN,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
 }
@@ -214,7 +219,7 @@ PREFIX value ml_evas_event_callback_add_canvas_focus_in(value v_e, value v_cb)
 PREFIX value ml_evas_event_callback_add_canvas_focus_out(value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_add((Evas*) v_e, EVAS_CALLBACK_CANVAS_FOCUS_OUT,
+        evas_event_callback_add(Evas_val(v_e), EVAS_CALLBACK_CANVAS_FOCUS_OUT,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
 }
@@ -223,7 +228,7 @@ PREFIX value ml_evas_event_callback_add_canvas_object_focus_in(
         value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_add((Evas*) v_e,
+        evas_event_callback_add(Evas_val(v_e),
                 EVAS_CALLBACK_CANVAS_OBJECT_FOCUS_IN, ml_Evas_Event_Cb_value,
                 data);
         return Val_unit;
@@ -233,7 +238,7 @@ PREFIX value ml_evas_event_callback_add_canvas_object_focus_out(
         value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_add((Evas*) v_e,
+        evas_event_callback_add(Evas_val(v_e),
                 EVAS_CALLBACK_CANVAS_OBJECT_FOCUS_OUT, ml_Evas_Event_Cb_value,
                 data);
         return Val_unit;
@@ -243,7 +248,7 @@ PREFIX value ml_evas_event_callback_priority_add_render_flush_pre(
         value v_e, value v_p, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_priority_add((Evas*) v_e,
+        evas_event_callback_priority_add(Evas_val(v_e),
                 Evas_Callback_Priority_val(v_p),EVAS_CALLBACK_RENDER_FLUSH_PRE,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
@@ -253,7 +258,7 @@ PREFIX value ml_evas_event_callback_priority_add_render_flush_post(
         value v_e, value v_p, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_priority_add((Evas*) v_e,
+        evas_event_callback_priority_add(Evas_val(v_e),
                 Evas_Callback_Priority_val(v_p),
                 EVAS_CALLBACK_RENDER_FLUSH_POST, ml_Evas_Event_Cb_unit, data);
         return Val_unit;
@@ -263,7 +268,7 @@ PREFIX value ml_evas_event_callback_priority_add_canvas_focus_in(
         value v_e, value v_p, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_priority_add((Evas*) v_e,
+        evas_event_callback_priority_add(Evas_val(v_e),
                 Evas_Callback_Priority_val(v_p), EVAS_CALLBACK_CANVAS_FOCUS_IN,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
@@ -273,7 +278,7 @@ PREFIX value ml_evas_event_callback_priority_add_canvas_focus_out(
         value v_e, value v_p, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_priority_add((Evas*) v_e,
+        evas_event_callback_priority_add(Evas_val(v_e),
                 Evas_Callback_Priority_val(v_p), EVAS_CALLBACK_CANVAS_FOCUS_OUT,
                 ml_Evas_Event_Cb_unit, data);
         return Val_unit;
@@ -283,7 +288,7 @@ PREFIX value ml_evas_event_callback_priority_add_canvas_object_focus_in(
         value v_e, value v_p, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_priority_add((Evas*) v_e,
+        evas_event_callback_priority_add(Evas_val(v_e),
                 Evas_Callback_Priority_val(v_p),
                 EVAS_CALLBACK_CANVAS_OBJECT_FOCUS_IN, ml_Evas_Event_Cb_value,
                 data);
@@ -294,7 +299,7 @@ PREFIX value ml_evas_event_callback_priority_add_canvas_object_focus_out(
         value v_e, value v_p, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_event_callback_priority_add((Evas*) v_e,
+        evas_event_callback_priority_add(Evas_val(v_e),
                 Evas_Callback_Priority_val(v_p),
                 EVAS_CALLBACK_CANVAS_OBJECT_FOCUS_OUT, ml_Evas_Event_Cb_value,
                 data);
@@ -304,8 +309,8 @@ PREFIX value ml_evas_event_callback_priority_add_canvas_object_focus_out(
 PREFIX value ml_evas_post_event_callback_push(value v_e, value v_cb)
 {
         value* data = ml_Evas_register_value(v_cb);
-        evas_post_event_callback_push((Evas*) v_e, ml_Evas_Object_Post_Event_Cb,
-                data);
+        evas_post_event_callback_push(Evas_val(v_e),
+                ml_Evas_Object_Post_Event_Cb, data);
         return Val_unit;
 }
 
@@ -313,13 +318,13 @@ PREFIX value ml_evas_post_event_callback_push(value v_e, value v_cb)
 
 PREFIX value ml_evas_event_freeze(value v_e)
 {
-        evas_event_freeze((Evas*) v_e);
+        evas_event_freeze(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_event_thaw(value v_e)
 {
-        evas_event_thaw((Evas*) v_e);
+        evas_event_thaw(Evas_val(v_e));
         return Val_unit;
 }
 

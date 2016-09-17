@@ -92,7 +92,7 @@ PREFIX value ml_elm_glview_size_get(value v_obj)
 
 PREFIX value ml_elm_glview_gl_api_get(value v_obj)
 {
-        return (value) elm_glview_gl_api_get(Evas_Object_val(v_obj));
+        return copy_Evas_GL_API(elm_glview_gl_api_get(Evas_Object_val(v_obj)));
 }
 
 /* BEGIN: 1.12 */

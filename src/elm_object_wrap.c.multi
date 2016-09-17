@@ -924,20 +924,14 @@ PREFIX value ml_elm_object_item_disabled_get(value v_it)
 
 PREFIX value ml_elm_object_theme_set(value v_obj, value v_th)
 {
-        Elm_Theme* th;
-        if(v_th == Val_int(0)) th = NULL;
-        else th = (Elm_Theme*) Field(v_th, 0);
-        elm_object_theme_set(Evas_Object_val(v_obj), th);
+        elm_object_theme_set(Evas_Object_val(v_obj), Elm_Theme_opt_val(v_th));
         return Val_unit;
 }
 
 PREFIX value ml_elm_object_theme_get(value v_obj)
 {
         Elm_Theme* th = elm_object_theme_get(Evas_Object_val(v_obj));
-        if(th == NULL) return Val_int(0);
-        value v_th = caml_alloc(1, 0);
-        Store_field(v_th, 0, (value) th);
-        return v_th;
+        return copy_Elm_Theme_opt(th);
 }
 
 /* Widget Tree Navigation */

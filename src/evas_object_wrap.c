@@ -329,7 +329,7 @@ PREFIX value ml_evas_object_map_get(value v_obj)
 {
         const Evas_Map* m = evas_object_map_get(Evas_Object_val(v_obj));
         if(m == NULL) caml_failwith("evas_object_map_get");
-        return (value) m;
+        return copy_Evas_Map(m);
 }
 
 /* Size Hints */
@@ -557,7 +557,7 @@ PREFIX value ml_evas_object_static_clip_get(value v_obj)
 
 PREFIX value ml_evas_object_name_find(value v_e, value v_name)
 {
-        return copy_Evas_Object_opt(evas_object_name_find((Evas*) v_e,
+        return copy_Evas_Object_opt(evas_object_name_find(Evas_val(v_e),
                 String_val(v_name)));
 }
 
@@ -571,14 +571,14 @@ PREFIX value ml_evas_object_name_child_find(
 PREFIX value ml_evas_object_top_at_xy_get(
         value v_e, value v_x, value v_y, value v_ip, value v_ih)
 {
-        return copy_Evas_Object_opt(evas_object_top_at_xy_get((Evas*) v_e,
+        return copy_Evas_Object_opt(evas_object_top_at_xy_get(Evas_val(v_e),
                 Int_val(v_x), Int_val(v_y), Bool_val(v_ip), Bool_val(v_ih)));
 }
 
 PREFIX value ml_evas_object_top_at_pointer_get(value v_e)
 {
         return copy_Evas_Object_opt(evas_object_top_at_pointer_get(
-                (Evas*) v_e));
+                Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_object_top_in_rectangle_get_native(
@@ -586,7 +586,7 @@ PREFIX value ml_evas_object_top_in_rectangle_get_native(
         value v_ih)
 {
         return copy_Evas_Object_opt(evas_object_top_in_rectangle_get(
-                (Evas*) v_e, Int_val(v_x), Int_val(v_y), Int_val(v_w),
+                Evas_val(v_e), Int_val(v_x), Int_val(v_y), Int_val(v_w),
                 Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
 }
 
@@ -598,19 +598,19 @@ PREFIX value ml_evas_object_top_in_rectangle_get_byte(value* argv, int argn)
 
 PREFIX value ml_evas_object_bottom_get(value v_e)
 {
-        return copy_Evas_Object_opt(evas_object_bottom_get((Evas*) v_e));
+        return copy_Evas_Object_opt(evas_object_bottom_get(Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_object_top_get(value v_e)
 {
-        return copy_Evas_Object_opt(evas_object_top_get((Evas*) v_e));
+        return copy_Evas_Object_opt(evas_object_top_get(Evas_val(v_e)));
 }
 
 /* Line Object Functions */
 
 PREFIX value ml_evas_object_line_add(value v_e)
 {
-        Evas_Object* line = evas_object_line_add((Evas*) v_e);
+        Evas_Object* line = evas_object_line_add(Evas_val(v_e));
         if(line == NULL) caml_failwith("evas_object_line_add");
         return copy_Evas_Object(line);
 }

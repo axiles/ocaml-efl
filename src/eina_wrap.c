@@ -92,7 +92,7 @@ inline value copy_Eina_List_Elm_Object_Item(const Eina_List* list)
         CAMLreturn(v);
 }
 
-inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
+/*inline Elm_Object_Item* Elm_Object_Item_opt_val(value v)
 {
         Elm_Object_Item* it;
         if(v == Val_int(0)) it = NULL;
@@ -112,7 +112,7 @@ inline value copy_Elm_Object_Item_opt(const Elm_Object_Item* it)
         }
         CAMLreturn(v_r);
 }
-
+*/
 inline value copy_string_opt(const char* s)
 {
         CAMLparam0();
@@ -125,7 +125,7 @@ inline value copy_string_opt(const char* s)
         CAMLreturn(v);
 }
 
-inline value copy_Evas_Object_opt(const Evas_Object* obj)
+/*inline value copy_Evas_Object_opt(const Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal2(v_r, v_obj);
@@ -143,6 +143,7 @@ inline Evas_Object* Evas_Object_opt_val(value v)
         if(v == Val_int(0)) return NULL;
         else return Evas_Object_val(Field(v, 0));
 }
+*/
 
 inline const char* String_opt_val(value v)
 {

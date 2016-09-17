@@ -194,11 +194,19 @@ PREFIX value ml_elm_win_wl_window_get(value v_obj)
 /* END */
                 win = elm_win_wl_window_get(Evas_Object_val(v_obj));
         if(win == NULL) raise_not_Wayland();
-        return (value) win;
+        return
+/* BEGIN: <= 1.16 */
+                copy_Ecore_Wl_Window
+/* END */
+/* BEGIN: 1.17 */
+                copy_Ecore_Wl2_Window
+/* END */
+                (win);
 }
 
 PREFIX value ml_elm_win_window_id_get(value v_obj)
 {
-        return (value) elm_win_window_id_get(Evas_Object_val(v_obj));
+        return copy_nativeint(
+                elm_win_window_id_get(Evas_Object_val(v_obj)));
 }
 

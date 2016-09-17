@@ -1,0 +1,102 @@
+open Format
+
+let ptr_types = [
+  "Ecore_Animator";
+  "Ecore_Timer";
+(* BEGIN: <= 1.16 *)
+  "Ecore_Wl_Window";
+(* END *)
+(* BEGIN: 1.17 *)
+  "Ecore_Wl2_Window";
+(* END *)
+  "Evas";
+  "Evas_GL_API";
+  "Evas_Map";
+  "Ecore_Evas";
+  "Evas_Modifier";
+  "Evas_Object";
+  "Evas_Device";
+  "Elm_Object_Item";
+  "Elm_Calendar_Mark";
+  "Elm_Gesture_Momentum_Info";
+  "Elm_Map_Overlay";
+  "Elm_Map_Route";
+  "Elm_Map_Name";
+  "Elm_Theme";
+  "Elm_Toolbar_Item_State";
+  "Elm_Transit";
+  "Elm_Web_Window_Features";
+  "Ecore_Event_Handler";
+  "Ecore_Event";
+  "Evas_GL";
+  "Elm_Box_Transition";
+  "Evas_Object_Box_Data";
+]
+
+let print_opt_c_header fmt name =
+  fprintf fmt "%s* %s_opt_val(value v);\n\n" name name;
+  fprintf fmt "value copy_%s_opt(const %s* x);\n\n" name name
+
+let print_opt_c_impl fmt name =
+  fprintf fmt "inline %s* %s_opt_val(value v_opt)\n" name name;
+  fprintf fmt "{\n";
+  fprintf fmt "        if(v_opt == Val_int(0)) return NULL;\n";
+  fprintf fmt "        else return %s_val(Field(v_opt, 0));\n" name;
+  fprintf fmt "}\n\n";
+  fprintf fmt "inline value copy_%s_opt(const %s* opt)\n" name name;
+  fprintf fmt "{\n";
+  fprintf fmt "        CAMLparam0();\n";
+  fprintf fmt "        CAMLlocal2(v, v_res);\n";
+  fprintf fmt "        if(opt == NULL) v_res = Val_int(0);\n";
+  fprintf fmt "        else {\n";
+  fprintf fmt "                v = copy_%s(opt);\n" name;
+  fprintf fmt "                v_res = caml_alloc(1, 0);\n";
+  fprintf fmt "                Store_field(v_res, 0, v);\n";
+  fprintf fmt "       }\n";
+  fprintf fmt "       CAMLreturn(v_res);\n";
+  fprintf fmt "}\n\n"
+
+let print_ptr_type_c_header fmt name =
+  fprintf fmt "%s* %s_val(value v);\n\n" name name;
+  let of_c name1 = fprintf fmt "value %s(const %s* x);\n\n" name1 name in
+  of_c (sprintf "Val_%s" name);
+  of_c (sprintf "copy_%s" name);
+  print_opt_c_header fmt name
+
+let print_ptr_type_c_impl fmt name =
+  fprintf fmt "inline %s* %s_val(value v)\n" name name;
+  fprintf fmt "{\n";
+  fprintf fmt "        return (%s*) v;\n" name;
+  fprintf fmt "}\n\n";
+(* Keeping Val_%s, for now for compatibility reasons *)
+  let of_c name1 = 
+    fprintf fmt "inline value %s(const %s* x)\n" name1 name;
+    fprintf fmt "{\n";
+    fprintf fmt "        return (value) x;\n";
+    fprintf fmt "}\n\n" in
+  of_c (sprintf "Val_%s" name);
+  of_c (sprintf "copy_%s" name);
+  print_opt_c_impl fmt name
+
+let ( / ) = Filename.concat
+
+let print_c_impl () =
+  let ch = open_out ("src" / "other_wrap.c") in
+  let fmt = formatter_of_out_channel ch in
+  fprintf fmt "#include \"include.h\"\n\n";
+  List.iter (print_ptr_type_c_impl fmt ) ptr_types;
+  fprintf fmt "%!";
+  close_out ch
+
+let print_c_header () =
+  let ch = open_out ("src" / "other_wrap.h") in
+  let fmt = formatter_of_out_channel ch in
+  List.iter (print_ptr_type_c_header fmt) ptr_types;
+  fprintf fmt "%!";
+  close_out ch
+
+let () =
+  print_c_impl ();
+  print_c_header ();
+  exit 0
+

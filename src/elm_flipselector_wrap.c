@@ -70,20 +70,14 @@ PREFIX value ml_elm_flipselector_first_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_flipselector_first_item_get(
                 Evas_Object_val(v_obj));
-        if(it == NULL) return Val_int(0);
-        value v = caml_alloc(1, 0);
-        Store_field(v, 0, (value) it);
-        return v;
+        return copy_Elm_Object_Item_opt(it);
 }
 
 PREFIX value ml_elm_flipselector_last_item_get(value v_obj)
 {
         Elm_Object_Item *it = elm_flipselector_last_item_get(
                 Evas_Object_val(v_obj));
-        if(it == NULL) return Val_int(0);
-        value v = caml_alloc(1, 0);
-        Store_field(v, 0, (value) it);
-        return v;
+        return copy_Elm_Object_Item_opt(it);
 }
 
 PREFIX value ml_elm_flipselector_selected_item_get(value v_obj)

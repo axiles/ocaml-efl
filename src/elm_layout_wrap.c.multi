@@ -9,7 +9,7 @@ PREFIX value ml_elm_layout_add(value v_parent)
 {
         Evas_Object* layout = elm_layout_add(Evas_Object_val(v_parent));
         if(layout == NULL) caml_failwith("layout");
-        return (value) layout;
+        return copy_Evas_Object(layout);
 }
 
 PREFIX value ml_elm_layout_file_set(value v_obj, value v_file, value v_group)
@@ -118,7 +118,7 @@ PREFIX value ml_elm_layout_table_clear(value v_obj, value v_part, value v_clear)
 
 PREFIX value ml_elm_layout_edje_get(value v_obj)
 {
-        return (value) elm_layout_edje_get(Evas_Object_val(v_obj));
+        return copy_Evas_Object(elm_layout_edje_get(Evas_Object_val(v_obj)));
 }
 
 PREFIX value ml_elm_layout_data_get(value v_obj, value v_key)

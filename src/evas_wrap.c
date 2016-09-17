@@ -54,7 +54,7 @@ PREFIX value ml_string_opt_of_ptr(value v_ptr)
 PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
 {
         Evas_Coord x, y;
-        evas_pointer_canvas_xy_get((Evas*) v_e, &x, &y);
+        evas_pointer_canvas_xy_get(Evas_val(v_e), &x, &y);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(x));
         Store_field(v_r, 1, Val_int(y));
@@ -63,7 +63,7 @@ PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
 
 PREFIX value ml_evas_smart_objects_calculate(value v_e)
 {
-        evas_smart_objects_calculate((Evas*) v_e);
+        evas_smart_objects_calculate(Evas_val(v_e));
         return Val_unit;
 }
 
@@ -175,49 +175,53 @@ PREFIX value ml_evas_render_method_list(value v_unit)
 
 PREFIX value ml_evas_output_method_set(value v_e, value v_m)
 {
-        evas_output_method_set((Evas*) v_e, Int_val(v_m));
+        evas_output_method_set(Evas_val(v_e), Int_val(v_m));
         return Val_unit;
 }
 
 PREFIX value ml_evas_output_method_get(value v_e)
 {
-        return Val_int(evas_output_method_get((Evas*) v_e));
+        return Val_int(evas_output_method_get(Evas_val(v_e)));
 }
 
 /* Coordinate Mapping Functions */
 
 PREFIX value ml_evas_coord_screen_x_to_world(value v_e, value v_x)
 {
-        return Val_int(evas_coord_screen_x_to_world((Evas*) v_e, Int_val(v_x)));
+        return Val_int(evas_coord_screen_x_to_world(Evas_val(v_e),
+                Int_val(v_x)));
 }
 
 PREFIX value ml_evas_coord_screen_y_to_world(value v_e, value v_x)
 {
-        return Val_int(evas_coord_screen_y_to_world((Evas*) v_e, Int_val(v_x)));
+        return Val_int(evas_coord_screen_y_to_world(Evas_val(v_e),
+                Int_val(v_x)));
 }
 
 PREFIX value ml_evas_coord_world_x_to_screen(value v_e, value v_x)
 {
-        return Val_int(evas_coord_world_x_to_screen((Evas*) v_e, Int_val(v_x)));
+        return Val_int(evas_coord_world_x_to_screen(Evas_val(v_e),
+                Int_val(v_x)));
 }
 
 PREFIX value ml_evas_coord_world_y_to_screen(value v_e, value v_x)
 {
-        return Val_int(evas_coord_world_y_to_screen((Evas*) v_e, Int_val(v_x)));
+        return Val_int(evas_coord_world_y_to_screen(Evas_val(v_e),
+                Int_val(v_x)));
 }
 
 /* Output Viewport Resizing Functions */
 
 PREFIX value ml_evas_output_size_set(value v_e, value v_w, value v_h)
 {
-        evas_output_size_set((Evas*) v_e, Int_val(v_w), Int_val(v_h));
+        evas_output_size_set(Evas_val(v_e), Int_val(v_w), Int_val(v_h));
         return Val_unit;
 }
 
 PREFIX value ml_evas_output_size_get(value v_e)
 {
         int w, h;
-        evas_output_size_get((Evas*) v_e, &w, &h);
+        evas_output_size_get(Evas_val(v_e), &w, &h);
         value v_r = caml_alloc(2, 0);
         Store_field(v_r, 0, Val_int(w));
         Store_field(v_r, 1, Val_int(h));
@@ -227,7 +231,7 @@ PREFIX value ml_evas_output_size_get(value v_e)
 PREFIX value ml_evas_output_viewport_set(
         value v_e, value v_x, value v_y, value v_w, value v_h)
 {
-        evas_output_viewport_set((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+        evas_output_viewport_set(Evas_val(v_e), Int_val(v_x), Int_val(v_y),
                 Int_val(v_w), Int_val(v_h));
         return Val_unit;
 }
@@ -235,7 +239,7 @@ PREFIX value ml_evas_output_viewport_set(
 PREFIX value ml_evas_output_viewport_get(value v_e)
 {
         Evas_Coord x, y, w, h;
-        evas_output_viewport_get((Evas*) v_e, &x, &y, &w, &h);
+        evas_output_viewport_get(Evas_val(v_e), &x, &y, &w, &h);
         value v_r = caml_alloc(4, 0);
         Store_field(v_r, 0, Val_int(x));
         Store_field(v_r, 1, Val_int(y));
@@ -247,7 +251,7 @@ PREFIX value ml_evas_output_viewport_get(value v_e)
 PREFIX value ml_evas_output_framespace_set(
         value v_e, value v_x, value v_y, value v_w, value v_h)
 {
-        evas_output_framespace_set((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+        evas_output_framespace_set(Evas_val(v_e), Int_val(v_x), Int_val(v_y),
                 Int_val(v_w), Int_val(v_h));
         return Val_unit;
 }
@@ -255,7 +259,7 @@ PREFIX value ml_evas_output_framespace_set(
 PREFIX value ml_evas_output_framespace_get(value v_e)
 {
         Evas_Coord x, y, w, h;
-        evas_output_framespace_get((Evas*) v_e, &x, &y, &w, &h);
+        evas_output_framespace_get(Evas_val(v_e), &x, &y, &w, &h);
         value v_r = caml_alloc(4, 0);
         Store_field(v_r, 0, Val_int(x));
         Store_field(v_r, 1, Val_int(y));
@@ -286,25 +290,25 @@ inline Evas_Callback_Priority Evas_Callback_Priority_val(value v)
 
 PREFIX value ml_evas_image_cache_flush(value v_e)
 {
-        evas_image_cache_flush((Evas*) v_e);
+        evas_image_cache_flush(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_image_cache_reload(value v_e)
 {
-        evas_image_cache_reload((Evas*) v_e);
+        evas_image_cache_reload(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_image_cache_set(value v_e, value v_size)
 {
-        evas_image_cache_set((Evas*) v_e, Int_val(v_size));
+        evas_image_cache_set(Evas_val(v_e), Int_val(v_size));
         return Val_unit;
 }
 
 PREFIX value ml_evas_image_cache_get(value v_e)
 {
-        return Val_int(evas_image_cache_get((Evas*) v_e));
+        return Val_int(evas_image_cache_get(Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_image_max_size_get(value v_e)
@@ -312,7 +316,7 @@ PREFIX value ml_evas_image_max_size_get(value v_e)
         CAMLparam1(v_e);
         CAMLlocal2(v_r, v_size);
         int maxw, maxh;
-        Eina_Bool r = evas_image_max_size_get((Evas*) v_e, &maxw, &maxh);
+        Eina_Bool r = evas_image_max_size_get(Evas_val(v_e), &maxw, &maxh);
         if(r) {
                 v_size = caml_alloc(2, 0);
                 Store_field(v_size, 0, Val_int(maxw));
@@ -329,48 +333,48 @@ PREFIX value ml_evas_new(value v_unit)
 {
         Evas* e = evas_new();
         if(e == NULL) caml_failwith("evas_new");
-        return (value) e;
+        return copy_Evas(e);
 }
 
 PREFIX value ml_evas_free(value v_e)
 {
-        evas_free((Evas*) v_e);
+        evas_free(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_focus_in(value v_e)
 {
-        evas_focus_in((Evas*) v_e);
+        evas_focus_in(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_focus_out(value v_e)
 {
-        evas_focus_out((Evas*) v_e);
+        evas_focus_out(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_focus_state_get(value v_e)
 {
-        return Val_bool(evas_focus_state_get((Evas*) v_e));
+        return Val_bool(evas_focus_state_get(Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_nochange_push(value v_e)
 {
-        evas_nochange_push((Evas*) v_e);
+        evas_nochange_push(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_nochange_pop(value v_e)
 {
-        evas_nochange_pop((Evas*) v_e);
+        evas_nochange_pop(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_damage_rectangle_add(
         value v_e, value v_x, value v_y, value v_w, value v_h)
 {
-        evas_damage_rectangle_add((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+        evas_damage_rectangle_add(Evas_val(v_e), Int_val(v_x), Int_val(v_y),
                 Int_val(v_w), Int_val(v_h));
         return Val_unit;
 }
@@ -378,48 +382,49 @@ PREFIX value ml_evas_damage_rectangle_add(
 PREFIX value ml_evas_obscured_rectangle_add(
         value v_e, value v_x, value v_y, value v_w, value v_h)
 {
-        evas_obscured_rectangle_add((Evas*) v_e, Int_val(v_x), Int_val(v_y),
+        evas_obscured_rectangle_add(Evas_val(v_e), Int_val(v_x), Int_val(v_y),
                 Int_val(v_w), Int_val(v_h));
         return Val_unit;
 }
 
 PREFIX value ml_evas_obscured_clear(value v_e)
 {
-        evas_obscured_clear((Evas*) v_e);
+        evas_obscured_clear(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_render_async(value v_e)
 {
-        return Val_bool(evas_render_async((Evas*) v_e));
+        return Val_bool(evas_render_async(Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_render_updates(value v_e)
 {
-        return copy_Eina_List_Eina_Rectangle(evas_render_updates((Evas*) v_e));
+        return copy_Eina_List_Eina_Rectangle(
+                evas_render_updates(Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_render(value v_e)
 {
-        evas_render((Evas*) v_e);
+        evas_render(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_norender(value v_e)
 {
-        evas_norender((Evas*) v_e);
+        evas_norender(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_render_idle_flush(value v_e)
 {
-        evas_render_idle_flush((Evas*) v_e);
+        evas_render_idle_flush(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_render_dump(value v_e)
 {
-        evas_render_dump((Evas*) v_e);
+        evas_render_dump(Evas_val(v_e));
         return Val_unit;
 }
 
@@ -430,20 +435,21 @@ value copy_Eina_List_Evas_Device(const Eina_List* list);
 inline value copy_Eina_List_Evas_Device(const Eina_List* list)
 {
         CAMLparam0();
-        CAMLlocal2(v, v1);
+        CAMLlocal3(v, v_dev, v1);
         Eina_List* it;
         Evas_Device* dev;
         v = Val_int(0);
         EINA_LIST_REVERSE_FOREACH(list, it, dev) {
                 v1 = v;
                 v = caml_alloc(2, 0);
-                Store_field(v, 0, (value) dev);
+                v_dev = copy_Evas_Device(dev);
+                Store_field(v, 0, v_dev);
                 Store_field(v, 1, v1);
         }
         CAMLreturn(v);
 }
 
-inline value copy_Evas_Device_opt(const Evas_Device* dev)
+/*inline value copy_Evas_Device_opt(const Evas_Device* dev)
 {
         if(dev == NULL) return Val_int(0);
         value v_r = caml_alloc(1, 0);
@@ -455,65 +461,65 @@ inline Evas_Device* Evas_Device_opt_val(value v)
 {
         if(v == Val_int(0)) return NULL;
         else return (Evas_Device*) Field(v, 0);
-}
+}*/
 
 PREFIX value ml_evas_device_add(value v_e)
 {
-        Evas_Device* dev = evas_device_add((Evas*) v_e);
+        Evas_Device* dev = evas_device_add(Evas_val(v_e));
         if(dev == NULL) caml_failwith("evas_device_add");
-        return (value) dev;
+        return copy_Evas_Device(dev);
 }
 
 PREFIX value ml_evas_device_del(value v_dev)
 {
-        evas_device_del((Evas_Device*) v_dev);
+        evas_device_del(Evas_Device_val(v_dev));
         return Val_unit;
 }
 
 PREFIX value ml_evas_device_push(value v_e, value v_dev)
 {
-        evas_device_push((Evas*) v_e, (Evas_Device*) v_dev);
+        evas_device_push(Evas_val(v_e), Evas_Device_val(v_dev));
         return Val_unit;
 }
 
 PREFIX value ml_evas_device_pop(value v_e)
 {
-        evas_device_pop((Evas*) v_e);
+        evas_device_pop(Evas_val(v_e));
         return Val_unit;
 }
 
 PREFIX value ml_evas_device_list(value v_e, value v_dev)
 {
-        return copy_Eina_List_Evas_Device(evas_device_list((Evas*) v_e,
+        return copy_Eina_List_Evas_Device(evas_device_list(Evas_val(v_e),
                 Evas_Device_opt_val(v_dev)));
 }
 
 PREFIX value ml_evas_device_name_set(value v_dev, value v_s)
 {
-        evas_device_name_set((Evas_Device*) v_dev, String_val(v_s));
+        evas_device_name_set(Evas_Device_val(v_dev), String_val(v_s));
         return Val_unit;
 }
 
 PREFIX value ml_evas_device_name_get(value v_dev)
 {
-        return copy_string_opt(evas_device_name_get((Evas_Device*) v_dev));
+        return copy_string_opt(evas_device_name_get(Evas_Device_val(v_dev)));
 }
 
 PREFIX value ml_evas_device_description_set(value v_dev, value v_s)
 {
-        evas_device_description_set((Evas_Device*) v_dev, String_val(v_s));
+        evas_device_description_set(Evas_Device_val(v_dev), String_val(v_s));
         return Val_unit;
 }
 
 PREFIX value ml_evas_device_description_get(value v_dev)
 {
         return copy_string_opt(evas_device_description_get(
-                (Evas_Device*) v_dev));
+                Evas_Device_val(v_dev)));
 }
 
 PREFIX value ml_evas_device_parent_set(value v_dev, value v_parent)
 {
-        evas_device_parent_set((Evas_Device*) v_dev,
+        evas_device_parent_set(Evas_Device_val(v_dev),
                 Evas_Device_opt_val(v_parent));
         return Val_unit;
 }
@@ -521,20 +527,20 @@ PREFIX value ml_evas_device_parent_set(value v_dev, value v_parent)
 PREFIX value ml_evas_device_parent_get(value v_dev)
 {
         return copy_Evas_Device_opt(evas_device_parent_get(
-                (Evas_Device*) v_dev));
+                Evas_Device_val(v_dev)));
 }
 
 /* Finding Objects */
 
 PREFIX value ml_evas_focus_get(value v_e)
 {
-        return copy_Evas_Object_opt(evas_focus_get((Evas*) v_e));
+        return copy_Evas_Object_opt(evas_focus_get(Evas_val(v_e)));
 }
 
 PREFIX value ml_evas_objects_at_xy_get(
         value v_e, value v_x, value v_y, value v_ip, value v_ih)
 {
-        return copy_Eina_List_Evas_Object(evas_objects_at_xy_get((Evas*) v_e,
+        return copy_Eina_List_Evas_Object(evas_objects_at_xy_get(Evas_val(v_e),
                 Int_val(v_x), Int_val(v_y), Bool_val(v_ip), Bool_val(v_ih)));
 }
 
@@ -543,7 +549,7 @@ PREFIX value ml_evas_objects_in_rectangle_get_native(
         value v_ih)
 {
         return copy_Eina_List_Evas_Object(evas_objects_in_rectangle_get(
-                (Evas*) v_e, Int_val(v_x), Int_val(v_y), Int_val(v_w),
+                Evas_val(v_e), Int_val(v_x), Int_val(v_y), Int_val(v_w),
                 Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
 }
 
