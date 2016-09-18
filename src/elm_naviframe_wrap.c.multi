@@ -4,7 +4,7 @@ Eina_Bool ml_Elm_Naviframe_Item_Pop_Cb(void* data, Elm_Object_Item* it)
 {
         CAMLparam0();
         CAMLlocal1(v_it);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_it = copy_Elm_Object_Item(it);
         Eina_Bool b = Bool_val(caml_callback(*v_fun, v_it));
         CAMLreturnT(Eina_Bool, b);

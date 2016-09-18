@@ -6,7 +6,7 @@ Eina_Bool ml_Elm_Fileselector_Filter_Func(
 {
         CAMLparam0();
         CAMLlocal2(v_s, v_r);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_s = copy_string(path);
         v_r = caml_callback2(*v_fun, v_s, Val_bool(dir));
         CAMLreturnT(Eina_Bool, Bool_val(v_r));

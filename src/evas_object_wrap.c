@@ -13,7 +13,7 @@ PREFIX value ml_evas_object_smart_callback_add(
 
 PREFIX value ml_evas_object_rectangle_add(value v_e)
 {
-        return copy_Evas_Object(evas_object_rectangle_add((Evas*) v_e));
+        return copy_Evas_Object(evas_object_rectangle_add(Evas_val(v_e)));
 }
 
 PREFIX void ml_Evas_Object_Box_Layout_0(
@@ -21,7 +21,7 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
 {
         CAMLparam0();
         CAMLlocal1(v_fun);
-        value* v_user_data = (value*) user_data;
+        value* v_user_data = user_data;
         v_fun = Field(*v_user_data, 0);
         caml_callback2(v_fun, copy_Evas_Object(obj), (value) priv);
         CAMLreturn0;
@@ -86,7 +86,7 @@ PREFIX value ml_evas_object_box_layout_stack(
 void ml_Evas_Object_Event_Cb_on_del(
         void* data, Evas* e, Evas_Object* obj, void* event_info)
 {
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         ml_remove_value(v_fun);
 }
 
@@ -108,7 +108,7 @@ inline void ml_Evas_Object_gc_value(Evas_Object* obj, value* data)
 
 PREFIX value ml_evas_object_clip_set(value v_obj, value v_clip)
 {
-        evas_object_clip_set(Evas_Object_val(v_obj), (Evas_Object*) v_clip);
+        evas_object_clip_set(Evas_Object_val(v_obj), Evas_Object_val(v_clip));
         return Val_unit;
 }
 
@@ -284,13 +284,15 @@ PREFIX value ml_evas_object_lower(value v_obj)
 
 PREFIX value ml_evas_object_stack_above(value v_obj, value v_above)
 {
-        evas_object_stack_above(Evas_Object_val(v_obj), (Evas_Object*) v_above);
+        evas_object_stack_above(Evas_Object_val(v_obj),
+                Evas_Object_val(v_above));
         return Val_unit;
 }
 
 PREFIX value ml_evas_object_stack_below(value v_obj, value v_below)
 {
-        evas_object_stack_below(Evas_Object_val(v_obj), (Evas_Object*) v_below);
+        evas_object_stack_below(Evas_Object_val(v_obj),
+                Evas_Object_val(v_below));
         return Val_unit;
 }
 
@@ -321,7 +323,7 @@ PREFIX value ml_evas_object_map_enable_get(value v_obj)
 
 PREFIX value ml_evas_object_map_set(value v_obj, value v_m)
 {
-        evas_object_map_set(Evas_Object_val(v_obj), (Evas_Map*) v_m);
+        evas_object_map_set(Evas_Object_val(v_obj), Evas_Map_val(v_m));
         return Val_unit;
 }
 

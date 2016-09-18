@@ -186,13 +186,13 @@ PREFIX value ml_elm_list_selected_items_get(value v_obj)
 
 PREFIX value ml_elm_list_item_prev(value v_it)
 {
-        Elm_Object_Item* it1 = elm_list_item_prev((Elm_Object_Item*) v_it);
+        Elm_Object_Item* it1 = elm_list_item_prev(Elm_Object_Item_val(v_it));
         return copy_Elm_Object_Item_opt(it1);
 }
 
 PREFIX value ml_elm_list_item_next(value v_it)
 {
-        Elm_Object_Item* it1 = elm_list_item_next((Elm_Object_Item*) v_it);
+        Elm_Object_Item* it1 = elm_list_item_next(Elm_Object_Item_val(v_it));
         return copy_Elm_Object_Item_opt(it1);
 }
 

@@ -5,7 +5,7 @@ void ml_Elm_Transit_Effect_Transition_Cb(
 {
         CAMLparam0();
         CAMLlocal2(v_tr, v_progress);
-        value* v_fun = (value*) effect;
+        value* v_fun = effect;
         v_tr = copy_Elm_Transit(tr);
         v_progress = copy_double(progress);
         caml_callback2(*v_fun, v_tr, v_progress);
@@ -15,7 +15,7 @@ void ml_Elm_Transit_Effect_Transition_Cb(
 void ml_Elm_Transit_Effect_End_Cb_free_only(
         Elm_Transit_Effect* effect, Elm_Transit* tr)
 {
-        value* v_fun = (value*) effect;
+        value* v_fun = effect;
         ml_remove_value(v_fun);
 }
 
@@ -23,7 +23,7 @@ void ml_Elm_Transit_Del_Cb(void* data, Elm_Transit* tr)
 {
         CAMLparam0();
         CAMLlocal1(v_tr);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_tr = copy_Elm_Transit(tr);
         caml_callback(*v_fun, v_tr);
         ml_remove_value(v_fun);

@@ -4,7 +4,7 @@ char* ml_Elm_Multibuttonentry_Format_Cb(int count, void* data)
 {
         CAMLparam0();
         CAMLlocal1(v_s);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_s = caml_callback(*v_fun, Val_int(count));
         CAMLreturnT(char*, strdup(String_val(v_s)));
 }

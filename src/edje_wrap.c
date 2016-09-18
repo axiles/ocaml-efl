@@ -5,7 +5,7 @@ void ml_Edje_Signal_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_obj, v_emission, v_source);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_obj = copy_Evas_Object(obj);
         v_emission = copy_string(emission);
         v_source = copy_string(source);
@@ -23,7 +23,7 @@ PREFIX value ml_edje_file_collection_list(value v_theme)
 
 PREFIX value ml_edje_object_add(value v_evas)
 {
-        Evas_Object* obj = edje_object_add((Evas*) v_evas);
+        Evas_Object* obj = edje_object_add(Evas_val(v_evas));
         if(obj == NULL) caml_failwith("edje_object_add");
         return copy_Evas_Object(obj);
 }

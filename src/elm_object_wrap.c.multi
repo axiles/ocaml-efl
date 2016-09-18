@@ -225,7 +225,7 @@ Evas_Object* ml_Elm_Tooltip_Content_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_obj, v_tooltip, v_content);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_obj = copy_Evas_Object(obj);
         v_tooltip = copy_Evas_Object(tooltip);
         v_content = caml_callback2(*v_fun, v_obj, v_tooltip);
@@ -238,7 +238,7 @@ Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(
 {
         CAMLparam0();
         CAMLlocal4(v_fun, v_obj, v_tooltip, v_content);
-        value* v_data = (value*) data;
+        value* v_data = data;
         v_fun = Field(*v_data, 0);
         v_obj = copy_Evas_Object(obj);
         v_tooltip = copy_Evas_Object(tooltip);
@@ -252,7 +252,7 @@ Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_obj, v_tooltip, v_content);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_obj = copy_Evas_Object(obj);
         v_tooltip = copy_Evas_Object(tooltip);
         v_content = caml_callback3(*v_fun, v_obj, v_tooltip, (value) item);
@@ -266,7 +266,7 @@ void ml_Elm_Object_Item_Signal_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_it, v_emission, v_source);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_it = copy_Elm_Object_Item(it);
         v_emission = copy_string(emission);
         v_source = copy_string(source);
@@ -276,7 +276,7 @@ void ml_Elm_Object_Item_Signal_Cb(
 
 void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
 {
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         ml_remove_value(v_fun);
 }
 

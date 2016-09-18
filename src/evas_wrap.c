@@ -13,7 +13,7 @@ void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
         CAMLparam0();
         CAMLlocal1(v_obj);
         v_obj = copy_Evas_Object(obj);
-        value *v_fun = (value*) data;
+        value *v_fun = data;
         caml_callback2(*v_fun, v_obj, (value) event_info);
         CAMLreturn0; 
 }
@@ -23,7 +23,7 @@ void ml_Evas_Smart_Cb_1_free(
 {
         CAMLparam0();
         CAMLlocal2(v_fun, v_obj);     
-        value* v_data = (value*) data;
+        value* v_data = data;
         v_fun = Field(*v_data, 1);
         v_obj = copy_Evas_Object(obj);
         caml_callback2(v_fun, v_obj, (value) event_info);
@@ -106,7 +106,7 @@ PREFIX value ml_float_of_ptr(value v_ptr)
 void ml_Evas_Smart_Cb_on_del(
         void* data, Evas_Object* v_obj, void* event_info)
 {
-        value* v_data = (value*) data;
+        value* v_data = data;
         ml_remove_value(v_data);
 }
 

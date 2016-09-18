@@ -16,13 +16,13 @@ PREFIX void raise_not_Wayland()
 
 void ml_Ecore_Cb(void* data)
 {
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         caml_callback(*v_fun, Val_unit);
 }
 
 void* ml_Ecore_Data_Cb(void* data)
 {
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         caml_callback(*v_fun, Val_unit);
         return data;
 }
@@ -31,7 +31,7 @@ void ml_Ecore_Cb_1_free(void* data)
 {
         CAMLparam0();
         CAMLlocal1(v_fun);
-        value* v_data = (value*) data;
+        value* v_data = data;
         v_fun = Field(*v_data, 1);
         caml_callback(v_fun, Val_unit);
         ml_remove_value(v_data);
@@ -42,7 +42,7 @@ void ml_Ecore_Cb_free(void* data)
 {
         CAMLparam0();
         CAMLlocal1(v_fun);
-        value* v_data = (value*) data;
+        value* v_data = data;
         v_fun = *v_data;
         caml_callback(v_fun, Val_unit);
         ml_remove_value(v_data);
@@ -52,7 +52,7 @@ void ml_Ecore_Cb_free(void* data)
 Eina_Bool ml_Ecore_Task_Cb_free_on_last(void* data)
 {
       
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         Eina_Bool b = Eina_Bool_val(caml_callback(*v_fun, Val_unit));
         if(!b) ml_remove_value(v_fun);
         return b;

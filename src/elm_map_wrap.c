@@ -34,7 +34,7 @@ void ml_Elm_Map_Overlay_Get_Cb(
 {
         CAMLparam0();
         CAMLlocal2(v_map, v_overlay);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_map = copy_Evas_Object(map);
         v_overlay = copy_Elm_Map_Overlay(overlay);
         caml_callback2(*v_fun, v_map, v_overlay);
@@ -45,7 +45,7 @@ void ml_Elm_Map_Route_Cb(void* data, Evas_Object* map, Elm_Map_Route* route)
 {
         CAMLparam0();
         CAMLlocal2(v_map, v_route);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_map = copy_Evas_Object(map);
         v_route = copy_Elm_Map_Route(route);
         caml_callback2(*v_fun, v_map, v_route);
@@ -56,7 +56,7 @@ void ml_Elm_Map_Name_Cb(void* data, Evas_Object* map, Elm_Map_Name* name)
 {
         CAMLparam0();
         CAMLlocal2(v_map, v_name);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_map = copy_Evas_Object(map);
         v_name = copy_Elm_Map_Name(name);
         caml_callback2(*v_fun, v_map, v_name);

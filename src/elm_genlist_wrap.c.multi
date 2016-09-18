@@ -89,7 +89,8 @@ PREFIX value ml_elm_genlist_item_insert_before_native(
 
         Elm_Object_Item* item = elm_genlist_item_insert_before(
                 Evas_Object_val(v_obj), itc, data, parent,
-                (Elm_Object_Item*) v_before, Elm_Genlist_Item_Type_val(v_type),
+                Elm_Object_Item_val(v_before),
+                Elm_Genlist_Item_Type_val(v_type),
                 ml_Evas_Smart_Cb, func_data);
         elm_genlist_item_class_free(itc);
 
@@ -122,7 +123,7 @@ PREFIX value ml_elm_genlist_item_insert_after_native(
 
         Elm_Object_Item* item = elm_genlist_item_insert_after(
                 Evas_Object_val(v_obj), itc, data, parent,
-                (Elm_Object_Item*) v_after, Elm_Genlist_Item_Type_val(v_type),
+                Elm_Object_Item_val(v_after), Elm_Genlist_Item_Type_val(v_type),
                 ml_Evas_Smart_Cb, func_data);
         elm_genlist_item_class_free(itc);
 
@@ -270,7 +271,7 @@ PREFIX value ml_elm_genlist_at_xy_item_get(value v_obj, value v_x, value v_y)
 PREFIX value ml_elm_genlist_item_parent_get(value v_it)
 {
         Elm_Object_Item* parent = elm_genlist_item_parent_get(
-                (Elm_Object_Item*) v_it);
+                Elm_Object_Item_val(v_it));
         return copy_Elm_Object_Item_opt(parent);
 }
 

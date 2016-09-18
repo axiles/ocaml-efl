@@ -5,7 +5,7 @@ Evas_Object* ml_Elm_Entry_Item_Provider_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_entry, v_item, v_r);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_entry = copy_Evas_Object(entry);
         v_item = copy_string(item);
         v_r = caml_callback2(*v_fun, v_entry, v_item);
@@ -17,7 +17,7 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
 {
         CAMLparam0();
         CAMLlocal3(v_entry, v_text, v_r);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_entry = copy_Evas_Object(entry);
         v_text = copy_string(*text);
         v_r = caml_callback2(*v_fun, v_entry, v_text);
@@ -83,7 +83,7 @@ PREFIX value ml_elm_entry_text_style_user_peek(value v_obj)
 {
         CAMLparam0();
         CAMLlocal1(v);
-        char* text = (char*) elm_entry_text_style_user_peek(
+        const char* text = elm_entry_text_style_user_peek(
                 Evas_Object_val(v_obj));
         if(text == NULL) return Val_int(0);
         v = caml_alloc(1, 0);

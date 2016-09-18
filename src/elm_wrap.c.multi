@@ -31,7 +31,7 @@ Eina_Bool ml_Elm_Event_Cb(
 {
         CAMLparam0();
         CAMLlocal4(v_obj, v_src, v_event_info, v_r);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_obj = copy_Evas_Object(obj);
         v_src = copy_Evas_Object(src);
         v_event_info = copy_Evas_Event_Info(type, event_info);

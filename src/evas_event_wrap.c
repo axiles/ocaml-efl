@@ -166,7 +166,7 @@ void ml_Evas_Event_Cb_unit(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
         CAMLlocal1(v_e);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_e = copy_Evas(e),
         caml_callback2(*v_fun, v_e, Val_unit);
         CAMLreturn0;
@@ -176,7 +176,7 @@ Eina_Bool ml_Evas_Object_Post_Event_Cb(void* data, Evas* e)
 {
         CAMLparam0();
         CAMLlocal2(v_e, v_r);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_e = copy_Evas(e);
         v_r = caml_callback(*v_fun, v_e);
         CAMLreturnT(Eina_Bool, Bool_val(v_r));
@@ -186,7 +186,7 @@ void ml_Evas_Event_Cb_value(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
         CAMLlocal1(v_e);
-        value* v_fun = (value*) data;
+        value* v_fun = data;
         v_e = copy_Evas(e);
         caml_callback2(*v_fun, v_e, (value) event_info);
         CAMLreturn0;

@@ -4,7 +4,7 @@ Evas_Object* ml_SlideshowItemGetFunc_0(void* data, Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal3(v_fun, v_obj, v_content);
-        value* v_itc = (value*) data;
+        value* v_itc = data;
         v_obj = copy_Evas_Object(obj);
         v_fun = Field(*v_itc, 0);
         v_content = caml_callback(v_fun, v_obj);
@@ -16,7 +16,7 @@ void ml_SlideshowItemDelFunc_1_free(void* data, Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal2(v_fun, v_obj);
-        value* v_itc = (value*) data;
+        value* v_itc = data;
         v_fun = Field(*v_itc, 1);
         v_obj = copy_Evas_Object(obj);
         caml_callback(v_fun, v_obj);
@@ -78,12 +78,12 @@ PREFIX value ml_elm_slideshow_item_object_get(value v_it)
 PREFIX value ml_elm_slideshow_item_nth_get(value v_obj, value v_i)
 {
         return copy_Elm_Object_Item_opt(elm_slideshow_item_nth_get(
-                (Evas_Object*) v_obj, Int_val(v_i)));
+                Evas_Object_val(v_obj), Int_val(v_i)));
 }
 
 PREFIX value ml_elm_slideshow_layouts_get(value v_obj)
 {
         return copy_Eina_List_string(elm_slideshow_layouts_get(
-                (Evas_Object*) v_obj));
+                Evas_Object_val(v_obj)));
 }
 

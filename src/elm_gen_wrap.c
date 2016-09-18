@@ -5,7 +5,7 @@ char* ml_Elm_Gen_Item_Text_Get_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_obj, v_part, v);
-        value* v_class = (value*) data;
+        value* v_class = data;
         v_obj = copy_Evas_Object(obj);
         v_part = copy_string(part);
         v = caml_callback2(Field(*v_class, 1), v_obj, v_part);
@@ -19,7 +19,7 @@ Evas_Object* ml_Elm_Gen_Item_Content_Get_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_obj, v_part, v);
-        value* v_class = (value*) data;
+        value* v_class = data;
         v_part = copy_string(part);
         v_obj = copy_Evas_Object(obj);
         v = caml_callback2(Field(*v_class, 2), v_obj, v_part);
@@ -32,7 +32,7 @@ Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
 {
         CAMLparam0();
         CAMLlocal3(v_obj, v_part, v);
-        value* v_class = (value*) data;
+        value* v_class = data;
         v_obj = copy_Evas_Object(obj);
         v_part = copy_string(part);
         v = caml_callback2(Field(*v_class, 3), v_obj, v_part);
@@ -43,7 +43,7 @@ void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal1(v_obj);
-        value* v_class = (value*) data;
+        value* v_class = data;
         v_obj = copy_Evas_Object(obj);
         caml_callback(Field(*v_class, 4), v_obj);
         ml_remove_value(v_class);
