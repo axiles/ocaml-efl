@@ -11,10 +11,11 @@ inline value copy_Evas_Button_Flags(Evas_Button_Flags f)
 void ml_Evas_Smart_Cb(void *data, Evas_Object *obj, void *event_info)
 {
         CAMLparam0();
-        CAMLlocal1(v_obj);
+        CAMLlocal2(v_obj, v_event_info);
         v_obj = copy_Evas_Object(obj);
+        v_event_info = copy_voidp(event_info);
         value *v_fun = data;
-        caml_callback2(*v_fun, v_obj, (value) event_info);
+        caml_callback2(*v_fun, v_obj, v_event_info);
         CAMLreturn0; 
 }
 
@@ -22,33 +23,27 @@ void ml_Evas_Smart_Cb_1_free(
         void *data, Evas_Object *obj, void *event_info)
 {
         CAMLparam0();
-        CAMLlocal2(v_fun, v_obj);     
+        CAMLlocal3(v_fun, v_obj, v_event_info);     
         value* v_data = data;
         v_fun = Field(*v_data, 1);
         v_obj = copy_Evas_Object(obj);
-        caml_callback2(v_fun, v_obj, (value) event_info);
+        v_event_info = copy_voidp(event_info);
+        caml_callback2(v_fun, v_obj, v_event_info);
         ml_remove_value(v_data); 
         CAMLreturn0;
 }
 
 PREFIX value ml_string_of_ptr(value v_ptr)
 {
-        const char* ptr = (const char*) v_ptr;
+        const char* ptr = voidp_val(v_ptr);
         if(ptr == NULL) caml_failwith("string_of_ptr");
         return copy_string(ptr);
 }
 
 PREFIX value ml_string_opt_of_ptr(value v_ptr)
 {
-        CAMLparam0();
-        CAMLlocal1(v);
-        const char* ptr = (const char*) v_ptr;
-        if(ptr == NULL) v = Val_int(0);
-        else {
-                v = caml_alloc(1, 0);
-                Store_field(v, 0, copy_string(ptr));
-        }
-        CAMLreturn(v);
+        const char* ptr = voidp_val(v_ptr);
+        return copy_string_opt(ptr);
 }
 
 PREFIX value ml_evas_pointer_canvas_xy_get(value v_e)
@@ -86,20 +81,20 @@ PREFIX value ml_string_string_of_ptr(value v_ptr)
 
 PREFIX value ml_store_ptr_bool(value v_ptr, value v_x)
 {
-        Eina_Bool* ptr = (Eina_Bool*) v_ptr;
+        Eina_Bool* ptr = voidp_val(v_ptr);
         *ptr = Bool_val(v_x);
         return Val_unit;
 }
 
 PREFIX value ml_obj_of_ptr(value v_ptr)
 {
-        Evas_Object* obj = (Evas_Object*) v_ptr;
+        Evas_Object* obj = voidp_val(v_ptr);
         return copy_Evas_Object(obj);
 }
 
 PREFIX value ml_float_of_ptr(value v_ptr)
 {
-        double* x = (double*) x;
+        double* x = voidp_val(v_ptr);
         return copy_double(*x);
 }
 
@@ -448,20 +443,6 @@ inline value copy_Eina_List_Evas_Device(const Eina_List* list)
         }
         CAMLreturn(v);
 }
-
-/*inline value copy_Evas_Device_opt(const Evas_Device* dev)
-{
-        if(dev == NULL) return Val_int(0);
-        value v_r = caml_alloc(1, 0);
-        Store_field(v_r, 0, (value) dev);
-        return v_r;
-}
-
-inline Evas_Device* Evas_Device_opt_val(value v)
-{
-        if(v == Val_int(0)) return NULL;
-        else return (Evas_Device*) Field(v, 0);
-}*/
 
 PREFIX value ml_evas_device_add(value v_e)
 {

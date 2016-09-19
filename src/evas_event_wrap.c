@@ -20,56 +20,54 @@ inline value copy_Evas_Event_Info(
                 case EVAS_CALLBACK_MOUSE_IN:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_in);
-                        Store_field(v, 1, copy_Evas_Event_Mouse_In(
-                                (Evas_Event_Mouse_In*) event_info));
+                        Store_field(v, 1, copy_Evas_Event_Mouse_In(event_info));
                         break;
                 case EVAS_CALLBACK_MOUSE_OUT:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_out);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Out(
-                                (Evas_Event_Mouse_Out*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_MOUSE_DOWN:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_down);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Down(
-                                (Evas_Event_Mouse_Down*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_MOUSE_UP:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_up);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Up(
-                                (Evas_Event_Mouse_Up*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_MOUSE_MOVE:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_move);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Move(
-                                (Evas_Event_Mouse_Move*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_MOUSE_WHEEL:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_mouse_wheel);
                         Store_field(v, 1, copy_Evas_Event_Mouse_Wheel(
-                                (Evas_Event_Mouse_Wheel*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_MULTI_DOWN:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_multi_down);
                         Store_field(v, 1, copy_Evas_Event_Multi_Down(
-                                (Evas_Event_Multi_Down*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_MULTI_UP:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_multi_up);
-                        Store_field(v, 1, copy_Evas_Event_Multi_Up(
-                                (Evas_Event_Multi_Up*) event_info));
+                        Store_field(v, 1, copy_Evas_Event_Multi_Up(event_info));
                         break;
                 case EVAS_CALLBACK_MULTI_MOVE:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_multi_move);
                         Store_field(v, 1, copy_Evas_Event_Multi_Move(
-                                (Evas_Event_Multi_Move*) event_info));
+                                event_info));
                         break;
                 case EVAS_CALLBACK_FREE:
                         v = Val_free;
@@ -77,14 +75,12 @@ inline value copy_Evas_Event_Info(
                 case EVAS_CALLBACK_KEY_DOWN:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_key_down);
-                        Store_field(v, 1, copy_Evas_Event_Key_Down(
-                                (Evas_Event_Key_Down*) event_info));
+                        Store_field(v, 1, copy_Evas_Event_Key_Down(event_info));
                         break;
                 case EVAS_CALLBACK_KEY_UP:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_key_up);
-                        Store_field(v, 1, copy_Evas_Event_Key_Up(
-                                (Evas_Event_Key_Up*) event_info));
+                        Store_field(v, 1, copy_Evas_Event_Key_Up(event_info));
                         break;
                 case EVAS_CALLBACK_FOCUS_IN:
                         v = Val_focus_in;
@@ -113,8 +109,7 @@ inline value copy_Evas_Event_Info(
                 case EVAS_CALLBACK_HOLD:
                         v = caml_alloc(2, 0);
                         Store_field(v, 0, Val_hold);
-                        Store_field(v, 1, copy_Evas_Event_Hold(
-                                (Evas_Event_Hold*) event_info));
+                        Store_field(v, 1, copy_Evas_Event_Hold(event_info));
                         break;
                 case EVAS_CALLBACK_CHANGED_SIZE_HINTS:
                         v = Val_changed_size_hints;
@@ -185,10 +180,11 @@ Eina_Bool ml_Evas_Object_Post_Event_Cb(void* data, Evas* e)
 void ml_Evas_Event_Cb_value(void* data, Evas* e, void* event_info)
 {
         CAMLparam0();
-        CAMLlocal1(v_e);
+        CAMLlocal2(v_e, v_event_info);
         value* v_fun = data;
         v_e = copy_Evas(e);
-        caml_callback2(*v_fun, v_e, (value) event_info);
+        v_event_info = copy_voidp(event_info);
+        caml_callback2(*v_fun, v_e, v_event_info);
         CAMLreturn0;
 }
 

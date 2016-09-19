@@ -48,5 +48,5 @@ val transition_new :
   float -> Evas_object.box_layout -> Ecore.cb -> Evas_object.box_layout ->
     Ecore.cb -> Ecore.cb -> transition
 
-val transition_free : transition -> Ecore.cb
+val transition_free : transition -> unit
 

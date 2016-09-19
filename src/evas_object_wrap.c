@@ -20,10 +20,11 @@ PREFIX void ml_Evas_Object_Box_Layout_0(
         Evas_Object* obj, Evas_Object_Box_Data* priv, void* user_data)
 {
         CAMLparam0();
-        CAMLlocal1(v_fun);
+        CAMLlocal2(v_fun, v_priv);
         value* v_user_data = user_data;
         v_fun = Field(*v_user_data, 0);
-        caml_callback2(v_fun, copy_Evas_Object(obj), (value) priv);
+        v_priv = copy_voidp(priv);
+        caml_callback2(v_fun, copy_Evas_Object(obj), v_priv);
         CAMLreturn0;
 }
 
@@ -31,7 +32,7 @@ PREFIX value ml_evas_object_box_layout_flow_horizontal(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_flow_horizontal(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 
@@ -39,7 +40,7 @@ PREFIX value ml_evas_object_box_layout_horizontal(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_horizontal(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 
@@ -47,7 +48,7 @@ PREFIX value ml_evas_object_box_layout_vertical(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_vertical(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 
@@ -55,7 +56,7 @@ PREFIX value ml_evas_object_box_layout_homogeneous_vertical(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_homogeneous_vertical(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 
@@ -63,7 +64,7 @@ PREFIX value ml_evas_object_box_layout_homogeneous_horizontal(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_homogeneous_horizontal(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 
@@ -71,7 +72,7 @@ PREFIX value ml_evas_object_box_layout_flow_vertical(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_flow_vertical(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 
@@ -79,7 +80,7 @@ PREFIX value ml_evas_object_box_layout_stack(
         value v_obj, value v_priv)
 {
         evas_object_box_layout_stack(Evas_Object_val(v_obj),
-                (Evas_Object_Box_Data*) v_priv, NULL);
+                voidp_val(v_priv), NULL);
         return Val_unit;
 }
 

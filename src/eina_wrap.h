@@ -33,4 +33,7 @@
  value copy_double_ptr(double* ptr);
  value copy_string_string(char** x);
 
+value copy_voidp(void* p);
+void* voidp_val(value v);
+
 #endif

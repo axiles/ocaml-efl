@@ -226,14 +226,13 @@ PREFIX value ml_elm_entry_anchor_hover_parent_get(value v_obj)
 
 PREFIX value ml_elm_entry_anchor_info_of_ptr(value v_ptr)
 {
-        Elm_Entry_Anchor_Info* info = (Elm_Entry_Anchor_Info*) v_ptr;
+        Elm_Entry_Anchor_Info* info = voidp_val(v_ptr);
         return copy_Elm_Entry_Anchor_Info(info);
 }
 
 PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
 {
-        Elm_Entry_Anchor_Hover_Info* info =
-                (Elm_Entry_Anchor_Hover_Info*) v_ptr;
+        Elm_Entry_Anchor_Hover_Info* info = voidp_val(v_ptr);
         return copy_Elm_Entry_Anchor_Hover_Info(info);
 }
 

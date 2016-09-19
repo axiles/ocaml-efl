@@ -237,12 +237,13 @@ Evas_Object* ml_Elm_Tooltip_Item_Content_Cb_0(
         void* data, Evas_Object* obj, Evas_Object* tooltip, void* item)
 {
         CAMLparam0();
-        CAMLlocal4(v_fun, v_obj, v_tooltip, v_content);
+        CAMLlocal5(v_fun, v_obj, v_tooltip, v_item, v_content);
         value* v_data = data;
         v_fun = Field(*v_data, 0);
         v_obj = copy_Evas_Object(obj);
         v_tooltip = copy_Evas_Object(tooltip);
-        v_content = caml_callback3(v_fun, v_obj, v_tooltip, (value) item);
+        v_item = copy_voidp(item);
+        v_content = caml_callback3(v_fun, v_obj, v_tooltip, v_item);
         Evas_Object* content = Evas_Object_opt_val(v_content);
         CAMLreturnT(Evas_Object*, content);
 }
@@ -251,11 +252,12 @@ Evas_Object* ml_Elm_Tooltip_Item_Content_Cb(
         void* data, Evas_Object* obj, Evas_Object* tooltip, void* item)
 {
         CAMLparam0();
-        CAMLlocal3(v_obj, v_tooltip, v_content);
+        CAMLlocal4(v_obj, v_tooltip, v_item, v_content);
         value* v_fun = data;
         v_obj = copy_Evas_Object(obj);
         v_tooltip = copy_Evas_Object(tooltip);
-        v_content = caml_callback3(*v_fun, v_obj, v_tooltip, (value) item);
+        v_item = copy_voidp(item);
+        v_content = caml_callback3(*v_fun, v_obj, v_tooltip, v_item);
         Evas_Object* content = Evas_Object_opt_val(v_content);
         CAMLreturnT(Evas_Object*, content);
 }
@@ -529,8 +531,7 @@ PREFIX value ml_elm_object_item_text_get(value v_item)
 {
         const char* text = elm_object_item_text_get(
                 Elm_Object_Item_val(v_item));
-        if(text == NULL) caml_failwith("elm_object_item_text_get");
-        return copy_string(text);
+        return safe_copy_string(text);
 }
 
 PREFIX value ml_elm_object_item_part_text_get(

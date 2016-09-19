@@ -23,7 +23,7 @@ PREFIX value ml_elm_win_fake_add(value v_ee)
 {
         Evas_Object* win = elm_win_fake_add(Ecore_Evas_val(v_ee));
         if(win == NULL) caml_failwith("elm_win_fake_add");
-        return Val_Evas_Object(win);
+        return copy_Evas_Object(win);
 }
 /* END */
 

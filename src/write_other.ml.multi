@@ -59,7 +59,7 @@ let print_opt_c_impl fmt name =
 let print_ptr_type_c_header fmt name =
   fprintf fmt "%s* %s_val(value v);\n\n" name name;
   let of_c name1 = fprintf fmt "value %s(const %s* x);\n\n" name1 name in
-  of_c (sprintf "Val_%s" name);
+ (* of_c (sprintf "Val_%s" name);*)
   of_c (sprintf "copy_%s" name);
   print_opt_c_header fmt name
 
@@ -74,7 +74,7 @@ let print_ptr_type_c_impl fmt name =
     fprintf fmt "{\n";
     fprintf fmt "        return (value) x;\n";
     fprintf fmt "}\n\n" in
-  of_c (sprintf "Val_%s" name);
+ (* of_c (sprintf "Val_%s" name);*)
   of_c (sprintf "copy_%s" name);
   print_opt_c_impl fmt name
 

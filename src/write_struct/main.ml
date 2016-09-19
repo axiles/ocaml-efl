@@ -244,15 +244,15 @@ let create_env () =
       ml_of_c = "copy_Evas_Coord_Precision_Point"; base = false;};
     {Ty.name = "evas_modifier"; ml_name = "Evas.modifier";
       c_name = "Evas_Modifier*"; c_of_ml = "Evas_Modifier_val";
-      ml_of_c = "Val_Evas_Modifier"; base = false};
+      ml_of_c = "copy_Evas_Modifier"; base = false};
     {Ty.name = "evas_object"; ml_name = "Evas.obj";
       c_name = "Evas_Object*"; c_of_ml = "Evas_Object_val";
-      ml_of_c = "Val_Evas_Object"; base = false};
+      ml_of_c = "copy_Evas_Object"; base = false};
     {Ty.name = "evas_event_flags"; ml_name = "Evas.event_flags";
       c_name = "Evas_Event_Flags"; c_of_ml = "Evas_Event_Flags_val";
       ml_of_c = "Val_Evas_Event_Flags"; base = false;};
     {Ty.name = "evas_device"; ml_name = "Evas.device"; c_name = "Evas_Device*";
-      c_of_ml = "Evas_Device_val"; ml_of_c = "Val_Evas_Device"; base = false};
+      c_of_ml = "Evas_Device_val"; ml_of_c = "copy_Evas_Device"; base = false};
     {Ty.name = "evas_button_flags"; ml_name = "Evas.button_flags";
       c_name = "Evas_Button_Flags"; c_of_ml = "Evas_Button_Flags_val";
       ml_of_c = "copy_Evas_Button_Flags"; base = false};

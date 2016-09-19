@@ -95,7 +95,7 @@ PREFIX value ml_elm_box_transition_new_byte(value* argv, int argc)
                 argv[3], argv[4], argv[5]);
 }
 
-PREFIX value ml_elm_box_transition_free(value v_t, value v_unit)
+PREFIX value ml_elm_box_transition_free(value v_t)
 {
         elm_box_transition_free(Elm_Box_Transition_val(v_t));
 	      return Val_unit;

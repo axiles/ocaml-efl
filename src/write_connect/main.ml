@@ -46,13 +46,14 @@ end = struct
       ei.cb_name;
     fprintf fmt "{\n";
     fprintf fmt "        CAMLparam0();\n";
-    fprintf fmt "        CAMLlocal1(v_ei);\n";
-    fprintf fmt "        value* v_fun = (value*) data;\n";
+    fprintf fmt "        CAMLlocal2(v_obj, v_ei);\n";
+    fprintf fmt "        value* v_fun = data;\n";
+    fprintf fmt "        v_obj = copy_Evas_Object(obj);\n";
     fprintf fmt "        %s ei = (%s) event_info;\n" ei.c_name ei.c_name;
     (match ei.conv with
-    | None -> fprintf fmt "        v_ei = (value) ei;\n";
+    | None -> fprintf fmt "        v_ei = copy_voidp(ei);\n";
     | Some x -> fprintf fmt "        v_ei = %s(ei);\n" x);
-    fprintf fmt "        caml_callback2(*v_fun, (value) obj, v_ei);\n";
+    fprintf fmt "        caml_callback2(*v_fun, v_obj, v_ei);\n";
     fprintf fmt "        CAMLreturn0;\n";
     fprintf fmt "}\n\n"
   let print_c_impl_out fmt ei =
@@ -60,13 +61,15 @@ end = struct
       ei.cb_name;
     fprintf fmt "{\n";
     fprintf fmt "        CAMLparam0();\n";
-    fprintf fmt "        CAMLlocal1(v_r);\n";
-    fprintf fmt "        value* v_fun = (value*) data;\n";
-    fprintf fmt "        v_r = caml_callback(*v_fun, (value) obj);\n";
+    fprintf fmt "        CAMLlocal2(v_obj, v_r);\n";
+    fprintf fmt "        value* v_fun = data;\n";
+    fprintf fmt "        v_obj = copy_Evas_Object(obj);\n";
+    fprintf fmt "        v_r = caml_callback(*v_fun, v_obj);\n";
     (match ei.conv with
-    | None -> fprintf fmt "        %s r = (%s) v_r;\n" ei.c_name ei.c_name
+    | None ->
+        fprintf fmt "        %s r = val_voidp(v_r);\n" ei.c_name
     | Some x -> fprintf fmt "        %s r = %s(v_r);\n" ei.c_name x);
-    fprintf fmt "        %s* ei = (%s*) event_info;\n" ei.c_name ei.c_name;
+    fprintf fmt "        %s* ei = event_info;\n" ei.c_name;
     fprintf fmt "        *ei = r;\n";
     fprintf fmt "        CAMLreturn0;\n";
     fprintf fmt "}\n\n"
@@ -139,7 +142,7 @@ end = struct
   let print_c_impl s widget_name fmt eo_name =
     fprintf fmt "PREFIX value %s(value v_obj, value v_cb) {\n"
       (get_external_name s widget_name);
-    fprintf fmt "        Evas_Object* obj = (Evas_Object*) v_obj;\n";
+    fprintf fmt "        Evas_Object* obj = Evas_Object_val(v_obj);\n";
     fprintf fmt "#ifdef EFL_EO_API_SUPPORT\n";
     fprintf fmt "        if(!eo_isa(obj, %s)) \
                            caml_failwith(\"Widget is not a %s\");\n"
@@ -233,8 +236,12 @@ let print_cb_unit fmt =
 void ml_Evas_Smart_Cb_connect_unit(
         void* data, Evas_Object* obj, void* event_info)
 {
-        value* v_fun = (value*) data;
-        caml_callback(*v_fun, (value) obj);
+        CAMLparam0();
+        CAMLlocal1(v_obj);
+        value* v_fun = data;
+        v_obj = copy_Evas_Object(obj);
+        caml_callback(*v_fun, v_obj);
+        CAMLreturn0;
 }
 
 "
@@ -246,10 +253,20 @@ let create_env () =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
     let ei = {input = true; c_name; ml_name; cb_name; conv = Some conv_name} in
     Env.add env name ei in
-  let add_cast env (name, c_name, ml_name) =
+  (*let add_cast env (name, c_name, ml_name) =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
-    let ei = {input = true; c_name; ml_name; cb_name; conv = None} in
-    Env.add env name ei in
+    let ei =
+      {input = true; c_name; ml_name; cb_name; conv =
+        Some (sprintf "%s_val" c_name)} in
+     Env.add env name ei in*)
+  let add_cast_ptr env (name, c_name, ml_name) =
+    let c_name1 = c_name in
+    let c_name = sprintf "%s*" c_name1 in
+    let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
+    let ei =
+      {input = true; c_name; ml_name; cb_name; conv =
+        Some (sprintf "copy_%s" c_name1)} in
+     Env.add env name ei in
   let add_ref env (name, c_name, ml_name, conv_name) =
     let cb_name = sprintf "ml_Evas_Smart_Cb_connect_%s" name in
     let ei = {input = false; c_name; ml_name; cb_name; conv = Some conv_name} in
@@ -275,9 +292,9 @@ let create_env () =
     ("coord_rectangle", "Evas_Coord_Rectangle*", "Evas.coord_rectangle",
       "copy_Evas_Coord_Rectangle");
   ] in
-  let env2 = List.fold_left add_cast env1 [
-    ("item", "Elm_Object_Item*", "Elm_object.item");
-    ("evas_obj", "Evas_Object*", "Evas.obj");
+  let env2 = List.fold_left add_cast_ptr env1 [
+    ("item", "Elm_Object_Item", "Elm_object.item");
+    ("evas_obj", "Evas_Object", "Evas.obj");
   ] in
   List.fold_left add_ref env2 [("bool_ref", "Eina_Bool", "bool", "Bool_val")]
 

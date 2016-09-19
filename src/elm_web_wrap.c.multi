@@ -339,19 +339,19 @@ PREFIX value ml_elm_web_window_features_region_get(value v_wf)
 
 PREFIX value ml_Elm_Web_Frame_Load_Error_of_ptr(value v_ptr)
 {
-        Elm_Web_Frame_Load_Error* fle = (Elm_Web_Frame_Load_Error*) v_ptr;
+        Elm_Web_Frame_Load_Error* fle = voidp_val(v_ptr);
         return copy_Elm_Web_Frame_Load_Error(fle);
 }
 
 PREFIX value ml_Elm_Web_Menu_of_ptr(value v_ptr)
 {
-        Elm_Web_Menu* m = (Elm_Web_Menu*) v_ptr;
+        Elm_Web_Menu* m = voidp_val(v_ptr);
         return copy_Elm_Web_Menu(m);
 }
 
 PREFIX value ml_Elm_Web_Download_of_ptr(value v_ptr)
 {
-        Elm_Web_Download* d = (Elm_Web_Download*) v_ptr;
+        Elm_Web_Download* d = voidp_val(v_ptr);
         return copy_Elm_Web_Download(d);
 }
 

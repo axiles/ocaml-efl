@@ -232,3 +232,13 @@ inline value copy_string_string(char** x)
         CAMLreturn(v);
 }
 
+inline value copy_voidp(void* ptr)
+{
+        return (value) ptr;
+}
+
+inline void* voidp_val(value v)
+{
+        return (void*) v;
+}
+

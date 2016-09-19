@@ -28,6 +28,6 @@ external transition_new :
   "ml_elm_box_transition_new_byte"
   "ml_elm_box_transition_new_native"
 
-external transition_free : transition -> unit -> unit =
+external transition_free : transition -> unit =
   "ml_elm_box_transition_free"
 

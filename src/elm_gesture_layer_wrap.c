@@ -2,7 +2,7 @@
 
 PREFIX value ml_Elm_Gesture_Taps_Info_of_ptr(value v_ptr)
 {
-        Elm_Gesture_Taps_Info* info = (Elm_Gesture_Taps_Info*) v_ptr;
+        Elm_Gesture_Taps_Info* info = voidp_val(v_ptr);
         value v_info = caml_alloc(3, 0);
         Store_field(v_info, 0, Val_int(info->y));
         Store_field(v_info, 1, Val_int(info->n));
@@ -12,7 +12,7 @@ PREFIX value ml_Elm_Gesture_Taps_Info_of_ptr(value v_ptr)
 
 PREFIX value ml_Elm_Gesture_Momentum_Info_of_ptr(value v_ptr)
 {
-        Elm_Gesture_Momentum_Info* info = (Elm_Gesture_Momentum_Info*) v_ptr;
+        Elm_Gesture_Momentum_Info* info = voidp_val(v_ptr);
         value v_info = caml_alloc(9, 0);
         Store_field(v_info, 0, Val_int(info->x1));
         Store_field(v_info, 1, Val_int(info->y1));
@@ -30,7 +30,7 @@ PREFIX value ml_Elm_Gesture_Line_Info_of_ptr(value v_ptr)
 {
         CAMLparam1(v_ptr);
         CAMLlocal3(v_momentum, v_angle, v_info);
-        Elm_Gesture_Line_Info* info = (Elm_Gesture_Line_Info*) v_ptr;
+        Elm_Gesture_Line_Info* info = voidp_val(v_ptr);
         v_info = caml_alloc(2, 0);
         Elm_Gesture_Momentum_Info* momentum = &(info->momentum);
         v_momentum = copy_Elm_Gesture_Momentum_Info(momentum);
@@ -45,7 +45,7 @@ PREFIX value ml_Elm_Gesture_Zoom_Info_of_ptr(value v_ptr)
 {
         CAMLparam1(v_ptr);
         CAMLlocal1(v_info);
-        Elm_Gesture_Zoom_Info* info = (Elm_Gesture_Zoom_Info*) v_ptr;
+        Elm_Gesture_Zoom_Info* info = voidp_val(v_ptr);
         v_info = caml_alloc(4, 0);
         Store_field(v_info, 0, Val_int(info->y));
         Store_field(v_info, 1, Val_int(info->radius));
@@ -58,7 +58,7 @@ PREFIX value ml_Elm_Gesture_Rotate_Info_of_ptr(value v_ptr)
 {
         CAMLparam1(v_ptr);
         CAMLlocal1(v_info);
-        Elm_Gesture_Rotate_Info* info = (Elm_Gesture_Rotate_Info*) v_ptr;
+        Elm_Gesture_Rotate_Info* info = voidp_val(v_ptr);
         v_info = caml_alloc(5, 0);
         Store_field(v_info, 0, Val_int(info->y));
         Store_field(v_info, 1, Val_int(info->radius));
@@ -70,9 +70,12 @@ PREFIX value ml_Elm_Gesture_Rotate_Info_of_ptr(value v_ptr)
 
 Evas_Event_Flags ml_Elm_Gesture_Event_Cb(void* data, void* event_info)
 {
+        CAMLparam0();
+        CAMLlocal1(v_event_info);
         value* v_fun = data;
-        caml_callback(*v_fun, (value) event_info);
-        return EVAS_EVENT_FLAG_ON_HOLD;
+        v_event_info = copy_voidp(event_info);
+        caml_callback(*v_fun, v_event_info);
+        CAMLreturnT(Evas_Event_Flags, EVAS_EVENT_FLAG_ON_HOLD);
 }
 
 PREFIX value ml_elm_gesture_layer_cb_set(
