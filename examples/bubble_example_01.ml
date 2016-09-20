@@ -38,7 +38,7 @@ let () =
 
   let bubble = Elm_bubble.add win in
   Elm_object.part_content_set bubble ~p:"icon" icon;
-  Elm_object.part_text_set icon ~p:"info" "INFO";
+  Elm_object.part_text_set bubble ~p:"info" "INFO";
   Elm_object.text_set bubble "LABEL";
   Elm_object.content_set bubble label;
   Evas_object.resize bubble 300 100;
