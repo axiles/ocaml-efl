@@ -102,13 +102,13 @@ external sources_get : Evas.obj -> source_type -> string list =
 external route_add :
   Evas.obj -> route_type -> route_method -> float -> float -> float -> float ->
     route_cb -> route =
-      "ml_elm_map_route_add_bytecode"
+      "ml_elm_map_route_add_byte"
       "ml_elm_map_route_add_native"
 
 external name_add :
   Evas.obj -> ?addr:string -> ?lon:float -> ?lat:float -> ?cb:name_cb -> unit ->
     name =
-      "ml_elm_map_name_add_bytecode"
+      "ml_elm_map_name_add_byte"
       "ml_elm_map_name_add_native"
 
 external name_region_get : name -> float * float = "ml_elm_map_name_region_get"

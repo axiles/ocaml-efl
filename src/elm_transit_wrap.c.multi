@@ -13,7 +13,7 @@ void ml_Elm_Transit_Effect_Transition_Cb(
 }
 
 void ml_Elm_Transit_Effect_End_Cb_free_only(
-        Elm_Transit_Effect* effect, Elm_Transit* tr)
+        Elm_Transit_Effect* effect, Elm_Transit* tr CAMLunused)
 {
         value* v_fun = effect;
         ml_remove_value(v_fun);

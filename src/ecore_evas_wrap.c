@@ -19,7 +19,7 @@ PREFIX value ml_ecore_evas_new_native(
         return copy_Ecore_Evas(ee);
 }
 
-PREFIX value ml_ecore_evas_new_byte(value* argv, int argn)
+PREFIX value ml_ecore_evas_new_byte(value* argv, int argn CAMLunused)
 {
       return ml_ecore_evas_new_native(argv[0], argv[1], argv[2], argv[3],
               argv[4], argv[5], argv[6]);

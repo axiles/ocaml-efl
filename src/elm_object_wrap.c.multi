@@ -276,7 +276,8 @@ void ml_Elm_Object_Item_Signal_Cb(
         CAMLreturn0;
 }
 
-void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
+void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj CAMLunused,
+        void* info CAMLunused)
 {
         value* v_fun = data;
         ml_remove_value(v_fun);
@@ -819,12 +820,12 @@ PREFIX value ml_elm_object_scroll_lock_y_set(value v_obj, value v_flag)
         return Val_unit;
 }
 
-PREFIX value ml_elm_object_scroll_lock_x_get(value v_obj, value v_flag)
+PREFIX value ml_elm_object_scroll_lock_x_get(value v_obj)
 {
         return Val_bool(elm_object_scroll_lock_x_get(Evas_Object_val(v_obj)));
 }
 
-PREFIX value ml_elm_object_scroll_lock_y_get(value v_obj, value v_flag)
+PREFIX value ml_elm_object_scroll_lock_y_get(value v_obj)
 {
         return Val_bool(elm_object_scroll_lock_y_get(Evas_Object_val(v_obj)));
 }

@@ -127,7 +127,7 @@ void ml_Evas_Object_Event_Cb_multi_move(
 }
 
 void ml_Evas_Object_Event_Cb_unit(
-        void* data, Evas* e, Evas_Object *obj, void* event_info)
+        void* data, Evas* e, Evas_Object *obj, void* event_info CAMLunused)
 {
         CAMLparam0();
         CAMLlocal3(v_fun, v_e, v_obj);
@@ -140,7 +140,7 @@ void ml_Evas_Object_Event_Cb_unit(
 }
 
 void ml_Evas_Object_Event_Cb_unit_free(
-        void* data, Evas* e, Evas_Object *obj, void* event_info)
+        void* data, Evas* e, Evas_Object *obj, void* event_info CAMLunused)
 {
         CAMLparam0();
         CAMLlocal3(v_fun, v_e, v_obj);

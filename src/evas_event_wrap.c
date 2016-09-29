@@ -157,7 +157,7 @@ inline value copy_Evas_Event_Info(
 
 /* Canvas Events */
 
-void ml_Evas_Event_Cb_unit(void* data, Evas* e, void* event_info)
+void ml_Evas_Event_Cb_unit(void* data, Evas* e, void* event_info CAMLunused)
 {
         CAMLparam0();
         CAMLlocal1(v_e);

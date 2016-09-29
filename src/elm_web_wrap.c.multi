@@ -98,6 +98,7 @@ Evas_Object* ml_Elm_Web_Dialog_Prompt(
         CAMLlocal5(v_message, v_def_value, v_r, v_r_obj, v_r_val);
         CAMLlocal1(v_obj);
         value* v_fun = data;
+        v_obj = copy_Evas_Object(obj);
         v_message = copy_string(message);
         v_def_value = safe_copy_string(def_value);
         v_r = caml_callback3(*v_fun, v_obj, v_message, v_def_value);

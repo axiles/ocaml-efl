@@ -26,7 +26,7 @@ PREFIX value ml_evas_map_util_points_populate_from_geometry_native(
 }
 
 PREFIX value ml_evas_map_util_points_populate_from_geometry_byte(
-        value* argv, int argn)
+        value* argv, int argn CAMLunused)
 {
         return ml_evas_map_util_points_populate_from_geometry_native(argv[0],
                 argv[1], argv[2], argv[3], argv[4], argv[5]);
@@ -66,7 +66,7 @@ PREFIX value ml_evas_map_util_3d_rotate_native(
         return Val_unit;
 }
 
-PREFIX value ml_evas_map_util_3d_rotate_byte(value* argv, int argn)
+PREFIX value ml_evas_map_util_3d_rotate_byte(value* argv, int argn CAMLunused)
 {
         return ml_evas_map_util_3d_rotate_native(argv[0], argv[1], argv[2],
                 argv[3], argv[4], argv[5], argv[6]);
@@ -82,7 +82,7 @@ PREFIX value ml_evas_map_util_quat_rotate_native(
         return Val_unit;
 }
 
-PREFIX value ml_evas_map_util_quat_rotate_byte(value* argv, int argn)
+PREFIX value ml_evas_map_util_quat_rotate_byte(value* argv, int argn CAMLunused)
 {
         return ml_evas_map_util_quat_rotate_native(argv[0], argv[1], argv[2],
                 argv[3], argv[4], argv[5], argv[6], argv[7]);
@@ -99,7 +99,7 @@ PREFIX value ml_evas_map_util_3d_lighting_native(
         return Val_unit;
 }
 
-PREFIX value ml_evas_map_util_3d_lighting_byte(value* argv, int argn)
+PREFIX value ml_evas_map_util_3d_lighting_byte(value* argv, int argn CAMLunused)
 {
         return ml_evas_map_util_3d_lighting_native(argv[0], argv[1], argv[2],
                 argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
@@ -210,7 +210,7 @@ PREFIX value ml_evas_map_point_color_set_native(
         return Val_unit;
 }
 
-PREFIX value ml_evas_map_point_color_set_byte(value* argv, int argn)
+PREFIX value ml_evas_map_point_color_set_byte(value* argv, int argn CAMLunused)
 {
         return ml_evas_map_point_color_set_native(argv[0], argv[1], argv[2],
                 argv[3], argv[4], argv[5]);

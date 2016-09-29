@@ -89,7 +89,7 @@ PREFIX value ml_elm_box_transition_new_native(
         CAMLreturn(copy_Elm_Box_Transition(t));
 }
 
-PREFIX value ml_elm_box_transition_new_byte(value* argv, int argc)
+PREFIX value ml_elm_box_transition_new_byte(value* argv, int argc CAMLunused)
 {
         return ml_elm_box_transition_new_native(argv[0], argv[1], argv[2],
                 argv[3], argv[4], argv[5]);

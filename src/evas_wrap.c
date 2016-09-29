@@ -99,7 +99,7 @@ PREFIX value ml_float_of_ptr(value v_ptr)
 }
 
 void ml_Evas_Smart_Cb_on_del(
-        void* data, Evas_Object* v_obj, void* event_info)
+        void* data, Evas_Object* v_obj CAMLunused, void* event_info CAMLunused)
 {
         value* v_data = data;
         ml_remove_value(v_data);
@@ -534,7 +534,7 @@ PREFIX value ml_evas_objects_in_rectangle_get_native(
                 Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
 }
 
-PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn)
+PREFIX value ml_evas_objects_in_rectangle_get_byte(value* argv, int argn CAMLunused)
 {
         return ml_evas_objects_in_rectangle_get_native(argv[0], argv[1],
                 argv[2], argv[3], argv[4], argv[5], argv[6]);

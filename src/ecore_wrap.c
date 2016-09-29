@@ -75,7 +75,7 @@ void ml_Ecore_End_Cb_free(void* user_data, void *func_data)
         ml_remove_value(v_user_data);
 }
 
-PREFIX value ml_ecore_x_window_focus(value v_win)
+PREFIX value ml_ecore_x_window_focus(value v_win CAMLunused)
 {
 #ifdef HAVE_ELEMENTARY_X
         ecore_x_window_focus(Int_val(v_win));

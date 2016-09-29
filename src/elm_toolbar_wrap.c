@@ -108,7 +108,7 @@ PREFIX value ml_elm_toolbar_item_insert_before_native(
         return copy_Elm_Object_Item(item);
 }
 
-PREFIX value ml_elm_toolbar_item_insert_before_byte(value* argv, int argn)
+PREFIX value ml_elm_toolbar_item_insert_before_byte(value* argv, int argn CAMLunused)
 {
         return ml_elm_toolbar_item_insert_before_native(argv[0], argv[1],
                 argv[2], argv[3], argv[4], argv[5]);
@@ -145,7 +145,7 @@ PREFIX value ml_elm_toolbar_item_insert_after_native(
         return copy_Elm_Object_Item(item);
 }
 
-PREFIX value ml_elm_toolbar_item_insert_after_byte(value* argv, int argn)
+PREFIX value ml_elm_toolbar_item_insert_after_byte(value* argv, int argn CAMLunused)
 {
         return ml_elm_toolbar_item_insert_after_native(argv[0], argv[1],
                 argv[2], argv[3], argv[4], argv[5]);

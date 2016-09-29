@@ -49,7 +49,7 @@ PREFIX value ml_elm_scroller_region_get(value v_obj)
         return v;
 }
 
-PREFIX value ml_elm_scroller_child_size_get(value v_obj, value v_w, value v_h)
+PREFIX value ml_elm_scroller_child_size_get(value v_obj)
 {
         Evas_Coord w, h;
         elm_scroller_child_size_get(Evas_Object_val(v_obj), &w, &h);

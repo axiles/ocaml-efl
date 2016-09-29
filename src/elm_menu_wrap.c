@@ -44,7 +44,7 @@ PREFIX value ml_elm_menu_item_add_native(
         return copy_Elm_Object_Item(item);
 }
 
-PREFIX value ml_elm_menu_item_add_byte(value* argv, int argn)
+PREFIX value ml_elm_menu_item_add_byte(value* argv, int argn CAMLunused)
 {
         return ml_elm_menu_item_add_native(argv[0], argv[1], argv[2], argv[3],
                 argv[4], argv[5]);

@@ -85,7 +85,8 @@ PREFIX value ml_evas_object_box_layout_stack(
 }
 
 void ml_Evas_Object_Event_Cb_on_del(
-        void* data, Evas* e, Evas_Object* obj, void* event_info)
+        void* data, Evas* e CAMLunused, Evas_Object* obj CAMLunused,
+        void* event_info CAMLunused)
 {
         value* v_fun = data;
         ml_remove_value(v_fun);
@@ -593,7 +594,7 @@ PREFIX value ml_evas_object_top_in_rectangle_get_native(
                 Int_val(v_h), Bool_val(v_ip), Bool_val(v_ih)));
 }
 
-PREFIX value ml_evas_object_top_in_rectangle_get_byte(value* argv, int argn)
+PREFIX value ml_evas_object_top_in_rectangle_get_byte(value* argv, int argn CAMLunused)
 {
         return ml_evas_object_top_in_rectangle_get_native(argv[0], argv[1],
                 argv[2], argv[3], argv[4], argv[5], argv[6]);

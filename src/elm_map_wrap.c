@@ -321,7 +321,7 @@ PREFIX value ml_elm_map_route_add_native(
         return copy_Elm_Map_Route(route);
 }
 
-PREFIX value ml_elm_map_route_add_bytecode(value* argv, int argn)
+PREFIX value ml_elm_map_route_add_byte(value* argv, int argc CAMLunused)
 {
         return ml_elm_map_route_add_native(argv[0], argv[1], argv[2], argv[3],
                 argv[4], argv[5], argv[6], argv[7]);
@@ -359,7 +359,7 @@ PREFIX value ml_elm_map_name_add_native(
         return copy_Elm_Map_Name(name);
 }
 
-PREFIX value ml_elm_map_name_add_bytecode(value* argv, int argn)
+PREFIX value ml_elm_map_name_add_byte(value* argv, int argn CAMLunused)
 {
         return ml_elm_map_name_add_native(argv[0], argv[1], argv[2], argv[3],
                 argv[4], argv[5]);
