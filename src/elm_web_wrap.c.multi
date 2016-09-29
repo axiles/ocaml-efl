@@ -249,7 +249,7 @@ PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
 /* BEGIN: 1.9 */
 PREFIX value ml_elm_web_html_string_load(
         value v_obj, value v_html, value v_base, value v_unreachable,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         return Val_bool(elm_web_html_string_load(Evas_Object_val(v_obj),
                 String_val(v_html), String_opt_val(v_base),

@@ -61,7 +61,7 @@ PREFIX value ml_elm_hoversel_items_get(value v_obj)
 }
 
 PREFIX value ml_elm_hoversel_item_add(
-        value v_obj, value v_label, value v_icon, value v_func, value v_unit)
+        value v_obj, value v_label, value v_icon, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;

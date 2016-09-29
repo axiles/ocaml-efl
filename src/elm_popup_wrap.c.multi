@@ -8,7 +8,7 @@ PREFIX value ml_elm_popup_add(value v_parent)
 }
 
 PREFIX value ml_elm_popup_item_append(
-        value v_obj, value v_label, value v_icon, value v_func, value v_unit)
+        value v_obj, value v_label, value v_icon, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;

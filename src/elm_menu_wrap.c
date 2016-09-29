@@ -15,7 +15,7 @@ PREFIX value ml_elm_menu_items_get(value v_obj)
 
 PREFIX value ml_elm_menu_item_add_native(
         value v_obj, value v_parent, value v_icon, value v_label, value v_func,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         Elm_Object_Item* parent = Elm_Object_Item_opt_val(v_parent);
         const char* icon;

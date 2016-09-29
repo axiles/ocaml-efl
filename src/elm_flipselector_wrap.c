@@ -9,7 +9,7 @@ PREFIX value ml_elm_flipselector_add(value v_parent)
 }
 
 PREFIX value ml_elm_flipselector_item_append(
-        value v_obj, value v_label, value v_func, value v_unit)
+        value v_obj, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -35,7 +35,7 @@ PREFIX value ml_elm_flipselector_item_append(
 }
 
 PREFIX value ml_elm_flipselector_item_prepend(
-        value v_obj, value v_label, value v_func, value v_unit)
+        value v_obj, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;

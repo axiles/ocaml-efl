@@ -38,7 +38,7 @@ PREFIX value ml_elm_ctxpopup_horizontal_get(value v_obj)
 }
 
 PREFIX value ml_elm_ctxpopup_item_append(
-        value v_obj, value v_label, value v_icon, value v_func, value v_unit)
+        value v_obj, value v_label, value v_icon, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -68,7 +68,7 @@ PREFIX value ml_elm_ctxpopup_item_append(
 
 /* BEGIN: 1.11 */
 PREFIX value ml_elm_ctxpopup_item_prepend(
-        value v_obj, value v_label, value v_icon, value v_func, value v_unit)
+        value v_obj, value v_label, value v_icon, value v_func, value v_unit CAMLunused)
 {
         const char* label = String_opt_val(v_label);
         Evas_Object* icon = Evas_Object_opt_val(v_icon);

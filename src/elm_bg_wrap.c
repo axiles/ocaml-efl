@@ -8,7 +8,7 @@ PREFIX value ml_elm_bg_add(value v_parent)
 }
 
 PREFIX value ml_elm_bg_file_set(
-        value v_obj, value v_file, value v_group, value v_unit)
+        value v_obj, value v_file, value v_group, value v_unit CAMLunused)
 {
         const char* group = String_opt_val(v_group);
         return Val_Eina_Bool(elm_bg_file_set(Evas_Object_val(v_obj),

@@ -19,7 +19,7 @@ PREFIX value ml_elm_naviframe_add(value v_parent)
 
 PREFIX value ml_elm_naviframe_item_push_native(
         value v_obj, value v_title_label, value v_prev_btn, value v_next_btn,
-        value v_content, value v_item_style, value v_unit)
+        value v_content, value v_item_style, value v_unit CAMLunused)
 {
         Evas_Object *prev_btn, *next_btn;
         if(v_prev_btn == Val_int(0)) prev_btn = NULL;
@@ -46,7 +46,7 @@ PREFIX value ml_elm_naviframe_item_push_byte(value* argv, int argn)
 
 PREFIX value ml_elm_naviframe_item_insert_before_native(
         value v_obj, value v_before, value v_title_label, value v_prev_btn,
-        value v_next_btn, value v_content, value v_item_style, value v_unit)
+        value v_next_btn, value v_content, value v_item_style, value v_unit CAMLunused)
 {
         Evas_Object *prev_btn, *next_btn;
         if(v_prev_btn == Val_int(0)) prev_btn = NULL;
@@ -74,7 +74,7 @@ PREFIX value ml_elm_naviframe_item_insert_before_byte(value* argv, int argn)
 
 PREFIX value ml_elm_naviframe_item_insert_after_native(
         value v_obj, value v_after, value v_title_label, value v_prev_btn,
-        value v_next_btn, value v_content, value v_item_style, value v_unit)
+        value v_next_btn, value v_content, value v_item_style, value v_unit CAMLunused)
 {
         Evas_Object *prev_btn, *next_btn;
         if(v_prev_btn == Val_int(0)) prev_btn = NULL;

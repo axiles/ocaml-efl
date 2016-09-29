@@ -97,7 +97,7 @@ PREFIX value ml_elm_fileselector_selected_get(value v_obj)
 }
 
 PREFIX value ml_elm_fileselector_mime_types_filter_append(
-        value v_obj, value v_mime_types, value v_filter_name, value v_unit)
+        value v_obj, value v_mime_types, value v_filter_name, value v_unit CAMLunused)
 {
         char* filter_name;
         if(v_filter_name == Val_int(0)) filter_name = NULL;
@@ -108,7 +108,7 @@ PREFIX value ml_elm_fileselector_mime_types_filter_append(
 
 /* BEGIN: 1.9 */
 PREFIX value ml_elm_fileselector_custom_filter_append(
-        value v_obj, value v_fun, value v_name, value v_unit)
+        value v_obj, value v_fun, value v_name, value v_unit CAMLunused)
 {
         Evas_Object* obj = Evas_Object_val(v_obj);
         value* data = ml_Evas_Object_register_value(obj, v_fun);

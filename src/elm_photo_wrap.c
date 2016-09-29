@@ -13,7 +13,7 @@ PREFIX value ml_elm_photo_file_set_null(value v_obj)
 }
 
 PREFIX value ml_elm_photo_thumb_set(
-        value v_obj, value v_file, value v_group, value v_unit)
+        value v_obj, value v_file, value v_group, value v_unit CAMLunused)
 {
         const char* group;
         if(v_group == Val_int(0)) group = NULL;
@@ -23,7 +23,7 @@ PREFIX value ml_elm_photo_thumb_set(
 }
 
 PREFIX value ml_elm_photo_thumb_set_null(
-        value v_obj, value v_group, value v_unit)
+        value v_obj, value v_group, value v_unit CAMLunused)
 {
         const char* group;
         if(v_group == Val_int(0)) group = NULL;

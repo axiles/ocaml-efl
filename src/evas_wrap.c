@@ -107,29 +107,29 @@ void ml_Evas_Smart_Cb_on_del(
 
 /* Top Level Functions */
 
-PREFIX value ml_evas_init(value v_unit)
+PREFIX value ml_evas_init(value v_unit CAMLunused)
 {
         return Val_int(evas_init());
 }
 
-PREFIX value ml_evas_shutdown(value v_unit)
+PREFIX value ml_evas_shutdown(value v_unit CAMLunused)
 {
         int r = evas_shutdown();
         ml_Evas_remove_values();
         return Val_int(r);
 }
 
-PREFIX value ml_evas_alloc_error(value v_unit)
+PREFIX value ml_evas_alloc_error(value v_unit CAMLunused)
 {
         return Val_Evas_Alloc_Error(evas_alloc_error());
 }
 
-PREFIX value ml_evas_async_events_fd_get(value v_unit)
+PREFIX value ml_evas_async_events_fd_get(value v_unit CAMLunused)
 {
         return Val_int(evas_async_events_fd_get());
 }
 
-PREFIX value ml_evas_async_events_process(value v_unit)
+PREFIX value ml_evas_async_events_process(value v_unit CAMLunused)
 {
         return Val_int(evas_async_events_process());
 }
@@ -160,7 +160,7 @@ PREFIX value ml_evas_render_method_lookup(value v_name)
         return Val_int(evas_render_method_lookup(String_val(v_name)));
 }
 
-PREFIX value ml_evas_render_method_list(value v_unit)
+PREFIX value ml_evas_render_method_list(value v_unit CAMLunused)
 {
         Eina_List* list = evas_render_method_list();
         value v_list = copy_Eina_List_string(list);
@@ -324,7 +324,7 @@ PREFIX value ml_evas_image_max_size_get(value v_e)
 
 /* General Canvas Functions */
 
-PREFIX value ml_evas_new(value v_unit)
+PREFIX value ml_evas_new(value v_unit CAMLunused)
 {
         Evas* e = evas_new();
         if(e == NULL) caml_failwith("evas_new");
@@ -574,17 +574,17 @@ inline value copy_Evas_Cserve_Config(Evas_Cserve_Config c)
         return v;
 }*/
 
-PREFIX value ml_evas_cserve_want_get(value v_unit)
+PREFIX value ml_evas_cserve_want_get(value v_unit CAMLunused)
 {
         return Val_bool(evas_cserve_want_get());
 }
 
-PREFIX value ml_evas_cserve_connected_get(value v_unit)
+PREFIX value ml_evas_cserve_connected_get(value v_unit CAMLunused)
 {
         return Val_bool(evas_cserve_connected_get());
 }
 
-PREFIX value ml_evas_cserve_stats_get(value v_unit)
+PREFIX value ml_evas_cserve_stats_get(value v_unit CAMLunused)
 {
         CAMLparam1(v_unit);
         CAMLlocal1(v_r);
@@ -597,7 +597,7 @@ PREFIX value ml_evas_cserve_stats_get(value v_unit)
         CAMLreturn(v_r);
 }
 
-PREFIX value ml_evas_cserve_config_get(value v_unit)
+PREFIX value ml_evas_cserve_config_get(value v_unit CAMLunused)
 {
         CAMLparam1(v_unit);
         CAMLlocal1(v_r);
@@ -616,7 +616,7 @@ PREFIX value ml_evas_cserve_config_set(value v_c)
         return Val_bool(evas_cserve_config_set(&c));
 }
 
-PREFIX value ml_evas_cserve_disconnected(value v_unit)
+PREFIX value ml_evas_cserve_disconnected(value v_unit CAMLunused)
 {
         evas_cserve_disconnect();
         return Val_unit;

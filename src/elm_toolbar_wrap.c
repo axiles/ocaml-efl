@@ -20,7 +20,7 @@ PREFIX value ml_elm_toolbar_add(value v_parent)
 }
 
 PREFIX value ml_elm_toolbar_item_append(
-        value v_obj, value v_icon, value v_label, value v_func, value v_unit)
+        value v_obj, value v_icon, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -49,7 +49,7 @@ PREFIX value ml_elm_toolbar_item_append(
 }
 
 PREFIX value ml_elm_toolbar_item_prepend(
-        value v_obj, value v_icon, value v_label, value v_func, value v_unit)
+        value v_obj, value v_icon, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -79,7 +79,7 @@ PREFIX value ml_elm_toolbar_item_prepend(
 
 PREFIX value ml_elm_toolbar_item_insert_before_native(
         value v_obj, value v_before, value v_icon, value v_label, value v_func,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -116,7 +116,7 @@ PREFIX value ml_elm_toolbar_item_insert_before_byte(value* argv, int argn)
 
 PREFIX value ml_elm_toolbar_item_insert_after_native(
         value v_obj, value v_after, value v_icon, value v_label, value v_func,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -222,7 +222,7 @@ PREFIX value ml_elm_toolbar_item_icon_object_get(value v_it)
 }
 
 PREFIX value ml_elm_toolbar_item_icon_file_set(
-        value v_it, value v_file, value v_key, value v_unit)
+        value v_it, value v_file, value v_key, value v_unit CAMLunused)
 {
         const char* key;
         if(v_key == Val_int(0)) key = NULL;
@@ -244,7 +244,7 @@ PREFIX value ml_elm_toolbar_item_menu_get(value v_it)
 }
 
 PREFIX value ml_elm_toolbar_item_state_add(
-        value v_it, value v_icon, value v_label, value v_func, value v_unit)
+        value v_it, value v_icon, value v_label, value v_func, value v_unit CAMLunused)
 {
         Elm_Object_Item* it = Elm_Object_Item_val(v_it);
         const char* icon;

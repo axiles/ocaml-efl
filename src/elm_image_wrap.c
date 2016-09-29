@@ -8,7 +8,7 @@ PREFIX value ml_elm_image_add(value v_parent)
 }
 
 PREFIX value ml_elm_image_file_set(
-        value v_obj, value v_file, value v_group, value v_unit)
+        value v_obj, value v_file, value v_group, value v_unit CAMLunused)
 {
         const char* group;
         if(v_group == Val_int(0)) group = NULL;

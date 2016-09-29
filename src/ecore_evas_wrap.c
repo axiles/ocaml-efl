@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX value ml_ecore_evas_engines_get(value v_unit)
+PREFIX value ml_ecore_evas_engines_get(value v_unit CAMLunused)
 {
         Eina_List* list = ecore_evas_engines_get();
         value v = copy_Eina_List_string(list);
@@ -10,7 +10,7 @@ PREFIX value ml_ecore_evas_engines_get(value v_unit)
 
 PREFIX value ml_ecore_evas_new_native(
         value v_engine_name, value v_x, value v_y, value v_w, value v_h,
-        value v_extra_options, value v_unit)
+        value v_extra_options, value v_unit CAMLunused)
 {
         Ecore_Evas* ee = ecore_evas_new(String_opt_val(v_engine_name),
                 Int_opt_val(v_x), Int_opt_val(v_y), Int_val(v_w), Int_val(v_h),

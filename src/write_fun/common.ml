@@ -109,7 +109,7 @@ end = struct
     let args = mapi (fun i ty -> (sprintf "x%d" i, ty)) f.args in
     let aux1 (x, ty) = sprintf "value %s" x in
     let args1 = List.map aux1 args in
-    let args1 = if args1 = [] then ["value v_unit"] else args1 in
+    let args1 = if args1 = [] then ["value v_unit CAMLunused"] else args1 in
     fprintf fmt "PREFIX value %a\n{\n" print_call (name, args1);
     let aux2 (x, ty) = sprintf "%s(%s)" ty.Ty.c_of_ml x in
     (match f.res with

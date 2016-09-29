@@ -15,7 +15,7 @@ PREFIX value ml_elm_diskselector_items_get(value v_obj)
 }
 
 PREFIX value ml_elm_diskselector_item_append(
-        value v_obj, value v_label, value v_icon, value v_func, value v_unit)
+        value v_obj, value v_label, value v_icon, value v_func, value v_unit CAMLunused)
 {
         const char* label = String_opt_val(v_label);
         Evas_Object* icon = Evas_Object_opt_val(v_icon);

@@ -122,7 +122,7 @@ PREFIX value ml_ecore_main_loop_thread_safe_call_sync(value v_fun)
         CAMLreturn(Val_unit);
 }
 
-PREFIX value ml_ecore_event_type_new(value v_unit)
+PREFIX value ml_ecore_event_type_new(value v_unit CAMLunused)
 {
         return Val_int(ecore_event_type_new());
 }

@@ -283,7 +283,7 @@ void ml_Evas_Smart_Cb_del(void* data, Evas_Object* v_obj, void* info)
 }
 
 PREFIX value ml_elm_object_domain_translatable_part_text_set(
-        value v_obj, value v_part, value v_domain, value v_text, value v_unit)
+        value v_obj, value v_part, value v_domain, value v_text, value v_unit CAMLunused)
 {
         const char* part;
         if(v_part == Val_int(0)) part = NULL;
@@ -300,7 +300,7 @@ PREFIX value ml_elm_object_domain_translatable_part_text_set(
 }
 
 PREFIX value ml_elm_object_translatable_part_text_get(
-        value v_obj, value v_translatable_part, value v_unit)
+        value v_obj, value v_translatable_part, value v_unit CAMLunused)
 {
         char* translatable_part;
         if(v_translatable_part == Val_int(0)) translatable_part = NULL;
@@ -350,7 +350,7 @@ PREFIX value ml_elm_object_text_get(value v_obj)
 }
 
 PREFIX value ml_elm_object_part_text_get(
-        value v_obj, value v_part, value v_unit)
+        value v_obj, value v_part, value v_unit CAMLunused)
 {
         char* part;
         if(v_part == Val_int(0)) part = NULL;
@@ -387,7 +387,7 @@ PREFIX value ml_elm_object_part_content_set_NULL(value v_obj, value v_part)
 }
 
 PREFIX value ml_elm_object_part_content_get(
-                value v_obj, value v_part, value v_unit)
+                value v_obj, value v_part, value v_unit CAMLunused)
 {
         char* part;
         if(v_part == Val_int(0)) part = NULL;
@@ -406,7 +406,7 @@ PREFIX value ml_elm_object_content_unset(value v_obj)
 }
 
 PREFIX value ml_elm_object_part_content_unset(
-        value v_obj, value v_part, value v_unit)
+        value v_obj, value v_part, value v_unit CAMLunused)
 {
         char* part;
         if(v_part == Val_int(0)) part = NULL;
@@ -499,7 +499,7 @@ PREFIX value ml_elm_object_item_part_content_set(
 }
 
 PREFIX value ml_elm_object_item_part_content_get(
-        value v_it, value v_part, value v_unit)
+        value v_it, value v_part, value v_unit CAMLunused)
 {
         const char* part = String_opt_val(v_part);
         Evas_Object* content = elm_object_item_part_content_get(
@@ -509,7 +509,7 @@ PREFIX value ml_elm_object_item_part_content_get(
 }
 
 PREFIX value ml_elm_object_item_part_content_unset(
-        value v_it, value v_part, value v_unit)
+        value v_it, value v_part, value v_unit CAMLunused)
 {
         const char* part = String_opt_val(v_part);
         Evas_Object* content = elm_object_item_part_content_unset(
@@ -535,7 +535,7 @@ PREFIX value ml_elm_object_item_text_get(value v_item)
 }
 
 PREFIX value ml_elm_object_item_part_text_get(
-        value v_it, value v_part, value v_unit)
+        value v_it, value v_part, value v_unit CAMLunused)
 {
         const char* part = String_opt_val(v_part);
         const char* text = elm_object_item_part_text_get(
@@ -545,7 +545,7 @@ PREFIX value ml_elm_object_item_part_text_get(
 }
 
 PREFIX value ml_elm_object_item_domain_translatable_part_text_set(
-        value v_it, value v_part, value v_domain, value v_text, value v_unit)
+        value v_it, value v_part, value v_domain, value v_text, value v_unit CAMLunused)
 {
         const char* part = String_opt_val(v_part);
         const char* domain = String_opt_val(v_domain);
@@ -556,7 +556,7 @@ PREFIX value ml_elm_object_item_domain_translatable_part_text_set(
 }
 
 PREFIX value ml_elm_object_item_translatable_part_text_get(
-        value v_it, value v_part, value v_unit)
+        value v_it, value v_part, value v_unit CAMLunused)
 {
         const char* part = String_opt_val(v_part);
         const char* text = elm_object_item_translatable_part_text_get(

@@ -329,7 +329,7 @@ PREFIX value ml_elm_map_route_add_bytecode(value* argv, int argn)
 
 PREFIX value ml_elm_map_name_add_native(
         value v_obj, value v_addr, value v_lon, value v_lat, value v_cb,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         Evas_Object* obj = Evas_Object_val(v_obj);
         const char* addr;

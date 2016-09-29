@@ -9,7 +9,7 @@ PREFIX value ml_elm_segment_control_add(value v_parent)
 }
 
 PREFIX value ml_elm_segment_control_item_add(
-        value v_obj, value v_icon, value v_label, value v_unit)
+        value v_obj, value v_icon, value v_label, value v_unit CAMLunused)
 {
         Evas_Object* icon;
         if(v_icon == Val_int(0)) icon = NULL;

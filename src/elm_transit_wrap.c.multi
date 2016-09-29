@@ -48,7 +48,7 @@ inline value copy_Eina_List_Elm_Transit(const Eina_List* list)
         CAMLreturn(v);
 }
 
-PREFIX value ml_elm_transit_add(value v_unit)
+PREFIX value ml_elm_transit_add(value v_unit CAMLunused)
 {
         Elm_Transit* tr = elm_transit_add();
         if(tr == NULL) caml_failwith("elm_transit_add");

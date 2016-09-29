@@ -9,7 +9,7 @@ PREFIX value ml_elm_list_add(value v_parent)
 
 PREFIX value ml_elm_list_item_append_native(
         value v_obj, value v_label, value v_icon, value v_end, value v_func,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -48,7 +48,7 @@ PREFIX value ml_elm_list_item_append_byte(value* argv, int argn)
 
 PREFIX value ml_elm_list_item_prepend_native(
         value v_obj, value v_label, value v_icon, value v_end, value v_func,
-        value v_unit)
+        value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -87,7 +87,7 @@ PREFIX value ml_elm_list_item_prepend_byte(value* argv, int argn)
 
 PREFIX value ml_elm_list_item_insert_before_native(
         value v_obj, value v_before, value v_label, value v_icon, value v_end,
-        value v_func, value v_unit)
+        value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -127,7 +127,7 @@ PREFIX value ml_elm_list_item_insert_before_byte(value* argv, int argn)
 
 PREFIX value ml_elm_list_item_insert_after_native(
         value v_obj, value v_after, value v_label, value v_icon, value v_end,
-        value v_func, value v_unit)
+        value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;

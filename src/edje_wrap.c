@@ -29,7 +29,7 @@ PREFIX value ml_edje_object_add(value v_evas)
 }
 
 PREFIX value ml_edje_object_file_set(
-        value v_obj, value v_file, value v_group, value v_unit)
+        value v_obj, value v_file, value v_group, value v_unit CAMLunused)
 {
         const char* group = String_opt_val(v_group);
         return Val_Eina_Bool(edje_object_file_set(Evas_Object_val(v_obj),

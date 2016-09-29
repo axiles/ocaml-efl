@@ -36,7 +36,7 @@ PREFIX value ml_elm_multibuttonentry_expanded_set(value v_obj, value v_flag)
 }
 
 PREFIX value ml_elm_multibuttonentry_item_prepend(
-        value v_obj, value v_label, value v_func, value v_unit)
+        value v_obj, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -62,7 +62,7 @@ PREFIX value ml_elm_multibuttonentry_item_prepend(
 }
 
 PREFIX value ml_elm_multibuttonentry_item_append(
-        value v_obj, value v_label, value v_func, value v_unit)
+        value v_obj, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -88,7 +88,7 @@ PREFIX value ml_elm_multibuttonentry_item_append(
 }
 
 PREFIX value ml_elm_multibuttonentry_item_insert_before(
-        value v_obj, value v_before, value v_label, value v_func, value v_unit)
+        value v_obj, value v_before, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;
@@ -115,7 +115,7 @@ PREFIX value ml_elm_multibuttonentry_item_insert_before(
 }
 
 PREFIX value ml_elm_multibuttonentry_item_insert_after(
-        value v_obj, value v_after, value v_label, value v_func, value v_unit)
+        value v_obj, value v_after, value v_label, value v_func, value v_unit CAMLunused)
 {
         const char* label;
         if(v_label == Val_int(0)) label = NULL;

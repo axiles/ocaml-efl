@@ -1,6 +1,6 @@
 #include "include.h"
 
-PREFIX value ml_elm_theme_new(value v_unit)
+PREFIX value ml_elm_theme_new(value v_unit CAMLunused)
 {
         return copy_Elm_Theme(elm_theme_new());
 }
@@ -32,7 +32,7 @@ PREFIX value ml_elm_theme_ref_get(value v_th)
         return copy_Elm_Theme_opt(thref);
 }
 
-PREFIX value ml_elm_theme_default_get(value v_unit)
+PREFIX value ml_elm_theme_default_get(value v_unit CAMLunused)
 {
         return copy_Elm_Theme(elm_theme_default_get());
 }
@@ -94,7 +94,7 @@ PREFIX value ml_elm_theme_set(value v_th, value v_theme)
         return Val_unit;
 }
 
-PREFIX value ml_elm_theme_get(value v_th, value v_unit)
+PREFIX value ml_elm_theme_get(value v_th, value v_unit CAMLunused)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
@@ -128,7 +128,7 @@ PREFIX value ml_elm_theme_list_item_path_get(value v_f)
         CAMLreturn(v);
 }
 
-PREFIX value ml_elm_theme_flush(value v_th, value v_unit)
+PREFIX value ml_elm_theme_flush(value v_th, value v_unit CAMLunused)
 {
         Elm_Theme* th;
         if(v_th == Val_int(0)) th = NULL;
@@ -137,13 +137,13 @@ PREFIX value ml_elm_theme_flush(value v_th, value v_unit)
         return Val_unit;
 }
 
-PREFIX value ml_elm_theme_full_flush(value v_unit)
+PREFIX value ml_elm_theme_full_flush(value v_unit CAMLunused)
 {
         elm_theme_full_flush();
         return Val_unit;
 }
 
-PREFIX value ml_elm_theme_name_available_list_get(value v_unit)
+PREFIX value ml_elm_theme_name_available_list_get(value v_unit CAMLunused)
 {
         Eina_List* list = elm_theme_name_available_list_new();
         value v_list = copy_Eina_List_string(list);
@@ -197,12 +197,12 @@ PREFIX value ml_elm_theme_group_base_list(value v_th, value v_base)
         return v_list;
 }
 
-PREFIX value ml_elm_theme_system_dir_get(value v_unit)
+PREFIX value ml_elm_theme_system_dir_get(value v_unit CAMLunused)
 {
         return copy_string(elm_theme_system_dir_get());
 }
 
-PREFIX value ml_elm_theme_user_dir_get(value v_unit)
+PREFIX value ml_elm_theme_user_dir_get(value v_unit CAMLunused)
 {
         return copy_string(elm_theme_user_dir_get());
 }

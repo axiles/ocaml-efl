@@ -26,7 +26,7 @@ PREFIX value ml_elm_progressbar_part_value_set(
 }
 
 PREFIX value ml_elm_progressbar_part_value_get(
-        value v_obj, value v_part, value v_unit)
+        value v_obj, value v_part, value v_unit CAMLunused)
 {
         const char* part;
         if(v_part == Val_int(0)) part = NULL;
