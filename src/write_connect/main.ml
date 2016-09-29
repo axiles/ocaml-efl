@@ -234,7 +234,7 @@ let print_cb_unit fmt =
 #include \"include.h\"
 
 void ml_Evas_Smart_Cb_connect_unit(
-        void* data, Evas_Object* obj, void* event_info)
+        void* data, Evas_Object* obj, void* event_info CAMLunused)
 {
         CAMLparam0();
         CAMLlocal1(v_obj);

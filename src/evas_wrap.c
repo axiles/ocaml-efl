@@ -690,7 +690,7 @@ PREFIX value ml_evas_data_argb_premul(value v_a)
 {
         unsigned int size = Wosize_val(v_a);
         unsigned int a[size];
-        int i;
+        unsigned int i;
         for(i = 0; i < size; i++) a[i] = Int_val(Field(v_a, i));
         evas_data_argb_premul(a, size);
         for(i = 0; i < size; i++) Store_field(v_a, i, Val_int(a[i]));
@@ -701,7 +701,7 @@ PREFIX value ml_evas_data_argb_unpremul(value v_a)
 {
         unsigned int size = Wosize_val(v_a);
         unsigned int a[size];
-        int i;
+        unsigned int i;
         for(i = 0; i < size; i++) a[i] = Int_val(Field(v_a, i));
         evas_data_argb_unpremul(a, size);
         for(i = 0; i < size; i++) Store_field(v_a, i, Val_int(a[i]));

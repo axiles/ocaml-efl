@@ -121,7 +121,8 @@ end = struct
       fprintf fmt "        return Val_unit;\n");
     fprintf fmt "}\n\n"
   let print_c_aux_byte fmt f =
-    fprintf fmt "PREFIX value ml_%s_byte(value* argv, int argn)\n{\n" f.c_name;
+    fprintf fmt "PREFIX value ml_%s_byte(value* argv, int argn CAMLunused)\n{\n"
+      f.c_name;
     let aux i _ = sprintf "argv[%d]" i in
     fprintf fmt "        return %a;\n}\n\n" print_call
       (sprintf "ml_%s_native" f.c_name, mapi aux f.args)

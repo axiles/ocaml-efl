@@ -97,7 +97,7 @@ PREFIX value ml_elm_transit_tween_mode_factor_n_set(value v_tr, value v_a)
 {
         unsigned int size = Wosize_val(v_a);
         double a[size];
-        int i;
+        unsigned int i;
         for(i = 0; i < size; i++) a[i] = Double_val(Field(v_a, i));
         elm_transit_tween_mode_factor_n_set(Elm_Transit_val(v_tr), size, a);
         return Val_unit;
