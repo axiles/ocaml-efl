@@ -12,5 +12,8 @@ PREFIX Eina_Bool ml_Elm_Gen_Item_State_Get_Cb(
 
 PREFIX void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj);
 
+/* Added in 1.18 without a useful documentation. */
+PREFIX Evas_Object* ml_Elm_Gen_Item_Reusable_Content_Get_Cb(void* data, Evas_Object* obj, const char *part, Evas_Object *old);
+
 #endif
 

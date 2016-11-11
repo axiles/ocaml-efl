@@ -50,3 +50,17 @@ void ml_Elm_Gen_Item_Del_Cb_free(void* data, Evas_Object* obj)
         CAMLreturn0;
 }
 
+/* Added in 1.18 without a useful documentation. */
+Evas_Object* ml_Elm_Gen_Item_Reusable_Content_Get_Cb(void* data, Evas_Object* obj, const char *part, Evas_Object *old)
+{
+        CAMLparam0();
+        CAMLlocal4(v_obj, v_part, v_old, v);
+        value* v_class = data;
+        v_obj = copy_Evas_Object(obj);
+        v_part = copy_string(part);
+        v_old = copy_Evas_Object(old);
+        v = caml_callback3(Field(*v_class, 5), v_obj, v_part, v_old);
+        CAMLreturnT(Evas_Object*,
+            (v == Val_int(0)) ? NULL : Evas_Object_val(Field(v, 0)));
+}
+

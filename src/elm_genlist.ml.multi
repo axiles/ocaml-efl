@@ -6,6 +6,9 @@ type item_class = Elm_gen.item_class = {
   func_content_get : Evas.obj -> string -> Evas.obj option;
   func_state_get : Evas.obj -> string -> bool;
   func_del : Evas.obj -> unit;
+(* BEGIN: 1.18 *)
+  func_reusable_content_get : Evas.obj -> string -> Evas.obj -> Evas.obj option;
+(* END *)
 }
 
 module AF = Autofun.Elm_genlist.F (struct

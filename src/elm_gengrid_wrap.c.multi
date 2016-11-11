@@ -11,6 +11,7 @@ PREFIX void ml_Elm_Gengrid_Item_Class(
         c->func.content_get = ml_Elm_Gen_Item_Content_Get_Cb;
         c->func.state_get = ml_Elm_Gen_Item_State_Get_Cb;
         c->func.del = ml_Elm_Gen_Item_Del_Cb_free;
+        c->func.reusable_content_get = ml_Elm_Gen_Item_Reusable_Content_Get_Cb;
 
         value* v_data = ml_register_value(v);
 
