@@ -11,8 +11,9 @@ PREFIX void ml_Elm_Genlist_Item_Class(
         c->func.content_get = ml_Elm_Gen_Item_Content_Get_Cb;
         c->func.state_get = ml_Elm_Gen_Item_State_Get_Cb;
         c->func.del = ml_Elm_Gen_Item_Del_Cb_free;
+/* BEGIN: 1.18 */
         c->func.reusable_content_get = ml_Elm_Gen_Item_Reusable_Content_Get_Cb;
-
+/* END */
         value* v_data = ml_register_value(v);
 
         *class = c;
