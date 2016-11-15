@@ -20,12 +20,14 @@ let add_item win list i =
   let sel_cb obj item = printf "Item %d selected\n%!" i in
   let state_get obj part = false in
   let del_cb obj = () in
+  let reusable_content_get obj part old = Some old in
   let itc = {
     Elm_genlist.item_style = "default";
     func_text_get = label_get;
     func_content_get = content_get;
     func_state_get = state_get;
-    func_del = del_cb} in
+    func_del = del_cb;
+    func_reusable_content_get = reusable_content_get} in
   let (_ : Elm_object.item) =
     Elm_genlist.item_append list itc None `none sel_cb in
   ()

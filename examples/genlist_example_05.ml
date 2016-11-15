@@ -15,6 +15,8 @@ let ht = Hashtbl.create (n_items * 4)
 
 let nitems = ref 0
 
+let reusable_content_get obj part old = Some old
+
 let add_item list d parent =
   let item_label_get obj part =
     if part = "elm.text" then
@@ -32,7 +34,8 @@ let add_item list d parent =
     func_text_get = item_label_get;
     func_content_get = item_content_get;
     func_state_get = (fun obj part -> false);
-    func_del = (fun obj -> ())} in
+    func_del = (fun obj -> ());
+    func_reusable_content_get = reusable_content_get} in
   let item_sel_cb obj _ =
     printf "Item # %d (level %d) selected\n%!" d.value d.level in
   let it = Elm_genlist.item_append list itc parent `none item_sel_cb in
@@ -52,7 +55,8 @@ let add_parent list d =
     func_text_get = parent_label_get;
     func_content_get = parent_content_get;
     func_state_get = (fun obj part -> false);
-    func_del = (fun obj -> ())} in
+    func_del = (fun obj -> ());
+    func_reusable_content_get = reusable_content_get} in
   let parent_sel_cb obj part =
     printf "Group %d (%d items)\n%!" (d.value / 7) (List.length d.children) in
   let it = Elm_genlist.item_append list itp None `tree parent_sel_cb in

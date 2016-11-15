@@ -55,11 +55,13 @@ let add_item list i =
   let item_sel_cb obj _ = printf "Item %d selected\n%!" i in
   let item_state_get obj _ = false in
   let item_del obj = () in
+  let reusable_content_get obj part old = Some old in
   let itc = {Elm_genlist.item_style = "double_label";
     func_text_get = item_label_get;
     func_content_get = item_content_get;
     func_state_get = item_state_get;
-    func_del = item_del} in
+    func_del = item_del;
+    func_reusable_content_get = reusable_content_get} in
   Elm_genlist.item_append list itc None `none item_sel_cb
 
 let genlist_add win box =

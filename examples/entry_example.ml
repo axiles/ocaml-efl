@@ -214,9 +214,11 @@ let () =
                 Elm_layout.theme_set o "entry/emoticon" name "default" in
               Some o) in
           let del _ = () and state_get _ _ = true in
+          let reusable_content_get obj part old = Some old in
           let it_class = {Elm_gengrid.item_style = "default";
             func_text_get = label_get; func_content_get = content_get;
-            func_state_get = state_get; func_del = del} in
+            func_state_get = state_get; func_del = del;
+            func_reusable_content_get = reusable_content_get} in
           let sel_cb obj _ =
             remo := Some name;
             Elm_naviframe.item_simple_promote naviframe settings in
