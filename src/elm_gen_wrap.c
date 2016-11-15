@@ -60,7 +60,6 @@ Evas_Object* ml_Elm_Gen_Item_Reusable_Content_Get_Cb(void* data, Evas_Object* ob
         v_part = copy_string(part);
         v_old = copy_Evas_Object(old);
         v = caml_callback3(Field(*v_class, 5), v_obj, v_part, v_old);
-        CAMLreturnT(Evas_Object*,
-            (v == Val_int(0)) ? NULL : Evas_Object_val(Field(v, 0)));
+        CAMLreturnT(Evas_Object*, Evas_Object_opt_val(v));
 }
 
