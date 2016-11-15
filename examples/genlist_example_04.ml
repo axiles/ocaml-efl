@@ -43,6 +43,8 @@ let string_of_time t =
 
 let int_of_item item = Elm_genlist.item_index_get item - 1
 
+let reusable_content_get obj part old = Some old
+
 let add_item_aux f_add list i parent =
   let item_label_get obj part =
     let t = Unix.localtime (Unix.time ()) in
@@ -61,7 +63,8 @@ let add_item_aux f_add list i parent =
     func_text_get = item_label_get;
     func_content_get = item_content_get;
     func_state_get = item_state_get;
-    func_del = item_del} in
+    func_del = item_del;
+    func_reusable_content_get = reusable_content_get} in
   f_add list itc parent `none item_sel_cb
 
 let add_item = add_item_aux Elm_genlist.item_append
@@ -82,7 +85,8 @@ let add_group list i =
     func_text_get = group_label_get;
     func_content_get = group_content_get;
     func_state_get = group_state_get;
-    func_del = group_del} in
+    func_del = group_del;
+    func_reusable_content_get = reusable_content_get} in
   Elm_genlist.item_append list itc None `group group_sel_cb
 
 let append_cb list obj =

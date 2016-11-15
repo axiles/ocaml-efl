@@ -4,5 +4,6 @@ type item_class = {
   func_content_get : Evas.obj -> string -> Evas.obj option;
   func_state_get : Evas.obj -> string -> bool;
   func_del : Evas.obj -> unit;
+  func_reusable_content_get : Evas.obj -> string -> Evas.obj -> Evas.obj option;
 }
 
