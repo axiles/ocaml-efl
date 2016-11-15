@@ -13,6 +13,9 @@ AX_COMPARE_VERSION([$OCAMLVERSION], [ge], [3.12], [], [
   AC_MSG_ERROR([OCaml 3.12 or newer is required])
 ])
 
+dnl Check for OCamlbuild flag
+AC_ARG_VAR([OCAMLBUILD_FLAGS], [Options passed to OCamlbuild])
+
 dnl Checking for OCamlfind
 AC_PROG_FINDLIB
 AS_IF([test $OCAMLFIND = "no"],

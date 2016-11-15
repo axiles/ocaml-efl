@@ -1,19 +1,21 @@
 OCAMLFIND_OPT= -destdir $(DESTDIR)$(OCAMLFIND_DESTDIR) \
 	-ldconf $(DESTDIR)$(OCAMLFIND_LDCONF)
 
+OCAMLBUILD_OPT=$(OCAMLBUILD) $(OCAMLBUILD_FLAGS)
+
 .PHONY:examples
 
 EXTRA_DIST=src examples/*.ml _tags examples/install.sh examples/uninstall.sh \
 	autogen.sh
 
 all-local:
-	@$(OCAMLBUILD) src/efl.cma src/efl.cmxa src/efl.cmxs
+	@$(OCAMLBUILD_OPT) src/efl.cma src/efl.cmxa src/efl.cmxs
 
 byte:
-	@$(OCAMLBUILD) src/efl.cma
+	@$(OCAMLBUILD_OPT) src/efl.cma
 
 native:
-	@$(OCAMLBUILD) src/efl.cmxa src/efl.cmxs
+	@$(OCAMLBUILD_OPT) src/efl.cmxa src/efl.cmxs
 
 install:
 	@mkdir -p $(DESTDIR)$(OCAMLFIND_DESTDIR)
@@ -30,13 +32,13 @@ uninstall:
 	@examples/uninstall.sh $(DESTDIR)$(bindir)/ocaml-efl_
 
 doc:
-	@$(OCAMLBUILD) src/efl_doc.docdir/index.html
+	@$(OCAMLBUILD_OPT) src/efl_doc.docdir/index.html
 
 examples:
-	@$(OCAMLBUILD) ex
+	@$(OCAMLBUILD_OPT) ex
 
 clean-local:
-	@$(OCAMLBUILD) -clean
+	@$(OCAMLBUILD_OPT) -clean
 	@echo ""
 
 distclean-local:
