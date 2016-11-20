@@ -1,13 +1,13 @@
 #include "include.h"
 
-PREFIX void raise_not_X()
+PREFIX void raise_not_X(void)
 {
         static value* e = NULL;
         if(e == NULL) e = caml_named_value("Not_X exception");
         caml_raise_constant(*e);
 }
 
-PREFIX void raise_not_Wayland()
+PREFIX void raise_not_Wayland(void)
 {
         static value* e = NULL;
         if(e == NULL) e = caml_named_value("Not_Wayland exception");

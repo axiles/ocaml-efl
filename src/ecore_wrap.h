@@ -1,8 +1,8 @@
 #ifndef ECORE_H
 #define ECORE_H
 
-PREFIX void raise_not_X();
-PREFIX void raise_not_Wayland();
+PREFIX void raise_not_X(void);
+PREFIX void raise_not_Wayland(void);
 
 PREFIX void ml_Ecore_Cb(void* data);
 PREFIX void ml_Ecore_Cb_1_free(void* data);

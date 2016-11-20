@@ -143,7 +143,7 @@ inline value* ml_Evas_register_value(value v)
         return data;
 }
 
-inline void ml_Evas_remove_values()
+inline void ml_Evas_remove_values(void)
 {
         Eina_List* tmp;
         value* data;

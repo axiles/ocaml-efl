@@ -18,7 +18,7 @@ PREFIX void ml_Evas_Smart_Cb_1_free(
  Evas_Callback_Priority Evas_Callback_Priority_val(value v);
 
  value* ml_Evas_register_value(value v);
- void ml_Evas_remove_values();
+ void ml_Evas_remove_values(void);
 
  value copy_Evas_Coord_Size(Evas_Coord_Size* s);
 
