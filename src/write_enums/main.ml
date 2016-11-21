@@ -1,11 +1,23 @@
 open Format
 
+let string_iteri f s =
+  for i = 0 to String.length s - 1 do
+    f i s.[i]
+  done
+
+(* Forward compatible implementation of String.mapi *)
+let string_mapi f s =
+  let buf = Buffer.create (String.length s) in
+  let aux i c = Buffer.add_char buf (f i c) in
+  string_iteri aux s;
+  Buffer.contents buf
+  
 (* Forward compatible implementarion of lowercase*)
 let char_lowercase c =
   if 'A' <= c && c <= 'Z' then
     char_of_int (int_of_char c + int_of_char 'a' - int_of_char 'A')
   else c
-let string_lowercase s = String.map(fun c -> char_lowercase c) s
+let string_lowercase s = string_mapi(fun i c -> char_lowercase c) s
 
 let get_hash_value s =
   let open Int32 in
