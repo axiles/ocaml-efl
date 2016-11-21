@@ -3,6 +3,8 @@
 
 #include "include.h"
 
+value alloc_ptr(uintnat x);
+
  Eina_Bool Eina_Bool_val(value v);
  value Val_Eina_Bool(Eina_Bool b);
 

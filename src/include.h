@@ -13,6 +13,7 @@
 #include <caml/callback.h>
 #include <caml/fail.h>
 #include <caml/threads.h>
+#include <caml/custom.h>
 
 /* EFL headers */
 

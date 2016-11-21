@@ -8,6 +8,44 @@ inline value Val_Eina_Bool(Eina_Bool b) {
         return Val_int (b);
 }
 
+int my_custom_compare(value v1, value v2)
+{
+        void **data1, **data2;
+        void *ptr1, *ptr2;
+        data1 = Data_custom_val(v1);
+        data2 = Data_custom_val(v2);
+        ptr1 = *data1;
+        ptr2 = *data2;
+        if(ptr1 < ptr2) return -1;
+        else if(ptr1 == ptr2) return 0;
+        else return 1;
+}
+
+long my_custom_hash(value v)
+{
+        void** data = Data_custom_val(v);
+        void* ptr = *data;
+        return (long) ptr;
+}
+
+inline value alloc_ptr(uintnat size)
+{
+        static Eina_Bool already_called = EINA_FALSE;
+        static struct custom_operations op;
+        if(!already_called) {
+                already_called = EINA_TRUE;
+                op.identifier = "ocaml-efl.ptr";
+                op.finalize = custom_finalize_default;
+                op.compare = my_custom_compare;
+                op.compare_ext = custom_compare_ext_default;
+                op.hash = my_custom_hash;
+                op.serialize = custom_serialize_default;
+                op.deserialize = custom_deserialize_default;
+        }
+        value v = caml_alloc_custom(&op, size, 0, 1);
+        return v;
+}
+
 inline value copy_Eina_List_string(const Eina_List* list)
 {
         CAMLparam0();
@@ -234,11 +272,16 @@ inline value copy_string_string(char** x)
 
 inline value copy_voidp(void* ptr)
 {
-        return (value) ptr;
+        value v = alloc_ptr(sizeof(void*));
+        void** data = Data_custom_val(v);
+        *data = ptr;
+        return v;
 }
 
 inline void* voidp_val(value v)
 {
-        return (void*) v;
+        void** data = Data_custom_val(v);
+        void* ptr = *data;
+        return ptr;
 }
 
