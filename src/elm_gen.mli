@@ -10,3 +10,11 @@ type item_class = {
     (** Ignored if EFL <= 1.17 *)
 }
 
+val item_class_create :
+  item_style:string -> ?func_text_get:(Evas.obj -> string -> string) ->
+    ?func_content_get:(Evas.obj -> string -> Evas.obj option) ->
+    ?func_state_get:(Evas.obj -> string -> bool) ->
+    ?func_del:(Evas.obj -> unit) ->
+    ?func_reusable_content_get:(
+      Evas.obj -> string -> Evas.obj -> Evas.obj option) -> unit -> item_class
+
