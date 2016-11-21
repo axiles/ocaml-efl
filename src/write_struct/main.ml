@@ -12,6 +12,12 @@ let string_mapi f s =
   string_iteri aux s;
   Buffer.contents buf
   
+(* Forward compatible implementarion of uppercase *)
+let char_uppercase c =
+  if 'a' <= c && c <= 'z' then
+    char_of_int (int_of_char c + int_of_char 'A' - int_of_char 'a')
+  else c
+
 module Ty = struct
   type t = {
     name : string;
@@ -107,7 +113,7 @@ end = struct
     let c_name = e.E.c_name in
     let modu =
       if e.E.modu then (
-        let aux i c = if i = 0 then Char.uppercase c else c in
+        let aux i c = if i = 0 then char_uppercase c else c in
         Some (string_mapi aux ml_name))
       else None in
     let ptr = e.E.ptr in

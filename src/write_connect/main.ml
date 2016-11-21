@@ -12,6 +12,13 @@ let string_mapi f s =
   string_iteri aux s;
   Buffer.contents buf
   
+(* Forward compatible implementarion of uppercase *)
+let char_uppercase c =
+  if 'a' <= c && c <= 'z' then
+    char_of_int (int_of_char c + int_of_char 'A' - int_of_char 'a')
+  else c
+
+
 (* The names of the Eo class depends on the version of the EFL *)
 type elm_eo_class_prefix =
 | ELM
@@ -177,7 +184,7 @@ end = struct
     signals : Signal.t list
   }
   let ml_name_of_name name =
-    let aux i c = if i = 0 then Char.uppercase c else c in
+    let aux i c = if i = 0 then char_uppercase c else c in
     string_mapi aux name
   let get_expr name =
     let ( / ) = Filename.concat in

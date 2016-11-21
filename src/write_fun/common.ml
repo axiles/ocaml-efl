@@ -14,6 +14,18 @@ let string_mapi f s =
   string_iteri aux s;
   Buffer.contents buf
   
+(* Forward compatible implementarion of lowercase/uppercase *)
+let char_uppercase c =
+  if 'a' <= c && c <= 'z' then
+    char_of_int (int_of_char c + int_of_char 'A' - int_of_char 'a')
+  else c
+let char_lowercase c =
+  if 'A' <= c && c <= 'Z' then
+    char_of_int (int_of_char c + int_of_char 'a' - int_of_char 'A')
+  else c
+let string_lowercase s =
+  string_mapi (fun i c -> char_lowercase c) s
+
 module Ty = struct
   type t = {
     name : string;
@@ -152,7 +164,7 @@ end = struct
     params : StringStringSet.t;
   }
   let create name list =
-    let c_prefix = String.lowercase name in
+    let c_prefix = string_lowercase name in
     let aux1 accu f =
       {f with Fun.c_name = sprintf "%s_%s" c_prefix f.Fun.c_name} :: accu in
     let aux2 accu list1 = List.fold_left aux1 accu list1 in
@@ -256,12 +268,12 @@ let safe_string_free = {safe_string with ml_of_c = "safe_copy_string_free"}
 
 let simple_ty ?(ptr = false) first second =
   let c_name = sprintf "%s_%s" first second in
-  let name = String.lowercase c_name in
+  let name = string_lowercase c_name in
   let ml_name =
     let s1 =
-      let aux i c = (if i = 0 then Char.uppercase else Char.lowercase) c in
+      let aux i c = (if i = 0 then char_uppercase else char_lowercase) c in
       string_mapi aux first in
-    let s2 = match String.lowercase second with
+    let s2 = match string_lowercase second with
     | "option" -> "opt"
     | "object" -> "obj"
     | s -> s in
@@ -274,14 +286,14 @@ let simple_ty ?(ptr = false) first second =
 
 let flags_ty first second =
   let c_name = sprintf "%s_%s" first second in
-  let name = String.lowercase c_name in
+  let name = string_lowercase c_name in
   let name_ = sprintf "%s_" name in
   let name = sprintf "%s_list" name in
   let ml_name, ml_name_ =
     let s1 =
-      let aux i c = (if i = 0 then Char.uppercase else Char.lowercase) c in
+      let aux i c = (if i = 0 then char_uppercase else char_lowercase) c in
       string_mapi aux first in
-    let s2 = String.lowercase second in
+    let s2 = string_lowercase second in
     let s3 = sprintf "%s.%s" s1 s2 in
     (sprintf "%s list" s3, sprintf "%s_" s3) in
   let c_of_ml = sprintf "%s_val_list" c_name in

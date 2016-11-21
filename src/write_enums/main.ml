@@ -1,5 +1,12 @@
 open Format
 
+(* Forward compatible implementarion of lowercase*)
+let char_lowercase c =
+  if 'A' <= c && c <= 'Z' then
+    char_of_int (int_of_char c + int_of_char 'a' - int_of_char 'A')
+  else c
+let string_lowercase s = String.map(fun c -> char_lowercase c) s
+
 let get_hash_value s =
   let open Int32 in
   let val_int x = logor (shift_left x 1) 1l in
@@ -26,7 +33,7 @@ end = struct
   }
   let keywords = ["end"; "done"; "in"; "class"]
   let create c n =
-    let ml = String.lowercase (String.sub c n (String.length c - n)) in
+    let ml = string_lowercase (String.sub c n (String.length c - n)) in
     let macro = sprintf "Val_%s" ml in
     let ml = if List.mem ml keywords then sprintf "_%s" ml else ml in
     {ml; c; macro}
@@ -89,7 +96,7 @@ end = struct
       aux3 (List.fold_left aux2 (String.length x) list)
   let get_ml_name module_name c_name =
     let n = String.length module_name + 1 in
-    String.lowercase (String.sub c_name n (String.length c_name - n))
+    string_lowercase (String.sub c_name n (String.length c_name - n))
   let create module_name e =
     let c_name = e.Expr.c_name in
     let ml_name = match e.Expr.ml_name with

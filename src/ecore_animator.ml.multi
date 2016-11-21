@@ -31,7 +31,7 @@ let timeline_add runtime f =
     let x = (current -. start) /. runtime in
     if x > 1. then false
     else f ((current -. start) /. runtime) in
-  try add g with Failure "ecore_animator_add" ->
+  try add g with Failure _ ->
     failwith "ecore_animator_timeline_add"
 
 external del : t -> unit = "ml_ecore_animator_del"
