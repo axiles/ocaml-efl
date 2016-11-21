@@ -36,6 +36,26 @@ let elm_eo_class_obj = "@ELM_EO_CLASS_OBJ@"
 
 let ( & ) f x  = f x
 
+let string_iteri f s =
+  for i = 0 to String.length s - 1 do
+    f i s.[i]
+  done
+
+(* Forward compatible implementation of String.mapi *)
+let string_mapi f s =
+  let buf = Buffer.create (String.length s) in
+  let aux i c = Buffer.add_char buf (f i c) in
+  string_iteri aux s;
+  Buffer.contents buf
+  
+(* Forward compatible implementarion of lowercase *)
+let char_lowercase c =
+  if 'A' <= c && c <= 'Z' then
+    char_of_int (int_of_char c + int_of_char 'a' - int_of_char 'A')
+  else c
+let string_lowercase s =
+  string_mapi (fun i c -> char_lowercase c) s
+
 (* The file variants.h is generated: this function adds the rules of builing *)
 let write_variants () =
   let action env builder =
@@ -159,7 +179,7 @@ let write_big_mli () =
         | "Autofun" | "Autofun_check" | "Common" -> false
       | _ -> true in
     let public_modules = List.filter check_public modules in
-    let mli_of_module s = "src" / String.uncapitalize s ^ ".mli" in
+    let mli_of_module s = "src" / string_lowercase s ^ ".mli" in
     let mli_files = List.map mli_of_module public_modules in
     let deps = List.map (fun x -> [x]) mli_files in
     List.iter (function
