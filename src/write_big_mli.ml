@@ -26,7 +26,7 @@ let string_lowercase s = string_mapi (fun i c -> char_lowercase c) s
 let buffer_size = 1024 
 
 let () =
-  for i = 2 to Array.length Sys.argv - 1 do
+  for i = 1 to Array.length Sys.argv - 1 do
     let module_name = Sys.argv.(i) in
     let filename = "src" / string_lowercase module_name ^ ".mli" in
     fprintf ch "module %s : sig\n" module_name;
