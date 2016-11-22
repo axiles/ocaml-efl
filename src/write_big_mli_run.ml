@@ -1,2 +1,3 @@
-#load "src/write_big_mli.cma";;
+#directory "src";;
+#load "write_big_mli.cma";;
 
