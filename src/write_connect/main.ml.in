@@ -1,5 +1,7 @@
 open Format
 
+let elm_eo_class_obj = "@ELM_EO_CLASS_OBJ@"
+
 let string_iteri f s =
   for i = 0 to String.length s - 1 do
     f i s.[i]
@@ -25,7 +27,7 @@ type elm_eo_class_prefix =
 | ELM_OBJ
 | EFL_UI
 
-let elm_eo_class_obj = match Sys.argv.(2) with
+let elm_eo_class_obj = match elm_eo_class_obj with
 | "elm" -> ELM
 | "elm_obj" -> ELM_OBJ
 | "efl_ui" -> EFL_UI

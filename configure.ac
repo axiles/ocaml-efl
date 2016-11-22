@@ -79,7 +79,7 @@ AS_FOR([FILE], [file], [examples/*.ml], [
   echo FILE | sed 's|examples/\(.*\)[.]ml|\1|' >> examples/list.txt
 ])
 
-AC_CONFIG_FILES([Makefile myocamlbuild.ml META])
+AC_CONFIG_FILES([Makefile myocamlbuild.ml META src/write_connect/main.ml])
 
 AC_OUTPUT
 
