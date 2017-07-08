@@ -219,16 +219,23 @@ end = struct
     let eo_name =
       if elm_eo_class_obj <> ELM_OBJ && eo_name = "ELM_WIN_INWIN_CLASS" then
         "ELM_WIN_CLASS" else eo_name in
-    let eo_name = if elm_eo_class_obj = EFL_UI then match eo_name with
-      | "ELM_FLIP_CLASS" | "ELM_FRAME_CLASS" | "ELM_WIN_CLASS" |
-        "ELM_IMAGE_CLASS" | "ELM_VIDEO_CLASS" ->
-        replace_prefix eo_name "ELM" "EFL_UI"
-      | _ -> eo_name
-      else eo_name in
+    let eo_name = match elm_eo_class_obj with
+      |  EFL_UI | ELM_GET ->
+        (match eo_name with
+          | "ELM_FLIP_CLASS" | "ELM_FRAME_CLASS" | "ELM_WIN_CLASS" |
+            "ELM_IMAGE_CLASS" | "ELM_VIDEO_CLASS" ->
+              replace_prefix eo_name "ELM" "EFL_UI"
+          | _ -> eo_name)
+      | _ -> eo_name in
     let eo_name =
       match elm_eo_class_obj with
       | ELM_GET -> sprintf "%s_get()" (String.lowercase eo_name)
       | _ -> eo_name in
+    let eo_name =
+        if elm_eo_class_obj = ELM_GET &&
+          eo_name = "elm_datetime_class_get()" then
+            "elm_clock_class_get()"
+        else eo_name in
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =
