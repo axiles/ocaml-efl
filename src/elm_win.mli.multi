@@ -148,18 +148,6 @@ val raise : Evas.obj -> unit
 
 val center : Evas.obj -> bool -> bool -> unit
 
-(* BEGIN: 1.18 *)
-
-val teamwork_uri_preload : Evas.obj -> string -> unit
-
-val teamwork_uri_show : Evas.obj -> string -> unit
-
-val teamwork_uri_hide : Evas.obj -> unit
-
-val teamwork_uri_open : Evas.obj -> string -> unit
-
-(* END *)
-
 val borderless_set : Evas.obj -> bool -> unit
 
 val borderless_get : Evas.obj -> bool

@@ -21,12 +21,6 @@ let funs = [
   simple_unit "lower" [evas_object];
   simple_unit "raise" [evas_object];
   simple_unit "center" [evas_object; bool; bool];
-(* BEGIN: 1.18 *)
-  simple_unit "teamwork_uri_preload" [evas_object; safe_string];
-  simple_unit "teamwork_uri_show" [evas_object; safe_string];
-  simple_unit "teamwork_uri_hide" [evas_object];
-  simple_unit "teamwork_uri_open" [evas_object; safe_string];
-(* END *)
   prop "borderless" bool;
   prop "shaped" bool;
   prop "alpha" bool;
