@@ -49,7 +49,7 @@ AS_IF([test -z $ELEMENTARY_VERSION], [
   ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
 ])
 AC_SUBST([ELM_EO_CLASS_OBJ], "elm_obj")
-AC_SUBST([EO_ISA], "eo_isa"])
+AC_SUBST([EO_ISA], "eo_isa")
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
   ELM_EO_CLASS_OBJ="elm"
 ], [])
