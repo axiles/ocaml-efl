@@ -259,6 +259,9 @@ type input_panel_layout = [
 (* BEGIN: 1.10 *)
   | `emoticon
 (* END *)
+(* BEGIN: 1.19 *)
+  | `voice
+(* END *)
 ]
 
 type input_panel_lang = [`automatic | `alphabet]

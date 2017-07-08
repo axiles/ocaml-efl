@@ -39,6 +39,9 @@ Section Evas {
     EVAS_LOAD_ERROR_RESOURCE_ALLOCATION_FAILED
     EVAS_LOAD_ERROR_CORRUPT_FILE
     EVAS_LOAD_ERROR_UNKNOWN_FORMAT
+(* BEGIN: 1.19 *)
+    EVAS_LOAD_ERROR_CANCELLED
+(* END *)
   }
   Enum Evas_Display_Mode {
     EVAS_DISPLAY_MODE_NONE
@@ -227,6 +230,9 @@ Section Elm {
 (* BEGIN: 1.10 *)
     ELM_INPUT_PANEL_LAYOUT_EMOTICON
 (* END *)
+(* BEGIN: 1.19 *)
+   ELM_INPUT_PANEL_LAYOUT_VOICE
+(* END *)
   }
   Enum Elm_Input_Panel_Lang {
     ELM_INPUT_PANEL_LANG_AUTOMATIC
@@ -389,6 +395,9 @@ Section Elm_calendar {
     ELM_CALENDAR_MONTHLY
     ELM_CALENDAR_ANNUALLY
     ELM_CALENDAR_LAST_DAY_OF_MONTH
+(* BEGIN: 1.19 *)
+    ELM_CALENDAR_REVERSE_DAILY
+(* END *)
   }
   Enum Elm_Calendar_Weekday {
     ELM_DAY_SUNDAY
@@ -469,6 +478,9 @@ Section Elm_flip {
     ELM_FLIP_PAGE_RIGHT
     ELM_FLIP_PAGE_UP
     ELM_FLIP_PAGE_DOWN                                                            
+(* BEGIN: 1.19 *)
+    ELM_FLIP_CROSS_FADE
+(* END *)
   }
   Enum Elm_Flip_Interaction {
     ELM_FLIP_INTERACTION_NONE
@@ -782,6 +794,9 @@ Section Elm_win {
 (* END *)
 (* BEGIN: 1.9 *)
     ELM_WIN_UNKNOWN
+(* END *)
+(* BEGIN: 1.19 *)
+    ELM_WIN_NAVIFRAME_BASIC
 (* END *)
   }
   Enum Elm_Win_Keyboard_Mode {

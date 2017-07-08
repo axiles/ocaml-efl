@@ -97,6 +97,9 @@ type load_error = [
   | `resource_allocation_failed
   | `corrupt_file
   | `unknown_format
+(* BEGIN: 1.19 *)
+  | `cancelled
+(* END *)
 ]
 
 type gl_api

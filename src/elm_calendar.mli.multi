@@ -3,7 +3,11 @@
 type select_mode = [`default | `always | `none | `ondemand]
 
 type mark_repeat_type = [
-  `unique | `daily | `weekly | `monthly | `annually | `last_day_of_month]
+  `unique | `daily | `weekly | `monthly | `annually | `last_day_of_month |
+(* BEGIN: 1.19 *)
+  `reverse_daily
+(* END *)
+]
 
 type mark
 

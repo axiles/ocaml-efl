@@ -29,6 +29,9 @@ type ty = [
 (* BEGIN: 1.13 *)
   | `fake
 (* END *)
+(* BEGIN: 1.19 *)
+  | `naviframe_basic
+(* END *)
 ]
 
 type keyboard_mode = [
