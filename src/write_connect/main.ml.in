@@ -243,6 +243,9 @@ end = struct
     fprintf fmt "end\n\n"
   let print_c_impl fmt w =
     let f s =
+      (match elm_eo_class_obj with
+      | ELM_GET -> fprintf fmt "const Efl_Class *%s;\n\n" w.eo_name
+      | _ -> ());
       fprintf fmt "%a\n\n" (Signal.print_c_impl s w.ml_name) w.eo_name in
     List.iter f w.signals
 end
