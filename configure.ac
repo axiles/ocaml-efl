@@ -49,12 +49,16 @@ AS_IF([test -z $ELEMENTARY_VERSION], [
   ELEMENTARY_VERSION=$($PKG_CONFIG --modversion elementary)
 ])
 AC_SUBST([ELM_EO_CLASS_OBJ], "elm_obj")
+AC_SUBST([EO_ISA], "eo_isa"])
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
   ELM_EO_CLASS_OBJ="elm"
 ], [])
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.18"], [
   ELM_EO_CLASS_OBJ="efl_ui"
 ], [])
+AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.19"], [
+  EO_ISA="efl_isa"
+])
 
 dnl Checking for Lablgl (used to compile an example, optional)
 AC_CHECK_OCAML_PKG([lablgl])

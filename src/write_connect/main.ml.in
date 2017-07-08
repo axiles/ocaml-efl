@@ -2,6 +2,8 @@ open Format
 
 let elm_eo_class_obj = "@ELM_EO_CLASS_OBJ@"
 
+let eo_isa = "@EO_ISA@"
+
 let string_iteri f s =
   for i = 0 to String.length s - 1 do
     f i s.[i]
@@ -153,9 +155,9 @@ end = struct
       (get_external_name s widget_name);
     fprintf fmt "        Evas_Object* obj = Evas_Object_val(v_obj);\n";
     fprintf fmt "#ifdef EFL_EO_API_SUPPORT\n";
-    fprintf fmt "        if(!eo_isa(obj, %s)) \
+    fprintf fmt "        if(!%s(obj, %s)) \
                            caml_failwith(\"Widget is not a %s\");\n"
-      eo_name widget_name;
+      eo_isa eo_name widget_name;
     fprintf fmt "#endif\n";
     fprintf fmt
       "        value* data = ml_Evas_Object_register_value(obj, v_cb);\n";
