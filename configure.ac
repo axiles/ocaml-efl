@@ -1,4 +1,4 @@
-AC_INIT([ocaml-efl], [1.18.0])
+AC_INIT([ocaml-efl], [1.19.0])
 
 AM_INIT_AUTOMAKE([foreign])
 
