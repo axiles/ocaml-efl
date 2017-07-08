@@ -23,16 +23,20 @@ let char_uppercase c =
   else c
 
 
-(* The names of the Eo class depends on the version of the EFL *)
+(* The names of the Eo class depends on the version of the EFL
+   Actually, from EFL 1.19, these macros are not public and we must
+   use the *get function *)
 type elm_eo_class_prefix =
 | ELM
 | ELM_OBJ
 | EFL_UI
+| ELM_GET
 
 let elm_eo_class_obj = match elm_eo_class_obj with
 | "elm" -> ELM
 | "elm_obj" -> ELM_OBJ
 | "efl_ui" -> EFL_UI
+| "elm_get" -> ELM_GET
 | s -> invalid_arg (sprintf "%s is not elm, elm_obj or efl_ui" s)
 
 module Event_info : sig
@@ -210,7 +214,7 @@ end = struct
     let eo_name = e.Expr.name in
     let eo_name =
       match elm_eo_class_obj with
-      | ELM | EFL_UI -> replace_prefix eo_name "ELM_OBJ" "ELM"
+      | ELM | EFL_UI | ELM_GET -> replace_prefix eo_name "ELM_OBJ" "ELM"
       | ELM_OBJ -> eo_name in
     let eo_name =
       if elm_eo_class_obj <> ELM_OBJ && eo_name = "ELM_WIN_INWIN_CLASS" then
@@ -221,6 +225,10 @@ end = struct
         replace_prefix eo_name "ELM" "EFL_UI"
       | _ -> eo_name
       else eo_name in
+    let eo_name =
+      match elm_eo_class_obj with
+      | ELM_GET -> sprintf "%s_get()" (String.lowercase eo_name)
+      | _ -> eo_name in
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =
