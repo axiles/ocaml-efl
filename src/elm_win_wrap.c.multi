@@ -1,4 +1,4 @@
-#include "include.h"
+#include "elm_win_wrap.h"
 
 PREFIX value ml_elm_win_add(value v_parent, value v_name, value v_ty)
 {
@@ -209,4 +209,18 @@ PREFIX value ml_elm_win_window_id_get(value v_obj)
         return copy_nativeint(
                 elm_win_window_id_get(Evas_Object_val(v_obj)));
 }
+
+/* BEGIN: 1.19 */
+inline Efl_Ui_Win_Move_Resize_Mode
+Efl_Ui_Win_Move_Resize_Mode_val_list(value v)
+{
+        value v_tmp = v;
+        Efl_Ui_Win_Move_Resize_Mode m = 0;
+        while(v_tmp != Val_int(0)) {
+                m = m | Efl_Ui_Win_Move_Resize_Mode_val(Field(v_tmp, 0));
+                v_tmp = Field(v_tmp, 1);
+        }
+        return m;
+}
+/* END */
 

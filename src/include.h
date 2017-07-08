@@ -56,6 +56,7 @@
 #include "elm_entry_wrap.h"
 #include "elm_icon_wrap.h"
 #include "elm_web_wrap.h"
+#include "elm_win_wrap.h"
 #include "elm_dayselector_wrap.h"
 #include "enums_variants_wrap.h"
 #include "enums_wrap.h"

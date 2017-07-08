@@ -7,6 +7,10 @@ module AF = Autofun.Elm_win.F (struct
   type elm_win_keyboard_mode = keyboard_mode
   type elm_win_indicator_opacity_mode = indicator_opacity_mode
   type elm_win_indicator_mode = indicator_mode
+(* BEGIN: 1.19 *)
+  type efl_ui_win_move_resize_mode = move_resize_mode
+  type efl_ui_win_move_resize_mode_list = move_resize_mode
+(* END *)
 end)
 include AF
 

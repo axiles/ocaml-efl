@@ -1,0 +1,10 @@
+#ifndef ELM_WIN_WRAP_H
+#define ELM_WIN_WRAP_H
+
+#include "include.h"
+
+inline Efl_Ui_Win_Move_Resize_Mode
+Efl_Ui_Win_Move_Resize_Mode_val_list(value v);
+
+#endif
+

@@ -63,6 +63,16 @@ type indicator_opacity_mode = [
   | `translucent
   | `transparent]
 
+(* BEGIN: 1.19 *)
+type move_resize_mode = [
+| `move
+| `top
+| `bottom
+| `left
+| `right
+]
+(* END *)
+
 type illume_command = Elm.illume_command
 
 val add : ?p:Evas.obj -> string -> ty -> Evas.obj
@@ -323,4 +333,8 @@ val floating_mode_set : Evas.obj -> bool -> unit
 val floating_mode_get : Evas.obj -> bool
 
 val window_id_get : Evas.obj -> Ecore.window
+
+(* BEGIN: 1.19 *)
+val move_resize_start : Evas.obj -> move_resize_mode ->  bool
+(* END *)
 

@@ -228,6 +228,7 @@ let add_header_depends () =
     "elm_list_wrap.h";
     "elm_scroller_wrap.h";
     "elm_web_wrap.h";
+    "elm_win_wrap.h";
   ] in
   List.iter (fun s -> dep ["extension:c"] ["src" / s]) headers
 

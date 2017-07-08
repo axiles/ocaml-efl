@@ -4,6 +4,12 @@ let keyboard_mode = simple_ty "Elm_Win" "Keyboard_Mode"
 let indicator_mode = simple_ty "Elm_Win" "Indicator_Mode" 
 let indicator_opacity_mode = simple_ty "Elm_Win" "Indicator_Opacity_Mode"
 
+(* BEGIN: 1.19 *)
+let (move_resize_mode, _) = flags_ty "Efl_Ui_Win" "Move_Resize_Mode"
+let move_resize_mode =
+  {move_resize_mode with Common.Ty.ml_name = "Elm_win.move_resize_mode"}
+(* END *)
+
 let funs = [
 (* BEGIN: 1.18 *)
   simple "accel_preference_get" [evas_object] safe_string;
@@ -67,5 +73,8 @@ let funs = [
   prop "indicator_opacity" indicator_opacity_mode;
   simple_unit "socket_listen" [evas_object; safe_string; int; bool];
   prop "floating_mode" bool;
+(* BEGIN: 1.19 *)
+  simple "move_resize_start" [evas_object; move_resize_mode] bool;
+(* END *)
 ]
 
