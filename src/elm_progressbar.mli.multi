@@ -41,3 +41,7 @@ val part_value_set : Evas.obj -> ?p:string -> float -> unit
 
 val part_value_get : Evas.obj -> ?p:string -> unit -> float
 
+(* BEGIN: 1.19 *)
+val is_pulsing_get : Evas.obj -> bool
+(* END *)
+

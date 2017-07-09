@@ -3,6 +3,9 @@ open Common
 let funs = [
   prop "pulse" bool;
   simple_unit "pulse" [evas_object; bool];
+(* BEGIN: 1.19 *)
+  simple "is_pulsing_get" [evas_object] bool;
+(* END *)
   prop "value" double;
   prop "span_size" int;
   prop "horizontal" bool;
