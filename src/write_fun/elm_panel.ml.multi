@@ -8,6 +8,9 @@ let funs = [
 (* BEGIN: 1.12 *)
   simple "scrollable_get" [evas_object] bool;
 (* END *)
+(* BEGIN: 1.19 *)
+  prop "scrollable_content_size" double;
+(* END *)
   simple_unit "toggle" [evas_object]
 ]
 
