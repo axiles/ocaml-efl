@@ -1,3 +1,0 @@
-ELM_OBJ_IMAGE_CLASS
-"drop" string
-"clicked"

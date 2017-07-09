@@ -193,3 +193,13 @@ Section Elm_entry {
   }
 }
 
+(* BEGIN: 1.19 *)
+Section Elm_image {
+  Struct progress Elm_Image_Progress* {
+    now double;
+    total double;
+  }
+}
+(* END *)
+
+
