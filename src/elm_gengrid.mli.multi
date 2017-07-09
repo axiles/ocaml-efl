@@ -154,6 +154,12 @@ val item_select_mode_set : Elm_object.item -> Elm_object.select_mode -> unit
 
 val item_select_mode_get : Elm_object.item -> Elm_object.select_mode
 
+(* BEGIN: 1.19 *)
+val item_custom_size_set : Elm_object.item -> int -> int -> unit
+
+val item_custom_size_get : Elm_object.item -> int * int
+(* END *)
+
 (* BEGIN: 1.10 *)
 val reorder_mode_start : Evas.obj -> Ecore.pos_map -> unit
 

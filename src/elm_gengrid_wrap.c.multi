@@ -269,3 +269,15 @@ PREFIX value ml_elm_gengrid_nth_item_get(value v_obj, value v_k)
         return copy_Elm_Object_Item(it);
 }
 
+/* BEGIN: 1.19 */
+PREFIX value ml_elm_gengrid_item_custom_size_get(value v_item)
+{
+        Evas_Coord w, h;
+        value v = caml_alloc(2, 0);
+        elm_gengrid_item_custom_size_get(Elm_Object_Item_val(v_item), &w, &h);
+        Store_field(v, 0, Val_int(w));
+        Store_field(v, 1, Val_int(h));
+        return v;
+}
+/* END */
+

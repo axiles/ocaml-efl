@@ -17,6 +17,9 @@ let funs = [
     item_field_type];
 (* END *)
   simple "item_index_get" [elm_object_item] int;
+(* BEGIN: 1.19 *)
+  simple_unit "item_custom_size_set" [elm_object_item; int; int];
+(* END *)
   simple "items_count" [evas_object] int;
   simple_unit "item_tooltip_text_set" [elm_object_item; safe_string];
   simple_unit "item_tooltip_unset" [elm_object_item];
