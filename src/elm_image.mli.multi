@@ -79,3 +79,7 @@ val animated_play_set : Evas.obj -> bool -> unit
 
 val animated_play_get : Evas.obj -> bool
 
+(* BEGIN: 1.19 *)
+val async_open_set : Evas.obj -> bool -> unit
+(* END *)
+
