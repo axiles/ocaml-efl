@@ -69,3 +69,13 @@ val first_day_of_week_set : Evas.obj -> weekday -> unit
 
 val first_day_of_week_get : Evas.obj -> weekday
 
+(* BEGIN: 1.19 *)
+val date_min_set : Evas.obj -> Unix.tm -> unit
+
+val date_min_get : Evas.obj -> Unix.tm
+
+val date_max_set : Evas.obj -> Unix.tm -> unit
+
+val date_max_get : Evas.obj -> Unix.tm
+(* END *)
+

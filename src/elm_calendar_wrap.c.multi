@@ -163,3 +163,40 @@ PREFIX value ml_elm_calendar_marks_get(value v_obj)
                 Evas_Object_val(v_obj)));
 }
 
+/* BEGIN: 1.19 */
+
+PREFIX value ml_elm_calendar_date_min_set(value v_obj, value v_date)
+{
+      struct tm date;
+      date = Tm_val(v_date);
+      elm_calendar_date_min_set(Evas_Object_val(v_obj), &date);
+      return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_date_min_get(value v_obj)
+{
+        struct tm date;
+        const struct tm *ptr;
+        ptr = elm_calendar_date_min_get(Evas_Object_val(v_obj));
+        date = *ptr;
+        return copy_tm(date);
+}
+
+PREFIX value ml_elm_calendar_date_max_set(value v_obj, value v_date)
+{
+      struct tm date;
+      date = Tm_val(v_date);
+      elm_calendar_date_max_set(Evas_Object_val(v_obj), &date);
+      return Val_unit;
+}
+
+PREFIX value ml_elm_calendar_date_max_get(value v_obj)
+{
+        struct tm date;
+        const struct tm *ptr;
+        ptr = elm_calendar_date_max_get(Evas_Object_val(v_obj));
+        date = *ptr;
+        return copy_tm(date);
+}
+/* END */
+
