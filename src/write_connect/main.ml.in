@@ -320,6 +320,8 @@ let create_env () =
       "Val_Elm_Dayselector_Day");
     ("coord_rectangle", "Evas_Coord_Rectangle*", "Evas.coord_rectangle",
       "copy_Evas_Coord_Rectangle");
+    ("progress", "Elm_Image_Progress*", "Elm_image.progress",
+      "copy_Elm_Image_Progress");
   ] in
   let env2 = List.fold_left add_cast_ptr env1 [
     ("item", "Elm_Object_Item", "Elm_object.item");
