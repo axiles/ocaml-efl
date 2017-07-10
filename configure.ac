@@ -60,7 +60,7 @@ AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.18"], [
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.19"], [
   EO_ISA="efl_isa"
   ELM_EO_CLASS_OBJ="elm_get"
-  ELM_IMAGE_PRPGRESS="yes"
+  ELM_IMAGE_PROGRESS="yes"
 ], [])
 
 dnl Checking for Lablgl (used to compile an example, optional)
