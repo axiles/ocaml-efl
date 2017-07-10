@@ -18,11 +18,18 @@ let string_mapi f s =
   string_iteri aux s;
   Buffer.contents buf
   
-(* Forward compatible implementarion of uppercase *)
+(* Forward compatible implementarion of lowercase/uppercase *)
 let char_uppercase c =
   if 'a' <= c && c <= 'z' then
     char_of_int (int_of_char c + int_of_char 'A' - int_of_char 'a')
   else c
+let char_lowercase c =
+  if 'A' <= c && c <= 'Z' then
+    char_of_int (int_of_char c + int_of_char 'a' - int_of_char 'A')
+  else c
+let string_lowercase s =
+  string_mapi (fun i c -> char_lowercase c) s
+
 
 
 (* The names of the Eo class depends on the version of the EFL
@@ -231,7 +238,7 @@ end = struct
       | _ -> eo_name in
     let eo_name =
       match elm_eo_class_obj with
-      | ELM_GET -> sprintf "%s_get()" (String.lowercase eo_name)
+      | ELM_GET -> sprintf "%s_get()" (string_lowercase eo_name)
       | _ -> eo_name in
     let eo_name =
         if elm_eo_class_obj = ELM_GET &&
