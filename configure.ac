@@ -50,6 +50,7 @@ AS_IF([test -z $ELEMENTARY_VERSION], [
 ])
 AC_SUBST([ELM_EO_CLASS_OBJ], "elm_obj")
 AC_SUBST([EO_ISA], "eo_isa")
+AC_SUBST([ELM_IMAGE_PROGRESS], "no")
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
   ELM_EO_CLASS_OBJ="elm"
 ], [])
@@ -59,6 +60,7 @@ AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.18"], [
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.19"], [
   EO_ISA="efl_isa"
   ELM_EO_CLASS_OBJ="elm_get"
+  ELM_IMAGE_PRPGRESS="yes"
 ], [])
 
 dnl Checking for Lablgl (used to compile an example, optional)

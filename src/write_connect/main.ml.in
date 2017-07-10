@@ -4,6 +4,8 @@ let elm_eo_class_obj = "@ELM_EO_CLASS_OBJ@"
 
 let eo_isa = "@EO_ISA@"
 
+let elm_image_progress = "@ELM_IMAGE_PROGRESS@" = "yes"
+
 let string_iteri f s =
   for i = 0 to String.length s - 1 do
     f i s.[i]
@@ -320,9 +322,11 @@ let create_env () =
       "Val_Elm_Dayselector_Day");
     ("coord_rectangle", "Evas_Coord_Rectangle*", "Evas.coord_rectangle",
       "copy_Evas_Coord_Rectangle");
-    ("progress", "Elm_Image_Progress*", "Elm_image.progress",
-      "copy_Elm_Image_Progress");
   ] in
+  let env1 = if elm_image_progress then 
+    add env1 ("progress", "Elm_Image_Progress*", "Elm_image.progress",
+      "copy_Elm_Image_Progress")
+    else env1 in
   let env2 = List.fold_left add_cast_ptr env1 [
     ("item", "Elm_Object_Item", "Elm_object.item");
     ("evas_obj", "Evas_Object", "Evas.obj");
