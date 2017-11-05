@@ -111,6 +111,12 @@ val select_all : Evas.obj -> unit
 val select_region_set : Evas.obj -> int -> int -> unit
 (* END *)
 
+(* BEGIN: 1.20 *)
+
+val prediction_hint_set : Evas.obj -> string -> unit
+
+(* END *)
+
 val cursor_next : Evas.obj -> bool
 
 val cursor_prev : Evas.obj -> bool
