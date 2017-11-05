@@ -76,5 +76,8 @@ let funs = [
 (* BEGIN: 1.19 *)
   simple "move_resize_start" [evas_object; move_resize_mode] bool;
 (* END *)
+(* BEGIN: 1.20 *)
+  simple "get" [evas_object] evas_object;
+(* END *)
 ]
 

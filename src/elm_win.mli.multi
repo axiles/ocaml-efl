@@ -338,3 +338,7 @@ val window_id_get : Evas.obj -> Ecore.window
 val move_resize_start : Evas.obj -> move_resize_mode ->  bool
 (* END *)
 
+(* BEGIN: 1.20 *)
+val get : Evas.obj -> Evas.obj
+(* END *)
+
