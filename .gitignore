@@ -13,4 +13,5 @@ missing
 META
 examples/list.txt
 src/write_connect/main.ml
+compile
 ocaml-efl-*.tar.gz
