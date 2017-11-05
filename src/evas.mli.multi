@@ -100,6 +100,11 @@ type load_error = [
 (* BEGIN: 1.19 *)
   | `cancelled
 (* END *)
+(* BEGIN: 1.20 *)
+  | `incompatible_file
+  | `unknown_collection
+  | `recursive_reference
+(* END *)
 ]
 
 type gl_api

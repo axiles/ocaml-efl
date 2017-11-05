@@ -36,6 +36,15 @@
  value safe_copy_string(const char* s);
  value safe_copy_string_free(char* s);
 
+/* Legacy style */
+
+#define EVAS_LOAD_ERROR_INCOMPATIBLE_FILE \
+        EFL_IMAGE_LOAD_ERROR_INCOMPATIBLE_FILE
+#define EVAS_LOAD_ERROR_UNKNOWN_COLLECTION \
+        EFL_IMAGE_LOAD_ERROR_UNKNOWN_COLLECTION
+#define EVAS_LOAD_ERROR_RECURSIVE_REFERENCE \
+        EFL_IMAGE_LOAD_ERROR_RECURSIVE_REFERENCE
+
 /* Local headers */
 
 #include "variants.h"

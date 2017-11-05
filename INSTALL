@@ -11,7 +11,7 @@ In order to compile this package, you will need:
 In particular, to install elementary, you will need to install the other
 libraries of the EFL.
 
-If you have a more recent version of the EFL/Elementary (eg. 1.19), then
+If you have a more recent version of the EFL/Elementary (eg. 1.20), then
 this binding will provide interfaces to more recent functions.
 
 Installing
