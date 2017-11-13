@@ -2,7 +2,188 @@
 
 <body>
 
-Hello World.
+<p>
+This is the README file for the ocaml-efl distribution.
+</p>
+
+<p>
+An OCaml interface to the Enlightenment Foundation Libraries (EFL).
+</p>
+
+Homepage: https://forge.ocamlcore.org/projects/ocaml-efl/
+Github page: https://github.com/axiles/ocaml-efl
+
+<h1>What is OCaml ?</h1>
+
+<p>
+OCaml, originally known as Objective Caml, is the main implementation of the
+Caml programming language, created by Xavier Leroy, Jérôme Vouillon, Damien
+Doligez, Didier Rémy and others in 1996. OCaml extends the core Caml
+language with object-oriented constructs.
+</p>
+
+<p>
+OCaml's toolset includes an interactive top level interpreter, a bytecode
+compiler, and an optimizing native code compiler. It has a large standard
+library that makes it useful for many of the same applications as Python or
+Perl, as well as robust modular and object-oriented programming constructs
+that make it applicable for large-scale software engineering. OCaml is the
+successor to Caml Light. The acronym CAML originally stood for Categorical
+Abstract Machine Language, although OCaml abandons this abstract machine.
+</p>
+
+<p>
+OCaml is a free open source project managed and principally maintained by
+INRIA.
+</p>
+
+Homepage: http://caml.inria.fr/index.en.html
+
+<h1> What are the Enlightenment Foundation Libraries (EFL) ?</h1>
+
+<p>
+The Enlightenment Foundation Libraries (EFL) are a set of free and open source
+graphics libraries that grew out of the development of the Enlightenment window
+manager and Wayland compositor. EFL is developed by Enlightenment.org with some
+sponsorship from Samsung, ProFUSION and Free.fr. The project's focus is to make
+the EFL a flexible yet powerful and easy to use set of tools to extend the
+capabilities of both the Enlightenment window manager and other software
+projects based on the EFL. The libraries were created for version 0.17 of the
+window manager. The libraries are meant to be portable and optimized to be
+functional even on mobile devices such as smart phones and tablets.
+</p>
+
+<p>
+Homepage: http://www.enlightenment.org/
+</p>
+
+<p>
+Elementary is a widget set based on the EFL that makes heavy use of Evas and
+Edje to provide a fast, stable, and scalable library that can be used to create
+both rich and fast applications that can be used on anything from every day
+desktop computers to small PDA's and set-top boxes. It is designed to fully
+expose the capability of the EFL.
+</p>
+
+<h1>INSTALLING</h1>
+
+<p>
+This package uses a configure script created with autoconf/automake
+(although ocamlbuild is used in the backstage).
+You can find more detailed instructions in the INSTALL file.
+</p>
+
+<h1>LICENSE</h1>
+
+<p>
+This is a free software licensed under the LGPLv2.1+ with Ocaml linking
+exception. More information is available in the COPYING file.
+
+Most of the examples are directly inspired by the official examples distributed
+with the EFL and Elementary.
+</p>
+
+
+<h1>CURRENT STATE OF THE INTERFACE</h1>
+
+<p>
+Currently the interfacing of Elementary (the high-level widget part of the
+EFL) is more or less complete. However, lots of functions have not been tested.
+</p>
+
+<p>
+Only a small portion of the rest of the EFL (ecore, evas, edje, ...) has been
+interfaced : only the minimum necessary to develop an Elementary application
+has been done.
+</p>
+
+<p>
+The next priority is interfacing Evas (canvas library).
+</p>
+
+<p>
+It is already possible to write some GUI applications. However, ocaml-efl is
+still in alpha stage and some (minor) API breaks may occured.
+</p>
+
+<p>
+The last version can be obtained here:
+<p>
+<p>
+https://forge.ocamlcore.org/frs/?group_id=329 (official releases)
+<p>
+https://github.com/axiles/ocaml-efl (official git repo)
+</p>
+
+<p>
+You may also want to contribute by adding missing functions that you want. The
+following pages might give you information about how to do it:
+</p>
+
+<p>
+http://www.linux-nantes.org/~fmonnier/ocaml/ocaml-wrapping-c.php
+</p>
+<p>
+http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual033.html
+</p>
+
+<h1>USING THIS LIBRARY</h1>
+
+<p>
+This library can easily be used with the findlib (ocamlfind) package 'efl'.
+</p>
+
+<p>
+For example, if you have a single-file program main.ml, you can build it by
+entering:
+</p>
+<p>
+'ocamlbuild -use-ocamlfind -pkg efl main.byte'
+</p>
+And then, you can execute it by entering:
+<p>
+'./main.byte'
+</p>
+<p>
+If you want to compile to native code, just replace 'main.byte' by
+'main.native'.
+</p>
+
+Findlib homepage: http://projects.camlcity.org/projects/findlib.html
+Ocamlbuild homepage: http://brion.inria.fr/gallium/index.php/Ocamlbuild
+
+Lots of examples are available in the directory "example". In particular,
+you might want to look at getting_started_01.ml and getting_started_02.ml.
+
+<h1>DOCUMENTATION</h1>
+
+<p>
+The INSTALL file indicates how to generate the documentation.
+</p>
+
+<p>
+However, it is possible to access the documentation online:
+</p>
+<p>
+http://ocaml-efl.forge.ocamlcore.org/
+</p>
+
+<p>
+Online documentation for specific versions of the EFL are also available:
+</p>
+
+http://ocaml-efl.forge.ocamlcore.org/1.8/
+http://ocaml-efl.forge.ocamlcore.org/1.9/
+http://ocaml-efl.forge.ocamlcore.org/1.10/
+http://ocaml-efl.forge.ocamlcore.org/1.11/
+http://ocaml-efl.forge.ocamlcore.org/1.12/
+http://ocaml-efl.forge.ocamlcore.org/1.13/
+http://ocaml-efl.forge.ocamlcore.org/1.14/
+http://ocaml-efl.forge.ocamlcore.org/1.15/
+http://ocaml-efl.forge.ocamlcore.org/1.16/
+http://ocaml-efl.forge.ocamlcore.org/1.17/
+http://ocaml-efl.forge.ocamlcore.org/1.18/
+http://ocaml-efl.forge.ocamlcore.org/1.19/
 
 </body>
 
