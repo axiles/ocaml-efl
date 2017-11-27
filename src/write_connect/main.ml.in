@@ -6,6 +6,8 @@ let eo_isa = "@EO_ISA@"
 
 let elm_image_progress = "@ELM_IMAGE_PROGRESS@" = "yes"
 
+let efl_ui_everywhere = "@EFL_UI_EVERYWHERE@" = "true"
+
 let string_iteri f s =
   for i = 0 to String.length s - 1 do
     f i s.[i]
@@ -237,6 +239,10 @@ end = struct
           | _ -> eo_name)
       | _ -> eo_name in
     let eo_name =
+        if efl_ui_everywhere
+          then replace_prefix eo_name "ELM" "EFL_UI"
+          else eo_name in
+    let eo_name =
       match elm_eo_class_obj with
       | ELM_GET -> sprintf "%s_get()" (string_lowercase eo_name)
       | _ -> eo_name in
@@ -245,6 +251,141 @@ end = struct
           eo_name = "elm_datetime_class_get()" then
             "elm_clock_class_get()"
         else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_index_class_get()" then "elm_index_class_get()"
+          else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_colorselector_class_get()" then
+           "elm_colorselector_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_scroller_class_get()" then
+          "elm_scroller_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_dayselector_class_get()" then
+          "elm_dayselector_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_genlist_class_get()" then
+          "elm_genlist_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_web_class_get()" then
+          "elm_web_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_flipselector_class_get()" then
+          "elm_flipselector_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_glview_class_get()" then
+          "elm_glview_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_hoversel_class_get()" then
+          "elm_hoversel_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_fileselector_class_get()" then
+          "elm_fileselector_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_naviframe_class_get()" then
+          "elm_naviframe_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_icon_class_get()" then
+          "elm_icon_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_entry_class_get()" then
+          "elm_entry_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_spinner_class_get()" then
+          "elm_spinner_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_ctxpopup_class_get()" then
+          "elm_ctxpopup_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_menu_class_get()" then
+          "elm_menu_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_list_class_get()" then
+          "elm_list_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_conformant_class_get()" then
+          "elm_conformant_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_notify_class_get()" then
+          "elm_notify_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_player_class_get()" then
+          "elm_player_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_actionslider_class_get()" then
+          "elm_actionslider_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_datetime_class_get()" then
+          "elm_clock_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_panes_class_get()" then
+          "elm_panes_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_label_class_get()" then
+          "elm_label_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_calendar_class_get()" then
+          "elm_calendar_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_plug_class_get()" then
+          "elm_plug_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_separator_class_get()" then
+          "elm_separator_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_popup_class_get()" then
+          "elm_popup_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_diskselector_class_get()" then
+          "elm_diskselector_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_fileselector_button_class_get()" then
+          "elm_fileselector_button_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_photo_class_get()" then
+          "elm_photo_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_fileselector_entry_class_get()" then
+          "elm_fileselector_entry_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_bubble_class_get()" then
+          "elm_bubble_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_toolbar_class_get()" then
+          "elm_toolbar_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_panel_class_get()" then
+          "elm_panel_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_map_class_get()" then
+          "elm_map_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_photocam_class_get()" then
+          "efl_ui_image_zoomable_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_hover_class_get()" then
+          "elm_hover_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_segment_control_class_get()" then
+          "elm_segment_control_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_gengrid_class_get()" then
+          "elm_gengrid_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_bg_class_get()" then
+          "elm_bg_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_thumb_class_get()" then
+          "elm_thumb_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_slideshow_class_get()" then
+          "elm_slideshow_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_layout_class_get()" then
+          "elm_layout_class_get()" else eo_name in
+    let eo_name =
+        if eo_name = "efl_ui_multibuttonentry_class_get()" then
+          "elm_multibuttonentry_class_get()" else eo_name in
     let signals = List.map (fun e1 -> Signal.create e1 env) e.Expr.signals in
     {ml_name; eo_name; signals}
   let print_ml_sig fmt w =
