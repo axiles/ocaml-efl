@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+
 <meta charset="UTF-8">
 
 <title>OCaml EFL</title>
+
+<style>
+
+* {
+   word-wrap: break-word;
+   max-width: 500px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+</style>
+
+</head>
 
 <body>
 
@@ -21,6 +36,10 @@ An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 
 <p>
 <a href=https://forge.ocamlcore.org/projects/ocaml-efl/> Old Homepage</a>
+</p>
+
+<p>
+<a href="#Download">Download</a>
 </p>
 
 <h2>What is OCaml ?</h1>
@@ -122,9 +141,9 @@ still in alpha stage and some (minor) API breaks may occured.
 The last version can be obtained here:
 <p>
 <p>
-https://forge.ocamlcore.org/frs/?group_id=329 (official releases)
+<a href="#Download">Official releases</a>
 <p>
-https://github.com/axiles/ocaml-efl (official git repo)
+<a href="https://github.com/axiles/ocaml-efl">Official git repo</a>
 </p>
 
 <p>
@@ -133,10 +152,12 @@ following pages might give you information about how to do it:
 </p>
 
 <p>
-http://www.linux-nantes.org/~fmonnier/ocaml/ocaml-wrapping-c.php
+<a href="http://www.linux-nantes.org/~fmonnier/ocaml/ocaml-wrapping-c.html">
+  Florent Monnier's tutorial</a>
 </p>
 <p>
-http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual033.html
+<a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual033.html">
+  Official description about interfacing C and OCaml</a>
 </p>
 
 <h2>Using this library</h1>
@@ -161,11 +182,31 @@ If you want to compile to native code, just replace 'main.byte' by
 'main.native'.
 </p>
 
-Findlib homepage: http://projects.camlcity.org/projects/findlib.html
-Ocamlbuild homepage: http://brion.inria.fr/gallium/index.php/Ocamlbuild
+<p>
+<a href="http://projects.camlcity.org/projects/findlib.html">
+  Findlib Homepage</a>
+</p>
+<p>
+<a href="https://ocaml.org/learn/tutorials/ocamlbuild/">
+  Ocamlbuild Homepage</a>
+</p>
 
 Lots of examples are available in the directory "example". In particular,
 you might want to look at getting_started_01.ml and getting_started_02.ml.
+
+<h2><a id="Download">Download</a></h2>
+
+<p>
+The last version should work if you have EFL version 1.8 or newer installed.
+</p>
+<p>
+<a href=
+ "https://forge.ocamlcore.org/frs/download.php/1700/ocaml-efl-1.19.0.tar.gz"
+ >Last version</a>
+</p>
+<p>
+<a href="https://forge.ocamlcore.org/frs/?group_id=329">Older versions</a>
+</p>
 
 <h2>Documentation</h1>
 
@@ -177,26 +218,52 @@ The INSTALL file indicates how to generate the documentation.
 However, it is possible to access the documentation online:
 </p>
 <p>
-http://ocaml-efl.forge.ocamlcore.org/
+<a href="http://ocaml-efl.forge.ocamlcore.org/">OCaml EFL API Documentation</a>
+</p>
+<p>
+<a href="http://ocaml-efl.forge.ocamlcore.org/Start.html">Getting started</a>
 </p>
 
 <p>
 Online documentation for specific versions of the EFL are also available:
 </p>
 
-http://ocaml-efl.forge.ocamlcore.org/1.8/
-http://ocaml-efl.forge.ocamlcore.org/1.9/
-http://ocaml-efl.forge.ocamlcore.org/1.10/
-http://ocaml-efl.forge.ocamlcore.org/1.11/
-http://ocaml-efl.forge.ocamlcore.org/1.12/
-http://ocaml-efl.forge.ocamlcore.org/1.13/
-http://ocaml-efl.forge.ocamlcore.org/1.14/
-http://ocaml-efl.forge.ocamlcore.org/1.15/
-http://ocaml-efl.forge.ocamlcore.org/1.16/
-http://ocaml-efl.forge.ocamlcore.org/1.17/
-http://ocaml-efl.forge.ocamlcore.org/1.18/
-http://ocaml-efl.forge.ocamlcore.org/1.19/
-
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.8/>Version 1.8</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.9/>Version 1.9</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.10/>Version 1.10</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.11/>Version 1.11</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.12/>Version 1.12</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.13/>Version 1.13</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.14/>Version 1.14</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.15/>Version 1.15</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.16/>Version 1.16</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.17/>Version 1.17</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.18/>Version 1.18</a>
+</p>
+<p>
+<a href=http://ocaml-efl.forge.ocamlcore.org/1.19/>Version 1.19</a>
+</p>
 </body>
 
 </html>
