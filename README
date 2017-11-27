@@ -2,7 +2,7 @@ This is the README file for the ocaml-efl distribution.
 
 An OCaml interface to the Enlightenment Foundation Libraries (EFL).
 
-Homepage: https://forge.ocamlcore.org/projects/ocaml-efl/
+Homepage: https://axiles.github.io/ocaml-efl/
 Github page: https://github.com/axiles/ocaml-efl
 
 What is OCaml ?
@@ -107,7 +107,7 @@ If you want to compile to native code, just replace 'main.byte' by
 'main.native'.
 
 Findlib homepage: http://projects.camlcity.org/projects/findlib.html
-Ocamlbuild homepage: http://brion.inria.fr/gallium/index.php/Ocamlbuild
+Ocamlbuild homepage: https://ocaml.org/learn/tutorials/ocamlbuild/
 
 Lots of examples are available in the directory "example". In particular,
 you might want to look at getting_started_01.ml and getting_started_02.ml.
@@ -135,4 +135,5 @@ http://ocaml-efl.forge.ocamlcore.org/1.16/
 http://ocaml-efl.forge.ocamlcore.org/1.17/
 http://ocaml-efl.forge.ocamlcore.org/1.18/
 http://ocaml-efl.forge.ocamlcore.org/1.19/
+http://ocaml-efl.forge.ocamlcore.org/1.20/
 
