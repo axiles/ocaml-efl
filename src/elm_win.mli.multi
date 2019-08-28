@@ -23,11 +23,13 @@ type ty = [
   | `tooltip
   | `notification
   | `combo
+(* BEGIN: <= 1.20 *)
   | `dnd
   | `inlined_image
   | `socket_image
 (* BEGIN: 1.13 *)
   | `fake
+(* END *)
 (* END *)
 (* BEGIN: 1.19 *)
   | `naviframe_basic
