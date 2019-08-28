@@ -66,30 +66,38 @@ let is_section_valid version cmp sec =
   | Leq -> ( <= ) in
   f version sec
 
-let rec read_file ch_in ch_out line =
+let rec skip_section ch_in line level level0 =
   match read_line ch_in with
-  | Normal s -> fprintf ch_out "%s\n" s; read_file ch_in ch_out (line + 1)
-  | Begin_section(cmp, sec) ->
-    let valid = is_section_valid version cmp sec in
-    read_section valid ch_in ch_out (line + 1)
+  | Normal _ -> skip_section ch_in (line + 1) level level0
+  | Begin_section(_, _) -> skip_section ch_in (line + 1) (level + 1) level0
   | End_section ->
-    failwith (sprintf "Unexpected end of section at line %d" line)
-  | End_file -> ()
+    if level > level0 + 1 then skip_section ch_in (line + 1) (level - 1) level0
+    else line + 1
+  | End_file ->
+    failwith (sprintf "Unexpected end of file")
 
-and read_section valid ch_in ch_out line =
+let rec read_file ch_in ch_out line level =
   match read_line ch_in with
   | Normal s ->
-    if valid then fprintf ch_out "%s\n" s;
-    read_section valid ch_in ch_out (line + 1)
-  | Begin_section _ ->
-    failwith (sprintf "Unexpected begin of section at line %d" line)
-  | End_section -> read_file ch_in ch_out (line + 1)
-  | End_file -> failwith "Unexpected end of file"
+    fprintf ch_out "%s\n" s;
+    read_file ch_in ch_out (line + 1) level
+  | Begin_section(cmp, sec) ->
+    let valid = is_section_valid version cmp sec in
+    if valid then read_file ch_in ch_out (line + 1) (level + 1)
+    else (
+      let next_line = skip_section ch_in (line + 1)(level + 1) level in
+      read_file ch_in ch_out next_line level
+  )
+  | End_section ->
+    if level > 0 then read_file ch_in ch_out (line + 1) (level - 1)
+    else failwith (sprintf "Unexpected end of section at line %d" line)
+  | End_file ->
+    if level > 0 then failwith (sprintf "Unexpected end of file")
 
 let () =
   let ch_in = open_in input_file in
   let ch_out = open_out output_file in
-  read_file ch_in ch_out 1;
+  read_file ch_in ch_out 1 0;
   fprintf ch_out "%!";
   close_in ch_in;
   close_out ch_out
