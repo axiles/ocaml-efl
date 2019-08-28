@@ -56,6 +56,8 @@
         EFL_GFX_IMAGE_LOAD_ERROR_RECURSIVE_REFERENCE
 /* END */
 
+#define ELM_FOCUS_DIRECTION_LAST EFL_UI_FOCUS_DIRECTION_LAST
+
 /* Local headers */
 
 #include "variants.h"

@@ -15,6 +15,9 @@ type focus_autoscroll_mode = [`show | `none | `bring_in]
 (* END *)
 
 type focus_direction = [
+(* BEGIN: 1.21 *)
+  `direction_last |
+(* END *)
   `previous |
   `next |
   `up |

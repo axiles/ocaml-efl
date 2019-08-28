@@ -153,6 +153,9 @@ Section Elm {
     ELM_FOCUS_DOWN
     ELM_FOCUS_RIGHT
     ELM_FOCUS_LEFT
+(* BEGIN: 1.21 *)
+    ELM_FOCUS_DIRECTION_LAST
+(* END *)
   }
 (* BEGIN: 1.10 *)
   Enum Elm_Focus_Move_Policy {
