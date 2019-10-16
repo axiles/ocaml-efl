@@ -8,6 +8,8 @@ let elm_image_progress = "@ELM_IMAGE_PROGRESS@" = "yes"
 
 let efl_ui_everywhere = "@EFL_UI_EVERYWHERE@" = "true"
 
+let efl_21 = "@EFL_21@" = "true"
+
 let string_iteri f s =
   for i = 0 to String.length s - 1 do
     f i s.[i]
@@ -247,7 +249,7 @@ end = struct
       | ELM_GET -> sprintf "%s_get()" (string_lowercase eo_name)
       | _ -> eo_name in
     let eo_name =
-        if elm_eo_class_obj = ELM_GET &&
+        if elm_eo_class_obj = ELM_GET && not efl_21 &&
           eo_name = "elm_datetime_class_get()" then
             "elm_clock_class_get()"
         else eo_name in
@@ -258,7 +260,7 @@ end = struct
         if eo_name = "efl_ui_colorselector_class_get()" then
            "elm_colorselector_class_get()" else eo_name in
     let eo_name =
-        if eo_name = "efl_ui_scroller_class_get()" then
+        if not efl_21 && eo_name = "efl_ui_scroller_class_get()" then
           "elm_scroller_class_get()" else eo_name in
     let eo_name =
         if eo_name = "efl_ui_dayselector_class_get()" then
@@ -318,7 +320,7 @@ end = struct
         if eo_name = "efl_ui_datetime_class_get()" then
           "elm_clock_class_get()" else eo_name in
     let eo_name =
-        if eo_name = "efl_ui_panes_class_get()" then
+        if not efl_21 && eo_name = "efl_ui_panes_class_get()" then
           "elm_panes_class_get()" else eo_name in
     let eo_name =
         if eo_name = "efl_ui_label_class_get()" then
@@ -373,7 +375,8 @@ end = struct
           "elm_gengrid_class_get()" else eo_name in
     let eo_name =
         if eo_name = "efl_ui_bg_class_get()" then
-          "elm_bg_class_get()" else eo_name in
+          (if efl_21 then "efl_ui_bg_interface_get()" else
+           "elm_bg_class_get()") else eo_name in
     let eo_name =
         if eo_name = "efl_ui_thumb_class_get()" then
           "elm_thumb_class_get()" else eo_name in
@@ -382,7 +385,8 @@ end = struct
           "elm_slideshow_class_get()" else eo_name in
     let eo_name =
         if eo_name = "efl_ui_layout_class_get()" then
-          "elm_layout_class_get()" else eo_name in
+          (if efl_21 then "efl_ui_layout_object_class_get()"
+          else "elm_layout_class_get()") else eo_name in
     let eo_name =
         if eo_name = "efl_ui_multibuttonentry_class_get()" then
           "elm_multibuttonentry_class_get()" else eo_name in
