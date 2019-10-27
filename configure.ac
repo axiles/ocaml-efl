@@ -53,6 +53,7 @@ AC_SUBST([EO_ISA], "eo_isa")
 AC_SUBST([ELM_IMAGE_PROGRESS], "no")
 AC_SUBST([EFL_UI_EVERYWHERE], ["false"])
 AC_SUBST([EFL_21], ["false"])
+AC_SUBST([EFL_22], ["false"])
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.11"], [
   ELM_EO_CLASS_OBJ="elm"
 ], [])
@@ -69,6 +70,9 @@ AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.20"], [
 ])
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.21"], [
   EFL_21="true"
+], [])
+AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.22"], [
+  EFL_22="true"
 ], [])
 
 dnl Checking for Lablgl (used to compile an example, optional)

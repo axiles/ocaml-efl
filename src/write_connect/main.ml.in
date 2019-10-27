@@ -10,6 +10,8 @@ let efl_ui_everywhere = "@EFL_UI_EVERYWHERE@" = "true"
 
 let efl_21 = "@EFL_21@" = "true"
 
+let efl_22 = "@EFL_22@" = "true"
+
 let string_iteri f s =
   for i = 0 to String.length s - 1 do
     f i s.[i]
@@ -375,7 +377,8 @@ end = struct
           "elm_gengrid_class_get()" else eo_name in
     let eo_name =
         if eo_name = "efl_ui_bg_class_get()" then
-          (if efl_21 then "efl_ui_bg_interface_get()" else
+          (if efl_22 then eo_name else
+           if efl_21 then "efl_ui_bg_interface_get()" else
            "elm_bg_class_get()") else eo_name in
     let eo_name =
         if eo_name = "efl_ui_thumb_class_get()" then
@@ -385,7 +388,8 @@ end = struct
           "elm_slideshow_class_get()" else eo_name in
     let eo_name =
         if eo_name = "efl_ui_layout_class_get()" then
-          (if efl_21 then "efl_ui_layout_object_class_get()"
+          (if efl_22 then "efl_ui_layout_class_get()" else
+           if efl_21 then "efl_ui_layout_object_class_get()"
           else "elm_layout_class_get()") else eo_name in
     let eo_name =
         if eo_name = "efl_ui_multibuttonentry_class_get()" then
