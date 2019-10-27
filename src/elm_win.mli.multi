@@ -34,6 +34,12 @@ type ty = [
 (* BEGIN: 1.19 *)
   | `naviframe_basic
 (* END *)
+(* BEGIN: 1.22 *)
+  | `dnd
+  | `inlined_image
+  | `socket_image
+  | `fake
+(* END *)
 ]
 
 type keyboard_mode = [

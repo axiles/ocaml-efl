@@ -101,9 +101,11 @@ type load_error = [
   | `cancelled
 (* END *)
 (* BEGIN: 1.20 *)
+(* BEGIN: <= 1.21 *)
   | `incompatible_file
   | `unknown_collection
   | `recursive_reference
+(* END *)
 (* END *)
 ]
 
