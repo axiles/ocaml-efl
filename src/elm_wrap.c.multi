@@ -245,11 +245,6 @@ PREFIX value ml_elm_need_eldbus(value v_unit CAMLunused)
         return Val_Eina_Bool(elm_need_eldbus());
 }
 
-PREFIX value ml_elm_need_elocation(value v_unit CAMLunused)
-{
-        return Val_Eina_Bool(elm_need_elocation());
-}
-
 PREFIX value ml_elm_need_ethumb(value v_unit CAMLunused)
 {
         return Val_Eina_Bool(elm_need_ethumb());

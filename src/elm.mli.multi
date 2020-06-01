@@ -233,8 +233,6 @@ val need_sys_notify : unit -> bool
 
 val need_eldbus : unit -> bool
 
-val need_elocation : unit -> bool
-
 val need_ethumb : unit -> bool
 
 val need_web : unit -> bool

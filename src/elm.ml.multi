@@ -154,8 +154,6 @@ external need_sys_notify : unit -> bool = "ml_elm_need_sys_notify"
 
 external need_eldbus : unit -> bool = "ml_elm_need_eldbus"
 
-external need_elocation : unit -> bool = "ml_elm_need_elocation"
-
 external need_ethumb : unit -> bool = "ml_elm_need_ethumb"
 
 external need_web : unit -> bool = "ml_elm_need_web"
