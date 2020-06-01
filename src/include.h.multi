@@ -71,7 +71,12 @@
 /* END */
 
 
+/* BEGIN: <= 1.22 */
 #define ELM_FOCUS_DIRECTION_LAST EFL_UI_FOCUS_DIRECTION_LAST
+/* END */
+/* BEGIN: 1.23 */
+#define ELM_FOCUS_DIRECTION_LAST ELM_FOCUS_LAST
+/* END */
 
 /* Local headers */
 
