@@ -36,7 +36,7 @@ AC_ARG_VAR([CFLAGS], [
 ])
 
 dnl Checking for Elementary
-PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.11])
+PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.12])
 AC_ARG_VAR([ELEMENTARY_VERSION],[
   version for ELEMENTARY, overriding pkg-config
 ])

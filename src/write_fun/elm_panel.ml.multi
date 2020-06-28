@@ -5,9 +5,7 @@ let orient = simple_ty "Elm_Panel" "Orient"
 let funs = [
   prop "orient" orient;
   prop "hidden" bool;
-(* BEGIN: 1.12 *)
   simple "scrollable_get" [evas_object] bool;
-(* END *)
 (* BEGIN: 1.19 *)
   prop "scrollable_content_size" double;
 (* END *)

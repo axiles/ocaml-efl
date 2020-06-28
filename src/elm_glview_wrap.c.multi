@@ -66,7 +66,6 @@ PREFIX value ml_elm_glview_add(value v_parent)
         return copy_Evas_Object(obj);
 }
 
-/* BEGIN: 1.12 */
 PREFIX value ml_elm_glview_version_add(value v_parent, value v_version)
 {
         Evas_Object* obj = elm_glview_version_add(Evas_Object_val(v_parent),
@@ -78,7 +77,6 @@ PREFIX value ml_elm_glview_version_add(value v_parent, value v_version)
         elm_glview_render_func_set(obj , ml_Elm_GLView_Func_Cb_render);
         return copy_Evas_Object(obj);
 }
-/* END */
 
 PREFIX value ml_elm_glview_size_get(value v_obj)
 {
@@ -95,7 +93,6 @@ PREFIX value ml_elm_glview_gl_api_get(value v_obj)
         return copy_Evas_GL_API(elm_glview_gl_api_get(Evas_Object_val(v_obj)));
 }
 
-/* BEGIN: 1.12 */
 PREFIX value ml_elm_glview_evas_gl_get(value v_obj)
 {
         return copy_Evas_GL(elm_glview_evas_gl_get(Evas_Object_val(v_obj)));
@@ -105,7 +102,6 @@ PREFIX value ml_elm_glview_rotation_get(value v_obj)
 {
         return Val_int(elm_glview_rotation_get(Evas_Object_val(v_obj)));
 }
-/* END */
 
 PREFIX value ml_elm_glview_mode_set(value v_obj, value v_m)
 {

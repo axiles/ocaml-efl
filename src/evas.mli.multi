@@ -14,13 +14,11 @@ type callback_priority = [`after | `before | `default | `other of int]
 
 type gl
 
-(* BEGIN: 1.12 *)
 type gl_context_version = [
 | `gles_1_x
 | `gles_2_x
 | `gles_3_x
 ]
-(* END *)
 
 (* BEGIN: 1.14 *)
 type image_orient = [

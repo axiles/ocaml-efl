@@ -73,13 +73,11 @@ Section Evas {
     EVAS_ALLOC_ERROR_FATAL
     EVAS_ALLOC_ERROR_RECOVERED
   }
-(* BEGIN: 1.12 *)
   Enum gl_context_version Evas_GL_Context_Version 8 {
     EVAS_GL_GLES_1_X
     EVAS_GL_GLES_2_X
     EVAS_GL_GLES_3_X
    }
-(* END *)
 (* BEGIN: 1.14 *)
   Enum Evas_Image_Orient {
    EVAS_IMAGE_ORIENT_NONE
@@ -285,12 +283,10 @@ Section Elm {
     ELM_GLOB_MATCH_PERIOD
     ELM_GLOB_MATCH_NOCASE
   }
-(* BEGIN: 1.12 *)
   Enum Elm_Process_State {
     ELM_PROCESS_STATE_FOREGROUND
     ELM_PROCESS_STATE_BACKGROUND
   }
-(* END *)
 (* BEGIN: 1.13 *)
   Enum Elm_Slider_Indicator_Visible_Mode {
     ELM_SLIDER_INDICATOR_VISIBLE_MODE_DEFAULT
@@ -533,7 +529,6 @@ Section Elm_glview {
     ELM_GLVIEW_DEPTH
     ELM_GLVIEW_STENCIL
     ELM_GLVIEW_DIRECT
-(* BEGIN: 1.12 *)
     ELM_GLVIEW_CLIENT_SIDE_ROTATION
     ELM_GLVIEW_DEPTH_8
     ELM_GLVIEW_DEPTH_16
@@ -547,7 +542,6 @@ Section Elm_glview {
     ELM_GLVIEW_MULTISAMPLE_LOW
     ELM_GLVIEW_MULTISAMPLE_MED
     ELM_GLVIEW_MULTISAMPLE_HIGH
-(* END *)
   }
   Enum Elm_GLView_Resize_Policy {
     ELM_GLVIEW_RESIZE_POLICY_RECREATE

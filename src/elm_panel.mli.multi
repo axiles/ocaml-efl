@@ -10,9 +10,7 @@ val orient_set : Evas.obj -> orient -> unit
 
 val orient_get : Evas.obj -> orient
 
-(* BEGIN: 1.12 *)
 val scrollable_get : Evas.obj -> bool
-(* END *)
 
 (* BEGIN: 1.19 *)
 val scrollable_content_size_set : Evas.obj -> float -> unit

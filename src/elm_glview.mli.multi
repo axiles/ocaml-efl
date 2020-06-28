@@ -6,7 +6,6 @@ type mode = [
   | `depth
   | `stencil
   | `direct
-(* BEGIN: 1.12 *)
   | `client_side_rotation
   | `depth_8
   | `depth_16
@@ -20,7 +19,6 @@ type mode = [
   | `multisample_low
   | `multisample_med
   | `multisample_high
-(* END *)
 ]
 
 type resize_policy = [`recreate | `scale]
@@ -33,9 +31,7 @@ val add : Evas.obj -> Evas.obj
 
 val addx : Elm_object.t_addx
 
-(* BEGIN: 1.12 *)
 val version_add : Evas.obj -> Evas.gl_context_version -> Evas.obj
-(* END *)
 
 val size_set : Evas.obj -> int -> int -> unit
 
@@ -43,11 +39,9 @@ val size_get : Evas.obj -> int * int
 
 val gl_api_get : Evas.obj -> Evas.gl_api
 
-(* BEGIN: 1.12 *)
 val evas_gl_get : Evas.obj -> Evas.gl
 
 val rotation_get : Evas.obj -> int
-(* END *)
 
 val mode_set : Evas.obj -> mode list -> unit
 
