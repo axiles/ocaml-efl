@@ -61,9 +61,7 @@ let funs = [
   prop ~args:[] "focus_highlight_clip_disabled" bool;
   prop ~args:[] "focus_move_policy" elm_focus_move_policy;
   prop ~args:[] "item_select_on_focus_disabled" bool;
-(* BEGIN: 1.11 *)
   prop ~args:[] "first_item_focus_on_first_focusin" bool;
-(* END *)
 (* Colors *)
   simple_unit "color_overlay_set"
     [safe_string; int; int; int; int; int; int; int; int; int; int; int; int];
