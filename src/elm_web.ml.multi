@@ -69,11 +69,9 @@ external dialog_file_selector_hook_set :
 external console_message_hook_set : Evas.obj -> console_message -> unit =
   "ml_elm_web_console_message_hook_set"
 
-(* BEGIN: 1.9 *)
 external html_string_load :
   Evas.obj -> string -> ?base:string -> ?unreachable:string -> unit -> bool =
     "ml_elm_web_html_string_load"
-(* END *)
 
 external url_get : Evas.obj -> string option = "ml_elm_web_url_get"
 

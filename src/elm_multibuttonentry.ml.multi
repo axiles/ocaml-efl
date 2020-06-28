@@ -63,8 +63,5 @@ external editable_set : Evas.obj -> bool -> unit =
 external editable_get : Evas.obj -> bool =
   "ml_elm_multibuttonentry_editable_get"
 
-(* BEGIN: 1.9 *)
 external format_function_set : Evas.obj -> format_cb -> unit =
   "ml_elm_multibuttonentry_format_function_set"
-(* END *)
-

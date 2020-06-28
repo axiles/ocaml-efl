@@ -36,7 +36,6 @@ PREFIX value ml_elm_popup_item_append(
         return copy_Elm_Object_Item(item);
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_popup_align_set(value v_obj, value v_h, value v_v)
 {
         elm_popup_align_set(Evas_Object_val(v_obj), Double_val(v_h),
@@ -55,7 +54,6 @@ PREFIX value ml_elm_popup_align_get(value v_obj)
         Store_field(v_r, 1, copy_double(h));
         CAMLreturn(v_r);
 }
-/* END */
 
 PREFIX value ml_elm_popup_content_text_wrap_type_set(value v_obj, value v_wrap)
 {

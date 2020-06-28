@@ -27,9 +27,7 @@ let funs = [
   prop "homogeneous" bool;
   prop "block_count" int;
   prop "longpress_timeout" double;
-(* BEGIN: 1.9 *)
   simple "item_subitems_count" [elm_object_item] int;
-(* END *)
   simple_unit "item_subitems_clear" [elm_object_item];
   prop ~args:[elm_object_item] "item_expanded" bool;
   simple "item_expanded_depth_get" [elm_object_item] int;

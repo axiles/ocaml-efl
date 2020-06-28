@@ -7,7 +7,6 @@ PREFIX value ml_elm_mapbuf_add(value v_parent)
         return copy_Evas_Object(mapbuf);
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_mapbuf_point_color_get(value v_obj, value v_idx)
 {
         int r, g, b, a;
@@ -20,5 +19,3 @@ PREFIX value ml_elm_mapbuf_point_color_get(value v_obj, value v_idx)
         Store_field(v, 3, a);
         return v;
 }
-/* END */
-

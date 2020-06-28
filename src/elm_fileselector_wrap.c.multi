@@ -1,6 +1,5 @@
 #include "include.h"
 
-/* BEGIN: 1.9 */
 Eina_Bool ml_Elm_Fileselector_Filter_Func(
         const char* path, Eina_Bool dir, void* data)
 {
@@ -11,7 +10,6 @@ Eina_Bool ml_Elm_Fileselector_Filter_Func(
         v_r = caml_callback2(*v_fun, v_s, Val_bool(dir));
         CAMLreturnT(Eina_Bool, Bool_val(v_r));
 }
-/* END */
 
 PREFIX value ml_elm_fileselector_add(value v_parent)
 {
@@ -106,7 +104,6 @@ PREFIX value ml_elm_fileselector_mime_types_filter_append(
                 Evas_Object_val(v_obj), String_val(v_mime_types), filter_name));
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_fileselector_custom_filter_append(
         value v_obj, value v_fun, value v_name, value v_unit CAMLunused)
 {
@@ -115,7 +112,6 @@ PREFIX value ml_elm_fileselector_custom_filter_append(
         return Val_bool(elm_fileselector_custom_filter_append(obj,
                 ml_Elm_Fileselector_Filter_Func, data, String_opt_val(v_name)));
 }
-/* END */
 
 PREFIX value ml_elm_fileselector_filters_clear(value v_obj)
 {
@@ -136,7 +132,6 @@ PREFIX value ml_elm_fileselector_hidden_visible_get(value v_obj)
                 Evas_Object_val(v_obj)));
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_fileselector_thumbnail_size_set(
         value v_obj, value v_w, value v_h)
 {
@@ -167,7 +162,6 @@ PREFIX value ml_elm_fileselector_sort_method_set(value v_obj, value v_sort)
                 Elm_Fileselector_Sort_val(v_sort));
         return Val_unit;
 }
-/* END */
 
 PREFIX value ml_elm_fileselector_mode_set(value v_obj, value v_mode)
 {

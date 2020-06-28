@@ -9,8 +9,6 @@ let funs = [
   prop "show_am_pm" bool;
   prop "show_seconds" bool;
   prop "first_interval" double;
-(* BEGIN: 1.9 *)
   prop "pause" bool;
-(* END *)
 ]
 

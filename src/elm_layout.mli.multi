@@ -67,9 +67,7 @@ val text_set : Evas.obj -> string -> string -> bool
 
 val text_get : Evas.obj -> string -> string
 
-(* BEGIN: 1.9 *)
 val content_swallow_list_get : Evas.obj -> Evas.obj list
-(* END *)
 
 val icon_set : Evas.obj -> Evas.obj -> unit
 

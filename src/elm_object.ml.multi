@@ -88,13 +88,11 @@ external tree_focus_allow_get : Evas.obj -> bool =
 external tree_focus_allow_set : Evas.obj -> bool -> unit =
   "ml_elm_object_tree_focus_allow_set"
 
-(* BEGIN: 1.9 *)
 external focus_highlight_style_set : Evas.obj -> string -> bool =
   "ml_elm_object_focus_highlight_style_set"
 
 external focus_highlight_style_get : Evas.obj -> string =
   "ml_elm_object_focus_highlight_style_get"
-(* END *)
 
 (* BEGIN: 1.10 *)
 external focused_item_get : Evas.obj -> item option =
@@ -286,12 +284,10 @@ external item_untrack : item -> unit = "ml_elm_object_item_untrack"
 
 external item_track_get : item -> int = "ml_elm_object_item_track_get"
 
-(* BEGIN: 1.9 *)
 external item_style_set : item -> string -> unit =                               
   "ml_elm_object_item_style_set"                                                 
                                                                                            
 external item_style_get : item -> string = "ml_elm_object_item_style_get"
-(* END *)
 
 type t_addx =
   ?size_hint:Evas_object.size_hint list ->
@@ -436,7 +432,6 @@ external widget_type_get : Evas.obj -> string option =
 
 (* Tooltips *)
 
-(* BEGIN: 1.9 *)
 external tooltip_move_freeze_push : Evas.obj -> unit =
   "ml_elm_object_tooltip_move_freeze_push"
 
@@ -445,7 +440,6 @@ external tooltip_move_freeze_pop : Evas.obj -> unit =
 
 external tooltip_move_freeze_get : Evas.obj -> int =
   "ml_elm_object_tooltip_move_freeze_get"
-(* END *)
 
 external tooltip_show : Evas.obj -> unit = "ml_elm_object_tooltip_show"
 
@@ -472,11 +466,8 @@ external tooltip_window_mode_set : Evas.obj -> bool -> bool =
 external tooltip_window_mode_get : Evas.obj -> bool =
   "ml_elm_object_tooltip_window_mode_get"
 
-(* BEGIN: 1.9 *)
 external tooltip_orient_set : Evas.obj -> Elm.tooltip_orient -> unit =
   "ml_elm_object_tooltip_orient_set"
 
 external tooltip_orient_get : Evas.obj -> Elm.tooltip_orient =
   "ml_elm_object_tooltip_orient_get"
-(* END *)
-

@@ -2,7 +2,6 @@
 
 type mode = [`list | `grid | `last]
 
-(* BEGIN: 1.9 *)
 type sort = [
   | `by_filename_asc
   | `by_filename_desc
@@ -16,7 +15,6 @@ type sort = [
 ]
 
 type filter_func = string -> bool -> bool
-(* END *)
 
 val add : Evas.obj -> Evas.obj
 
@@ -49,10 +47,8 @@ val selected_get : Evas.obj -> string
 val mime_types_filter_append :
   Evas.obj -> string -> ?filter_name:string -> unit -> bool
 
-(* BEGIN: 1.9 *)
 val custom_filter_append :
   Evas.obj -> filter_func -> ?filter_name:string -> unit -> bool
-(* END *)
 
 val filters_clear : Evas.obj -> unit
 
@@ -60,7 +56,6 @@ val hidden_visible_set : Evas.obj -> bool -> unit
 
 val hidden_visible_get : Evas.obj -> bool
 
-(* BEGIN: 1.9 *)
 val thumbnail_size_set : Evas.obj -> int -> int -> unit
 
 val thumbnail_size_get : Evas.obj -> int * int
@@ -68,7 +63,6 @@ val thumbnail_size_get : Evas.obj -> int * int
 val sort_method_get : Evas.obj -> sort
 
 val sort_method_set : Evas.obj -> sort -> unit
-(* END *)
 
 val mode_set : Evas.obj -> mode -> unit
 

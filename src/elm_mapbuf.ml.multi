@@ -7,8 +7,5 @@ external add : Evas.obj -> Evas.obj = "ml_elm_mapbuf_add"
 
 let addx = Elm_object.create_addx add
 
-(* BEGIN: 1.9 *)
 external point_color_get : Evas.obj -> int -> int * int * int * int =
   "ml_elm_mapbuf_point_color_get"
-(* END *)
-

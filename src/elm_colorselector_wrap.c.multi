@@ -44,7 +44,6 @@ PREFIX value ml_elm_colorselector_palette_color_add(
         return copy_Elm_Object_Item(it);
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_colorselector_palette_items_get(value v_obj)
 {
         return copy_Eina_List_Elm_Object_Item(
@@ -57,5 +56,3 @@ PREFIX value ml_elm_colorselector_palette_selected_item_get(value v_obj)
                 elm_colorselector_palette_selected_item_get(
                 Evas_Object_val(v_obj)));
 }
-/* END */
-

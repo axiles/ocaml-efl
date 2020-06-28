@@ -26,9 +26,7 @@ ELM_OBJ_ENTRY_CLASS
 "preedit,changed"
 "text,set,done" 
 "undo,request"
-(* BEGIN: 1.9 *)
 "rejected"
-(* END *)
 (* BEGIN: 1.14 *)
 "validate"
 (* END *)

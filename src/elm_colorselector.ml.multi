@@ -20,11 +20,8 @@ external palette_color_add :
   Evas.obj -> int -> int -> int -> int -> Elm_object.item =
     "ml_elm_colorselector_palette_color_add"
 
-(* BEGIN: 1.9 *)
 external palette_items_get : Evas.obj -> Elm_object.item list =
   "ml_elm_colorselector_palette_items_get"
 
 external palette_selected_item_get : Evas.obj -> Elm_object.item option =
   "ml_elm_colorselector_palette_selected_item_get"
-(* END *)
-

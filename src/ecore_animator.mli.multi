@@ -10,9 +10,7 @@ val frametime_get : unit -> float
 
 val pos_map : float -> Ecore.pos_map -> float -> float -> float
 
-(* BEGIN: 1.9 *)
 val pos_map_list : float -> Ecore.pos_map -> float list -> float
-(* END *)
 
 val source_set : source -> unit
 

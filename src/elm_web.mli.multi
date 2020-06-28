@@ -78,10 +78,8 @@ val tab_propagate_set : Evas.obj -> bool -> unit
 
 val url_set : Evas.obj -> string -> bool
 
-(* BEGIN: 1.9 *)
 val html_string_load :
   Evas.obj -> string -> ?base:string -> ?unreachable:string -> unit -> bool
-(* END *)
 
 val url_get : Evas.obj -> string option
 

@@ -11,7 +11,6 @@ int mycaml_list_length(value v_list)
         return len;
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_ecore_animator_pos_map_list(value v_pos, value v_pos_map,
         value v_list)
 {
@@ -26,7 +25,6 @@ PREFIX value ml_ecore_animator_pos_map_list(value v_pos, value v_pos_map,
         return copy_double(ecore_animator_pos_map_n(Double_val(v_pos),
                 Ecore_Pos_Map_val(v_pos_map), size, v));
 }
-/* END */
 
 PREFIX value ml_ecore_animator_custom_source_tick_begin_callback_set(
         value v_fun)

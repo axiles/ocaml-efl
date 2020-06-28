@@ -79,11 +79,9 @@ let funs = [
   simple_unit "color_overlay_unset" [safe_string];
   simple_unit "color_overlay_apply" [];
 (* END *)
-(* BEGIN: 1.9 *)
 (* Magnifier *)
   prop ~args:[] "magnifier_enable" bool;
   prop ~args:[] "magnifier_scale" double;
-(* END *)
 (* BEGIN: 1.14 *)
   prop ~args:[] "window_auto_focus_enable" bool;
   prop ~args:[] "window_auto_focus_animate" bool;

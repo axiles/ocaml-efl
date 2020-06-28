@@ -92,10 +92,8 @@ external at_xy_item_get :
 external item_parent_get : Elm_object.item -> Elm_object.item option =
   "ml_elm_genlist_item_parent_get"
 
-(* BEGIN: 1.9 *)
 external item_subitems_get : Elm_object.item -> Elm_object.item list =
   "ml_elm_genlist_item_subitems_get"
-(* END *)
 
 external item_all_contents_unset : Elm_object.item -> Elm_object.item list =
    "ml_elm_genlist_item_all_contents_unset"

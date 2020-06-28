@@ -1,8 +1,6 @@
 include Henums.Elm_fileselector
 
-(* BEGIN: 1.9 *)
 type filter_func = string -> bool -> bool
-(* END *)
 
 external add : Evas.obj -> Evas.obj = "ml_elm_fileselector_add"
 
@@ -44,11 +42,9 @@ external mime_types_filter_append :
   Evas.obj -> string -> ?filter_name:string -> unit -> bool =
     "ml_elm_fileselector_mime_types_filter_append"
 
-(* BEGIN: 1.9 *)
 external custom_filter_append :
   Evas.obj -> filter_func -> ?filter_name:string -> unit -> bool =
     "ml_elm_fileselector_custom_filter_append"
-(* END *)
 
 external filters_clear : Evas.obj -> unit = "ml_elm_fileselector_filters_clear"
 
@@ -58,7 +54,6 @@ external hidden_visible_set : Evas.obj -> bool -> unit =
 external hidden_visible_get : Evas.obj -> bool =
   "ml_elm_fileselector_hidden_visible_get"
 
-(* BEGIN: 1.9 *)
 external thumbnail_size_set : Evas.obj -> int -> int -> unit =
   "ml_elm_fileselector_thumbnail_size_set"
 
@@ -70,7 +65,6 @@ external sort_method_get : Evas.obj -> sort =
 
 external sort_method_set : Evas.obj -> sort -> unit =
   "ml_elm_fileselector_sort_method_set"
-(* END *)
 
 external mode_set : Evas.obj -> mode -> unit = "ml_elm_fileselector_mode_set"
 

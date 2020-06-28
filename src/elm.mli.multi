@@ -293,7 +293,6 @@ type transit
 
 (** {2 Tooltips} *)
 
-(* BEGIN: 1.9 *)
 type tooltip_orient = [
   | `none
   | `top_left
@@ -307,7 +306,6 @@ type tooltip_orient = [
   | `bottom_right
   | `last
 ]
-(* END *)
 
 type tooltip_content_cb = Evas.obj -> Evas.obj -> Evas.obj option
 

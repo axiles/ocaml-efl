@@ -41,11 +41,9 @@ val direction_get : Evas.obj -> direction
 
 val dismiss : Evas.obj -> unit
 
-(* BEGIN: 1.9 *)
 val auto_hide_disabled_set : Evas.obj -> bool -> unit
 
 val auto_hide_disabled_get : Evas.obj -> bool
-(* END *)
 
 (* BEGIN: 1.11 *)
 val items_get : Evas.obj -> Elm_object.item list

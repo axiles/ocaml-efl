@@ -10,9 +10,7 @@ Section Ecore {
     ECORE_POS_MAP_DIVISOR_INTERP
     ECORE_POS_MAP_BOUNCE
     ECORE_POS_MAP_SPRING
-(* BEGIN: 1.9 *)
     ECORE_POS_MAP_CUBIC_BEZIER
-(* END *)
   }
 }
 
@@ -276,7 +274,6 @@ Section Elm {
     ELM_ILLUME_COMMAND_FOCUS_HOME
     ELM_ILLUME_COMMAND_CLOSE
   }
-(* BEGIN: 1.9 *)
   Enum Elm_Tooltip_Orient {
     ELM_TOOLTIP_ORIENT_NONE
     ELM_TOOLTIP_ORIENT_TOP_LEFT
@@ -290,7 +287,6 @@ Section Elm {
     ELM_TOOLTIP_ORIENT_BOTTOM_RIGHT
     ELM_TOOLTIP_ORIENT_LAST
   }
-(* END *)
 (* BEGIN: 1.11 *)
   Enum Elm_Glob_Match_Flags {
     ELM_GLOB_MATCH_NO_ESCAPE
@@ -341,7 +337,6 @@ Section Elm_fileselector {
     ELM_FILESELECTOR_GRID
     ELM_FILESELECTOR_LAST
   }
-(* BEGIN: 1.9 *)
   Enum Elm_Fileselector_Sort {
     ELM_FILESELECTOR_SORT_BY_FILENAME_ASC
     ELM_FILESELECTOR_SORT_BY_FILENAME_DESC
@@ -353,7 +348,6 @@ Section Elm_fileselector {
     ELM_FILESELECTOR_SORT_BY_MODIFIED_DESC
     ELM_FILESELECTOR_SORT_LAST
   }
-(* END *)
 }
 
 Section Elm_popup {
@@ -804,9 +798,7 @@ Section Elm_win {
     ELM_WIN_FAKE
 (* END *)
 (* END *)
-(* BEGIN: 1.9 *)
     ELM_WIN_UNKNOWN
-(* END *)
 (* BEGIN: 1.19 *)
     ELM_WIN_NAVIFRAME_BASIC
 (* END *)

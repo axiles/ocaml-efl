@@ -15,9 +15,7 @@ let funs = [
   prop "editable" bool;
   simple_unit "select_none" [evas_object];
   simple_unit "select_all" [evas_object];
-(* BEGIN: 1.9 *)
   simple_unit "select_region_set" [evas_object; int; int];
-(* END *)
 (* BEGIN: 1.20 *)
   simple_unit "prediction_hint_set" [evas_object; safe_string];
 (* END *)
@@ -66,9 +64,7 @@ let funs = [
   prop "anchor_hover_style" safe_string;
   simple_unit "anchor_hover_end" [evas_object];
   prop "input_panel_layout_variation" int;
-(* BEGIN: 1.9 *)
   prop "input_panel_show_on_demand" bool;
-(* END *)
 ]
 
 

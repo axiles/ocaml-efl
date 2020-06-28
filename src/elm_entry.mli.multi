@@ -107,9 +107,7 @@ val select_none : Evas.obj -> unit
 
 val select_all : Evas.obj -> unit
 
-(* BEGIN: 1.9 *)
 val select_region_set : Evas.obj -> int -> int -> unit
-(* END *)
 
 (* BEGIN: 1.20 *)
 
@@ -268,11 +266,9 @@ val input_panel_layout_variation_set : Evas.obj -> int -> unit
 
 val input_panel_layout_variation_get : Evas.obj -> int
 
-(* BEGIN: 1.9 *)
 val input_panel_show_on_demand_set : Evas.obj -> bool -> unit
 
 val input_panel_show_on_demand_get : Evas.obj -> bool
-(* END *)
 
 val anchor_info_of_ptr : Evas.ptr -> anchor_info
 

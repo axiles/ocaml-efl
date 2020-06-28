@@ -31,9 +31,7 @@ type pos_map = [
   | `divisor_interp
   | `bounce
   | `spring
-(* BEGIN: 1.9 *)
   | `cubic_bezier
-(* END *)
 ]
 
 type 'a event_type

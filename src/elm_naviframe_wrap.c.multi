@@ -161,7 +161,6 @@ PREFIX value ml_elm_naviframe_item_style_get(value v_it)
                 Elm_Object_Item_val(v_it)));
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_naviframe_item_title_enabled_set(
         value v_it, value v_visible, value v_trans)
 {
@@ -175,7 +174,6 @@ PREFIX value ml_elm_naviframe_item_title_enabled_get(value v_it)
         return Val_Eina_Bool(elm_naviframe_item_title_enabled_get(
                 Elm_Object_Item_val(v_it)));
 }
-/* END */
 
 PREFIX value ml_elm_naviframe_item_pop_cb_set(value v_it, value v_fun)
 {

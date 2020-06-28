@@ -6,9 +6,7 @@ let funs = [
   prop "ellipsis" bool;
   prop "slide_mode" bool;
   prop "slide_duration" double;
-(* BEGIN: 1.9 *)
   prop "slide_speed" double;
-(* END *)
   simple_unit "slide_go" [evas_object];
 ]
 

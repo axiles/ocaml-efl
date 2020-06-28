@@ -17,9 +17,7 @@ include AF
 external add : ?p:Evas.obj -> string -> ty -> Evas.obj =
   "ml_elm_win_add"
 
-(* BEGIN: 1.9 *)
 external type_get : Evas.obj -> ty = "ml_elm_win_type_get"
-(* END *)
 
 (* BEGIN: 1.13 *)
 external fake_add : Ecore.evas -> Evas.obj = "ml_elm_win_fake_add"

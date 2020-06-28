@@ -247,7 +247,6 @@ PREFIX value ml_elm_web_console_message_hook_set(value v_obj, value v_fun)
         return Val_unit;
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_web_html_string_load(
         value v_obj, value v_html, value v_base, value v_unreachable,
         value v_unit CAMLunused)
@@ -256,7 +255,6 @@ PREFIX value ml_elm_web_html_string_load(
                 String_val(v_html), String_opt_val(v_base),
                 String_opt_val(v_unreachable)));
 }
-/* END */
 
 PREFIX value ml_elm_web_url_get(value v_obj)
 {

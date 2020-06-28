@@ -5,8 +5,6 @@ let funs = [
   prop "smooth" bool;
   prop "alpha" bool;
   prop "auto" bool;
-(* BEGIN: 1.9 *)
   simple_unit "point_color_set" [evas_object; int; int; int; int; int];
-(* END *)
 ]
 

@@ -214,7 +214,6 @@ PREFIX value ml_elm_multibuttonentry_editable_get(value v_obj)
                 Evas_Object_val(v_obj)));
 }
 
-/* BEGIN: 1.9 */
 PREFIX value ml_elm_multibuttonentry_format_function_set(
         value v_obj, value v_fun)
 {
@@ -224,5 +223,3 @@ PREFIX value ml_elm_multibuttonentry_format_function_set(
                 ml_Elm_Multibuttonentry_Format_Cb, data);
         return Val_unit;
 }
-/* END */
-
