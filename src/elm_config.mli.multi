@@ -66,11 +66,9 @@ val preferred_engine_set : string -> unit
 (* DEPRICATED *)
 (* END *)
 
-(* BEGIN: 1.10 *)
 val accel_preference_get : unit -> string
 
 val accel_preference_set : string -> unit
-(* END *)
 
 val access_get : unit -> bool
 
@@ -98,11 +96,9 @@ val glayer_double_tap_timeout_get : unit -> float
 
 val glayer_double_tap_timeout_set : float -> unit
 
-(* BEGIN: 1.10 *)
 val atspi_mode_get : unit -> bool
 
 val atspi_mode_set : bool -> unit
-(* END *)
 
 (* BEGIN: 1.15 *)
 val transition_duration_factor_set : float -> unit
@@ -171,11 +167,9 @@ val finger_size_set : int -> unit
 
 (** {2 Focus} *)
 
-(* BEGIN: 1.10 *)
 val focus_autoscroll_mode_get : unit -> Elm.focus_autoscroll_mode
 
 val focus_autoscroll_mode_set : Elm.focus_autoscroll_mode -> unit
-(* END *)
 
 val focus_highlight_enabled_get : unit -> bool
 
@@ -185,7 +179,6 @@ val focus_highlight_animate_get : unit -> bool
 
 val focus_highlight_animate_set : bool -> unit
 
-(* BEGIN: 1.10 *)
 val focus_highlight_clip_disabled_get : unit -> bool
 
 val focus_highlight_clip_disabled_set : bool -> unit
@@ -197,7 +190,6 @@ val focus_move_policy_set : Elm.focus_move_policy -> unit
 val item_select_on_focus_disabled_get : unit -> bool
 
 val item_select_on_focus_disabled_set : bool -> unit
-(* END *)
 
 (* BEGIN: 1.11 *)
 val first_item_focus_on_first_focusin_get : unit -> bool
@@ -213,7 +205,6 @@ val slider_indicator_visible_mode_get :
   unit ->  Elm.slider_indicator_visible_mode
 (* END *)
 
-(* BEGIN: 1.10 *)
 (** {2 Colors} *)
 
 val color_classes_list_get : unit -> Elm.color_class list
@@ -227,7 +218,6 @@ val color_overlay_set :
 val color_overlay_unset : string -> unit
 
 val color_overlay_apply : unit -> unit
-(* END *)
 
 (** {2 Magnifier } *)
 val magnifier_enable_get : unit -> bool

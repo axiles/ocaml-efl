@@ -112,7 +112,6 @@ end
 
 (* Colors *)
 
-(* BEGIN: 1.10 *)
 module Color_class = struct
   type t = {name : string; desc : string}
 end
@@ -138,7 +137,6 @@ module Color_overlay = struct
 end
 
 type color_overlay = Color_overlay.t
-(* END *)
 
 (* Theme *)
 

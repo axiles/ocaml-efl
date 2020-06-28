@@ -3,10 +3,8 @@ module AF = Autofun.Elm_config.F (struct
 type elm_slider_indicator_visible_mode = Elm.slider_indicator_visible_mode
 type evas_font_hinting_flags = Evas_font.hinting_flags
 (* END *)
-(* BEGIN: 1.10 *)
 type elm_focus_autoscroll_mode = Elm.focus_autoscroll_mode
 type elm_focus_move_policy = Elm.focus_move_policy
-(* END *)
 end)
 include AF
 
@@ -62,14 +60,11 @@ external profile_list_full_get : unit -> string list =
 
 (* Colors *)
 
-(* BEGIN: 1.10 *)
 external color_classes_list_get : unit -> Elm.color_class list =
   "ml_elm_config_color_classes_list_get"
 
 external color_overlay_list_get : unit -> Elm.color_overlay list =
   "ml_elm_config_color_overlay_list_get"
-
-(* END *)
 
 (* Password show last *)
 

@@ -10,9 +10,7 @@ val coords_finger_size_adjust : int -> int -> int * int
 
 (** {2 Focus} *)
 
-(* BEGIN: 1.10 *)
 type focus_autoscroll_mode = [`show | `none | `bring_in]
-(* END *)
 
 type focus_direction = [
 (* BEGIN: 1.21 *)
@@ -25,15 +23,11 @@ type focus_direction = [
   `right |
   `left]
 
-(* BEGIN: 1.10 *)
 type focus_move_policy = [`click | `_in
-(* END *)
 (* BEGIN: 1.15 *)
 | `key_only
 (* END *)
-(* BEGIN: 1.10 *)
 ]
-(* END *)
 
 (* BEGIN: 1.16 *)
 type focus_region_show_mode = [`widget | `item]
@@ -189,7 +183,6 @@ module Gesture_rotate_info : sig
   val of_ptr : Evas.ptr -> t
 end
 
-(* BEGIN: 1.10 *)
 (** {2 Colors} *)
 
 module Color_class : sig
@@ -217,7 +210,6 @@ module Color_overlay : sig
 end
 
 type color_overlay = Color_overlay.t
-(* END *)
 
 (** {2 Theme} *)
 
@@ -257,9 +249,7 @@ type input_panel_layout = [
   | `terminal
   | `password
   | `datetime
-(* BEGIN: 1.10 *)
   | `emoticon
-(* END *)
 (* BEGIN: 1.19 *)
   | `voice
 (* END *)

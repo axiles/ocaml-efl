@@ -160,9 +160,6 @@ val item_custom_size_set : Elm_object.item -> int -> int -> unit
 val item_custom_size_get : Elm_object.item -> int * int
 (* END *)
 
-(* BEGIN: 1.10 *)
 val reorder_mode_start : Evas.obj -> Ecore.pos_map -> unit
 
 val reorder_mode_stop : Evas.obj -> unit
-(* END *)
-

@@ -20,9 +20,7 @@ let funs = [
   simple_unit "reload" [];
   simple_unit "all_flush" [];
 (* Elementary engine *)
-(* BEGIN: 1.10 *)
   prop ~args:[] "accel_preference" safe_string;
-(* END *)
   prop ~args:[] "access" bool;
   prop ~args:[] "selection_unfocused_clear" bool;
   prop ~args:[] "mirrored" bool;
@@ -30,9 +28,7 @@ let funs = [
   simple "indicator_service_get" [int] safe_string;
   prop ~args:[] "glayer_long_tap_start_timeout" double;
   prop ~args:[] "glayer_double_tap_timeout" double;
-(* BEGIN: 1.10 *)
   prop ~args:[] "atspi_mode" bool;
-(* END *)
 (* BEGIN: 1.15 *)
   prop ~args:[] "transition_duration_factor" double;
 (* END *)
@@ -59,26 +55,20 @@ let funs = [
 (* Fingers *)
   prop ~args:[] "finger_size" int;
 (* Focus *)
-(* BEGIN: 1.10 *)
   prop ~args:[] "focus_autoscroll_mode" elm_focus_autoscroll_mode;
-(* END *)
   prop ~args:[] "focus_highlight_enabled" bool;
   prop ~args:[] "focus_highlight_animate" bool;
-(* BEGIN: 1.10 *)
   prop ~args:[] "focus_highlight_clip_disabled" bool;
   prop ~args:[] "focus_move_policy" elm_focus_move_policy;
   prop ~args:[] "item_select_on_focus_disabled" bool;
-(* END *)
 (* BEGIN: 1.11 *)
   prop ~args:[] "first_item_focus_on_first_focusin" bool;
 (* END *)
 (* Colors *)
-(* BEGIN: 1.10 *)
   simple_unit "color_overlay_set"
     [safe_string; int; int; int; int; int; int; int; int; int; int; int; int];
   simple_unit "color_overlay_unset" [safe_string];
   simple_unit "color_overlay_apply" [];
-(* END *)
 (* Magnifier *)
   prop ~args:[] "magnifier_enable" bool;
   prop ~args:[] "magnifier_scale" double;
