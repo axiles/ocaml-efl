@@ -4,43 +4,23 @@
 
 PREFIX value ml_elm_config_engine_get(value v_unit CAMLunused)
 {
-/* BEGIN: <= 1.12 */
-        return safe_copy_string(elm_config_engine_get());
-/* END */
-/* BEGIN: 1.13 */
         return safe_copy_string(elm_config_accel_preference_get());
-/* END */
 }
 
 PREFIX value ml_elm_config_engine_set(value v_engine)
 {
-/* BEGIN: <= 1.12 */
-        elm_config_engine_set(String_val(v_engine));
-/* END */
-/* BEGIN: 1.13 */
         elm_config_accel_preference_set(String_val(v_engine));
-/* END */
         return Val_unit;
 }
 
 PREFIX value ml_elm_config_preferred_engine_get(value v_unit CAMLunused)
 {
-/* BEGIN: <= 1.12 */
-        return copy_string(elm_config_preferred_engine_get());
-/* END */
-/* BEGIN: 1.13 */
         return copy_string(elm_config_accel_preference_get());
-/* END */
 }
 
 PREFIX value ml_elm_config_preferred_engine_set(value v_preferred_engine)
 {
-/* BEGIN: <= 1.12 */
-        elm_config_preferred_engine_set(String_val(v_preferred_engine));
-/* END */
-/* BEGIN: 1.13 */
         elm_config_accel_preference_set(String_val(v_preferred_engine));
-/* END */
         return Val_unit;
 }
 

@@ -43,28 +43,20 @@ val all_flush : unit -> unit
 (** {2 Elementary Engine} *)
 
 val engine_get : unit -> string
-(* BEGIN: 1.13 *)
 (** @deprecated Use accel_preference_get instead *)
 (* DEPRICATED *)
-(* END *)
 
 val engine_set : string -> unit
-(* BEGIN: 1.13 *)
 (** @deprecated  Use accel_preference_set instead *)
 (* DEPRICATED *)
-(* END *)
 
 val preferred_engine_get : unit -> string
-(* BEGIN: 1.13 *)
 (** @deprecated Use accel_preference_get instead *)
 (* DEPRICATED *)
-(* END *)
 
 val preferred_engine_set : string -> unit
-(* BEGIN: 1.13 *)
 (** @deprecated Use accel_preference_set instead *)
 (* DEPRICATED *)
-(* END *)
 
 val accel_preference_get : unit -> string
 
@@ -131,9 +123,7 @@ val font_overlay_unset : string -> unit
 
 val font_overlay_apply : unit -> unit
 
-(* BEGIN: 1.13 *)
 val font_hint_type_set : Evas_font.hinting_flags -> unit
-(* END *)
 
 (** {2 Elementary Profile} *)
 
@@ -195,13 +185,11 @@ val first_item_focus_on_first_focusin_get : unit -> bool
 
 val first_item_focus_on_first_focusin_set : bool -> unit
 
-(* BEGIN: 1.13 *)
 val slider_indicator_visible_mode_set :
   Elm.slider_indicator_visible_mode ->  unit
 
 val slider_indicator_visible_mode_get :
   unit ->  Elm.slider_indicator_visible_mode
-(* END *)
 
 (** {2 Colors} *)
 

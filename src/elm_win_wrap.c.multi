@@ -16,14 +16,12 @@ PREFIX value ml_elm_win_type_get(value v_obj)
         return Val_Elm_Win_Type(elm_win_type_get(Evas_Object_val(v_obj)));
 }
 
-/* BEGIN: 1.13 */
 PREFIX value ml_elm_win_fake_add(value v_ee)
 {
         Evas_Object* win = elm_win_fake_add(Ecore_Evas_val(v_ee));
         if(win == NULL) caml_failwith("elm_win_fake_add");
         return copy_Evas_Object(win);
 }
-/* END */
 
 PREFIX value ml_elm_win_util_standard_add(value v_name, value v_title)
 {
@@ -33,7 +31,6 @@ PREFIX value ml_elm_win_util_standard_add(value v_name, value v_title)
         return copy_Evas_Object(obj);
 }
 
-/* BEGIN: 1.13 */
 PREFIX value ml_elm_win_util_dialog_add(
         value v_parent, value v_name, value v_title)
 {
@@ -42,7 +39,6 @@ PREFIX value ml_elm_win_util_dialog_add(
         if(obj == NULL) caml_failwith("elm_win_util_dialog_add");
         return copy_Evas_Object(obj);
 }
-/* END */
 
 PREFIX value ml_elm_win_icon_object_set(value v_obj, value v_icon)
 {

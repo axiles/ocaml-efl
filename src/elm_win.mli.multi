@@ -25,9 +25,7 @@ type ty = [
   | `dnd
   | `inlined_image
   | `socket_image
-(* BEGIN: 1.13 *)
   | `fake
-(* END *)
 (* END *)
 (* BEGIN: 1.19 *)
   | `naviframe_basic
@@ -114,15 +112,11 @@ val accel_preference_get : Evas.obj -> string
 
 (* END *)
 
-(* BEGIN: 1.13 *)
 val fake_add : Ecore.evas -> Evas.obj
-(* END *)
 
 val util_standard_add : string -> string -> Evas.obj
 
-(* BEGIN: 1.13 *)
 val util_dialog_add : Evas.obj -> string -> string -> Evas.obj
-(* END *)
 
 val resize_object_add : Evas.obj -> Evas.obj -> unit
 

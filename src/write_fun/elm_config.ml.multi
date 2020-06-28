@@ -1,9 +1,7 @@
 open Common
 
-(* BEGIN: 1.13 *)
 let slider_indicator_visible_mode =
   simple_ty "Elm" "Slider_Indicator_Visible_Mode"
-(* END *)
 
 let funs = [
 (* Cache *)
@@ -40,10 +38,8 @@ let funs = [
   simple_unit "font_overlay_unset" [safe_string];
   simple_unit "font_overlay_apply" [];
 (* Elementary Slider *)
-(* BEGIN: 1.13 *)
   prop ~args:[] "slider_indicator_visible_mode" slider_indicator_visible_mode;
   simple_unit "font_hint_type_set" [evas_font_hinting_flags];
-(* END *)
 (* Elementary Profile *)
   prop ~args:[] "profile" safe_string;
 (* BEGIN: 1.17 *)

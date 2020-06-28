@@ -9,9 +9,7 @@ let addx = Elm_object.create_addx add
 
 external padding_get : Evas.obj -> int * int = "ml_elm_table_padding_get"
 
-(* BEGIN: 1.13 *)
 external align_get : Evas.obj -> float * float = "ml_elm_table_align_get"
-(* END *)
 
 external pack_get : Evas.obj -> int * int * int * int = "ml_elm_table_pack_get"
 

@@ -33,16 +33,12 @@ type focus_move_policy = [`click | `_in
 type focus_region_show_mode = [`widget | `item]
 (* END *)
 
-(* BEGIN: 1.13 *)
-
 type slider_indicator_visible_mode = [
   | `default
   | `always
   | `on_focus
   | `none
 ]
-
-(* END *)
 
 (** {2 General} *)
 

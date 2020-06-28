@@ -92,7 +92,6 @@ PREFIX value ml_elm_transit_tween_mode_factor_get(value v_tr)
         CAMLreturn(v_r);
 }
 
-/* BEGIN: 1.13 */
 PREFIX value ml_elm_transit_tween_mode_factor_n_set(value v_tr, value v_a)
 {
         unsigned int size = Wosize_val(v_a);
@@ -102,7 +101,6 @@ PREFIX value ml_elm_transit_tween_mode_factor_n_set(value v_tr, value v_a)
         elm_transit_tween_mode_factor_n_set(Elm_Transit_val(v_tr), size, a);
         return Val_unit;
 }
-/* END */
 
 PREFIX value ml_elm_transit_chain_transits_get(value v_tr)
 {

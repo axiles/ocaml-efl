@@ -17,7 +17,6 @@ PREFIX value ml_elm_table_padding_get(value v_obj)
         return v_r;
 }
 
-/* BEGIN: 1.13 */
 PREFIX value ml_elm_table_align_get(value v_obj)
 {
         CAMLparam1(v_obj);
@@ -28,7 +27,6 @@ PREFIX value ml_elm_table_align_get(value v_obj)
         Store_field(v_r, 1, copy_double(y));
         CAMLreturn(v_r);
 }
-/* END */
 
 PREFIX value ml_elm_table_pack_get(value v_obj)
 {

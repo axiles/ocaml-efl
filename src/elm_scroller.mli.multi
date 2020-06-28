@@ -74,11 +74,9 @@ val movement_block_set : Evas.obj -> movement_block list -> unit
 
 val movement_block_get : Evas.obj -> movement_block_
 
-(* BEGIN: 1.13 *)
 val step_size_set : Evas.obj -> int -> int -> unit
 
 val step_size_get : Evas.obj -> int * int
-(* END *)
 
 (* BEGIN: 1.14 *)
 val loop_set : Evas.obj -> bool -> bool -> unit
