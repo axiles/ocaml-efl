@@ -78,7 +78,6 @@ Section Evas {
     EVAS_GL_GLES_2_X
     EVAS_GL_GLES_3_X
    }
-(* BEGIN: 1.14 *)
   Enum Evas_Image_Orient {
    EVAS_IMAGE_ORIENT_NONE
    EVAS_IMAGE_ORIENT_90
@@ -89,7 +88,6 @@ Section Evas {
    EVAS_IMAGE_FLIP_TRANSPOSE
    EVAS_IMAGE_FLIP_TRANSVERSE
  }
-(* END *)
 }
 
 Section Evas_font {

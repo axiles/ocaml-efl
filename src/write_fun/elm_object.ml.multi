@@ -1,9 +1,7 @@
 open Common
 
 let funs = [
-(* BEGIN: 1.14 *)
   simple "access_info_get" [evas_object] safe_string;
-(* END *)
 (* BEGIN: 1.15 *)
   prop "focus_move_policy" elm_focus_move_policy;
 (* END *)

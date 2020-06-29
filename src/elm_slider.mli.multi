@@ -48,11 +48,9 @@ val step_set : Evas.obj -> float -> unit
 
 val step_get : Evas.obj -> float
 
-(* BEGIN: 1.14 *)
 val indicator_visible_mode_set : Evas.obj -> indicator_visible_mode -> unit
 
 val indicator_visible_mode_get : Evas.obj -> indicator_visible_mode
-(* END *)
 
 (* BEGIN: 1.18 *)
 val range_enabled_set : Evas.obj -> bool -> unit

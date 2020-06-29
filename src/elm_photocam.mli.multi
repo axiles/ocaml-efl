@@ -26,11 +26,9 @@ val image_size_get : Evas.obj -> int * int
 
 val image_region_get : Evas.obj -> int * int * int * int
 
-(* BEGIN: 1.14 *)
 val image_orient_set : Evas.obj -> Evas.image_orient -> unit
 
 val image_orient_get : Evas.obj -> Evas.image_orient
-(* END *)
 
 val image_region_show : Evas.obj -> int -> int -> int -> int -> unit
 

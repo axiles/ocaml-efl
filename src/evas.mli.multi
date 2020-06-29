@@ -20,7 +20,6 @@ type gl_context_version = [
 | `gles_3_x
 ]
 
-(* BEGIN: 1.14 *)
 type image_orient = [
 | `orient_none
 | `orient_90
@@ -31,7 +30,6 @@ type image_orient = [
 | `flip_transpose
 | `flip_transverse
 ]
-(* END *)
 
 module Point : sig
   type t = {x : int; y : int}

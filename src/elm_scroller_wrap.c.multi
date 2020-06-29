@@ -155,7 +155,6 @@ PREFIX value ml_elm_scroller_step_size_get(value v_obj)
         CAMLreturn(v_r);
 }
 
-/* BEGIN: 1.14 */
 PREFIX value ml_elm_scroller_loop_get(value v_obj)
 {
         CAMLparam1(v_obj);
@@ -167,5 +166,4 @@ PREFIX value ml_elm_scroller_loop_get(value v_obj)
         Store_field(v_r, 1, Val_bool(v));
         CAMLreturn(v_r);
 }
-/* END */
 

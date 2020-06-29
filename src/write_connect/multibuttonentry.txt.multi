@@ -3,9 +3,7 @@ ELM_OBJ_MULTIBUTTONENTRY_CLASS
 "item,added"
 "item,deleted"
 "item,clicked"
-(* BEGIN: 1.14 *)
 "item,longpressed"
-(* END *)
 "clicked"
 "focused"
 "unfocused"

@@ -22,9 +22,7 @@ let funs = [
 (* BEGIN: 1.18 *)
   simple_unit "revert" [elm_transit];
 (* END *)
-(* BEGIN: 1.14 *)
   simple_unit "go_in" [elm_transit; double];
-(* END *)
   prop ~args:[elm_transit] "paused" bool;
   simple "progress_value_get" [elm_transit] double;
   simple_unit "chain_transit_add" [elm_transit; elm_transit];

@@ -2,9 +2,7 @@ open Printf
 
 module AF = Autofun.Elm_slider.F (struct
   type evas_object = Evas.obj
-(* BEGIN: 1.14 *)
   type elm_slider_indicator_visible_mode = Elm.slider_indicator_visible_mode
-(* END *)
 end)
 include AF
 

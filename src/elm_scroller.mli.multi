@@ -78,11 +78,9 @@ val step_size_set : Evas.obj -> int -> int -> unit
 
 val step_size_get : Evas.obj -> int * int
 
-(* BEGIN: 1.14 *)
 val loop_set : Evas.obj -> bool -> bool -> unit
 
 val loop_get : Evas.obj -> bool * bool
-(* END *)
 
 (* BEGIN: 1.15 *)
 val wheel_disabled_set : Evas.obj -> bool -> unit

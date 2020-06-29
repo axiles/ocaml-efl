@@ -9,7 +9,4 @@ external add : Evas.obj -> Evas.obj = "ml_elm_video_add"
 
 let addx = Elm_object.create_addx add
 
-(* BEGIN: 1.14 *)
 external file_get : Evas.obj -> string = "ml_elm_video_file_get"
-(* END *)
-

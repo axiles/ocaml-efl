@@ -1,8 +1,6 @@
 open Common
 
-(* BEGIN: 1.14 *)
 let indicator_visible_mode = simple_ty "Elm_Slider" "Indicator_Visible_Mode"
-(* END *)
 
 let funs = [
   prop "span_size" int;
@@ -12,9 +10,7 @@ let funs = [
   prop "inverted" bool;
   prop "indicator_show" bool;
   prop "step" double;
-(* BEGIN: 1.14 *)
   prop "indicator_visible_mode" indicator_visible_mode;
-(* END *)
 (* BEGIN: 1.18 *)
   prop "range_enabled" bool;
   simple_unit "range_set" [evas_object; double; double];

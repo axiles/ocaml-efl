@@ -222,7 +222,6 @@ val icon_theme_set : string -> unit
 
 (* END *)
 
-(* BEGIN: 1.14 *)
 val window_auto_focus_enable_get : unit -> bool
 
 val window_auto_focus_enable_set : bool -> unit
@@ -230,7 +229,6 @@ val window_auto_focus_enable_set : bool -> unit
 val window_auto_focus_animate_get : unit -> bool
 
 val window_auto_focus_animate_set : bool -> unit
-(* END *)
 
 (* BEGIN: 1.18 *)
 

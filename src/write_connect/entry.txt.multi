@@ -27,9 +27,7 @@ ELM_OBJ_ENTRY_CLASS
 "text,set,done" 
 "undo,request"
 "rejected"
-(* BEGIN: 1.14 *)
 "validate"
-(* END *)
 (* BEGIN: 1.15 *)
 "context,open"
 (* END *)

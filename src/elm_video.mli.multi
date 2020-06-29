@@ -40,7 +40,4 @@ val remember_position_get : Evas.obj -> bool
 
 val title_get : Evas.obj -> string
 
-(* BEGIN: 1.14 *)
 val file_get : Evas.obj -> string
-(* END *)
-
