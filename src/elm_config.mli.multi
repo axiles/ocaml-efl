@@ -92,11 +92,9 @@ val atspi_mode_get : unit -> bool
 
 val atspi_mode_set : bool -> unit
 
-(* BEGIN: 1.15 *)
 val transition_duration_factor_set : float -> unit
 
 val transition_duration_factor_get : unit -> float
-(* END *)
 
 (* BEGIN: 1.18 *)
 

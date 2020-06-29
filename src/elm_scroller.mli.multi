@@ -82,9 +82,6 @@ val loop_set : Evas.obj -> bool -> bool -> unit
 
 val loop_get : Evas.obj -> bool * bool
 
-(* BEGIN: 1.15 *)
 val wheel_disabled_set : Evas.obj -> bool -> unit
 
 val wheel_disabled_get : Evas.obj -> bool
-(* END *)
-

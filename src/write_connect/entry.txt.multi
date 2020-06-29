@@ -28,8 +28,6 @@ ELM_OBJ_ENTRY_CLASS
 "undo,request"
 "rejected"
 "validate"
-(* BEGIN: 1.15 *)
 "context,open"
-(* END *)
 "theme,changed"
 "language,changed"

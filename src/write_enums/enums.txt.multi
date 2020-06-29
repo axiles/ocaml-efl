@@ -154,9 +154,7 @@ Section Elm {
   Enum Elm_Focus_Move_Policy {
     ELM_FOCUS_MOVE_POLICY_CLICK
     ELM_FOCUS_MOVE_POLICY_IN
-(* BEGIN: 1.15 *)
     ELM_FOCUS_MOVE_POLICY_KEY_ONLY
-(* END *)
   }
 (* BEGIN: 1.16 *)
   Enum Elm_Focus_Region_Show_Mode {
@@ -167,9 +165,7 @@ Section Elm {
   Enum Elm_Policy_Quit {
     ELM_POLICY_QUIT_NONE
     ELM_POLICY_QUIT_LAST_WINDOW_CLOSED
-(* BEGIN: 1.15 *)
     ELM_POLICY_QUIT_LAST_WINDOW_HIDDEN
-(* END *)
   }
   Enum Elm_Policy_Exit {
     ELM_POLICY_EXIT_NONE

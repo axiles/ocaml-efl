@@ -23,11 +23,7 @@ type focus_direction = [
   `right |
   `left]
 
-type focus_move_policy = [`click | `_in
-(* BEGIN: 1.15 *)
-| `key_only
-(* END *)
-]
+type focus_move_policy = [`click | `_in | `key_only ]
 
 (* BEGIN: 1.16 *)
 type focus_region_show_mode = [`widget | `item]
@@ -42,11 +38,7 @@ type slider_indicator_visible_mode = [
 
 (** {2 General} *)
 
-type policy_quit = [`none | `last_window_closed
-(* BEGIN: 1.15 *)
-| `last_window_hidden
-(* END *)
-]
+type policy_quit = [`none | `last_window_closed | `last_window_hidden]
 
 type policy_exit = [`none | `windows_del]
 

@@ -27,9 +27,7 @@ let funs = [
   prop ~args:[] "glayer_long_tap_start_timeout" double;
   prop ~args:[] "glayer_double_tap_timeout" double;
   prop ~args:[] "atspi_mode" bool;
-(* BEGIN: 1.15 *)
   prop ~args:[] "transition_duration_factor" double;
-(* END *)
 (* BEGIN: 1.18 *)
   prop ~args:[] "web_backend" safe_string;
 (* END *)

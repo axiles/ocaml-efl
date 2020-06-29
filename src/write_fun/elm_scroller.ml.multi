@@ -22,8 +22,6 @@ let funs = [
   prop_flags "movement_block" movement_block;
   simple_unit "step_size_set" [evas_object; int; int];
   simple_unit "loop_set" [evas_object; bool; bool];
-(* BEGIN: 1.15 *)
   prop "wheel_disabled" bool;
-(* END *)
 ]
 

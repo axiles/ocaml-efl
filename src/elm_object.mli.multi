@@ -73,11 +73,9 @@ val focus_next_item_get : Evas.obj -> Elm.focus_direction -> item option
 val focus_next_item_set : Evas.obj -> item -> Elm.focus_direction -> unit
 (* END *)
 
-(* BEGIN: 1.15 *)
 val focus_move_policy_set : Evas.obj -> Elm.focus_move_policy -> unit
 
 val focus_move_policy_get : Evas.obj -> Elm.focus_move_policy
-(* END *)
 
 (* BEGIN: 1.16 *)
 val focus_region_show_mode_set : Evas.obj -> Elm.focus_region_show_mode -> unit

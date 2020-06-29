@@ -12,10 +12,8 @@ let funs = [
   simple_unit "item_show" [elm_object_item; item_scrollto_type];
   simple_unit "item_bring_in" [elm_object_item; item_scrollto_type];
   simple_unit "item_update" [elm_object_item];
-(* BEGIN: 1.15 *)
   simple_unit "item_fields_update" [elm_object_item; safe_string;
     item_field_type];
-(* END *)
   simple "item_index_get" [elm_object_item] int;
 (* BEGIN: 1.19 *)
   simple_unit "item_custom_size_set" [elm_object_item; int; int];

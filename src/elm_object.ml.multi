@@ -4,9 +4,7 @@ type item
 
 module AF = Autofun.Elm_object.F (struct
   type evas_object = Evas.obj
-(* BEGIN: 1.15 *)
   type elm_focus_move_policy = Elm.focus_move_policy
-(* END *)
 (* BEGIN: 1.16 *)
   type elm_focus_region_show_mode = Elm.focus_region_show_mode
 (* END *)
