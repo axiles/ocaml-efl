@@ -3,9 +3,7 @@ open Common
 let funs = [
   simple "access_info_get" [evas_object] safe_string;
   prop "focus_move_policy" elm_focus_move_policy;
-(* BEGIN: 1.16 *)
   prop "focus_region_show_mode" elm_focus_region_show_mode;
-(* END *)
 (* BEGIN: 1.18 *)
   prop "focus_move_policy_automatic" bool;
 (* END *)

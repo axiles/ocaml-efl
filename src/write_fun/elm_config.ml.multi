@@ -87,11 +87,9 @@ let funs = [
   prop ~args:[] "scroll_thumbscroll_friction" double;
   prop ~args:[] "scroll_thumbscroll_border_friction" double;
   prop ~args:[] "scroll_thumbscroll_sensitivity_friction" double;
-(* BEGIN: 1.16 *)
   prop ~args:[] "scroll_thumbscroll_smooth_start" bool;
   prop ~args:[] "scroll_thumbscroll_smooth_amount" double;
   prop ~args:[] "scroll_thumbscroll_smooth_time_window" double;
-(* END *)
 (* BEGIN: 1.18 *)
   prop ~args:[] "scroll_animation_disabled" bool;
   prop ~args:[] "scroll_accel_factor" double;

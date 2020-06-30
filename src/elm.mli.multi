@@ -25,9 +25,7 @@ type focus_direction = [
 
 type focus_move_policy = [`click | `_in | `key_only ]
 
-(* BEGIN: 1.16 *)
 type focus_region_show_mode = [`widget | `item]
-(* END *)
 
 type slider_indicator_visible_mode = [
   | `default

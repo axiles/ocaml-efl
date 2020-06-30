@@ -5,9 +5,7 @@ type item
 module AF = Autofun.Elm_object.F (struct
   type evas_object = Evas.obj
   type elm_focus_move_policy = Elm.focus_move_policy
-(* BEGIN: 1.16 *)
   type elm_focus_region_show_mode = Elm.focus_region_show_mode
-(* END *)
 end)
 include AF
 
@@ -99,13 +97,11 @@ external item_focus_set : item -> bool -> unit = "ml_elm_object_item_focus_set"
 
 external item_focus_get : item -> bool = "ml_elm_object_item_focus_get"
 
-(* BEGIN: 1.16 *)
 external focus_next_item_get : Evas.obj -> Elm.focus_direction -> item option =
   "ml_elm_object_focus_next_item_get"
 
 external focus_next_item_set : Evas.obj -> item -> Elm.focus_direction -> unit =
   "ml_elm_object_focus_next_item_set"
-(* END *)
 
 (* General *)
 

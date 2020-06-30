@@ -11,8 +11,6 @@ let funs = [
   prop "horizontal" bool;
   prop "delay_change_time" double;
   prop "omit_enabled" bool;
-(* BEGIN: 1.16 *)
   prop "standard_priority" int;
-(* END *)
 ]
 
