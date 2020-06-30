@@ -3,12 +3,7 @@ open Format
 let ptr_types = [
   "Ecore_Animator";
   "Ecore_Timer";
-(* BEGIN: <= 1.16 *)
-  "Ecore_Wl_Window";
-(* END *)
-(* BEGIN: 1.17 *)
   "Ecore_Wl2_Window";
-(* END *)
   "Evas";
   "Evas_GL_API";
   "Evas_Map";

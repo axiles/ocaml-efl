@@ -10,11 +10,7 @@ type item_class = Elm_gen.item_class = {
     (** Ignored for EFL <= 1.17 *)
 }
 
-type item_scrollto_type = [`none | `_in | `top | `middle
-(* BEGIN: 1.17 *)
-| `bottom
-(* END *)
-]
+type item_scrollto_type = [`none | `_in | `top | `middle | `bottom]
 
 type item_field_type = Elm_genlist.item_field_type
 

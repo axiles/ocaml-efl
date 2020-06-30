@@ -115,7 +115,6 @@ PREFIX value ml_elm_config_profile_list_get(value v_unit CAMLunused)
         return v_list;
 }
 
-/* BEGIN: 1.17 */
 PREFIX value ml_elm_config_profile_list_full_get(value v_unit CAMLunused)
 {
         Eina_List* list = elm_config_profile_list_full_get();
@@ -123,7 +122,6 @@ PREFIX value ml_elm_config_profile_list_full_get(value v_unit CAMLunused)
         elm_config_profile_list_free(list);
         return v_list;
 }
-/* END */
 
 /* Fingers */
 

@@ -16,9 +16,7 @@ val timeout_set : Evas.obj -> float -> unit
 
 val timeout_get : Evas.obj -> float
 
-(* BEGIN: 1.17 *)
 val dismiss : Evas.obj -> unit
-(* END *)
 
 val allow_events_set : Evas.obj -> bool -> unit
 

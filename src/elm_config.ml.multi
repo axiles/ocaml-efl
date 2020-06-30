@@ -47,10 +47,8 @@ external profile_dir_get : string -> bool -> string =
 external profile_list_get : unit -> string list =
   "ml_elm_config_profile_list_get"
 
-(* BEGIN: 1.17 *)
 external profile_list_full_get : unit -> string list =
   "ml_elm_config_profile_list_full_get"
-(* END *)
 
 (* Fingers *)
 
