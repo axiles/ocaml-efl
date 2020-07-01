@@ -236,8 +236,6 @@ PREFIX value ml_elm_entry_anchor_hover_info_of_ptr(value v_ptr)
         return copy_Elm_Entry_Anchor_Hover_Info(info);
 }
 
-/* BEGIN: 1.18 */
-
 PREFIX value ml_elm_entry_select_region_get(value v_obj)
 {
         value v;
@@ -248,6 +246,3 @@ PREFIX value ml_elm_entry_select_region_get(value v_obj)
         Store_field(v, 1, Val_int(end));
         return v;
 }
-
-/* END */
-

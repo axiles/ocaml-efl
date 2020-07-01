@@ -11,17 +11,13 @@ let move_resize_mode =
 (* END *)
 
 let funs = [
-(* BEGIN: 1.18 *)
   simple "accel_preference_get" [evas_object] safe_string;
-(* END *)
   simple_unit "resize_object_add" [evas_object; evas_object];
   simple_unit "resize_object_del" [evas_object; evas_object];
   prop "title" safe_string;
   prop "icon_name" safe_string;
   prop "role" safe_string;
-(* BEGIN: 1.18 *)
   simple "name_get" [evas_object] safe_string;
-(* END *)
   prop "autodel" bool;
   simple_unit "activate" [evas_object];
   simple_unit "lower" [evas_object];

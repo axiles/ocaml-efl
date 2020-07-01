@@ -106,11 +106,7 @@ that in the latter case there is a background in the window *)
 
 val type_get : Evas.obj -> ty
 
-(* BEGIN: 1.18 *)
-
 val accel_preference_get : Evas.obj -> string
-
-(* END *)
 
 val fake_add : Ecore.evas -> Evas.obj
 
@@ -134,11 +130,7 @@ val role_set : Evas.obj -> string -> unit
 
 val role_get : Evas.obj -> string
 
-(* BEGIN: 1.18 *)
-
 val name_get : Evas.obj -> string
-
-(* END *)
 
 val icon_object_set : Evas.obj -> Evas.obj -> unit
 

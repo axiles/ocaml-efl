@@ -139,13 +139,9 @@ val cursor_is_format_get : Evas.obj -> bool
 
 val cursor_is_visible_format_get : Evas.obj -> bool
 
-(* BEGIN: 1.18 *)
-
 val select_allow_set : Evas.obj -> bool -> unit
 
 val select_allow_get : Evas.obj -> bool
-
-(* END *)
 
 val cursor_content_get : Evas.obj -> string
 
@@ -256,11 +252,7 @@ val anchor_hover_style_get : Evas.obj -> string
 
 val anchor_hover_end : Evas.obj -> unit
 
-(* BEGIN: 1.18 *)
-
 val select_region_get : Evas.obj -> int * int
-
-(* END *)
 
 val input_panel_layout_variation_set : Evas.obj -> int -> unit
 

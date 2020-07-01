@@ -16,7 +16,5 @@ external thumb_set : Evas.obj -> string -> string -> ?g:string -> unit -> unit =
 external standard_get : Evas.obj -> string option =
   "ml_elm_icon_standard_get"
 
-(* BEGIN: 1.18 *)
 let order_lookup_get _ = `fdo_theme
 let order_lookup_set _ _ = ()
-(* END *)

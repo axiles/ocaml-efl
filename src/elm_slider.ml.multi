@@ -72,7 +72,4 @@ let indicator_format_set obj fmt =
 
 external min_max_get : Evas.obj -> float * float = "ml_elm_slider_min_max_get"
 
-(* BEGIN: 1.18 *)
 external range_get : Evas.obj -> float * float = "ml_elm_slider_range_get"
-(* END *)
-

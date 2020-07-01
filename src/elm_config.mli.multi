@@ -96,13 +96,9 @@ val transition_duration_factor_set : float -> unit
 
 val transition_duration_factor_get : unit -> float
 
-(* BEGIN: 1.18 *)
-
 val web_backend_set : string -> unit
 
 val web_backend_get : unit -> string
-
-(* END *)
 
 (** {2 Elementary Fonts} *)
 
@@ -208,13 +204,9 @@ val magnifier_scale_get : unit -> float
 
 val magnifier_scale_set : float -> unit
 
-(* BEGIN: 1.18 *)
-
 val icon_theme_get : unit -> string
 
 val icon_theme_set : string -> unit
-
-(* END *)
 
 val window_auto_focus_enable_get : unit -> bool
 
@@ -224,13 +216,9 @@ val window_auto_focus_animate_get : unit -> bool
 
 val window_auto_focus_animate_set : bool -> unit
 
-(* BEGIN: 1.18 *)
-
 val popup_scrollable_get : unit -> bool
 
 val popup_scrollable_set : bool -> unit
-
-(* END *)
 
 (** {2 Password show last} *)
 
@@ -304,8 +292,6 @@ val scroll_thumbscroll_smooth_time_window_get : unit -> float
 
 val scroll_thumbscroll_smooth_time_window_set : float -> unit
 
-(* BEGIN: 1.18 *)
-
 val scroll_animation_disabled_get : unit -> bool
 
 val scroll_animation_disabled_set : bool -> unit
@@ -313,8 +299,6 @@ val scroll_animation_disabled_set : bool -> unit
 val scroll_accel_factor_get : unit -> float
 
 val scroll_accel_factor_set : float -> unit
-
-(* END *)
 
 (** {2 Widget Scaling} *)
 

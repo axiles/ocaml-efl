@@ -4,8 +4,5 @@ let lookup_order = simple_ty "Elm_Icon" "Lookup_Order"
 
 let funs = [
   simple "standard_set" [evas_object; safe_string] bool;
-(* BEGIN: <= 1.17 *)
-  prop "order_lookup" lookup_order
-(* END *)
 ]
 

@@ -52,7 +52,6 @@ val indicator_visible_mode_set : Evas.obj -> indicator_visible_mode -> unit
 
 val indicator_visible_mode_get : Evas.obj -> indicator_visible_mode
 
-(* BEGIN: 1.18 *)
 val range_enabled_set : Evas.obj -> bool -> unit
 
 val range_enabled_get : Evas.obj -> bool
@@ -60,6 +59,3 @@ val range_enabled_get : Evas.obj -> bool
 val range_set : Evas.obj -> float -> float -> unit
 
 val range_get : Evas.obj -> float * float
-
-(* END *)
-
