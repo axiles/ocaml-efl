@@ -13,9 +13,7 @@ type mode = [
   | `page_down
   | `page_left
   | `page_right
-(* BEGIN: 1.19 *)
   | `cross_fade
-(* END *)
 ]
 
 type interaction = [`none | `rotate | `cube | `page]

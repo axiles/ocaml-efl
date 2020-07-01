@@ -191,7 +191,6 @@ PREFIX value ml_elm_win_window_id_get(value v_obj)
                 elm_win_window_id_get(Evas_Object_val(v_obj)));
 }
 
-/* BEGIN: 1.19 */
 inline Efl_Ui_Win_Move_Resize_Mode
 Efl_Ui_Win_Move_Resize_Mode_val_list(value v)
 {
@@ -203,5 +202,4 @@ Efl_Ui_Win_Move_Resize_Mode_val_list(value v)
         }
         return m;
 }
-/* END */
 

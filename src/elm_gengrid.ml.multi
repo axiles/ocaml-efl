@@ -98,8 +98,5 @@ external nth_item_get : Evas.obj -> Elm_object.item option =
 
 let page_show = Elm_scroller.page_show
 
-(* BEGIN: 1.19 *)
 external item_custom_size_get : Elm_object.item -> int * int =
   "ml_elm_gengrid_item_custom_size_get"
-(* END *)
-

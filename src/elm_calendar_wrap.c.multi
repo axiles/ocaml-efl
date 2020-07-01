@@ -163,8 +163,6 @@ PREFIX value ml_elm_calendar_marks_get(value v_obj)
                 Evas_Object_val(v_obj)));
 }
 
-/* BEGIN: 1.19 */
-
 PREFIX value ml_elm_calendar_date_min_set(value v_obj, value v_date)
 {
       struct tm date;
@@ -198,5 +196,3 @@ PREFIX value ml_elm_calendar_date_max_get(value v_obj)
         date = *ptr;
         return copy_tm(date);
 }
-/* END */
-

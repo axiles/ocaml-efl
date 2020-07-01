@@ -37,9 +37,7 @@ Section Evas {
     EVAS_LOAD_ERROR_RESOURCE_ALLOCATION_FAILED
     EVAS_LOAD_ERROR_CORRUPT_FILE
     EVAS_LOAD_ERROR_UNKNOWN_FORMAT
-(* BEGIN: 1.19 *)
     EVAS_LOAD_ERROR_CANCELLED
-(* END *)
 (* BEGIN: 1.20 *)
 (* BEGIN: <= 1.21 *)
     EVAS_LOAD_ERROR_INCOMPATIBLE_FILE
@@ -220,9 +218,7 @@ Section Elm {
     ELM_INPUT_PANEL_LAYOUT_PASSWORD
     ELM_INPUT_PANEL_LAYOUT_DATETIME
     ELM_INPUT_PANEL_LAYOUT_EMOTICON
-(* BEGIN: 1.19 *)
    ELM_INPUT_PANEL_LAYOUT_VOICE
-(* END *)
   }
   Enum Elm_Input_Panel_Lang {
     ELM_INPUT_PANEL_LANG_AUTOMATIC
@@ -375,9 +371,7 @@ Section Elm_calendar {
     ELM_CALENDAR_MONTHLY
     ELM_CALENDAR_ANNUALLY
     ELM_CALENDAR_LAST_DAY_OF_MONTH
-(* BEGIN: 1.19 *)
     ELM_CALENDAR_REVERSE_DAILY
-(* END *)
   }
   Enum Elm_Calendar_Weekday {
     ELM_DAY_SUNDAY
@@ -458,9 +452,7 @@ Section Elm_flip {
     ELM_FLIP_PAGE_RIGHT
     ELM_FLIP_PAGE_UP
     ELM_FLIP_PAGE_DOWN                                                            
-(* BEGIN: 1.19 *)
     ELM_FLIP_CROSS_FADE
-(* END *)
   }
   Enum Elm_Flip_Interaction {
     ELM_FLIP_INTERACTION_NONE
@@ -765,9 +757,7 @@ Section Elm_win {
     ELM_WIN_FAKE
 (* END *)
     ELM_WIN_UNKNOWN
-(* BEGIN: 1.19 *)
     ELM_WIN_NAVIFRAME_BASIC
-(* END *)
 (* BEGIN: 1.22 *)
     ELM_WIN_DND
     ELM_WIN_INLINED_IMAGE
@@ -804,7 +794,6 @@ Section Elm_win {
     ELM_WIN_INDICATOR_TRANSLUCENT
     ELM_WIN_INDICATOR_TRANSPARENT
   }
-(* BEGIN: 1.19 *)
   Enum move_resize_mode Efl_Ui_Win_Move_Resize_Mode {
     EFL_UI_WIN_MOVE_RESIZE_MOVE
     EFL_UI_WIN_MOVE_RESIZE_TOP
@@ -812,6 +801,5 @@ Section Elm_win {
     EFL_UI_WIN_MOVE_RESIZE_LEFT
     EFL_UI_WIN_MOVE_RESIZE_RIGHT
  }
-(* END *)
 }
 

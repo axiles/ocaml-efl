@@ -1,7 +1,6 @@
 ELM_OBJ_IMAGE_CLASS
 "drop" string
 "clicked"
-(* BEGIN: 1.19 *)
 "download,start"
 "download,progress" progress
 "download,done"
@@ -9,4 +8,3 @@ ELM_OBJ_IMAGE_CLASS
 "load,open"
 "load,ready"
 "load,cancel"
-(* END *)

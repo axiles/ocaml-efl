@@ -1,12 +1,10 @@
 include Henums.Elm_image
 
-(* BEGIN: 1.19 *)
 open Hstructs.Elm_image
 
 module Mprogress = Fprogress(struct end)
 include Mprogress
 
-(* END *)
 module AF = Autofun.Elm_image.F (struct
   type evas_object = Evas.obj
   type elm_image_orient = orient

@@ -41,7 +41,6 @@ external mark_add : Evas.obj -> string -> Unix.tm -> mark_repeat_type -> mark =
 
 external marks_get : Evas.obj -> mark list = "ml_elm_calendar_marks_get"
 
-(* BEGIN: 1.19 *)
 external date_min_set : Evas.obj -> Unix.tm -> unit =
   "ml_elm_calendar_date_min_set"
 
@@ -53,5 +52,3 @@ external date_max_set : Evas.obj -> Unix.tm -> unit =
 
 external date_max_get : Evas.obj -> Unix.tm =
   "ml_elm_calendar_date_max_get"
-(* END *)
-

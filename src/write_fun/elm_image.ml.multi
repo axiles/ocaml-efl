@@ -15,8 +15,6 @@ let funs = [
   simple "animated_available_get" [evas_object] bool;
   prop "animated" bool;
   prop "animated_play" bool;
-(* BEGIN: 1.19 *)
   simple_unit "async_open_set" [evas_object; bool];
-(* END *)
 ]
 

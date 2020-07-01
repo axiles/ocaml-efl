@@ -27,9 +27,7 @@ type ty = [
   | `socket_image
   | `fake
 (* END *)
-(* BEGIN: 1.19 *)
   | `naviframe_basic
-(* END *)
 (* BEGIN: 1.22 *)
   | `dnd
   | `inlined_image
@@ -67,7 +65,6 @@ type indicator_opacity_mode = [
   | `translucent
   | `transparent]
 
-(* BEGIN: 1.19 *)
 type move_resize_mode = [
 | `move
 | `top
@@ -75,7 +72,6 @@ type move_resize_mode = [
 | `left
 | `right
 ]
-(* END *)
 
 type illume_command = Elm.illume_command
 
@@ -320,9 +316,7 @@ val floating_mode_get : Evas.obj -> bool
 
 val window_id_get : Evas.obj -> Ecore.window
 
-(* BEGIN: 1.19 *)
 val move_resize_start : Evas.obj -> move_resize_mode ->  bool
-(* END *)
 
 (* BEGIN: 1.20 *)
 val get : Evas.obj -> Evas.obj

@@ -4,9 +4,7 @@ type select_mode = [`default | `always | `none | `ondemand]
 
 type mark_repeat_type = [
   `unique | `daily | `weekly | `monthly | `annually | `last_day_of_month
-(* BEGIN: 1.19 *)
   | `reverse_daily
-(* END *)
 ]
 
 type mark
@@ -69,7 +67,6 @@ val first_day_of_week_set : Evas.obj -> weekday -> unit
 
 val first_day_of_week_get : Evas.obj -> weekday
 
-(* BEGIN: 1.19 *)
 val date_min_set : Evas.obj -> Unix.tm -> unit
 
 val date_min_get : Evas.obj -> Unix.tm
@@ -77,5 +74,3 @@ val date_min_get : Evas.obj -> Unix.tm
 val date_max_set : Evas.obj -> Unix.tm -> unit
 
 val date_max_get : Evas.obj -> Unix.tm
-(* END *)
-

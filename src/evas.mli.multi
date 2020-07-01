@@ -93,9 +93,7 @@ type load_error = [
   | `resource_allocation_failed
   | `corrupt_file
   | `unknown_format
-(* BEGIN: 1.19 *)
   | `cancelled
-(* END *)
 (* BEGIN: 1.20 *)
 (* BEGIN: <= 1.21 *)
   | `incompatible_file

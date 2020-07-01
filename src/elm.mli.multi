@@ -230,9 +230,7 @@ type input_panel_layout = [
   | `password
   | `datetime
   | `emoticon
-(* BEGIN: 1.19 *)
   | `voice
-(* END *)
 ]
 
 type input_panel_lang = [`automatic | `alphabet]

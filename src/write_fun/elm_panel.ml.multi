@@ -6,9 +6,7 @@ let funs = [
   prop "orient" orient;
   prop "hidden" bool;
   simple "scrollable_get" [evas_object] bool;
-(* BEGIN: 1.19 *)
   prop "scrollable_content_size" double;
-(* END *)
   simple_unit "toggle" [evas_object]
 ]
 

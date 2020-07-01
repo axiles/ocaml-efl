@@ -3,10 +3,8 @@
 
 #include "include.h"
 
-/* BEGIN: 1.19 */
 Efl_Ui_Win_Move_Resize_Mode
 Efl_Ui_Win_Move_Resize_Mode_val_list(value v);
-/* END */
 
 #endif
 
