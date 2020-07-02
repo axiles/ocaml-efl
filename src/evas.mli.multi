@@ -94,12 +94,10 @@ type load_error = [
   | `corrupt_file
   | `unknown_format
   | `cancelled
-(* BEGIN: 1.20 *)
 (* BEGIN: <= 1.21 *)
   | `incompatible_file
   | `unknown_collection
   | `recursive_reference
-(* END *)
 (* END *)
 ]
 

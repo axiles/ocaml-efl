@@ -16,9 +16,7 @@ let funs = [
   simple_unit "select_none" [evas_object];
   simple_unit "select_all" [evas_object];
   simple_unit "select_region_set" [evas_object; int; int];
-(* BEGIN: 1.20 *)
   simple_unit "prediction_hint_set" [evas_object; safe_string];
-(* END *)
   simple "cursor_next" [evas_object] bool;
   simple "cursor_prev" [evas_object] bool;
   simple "cursor_up" [evas_object] bool;

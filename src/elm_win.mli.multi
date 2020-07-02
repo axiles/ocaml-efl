@@ -21,12 +21,10 @@ type ty = [
   | `tooltip
   | `notification
   | `combo
-(* BEGIN: <= 1.20 *)
   | `dnd
   | `inlined_image
   | `socket_image
   | `fake
-(* END *)
   | `naviframe_basic
 (* BEGIN: 1.22 *)
   | `dnd
@@ -318,7 +316,4 @@ val window_id_get : Evas.obj -> Ecore.window
 
 val move_resize_start : Evas.obj -> move_resize_mode ->  bool
 
-(* BEGIN: 1.20 *)
 val get : Evas.obj -> Evas.obj
-(* END *)
-

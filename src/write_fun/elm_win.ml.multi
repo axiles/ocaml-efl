@@ -64,8 +64,6 @@ let funs = [
   simple_unit "socket_listen" [evas_object; safe_string; int; bool];
   prop "floating_mode" bool;
   simple "move_resize_start" [evas_object; move_resize_mode] bool;
-(* BEGIN: 1.20 *)
   simple "get" [evas_object] evas_object;
-(* END *)
 ]
 
