@@ -36,7 +36,7 @@ AC_ARG_VAR([CFLAGS], [
 ])
 
 dnl Checking for Elementary
-PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.20])
+PKG_CHECK_MODULES([ELEMENTARY], [elementary >= 1.21])
 AC_ARG_VAR([ELEMENTARY_VERSION],[
   version for ELEMENTARY, overriding pkg-config
 ])
@@ -58,9 +58,7 @@ EO_ISA="efl_isa"
 ELM_EO_CLASS_OBJ="elm_get"
 ELM_IMAGE_PROGRESS="yes"
 EFL_UI_EVERYWHERE="true"
-AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.21"], [
-  EFL_21="true"
-], [])
+EFL_21="true"
 AX_COMPARE_VERSION([$ELEMENTARY_VERSION], [ge], ["1.22"], [
   EFL_22="true"
 ], [])

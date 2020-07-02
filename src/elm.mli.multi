@@ -13,9 +13,7 @@ val coords_finger_size_adjust : int -> int -> int * int
 type focus_autoscroll_mode = [`show | `none | `bring_in]
 
 type focus_direction = [
-(* BEGIN: 1.21 *)
   `direction_last |
-(* END *)
   `previous |
   `next |
   `up |
