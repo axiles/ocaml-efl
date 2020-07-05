@@ -21,10 +21,6 @@ type ty = [
   | `tooltip
   | `notification
   | `combo
-  | `dnd
-  | `inlined_image
-  | `socket_image
-  | `fake
   | `naviframe_basic
 (* BEGIN: 1.22 *)
   | `dnd
