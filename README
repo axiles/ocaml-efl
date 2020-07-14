@@ -119,11 +119,11 @@ The INSTALL file indicates how to generate the documentation.
 
 However, it is possible to access the documentation online:
 
-http://ocaml-efl.forge.ocamlcore.org/
+https://axiles.github.io/ocaml-efl/www/
 
 Online documentation for specific versions of the EFL are also available:
 
-http://ocaml-efl.forge.ocamlcore.org/1.21/
-http://ocaml-efl.forge.ocamlcore.org/1.22/
-http://ocaml-efl.forge.ocamlcore.org.1.23/
-http://ocaml-efl.forge.ocamlcore.org.1.24/
+https://axiles.github.io/ocaml-efl/www/1.21/
+https://axiles.github.io/ocaml-efl/www/1.22/
+https://axiles.github.io/ocaml-efl/www/1.23/
+https://axiles.github.io/ocaml-efl/www/1.24/

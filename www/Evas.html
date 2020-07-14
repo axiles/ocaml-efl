@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Ecore_timer.html">
+<link rel="next" href="Evas_event.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ecore" rel="Chapter" href="Ecore.html">
+<link title="Ecore_animator" rel="Chapter" href="Ecore_animator.html">
+<link title="Ecore_timer" rel="Chapter" href="Ecore_timer.html">
+<link title="Evas" rel="Chapter" href="Evas.html">
+<link title="Evas_event" rel="Chapter" href="Evas_event.html">
+<link title="Evas_font" rel="Chapter" href="Evas_font.html">
+<link title="Evas_map" rel="Chapter" href="Evas_map.html">
+<link title="Evas_object" rel="Chapter" href="Evas_object.html">
+<link title="Evas_object_smart" rel="Chapter" href="Evas_object_smart.html">
+<link title="Ecore_evas" rel="Chapter" href="Ecore_evas.html">
+<link title="Ethumb" rel="Chapter" href="Ethumb.html">
+<link title="Edje" rel="Chapter" href="Edje.html">
+<link title="Elm" rel="Chapter" href="Elm.html">
+<link title="Elm_font" rel="Chapter" href="Elm_font.html">
+<link title="Elm_config" rel="Chapter" href="Elm_config.html">
+<link title="Elm_object" rel="Chapter" href="Elm_object.html">
+<link title="Elm_gen" rel="Chapter" href="Elm_gen.html">
+<link title="Elm_layout" rel="Chapter" href="Elm_layout.html">
+<link title="Elm_ctxpopup" rel="Chapter" href="Elm_ctxpopup.html">
+<link title="Elm_fileselector" rel="Chapter" href="Elm_fileselector.html">
+<link title="Elm_fileselector_button" rel="Chapter" href="Elm_fileselector_button.html">
+<link title="Elm_fileselector_entry" rel="Chapter" href="Elm_fileselector_entry.html">
+<link title="Elm_hoversel" rel="Chapter" href="Elm_hoversel.html">
+<link title="Elm_multibuttonentry" rel="Chapter" href="Elm_multibuttonentry.html">
+<link title="Elm_naviframe" rel="Chapter" href="Elm_naviframe.html">
+<link title="Elm_popup" rel="Chapter" href="Elm_popup.html">
+<link title="Elm_app" rel="Chapter" href="Elm_app.html">
+<link title="Elm_bg" rel="Chapter" href="Elm_bg.html">
+<link title="Elm_box" rel="Chapter" href="Elm_box.html">
+<link title="Elm_bubble" rel="Chapter" href="Elm_bubble.html">
+<link title="Elm_button" rel="Chapter" href="Elm_button.html">
+<link title="Elm_calendar" rel="Chapter" href="Elm_calendar.html">
+<link title="Elm_check" rel="Chapter" href="Elm_check.html">
+<link title="Elm_clock" rel="Chapter" href="Elm_clock.html">
+<link title="Elm_colorselector" rel="Chapter" href="Elm_colorselector.html">
+<link title="Elm_conformant" rel="Chapter" href="Elm_conformant.html">
+<link title="Elm_datetime" rel="Chapter" href="Elm_datetime.html">
+<link title="Elm_dayselector" rel="Chapter" href="Elm_dayselector.html">
+<link title="Elm_diskselector" rel="Chapter" href="Elm_diskselector.html">
+<link title="Elm_entry" rel="Chapter" href="Elm_entry.html">
+<link title="Elm_flip" rel="Chapter" href="Elm_flip.html">
+<link title="Elm_flipselector" rel="Chapter" href="Elm_flipselector.html">
+<link title="Elm_frame" rel="Chapter" href="Elm_frame.html">
+<link title="Elm_gengrid" rel="Chapter" href="Elm_gengrid.html">
+<link title="Elm_genlist" rel="Chapter" href="Elm_genlist.html">
+<link title="Elm_gesture_layer" rel="Chapter" href="Elm_gesture_layer.html">
+<link title="Elm_glview" rel="Chapter" href="Elm_glview.html">
+<link title="Elm_grid" rel="Chapter" href="Elm_grid.html">
+<link title="Elm_hover" rel="Chapter" href="Elm_hover.html">
+<link title="Elm_icon" rel="Chapter" href="Elm_icon.html">
+<link title="Elm_image" rel="Chapter" href="Elm_image.html">
+<link title="Elm_index" rel="Chapter" href="Elm_index.html">
+<link title="Elm_label" rel="Chapter" href="Elm_label.html">
+<link title="Elm_list" rel="Chapter" href="Elm_list.html">
+<link title="Elm_map" rel="Chapter" href="Elm_map.html">
+<link title="Elm_mapbuf" rel="Chapter" href="Elm_mapbuf.html">
+<link title="Elm_menu" rel="Chapter" href="Elm_menu.html">
+<link title="Elm_notify" rel="Chapter" href="Elm_notify.html">
+<link title="Elm_panel" rel="Chapter" href="Elm_panel.html">
+<link title="Elm_panes" rel="Chapter" href="Elm_panes.html">
+<link title="Elm_photo" rel="Chapter" href="Elm_photo.html">
+<link title="Elm_photocam" rel="Chapter" href="Elm_photocam.html">
+<link title="Elm_plug" rel="Chapter" href="Elm_plug.html">
+<link title="Elm_progressbar" rel="Chapter" href="Elm_progressbar.html">
+<link title="Elm_radio" rel="Chapter" href="Elm_radio.html">
+<link title="Elm_route" rel="Chapter" href="Elm_route.html">
+<link title="Elm_scroller" rel="Chapter" href="Elm_scroller.html">
+<link title="Elm_segment_control" rel="Chapter" href="Elm_segment_control.html">
+<link title="Elm_separator" rel="Chapter" href="Elm_separator.html">
+<link title="Elm_slider" rel="Chapter" href="Elm_slider.html">
+<link title="Elm_slideshow" rel="Chapter" href="Elm_slideshow.html">
+<link title="Elm_spinner" rel="Chapter" href="Elm_spinner.html">
+<link title="Elm_table" rel="Chapter" href="Elm_table.html">
+<link title="Elm_theme" rel="Chapter" href="Elm_theme.html">
+<link title="Elm_thumb" rel="Chapter" href="Elm_thumb.html">
+<link title="Elm_toolbar" rel="Chapter" href="Elm_toolbar.html">
+<link title="Elm_transit" rel="Chapter" href="Elm_transit.html">
+<link title="Elm_web" rel="Chapter" href="Elm_web.html">
+<link title="Elm_win" rel="Chapter" href="Elm_win.html">
+<link title="Elm_inwin" rel="Chapter" href="Elm_inwin.html">
+<link title="Elm_win_inwin" rel="Chapter" href="Elm_win_inwin.html">
+<link title="Elm_actionslider" rel="Chapter" href="Elm_actionslider.html">
+<link title="Elm_video" rel="Chapter" href="Elm_video.html">
+<link title="Elm_sig" rel="Chapter" href="Elm_sig.html">
+<link title="Elm_toolbox" rel="Chapter" href="Elm_toolbox.html">
+<link title="Elm_connect" rel="Chapter" href="Elm_connect.html">
+<link title="Start" rel="Chapter" href="Start.html"><link title="Top Level Functions" rel="Section" href="#2_TopLevelFunctions">
+<link title="Render Engine Functions" rel="Section" href="#2_RenderEngineFunctions">
+<link title="Coordinate Mapping Functions" rel="Section" href="#2_CoordinateMappingFunctions">
+<link title="Output and Viewport Resizing Functions" rel="Section" href="#2_OutputandViewportResizingFunctions">
+<link title="Image Functions" rel="Section" href="#2_ImageFunctions">
+<link title="General Canvas Functions" rel="Section" href="#2_GeneralCanvasFunctions">
+<link title="Input Feeding functions" rel="Section" href="#2_InputFeedingfunctions">
+<link title="Finding Objects" rel="Section" href="#2_FindingObjects">
+<link title="Shared Image Cache Server" rel="Section" href="#2_SharedImageCacheServer">
+<link title="General Utilites" rel="Section" href="#2_GeneralUtilites">
+<title>OCaml EFL Documentation : Evas</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Ecore_timer.html" title="Ecore_timer">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Evas_event.html" title="Evas_event">Next</a>
+</div>
+<h1>Module <a href="type_Evas.html">Evas</a></h1>
+
+<pre><span class="keyword">module</span> Evas: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Evas<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEptr"><span class="keyword">type</span> <code class="type"></code>ptr</span> </pre>
+
+
+<pre><span id="TYPEobj"><span class="keyword">type</span> <code class="type"></code>obj</span> </pre>
+
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="TYPEsmart_cb"><span class="keyword">type</span> <code class="type"></code>smart_cb</span> = <code class="type"><a href="Evas.html#TYPEobj">obj</a> -> <a href="Evas.html#TYPEptr">ptr</a> -> unit</code> </pre>
+
+
+<pre><span id="TYPEmodifier"><span class="keyword">type</span> <code class="type"></code>modifier</span> </pre>
+
+
+<pre><span id="TYPEcallback_priority"><span class="keyword">type</span> <code class="type"></code>callback_priority</span> = <code class="type">[ `after | `before | `default | `other of int ]</code> </pre>
+
+
+<pre><span id="TYPEgl"><span class="keyword">type</span> <code class="type"></code>gl</span> </pre>
+
+
+<pre><span id="TYPEgl_context_version"><span class="keyword">type</span> <code class="type"></code>gl_context_version</span> = <code class="type">[ `gles_1_x | `gles_2_x | `gles_3_x ]</code> </pre>
+
+
+<pre><span id="TYPEimage_orient"><span class="keyword">type</span> <code class="type"></code>image_orient</span> = <code class="type">[ `flip_horizontal<br>       | `flip_transpose<br>       | `flip_transverse<br>       | `flip_vertical<br>       | `orient_180<br>       | `orient_270<br>       | `orient_90<br>       | `orient_none ]</code> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Point.html">Point</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Point.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEpoint"><span class="keyword">type</span> <code class="type"></code>point</span> = <code class="type"><a href="Evas.Point.html#TYPEt">Point.t</a></code> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Coord_point.html">Coord_point</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Coord_point.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEcoord_point"><span class="keyword">type</span> <code class="type"></code>coord_point</span> = <code class="type"><a href="Evas.Coord_point.html#TYPEt">Coord_point.t</a></code> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Position.html">Position</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Position.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEposition"><span class="keyword">type</span> <code class="type"></code>position</span> = <code class="type"><a href="Evas.Position.html#TYPEt">Position.t</a></code> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Button_flags.html">Button_flags</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Button_flags.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEcoord_rectangle"><span class="keyword">type</span> <code class="type"></code>coord_rectangle</span> = <code class="type">int * int * int * int</code> </pre>
+
+
+<pre><span id="TYPEbutton_flags"><span class="keyword">type</span> <code class="type"></code>button_flags</span> = <code class="type"><a href="Evas.Button_flags.html#TYPEt">Button_flags.t</a></code> </pre>
+
+
+<pre><span id="TYPEdevice"><span class="keyword">type</span> <code class="type"></code>device</span> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Coord_precision_point.html">Coord_precision_point</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Coord_precision_point.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEcoord_precision_point"><span class="keyword">type</span> <code class="type"></code>coord_precision_point</span> = <code class="type"><a href="Evas.Coord_precision_point.html#TYPEt">Coord_precision_point.t</a></code> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Precision_position.html">Precision_position</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Precision_position.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEprecision_position"><span class="keyword">type</span> <code class="type"></code>precision_position</span> = <code class="type"><a href="Evas.Precision_position.html#TYPEt">Precision_position.t</a></code> </pre>
+
+
+<pre><span id="TYPEaspect_control"><span class="keyword">type</span> <code class="type"></code>aspect_control</span> = <code class="type">[ `both | `horizontal | `neither | `none | `vertical ]</code> </pre>
+
+
+<pre><span class="keyword">module</span> <a href="Evas.Signal.html">Signal</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Evas.Signal.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span id="TYPEload_error"><span class="keyword">type</span> <code class="type"></code>load_error</span> = <code class="type">[ `cancelled<br>       | `corrupt_file<br>       | `does_not_exist<br>       | `generic<br>       | `none<br>       | `permission_denied<br>       | `resource_allocation_failed<br>       | `unknown_format ]</code> </pre>
+
+
+<pre><span id="TYPEgl_api"><span class="keyword">type</span> <code class="type"></code>gl_api</span> </pre>
+
+
+<pre><span id="TYPEmap"><span class="keyword">type</span> <code class="type"></code>map</span> </pre>
+
+
+<pre><span id="TYPEdisplay_mode"><span class="keyword">type</span> <code class="type"></code>display_mode</span> = <code class="type">[ `compress | `dont_change | `expand | `none ]</code> </pre>
+
+
+<pre><span id="TYPErender_op"><span class="keyword">type</span> <code class="type"></code>render_op</span> = <code class="type">[ `add<br>       | `add_rel<br>       | `blend<br>       | `blend_rel<br>       | `copy<br>       | `copy_rel<br>       | `mask<br>       | `mul<br>       | `sub<br>       | `sub_rel<br>       | `tint<br>       | `tint_rel ]</code> </pre>
+
+
+<pre><span id="VALhint_expand"><span class="keyword">val</span> hint_expand</span> : <code class="type">float</code></pre>
+<pre><span id="VALhint_fill"><span class="keyword">val</span> hint_fill</span> : <code class="type">float</code></pre>
+<pre><span id="VALstring_of_ptr"><span class="keyword">val</span> string_of_ptr</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> string</code></pre>
+<pre><span id="VALstring_opt_of_ptr"><span class="keyword">val</span> string_opt_of_ptr</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> string option</code></pre>
+<pre><span id="VALpointer_canvas_xy_get"><span class="keyword">val</span> pointer_canvas_xy_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int * int</code></pre>
+<pre><span id="VALsmart_objects_calculate"><span class="keyword">val</span> smart_objects_calculate</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALbool_of_ptr"><span class="keyword">val</span> bool_of_ptr</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> bool</code></pre>
+<pre><span id="VALstring_string_of_ptr"><span class="keyword">val</span> string_string_of_ptr</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> string * string</code></pre>
+<pre><span id="VALstore_ptr_bool"><span class="keyword">val</span> store_ptr_bool</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> bool -> unit</code></pre>
+<pre><span id="VALobj_of_ptr"><span class="keyword">val</span> obj_of_ptr</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> <a href="Evas.html#TYPEobj">obj</a></code></pre>
+<pre><span id="VALfloat_of_ptr"><span class="keyword">val</span> float_of_ptr</span> : <code class="type"><a href="Evas.html#TYPEptr">ptr</a> -> float</code></pre><br>
+<h2 id="2_TopLevelFunctions">Top Level Functions</h2><br>
+
+<pre><span id="TYPEalloc_error"><span class="keyword">type</span> <code class="type"></code>alloc_error</span> = <code class="type">[ `fatal | `none | `recovered ]</code> </pre>
+
+
+<pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALalloc_error"><span class="keyword">val</span> alloc_error</span> : <code class="type">unit -> <a href="Evas.html#TYPEalloc_error">alloc_error</a></code></pre>
+<pre><span id="VALasync_events_fd_get"><span class="keyword">val</span> async_events_fd_get</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALasync_events_process"><span class="keyword">val</span> async_events_process</span> : <code class="type">unit -> int</code></pre><br>
+<h2 id="2_RenderEngineFunctions">Render Engine Functions</h2><br>
+
+<pre><span id="VALrender_method_lookup"><span class="keyword">val</span> render_method_lookup</span> : <code class="type">string -> int</code></pre>
+<pre><span id="VALrender_method_list"><span class="keyword">val</span> render_method_list</span> : <code class="type">unit -> string list</code></pre>
+<pre><span id="VALoutput_method_set"><span class="keyword">val</span> output_method_set</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> unit</code></pre>
+<pre><span id="VALoutput_method_get"><span class="keyword">val</span> output_method_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int</code></pre><br>
+<h2 id="2_CoordinateMappingFunctions">Coordinate Mapping Functions</h2><br>
+
+<pre><span id="VALcoord_screen_x_to_world"><span class="keyword">val</span> coord_screen_x_to_world</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int</code></pre>
+<pre><span id="VALcoord_screen_y_to_world"><span class="keyword">val</span> coord_screen_y_to_world</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int</code></pre>
+<pre><span id="VALcoord_world_x_to_screen"><span class="keyword">val</span> coord_world_x_to_screen</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int</code></pre>
+<pre><span id="VALcoord_world_y_to_screen"><span class="keyword">val</span> coord_world_y_to_screen</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int</code></pre><br>
+<h2 id="2_OutputandViewportResizingFunctions">Output and Viewport Resizing Functions</h2><br>
+
+<pre><span id="VALoutput_size_set"><span class="keyword">val</span> output_size_set</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> unit</code></pre>
+<pre><span id="VALoutput_size_get"><span class="keyword">val</span> output_size_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int * int</code></pre>
+<pre><span id="VALoutput_viewport_set"><span class="keyword">val</span> output_viewport_set</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> int -> int -> unit</code></pre>
+<pre><span id="VALoutput_viewport_get"><span class="keyword">val</span> output_viewport_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int * int * int * int</code></pre>
+<pre><span id="VALoutput_framespace_set"><span class="keyword">val</span> output_framespace_set</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> int -> int -> unit</code></pre>
+<pre><span id="VALoutput_framespace_get"><span class="keyword">val</span> output_framespace_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int * int * int * int</code></pre><br>
+<h2 id="2_ImageFunctions">Image Functions</h2><br>
+
+<pre><span id="VALimage_cache_flush"><span class="keyword">val</span> image_cache_flush</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALimage_cache_reload"><span class="keyword">val</span> image_cache_reload</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALimage_cache_set"><span class="keyword">val</span> image_cache_set</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> unit</code></pre>
+<pre><span id="VALimage_cache_get"><span class="keyword">val</span> image_cache_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALimage_max_size_get"><span class="keyword">val</span> image_max_size_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> (int * int) option</code></pre><br>
+<h2 id="2_GeneralCanvasFunctions">General Canvas Functions</h2><br>
+
+<pre><span id="VALnew_"><span class="keyword">val</span> new_</span> : <code class="type">unit -> <a href="Evas.html#TYPEt">t</a></code></pre>
+<pre><span id="VALfree"><span class="keyword">val</span> free</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALfocus_in"><span class="keyword">val</span> focus_in</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALfocus_out"><span class="keyword">val</span> focus_out</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALfocus_state_get"><span class="keyword">val</span> focus_state_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> bool</code></pre>
+<pre><span id="VALnochange_push"><span class="keyword">val</span> nochange_push</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALnochange_pop"><span class="keyword">val</span> nochange_pop</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALdamage_rectangle_add"><span class="keyword">val</span> damage_rectangle_add</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> int -> int -> unit</code></pre>
+<pre><span id="VALobscured_rectangle_add"><span class="keyword">val</span> obscured_rectangle_add</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> int -> int -> unit</code></pre>
+<pre><span id="VALobscured_clear"><span class="keyword">val</span> obscured_clear</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALrender_async"><span class="keyword">val</span> render_async</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> bool</code></pre>
+<pre><span id="VALrender_updates"><span class="keyword">val</span> render_updates</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> (int * int * int * int) list</code></pre>
+<pre><span id="VALrender"><span class="keyword">val</span> render</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALnorender"><span class="keyword">val</span> norender</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALrender_idle_flush"><span class="keyword">val</span> render_idle_flush</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALrender_dump"><span class="keyword">val</span> render_dump</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre><br>
+<h2 id="2_InputFeedingfunctions">Input Feeding functions</h2><br>
+
+<pre><span id="VALdevice_add"><span class="keyword">val</span> device_add</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> <a href="Evas.html#TYPEdevice">device</a></code></pre>
+<pre><span id="VALdevice_del"><span class="keyword">val</span> device_del</span> : <code class="type"><a href="Evas.html#TYPEdevice">device</a> -> unit</code></pre>
+<pre><span id="VALdevice_push"><span class="keyword">val</span> device_push</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> <a href="Evas.html#TYPEdevice">device</a> -> unit</code></pre>
+<pre><span id="VALdevice_pop"><span class="keyword">val</span> device_pop</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALdevice_list"><span class="keyword">val</span> device_list</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> <a href="Evas.html#TYPEdevice">device</a> option -> <a href="Evas.html#TYPEdevice">device</a> list</code></pre>
+<pre><span id="VALdevice_name_set"><span class="keyword">val</span> device_name_set</span> : <code class="type"><a href="Evas.html#TYPEdevice">device</a> -> string -> unit</code></pre>
+<pre><span id="VALdevice_name_get"><span class="keyword">val</span> device_name_get</span> : <code class="type"><a href="Evas.html#TYPEdevice">device</a> -> string option</code></pre>
+<pre><span id="VALdevice_description_set"><span class="keyword">val</span> device_description_set</span> : <code class="type"><a href="Evas.html#TYPEdevice">device</a> -> string -> unit</code></pre>
+<pre><span id="VALdevice_description_get"><span class="keyword">val</span> device_description_get</span> : <code class="type"><a href="Evas.html#TYPEdevice">device</a> -> string option</code></pre>
+<pre><span id="VALdevice_parent_get"><span class="keyword">val</span> device_parent_get</span> : <code class="type"><a href="Evas.html#TYPEdevice">device</a> -> <a href="Evas.html#TYPEdevice">device</a> option</code></pre><br>
+<h2 id="2_FindingObjects">Finding Objects</h2><br>
+
+<pre><span id="VALfocus_get"><span class="keyword">val</span> focus_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> <a href="Evas.html#TYPEobj">obj</a> option</code></pre>
+<pre><span id="VALobjects_at_xy_get"><span class="keyword">val</span> objects_at_xy_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> bool -> bool -> <a href="Evas.html#TYPEobj">obj</a> list</code></pre>
+<pre><span id="VALobjects_in_rectangle_get"><span class="keyword">val</span> objects_in_rectangle_get</span> : <code class="type"><a href="Evas.html#TYPEt">t</a> -> int -> int -> int -> int -> bool -> bool -> <a href="Evas.html#TYPEobj">obj</a> list</code></pre><br>
+<h2 id="2_SharedImageCacheServer">Shared Image Cache Server</h2><br>
+
+<pre><code><span id="TYPEcserve_stats"><span class="keyword">type</span> <code class="type"></code>cserve_stats</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_stats.saved_memory">saved_memory</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_stats.wasted_memory">wasted_memory</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_stats.saved_memory_peak">saved_memory_peak</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_stats.wasted_memory_peak">wasted_memory_peak</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_stats.saved_time_image_header_load">saved_time_image_header_load</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_stats.saved_time_image_data_load">saved_time_image_data_load</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><code><span id="TYPEcserve_config"><span class="keyword">type</span> <code class="type"></code>cserve_config</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_config.cache_max_usage">cache_max_usage</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_config.cache_item_timeout">cache_item_timeout</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcserve_config.cache_item_timeout_check">cache_item_timeout_check</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALcserve_want_get"><span class="keyword">val</span> cserve_want_get</span> : <code class="type">unit -> bool</code></pre>
+<pre><span id="VALcserve_connected_get"><span class="keyword">val</span> cserve_connected_get</span> : <code class="type">unit -> bool</code></pre>
+<pre><span id="VALcserve_stats_get"><span class="keyword">val</span> cserve_stats_get</span> : <code class="type">unit -> <a href="Evas.html#TYPEcserve_stats">cserve_stats</a> option</code></pre>
+<pre><span id="VALcserve_config_get"><span class="keyword">val</span> cserve_config_get</span> : <code class="type">unit -> <a href="Evas.html#TYPEcserve_config">cserve_config</a> option</code></pre>
+<pre><span id="VALcserve_config_set"><span class="keyword">val</span> cserve_config_set</span> : <code class="type"><a href="Evas.html#TYPEcserve_config">cserve_config</a> -> bool</code></pre>
+<pre><span id="VALcserve_disconnected"><span class="keyword">val</span> cserve_disconnected</span> : <code class="type">unit -> unit</code></pre><br>
+<h2 id="2_GeneralUtilites">General Utilites</h2><br>
+
+<pre><span id="VALload_error_str"><span class="keyword">val</span> load_error_str</span> : <code class="type"><a href="Evas.html#TYPEload_error">load_error</a> -> string</code></pre>
+<pre><span id="VALcolor_hsv_to_rgb"><span class="keyword">val</span> color_hsv_to_rgb</span> : <code class="type">float -> float -> float -> int * int * int</code></pre>
+<pre><span id="VALcolor_rgb_to_hsv"><span class="keyword">val</span> color_rgb_to_hsv</span> : <code class="type">int -> int -> int -> float * float * float</code></pre>
+<pre><span id="VALcolor_argb_premul"><span class="keyword">val</span> color_argb_premul</span> : <code class="type">int -> int -> int -> int -> int * int * int</code></pre>
+<pre><span id="VALcolor_argb_unpremul"><span class="keyword">val</span> color_argb_unpremul</span> : <code class="type">int -> int -> int -> int -> int * int * int</code></pre>
+<pre><span id="VALdata_argb_premul"><span class="keyword">val</span> data_argb_premul</span> : <code class="type">int array -> unit</code></pre>
+<pre><span id="VALdata_argb_unpremul"><span class="keyword">val</span> data_argb_unpremul</span> : <code class="type">int array -> unit</code></pre>
+<pre><span id="VALstring_char_next_get"><span class="keyword">val</span> string_char_next_get</span> : <code class="type">string -> int -> int * Int32.t</code></pre>
+<pre><span id="VALstring_char_prev_get"><span class="keyword">val</span> string_char_prev_get</span> : <code class="type">string -> int -> int * Int32.t</code></pre>
+<pre><span id="VALstring_char_len_get"><span class="keyword">val</span> string_char_len_get</span> : <code class="type">string -> int</code></pre></body></html>
