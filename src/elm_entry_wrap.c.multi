@@ -24,7 +24,7 @@ void ml_Elm_Entry_Filter_Cb(void* data, Evas_Object* entry, char** text)
         free(*text);
         if(v_r == Val_int(0)) *text = NULL;
         else {
-                char* text1 = String_val(Field(v_r, 0));
+                char const *text1 = String_val(Field(v_r, 0));
                 *text = caml_stat_alloc(strlen(text1) + 1);
                 strcpy(*text, text1);
         }

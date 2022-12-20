@@ -59,7 +59,7 @@ PREFIX value ml_elm_init_with_counter(value v_argv)
 	char** argv = caml_stat_alloc(sizeof(char*) * (argc + 1));
 	int i;
 	for(i = 0; i < argc; i++) {
-                char* arg = String_val(Field(v_argv, i));
+                char const *arg = String_val(Field(v_argv, i));
                 argv[i] = caml_stat_alloc(strlen(arg) + 1);
                 strcpy(argv[i], arg);
                 argv[i][strlen(arg)] = '\0';

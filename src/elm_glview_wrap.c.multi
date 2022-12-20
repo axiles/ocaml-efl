@@ -15,7 +15,7 @@ void ml_Elm_GLView_Func_Cb_init(Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal1(v_obj);
-        static value* v_fun = NULL;
+        static value const *v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_init");
         v_obj = copy_Evas_Object(obj);
         caml_callback(*v_fun, v_obj);
@@ -26,7 +26,7 @@ void ml_Elm_GLView_Func_Cb_del(Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal1(v_obj);
-        static value* v_fun = NULL;
+        static value const *v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_del");
         v_obj = copy_Evas_Object(obj);
         caml_callback(*v_fun, v_obj);
@@ -37,7 +37,7 @@ void ml_Elm_GLView_Func_Cb_resize(Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal1(v_obj);
-        static value* v_fun = NULL;
+        static value const *v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_resize");
         v_obj = copy_Evas_Object(obj);
         caml_callback(*v_fun, v_obj);
@@ -48,7 +48,7 @@ void ml_Elm_GLView_Func_Cb_render(Evas_Object* obj)
 {
         CAMLparam0();
         CAMLlocal1(v_obj);
-        static value* v_fun = NULL;
+        static value const *v_fun = NULL;
         if(v_fun == NULL) v_fun = caml_named_value("Elm_GLView_Func_Cb_render");
         v_obj = copy_Evas_Object(obj);
         caml_callback(*v_fun, v_obj);

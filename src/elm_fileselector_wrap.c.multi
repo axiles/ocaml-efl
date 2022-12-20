@@ -97,7 +97,7 @@ PREFIX value ml_elm_fileselector_selected_get(value v_obj)
 PREFIX value ml_elm_fileselector_mime_types_filter_append(
         value v_obj, value v_mime_types, value v_filter_name, value v_unit CAMLunused)
 {
-        char* filter_name;
+        char const *filter_name;
         if(v_filter_name == Val_int(0)) filter_name = NULL;
         else filter_name = String_val(Field(v_filter_name, 0));
         return Val_bool(elm_fileselector_mime_types_filter_append(

@@ -62,7 +62,7 @@ PREFIX value ml_elm_win_main_menu_get(value v_obj)
 PREFIX value ml_elm_win_available_profiles_set(value v_obj, value v_profiles)
 {
         int size = Wosize_val(v_profiles);
-        char* profiles[size];
+        char const *profiles[size];
         int i;
         for(i = 0; i < size; i++) {
                 profiles[i] = String_val(Field(v_profiles, i));

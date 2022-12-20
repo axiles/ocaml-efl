@@ -26,7 +26,7 @@ PREFIX value ml_elm_naviframe_item_push_native(
         else prev_btn = Evas_Object_val(Field(v_prev_btn, 0));
         if(v_next_btn == Val_int(0)) next_btn = NULL;
         else next_btn = Evas_Object_val(Field(v_next_btn, 0));
-        char *title_label, *item_style;
+        char const *title_label, *item_style;
         if(v_title_label == Val_int(0)) title_label = NULL;
         else title_label = String_val(Field(v_title_label, 0));
         if(v_item_style == Val_int(0)) item_style = NULL;
@@ -53,7 +53,7 @@ PREFIX value ml_elm_naviframe_item_insert_before_native(
         else prev_btn = Evas_Object_val(Field(v_prev_btn, 0));
         if(v_next_btn == Val_int(0)) next_btn = NULL;
         else next_btn = Evas_Object_val(Field(v_next_btn, 0));
-        char *title_label, *item_style;
+        char const *title_label, *item_style;
         if(v_title_label == Val_int(0)) title_label = NULL;
         else title_label = String_val(Field(v_title_label, 0));
         if(v_item_style == Val_int(0)) item_style = NULL;
@@ -81,7 +81,7 @@ PREFIX value ml_elm_naviframe_item_insert_after_native(
         else prev_btn = Evas_Object_val(Field(v_prev_btn, 0));
         if(v_next_btn == Val_int(0)) next_btn = NULL;
         else next_btn = Evas_Object_val(Field(v_next_btn, 0));
-        char *title_label, *item_style;
+        char const *title_label, *item_style;
         if(v_title_label == Val_int(0)) title_label = NULL;
         else title_label = String_val(Field(v_title_label, 0));
         if(v_item_style == Val_int(0)) item_style = NULL;

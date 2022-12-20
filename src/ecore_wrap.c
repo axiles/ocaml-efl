@@ -2,14 +2,14 @@
 
 PREFIX void raise_not_X(void)
 {
-        static value* e = NULL;
+        static const value* e = NULL;
         if(e == NULL) e = caml_named_value("Not_X exception");
         caml_raise_constant(*e);
 }
 
 PREFIX void raise_not_Wayland(void)
 {
-        static value* e = NULL;
+        static const value* e = NULL;
         if(e == NULL) e = caml_named_value("Not_Wayland exception");
         caml_raise_constant(*e);
 }
