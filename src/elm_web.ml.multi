@@ -36,7 +36,7 @@ type menu = {
   handled : bool;
 }
 
-type download = {url : string}
+type download = {url : string} [@@boxed]
 
 module AF = Autofun.Elm_web.F (struct
   type evas_object = Evas.obj
